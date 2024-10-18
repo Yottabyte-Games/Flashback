@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using UnityEngine;
 
 namespace Minigame.Fishing
@@ -7,15 +8,14 @@ namespace Minigame.Fishing
     {
         FishingRodInput input;
         [ReadOnly, SerializeField] bool canReel;
+        Fish toReel;
+
+        public event Action finishedReeling;
 
         private void Start()
         {
             input = GetComponent<FishingRodInput>();
             input.reel += ReelingValue;
-        }
-        private void Update()
-        {
-            if (!canReel) return;
         }
         Vector2 lastReelPos, currentReelPos, difference;
         float travelDistance;
@@ -35,9 +35,15 @@ namespace Minigame.Fishing
 
 
             travelDistance += difference.magnitude / 37.7f / 100;
+
+            if(travelDistance > 5 * (int)toReel.type)
+            {
+                canReel = false;
+            }
         }
         public void StartReeling(Fish fishToReel)
         {
+            toReel = fishToReel;
             canReel = true;
         }
     }
