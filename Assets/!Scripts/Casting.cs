@@ -1,18 +1,26 @@
 using UnityEngine;
 
-public class Casting : MonoBehaviour
+namespace Minigame.Fishing
 {
-    GameObject Hook;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [RequireComponent(typeof(Reel))]
+    public class Casting : MonoBehaviour
     {
-        
-    }
+        public GameObject hook;
+        String fishingString;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void Start()
+        {
+            fishingString = GetComponent<String>();
+            Cast();
+        }
+
+        void Cast()
+        {
+            GameObject currentHook = Instantiate(hook, transform.position, transform.rotation);
+            fishingString.stringPoints.Add(currentHook.transform);
+            Rigidbody hookRB = currentHook.GetComponent<Rigidbody>();
+            hookRB.AddForce(transform.forward * 500, ForceMode.Force);
+        }
+
     }
 }
