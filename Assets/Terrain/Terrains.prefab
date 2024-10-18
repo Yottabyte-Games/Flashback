@@ -27,11 +27,11 @@ Transform:
   m_GameObject: {fileID: 984380413086599244}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3000, y: 0, z: 2500}
+  m_LocalPosition: {x: -250, y: -190.62503, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &522736705640855951
 Terrain:
@@ -120,11 +120,11 @@ Transform:
   m_GameObject: {fileID: 3468470069081995052}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3000, y: 0, z: 3000}
+  m_LocalPosition: {x: -250, y: -190.62503, z: 500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &4423418786521333476
 Terrain:
@@ -213,11 +213,11 @@ Transform:
   m_GameObject: {fileID: 3990396301454206967}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2500, y: 0, z: 3000}
+  m_LocalPosition: {x: -750, y: -190.62503, z: 500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &8723256409617555957
 Terrain:
@@ -306,11 +306,11 @@ Transform:
   m_GameObject: {fileID: 4188219292904891100}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3500, y: 0, z: 3000}
+  m_LocalPosition: {x: 250, y: -190.62503, z: 500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &5470690454306266648
 Terrain:
@@ -399,11 +399,11 @@ Transform:
   m_GameObject: {fileID: 5989538556187353776}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4000, y: 0, z: 2000}
+  m_LocalPosition: {x: 750, y: -190.62503, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &6186441191355418453
 Terrain:
@@ -492,11 +492,11 @@ Transform:
   m_GameObject: {fileID: 6646655231523212282}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3500, y: 0, z: 2000}
+  m_LocalPosition: {x: 250, y: -190.62503, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &1611449661173345479
 Terrain:
@@ -588,16 +588,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4108471210331584079}
-  - {fileID: 8902353905250157748}
-  - {fileID: 2865789716482643435}
-  - {fileID: 6354101650465722441}
-  - {fileID: 263163099989365838}
-  - {fileID: 2491803780842807720}
-  - {fileID: 7476038127040368387}
-  - {fileID: 2991226973489470612}
-  - {fileID: 5591991309905886876}
-  - {fileID: 6917882487533009043}
+  - {fileID: 6147606756887232564}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1680282995153736441
@@ -640,11 +631,11 @@ Transform:
   m_GameObject: {fileID: 6831319628615886502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2500, y: 0, z: 2500}
+  m_LocalPosition: {x: -750, y: -190.62503, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &7389580512944878258
 Terrain:
@@ -706,6 +697,47 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: 6cfc4b201492cae46bc41a4fe20c9356, type: 2}
   m_EnableTreeColliders: 1
+--- !u!1 &7825658509829914052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6147606756887232564}
+  m_Layer: 0
+  m_Name: skibiid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6147606756887232564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7825658509829914052}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4108471210331584079}
+  - {fileID: 8902353905250157748}
+  - {fileID: 2865789716482643435}
+  - {fileID: 6354101650465722441}
+  - {fileID: 263163099989365838}
+  - {fileID: 2491803780842807720}
+  - {fileID: 7476038127040368387}
+  - {fileID: 2991226973489470612}
+  - {fileID: 5591991309905886876}
+  - {fileID: 6917882487533009043}
+  m_Father: {fileID: 4104412372901085205}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7942612980119376504
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,11 +765,11 @@ Transform:
   m_GameObject: {fileID: 7942612980119376504}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3500, y: 0, z: 2500}
+  m_LocalPosition: {x: 250, y: -190.62503, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &4124913439687936102
 Terrain:
@@ -826,11 +858,11 @@ Transform:
   m_GameObject: {fileID: 8294130695427270133}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4000, y: 0, z: 2500}
+  m_LocalPosition: {x: 750, y: -190.62503, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &7903676459995061008
 Terrain:
@@ -919,11 +951,11 @@ Transform:
   m_GameObject: {fileID: 8911993929783365965}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3500, y: 0, z: 1500}
+  m_LocalPosition: {x: 250, y: -190.62503, z: -1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4104412372901085205}
+  m_Father: {fileID: 6147606756887232564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &7059724764479241615
 Terrain:
