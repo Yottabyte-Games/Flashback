@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Minigame.Fishing
@@ -11,36 +12,39 @@ namespace Minigame.Fishing
             if (hookInWater != null) return;
             hookInWater = other.GetComponent<Hook>();
 
-            InvokeRepeating(nameof(TryGetFish), 1, 5);
+            StartCoroutine(TryGetFish());
         }
 
-        void TryGetFish()
+        IEnumerator TryGetFish()
         {
-            int fishNum = Random.Range(0, 10 + 20 * (int)hookInWater.bait.type);
+            yield return new WaitForSeconds(5);
+            int fishNum = Random.Range(0, 25 + 15 * (int)hookInWater.bait.type);
 
+            print(fishNum);
             switch (fishNum)
             {
-                case > 10 + 20 * (int)FishType.GoliathTigerfish:
+                case >= 10 + 20 * (int)FishType.GoliathTigerfish: // fishnum > 90
                     hookInWater.CatchFish(new Fish() { type = FishType.GoliathTigerfish });
                     break;
 
-                case > 10 + 20 * (int)FishType.Sailfish:
+                case >= 10 + 20 * (int)FishType.Sailfish: // fishnum > 70
                     hookInWater.CatchFish(new Fish() { type = FishType.Sailfish });
                     break;
 
-                case > 10 + 20 * (int)FishType.Bass:
+                case >= 10 + 20 * (int)FishType.Bass: // fishnum > 50
                     hookInWater.CatchFish(new Fish() { type = FishType.Bass });
                     break;
 
-                case > 10 + 20 * (int)FishType.Catfish:
+                case >= 10 + 20 * (int)FishType.Catfish: // fishnum > 30
                     hookInWater.CatchFish(new Fish() { type = FishType.Catfish });
                     break;
 
-                case > 10 + 20 * (int)FishType.Panfish:
+                case >= 10 + 20 * (int)FishType.Panfish: // fishnum > 10
                     hookInWater.CatchFish(new Fish() { type = FishType.Panfish });
                     break;
 
-                case < 10 + 20 * (int)FishType.Panfish:
+                case < 10 + 20 * (int)FishType.Panfish: // fishnum < 10
+                    StartCoroutine(TryGetFish());
                     break;
             }
         }
