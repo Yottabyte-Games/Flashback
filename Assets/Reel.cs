@@ -1,20 +1,14 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Minigame.Fishing
 {
     public class Reel : MonoBehaviour
     {
-        Casting cast;
-
-        private void Start()
+        [SerializeField] bool canReel;
+        public void StartReeling(Fish fishToReel)
         {
-            cast = GetComponent<Casting>();
-            cast.hook.GetComponent<Hook>().caughtFish += StartReeling;
-        }
-
-        void StartReeling(Fish fishToReel)
-        {
-
+            canReel = true;
         }
     }
 }

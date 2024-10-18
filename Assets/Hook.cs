@@ -11,6 +11,7 @@ namespace Minigame.Fishing
 
         public void CatchFish(Fish fishCaught)
         {
+            print(fishCaught.type);
             caughtFish?.Invoke(fishCaught);
         }
     }
@@ -18,7 +19,11 @@ namespace Minigame.Fishing
     public enum BaitType
     {
         None = 0,
-        Worm = 1,
+        Bread = 1,
+        Worm = 2,
+        Leech = 3,
+        ChickenLiver = 4,
+        Shrimp = 5,
     }
     [Serializable]
     public class Bait

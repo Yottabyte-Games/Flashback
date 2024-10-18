@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class String : MonoBehaviour
 {
     public List<Transform> stringPoints;
