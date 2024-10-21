@@ -12624,6 +12624,62 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1608391686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608391687}
+  - component: {fileID: 1608391688}
+  m_Layer: 0
+  m_Name: SceneSwapper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1608391687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608391686}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1608391688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608391686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe41380ae858464bac5edff44f86f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hubWorldScene:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
+  fishingScene:
+    asset: {fileID: 102900000, guid: 6c8b08a1c2535e34d9d981cc57c52d88, type: 3}
+    guid: 6c8b08a1c2535e34d9d981cc57c52d88
+  toyCarScene:
+    asset: {fileID: 102900000, guid: f3c5b61214f7fa94db4d0f773fc9be0e, type: 3}
+    guid: f3c5b61214f7fa94db4d0f773fc9be0e
+  snowmanScene:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
 --- !u!43 &1618051365
 Mesh:
   m_ObjectHideFlags: 0
@@ -17243,3 +17299,4 @@ SceneRoots:
   - {fileID: 1782248712}
   - {fileID: 1834470423}
   - {fileID: 8484919876113731009}
+  - {fileID: 1608391687}
