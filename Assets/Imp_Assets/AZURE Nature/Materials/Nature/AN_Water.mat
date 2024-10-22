@@ -12,8 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _WAVESNORMALINTENSITY_ON
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -70,7 +69,7 @@ Material:
     - _2: 0.7
     - _AlphaCutoff: 0.5
     - _ChromaticAberration: 0
-    - _CoastOpacity: 0.322
+    - _CoastOpacity: 1
     - _CoastalWavesDensity: 0.5
     - _DepthDistance: 1.5
     - _DepthFade: 1
@@ -83,10 +82,10 @@ Material:
     - _Float3: 0
     - _FoamContrast: 0.28
     - _FoamDensity: 0.762
-    - _FoamDistance: 1.18
+    - _FoamDistance: 0.77
     - _FoamOpacity: 1
     - _Normal: 0.15
-    - _Opacity: 0.99
+    - _Opacity: 0.931
     - _Power: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -94,7 +93,7 @@ Material:
     - _RefractionIntensity: 0.15
     - _RefractionScale: 0.159
     - _Scale: 50
-    - _Smoothness: 0.86
+    - _Smoothness: 0.51
     - _SpecularHighlights: 1
     - _TransAmbient: 0.2
     - _TransDirect: 1
@@ -105,13 +104,13 @@ Material:
     - _UDepthDistance: 0.3
     - _UDistancePower: 0.1
     - _WavesNormalIntensity: 0.21
-    - _WavesSpeed: 0.039
-    - _WavesTile: 0.01
+    - _WavesSpeed: 0.178
+    - _WavesTile: -0.08
     - __dirty: 0
     m_Colors:
     - _Color0: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
     - _Color1: {r: 0.15450329, g: 0.744419, b: 0.7798742, a: 0}
-    - _Color2: {r: 0.072267674, g: 0.20997213, b: 0.26415092, a: 0}
+    - _Color2: {r: 0.19579919, g: 0.3291897, b: 0.3773585, a: 0}
     - _DepthColor: {r: 0, g: 1, b: 0.9725489, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _NormalScale: {r: 2, g: 2, b: 0, a: 0}
