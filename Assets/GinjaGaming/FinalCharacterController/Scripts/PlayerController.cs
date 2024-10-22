@@ -73,7 +73,7 @@ namespace GinjaGaming.FinalCharacterController
         private void Update()
         {
             UpdateMovementState();
-            print(_characterController.velocity);
+            
 
             HandleVerticalMovement();
             HandleLateralMovement();
@@ -162,12 +162,12 @@ namespace GinjaGaming.FinalCharacterController
             Vector3 cameraRightXZ = new Vector3(_playerCamera.transform.right.x, 0f, _playerCamera.transform.right.z).normalized;
             Vector3 movementDirection = cameraRightXZ * _playerLocomotionInput.MovementInput.x + cameraForwardXZ * _playerLocomotionInput.MovementInput.y;
 
-            Vector3 movementDelta = movementDirection * lateralAcceleration * Time.deltaTime;
+            Vector3 movementDelta = lateralAcceleration * Time.deltaTime * movementDirection;
             Vector3 newVelocity = _characterController.velocity + movementDelta;
 
             // Add drag to player
             float dragMagnitude = isGrounded ? drag : inAirDrag;
-            Vector3 currentDrag = newVelocity.normalized * dragMagnitude * Time.deltaTime;
+            Vector3 currentDrag = dragMagnitude * Time.deltaTime * newVelocity.normalized;
             newVelocity = (newVelocity.magnitude > dragMagnitude * Time.deltaTime) ? newVelocity - currentDrag : Vector3.zero;
             newVelocity = Vector3.ClampMagnitude(new Vector3(newVelocity.x, 0f, newVelocity.z), clampLateralMagnitude);
             newVelocity.y += _verticalVelocity;
