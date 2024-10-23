@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Scripts
+namespace Minigame.Fishing
 {
     [RequireComponent(typeof(LineRenderer))]
     public class String : MonoBehaviour

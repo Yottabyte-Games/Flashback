@@ -4,7 +4,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using Utility.Math;
 
-namespace _Scripts
+namespace Minigame.Fishing
 {
     public class Reel : MonoBehaviour
     {

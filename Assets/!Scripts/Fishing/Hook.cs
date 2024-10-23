@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace _Scripts
+namespace Minigame.Fishing
 {
     public class Hook : MonoBehaviour
     {
