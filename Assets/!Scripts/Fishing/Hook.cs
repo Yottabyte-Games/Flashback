@@ -20,19 +20,4 @@ namespace Minigame.Fishing
             caughtFish?.Invoke(fishCaught);
         }
     }
-
-    public enum BaitType
-    {
-        None = 0,
-        Bread = 1,
-        Worm = 2,
-        Leech = 3,
-        ChickenLiver = 4,
-        Shrimp = 5,
-    }
-    [Serializable]
-    public class Bait
-    {
-        public BaitType type;
-    }
 }

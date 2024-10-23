@@ -18,6 +18,7 @@ namespace Minigame.Fishing
             reel = GetComponent<Reel>();
             input = GetComponent<FishingRodInput>();
             input.cast += Cast;
+            reel.FinishReel += ResetHook;
         }
 
         void Cast()
@@ -25,12 +26,22 @@ namespace Minigame.Fishing
             if (currentHook != null) return;
 
             currentHook = Instantiate(this.hook, transform.position, transform.rotation);
-            fishingString.stringPoints.Add(currentHook.transform);
+
+            if(fishingString.stringPoints.Count == 1)
+                fishingString.stringPoints.Add(currentHook.transform);
+            else
+                fishingString.stringPoints[1] = currentHook.transform;
+
             Rigidbody hookRB = currentHook.GetComponent<Rigidbody>();
             Hook hook = currentHook.GetComponent<Hook>();
 
             hook.caughtFish += reel.StartReeling;
             hookRB.AddForce(transform.forward * 500, ForceMode.Force);
+        }
+        void ResetHook()
+        {
+            fishingString.stringPoints[1] = transform;
+            Destroy(currentHook);
         }
 
     }
