@@ -55,11 +55,6 @@ namespace Minigame.Fishing
 
 
             travelDistance += difference.magnitude / 37.7f / 100;
-
-            if(travelDistance > 5 * (int)toReel.type)
-            {
-                canReel = false;
-            }
         }
         public void StartReeling(Fish fishToReel)
         {
@@ -70,7 +65,6 @@ namespace Minigame.Fishing
         }
         void FinishReeling()
         {
-            print(toReel.type);
             canReel = false;
             toReel = new Fish();
             travelDistance = 0;

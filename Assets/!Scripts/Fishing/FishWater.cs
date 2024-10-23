@@ -26,9 +26,11 @@ namespace Minigame.Fishing
 
             if(fish.type != FishType.None)
             {
+                print(fish.type);
                 hookInWater.CatchFish(fish);
             } else
             {
+                print("restart");
                 StartCoroutine(TryGetFish());
             }
         }
