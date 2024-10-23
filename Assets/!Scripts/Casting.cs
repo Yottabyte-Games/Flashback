@@ -1,6 +1,7 @@
+using Minigame.Fishing;
 using UnityEngine;
 
-namespace Minigame.Fishing
+namespace _Scripts
 {
     [RequireComponent(typeof(Reel))]
     public class Casting : MonoBehaviour
@@ -26,8 +27,8 @@ namespace Minigame.Fishing
 
             currentHook = Instantiate(this.hook, transform.position, transform.rotation);
             fishingString.stringPoints.Add(currentHook.transform);
-            Rigidbody hookRB = currentHook.GetComponent<Rigidbody>();
-            Hook hook = currentHook.GetComponent<Hook>();
+            var hookRB = currentHook.GetComponent<Rigidbody>();
+            var hook = currentHook.GetComponent<Hook>();
 
             hook.caughtFish += reel.StartReeling;
             hookRB.AddForce(transform.forward * 500, ForceMode.Force);

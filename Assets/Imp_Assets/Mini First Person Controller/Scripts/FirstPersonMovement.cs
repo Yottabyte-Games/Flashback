@@ -1,44 +1,47 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstPersonMovement : MonoBehaviour
+namespace Imp_Assets.Mini_First_Person_Controller.Scripts
 {
-    public float speed = 5;
-
-    [Header("Running")]
-    public bool canRun = true;
-    public bool IsRunning { get; private set; }
-    public float runSpeed = 9;
-    public KeyCode runningKey = KeyCode.LeftShift;
-
-    Rigidbody rigidbody;
-    /// <summary> Functions to override movement speed. Will use the last added override. </summary>
-    public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
-
-
-
-    void Awake()
+    public class FirstPersonMovement : MonoBehaviour
     {
-        // Get the rigidbody on this.
-        rigidbody = GetComponent<Rigidbody>();
-    }
+        public float speed = 5;
 
-    void FixedUpdate()
-    {
-        // Update IsRunning from input.
-        IsRunning = canRun && Input.GetKey(runningKey);
+        [Header("Running")]
+        public bool canRun = true;
+        public bool IsRunning { get; private set; }
+        public float runSpeed = 9;
+        public KeyCode runningKey = KeyCode.LeftShift;
 
-        // Get targetMovingSpeed.
-        float targetMovingSpeed = IsRunning ? runSpeed : speed;
-        if (speedOverrides.Count > 0)
+        Rigidbody _rigidbody;
+        /// <summary> Functions to override movement speed. Will use the last added override. </summary>
+        public List<System.Func<float>> SpeedOverrides = new List<System.Func<float>>();
+
+
+
+        void Awake()
         {
-            targetMovingSpeed = speedOverrides[speedOverrides.Count - 1]();
+            // Get the rigidbody on this.
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
-        // Get targetVelocity from input.
-        Vector2 targetVelocity =new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
+        void FixedUpdate()
+        {
+            // Update IsRunning from input.
+            IsRunning = canRun && Input.GetKey(runningKey);
 
-        // Apply movement.
-        rigidbody.linearVelocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.linearVelocity.y, targetVelocity.y);
+            // Get targetMovingSpeed.
+            var targetMovingSpeed = IsRunning ? runSpeed : speed;
+            if (SpeedOverrides.Count > 0)
+            {
+                targetMovingSpeed = SpeedOverrides[SpeedOverrides.Count - 1]();
+            }
+
+            // Get targetVelocity from input.
+            var targetVelocity = new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
+
+            // Apply movement.
+            _rigidbody.linearVelocity = transform.rotation * new Vector3(targetVelocity.x, _rigidbody.linearVelocity.y, targetVelocity.y);
+        }
     }
 }

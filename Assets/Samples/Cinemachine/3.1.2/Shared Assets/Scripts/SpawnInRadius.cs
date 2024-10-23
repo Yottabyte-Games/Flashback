@@ -14,7 +14,7 @@ namespace Unity.Cinemachine.Samples
             if (DoIt && Prefab != null)
             {
                 var spawner = transform;
-                for (int i = 0; i < Amount; ++i)
+                for (var i = 0; i < Amount; ++i)
                 {
                     var a = Random.Range(0, 360);
                     var pos = new Vector3(Mathf.Cos(a), 0, Mathf.Sin(a));

@@ -9,12 +9,12 @@ public class BF_InteractiveEffectsAdditional : MonoBehaviour
     public RenderTexture rt;
     public string GlobalTexName = "_GlobalEffectRTAdditional";
     public string GlobalOrthoName = "_OrthographicCamSizeAdditional";
-    public bool isPaced = false;
+    public bool isPaced;
 
-    private float orthoMem = 0;
+    private float orthoMem;
     private Vector3 camDir;
     private Coroutine waitPace;
-    private bool paceRunning = false;
+    private bool paceRunning;
     private void Awake()
     {
         orthoMem = GetComponent<Camera>().orthographicSize;
@@ -37,7 +37,7 @@ public class BF_InteractiveEffectsAdditional : MonoBehaviour
 
             if (mainCamera != null)
             {
-                float YView = Vector3.Angle(Vector3.down, mainCamera.forward);
+                var YView = Vector3.Angle(Vector3.down, mainCamera.forward);
                 transform.position = new Vector3(mainCamera.position.x, mainCamera.position.y + 20, mainCamera.position.z) + camDir.normalized * Mathf.Max(0f, orthoMem - 20f) * Mathf.Clamp01(((YView - 35) * 3) / 35);
             }
         }

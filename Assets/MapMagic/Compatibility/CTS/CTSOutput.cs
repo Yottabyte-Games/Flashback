@@ -27,19 +27,19 @@ namespace MapMagic.Nodes.MatrixGenerators {
 
 		public class CTSLayer : BaseTextureLayer { }
 
-		public string[] guiTextureNames = null;
+		public string[] guiTextureNames;
 
 
 		public override void Generate (TileData data, StopToken stop) 
 		{
 			//generating
-			MatrixWorld[] dstMatrices = BaseGenerate(data, stop);
+			var dstMatrices = BaseGenerate(data, stop);
 
 			//adding to finalize
 			if (stop!=null && stop.stop) return;
 			if (enabled)
 			{
-				for (int i=0; i<layers.Length; i++)
+				for (var i=0; i<layers.Length; i++)
 					data.StoreOutput(layers[i], typeof(CTSOutput200), layers[i],  dstMatrices[i]);
 				data.MarkFinalize(Finalize, stop);
 			}

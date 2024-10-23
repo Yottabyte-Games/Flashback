@@ -29,8 +29,8 @@ public class MouseLook : MonoBehaviour
 
     private void CameraRotation()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        var mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        var mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
         xAxisClamp += mouseY;
 
@@ -53,7 +53,7 @@ public class MouseLook : MonoBehaviour
 
     private void ClampXAxisRotationToValue(float value)
     {
-        Vector3 eulerRotation = transform.eulerAngles;
+        var eulerRotation = transform.eulerAngles;
         eulerRotation.x = value;
         transform.eulerAngles = eulerRotation;
     }

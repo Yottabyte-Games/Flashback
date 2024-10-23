@@ -13,9 +13,9 @@ public class BF_PlayerSnow : MonoBehaviour
 
     private Rigidbody rB;
     private float speedMult = 1;
-    private float lerpIce = 0;
-    private MeshCollider oldMC = null;
-    private Mesh mesh = null;
+    private float lerpIce;
+    private MeshCollider oldMC;
+    private Mesh mesh;
     private ParticleSystem.MainModule pSMain;
 
 
@@ -115,10 +115,10 @@ public class BF_PlayerSnow : MonoBehaviour
     {
         RaycastHit hit;
 
-        int layerMask = 1 << 4;
+        var layerMask = 1 << 4;
         if (Physics.Raycast(transform.position+(Vector3.down*(playerCollider.transform.localScale.x/2)+Vector3.up*0.5f), Vector3.down, out hit, 5, layerMask,QueryTriggerInteraction.Ignore))
         {
-            MeshCollider meshCollider = hit.collider as MeshCollider;
+            var meshCollider = hit.collider as MeshCollider;
             if (oldMC != meshCollider || mesh == null)
             {
                 mesh = meshCollider.GetComponent<MeshFilter>().sharedMesh;
@@ -132,7 +132,7 @@ public class BF_PlayerSnow : MonoBehaviour
 
             //Mesh mesh = meshCollider.sharedMesh;
 
-            int[] triangles = mesh.triangles;
+            var triangles = mesh.triangles;
             Color32[] colorArray;
             colorArray = mesh.colors32;
 

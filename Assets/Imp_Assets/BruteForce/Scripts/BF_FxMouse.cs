@@ -29,7 +29,7 @@ public class BF_FxMouse : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             RaycastHit hit;
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            var ray = mainCam.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(this.transform.position, ray.direction);
             if (Physics.Raycast(ray, out hit, raycastSize))
             {
@@ -48,7 +48,7 @@ public class BF_FxMouse : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             RaycastHit hit;
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            var ray = mainCam.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(this.transform.position, ray.direction);
             if (Physics.Raycast(ray, out hit, raycastSize))
             {
@@ -67,7 +67,7 @@ public class BF_FxMouse : MonoBehaviour
         if (Input.GetMouseButton(2))
         {
             RaycastHit hit;
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            var ray = mainCam.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(this.transform.position, ray.direction);
             if (Physics.Raycast(ray, out hit, raycastSize))
             {

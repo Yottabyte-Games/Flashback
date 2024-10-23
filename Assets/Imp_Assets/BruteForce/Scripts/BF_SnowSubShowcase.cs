@@ -44,7 +44,7 @@ public class BF_SnowSubShowcase : MonoBehaviour
     {
         oldIndex = aM.subShowcaseIndex;
 
-        foreach (GameObject GO in subShowcases)
+        foreach (var GO in subShowcases)
         {
             GO.SetActive(false);
         }

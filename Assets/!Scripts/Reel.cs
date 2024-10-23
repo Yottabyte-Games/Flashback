@@ -1,8 +1,9 @@
-using NaughtyAttributes;
 using System;
+using Minigame.Fishing;
+using NaughtyAttributes;
 using UnityEngine;
 
-namespace Minigame.Fishing
+namespace _Scripts
 {
     public class Reel : MonoBehaviour
     {

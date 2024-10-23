@@ -1,4 +1,4 @@
-namespace Minigame.Fishing
+namespace _Scripts
 {
     public enum FishType
     {

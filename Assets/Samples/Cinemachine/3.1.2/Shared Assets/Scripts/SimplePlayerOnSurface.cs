@@ -41,7 +41,7 @@ namespace Unity.Cinemachine.Samples
         Vector3 m_PreviousGroundPoint;
         Vector3 m_PreviousPosition;
         Collider m_CurrentSurface;
-        float m_FreeFallRaycastAngle = 0;
+        float m_FreeFallRaycastAngle;
 
         public bool PreviousSateIsValid { get; set; }
         
@@ -82,7 +82,7 @@ namespace Unity.Cinemachine.Samples
                 motionDir /= motionLen;
 
             // Check whether we have walked into a surface
-            bool haveHit = false;
+            var haveHit = false;
             if (Physics.Raycast(m_PreviousPosition, motionDir, out var hit, 
                 motionLen + playerRadius, GroundLayers, QueryTriggerInteraction.Ignore))
             {
@@ -128,7 +128,7 @@ namespace Unity.Cinemachine.Samples
             }
 
             // Rotate to match the desired up direction
-            float t = Damper.Damp(1, damping, Time.deltaTime);
+            var t = Damper.Damp(1, damping, Time.deltaTime);
             var fwd = tr.forward.ProjectOntoPlane(desiredUp);
             if (fwd.sqrMagnitude > 0.0001f)
                 tr.rotation = Quaternion.Slerp(tr.rotation, Quaternion.LookRotation(fwd, desiredUp), t);
@@ -180,9 +180,9 @@ namespace Unity.Cinemachine.Samples
             const float kHorizontalStepSize = 360.0f / kHorizontalalSteps;
             dir = Quaternion.AngleAxis(Time.frameCount % (int)kHorizontalStepSize, -up) * dir;
 
-            float nearestDistance = float.MaxValue;
+            var nearestDistance = float.MaxValue;
             var rotStep = Quaternion.AngleAxis(kHorizontalStepSize, -up);
-            for (int i = 0; i < kHorizontalalSteps; ++i, dir = rotStep * dir)
+            for (var i = 0; i < kHorizontalalSteps; ++i, dir = rotStep * dir)
             {
                 //Debug.DrawLine(playerPos, playerPos + dir * raycastLength, Color.yellow, 1);
                 if (Physics.Raycast(playerPos, dir, out var hit, 
@@ -210,7 +210,7 @@ namespace Unity.Cinemachine.Samples
         const int kMaxMeshCacheSize = 5;
         MeshCache GetMeshCache(MeshCollider collider)
         {
-            for (int i = 0; i < m_MeshCacheList.Count; ++i)
+            for (var i = 0; i < m_MeshCacheList.Count; ++i)
                 if (m_MeshCacheList[i].Mesh == collider)
                     return m_MeshCacheList[i];
             if (m_MeshCacheList.Count >= kMaxMeshCacheSize)

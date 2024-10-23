@@ -9,8 +9,8 @@ using UnityEngine.InputSystem;
 public class BF_SnowAssetManager : MonoBehaviour
 {
     public GameObject UIText;
-    public int showcaseIndex = 0;
-    [HideInInspector] public int subShowcaseIndex = 0;
+    public int showcaseIndex;
+    [HideInInspector] public int subShowcaseIndex;
     public List<GameObject> showcasesGO;
     public List<GameObject> cameras;
     public List<GameObject> lights;
@@ -39,7 +39,7 @@ public class BF_SnowAssetManager : MonoBehaviour
 
     public void SwitchShowcase(int addIndex)
     {
-        for (int i = 0; i <= maxIndex; i++)
+        for (var i = 0; i <= maxIndex; i++)
         {
             showcasesGO[i].SetActive(false);
             cameras[i].SetActive(false);

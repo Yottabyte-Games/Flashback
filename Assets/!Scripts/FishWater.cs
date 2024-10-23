@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Minigame.Fishing
+namespace _Scripts
 {
     public class FishWater : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace Minigame.Fishing
         IEnumerator TryGetFish()
         {
             yield return new WaitForSeconds(5);
-            int fishNum = Random.Range(0, 25 + 15 * (int)hookInWater.bait.type);
+            var fishNum = Random.Range(0, 25 + 15 * (int)hookInWater.bait.type);
 
             print(fishNum);
             switch (fishNum)

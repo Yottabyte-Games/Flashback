@@ -58,17 +58,17 @@ namespace GinjaGaming.FinalCharacterController
 
         private void UpdateAnimationState()
         {
-            bool isIdling = _playerState.CurrentPlayerMovementState == PlayerMovementState.Idling;
-            bool isRunning = _playerState.CurrentPlayerMovementState == PlayerMovementState.Running;
-            bool isSprinting = _playerState.CurrentPlayerMovementState == PlayerMovementState.Sprinting;
-            bool isJumping = _playerState.CurrentPlayerMovementState == PlayerMovementState.Jumping;
-            bool isFalling = _playerState.CurrentPlayerMovementState == PlayerMovementState.Falling;
-            bool isGrounded = _playerState.InGroundedState();
-            bool isPlayingAction = actionHashes.Any(hash => _animator.GetBool(hash));
+            var isIdling = _playerState.CurrentPlayerMovementState == PlayerMovementState.Idling;
+            var isRunning = _playerState.CurrentPlayerMovementState == PlayerMovementState.Running;
+            var isSprinting = _playerState.CurrentPlayerMovementState == PlayerMovementState.Sprinting;
+            var isJumping = _playerState.CurrentPlayerMovementState == PlayerMovementState.Jumping;
+            var isFalling = _playerState.CurrentPlayerMovementState == PlayerMovementState.Falling;
+            var isGrounded = _playerState.InGroundedState();
+            var isPlayingAction = actionHashes.Any(hash => _animator.GetBool(hash));
 
-            bool isRunBlendValue = isRunning || isJumping || isFalling;
+            var isRunBlendValue = isRunning || isJumping || isFalling;
 
-            Vector2 inputTarget = isSprinting ? _playerLocomotionInput.MovementInput * _sprintMaxBlendValue :
+            var inputTarget = isSprinting ? _playerLocomotionInput.MovementInput * _sprintMaxBlendValue :
                                   isRunBlendValue ? _playerLocomotionInput.MovementInput * _runMaxBlendValue : 
                                                     _playerLocomotionInput.MovementInput * _walkMaxBlendValue;
 

@@ -1,45 +1,47 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
-public class Interactable : MonoBehaviour
+namespace _Scripts.Snowman_Scripts.Interaction
 {
-    private Rigidbody rb;
-    public UnityEvent onInteract;
-    Outline outline;
-    public bool canInteract = true;
-
-    void Start()
+    public class Interactable : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody>();
-        outline = GetComponent<Outline>();
-        //Disable Outline
-    }
+        private Rigidbody rb;
+        public UnityEvent onInteract;
+        Outline outline;
+        public bool canInteract = true;
 
-    public void Interact()
-    {
-        if(canInteract)
+        void Start()
         {
-            rb.isKinematic = true;
-            gameObject.SetActive(false);
-            onInteract?.Invoke();   
+            rb = GetComponent<Rigidbody>();
+            outline = GetComponent<Outline>();
+            //Disable Outline
         }
-    }
 
-    public void DisableOutline()
-    {
-        outline.enabled = false;
-    }
+        public void Interact()
+        {
+            if(canInteract)
+            {
+                rb.isKinematic = true;
+                gameObject.SetActive(false);
+                onInteract?.Invoke();   
+            }
+        }
 
-    public void EnableOutline()
-    {
-        //Debug.Log("Enabled Outline");
-        outline.enabled = true;
-    }
+        public void DisableOutline()
+        {
+            outline.enabled = false;
+        }
 
-    public void DisableInteraction()
-    {
-        canInteract = false;
-        rb.isKinematic = true;
+        public void EnableOutline()
+        {
+            //Debug.Log("Enabled Outline");
+            outline.enabled = true;
+        }
+
+        public void DisableInteraction()
+        {
+            canInteract = false;
+            rb.isKinematic = true;
+        }
     }
 }

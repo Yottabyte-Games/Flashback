@@ -39,7 +39,7 @@ namespace Unity.Cinemachine.Samples
             // Find the player and the aiming camera.
             // We expect to have one camera with a CinemachineThirdPersonAim component
             // whose Follow target is a player with a SimplePlayerAimController child.
-            for (int i = 0; i < ChildCameras.Count; ++i)
+            for (var i = 0; i < ChildCameras.Count; ++i)
             {
                 var cam = ChildCameras[i];
                 if (!cam.isActiveAndEnabled)

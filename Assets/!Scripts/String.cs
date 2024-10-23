@@ -1,29 +1,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
-public class String : MonoBehaviour
+namespace _Scripts
 {
-    public List<Transform> stringPoints;
-    LineRenderer lineRenderer;
-
-    private void Start()
+    [RequireComponent(typeof(LineRenderer))]
+    public class String : MonoBehaviour
     {
-        lineRenderer = GetComponent<LineRenderer>();
-    }
+        public List<Transform> stringPoints;
+        LineRenderer lineRenderer;
 
-    private void Update()
-    {
-        for (int i = 0; i < stringPoints.Count; i++)
+        private void Start()
         {
-            lineRenderer.SetPosition(i, stringPoints[i].position);
+            lineRenderer = GetComponent<LineRenderer>();
         }
-    }
-    private void OnDrawGizmosSelected()
-    {
-        for (int i = 0; i < stringPoints.Count; i++)
+
+        private void Update()
         {
-            GetComponent<LineRenderer>().SetPosition(i, stringPoints[i].position);
+            for (var i = 0; i < stringPoints.Count; i++)
+            {
+                lineRenderer.SetPosition(i, stringPoints[i].position);
+            }
+        }
+        private void OnDrawGizmosSelected()
+        {
+            for (var i = 0; i < stringPoints.Count; i++)
+            {
+                GetComponent<LineRenderer>().SetPosition(i, stringPoints[i].position);
+            }
         }
     }
 }

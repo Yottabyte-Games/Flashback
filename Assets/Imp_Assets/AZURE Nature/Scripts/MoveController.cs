@@ -23,10 +23,10 @@ public class MoveController : MonoBehaviour
                 velocity.y = -2f;
             }
 
-            float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
+            var x = Input.GetAxis("Horizontal");
+            var z = Input.GetAxis("Vertical");
 
-            Vector3 movement = transform.right * x + transform.forward * z;
+            var movement = transform.right * x + transform.forward * z;
 
             characterController.Move(movement * movementSpeed * Time.deltaTime);
 

@@ -110,8 +110,8 @@ namespace Unity.Cinemachine.Samples
             var speed = vel.magnitude;
 
             // Hysteresis reduction
-            bool isRunning = speed > NormalWalkSpeed * 2 + (m_AnimationParams.IsRunning ? -0.15f : 0.15f);
-            bool isWalking = !isRunning && speed > k_IdleThreshold + (m_AnimationParams.IsWalking ? -0.05f : 0.05f);
+            var isRunning = speed > NormalWalkSpeed * 2 + (m_AnimationParams.IsRunning ? -0.15f : 0.15f);
+            var isWalking = !isRunning && speed > k_IdleThreshold + (m_AnimationParams.IsWalking ? -0.05f : 0.05f);
             m_AnimationParams.IsWalking = isWalking;
             m_AnimationParams.IsRunning = isRunning;
 

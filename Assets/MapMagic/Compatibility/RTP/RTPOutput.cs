@@ -30,13 +30,13 @@ namespace MapMagic.Nodes.MatrixGenerators
 		public override void Generate (TileData data, StopToken stop) 
 		{
 			//generating
-			MatrixWorld[] dstMatrices = BaseGenerate(data, stop);
+			var dstMatrices = BaseGenerate(data, stop);
 
 			//adding to finalize
 			if (stop!=null && stop.stop) return;
 			if (enabled)
 			{
-				for (int i=0; i<layers.Length; i++)
+				for (var i=0; i<layers.Length; i++)
 					data.StoreOutput(layers[i], typeof(RTPOutput200), layers[i],  dstMatrices[i]);
 				data.MarkFinalize(Finalize, stop);
 			}
@@ -69,7 +69,7 @@ namespace MapMagic.Nodes.MatrixGenerators
 				textureBaseMapDistance = 10000000, //no base map
 				textureNames = new string[colors!=null ? colors.Length : 0] };
 
-			for (int t=0; t<controlTexturesData.textureNames.Length; t++)
+			for (var t=0; t<controlTexturesData.textureNames.Length; t++)
 				controlTexturesData.textureNames[t] = "_Control" + (t+1);
 
 			Graph.OnOutputFinalized?.Invoke(typeof(RTPOutput200), data, controlTexturesData, stop);
