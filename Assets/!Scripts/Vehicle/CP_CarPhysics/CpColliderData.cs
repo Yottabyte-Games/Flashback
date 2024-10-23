@@ -13,18 +13,6 @@ namespace _Scripts.Vehicle.CP_CarPhysics
         {
             _cpMain = transform.parent.GetComponent<CpMain>();
         }
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         void OnCollisionEnter(Collision other)
         {
             OnCollision(other);

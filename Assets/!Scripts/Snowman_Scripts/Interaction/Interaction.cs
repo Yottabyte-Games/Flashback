@@ -9,11 +9,6 @@ namespace _Scripts.Snowman_Scripts.Interaction
         Interactable interactable;
         GameObject interactableObject;
 
-        private void Start()
-        {
-            ;
-        }
-
         void Update()
         {
             var ray = camera.ScreenPointToRay(Input.mousePosition);
