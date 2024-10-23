@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class Door : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print(other.name);
         float whatSide = other.transform.position.x - transform.position.x;
         
         if(whatSide > 0)
