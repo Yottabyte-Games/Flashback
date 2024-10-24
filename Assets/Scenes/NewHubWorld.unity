@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 162837518}
   - component: {fileID: 162837520}
   - component: {fileID: 162837519}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Terrain_0_2_ceea8842-dfaa-4906-921b-51fc38aed64d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 353961302}
   - component: {fileID: 353961300}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: TerrainColourCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1073,11 +1073,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 25
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2097152
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 5d176783ba0938e48985cd2c4e1cc3b3, type: 2}
   m_TargetDisplay: 0
@@ -1571,7 +1571,7 @@ GameObject:
   - component: {fileID: 850379105}
   - component: {fileID: 850379107}
   - component: {fileID: 850379106}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Terrain_0_0_50bcd0f0-0d4c-4a93-b1e6-ef5c47317782
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1659,7 +1659,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1750336113}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 769f46465a9ae9248a377625910986a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1710,6 +1710,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 769f46465a9ae9248a377625910986a9, type: 3}
+--- !u!4 &871396927 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 769f46465a9ae9248a377625910986a9, type: 3}
+  m_PrefabInstance: {fileID: 871396926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &887383574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,7 +1957,7 @@ GameObject:
   - component: {fileID: 939900535}
   - component: {fileID: 939900537}
   - component: {fileID: 939900536}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Terrain_0_1_fbc80df4-644a-4166-b56d-6d93f1069189
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2333,7 +2338,7 @@ GameObject:
   - component: {fileID: 1072081103}
   - component: {fileID: 1072081105}
   - component: {fileID: 1072081104}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Terrain_1_0_adbf1241-8f3e-4614-85ad-c951a930475a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2495,7 +2500,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1750336113}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 769f46465a9ae9248a377625910986a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2546,6 +2551,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 769f46465a9ae9248a377625910986a9, type: 3}
+--- !u!4 &1165638194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 769f46465a9ae9248a377625910986a9, type: 3}
+  m_PrefabInstance: {fileID: 1165638193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!21 &1180533960
 Material:
   serializedVersion: 8
@@ -3007,7 +3017,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1750336113}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 769f46465a9ae9248a377625910986a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3058,6 +3068,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 769f46465a9ae9248a377625910986a9, type: 3}
+--- !u!4 &1542618065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 769f46465a9ae9248a377625910986a9, type: 3}
+  m_PrefabInstance: {fileID: 1542618064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1600115004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3821,7 +3836,7 @@ GameObject:
   - component: {fileID: 1683663703}
   - component: {fileID: 1683663705}
   - component: {fileID: 1683663704}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Terrain_1_1_a473ecac-66ce-445b-90d7-4dccd19a06d1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4010,6 +4025,9 @@ Transform:
   - {fileID: 1829679719}
   - {fileID: 162580971}
   - {fileID: 521161153}
+  - {fileID: 1542618065}
+  - {fileID: 1165638194}
+  - {fileID: 871396927}
   m_Father: {fileID: 1276373227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1765477933
@@ -4093,7 +4111,7 @@ GameObject:
   - component: {fileID: 1770344352}
   - component: {fileID: 1770344354}
   - component: {fileID: 1770344353}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Terrain_0_3_54b594c4-ba99-43d9-9567-6161266ebd4f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4875,6 +4893,3 @@ SceneRoots:
   - {fileID: 119326797}
   - {fileID: 1276373227}
   - {fileID: 353961303}
-  - {fileID: 1542618064}
-  - {fileID: 1165638193}
-  - {fileID: 871396926}
