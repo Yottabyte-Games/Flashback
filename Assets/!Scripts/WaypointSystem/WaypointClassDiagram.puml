@@ -8,9 +8,18 @@ rectangle SingleWaypoint
 rectangle TrackWaypoints
 rectangle TrackWaypointsUI
 
-SingleWaypoint    -[#5fad65,dotted]->>  TrackWaypoints   
-SingleWaypoint    -[#3574f0,plain]->>  TrackWaypoints   
-TrackWaypoints    -[#3574f0,plain]->>  SingleWaypoint   
-TrackWaypointsUI  -[#3574f0,plain]->>  TrackWaypoints   
-TrackWaypointsUI  -[#5fad65,dotted]->>  TrackWaypoints   
+SingleWaypoint    -[#5fad65,dotted]->>  TrackWaypoints : <size:10>aggregation
+SingleWaypoint    -[#3574f0,plain]->>  TrackWaypoints : <size:10>dependency
+TrackWaypoints    -[#3574f0,plain]->>  SingleWaypoint : <size:10>dependency
+TrackWaypointsUI  -[#3574f0,plain]->>  TrackWaypoints : <size:10>dependency
+TrackWaypointsUI  -[#5fad65,dotted]->>  TrackWaypoints : <size:10>aggregation
+
+note right of SingleWaypoint
+  Aggregation: Dotted lines
+end note
+
+note right of TrackWaypointsUI
+  Dependency: Full arrows
+end note
+
 @enduml
