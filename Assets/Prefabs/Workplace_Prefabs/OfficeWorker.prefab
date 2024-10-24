@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2022588009890012697}
   - component: {fileID: 2847662702639217283}
   - component: {fileID: 6215461833396288412}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TaskMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!136 &4065514315038549544
 CapsuleCollider:
   m_ObjectHideFlags: 0

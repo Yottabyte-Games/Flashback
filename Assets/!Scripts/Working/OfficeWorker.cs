@@ -18,11 +18,13 @@ public class OfficeWorker : Creature
     [SerializeField] GameObject taskMarker;
 
     [HideInInspector] public Transform officeStation;
-    [HideInInspector] public Transform[] meetingRooms;
-    [HideInInspector] public Transform breakRoom;
+    [HideInInspector] public ActivityRoom[] meetingRooms;
+    [HideInInspector] public ActivityRoom breakRoom;
 
     public event Action<OfficeTask> NewOfficeTask;
     public event Action<OfficeTask> CompletedOfficeTask;
+
+    public event Action<OfficeWorker> EndedActivity;
 
     IEnumerator Start()
     {
@@ -45,10 +47,10 @@ public class OfficeWorker : Creature
 
             switch (activity)
             {
-                case > 90: // Meeting
+                case > 85: // Meeting
                     SetActivity(Activity.Meeting);
                     break;
-                case > 80: // Break
+                case > 60: // Break
                     SetActivity(Activity.Break);
                     break;
             }
@@ -57,8 +59,14 @@ public class OfficeWorker : Creature
         }
     }
 
+    public void EndActivity()
+    {
+        EndedActivity?.Invoke(this);   
+    }
     public void SetActivity(Activity activity)
     {
+        EndActivity();
+
         this.activity = activity;
 
         UpdateActivity();
@@ -89,10 +97,29 @@ public class OfficeWorker : Creature
                 SetDestination(officeStation.position);
                 break;
             case Activity.Break:
-                SetDestination(breakRoom.position);
+                Transform breakSeat = breakRoom.RequestSeat(this);
+
+                if (breakSeat == null)
+                {
+                    SetActivity(Activity.Working);
+                }
+                else
+                {
+                    SetDestination(breakSeat.position);
+                }
                 break;
             case Activity.Meeting:
-                SetDestination(meetingRooms[UnityEngine.Random.Range(0, meetingRooms.Length)].position);
+
+                Transform meetingSeat = meetingRooms[UnityEngine.Random.Range(0, meetingRooms.Length)].RequestSeat(this);
+
+                if(meetingSeat == null)
+                {
+                    SetActivity(Activity.Working);
+                }
+                else
+                {
+                    SetDestination(meetingSeat.position);
+                }
                 break;
         }
     }

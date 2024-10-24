@@ -14,8 +14,8 @@ public class OfficeManager : MonoBehaviour
 
     [Header("Rooms")]
     [SerializeField] Transform enterance;
-    [SerializeField] Transform[] meetingRooms;
-    [SerializeField] Transform breakRoom;
+    [SerializeField] ActivityRoom[] meetingRooms;
+    [SerializeField] ActivityRoom breakRoom;
     [SerializeField] Transform bossOffice;
     Cublicle[] cubicles;
 
