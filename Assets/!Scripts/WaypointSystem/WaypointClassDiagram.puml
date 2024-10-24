@@ -1,0 +1,16 @@
+﻿@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+rectangle SingleWaypoint
+rectangle TrackWaypoints
+rectangle TrackWaypointsUI
+
+SingleWaypoint    -[#5fad65,dotted]->>  TrackWaypoints   
+SingleWaypoint    -[#3574f0,plain]->>  TrackWaypoints   
+TrackWaypoints    -[#3574f0,plain]->>  SingleWaypoint   
+TrackWaypointsUI  -[#3574f0,plain]->>  TrackWaypoints   
+TrackWaypointsUI  -[#5fad65,dotted]->>  TrackWaypoints   
+@enduml

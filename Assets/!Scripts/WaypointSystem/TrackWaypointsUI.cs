@@ -8,31 +8,30 @@ namespace _Scripts.WaypointSystem
         [SerializeField] Image warningImage; 
 
         void Start() {
-            trackWaypoints.OnPlayerCorrectWaypoint += TrackWaypointsOnPlayerCorrectWaypoint;
-            trackWaypoints.OnPlayerWrongWaypoint += TrackWaypointsOnPlayerWrongWaypoint;
-
-            Hide();
+            SubscribeToEvents();
+            SetVisibility(false);
         }
 
         #region Show/Hide logic
         void TrackWaypointsOnPlayerWrongWaypoint(object sender, System.EventArgs eventArgs) {
             Debug.Log("TrackWaypointsOnPlayerWrongWaypoint triggered");
-            Show();
-            warningImage.enabled = true; 
+            SetVisibility(true);
+            warningImage.enabled = true;
         }
 
         void TrackWaypointsOnPlayerCorrectWaypoint(object sender, System.EventArgs eventArgs) {
             Debug.Log("TrackWaypointsOnPlayerCorrectWaypoint triggered");
-            Hide();
+            SetVisibility(false);
             warningImage.enabled = false;
         }
 
-        void Show() {
-            gameObject.SetActive(true);
+        void SetVisibility(bool isVisible) {
+            gameObject.SetActive(isVisible);
         }
 
-        void Hide() {
-            gameObject.SetActive(false);
+        void SubscribeToEvents() {
+            trackWaypoints.OnPlayerCorrectWaypoint += TrackWaypointsOnPlayerCorrectWaypoint;
+            trackWaypoints.OnPlayerWrongWaypoint += TrackWaypointsOnPlayerWrongWaypoint;
         }
         #endregion
     }
