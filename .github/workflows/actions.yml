@@ -40,10 +40,6 @@ jobs:
           docker rmi $(docker image ls -aq)
           df -h
 
-      # Create Build Directory
-      - name: Create Build Directory
-        run: mkdir -p /home/runner/work/Flashback/Flashback/build/StandaloneWindows64
-
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
@@ -58,7 +54,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Build
-          path: build/StandaloneWindows64
+          path: build/windows-beta
 
   deployPages:
     needs: build
@@ -75,13 +71,13 @@ jobs:
 
       - name: Display structure of root files
         run: ls -R
-        working-directory: build/StandaloneWindows64
+        working-directory: build/windows-beta
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.6.8
         with:
           branch: itch-io
-          folder: build/StandaloneWindows64
+          folder: build/windows-beta
 
       - uses: manleydev/butler-publish-itchio-action@master
         env:
