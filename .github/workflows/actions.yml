@@ -50,6 +50,10 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
 
+      # Ensure Directory Exists
+      - name: Ensure build directory exists
+        run: mkdir -p build/StandaloneWindows64
+
       # Output
       - uses: actions/upload-artifact@v4
         with:
@@ -68,6 +72,9 @@ jobs:
         with:
           name: Build
           path: build
+
+      - name: Ensure directory exists
+        run: mkdir -p build/StandaloneWindows64
 
       - name: Display structure of root files
         run: ls -R
