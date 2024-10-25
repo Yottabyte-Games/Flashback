@@ -40,10 +40,6 @@ jobs:
           docker rmi $(docker image ls -aq)
           df -h
 
-      # Ensure build directory exists
-      - name: Create build directory
-        run: mkdir -p build/windows-beta
-
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
@@ -55,10 +51,11 @@ jobs:
           targetPlatform: StandaloneWindows64
 
       # Output
-      - uses: actions/upload-artifact@v4
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
           name: Build
-          path: build/windows-beta
+          path: build/StandaloneWindows64
 
   deployPages:
     needs: build
@@ -68,26 +65,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
         with:
           name: Build
           path: build
 
       - name: Display structure of root files
-        run: ls -R
-        working-directory: build/windows-beta
+        run: ls -R build/StandaloneWindows64
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.6.8
         with:
           branch: itch-io
-          folder: build/windows-beta
+          folder: build/StandaloneWindows64
 
-      - uses: manleydev/butler-publish-itchio-action@master
+      - name: Publish to Itch.io
+        uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
           CHANNEL: windows-beta
           ITCH_GAME: FLASHBACK
           ITCH_USER: MARZLARS
           BRANCH: itch-io
-          PACKAGE: build/windows-beta
+          PACKAGE: build/StandaloneWindows64
