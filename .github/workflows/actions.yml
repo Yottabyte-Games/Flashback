@@ -50,9 +50,12 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
 
+      # Ensure Directory Exists
+      - name: Ensure build directory exists
+        run: mkdir -p build/StandaloneWindows64
+
       # Output
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: Build
           path: build/StandaloneWindows64
@@ -65,14 +68,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
           name: Build
           path: build
 
+      - name: Ensure directory exists
+        run: mkdir -p build/StandaloneWindows64
+
       - name: Display structure of root files
-        run: ls -R build/StandaloneWindows64
+        run: ls -R
+        working-directory: build/StandaloneWindows64
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.6.8
@@ -80,11 +86,10 @@ jobs:
           branch: itch-io
           folder: build/StandaloneWindows64
 
-      - name: Publish to Itch.io
-        uses: manleydev/butler-publish-itchio-action@master
+      - uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
-          CHANNEL: windows-beta
+          CHANNEL: windows
           ITCH_GAME: FLASHBACK
           ITCH_USER: MARZLARS
           BRANCH: itch-io
