@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -1072,11 +1072,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 25
+  orthographic size: 14.8
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2097152
+    m_Bits: 2097153
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 5d176783ba0938e48985cd2c4e1cc3b3, type: 2}
   m_TargetDisplay: 0
@@ -1097,7 +1097,7 @@ Transform:
   m_GameObject: {fileID: 353961299}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 257.5, y: 93.1, z: 226}
+  m_LocalPosition: {x: 67.39, y: 91, z: 654.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2855,15 +2855,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0e213e2a23f24c04a98805986404098a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 142.33
+      value: 142.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e213e2a23f24c04a98805986404098a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 8.64
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e213e2a23f24c04a98805986404098a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 227.87
+      value: 203.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e213e2a23f24c04a98805986404098a, type: 3}
       propertyPath: m_LocalRotation.w
