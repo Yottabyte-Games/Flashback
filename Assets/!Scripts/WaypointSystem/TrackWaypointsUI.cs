@@ -4,8 +4,10 @@ using UnityEngine.UI;
 namespace _Scripts.WaypointSystem
 {
     public class TrackWaypointsUI : MonoBehaviour {
+        #region Declarations
         [SerializeField] TrackWaypoints trackWaypoints;
-        [SerializeField] Image warningImage; 
+        [SerializeField] Image warningImage;
+        #endregion
 
         void Start() {
             SubscribeToEvents();
@@ -14,13 +16,11 @@ namespace _Scripts.WaypointSystem
 
         #region Show/Hide logic
         void TrackWaypointsOnPlayerWrongWaypoint(object sender, System.EventArgs eventArgs) {
-            Debug.Log("TrackWaypointsOnPlayerWrongWaypoint triggered");
             SetVisibility(true);
             warningImage.enabled = true;
         }
 
         void TrackWaypointsOnPlayerCorrectWaypoint(object sender, System.EventArgs eventArgs) {
-            Debug.Log("TrackWaypointsOnPlayerCorrectWaypoint triggered");
             SetVisibility(false);
             warningImage.enabled = false;
         }

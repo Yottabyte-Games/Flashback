@@ -3,10 +3,12 @@
 namespace _Scripts.WaypointSystem {
     public class SingleWaypoint : MonoBehaviour {
         [SerializeField] string waypointInteractionLayer = "WaypointInteraction";
-        int _waypointTriggerLayer;
-        bool _isTriggered;
+        
         TrackWaypoints _trackWaypoints;
         MeshRenderer _meshRenderer;
+        
+        int _waypointTriggerLayer;
+        bool _isTriggered;
 
         void Awake() {
             _meshRenderer = GetComponent<MeshRenderer>();
