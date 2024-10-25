@@ -7,18 +7,18 @@ using UnityEditor;
 public class BF_SnowTerrain : MonoBehaviour
 {
     public Terrain terrainToCopy;
-    public bool avoidCulling = false;
+    public bool avoidCulling;
 
     private Terrain terrainAsset;
     private TerrainData terrainData;
-    private TerrainData terrainDataOld = null;
+    private TerrainData terrainDataOld;
     private Vector3 sizeOld = Vector3.one * 100f;
-    private float[,] terrainHeightOld = null;
-    private int heightRezOld = 0;
+    private float[,] terrainHeightOld;
+    private int heightRezOld;
     private Vector3 posOld = Vector3.zero;
     private Material terrainMaterial;
     private GameObject selectGO;
-    private bool isSynced = false;
+    private bool isSynced;
 
     void Start()
     {

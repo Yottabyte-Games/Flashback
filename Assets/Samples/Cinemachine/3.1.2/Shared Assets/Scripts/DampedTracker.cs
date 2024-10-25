@@ -25,7 +25,7 @@ namespace Unity.Cinemachine.Samples
         {
             if (Target != null)
             {
-                float t = Damper.Damp(1, PositionDamping, Time.deltaTime);
+                var t = Damper.Damp(1, PositionDamping, Time.deltaTime);
                 var pos = Vector3.Lerp(transform.position, Target.position, t);
 
                 t = Damper.Damp(1, RotationDamping, Time.deltaTime);

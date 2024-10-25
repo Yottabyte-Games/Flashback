@@ -107,7 +107,7 @@ namespace Unity.Cinemachine.Samples
         public float Damping = 0.5f;
 
         [Tooltip("Makes the player strafe when moving sideways, otherwise it turns to face the direction of motion.")]
-        public bool Strafe = false;
+        public bool Strafe;
 
         public enum ForwardModes { Camera, Player, World };
         public enum UpModes { Player, World };
@@ -133,7 +133,7 @@ namespace Unity.Cinemachine.Samples
         public float Gravity = 10;
 
         const float kDelayBeforeInferringJump = 0.3f;
-        float m_TimeLastGrounded = 0;
+        float m_TimeLastGrounded;
 
         Vector3 m_CurrentVelocityXZ;
         Vector3 m_LastInput;
@@ -177,7 +177,7 @@ namespace Unity.Cinemachine.Samples
             PreUpdate?.Invoke();
 
             // Process Jump and gravity
-            bool justLanded = ProcessJump();
+            var justLanded = ProcessJump();
 
             // Get the reference frame for the input
             var rawInput = new Vector3(MoveX.Value, 0, MoveZ.Value);
@@ -252,7 +252,7 @@ namespace Unity.Cinemachine.Samples
             // but only when the player is upside-down relative to the input frame.
             const float BlendTime = 2f;
             m_TimeInHemisphere += Time.deltaTime;
-            bool inTopHemisphere = Vector3.Dot(up, playerUp) >= 0;
+            var inTopHemisphere = Vector3.Dot(up, playerUp) >= 0;
             if (inTopHemisphere != m_InTopHemisphere)
             {
                 m_InTopHemisphere = inTopHemisphere;
@@ -271,7 +271,7 @@ namespace Unity.Cinemachine.Samples
             // If the player is tilted, then we need to get tricky to avoid gimbal-lock
             // when player is tilted 180 degrees.  There is no perfect solution for this,
             // we need to cheat it :/
-            Quaternion frameB = frameA;
+            var frameB = frameA;
             if (!inTopHemisphere || m_TimeInHemisphere < BlendTime)
             {
                 // Compute an alternative reference frame for the bottom hemisphere.
@@ -301,9 +301,9 @@ namespace Unity.Cinemachine.Samples
 
         bool ProcessJump()
         {
-            bool justLanded = false;
+            var justLanded = false;
             var now = Time.time;
-            bool grounded = IsGrounded();
+            var grounded = IsGrounded();
 
             m_CurrentVelocityY -= Gravity * Time.deltaTime;
 

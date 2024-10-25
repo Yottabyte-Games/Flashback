@@ -9,11 +9,11 @@ public class BF_InteractiveEffects : MonoBehaviour
     public RenderTexture rt;
     public string GlobalTexName = "_GlobalEffectRT";
     public string GlobalOrthoName = "_OrthographicCamSize";
-    public bool isPaced = false;
+    public bool isPaced;
 
-    private float orthoMem = 0;
+    private float orthoMem;
     private Coroutine waitPace;
-    private bool paceRunning = false;
+    private bool paceRunning;
 
     private void Awake()
     {

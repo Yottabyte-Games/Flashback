@@ -58,7 +58,7 @@ namespace Unity.Cinemachine.Samples
         {
             // Cycle through all the virtual cameras, assuming that they all have the same priority.
             // Prioritize the least-recently used one.
-            int numCameras = CinemachineCore.VirtualCameraCount;
+            var numCameras = CinemachineCore.VirtualCameraCount;
             CinemachineCore.GetVirtualCamera(numCameras - 1).Prioritize();
         }
     }

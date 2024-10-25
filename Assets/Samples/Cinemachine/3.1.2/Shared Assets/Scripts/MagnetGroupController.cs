@@ -14,7 +14,7 @@ namespace Unity.Cinemachine.Samples
             // We assume that the player is at group index 0
             var targets = TargetGroup.Targets;
             var playerPos = targets[0].Object.position;
-            for (int i = 1; i < targets.Count; ++i)
+            for (var i = 1; i < targets.Count; ++i)
             {
                 var t = targets[i];
                 if (t.Object != null && t.Object.TryGetComponent<Magnet>(out var magnet))

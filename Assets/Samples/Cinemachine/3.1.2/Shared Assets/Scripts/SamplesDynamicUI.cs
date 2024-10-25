@@ -53,7 +53,7 @@ namespace Unity.Cinemachine.Samples
                 Debug.LogError("Cannot find TogglesAndButtons.  Is the source asset set in the UIDocument?");
                 return;
             }
-            for (int i = 0; i < Buttons.Count; ++i)
+            for (var i = 0; i < Buttons.Count; ++i)
             {
                 var item = Buttons[i];
                 if (item.IsToggle.Enabled)
@@ -87,7 +87,7 @@ namespace Unity.Cinemachine.Samples
 
         void OnDisable()
         {
-            for (int i = 0; i < m_DynamicElements.Count; ++i)
+            for (var i = 0; i < m_DynamicElements.Count; ++i)
                 m_Root.Remove(m_DynamicElements[i]);
             m_DynamicElements.Clear();
         }
