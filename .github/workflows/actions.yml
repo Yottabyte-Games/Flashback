@@ -40,6 +40,10 @@ jobs:
           docker rmi $(docker image ls -aq)
           df -h
 
+      # Ensure build directory exists
+      - name: Create build directory
+        run: mkdir -p build/windows-beta
+
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
@@ -82,7 +86,7 @@ jobs:
       - uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
-          CHANNEL: windows
+          CHANNEL: windows-beta
           ITCH_GAME: FLASHBACK
           ITCH_USER: MARZLARS
           BRANCH: itch-io
