@@ -76,6 +76,9 @@ jobs:
       - name: Ensure directory exists
         run: mkdir -p build/StandaloneWindows64
 
+      - name: "Debug: List contents of build directory"
+        run: ls -R build/StandaloneWindows64
+
       - name: Display structure of root files
         run: ls -R
         working-directory: build/StandaloneWindows64
@@ -85,6 +88,9 @@ jobs:
         with:
           branch: itch-io
           folder: build/StandaloneWindows64
+
+      - name: "Debug: List contents of build directory after deploy"
+        run: ls -R build/StandaloneWindows64
 
       - uses: manleydev/butler-publish-itchio-action@master
         env:
