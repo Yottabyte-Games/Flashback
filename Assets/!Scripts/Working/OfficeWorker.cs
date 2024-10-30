@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public enum Activity
@@ -8,7 +9,8 @@ public enum Activity
     Nothing,
     Working,
     Break,
-    Meeting
+    Meeting,
+    Interacting
 }
 
 public class OfficeWorker : Creature
@@ -18,27 +20,28 @@ public class OfficeWorker : Creature
     [SerializeField] GameObject taskMarker;
 
     [HideInInspector] public Transform officeStation;
-    [HideInInspector] public ActivityRoom[] meetingRooms;
     [HideInInspector] public ActivityRoom breakRoom;
+    [HideInInspector] public ActivityRoom[] meetingRooms;
+    [SerializeField] Transform InteractingWith;
 
     public event Action<OfficeTask> NewOfficeTask;
     public event Action<OfficeTask> CompletedOfficeTask;
 
     public event Action<OfficeWorker> EndedActivity;
 
-    IEnumerator Start()
+    async void Start()
     {
-        SetDestination(officeStation.position);
+        SetActivity(Activity.Working);
 
         while (true)
         {
-            SetActivity(Activity.Working);
+            await IsInteracting();
 
             int activity = UnityEngine.Random.Range(0, 101);
 
             if(task == null)
             {
-                int task = UnityEngine.Random.Range(0, 6);
+                int task = UnityEngine.Random.Range(0, 16);
                 if (task == 0)
                 {
                     GenerateOfficeTask();
@@ -53,12 +56,18 @@ public class OfficeWorker : Creature
                 case > 60: // Break
                     SetActivity(Activity.Break);
                     break;
+                default:
+                    SetActivity(Activity.Working);
+                    break;
             }
 
-            yield return new WaitForSeconds(UnityEngine.Random.Range(20, 60));
+            int toDelay = UnityEngine.Random.Range(20, 60);
+
+            await Task.Delay(toDelay * 1000);
         }
     }
 
+    #region Activity
     public void EndActivity()
     {
         EndedActivity?.Invoke(this);   
@@ -71,22 +80,6 @@ public class OfficeWorker : Creature
 
         UpdateActivity();
     }
-    public void GenerateOfficeTask()
-    {
-        task = ScriptableObject.CreateInstance<OfficeTask>();
-
-        NewOfficeTask?.Invoke(task);
-        taskMarker.SetActive(true);
-    }
-    [Button]
-    public void FisnishOfficeTask()
-    {
-        task = null;
-
-        CompletedOfficeTask?.Invoke(task);
-        taskMarker.SetActive(false);
-    }
-
     void UpdateActivity()
     {
         switch (activity)
@@ -112,7 +105,7 @@ public class OfficeWorker : Creature
 
                 Transform meetingSeat = meetingRooms[UnityEngine.Random.Range(0, meetingRooms.Length)].RequestSeat(this);
 
-                if(meetingSeat == null)
+                if (meetingSeat == null)
                 {
                     SetActivity(Activity.Working);
                 }
@@ -121,6 +114,42 @@ public class OfficeWorker : Creature
                     SetDestination(meetingSeat.position);
                 }
                 break;
+            case Activity.Interacting:
+                break;
         }
     }
+    async Task IsInteracting()
+    {
+        while (activity == Activity.Interacting && Application.isPlaying)
+        {
+            SetDestination(InteractingWith.position);
+
+            await Task.Delay(10);
+        }
+    }
+    #endregion
+
+    #region Tasks
+    public void GenerateOfficeTask()
+    {
+        task = ScriptableObject.CreateInstance<OfficeTask>();
+
+        NewOfficeTask?.Invoke(task);
+        taskMarker.SetActive(true);
+    }
+    [Button]
+    public void FisnishOfficeTask()
+    {
+        task = null;
+
+        CompletedOfficeTask?.Invoke(task);
+        taskMarker.SetActive(false);
+    }
+    public void StartOfficeTask(Transform interactor)
+    {
+        InteractingWith = interactor;
+        SetActivity(Activity.Interacting);
+        task.InitializeTask();
+    }
+    #endregion
 }

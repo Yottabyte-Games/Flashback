@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2022588009890012697}
   - component: {fileID: 2847662702639217283}
   - component: {fileID: 6215461833396288412}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TaskMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,9 +288,10 @@ GameObject:
   - component: {fileID: 6219086609274360376}
   - component: {fileID: 4065514315038549544}
   - component: {fileID: 8232452445551310118}
+  - component: {fileID: 3059449288817411506}
   m_Layer: 0
   m_Name: OfficeWorker
-  m_TagString: Worker
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,5 +374,32 @@ MonoBehaviour:
   <task>k__BackingField: {fileID: 0}
   taskMarker: {fileID: 1353659752297980153}
   officeStation: {fileID: 0}
-  meetingRooms: []
   breakRoom: {fileID: 0}
+  meetingRooms: []
+--- !u!114 &3059449288817411506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3949376191065782467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab724e10469363458335ec65dbddb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interact:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8232452445551310118}
+        m_TargetAssemblyTypeName: OfficeWorker, Assembly-CSharp
+        m_MethodName: StartOfficeTask
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

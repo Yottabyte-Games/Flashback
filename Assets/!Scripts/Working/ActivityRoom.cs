@@ -18,7 +18,7 @@ public class ActivityRoom : MonoBehaviour
 
         for (int i = 0; i < s.Length; i++)
         {
-            seats.Add(new WorkerPosition() { position = s[i].transform });
+            seats.Add(new WorkerPosition() { transform = s[i].transform });
 
             await Task.Delay(10);
         }
@@ -47,6 +47,8 @@ public class ActivityRoom : MonoBehaviour
                 {
                     seats[i].SetWorker(worker);
                     worker.EndedActivity += LeaveSeat;
+
+                    return seats[i].transform;
                 }
             } 
             else
@@ -57,6 +59,8 @@ public class ActivityRoom : MonoBehaviour
                 {
                     seats[seatInQuestion].SetWorker(worker);
                     worker.EndedActivity += LeaveSeat;
+
+                    return seats[seatInQuestion].transform;
                 }
             }
         }

@@ -20,7 +20,6 @@ public class OfficeTask : ScriptableObject
     {
         manager = FindFirstObjectByType<TaskManager>();
         RandomizeTask();   
-        InitializeTask();
     }
 
     public void RandomizeTask()
@@ -42,6 +41,8 @@ public class OfficeTask : ScriptableObject
                 break;
         }
     }
+
+
     [ShowIf(nameof(taskType), TaskType.Fetch)]
     public GameObject toFetch;
     void InitializeFetchTask()

@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class WorkerPosition 
 {
-    public Transform position;
+    public Transform transform;
 #nullable enable
     public OfficeWorker? workerInPosition;
 #nullable disable
