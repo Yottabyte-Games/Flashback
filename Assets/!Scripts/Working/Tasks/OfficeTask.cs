@@ -10,10 +10,12 @@ public enum TaskType
 }
 
 [CreateAssetMenu(fileName = "Task", menuName = "Minigames/Office/Task")]
-public class OfficeTask : ScriptableObject
+public abstract class OfficeTask : ScriptableObject
 {
     [ReadOnly, SerializeField] protected TaskType taskType;
     protected TaskManager manager { get; private set; }
+    protected OfficeWorker creator { get; private set; }
+
     public bool initialized {  get; private set; }
 
     protected virtual void OnEnable()
@@ -23,15 +25,13 @@ public class OfficeTask : ScriptableObject
     }
 
     [Button]
-    public virtual void InitializeTask()
+    public virtual void InitializeTask(OfficeWorker worker)
     {
+        creator = worker;
         initialized = true;
     }
 
-    protected virtual void ProgressTask()
-    {
-
-    }
+    protected abstract void ProgressTask();
 
     [Button]
     public void CompleteTask()

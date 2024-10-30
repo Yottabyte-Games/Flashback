@@ -10,9 +10,14 @@ public class CleaningTask : OfficeTask
         taskType = TaskType.Cleaning;
         base.OnEnable();
     }
-    public override void InitializeTask()
+    public override void InitializeTask(OfficeWorker worker)
     {
         toClean = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
-        base.InitializeTask();
+        base.InitializeTask(worker);
+    }
+
+    protected override void ProgressTask()
+    {
+        throw new System.NotImplementedException();
     }
 }

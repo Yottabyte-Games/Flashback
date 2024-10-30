@@ -144,7 +144,7 @@ public class OfficeWorker : Creature
         taskMarker.SetActive(true);
         workInteractable.enabled = true;
     }
-    public void StartOfficeTask(Transform interactor)
+    public async void StartOfficeTask(Transform interactor)
     {
         if(task == null)
         {
@@ -158,9 +158,13 @@ public class OfficeWorker : Creature
 
         interacting = true;
         SetDestination(interactor);
-        task.InitializeTask();
+        task.InitializeTask(this);
         taskMarker.SetActive(false);
         workInteractable.enabled = false;
+
+        await Task.Delay(1000);
+
+        interacting = false;
     }
     #endregion
 }
