@@ -1,7 +1,7 @@
 using NaughtyAttributes;
 using System;
-using System.Collections;
 using System.Threading.Tasks;
+using Unity.Mathematics;
 using UnityEngine;
 
 public enum Activity
@@ -10,30 +10,32 @@ public enum Activity
     Working,
     Break,
     Meeting,
-    Interacting
 }
 
 public class OfficeWorker : Creature
 {
-    [field: SerializeField]public Activity activity { get; private set; }
+    [field: SerializeField] public Activity activity { get; private set; }
+    public bool interacting { get; private set; }
     [field: SerializeField, Expandable] public OfficeTask task { get; private set; }
     [SerializeField] GameObject taskMarker;
 
     [HideInInspector] public Transform officeStation;
     [HideInInspector] public ActivityRoom breakRoom;
     [HideInInspector] public ActivityRoom[] meetingRooms;
-    [SerializeField] Transform InteractingWith;
-
-    public event Action<OfficeTask> NewOfficeTask;
-    public event Action<OfficeTask> CompletedOfficeTask;
 
     public event Action<OfficeWorker> EndedActivity;
 
-    async void Start()
+    WorkInteractable workInteractable;
+    protected override void Awake()
     {
-        SetActivity(Activity.Working);
+        base.Awake();
+        workInteractable = GetComponent<WorkInteractable>();
+        workInteractable.enabled = false;
+    }
 
-        while (true)
+    protected virtual async void Start()
+    {
+        while (Application.isPlaying)
         {
             await IsInteracting();
 
@@ -87,7 +89,7 @@ public class OfficeWorker : Creature
             case Activity.Nothing:
                 break;
             case Activity.Working:
-                SetDestination(officeStation.position);
+                SetDestination(officeStation);
                 break;
             case Activity.Break:
                 Transform breakSeat = breakRoom.RequestSeat(this);
@@ -98,7 +100,7 @@ public class OfficeWorker : Creature
                 }
                 else
                 {
-                    SetDestination(breakSeat.position);
+                    SetDestination(breakSeat);
                 }
                 break;
             case Activity.Meeting:
@@ -111,19 +113,15 @@ public class OfficeWorker : Creature
                 }
                 else
                 {
-                    SetDestination(meetingSeat.position);
+                    SetDestination(meetingSeat);
                 }
-                break;
-            case Activity.Interacting:
                 break;
         }
     }
     async Task IsInteracting()
     {
-        while (activity == Activity.Interacting && Application.isPlaying)
+        while (interacting && Application.isPlaying)
         {
-            SetDestination(InteractingWith.position);
-
             await Task.Delay(10);
         }
     }
@@ -132,24 +130,37 @@ public class OfficeWorker : Creature
     #region Tasks
     public void GenerateOfficeTask()
     {
-        task = ScriptableObject.CreateInstance<OfficeTask>();
+        int randomTask = UnityEngine.Random.Range(0, 2);
+        switch(randomTask)
+        {
+            case 0:
+                task = ScriptableObject.CreateInstance<FetchTask>();
+                break;
+            case 1:
+                task = ScriptableObject.CreateInstance<CleaningTask>();
+                break;
+        }
 
-        NewOfficeTask?.Invoke(task);
         taskMarker.SetActive(true);
-    }
-    [Button]
-    public void FisnishOfficeTask()
-    {
-        task = null;
-
-        CompletedOfficeTask?.Invoke(task);
-        taskMarker.SetActive(false);
+        workInteractable.enabled = true;
     }
     public void StartOfficeTask(Transform interactor)
     {
-        InteractingWith = interactor;
-        SetActivity(Activity.Interacting);
+        if(task == null)
+        {
+            return;
+        }
+
+        if (task.initialized)
+        {
+            return;
+        }
+
+        interacting = true;
+        SetDestination(interactor);
         task.InitializeTask();
+        taskMarker.SetActive(false);
+        workInteractable.enabled = false;
     }
     #endregion
 }

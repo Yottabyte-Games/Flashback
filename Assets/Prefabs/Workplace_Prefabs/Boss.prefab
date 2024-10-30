@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3518318276834015328}
   - component: {fileID: 5479629671945813599}
   - component: {fileID: 3306856642058869500}
-  - component: {fileID: 7018183049887786489}
   m_Layer: 0
   m_Name: Cube_1
   m_TagString: Untagged
@@ -87,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7018183049887786489
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24404255277802115}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &650589845690386643
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +97,6 @@ GameObject:
   - component: {fileID: 3643027562241491385}
   - component: {fileID: 1839755126676525304}
   - component: {fileID: 583506243608776229}
-  - component: {fileID: 2281984913637977069}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -195,27 +172,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2281984913637977069
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650589845690386643}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7605447002589857776
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +213,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3059449288817411506, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
+      propertyPath: interact.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8504464359345979648}
+    - target: {fileID: 3059449288817411506, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
+      propertyPath: interact.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartOfficeTask
+      objectReference: {fileID: 0}
     - target: {fileID: 3949376191065782467, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -310,7 +274,7 @@ PrefabInstance:
       addedObject: {fileID: 1672078555203561427}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3949376191065782467, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 8504464359345979648}
   m_SourcePrefab: {fileID: 100100000, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
 --- !u!4 &986744160664730036 stripped
@@ -339,8 +303,9 @@ MonoBehaviour:
   <task>k__BackingField: {fileID: 0}
   taskMarker: {fileID: 7164347015569138286}
   officeStation: {fileID: 0}
-  meetingRooms: []
   breakRoom: {fileID: 0}
+  meetingRooms: []
+  InteractingWith: {fileID: 0}
 --- !u!1 &7164347015569138286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1353659752297980153, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}

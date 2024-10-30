@@ -26,6 +26,7 @@ public class WorkInput : MonoBehaviour, WorkInputs.IWorkActions
     {
         if(other.TryGetComponent(out WorkInteractable interactable))
         {
+            if (interactable.enabled == false) return;
             toInteractWith = interactable;
         }
     }

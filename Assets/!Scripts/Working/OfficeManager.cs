@@ -19,8 +19,8 @@ public class OfficeManager : MonoBehaviour
     [SerializeField] Transform bossOffice;
     Cublicle[] cubicles;
 
-    [Header("Tasks")]
-    [Expandable, ReadOnly] public List<OfficeTask> officeTasks = new List<OfficeTask>();
+    [Header("Other")]
+    [SerializeField] TaskManager taskManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     async void Start()
@@ -33,33 +33,21 @@ public class OfficeManager : MonoBehaviour
         boss.meetingRooms = meetingRooms;
         boss.officeStation = bossOffice;
 
+
         foreach (var item in cubicles)
         {
-            if(Application.isPlaying)
-            {
-                GameObject wg = Instantiate(officeWorkerPrefab, enterance.position, enterance.rotation);
+            if (!Application.isPlaying) return;
 
-                OfficeWorker worker = wg.GetComponent<OfficeWorker>();
-                worker.officeStation = item.transform;
-                worker.meetingRooms = meetingRooms;
-                worker.breakRoom = breakRoom;
+            GameObject wg = Instantiate(officeWorkerPrefab, enterance.position, enterance.rotation);
 
-                workers.Add(worker);
+            OfficeWorker worker = wg.GetComponent<OfficeWorker>();
+            worker.officeStation = item.transform;
+            worker.meetingRooms = meetingRooms;
+            worker.breakRoom = breakRoom;
 
-                worker.NewOfficeTask += AddOfficeTask;
-                worker.CompletedOfficeTask += CompleteOfficeTask;
+            workers.Add(worker);
 
-                await Task.Delay(1000);
-            }
+            await Task.Delay(1000);
         }
-    }
-
-    void AddOfficeTask(OfficeTask task)
-    {
-        officeTasks.Add(task);
-    }
-    void CompleteOfficeTask(OfficeTask task)
-    {
-        officeTasks.Remove(task);
     }
 }

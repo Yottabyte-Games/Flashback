@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8159204907740293852
+--- !u!1001 &3926359183723261776
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,10 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5040471632168228051, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
-      propertyPath: interact.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Interact
-      objectReference: {fileID: 0}
     - target: {fileID: 6636492261335302572, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -54,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8540085445524977128, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
       propertyPath: m_Name
-      value: Pen
+      value: Item Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

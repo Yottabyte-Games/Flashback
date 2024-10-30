@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
+using NaughtyAttributes;
 
 public abstract class Creature : MonoBehaviour
 {
-    protected NavMeshAgent agent {get; private set;}
+    protected NavMeshAgent agent { get; private set;}
+    protected Transform destination { get; private set;}
     public bool reachedDestination
     {
         get
@@ -12,13 +14,20 @@ public abstract class Creature : MonoBehaviour
         }
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public void SetDestination(Vector3 pos)
+    protected virtual void Update()
     {
-        agent.destination = pos;
+        if (destination == null) return;
+        agent.destination = destination.position;
+    }
+
+    public void SetDestination(Transform pos)
+    {
+        if (!Application.isPlaying) return;
+        destination = pos;
     }
 }

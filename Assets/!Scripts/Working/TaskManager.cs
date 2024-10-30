@@ -6,18 +6,42 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] fetchableItems;
-    [SerializeField, ReadOnly] List<ItemPosition> itemPositions = new List<ItemPosition>();
+    public int tasksCompleted;
+    [Expandable, ReadOnly] public List<OfficeTask> officeTasks = new List<OfficeTask>();
+    
 
-    public GameObject GenerateFetchableItem()
+    [SerializeField] GameObject[] fetchableItems;
+    [SerializeField] GameObject[] trash;
+
+    public void AddOfficeTask(OfficeTask task)
     {
-        GameObject current = Instantiate(fetchableItems[Random.Range(0, fetchableItems.Length)]);
+        officeTasks.Add(task);
+    }
+    public void CompleteOfficeTask(OfficeTask task)
+    {
+        tasksCompleted++;
+        officeTasks.Remove(task);
+    }
+
+    public GameObject GenerateTaskItem(TaskType taskType)
+    {
+        GameObject current = null;
+        switch (taskType)
+        {
+            case TaskType.Fetch:
+                current = Instantiate(fetchableItems[Random.Range(0, fetchableItems.Length)]);
+                break;
+            case TaskType.Cleaning:
+                current = Instantiate(trash[Random.Range(0, trash.Length)]);
+                break;
+        }
 
         current.transform.position = itemPositions[Random.Range(0, itemPositions.Count)].transform.position;
 
         return current;
     }
 
+    [SerializeField, ReadOnly] List<ItemPosition> itemPositions = new List<ItemPosition>();
     [Button]
     async void FindAllItemPositions()
     {
