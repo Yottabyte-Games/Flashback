@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class TaskGoal : MonoBehaviour
 {
     WorkInteractable interactable;
+
+    public event Action reached;
     private void Start()
     {
         interactable = GetComponent<WorkInteractable>();
@@ -11,6 +14,6 @@ public class TaskGoal : MonoBehaviour
 
     public void Completed(Transform transform)
     {
-
+        reached?.Invoke();
     }
 }

@@ -19,7 +19,6 @@ public class FetchTask : OfficeTask
 
         toFetch = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
         toFetch.InteractedWith += ProgressTask;
-        Debug.Log(creator);
         goal = creator.gameObject.AddComponent<TaskGoal>();
     }
 

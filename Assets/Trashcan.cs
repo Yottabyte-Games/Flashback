@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class Trashcan : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void ThrowAwayTrash(Transform player)
     {
-        
-    }
+        Holding held = player.GetComponent<Holding>();
+        if (held.heldItem == null) return;
+        if (!held.heldItem.TryGetComponent(out TrashItem trash)) return;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(held.heldItem);
     }
 }

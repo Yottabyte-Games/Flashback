@@ -1,9 +1,11 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CleaningTask : OfficeTask
 {
     TaskItem toClean;
-    TaskGoal goal;
+    List<TaskGoal> goal = new List<TaskGoal>();
 
     protected override void OnEnable()
     {
@@ -12,12 +14,18 @@ public class CleaningTask : OfficeTask
     }
     public override void InitializeTask(OfficeWorker worker)
     {
-        toClean = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
         base.InitializeTask(worker);
+        toClean = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
+        toClean.InteractedWith += ProgressTask;
     }
 
     protected override void ProgressTask()
     {
-        throw new System.NotImplementedException();
+        foreach (var can in manager.trashcans)
+        {
+            TaskGoal current = can.AddComponent<TaskGoal>();
+            goal.Add(current);
+            current.reached += CompleteTask;
+        }
     }
 }

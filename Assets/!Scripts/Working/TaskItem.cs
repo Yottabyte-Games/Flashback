@@ -3,27 +3,20 @@ using UnityEngine;
 
 public class TaskItem : MonoBehaviour
 {
-    [SerializeField] GameObject indicator;
-    Transform hand;
+    public GameObject indicator;
 
     public event Action InteractedWith;
     private void OnEnable()
     {
         indicator = Instantiate(indicator, transform);
-        hand = GameObject.Find("Held Object").transform;
     }
 
-    public void Interact()
+    public void Interact(Transform heldBy)
     {
-        HoldItem();
-        InteractedWith?.Invoke();
-    }
-    public void HoldItem()
-    {
-        indicator.SetActive(false);
-        transform.parent = hand.transform;
-        transform.localPosition = Vector3.zero;
-        gameObject.layer = 7;
-        transform.Find("Art").gameObject.layer = 7;
+        if(heldBy.GetComponent<Holding>().HoldItem(gameObject))
+        {
+            indicator.SetActive(false);
+            InteractedWith?.Invoke();
+        }
     }
 }

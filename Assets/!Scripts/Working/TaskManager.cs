@@ -41,6 +41,22 @@ public class TaskManager : MonoBehaviour
         return current;
     }
 
+    [field: SerializeField] public List<Trashcan> trashcans { get; private set; } = new List<Trashcan>();
+    [Button]
+    async void FindAllTrashcans()
+    {
+        trashcans.Clear();
+
+        Trashcan[] cans = FindObjectsByType<Trashcan>(FindObjectsSortMode.None);
+
+        for (int i = 0; i < cans.Length; i++)
+        {
+            trashcans.Add(cans[i]);
+
+            await Task.Delay(10);
+        }
+    }
+
     [SerializeField, ReadOnly] List<ItemPosition> itemPositions = new List<ItemPosition>();
     [Button]
     async void FindAllItemPositions()

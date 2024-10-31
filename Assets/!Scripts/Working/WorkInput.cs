@@ -1,9 +1,6 @@
-using _Scripts.Snowman_Scripts.Interaction;
-using NaughtyAttributes;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 
 public class WorkInput : MonoBehaviour, WorkInputs.IWorkActions
 {
@@ -19,12 +16,12 @@ public class WorkInput : MonoBehaviour, WorkInputs.IWorkActions
     }
     private void Start()
     {
-        interact += Interact;    
+        interact += Interact;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out WorkInteractable interactable))
+        if (other.TryGetComponent(out WorkInteractable interactable))
         {
             if (interactable.enabled == false) return;
             toInteractWith = interactable;

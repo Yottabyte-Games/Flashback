@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5040471632168228051, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
+      propertyPath: interact.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6061938976797595758}
+    - target: {fileID: 5040471632168228051, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
+      propertyPath: interact.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Interact
+      objectReference: {fileID: 0}
     - target: {fileID: 6636492261335302572, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50,10 +58,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8540085445524977128, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
       propertyPath: m_Name
-      value: Item Variant
+      value: Trash
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3611751376922605429, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8540085445524977128, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 6061938976797595758}
   m_SourcePrefab: {fileID: 100100000, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
+--- !u!1 &4681844381510343352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8540085445524977128, guid: 96effdaa514827e4991f3c5515d7df09, type: 3}
+  m_PrefabInstance: {fileID: 3926359183723261776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6061938976797595758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681844381510343352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28935c34a47d6ef40b3e42f3d9f7efe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicator: {fileID: 1676515487690185490, guid: d49339d48529f294dbfd8dc7e9497c22, type: 3}
