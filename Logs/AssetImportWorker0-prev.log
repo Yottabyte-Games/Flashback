@@ -15,7 +15,7 @@ C:/Users/anwor/Documents/GitHub/Flashback
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61696
+51405
 -job-worker-count
 7
 -background-job-worker-count
@@ -59,12 +59,12 @@ C:/Users/anwor/Documents/GitHub/Flashback
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [65796]  Target information:
+Player connection [68556]  Target information:
 
-Player connection [65796]  * "[IP] 158.38.226.11 [Port] 0 [Flags] 2 [Guid] 2202170868 [EditorId] 2202170868 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [68556]  * "[IP] 158.38.226.11 [Port] 0 [Flags] 2 [Guid] 436448334 [EditorId] 436448334 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [65796] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [65796] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [68556] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [68556] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 7
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -75,7 +75,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 2.45 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 3.33 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.24f1 (11fa355cd605)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/Resources/UnitySubsystems
@@ -98,54 +98,54 @@ Shader 'Universal Render Pipeline/VR/SpatialMapping/Wireframe': fallback shader 
 Shader 'Universal Render Pipeline/Simple Lit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
 Shader 'Universal Render Pipeline/Particles/Simple Lit': fallback shader 'Universal Render Pipeline/Particles/Unlit' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/Simple Lit' not found
+Shader 'Universal Render Pipeline/Nature/SpeedTree7 Billboard': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
+Shader 'Universal Render Pipeline/Complex Lit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
 Shader 'Universal Render Pipeline/Nature/SpeedTree8': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
 Shader 'Hidden/Universal Render Pipeline/Terrain/Lit (Add Pass)': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
 Shader 'Universal Render Pipeline/Baked Lit': fallback shader 'Universal Render Pipeline/Unlit' not found
-Shader 'Universal Render Pipeline/Nature/SpeedTree7 Billboard': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Complex Lit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
 Shader 'Universal Render Pipeline/Unlit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56504
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56076
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002736 seconds.
-- Loaded All Assemblies, in  0.417 seconds
+Registered in 0.003354 seconds.
+- Loaded All Assemblies, in  0.395 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.352 seconds
-Domain Reload Profiling: 764ms
-	BeginReloadAssembly (156ms)
+- Finished resetting the current domain, in  0.277 seconds
+Domain Reload Profiling: 668ms
+	BeginReloadAssembly (152ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (35ms)
-	RebuildNativeTypeToScriptingClass (13ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (10ms)
 	initialDomainReloadingComplete (50ms)
-	LoadAllAssembliesAndSetupDomain (158ms)
-		LoadAssemblies (152ms)
+	LoadAllAssembliesAndSetupDomain (144ms)
+		LoadAssemblies (149ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (155ms)
-			TypeCache.Refresh (153ms)
-				TypeCache.ScanAssembly (139ms)
+		AnalyzeDomain (141ms)
+			TypeCache.Refresh (139ms)
+				TypeCache.ScanAssembly (126ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (352ms)
+	FinalizeReload (277ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (301ms)
+		SetupLoadedEditorAssemblies (238ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (33ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (5ms)
-			ProcessInitializeOnLoadAttributes (190ms)
-			ProcessInitializeOnLoadMethodAttributes (66ms)
-			AfterProcessingInitializeOnLoad (2ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (6ms)
+			ProcessInitializeOnLoadAttributes (156ms)
+			ProcessInitializeOnLoadMethodAttributes (48ms)
+			AfterProcessingInitializeOnLoad (3ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
@@ -153,8 +153,8 @@ Domain Reload Profiling: 764ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.205 seconds
-Refreshing native plugins compatible for Editor in 9.82 ms, found 3 plugins.
+- Loaded All Assemblies, in  1.627 seconds
+Refreshing native plugins compatible for Editor in 2.53 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Shader 'Universal Render Pipeline/Terrain/Lit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
 Shader 'Universal Render Pipeline/Terrain/Lit': dependency 'AddPassShader' shader 'Hidden/Universal Render Pipeline/Terrain/Lit (Add Pass)' not found
@@ -178,317 +178,407 @@ UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
 [MODES] ModeService[none].LoadModes
 [MODES] Loading mode Default (0) for mode-current-id-First Person Controller for Fishing Game
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.917 seconds
-Domain Reload Profiling: 2116ms
-	BeginReloadAssembly (593ms)
+- Finished resetting the current domain, in  1.174 seconds
+Domain Reload Profiling: 2794ms
+	BeginReloadAssembly (661ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
+		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (35ms)
+		CreateAndSetChildDomain (28ms)
 	RebuildCommonClasses (30ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (36ms)
-	LoadAllAssembliesAndSetupDomain (529ms)
-		LoadAssemblies (374ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (887ms)
+		LoadAssemblies (598ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (247ms)
-			TypeCache.Refresh (158ms)
-				TypeCache.ScanAssembly (143ms)
-			BuildScriptInfoCaches (78ms)
-			ResolveRequiredComponents (8ms)
-	FinalizeReload (918ms)
+		AnalyzeDomain (410ms)
+			TypeCache.Refresh (304ms)
+				TypeCache.ScanAssembly (284ms)
+			BuildScriptInfoCaches (89ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (1175ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (644ms)
+		SetupLoadedEditorAssemblies (835ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (69ms)
-			ProcessInitializeOnLoadAttributes (452ms)
-			ProcessInitializeOnLoadMethodAttributes (110ms)
-			AfterProcessingInitializeOnLoad (8ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (101ms)
+			ProcessInitializeOnLoadAttributes (573ms)
+			ProcessInitializeOnLoadMethodAttributes (140ms)
+			AfterProcessingInitializeOnLoad (10ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (7ms)
 Shader 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
-WARNING: Shader Did you use #pragma only_renderers and omit this platform?
-WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
-WARNING: Shader Did you use #pragma only_renderers and omit this platform?
-WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 1.94 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 2.58 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 218 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6388 unused Assets / (4.8 MB). Loaded Objects now: 7151.
-Memory consumption went from 192.2 MB to 187.4 MB.
-Total: 9.015900 ms (FindLiveObjects: 0.735400 ms CreateObjectMapping: 0.512400 ms MarkObjects: 5.185600 ms  DeleteObjects: 2.580900 ms)
+Unloading 309 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6975 unused Assets / (8.9 MB). Loaded Objects now: 7802.
+Memory consumption went from 221.0 MB to 212.1 MB.
+Total: 17.436900 ms (FindLiveObjects: 1.523000 ms CreateObjectMapping: 1.187700 ms MarkObjects: 9.113100 ms  DeleteObjects: 5.610800 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 479565.240743 seconds.
-  path: Assets/Scenes/FPS.unity
-  artifactKey: Guid(e2a3f55306593ff4d9cdf9892ca655d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/FPS.unity using Guid(e2a3f55306593ff4d9cdf9892ca655d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3c658e1f670155cfa3598d46ed001910') in 0.0062248 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 197.376593 seconds.
-  path: Assets/DefaultVolumeProfile.asset
-  artifactKey: Guid(745334225e4d5004dbaee34e2de9de2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DefaultVolumeProfile.asset using Guid(745334225e4d5004dbaee34e2de9de2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e4c1cab849708d2379c6d01845d97eea') in 0.0239991 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
+  Time since last request: 494185.212855 seconds.
   path: Assets/UniversalRenderPipelineGlobalSettings.asset
   artifactKey: Guid(18dc0cd2c080841dea60987a38ce93fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/UniversalRenderPipelineGlobalSettings.asset using Guid(18dc0cd2c080841dea60987a38ce93fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2beaab4d9a59766af68a26544b5e9d64') in 0.0011912 seconds
+Start importing Assets/UniversalRenderPipelineGlobalSettings.asset using Guid(18dc0cd2c080841dea60987a38ce93fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2beaab4d9a59766af68a26544b5e9d64') in 0.0237229 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 6.332746 seconds.
-  path: Assets/YottabyteGames
-  artifactKey: Guid(05fe920db961bdf4cb9b26adb8836cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames using Guid(05fe920db961bdf4cb9b26adb8836cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1d6c7d29b8c2541df5c329e2d784cb95') in 0.0013858 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.253457 seconds.
-  path: Assets/YottabyteGames/Scripts
-  artifactKey: Guid(d4ed9d148d0fd9147888f12694e1b502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/Scripts using Guid(d4ed9d148d0fd9147888f12694e1b502) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '806034b9a9524b3859e47deda9be4c75') in 0.0009944 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.106709 seconds.
+  Time since last request: 46.356014 seconds.
   path: Assets/Scenes
   artifactKey: Guid(5587eb8c138c95147b7354fc32e5a662) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes using Guid(5587eb8c138c95147b7354fc32e5a662) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ae51294ebb95569424de976d7f3651d5') in 0.0009353 seconds
+Start importing Assets/Scenes using Guid(5587eb8c138c95147b7354fc32e5a662) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ae51294ebb95569424de976d7f3651d5') in 0.0013938 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.552131 seconds.
-  path: Assets/YottabyteGames/FinalCharacterController
-  artifactKey: Guid(648f18118d124ce4d9b0288571e22210) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FinalCharacterController using Guid(648f18118d124ce4d9b0288571e22210) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'efa63524de331d341aa39f5630519c5d') in 0.0015967 seconds
+  Time since last request: 1.351104 seconds.
+  path: Assets/Scenes/FPS.unity
+  artifactKey: Guid(e2a3f55306593ff4d9cdf9892ca655d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/FPS.unity using Guid(e2a3f55306593ff4d9cdf9892ca655d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6c90ed92f450b49e85b3294c8f6398b9') in 0.0014088 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.731 seconds
+Refreshing native plugins compatible for Editor in 2.61 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+The project currently uses the compatibility mode where the Render Graph API is disabled. Support for this mode will be removed in future Unity versions. Migrate existing ScriptableRenderPasses to the new RenderGraph API. After the migration, disable the compatibility mode in Edit > Projects Settings > Graphics > Render Graph.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+UnityEngine.Rendering.Universal.WarnUsingNonRenderGraph:EmitConsoleWarning () (at ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs:427)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs Line: 427)
+
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.005 seconds
+Domain Reload Profiling: 1734ms
+	BeginReloadAssembly (186ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (54ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (481ms)
+		LoadAssemblies (365ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (193ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (169ms)
+			ResolveRequiredComponents (12ms)
+	FinalizeReload (1005ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (686ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (97ms)
+			ProcessInitializeOnLoadAttributes (466ms)
+			ProcessInitializeOnLoadMethodAttributes (105ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Refreshing native plugins compatible for Editor in 2.15 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 50 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6975 unused Assets / (8.5 MB). Loaded Objects now: 7821.
+Memory consumption went from 186.5 MB to 178.0 MB.
+Total: 14.286800 ms (FindLiveObjects: 1.529200 ms CreateObjectMapping: 0.437100 ms MarkObjects: 9.038000 ms  DeleteObjects: 3.280100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 49.694227 seconds.
+  path: Assets/_Barking_Dog
+  artifactKey: Guid(949c5795a83214ce290e76410698e7e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog using Guid(949c5795a83214ce290e76410698e7e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'df7868cb0681d5501b33b8a12a19ae05') in 0.0196641 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.256074 seconds.
-  path: Assets/YottabyteGames/FinalCharacterController/Scripts
-  artifactKey: Guid(87746427e7d5ada46b3396e14e54e3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FinalCharacterController/Scripts using Guid(87746427e7d5ada46b3396e14e54e3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3876130466177196a7c46b90b4bd1d13') in 0.0011236 seconds
+  Time since last request: 1.647785 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit
+  artifactKey: Guid(993c1992e51804d43aada52f1ac82a20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit using Guid(993c1992e51804d43aada52f1ac82a20) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '94daf928ade2518c18a79e026db2a929') in 0.0010524 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.924057 seconds.
-  path: Assets/YottabyteGames/FinalCharacterController/Scripts/PlayerController.cs
-  artifactKey: Guid(afb3616661ef0a6498aea887566835b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FinalCharacterController/Scripts/PlayerController.cs using Guid(afb3616661ef0a6498aea887566835b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0a87f9de2048bce953568e57fccaf72f') in 0.0011867 seconds
+  Time since last request: 0.032372 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/Camera Profile.asset
+  artifactKey: Guid(66fe30987fca4e747985c93aa3738821) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/Camera Profile.asset using Guid(66fe30987fca4e747985c93aa3738821) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '64db8ef31741a1003c5a3da8a8c65293') in 0.0159678 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.221393 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs
+  artifactKey: Guid(d1f1e35ed5fd842f7b91e200e0e5fe56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs using Guid(d1f1e35ed5fd842f7b91e200e0e5fe56) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ef3058913adf67704619eec5ed792418') in 0.0009245 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 276.962436 seconds.
-  path: Assets/YottabyteGames/FinalCharacterController/Scripts/PlayerState.cs
-  artifactKey: Guid(d6df35ecb04b3eb449ddaeeb385956c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FinalCharacterController/Scripts/PlayerState.cs using Guid(d6df35ecb04b3eb449ddaeeb385956c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '83dbae369d7f533c9b7150eecc5cb596') in 0.0013482 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+  Time since last request: 0.040778 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Column_01_Top.prefab
+  artifactKey: Guid(3cd8d44393ff84c5b81c559e5a60c35c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Column_01_Top.prefab using Guid(3cd8d44393ff84c5b81c559e5a60c35c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd46eb524a8d56ee4e0189a34469735ea') in 0.3804866 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 16
 
 ========================================================================
 Received Import Request.
-  Time since last request: 399.401549 seconds.
-  path: Assets/YottabyteGames/PlayerAnimator.controller
-  artifactKey: Guid(6e873acbea8c09e4bb13a32de84aa482) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/PlayerAnimator.controller using Guid(6e873acbea8c09e4bb13a32de84aa482) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9fb5fde7cf5c99cdaa0387ad0fa65006') in 0.0582481 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 19
+  Time since last request: 0.000033 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Roof_01.prefab
+  artifactKey: Guid(1a5e2f40365fe44ada271dd97ea7506f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Roof_01.prefab using Guid(1a5e2f40365fe44ada271dd97ea7506f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '178671aa39a9107e7ee6e0da97fdfac4') in 0.0349406 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
 
 ========================================================================
 Received Import Request.
-  Time since last request: 142.471905 seconds.
-  path: Assets/Blink
-  artifactKey: Guid(147230560566518479586c270e6049f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink using Guid(147230560566518479586c270e6049f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8cca50ddf3854ce1e4bf3db38f62b091') in 0.0017939 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.725122 seconds.
-  path: Assets/Blink/Art
-  artifactKey: Guid(112ba712ff84fe54baee7ad2f700c3ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art using Guid(112ba712ff84fe54baee7ad2f700c3ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b839522e4a312833de63ecb7bf2121e3') in 0.0016425 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.088338 seconds.
-  path: Assets/Blink/Art/Animations
-  artifactKey: Guid(d33901fc9e53f6d41b5a232d05017d3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations using Guid(d33901fc9e53f6d41b5a232d05017d3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '78edb983004d8437fe7bbad399bcd75c') in 0.0012845 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.057508 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack
-  artifactKey: Guid(2ad470861c2cd154997d20c3bca6d694) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack using Guid(2ad470861c2cd154997d20c3bca6d694) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '84377a353058c03d4cb056ce8a793049') in 0.0016889 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.894346 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat
-  artifactKey: Guid(35b149b905f5c4645896e69ce79c884a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat using Guid(35b149b905f5c4645896e69ce79c884a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'aeab4eefb288f31d5d4a3d0aea114b02') in 0.0012869 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.050893 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/BlockingLoop.fbx
-  artifactKey: Guid(a8bd4d740daa72c46bbff25e229c4ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/BlockingLoop.fbx using Guid(a8bd4d740daa72c46bbff25e229c4ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '589c16c9908daa38f35e8e88318817eb') in 0.0993523 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/Buff.fbx
-  artifactKey: Guid(20349140a3cb83e4d883e1456c7783d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/Buff.fbx using Guid(20349140a3cb83e4d883e1456c7783d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b21769c50c9a9b3617aa29a6cfe43b34') in 0.0076136 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000061 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/StunnedLoop.fbx
-  artifactKey: Guid(8f760fa0100eb634b937fa931744496e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/StunnedLoop.fbx using Guid(8f760fa0100eb634b937fa931744496e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6ded5b6cf5ddc1152ef931a0db295b0c') in 0.0065875 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_OneHanded.fbx
-  artifactKey: Guid(3d7c10dfb76b352458c6ee3cf1acd54f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_OneHanded.fbx using Guid(3d7c10dfb76b352458c6ee3cf1acd54f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f2d525bcb902ef5cf5ec35e1d60d4bce') in 0.0069 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+  Time since last request: 0.000058 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Floor_01.prefab
+  artifactKey: Guid(c76d2d3504ddb4847940a815cad04644) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Floor_01.prefab using Guid(c76d2d3504ddb4847940a815cad04644) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6749da3f3118f8efd4883c673e6d0150') in 0.0161807 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000025 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchRight.fbx
-  artifactKey: Guid(b4ed12fcea5716a4b88a664cf716cfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchRight.fbx using Guid(b4ed12fcea5716a4b88a664cf716cfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '04e3a2223339dc9c3f3db7e1ebaa0761') in 0.0074608 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Roof_02.prefab
+  artifactKey: Guid(b9038ed84a1fe4aecb34086f7f42d1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Roof_02.prefab using Guid(b9038ed84a1fe4aecb34086f7f42d1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f65296112b42408f8b3dbde6d95cdec0') in 0.0167786 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/CastingLoop.fbx
-  artifactKey: Guid(d6557ad5f7261ce4c8fe9f8f67c9d4cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/CastingLoop.fbx using Guid(d6557ad5f7261ce4c8fe9f8f67c9d4cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4ace6158a600f19271d25b596af5dd0b') in 0.0063499 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_TwoHanded.fbx
-  artifactKey: Guid(337a802e1a50ad746827a890f372c41e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_TwoHanded.fbx using Guid(337a802e1a50ad746827a890f372c41e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd15a6b71a18120b522c3735c4c97d082') in 0.0074321 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.817418 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering
-  artifactKey: Guid(530002ea215aa2a4a913e0eb4107a8b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering using Guid(530002ea215aa2a4a913e0eb4107a8b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '28d043c5c260a85c34e070d6676cfc07') in 0.0007667 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.016300 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering/Gathering.fbx
-  artifactKey: Guid(f946b4c12eb389240af2e7476c0a67a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering/Gathering.fbx using Guid(f946b4c12eb389240af2e7476c0a67a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14df9e37d99ae1c0b4e1aeedba2559f5') in 0.0106701 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.583025 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement
-  artifactKey: Guid(0794742d7d4be8242b3a0fd27cae7c13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement using Guid(0794742d7d4be8242b3a0fd27cae7c13) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7bed857f2f4d0e823ffaab81814b9529') in 0.0007828 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.015912 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/FallingLoop.fbx
-  artifactKey: Guid(988fefd40c70c4243ac399fce021190a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/FallingLoop.fbx using Guid(988fefd40c70c4243ac399fce021190a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c429e7bd7ae8dabf6c5dde72a74579da') in 0.0109799 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollLeft.fbx
-  artifactKey: Guid(7593128404f726548964f394a5d15132) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollLeft.fbx using Guid(7593128404f726548964f394a5d15132) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f1299e1139470cd2c7a77a8c052dc900') in 0.0081945 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/JumpWhileRunning.fbx
-  artifactKey: Guid(7f10f6ce81a34824a9cd2746ad0b82ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/JumpWhileRunning.fbx using Guid(7f10f6ce81a34824a9cd2746ad0b82ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '55bab9c0ea2b078d880287745c4fbd7e') in 0.0084373 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+  Time since last request: 0.000028 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Floor_Small_01.prefab
+  artifactKey: Guid(1acd03bc537c24f3484ab4d6f07b9e02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Floor_Small_01.prefab using Guid(1acd03bc537c24f3484ab4d6f07b9e02) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2fcac5dbc482a27463c60ea83d2d9c95') in 0.0137024 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000023 seconds.
-  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollRight.fbx
-  artifactKey: Guid(50e0d5f0490eb5a45b0b5952db236f7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollRight.fbx using Guid(50e0d5f0490eb5a45b0b5952db236f7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6922db29540fc986b8733e29349e8336') in 0.0087046 seconds
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Wall_Simple_01.prefab
+  artifactKey: Guid(a4c18952442944083b1fddc06ba477c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Wall_Simple_01.prefab using Guid(a4c18952442944083b1fddc06ba477c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7930f2e4865ef65bc1770297b0ff519f') in 0.0141629 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 17
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Roof_Door_01.prefab
+  artifactKey: Guid(1e6809cccc6f04f01b0819da314e428b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Roof_Door_01.prefab using Guid(1e6809cccc6f04f01b0819da314e428b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '43ce78c88c0b954f46aa79c48749c8fa') in 0.0129312 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Wall_Arc_90_02.prefab
+  artifactKey: Guid(13990f94448cc49c08e917134d8b0479) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Wall_Arc_90_02.prefab using Guid(13990f94448cc49c08e917134d8b0479) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '08791329a79aab559d1b40d90911867b') in 0.0163803 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 26
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Wall_HalfArc_90_02.prefab
+  artifactKey: Guid(618681761d79b4f72b0746a3dcd4bff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Wall_HalfArc_90_02.prefab using Guid(618681761d79b4f72b0746a3dcd4bff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '20898aaa11e9ea5b600f31d6c02aeba2') in 0.0148289 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 26
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Room_Big_Part_01.prefab
+  artifactKey: Guid(8db5b99e1590340a4a7166fa4c9f9cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Room_Big_Part_01.prefab using Guid(8db5b99e1590340a4a7166fa4c9f9cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '447b684de40ae6d1514755bc9ebe9889') in 0.0207493 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 156
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Room_Big_Part_04.prefab
+  artifactKey: Guid(338a3a19b542e4a5bae99feecf242132) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Prefabs/Room_Big_Part_04.prefab using Guid(338a3a19b542e4a5bae99feecf242132) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '01a5112c695de81fd44926c77a7ff1e8') in 0.0244673 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 124
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.932968 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Textures/Diffuse_01.png
+  artifactKey: Guid(b2c54144d5fbb4a14b95d5e2ec07dbf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Textures/Diffuse_01.png using Guid(b2c54144d5fbb4a14b95d5e2ec07dbf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d31cb76f7ce6d3ecc28b2fd1035044a') in 0.0179262 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Textures/Normal_01.png
+  artifactKey: Guid(5e704b54cc0cc4015add600ce739fb2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Textures/Normal_01.png using Guid(5e704b54cc0cc4015add600ce739fb2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '612d92fa043367000a1ddeaa1465ef72') in 0.0180015 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 655.224482 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Textures/Levell_Material.mat
+  artifactKey: Guid(80ac75531a88d324680acf954456fef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Textures/Levell_Material.mat using Guid(80ac75531a88d324680acf954456fef8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '903da7103df2f91acf2bf4194db016a8') in 0.8154387 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 191.302086 seconds.
+  path: Assets/_Barking_Dog/3D Free Modular Kit/_Textures/Lamp_Material.mat
+  artifactKey: Guid(1362f4de04aa02a43a506621e386f545) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog/3D Free Modular Kit/_Textures/Lamp_Material.mat using Guid(1362f4de04aa02a43a506621e386f545) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1449f5ec1133d8ae8c667ce613912107') in 0.5981807 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 782.242106 seconds.
+  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering/Gathering.fbx
+  artifactKey: Guid(f946b4c12eb389240af2e7476c0a67a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Gathering/Gathering.fbx using Guid(f946b4c12eb389240af2e7476c0a67a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14df9e37d99ae1c0b4e1aeedba2559f5') in 0.0122798 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
 
 ========================================================================
 Received Import Request.
-  Time since last request: 13.168956 seconds.
-  path: Assets/YottabyteGames/Animation/RunBackward.fbx
-  artifactKey: Guid(13868b4eb0d3b8a49a77cc4989b9a3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/Animation/RunBackward.fbx using Guid(13868b4eb0d3b8a49a77cc4989b9a3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f25139cd18694259a501ca4d48084cde') in 0.0091083 seconds
+  Time since last request: 0.000030 seconds.
+  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/GetHit.fbx
+  artifactKey: Guid(83e28e7ec15604e4e936c71d31a7ebad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/GetHit.fbx using Guid(83e28e7ec15604e4e936c71d31a7ebad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8e165cd0d6ad7bea14acf7b50f30a7e9') in 0.0078641 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/YottabyteGames/Animation/StrafeRight.fbx
-  artifactKey: Guid(71d381e8db65cb547964e023373b98fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/Animation/StrafeRight.fbx using Guid(71d381e8db65cb547964e023373b98fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2642db218c67f586af37010d472ed101') in 0.0062212 seconds
+  Time since last request: 0.000027 seconds.
+  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/Jumps.fbx
+  artifactKey: Guid(ab54d1b34370dbe4d896efebb96535ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/Jumps.fbx using Guid(ab54d1b34370dbe4d896efebb96535ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c13b6fd4aa861fe4b506c46ba6f3a154') in 0.0097906 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 182
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/YottabyteGames/Animation/Jumps.fbx
+  artifactKey: Guid(fda80d6e6039b544297b5ecf7ea82efe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Animation/Jumps.fbx using Guid(fda80d6e6039b544297b5ecf7ea82efe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a5c9835c47cc4ce10934968f09fa1bff') in 0.0043956 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 182
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/IdleCombat.fbx
+  artifactKey: Guid(248146b68218df34c9ed1a14ba7a443b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/IdleCombat.fbx using Guid(248146b68218df34c9ed1a14ba7a443b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '76cabe28cd9c6e9bc0da8dba0801d566') in 0.0067834 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/JumpWhileRunning.fbx
+  artifactKey: Guid(7f10f6ce81a34824a9cd2746ad0b82ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/JumpWhileRunning.fbx using Guid(7f10f6ce81a34824a9cd2746ad0b82ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '55bab9c0ea2b078d880287745c4fbd7e') in 0.0050839 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/YottabyteGames/Animation/Idle.fbx
+  artifactKey: Guid(c346a9e2503cda64ba4698db6aa5e707) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Animation/Idle.fbx using Guid(c346a9e2503cda64ba4698db6aa5e707) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7f6638ab6e0d9057d8a32c97018604d3') in 0.0072052 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.924946 seconds.
+  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_TwoHanded.fbx
+  artifactKey: Guid(337a802e1a50ad746827a890f372c41e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/MeleeAttack_TwoHanded.fbx using Guid(337a802e1a50ad746827a890f372c41e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd15a6b71a18120b522c3735c4c97d082') in 0.0071083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010473 seconds.
+  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchLeft.fbx
+  artifactKey: Guid(d193a764e528253418a9c8161269688c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Combat/PunchLeft.fbx using Guid(d193a764e528253418a9c8161269688c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7f92e5dc8db9663d886e8806a1873e84') in 0.0049334 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013146 seconds.
+  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollBackward.fbx
+  artifactKey: Guid(57d50d7ecb0231244b77aacf40cacf29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollBackward.fbx using Guid(57d50d7ecb0231244b77aacf40cacf29) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f60884eea63ff4044ee644c568e7b4a0') in 0.0058198 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 176
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/YottabyteGames/Animation/RunRight.fbx
-  artifactKey: Guid(eee239821c2dee4429fa8125a1fd6023) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/Animation/RunRight.fbx using Guid(eee239821c2dee4429fa8125a1fd6023) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6e55c3a671939715b8cbba73f1e97944') in 0.0059898 seconds
+  Time since last request: 0.035149 seconds.
+  path: Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollLeft.fbx
+  artifactKey: Guid(7593128404f726548964f394a5d15132) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink/Art/Animations/Animations_Starter_Pack/Movement/RollLeft.fbx using Guid(7593128404f726548964f394a5d15132) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f1299e1139470cd2c7a77a8c052dc900') in 0.0068628 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.312104 seconds.
+  path: Assets/YottabyteGames/Animation/RunBackward.fbx
+  artifactKey: Guid(13868b4eb0d3b8a49a77cc4989b9a3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Animation/RunBackward.fbx using Guid(13868b4eb0d3b8a49a77cc4989b9a3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f25139cd18694259a501ca4d48084cde') in 0.0088625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/YottabyteGames/Animation/RunBackwardRight.fbx
+  artifactKey: Guid(4d66907684f47e542ab56147b39501fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Animation/RunBackwardRight.fbx using Guid(4d66907684f47e542ab56147b39501fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bd4d92bc05f622f19e1ce10c8450d88d') in 0.007969 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/YottabyteGames/Animation/RunLeft.fbx
+  artifactKey: Guid(5120a970404f418419c83af871d9a022) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Animation/RunLeft.fbx using Guid(5120a970404f418419c83af871d9a022) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '512eb5d6bac365064ba7422fede69a4e') in 0.0058482 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 180
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.337933 seconds.
+  path: Assets/YottabyteGames/Animation/StrafeLeft.fbx
+  artifactKey: Guid(7177251f0e1f08546b656875551afe28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Animation/StrafeLeft.fbx using Guid(7177251f0e1f08546b656875551afe28) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '92b765793b3798b11e17eef2d1869a71') in 0.0049537 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 176
 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server

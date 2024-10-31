@@ -61,8 +61,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Barking_Dog\Common Scripts\MouseLook.cs" />
     <Compile Include="Assets\YottabyteGames\Scripts\GunSystem.cs" />
     <Compile Include="Assets\YottabyteGames\FinalCharacterController\Scripts\PlayerLocomotionInput.cs" />
+    <Compile Include="Assets\_Barking_Dog\Common Scripts\Turn_Move.cs" />
     <Compile Include="Assets\YottabyteGames\FinalCharacterController\Scripts\PlayerState.cs" />
     <Compile Include="Assets\YottabyteGames\FinalCharacterController\Input\PlayerControls.cs" />
     <Compile Include="Assets\YottabyteGames\FinalCharacterController\Scripts\Interactor.cs" />
@@ -71,6 +73,9 @@
     <Compile Include="Assets\YottabyteGames\Scripts\PickupController.cs" />
     <Compile Include="Assets\YottabyteGames\FinalCharacterController\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\YottabyteGames\FinalCharacterController\Scripts\PlayerController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\_Barking_Dog\Readme_Please.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
