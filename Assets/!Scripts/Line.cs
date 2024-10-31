@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
-public class String : MonoBehaviour
+public class Line : MonoBehaviour
 {
     public List<Transform> stringPoints = new List<Transform>();
-    LineRenderer lineRenderer;
+    [SerializeField] LineRenderer lineRenderer;
 
     private void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
+        if (lineRenderer == null)
+            lineRenderer = GetComponent<LineRenderer>();
     }
-
     private void Update()
     {
         for (var i = 0; i < stringPoints.Count; i++)
@@ -25,5 +25,14 @@ public class String : MonoBehaviour
         {
             GetComponent<LineRenderer>().SetPosition(i, stringPoints[i].position);
         }
+    }
+
+    private void OnEnable()
+    {
+        lineRenderer.enabled = true;
+    }
+    private void OnDisable()
+    {
+        lineRenderer.enabled = false;
     }
 }

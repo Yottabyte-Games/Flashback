@@ -23,5 +23,7 @@ public class TaskItem : MonoBehaviour
         indicator.SetActive(false);
         transform.parent = hand.transform;
         transform.localPosition = Vector3.zero;
+        gameObject.layer = 7;
+        transform.Find("Art").gameObject.layer = 7;
     }
 }

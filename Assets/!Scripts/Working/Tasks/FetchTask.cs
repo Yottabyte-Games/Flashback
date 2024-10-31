@@ -25,7 +25,8 @@ public class FetchTask : OfficeTask
 
     protected override void ProgressTask()
     {
-        String line = toFetch.gameObject.AddComponent<String>();
+        Line line = toFetch.gameObject.GetComponent<Line>();
+        line.enabled = true;
         line.stringPoints.Add(toFetch.transform);
         line.stringPoints.Add(goal.transform);
     }
