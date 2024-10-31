@@ -21,16 +21,13 @@ namespace Minigame.Fishing
             int fishNum = Random.Range(0, 25 + 15 * (int)hookInWater.bait.type);
 
             Fish fish = new Fish();
-            fish.RandomizeFish();
-            fish.SetFish((FishType)Mathf.RoundToInt(fishNum / 20));
+            fish.InitializeFish((FishType)Mathf.RoundToInt(fishNum / 20));
 
-            if(fish.type != FishType.None)
+            if(fish.type != FishType.Trash)
             {
-                print(fish.type);
                 hookInWater.CatchFish(fish);
             } else
             {
-                print("restart");
                 StartCoroutine(TryGetFish());
             }
         }

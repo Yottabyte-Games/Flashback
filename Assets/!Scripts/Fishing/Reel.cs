@@ -1,4 +1,5 @@
 using System;
+using GinjaGaming.FinalCharacterController;
 using Minigame.Fishing;
 using NaughtyAttributes;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace Minigame.Fishing
     {
         FishingRodInput input;
         Casting cast;
+        PlayerController player;
+        Bucket bucket;
 
         [ReadOnly, SerializeField] bool canReel;
         Fish toReel;
@@ -22,6 +25,8 @@ namespace Minigame.Fishing
 
         private void Start()
         {
+            player = FindFirstObjectByType<PlayerController>();
+            bucket = FindFirstObjectByType<Bucket>();
             input = GetComponent<FishingRodInput>();
             cast = GetComponent<Casting>();
             input.reel += ReelingValue;
@@ -37,6 +42,7 @@ namespace Minigame.Fishing
 
             if(travelDistance / toReel.difficulty >= .65f)
             {
+                bucket.AddFish(toReel);
                 FinishReel.Invoke();
             }
         }
@@ -59,6 +65,9 @@ namespace Minigame.Fishing
         }
         public void StartReeling(Fish fishToReel)
         {
+            player.ToggleCameraMovement();
+            Cursor.lockState = CursorLockMode.Confined;
+
             hookStartPos = cast.currentHook.transform.position;
             hookEndPos = transform.position;
             toReel = fishToReel;
@@ -66,6 +75,9 @@ namespace Minigame.Fishing
         }
         void FinishReeling()
         {
+            player.ToggleCameraMovement();
+            Cursor.lockState = CursorLockMode.Locked;
+
             canReel = false;
             toReel = new Fish();
             travelDistance = 0;

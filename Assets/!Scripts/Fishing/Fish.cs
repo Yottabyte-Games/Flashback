@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace Minigame.Fishing
 {
     public enum FishType
     {
-        None = 0,
+        Trash = 0,
         Panfish = 1,
         Catfish = 2,
         Bass = 3,
@@ -13,26 +14,34 @@ namespace Minigame.Fishing
         GoliathTigerfish = 5,
     }
 
-    public struct Fish
+    [Serializable]
+    public class Fish
     {
+        [SerializeField] string name;
         public FishType type;
-        public float difficultyModifier;
+        [field: SerializeField] public float weight { get; private set; }
+        [field: SerializeField] public float size { get; private set; }
 
-        public float difficulty
+        [field: SerializeField] public float difficulty { get; private set; }
+        public void InitializeFish(FishType type)
         {
-            get
-            {
-                return ((float)type * 2 + difficultyModifier) * 2.5f;
-            }
+            SetFish(type);
+            RandomizeFish();
+            SetDifficulty(); 
         }
-
-        public void RandomizeFish()
+        void RandomizeFish()
         {
-            difficultyModifier = Random.Range(1f, 5f);
+            weight = UnityEngine.Random.Range(1f, 5f);
+            size = UnityEngine.Random.Range(1f, 5f);
         }
-        public void SetFish(FishType fish)
+        void SetFish(FishType fish)
         {
             type = fish;
+            name = type.ToString();
+        }
+        void SetDifficulty()
+        {
+            difficulty = ((float)type * 2 + size + weight / 2) * 2.5f;
         }
     }
 }
