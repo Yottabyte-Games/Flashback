@@ -19,14 +19,22 @@ public class FetchTask : OfficeTask
 
         toFetch = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
         toFetch.InteractedWith += ProgressTask;
-        goal = creator.gameObject.AddComponent<TaskGoal>();
     }
 
     protected override void ProgressTask()
     {
+        goal = creator.gameObject.AddComponent<TaskGoal>();
+        goal.reached += CompleteTask;
+
         Line line = toFetch.gameObject.GetComponent<Line>();
         line.enabled = true;
         line.stringPoints.Add(toFetch.transform);
         line.stringPoints.Add(goal.transform);
+    }
+
+    public override void CompleteTask()
+    {
+        Destroy(toFetch.gameObject);
+        base.CompleteTask();
     }
 }

@@ -6,7 +6,7 @@ public class TaskItem : MonoBehaviour
     public GameObject indicator;
 
     public event Action InteractedWith;
-    private void OnEnable()
+    private void Start()
     {
         indicator = Instantiate(indicator, transform);
     }

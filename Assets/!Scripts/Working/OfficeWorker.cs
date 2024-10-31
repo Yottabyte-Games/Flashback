@@ -142,7 +142,7 @@ public class OfficeWorker : Creature
         }
 
         taskMarker.SetActive(true);
-        workInteractable.enabled = true;
+        ToggleInteractable();
     }
     public async void StartOfficeTask(Transform interactor)
     {
@@ -160,11 +160,17 @@ public class OfficeWorker : Creature
         SetDestination(interactor);
         task.InitializeTask(this);
         taskMarker.SetActive(false);
-        workInteractable.enabled = false;
+        task.Completed += ToggleInteractable;
 
-        await Task.Delay(1000);
+        await Task.Delay(5000);
 
+        SetActivity(Activity.Working);
         interacting = false;
     }
     #endregion
+
+    public void ToggleInteractable()
+    {
+        workInteractable.enabled = !workInteractable.enabled;
+    }
 }

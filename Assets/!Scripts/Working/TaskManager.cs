@@ -7,7 +7,7 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     public int tasksCompleted;
-    [Expandable, ReadOnly] public List<OfficeTask> officeTasks = new List<OfficeTask>();
+    [Expandable, ReadOnly] public List<OfficeTask> currentTasks = new List<OfficeTask>();
     
 
     [SerializeField] GameObject[] fetchableItems;
@@ -15,12 +15,12 @@ public class TaskManager : MonoBehaviour
 
     public void AddOfficeTask(OfficeTask task)
     {
-        officeTasks.Add(task);
+        currentTasks.Add(task);
     }
     public void CompleteOfficeTask(OfficeTask task)
     {
         tasksCompleted++;
-        officeTasks.Remove(task);
+        currentTasks.Remove(task);
     }
 
     public GameObject GenerateTaskItem(TaskType taskType)

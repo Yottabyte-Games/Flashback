@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using UnityEngine;
 
 public enum TaskType
@@ -18,6 +19,8 @@ public abstract class OfficeTask : ScriptableObject
 
     public bool initialized {  get; private set; }
 
+    public event Action Completed;
+
     protected virtual void OnEnable()
     {
         manager = FindFirstObjectByType<TaskManager>();
@@ -34,8 +37,10 @@ public abstract class OfficeTask : ScriptableObject
     protected abstract void ProgressTask();
 
     [Button]
-    public void CompleteTask()
+    public virtual void CompleteTask()
     {
+        Debug.Log("complete");
+        Completed?.Invoke();
         manager.CompleteOfficeTask(this);
     }
 }
