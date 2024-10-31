@@ -1,0 +1,34 @@
+{
+    "name": "WorkInputs",
+    "maps": [
+        {
+            "name": "Work",
+            "id": "2be424a9-c929-447b-a16f-4eb8a8512f22",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "8dec2095-e0f2-4a9d-a96c-b9216817b8bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d9538f03-676d-4d6d-bda7-c3216e016c1e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

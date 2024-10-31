@@ -66,6 +66,8 @@ namespace GinjaGaming.FinalCharacterController
 
             _antiBump = sprintSpeed;
             _stepOffset = _characterController.stepOffset;
+
+            Cursor.lockState = CursorLockMode.Locked;
         }
         #endregion
 

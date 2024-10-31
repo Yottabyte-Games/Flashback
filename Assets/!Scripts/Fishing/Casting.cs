@@ -10,11 +10,11 @@ namespace Minigame.Fishing
         public GameObject hook;
         public GameObject currentHook;
         Reel reel;
-        String fishingString;
+        Line fishingString;
 
         void Start()
         {
-            fishingString = GetComponent<String>();
+            fishingString = GetComponent<Line>();
             reel = GetComponent<Reel>();
             input = GetComponent<FishingRodInput>();
             input.cast += Cast;
