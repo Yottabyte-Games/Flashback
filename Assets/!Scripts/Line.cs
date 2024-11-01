@@ -19,7 +19,7 @@ public class Line : MonoBehaviour
             lineRenderer.SetPosition(i, stringPoints[i].position);
         }
     }
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         for (var i = 0; i < stringPoints.Count; i++)
         {

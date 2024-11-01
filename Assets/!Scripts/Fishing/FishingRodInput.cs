@@ -8,8 +8,8 @@ namespace Minigame.Fishing
     {
         FishingInputs input;
 
-        public event Action cast;
-        public event Action<Vector2> reel;
+        public event Action Cast;
+        public event Action<Vector2> Reel;
 
         private void OnEnable()
         {
@@ -25,13 +25,12 @@ namespace Minigame.Fishing
         public void OnCast(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            cast?.Invoke();
+            Cast?.Invoke();
         }
 
         public void OnReel(InputAction.CallbackContext context)
         {
-            if (!context.performed) return;
-            reel?.Invoke(context.ReadValue<Vector2>());
+            Reel?.Invoke(context.ReadValue<Vector2>());
         }
     }
 }
