@@ -1,6 +1,7 @@
+using _Scripts.Snowman_Scripts.Interaction;
 using UnityEngine;
 
-namespace _Scripts.Snowman_Scripts.Interaction
+public class Interaction : MonoBehaviour
 {
     public Camera camera;
     public float range = 100f;
@@ -14,10 +15,8 @@ namespace _Scripts.Snowman_Scripts.Interaction
 
     private void Start()
     {
-        public Camera camera;
-        public float range = 100f;
-        Interactable interactable;
-        GameObject interactableObject;
+;
+    }
 
     void Update()
     {
@@ -29,52 +28,20 @@ namespace _Scripts.Snowman_Scripts.Interaction
 
         if (Physics.Raycast(ray, out RaycastHit hit, range))
         {
-            var ray = camera.ScreenPointToRay(Input.mousePosition);
+            Interactable hitInteractable = hit.collider.tag == "Interactable" ? hit.collider.GetComponent<Interactable>() : null;
 
-            if (Physics.Raycast(ray, out var hit, range))
+            // Outline Enable/Disable
+            if (hitInteractable != null)
             {
-                var hitInteractable = hit.collider.tag == "Interactable" ? hit.collider.GetComponent<Interactable>() : null;
-
-                // Outline Enable/Disable
-                if (hitInteractable != null)
-                {
-                    EnableInteraction(hitInteractable);
-                }
-                else
-                {
-                    DisableInteraction();
-                }
-
-                // Item interaction
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    if (interactableObject == null && hitInteractable != null)
-                    {
-                        hitInteractable.Interact();
-                        if (hitInteractable.canInteract)
-                        {
-                            interactableObject = hitInteractable.gameObject;
-                            Debug.Log(interactableObject);
-                        }
-                    }
-                    else if (interactableObject != null)
-                    {
-                        PlaceObject(hit);
-                    }
-                }
+                EnableInteraction(hitInteractable);
             }
             else
             {
                 DisableInteraction();
             }
-        }
 
-        void PlaceObject(RaycastHit hit)
-        {
-            interactable.DisableInteraction();
-
-            //Check if snowball is large enough.
-            if (hit.transform.localScale.y > 1)
+            // Item interaction
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (interactableObject == null && hitInteractable != null)
                 {
@@ -153,25 +120,16 @@ namespace _Scripts.Snowman_Scripts.Interaction
             interactable.DisableOutline();
             interactable = null;
         }
+    }
 
-        void DisableInteraction()
+    // Enables interaction outline on item
+    void EnableInteraction(Interactable newInteractable)
+    {
+        if (interactable != newInteractable)
         {
-            if (interactable != null)
-            {
-                interactable.DisableOutline();
-                interactable = null;
-            }
-        }
-
-        // Enables interaction outline on item
-        void EnableInteraction(Interactable newInteractable)
-        {
-            if (interactable != newInteractable)
-            {
-                DisableInteraction();
-                interactable = newInteractable;
-                interactable.EnableOutline();
-            }
+            DisableInteraction();
+            interactable = newInteractable;
+            interactable.EnableOutline();
         }
     }
 }

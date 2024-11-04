@@ -1,22 +1,22 @@
 using UnityEngine;
 
-namespace _Scripts.Snowman_Scripts.Snowman_sc
+public class SnowballRoll : MonoBehaviour
 {
-    private float mass = 0.4f;
+    float mass = 0.4f;
     
-    private Rigidbody rb;
+    Rigidbody rb;
 
     public GameObject SnowRemover;
     
     void Start()
     {
-        private float mass = 0.5f;
-    
-        private Rigidbody rb;
+        rb = GetComponent<Rigidbody>();
+    }
 
-        public GameObject SnowRemover;
-    
-        void Start()
+    // Update is called once per frame
+    void Update()
+    {
+        if (rb.linearVelocity.magnitude > 0.1f)
         {
             GrowSnowball();
         }
@@ -25,17 +25,7 @@ namespace _Scripts.Snowman_Scripts.Snowman_sc
             gameObject.tag = "Interactable";
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (rb.linearVelocity.magnitude > 0.1f)
-            {
-                GrowSnowball();
-            }
-            if (mass > 1) 
-            {
-                gameObject.tag = "Interactable";
-            }
+    }
 
     void GrowSnowball()
     {
@@ -45,15 +35,14 @@ namespace _Scripts.Snowman_Scripts.Snowman_sc
     }
     
 
-        void SetMass(float value)
-        {
-            mass = Mathf.Clamp(value+mass, 0.4f, 2);
-            var vectorMass = new Vector3(mass, mass, mass);
-            transform.localScale = vectorMass;
-            SnowRemover.transform.localScale = vectorMass;
+    void SetMass(float value)
+    {
+        mass = Mathf.Clamp(value+mass, 0.4f, 2);
+        Vector3 vectorMass = new Vector3(mass, mass, mass);
+        transform.localScale = vectorMass;
+        SnowRemover.transform.localScale = vectorMass;
         
-            var rbMass = Mathf.Clamp(mass, 1, 3);
-            rb.mass = rbMass;
-        }
+        float rbMass = Mathf.Clamp(mass, 1, 3);
+        rb.mass = rbMass;
     }
 }
