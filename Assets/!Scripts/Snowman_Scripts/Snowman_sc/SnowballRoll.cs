@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SnowballRoll : MonoBehaviour
 {
-    private float mass = 0.5f;
+    private float mass = 0.4f;
     
     private Rigidbody rb;
 
@@ -20,7 +20,7 @@ public class SnowballRoll : MonoBehaviour
         {
             GrowSnowball();
         }
-        if (mass > 1) 
+        if (mass > 0.8) 
         {
             gameObject.tag = "Interactable";
         }
@@ -29,7 +29,7 @@ public class SnowballRoll : MonoBehaviour
 
     void GrowSnowball()
     {
-        Debug.Log(rb.linearVelocity.magnitude);
+        //Debug.Log(rb.linearVelocity.magnitude);
         float speed = (rb.linearVelocity.magnitude * Time.deltaTime)/30;
         SetMass(speed);
     }
