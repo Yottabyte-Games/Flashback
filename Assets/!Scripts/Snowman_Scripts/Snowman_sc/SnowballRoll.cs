@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace _Scripts.Snowman_Scripts.Snowman_sc
 {
-<<<<<<< HEAD
     private float mass = 0.4f;
     
     private Rigidbody rb;
@@ -10,9 +9,6 @@ namespace _Scripts.Snowman_Scripts.Snowman_sc
     public GameObject SnowRemover;
     
     void Start()
-=======
-    public class SnowballRoll : MonoBehaviour
->>>>>>> main
     {
         private float mass = 0.5f;
     
@@ -22,15 +18,11 @@ namespace _Scripts.Snowman_Scripts.Snowman_sc
     
         void Start()
         {
-<<<<<<< HEAD
             GrowSnowball();
         }
         if (mass > 0.8) 
         {
             gameObject.tag = "Interactable";
-=======
-            rb = GetComponent<Rigidbody>();
->>>>>>> main
         }
 
         // Update is called once per frame
@@ -45,23 +37,12 @@ namespace _Scripts.Snowman_Scripts.Snowman_sc
                 gameObject.tag = "Interactable";
             }
 
-<<<<<<< HEAD
     void GrowSnowball()
     {
         //Debug.Log(rb.linearVelocity.magnitude);
         float speed = (rb.linearVelocity.magnitude * Time.deltaTime)/30;
         SetMass(speed);
     }
-=======
-        }
-
-        void GrowSnowball()
-        {
-            Debug.Log(rb.linearVelocity.magnitude);
-            var speed = (rb.linearVelocity.magnitude * Time.deltaTime)/30;
-            SetMass(speed);
-        }
->>>>>>> main
     
 
         void SetMass(float value)

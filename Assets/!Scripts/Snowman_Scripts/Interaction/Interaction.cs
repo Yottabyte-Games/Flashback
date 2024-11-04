@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace _Scripts.Snowman_Scripts.Interaction
 {
-<<<<<<< HEAD
     public Camera camera;
     public float range = 100f;
     Interactable interactable;
@@ -14,16 +13,12 @@ namespace _Scripts.Snowman_Scripts.Interaction
     public Material ghostMaterial;
 
     private void Start()
-=======
-    public class Interaction : MonoBehaviour
->>>>>>> main
     {
         public Camera camera;
         public float range = 100f;
         Interactable interactable;
         GameObject interactableObject;
 
-<<<<<<< HEAD
     void Update()
     {
         //mouseZoom += Input.GetAxis("Mouse ScrollWheel");
@@ -33,9 +28,6 @@ namespace _Scripts.Snowman_Scripts.Interaction
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit, range))
-=======
-        void Update()
->>>>>>> main
         {
             var ray = camera.ScreenPointToRay(Input.mousePosition);
 
@@ -84,7 +76,6 @@ namespace _Scripts.Snowman_Scripts.Interaction
             //Check if snowball is large enough.
             if (hit.transform.localScale.y > 1)
             {
-<<<<<<< HEAD
                 if (interactableObject == null && hitInteractable != null)
                 {
                     hitInteractable.Interact();
@@ -161,22 +152,6 @@ namespace _Scripts.Snowman_Scripts.Interaction
         {
             interactable.DisableOutline();
             interactable = null;
-=======
-                var placedObject = Instantiate(interactableObject, hit.point, Quaternion.identity);
-                placedObject.transform.up = hit.normal;  // Rotate to surface normal.
-                placedObject.SetActive(true);
-  
-            }
-
-            //Else drop on ground
-            else 
-            {
-                var placedObject = Instantiate(interactableObject, hit.point+new Vector3(0,1,0), Quaternion.identity);
-            }
-
-        
-            interactableObject = null;
->>>>>>> main
         }
 
         void DisableInteraction()
