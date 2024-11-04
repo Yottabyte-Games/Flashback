@@ -27,7 +27,7 @@ namespace Unity.Cinemachine.Samples
         {
             // iterate through each target in the targetGroup
             var floor = Floor.position.y;
-            for (int i = 0; i < m_TargetGroup.Targets.Count; ++i)
+            for (var i = 0; i < m_TargetGroup.Targets.Count; ++i)
             {
                 var target = m_TargetGroup.Targets[i];
 

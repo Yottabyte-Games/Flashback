@@ -58,15 +58,15 @@ namespace Unity.Cinemachine.Samples
         void Update()
         {
             var now = Time.time;
-            bool fireNow = BulletPrefab != null 
-                && now - m_LastFireTime > 1 / MaxBulletsPerSec
-                && Fire.Value > 0.1f;
+            var fireNow = BulletPrefab != null 
+                          && now - m_LastFireTime > 1 / MaxBulletsPerSec
+                          && Fire.Value > 0.1f;
 
             // Get the firing direction.  Special case: if there is a decoupled AimController,
             // firing direction is character forward, not AimController forward.
             var fwd = transform.forward;
-            bool decoupled = AimController != null 
-                && AimController.PlayerRotation == SimplePlayerAimController.CouplingMode.Decoupled;
+            var decoupled = AimController != null 
+                            && AimController.PlayerRotation == SimplePlayerAimController.CouplingMode.Decoupled;
             if (decoupled)
                 fwd = transform.parent.forward;
             

@@ -18,11 +18,11 @@ namespace Unity.Cinemachine.Samples
 
         void Update()
         {
-            bool allDone = true;
+            var allDone = true;
             if (m_SwapDirection != 0)
             {
                 float swapTarget = m_SwapDirection > 0 ? 1 : 0;
-                for (int i = 0; i < m_ThirdPersonFollows.Count; ++i)
+                for (var i = 0; i < m_ThirdPersonFollows.Count; ++i)
                 {
                     m_ThirdPersonFollows[i].CameraSide +=
                         Damper.Damp(swapTarget - m_ThirdPersonFollows[i].CameraSide, Damping, Time.deltaTime);
@@ -37,7 +37,7 @@ namespace Unity.Cinemachine.Samples
         public void Swap()
         {
             m_SwapDirection *= -1;
-            for (int i = 0; m_SwapDirection == 0 && i < m_ThirdPersonFollows.Count; ++i)
+            for (var i = 0; m_SwapDirection == 0 && i < m_ThirdPersonFollows.Count; ++i)
                 m_SwapDirection = m_ThirdPersonFollows[i].CameraSide > 0.5f ? -1 : 1;
         }
     }

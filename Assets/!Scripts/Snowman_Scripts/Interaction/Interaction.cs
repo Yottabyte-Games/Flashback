@@ -1,8 +1,8 @@
-using Unity.Jobs;
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+namespace _Scripts.Snowman_Scripts.Interaction
 {
+<<<<<<< HEAD
     public Camera camera;
     public float range = 100f;
     Interactable interactable;
@@ -14,10 +14,16 @@ public class Interaction : MonoBehaviour
     public Material ghostMaterial;
 
     private void Start()
+=======
+    public class Interaction : MonoBehaviour
+>>>>>>> main
     {
-;
-    }
+        public Camera camera;
+        public float range = 100f;
+        Interactable interactable;
+        GameObject interactableObject;
 
+<<<<<<< HEAD
     void Update()
     {
         //mouseZoom += Input.GetAxis("Mouse ScrollWheel");
@@ -27,22 +33,58 @@ public class Interaction : MonoBehaviour
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit, range))
+=======
+        void Update()
+>>>>>>> main
         {
-            Interactable hitInteractable = hit.collider.tag == "Interactable" ? hit.collider.GetComponent<Interactable>() : null;
+            var ray = camera.ScreenPointToRay(Input.mousePosition);
 
-            // Outline Enable/Disable
-            if (hitInteractable != null)
+            if (Physics.Raycast(ray, out var hit, range))
             {
-                EnableInteraction(hitInteractable);
+                var hitInteractable = hit.collider.tag == "Interactable" ? hit.collider.GetComponent<Interactable>() : null;
+
+                // Outline Enable/Disable
+                if (hitInteractable != null)
+                {
+                    EnableInteraction(hitInteractable);
+                }
+                else
+                {
+                    DisableInteraction();
+                }
+
+                // Item interaction
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (interactableObject == null && hitInteractable != null)
+                    {
+                        hitInteractable.Interact();
+                        if (hitInteractable.canInteract)
+                        {
+                            interactableObject = hitInteractable.gameObject;
+                            Debug.Log(interactableObject);
+                        }
+                    }
+                    else if (interactableObject != null)
+                    {
+                        PlaceObject(hit);
+                    }
+                }
             }
             else
             {
                 DisableInteraction();
             }
+        }
 
-            // Item interaction
-            if (Input.GetKeyDown(KeyCode.E))
+        void PlaceObject(RaycastHit hit)
+        {
+            interactable.DisableInteraction();
+
+            //Check if snowball is large enough.
+            if (hit.transform.localScale.y > 1)
             {
+<<<<<<< HEAD
                 if (interactableObject == null && hitInteractable != null)
                 {
                     hitInteractable.Interact();
@@ -119,17 +161,42 @@ public class Interaction : MonoBehaviour
         {
             interactable.DisableOutline();
             interactable = null;
-        }
-    }
+=======
+                var placedObject = Instantiate(interactableObject, hit.point, Quaternion.identity);
+                placedObject.transform.up = hit.normal;  // Rotate to surface normal.
+                placedObject.SetActive(true);
+  
+            }
 
-    // Enables interaction outline on item
-    void EnableInteraction(Interactable newInteractable)
-    {
-        if (interactable != newInteractable)
+            //Else drop on ground
+            else 
+            {
+                var placedObject = Instantiate(interactableObject, hit.point+new Vector3(0,1,0), Quaternion.identity);
+            }
+
+        
+            interactableObject = null;
+>>>>>>> main
+        }
+
+        void DisableInteraction()
         {
-            DisableInteraction();
-            interactable = newInteractable;
-            interactable.EnableOutline();
+            if (interactable != null)
+            {
+                interactable.DisableOutline();
+                interactable = null;
+            }
+        }
+
+        // Enables interaction outline on item
+        void EnableInteraction(Interactable newInteractable)
+        {
+            if (interactable != newInteractable)
+            {
+                DisableInteraction();
+                interactable = newInteractable;
+                interactable.EnableOutline();
+            }
         }
     }
 }
