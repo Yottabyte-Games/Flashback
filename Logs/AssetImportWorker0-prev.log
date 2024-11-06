@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '6000.0/staging' branch; Version is '6000.0.24f1 (11fa355cd605) revision 1178165'; Using compiler version '193933523'; Build Type 'Release'
-OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'en' Physical Memory: 15619 MB
+OS: 'Windows 11  (10.0.26120) 64bit Core' Language: 'en' Physical Memory: 16108 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/anwor/Documents/GitHub/Flashback
+C:/Users/lars_/Unity/Flashback
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51639
+52665
 -job-worker-count
-7
+5
 -background-job-worker-count
 8
 -asset-garbage-collectors
 1
-Successfully changed project path to: C:/Users/anwor/Documents/GitHub/Flashback
-C:/Users/anwor/Documents/GitHub/Flashback
+Successfully changed project path to: C:/Users/lars_/Unity/Flashback
+C:/Users/lars_/Unity/Flashback
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -59,13 +59,13 @@ C:/Users/anwor/Documents/GitHub/Flashback
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [1720]  Target information:
+Player connection [17248]  Target information:
 
-Player connection [1720]  * "[IP] 158.38.226.11 [Port] 0 [Flags] 2 [Guid] 422964355 [EditorId] 422964355 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [17248]  * "[IP] 192.168.10.192 [Port] 0 [Flags] 2 [Guid] 3357250580 [EditorId] 3357250580 [Version] 1048832 [Id] WindowsEditor(7,Bruh) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [1720] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [1720] Host joined alternative multi-casting on [225.0.0.222:34997]...
-JobSystem: Creating JobQueue using job-worker-count value 7
+Player connection [17248] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [17248] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
 Library Redirect Path: Library/
@@ -75,617 +75,530 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 6.21 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 46.61 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.24f1 (11fa355cd605)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/anwor/Documents/GitHub/Flashback/Assets
+[Subsystems] Discovering subsystems at path C:/Users/lars_/Unity/Flashback/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 4070 Laptop GPU (ID=0x2820)
+    Renderer: NVIDIA GeForce RTX 3050 6GB Laptop GPU (ID=0x25ec)
     Vendor:   NVIDIA
-    VRAM:     7963 MB
-    Driver:   31.0.15.4632
-Shader 'Universal Render Pipeline/Nature/SpeedTree7': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Nature/SpeedTree7': dependency 'BillboardShader' shader 'Universal Render Pipeline/Nature/SpeedTree7 Billboard' not found
-Shader 'Hidden/Universal Render Pipeline/FallbackError': fallback shader 'Hidden/Core/FallbackError' not found
-Shader 'Hidden/Universal Render Pipeline/StencilDeferred': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Lit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Particles/Unlit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/VR/SpatialMapping/Occlusion': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/VR/SpatialMapping/Wireframe': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Simple Lit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Particles/Simple Lit': fallback shader 'Universal Render Pipeline/Particles/Unlit' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/Simple Lit' not found
-Shader 'Universal Render Pipeline/Nature/SpeedTree7 Billboard': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Complex Lit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Nature/SpeedTree8': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Hidden/Universal Render Pipeline/Terrain/Lit (Add Pass)': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Baked Lit': fallback shader 'Universal Render Pipeline/Unlit' not found
-Shader 'Universal Render Pipeline/Unlit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
+    VRAM:     6002 MB
+    Driver:   32.0.15.6109
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56252
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56572
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002488 seconds.
-- Loaded All Assemblies, in  0.795 seconds
+Registered in 0.005503 seconds.
+- Loaded All Assemblies, in  5.766 seconds
 Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.320 seconds
-Domain Reload Profiling: 1114ms
-	BeginReloadAssembly (541ms)
+- Finished resetting the current domain, in  0.729 seconds
+Domain Reload Profiling: 6491ms
+	BeginReloadAssembly (5377ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (37ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (52ms)
-	LoadAllAssembliesAndSetupDomain (153ms)
-		LoadAssemblies (537ms)
+		CreateAndSetChildDomain (3ms)
+	RebuildCommonClasses (48ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (79ms)
+	LoadAllAssembliesAndSetupDomain (242ms)
+		LoadAssemblies (5370ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (148ms)
-			TypeCache.Refresh (147ms)
-				TypeCache.ScanAssembly (134ms)
+		AnalyzeDomain (237ms)
+			TypeCache.Refresh (234ms)
+				TypeCache.ScanAssembly (215ms)
 			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (321ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (730ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (279ms)
+		SetupLoadedEditorAssemblies (645ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (25ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (8ms)
-			ProcessInitializeOnLoadAttributes (191ms)
-			ProcessInitializeOnLoadMethodAttributes (46ms)
-			AfterProcessingInitializeOnLoad (3ms)
+			InitializePlatformSupportModulesInManaged (102ms)
+			SetLoadedEditorAssemblies (8ms)
+			BeforeProcessingInitializeOnLoad (9ms)
+			ProcessInitializeOnLoadAttributes (360ms)
+			ProcessInitializeOnLoadMethodAttributes (143ms)
+			AfterProcessingInitializeOnLoad (22ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 ========================================================================
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.512 seconds
-Refreshing native plugins compatible for Editor in 1.70 ms, found 4 plugins.
+- Loaded All Assemblies, in  4.869 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Refreshing native plugins compatible for Editor in 12.77 ms, found 2 plugins.
 Native extension for WindowsStandalone target not found
-Shader 'Universal Render Pipeline/Terrain/Lit': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Shader 'Universal Render Pipeline/Terrain/Lit': dependency 'AddPassShader' shader 'Hidden/Universal Render Pipeline/Terrain/Lit (Add Pass)' not found
-Shader 'Universal Render Pipeline/Terrain/Lit': dependency 'BaseMapShader' shader 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' not found
-Shader 'Universal Render Pipeline/Terrain/Lit': dependency 'BaseMapGenShader' shader 'Hidden/Universal Render Pipeline/Terrain/Lit (Basemap Gen)' not found
-The project currently uses the compatibility mode where the Render Graph API is disabled. Support for this mode will be removed in future Unity versions. Migrate existing ScriptableRenderPasses to the new RenderGraph API. After the migration, disable the compatibility mode in Edit > Projects Settings > Graphics > Render Graph.
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEngine.Rendering.Universal.WarnUsingNonRenderGraph:EmitConsoleWarning () (at ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs:427)
-System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
-System.Reflection.MethodBase:Invoke (object,object[])
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs Line: 427)
-
+Native extension for WebGL target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 [MODES] ModeService[none].Initialize
 [MODES] ModeService[none].LoadModes
 [MODES] Loading mode Default (0) for mode-current-id-First Person Controller for Fishing Game
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.107 seconds
-Domain Reload Profiling: 2614ms
-	BeginReloadAssembly (617ms)
+- Finished resetting the current domain, in  1.047 seconds
+Domain Reload Profiling: 5909ms
+	BeginReloadAssembly (1269ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (32ms)
-	RebuildCommonClasses (33ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (33ms)
-	LoadAllAssembliesAndSetupDomain (814ms)
-		LoadAssemblies (579ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (336ms)
-			TypeCache.Refresh (226ms)
-				TypeCache.ScanAssembly (211ms)
-			BuildScriptInfoCaches (94ms)
-			ResolveRequiredComponents (12ms)
-	FinalizeReload (1108ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (803ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (6ms)
-			BeforeProcessingInitializeOnLoad (91ms)
-			ProcessInitializeOnLoadAttributes (562ms)
-			ProcessInitializeOnLoadMethodAttributes (134ms)
-			AfterProcessingInitializeOnLoad (7ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (7ms)
-Shader 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)': fallback shader 'Hidden/Universal Render Pipeline/FallbackError' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 6.48 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 309 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6977 unused Assets / (9.2 MB). Loaded Objects now: 7804.
-Memory consumption went from 223.1 MB to 213.9 MB.
-Total: 15.124700 ms (FindLiveObjects: 0.791100 ms CreateObjectMapping: 1.251000 ms MarkObjects: 7.624400 ms  DeleteObjects: 5.456300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 4521.114678 seconds.
-  path: Assets/YottabyteGames/Levels/Level 1.2/_Textures/Metal_01.tif
-  artifactKey: Guid(1d3de45b986d240139bd085299915265) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/Levels/Level 1.2/_Textures/Metal_01.tif using Guid(1d3de45b986d240139bd085299915265) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8739ad41e11731c9b6f70b0f81e14745') in 0.0860144 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/YottabyteGames/Levels/Level 1.2/_Textures/Neon.png
-  artifactKey: Guid(b5c9448ddba954bc0afcc5c19cf42525) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/Levels/Level 1.2/_Textures/Neon.png using Guid(b5c9448ddba954bc0afcc5c19cf42525) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '16775fa78dd98d6b8867d065dc925725') in 0.0125306 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/YottabyteGames/Levels/Level 1.2/_Textures/Diffuse_01.png
-  artifactKey: Guid(b2c54144d5fbb4a14b95d5e2ec07dbf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/Levels/Level 1.2/_Textures/Diffuse_01.png using Guid(b2c54144d5fbb4a14b95d5e2ec07dbf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d31cb76f7ce6d3ecc28b2fd1035044a') in 0.0178031 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/YottabyteGames/Levels/Level 1.2/_Textures/Ambient_01.png
-  artifactKey: Guid(0155e7c553ce645b9a03c0441f234ed4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/Levels/Level 1.2/_Textures/Ambient_01.png using Guid(0155e7c553ce645b9a03c0441f234ed4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dfd189910d76285c12c86611ed4ae9bd') in 0.0167031 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.473754 seconds.
-  path: Assets/Readme.asset
-  artifactKey: Guid(8105016687592461f977c054a80ce2f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Readme.asset using Guid(8105016687592461f977c054a80ce2f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c58c1b8c62f923b2126ce908a5b5d771') in 0.0075784 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 1.39 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 41 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6965 unused Assets / (7.8 MB). Loaded Objects now: 7811.
-Memory consumption went from 171.9 MB to 164.1 MB.
-Total: 9.537600 ms (FindLiveObjects: 1.314500 ms CreateObjectMapping: 0.320000 ms MarkObjects: 5.143500 ms  DeleteObjects: 2.758400 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.707 seconds
-Refreshing native plugins compatible for Editor in 2.22 ms, found 4 plugins.
-Native extension for WindowsStandalone target not found
-The project currently uses the compatibility mode where the Render Graph API is disabled. Support for this mode will be removed in future Unity versions. Migrate existing ScriptableRenderPasses to the new RenderGraph API. After the migration, disable the compatibility mode in Edit > Projects Settings > Graphics > Render Graph.
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEngine.Rendering.Universal.WarnUsingNonRenderGraph:EmitConsoleWarning () (at ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs:427)
-System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
-System.Reflection.MethodBase:Invoke (object,object[])
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs Line: 427)
-
-[MODES] ModeService[none].Initialize
-[MODES] ModeService[none].LoadModes
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.954 seconds
-Domain Reload Profiling: 1662ms
-	BeginReloadAssembly (196ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (53ms)
-	RebuildCommonClasses (40ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (21ms)
-	LoadAllAssembliesAndSetupDomain (438ms)
-		LoadAssemblies (321ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (204ms)
-			TypeCache.Refresh (6ms)
-				TypeCache.ScanAssembly (0ms)
-			BuildScriptInfoCaches (184ms)
-			ResolveRequiredComponents (9ms)
-	FinalizeReload (954ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (652ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (86ms)
-			ProcessInitializeOnLoadAttributes (459ms)
-			ProcessInitializeOnLoadMethodAttributes (91ms)
-			AfterProcessingInitializeOnLoad (9ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (12ms)
-Refreshing native plugins compatible for Editor in 1.28 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 50 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6976 unused Assets / (8.6 MB). Loaded Objects now: 7825.
-Memory consumption went from 186.7 MB to 178.1 MB.
-Total: 9.553100 ms (FindLiveObjects: 1.241100 ms CreateObjectMapping: 0.805100 ms MarkObjects: 4.392700 ms  DeleteObjects: 3.113200 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.695 seconds
-Refreshing native plugins compatible for Editor in 1.35 ms, found 4 plugins.
-Native extension for WindowsStandalone target not found
-The project currently uses the compatibility mode where the Render Graph API is disabled. Support for this mode will be removed in future Unity versions. Migrate existing ScriptableRenderPasses to the new RenderGraph API. After the migration, disable the compatibility mode in Edit > Projects Settings > Graphics > Render Graph.
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEngine.Rendering.Universal.WarnUsingNonRenderGraph:EmitConsoleWarning () (at ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs:427)
-System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
-System.Reflection.MethodBase:Invoke (object,object[])
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs Line: 427)
-
-[MODES] ModeService[none].Initialize
-[MODES] ModeService[none].LoadModes
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.898 seconds
-Domain Reload Profiling: 1592ms
-	BeginReloadAssembly (187ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (8ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (58ms)
-	RebuildCommonClasses (33ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (23ms)
-	LoadAllAssembliesAndSetupDomain (441ms)
-		LoadAssemblies (324ms)
+	RebuildCommonClasses (64ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (64ms)
+	LoadAllAssembliesAndSetupDomain (3450ms)
+		LoadAssemblies (3392ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (194ms)
-			TypeCache.Refresh (7ms)
-				TypeCache.ScanAssembly (0ms)
-			BuildScriptInfoCaches (174ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (898ms)
+		AnalyzeDomain (223ms)
+			TypeCache.Refresh (146ms)
+				TypeCache.ScanAssembly (129ms)
+			BuildScriptInfoCaches (69ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (1047ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (601ms)
+		SetupLoadedEditorAssemblies (812ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (81ms)
-			ProcessInitializeOnLoadAttributes (436ms)
-			ProcessInitializeOnLoadMethodAttributes (70ms)
-			AfterProcessingInitializeOnLoad (7ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (9ms)
-Refreshing native plugins compatible for Editor in 1.45 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 41 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6976 unused Assets / (8.3 MB). Loaded Objects now: 7827.
-Memory consumption went from 185.0 MB to 176.7 MB.
-Total: 11.531500 ms (FindLiveObjects: 0.841500 ms CreateObjectMapping: 0.911000 ms MarkObjects: 6.221700 ms  DeleteObjects: 3.556300 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-========================================================================
-Received Import Request.
-  Time since last request: 97.660946 seconds.
-  path: Assets/YottabyteGames/FinalCharacterController/Scripts/Interaction_Controller/IInterface.cs
-  artifactKey: Guid(ba58a2e14d0f52f4584a7d9dedf75f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FinalCharacterController/Scripts/Interaction_Controller/IInterface.cs using Guid(ba58a2e14d0f52f4584a7d9dedf75f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ce2b8e9ea4fd81a22879e44b6b92c02c') in 0.0388897 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 1.63 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 41 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6965 unused Assets / (8.2 MB). Loaded Objects now: 7827.
-Memory consumption went from 185.2 MB to 177.0 MB.
-Total: 13.976700 ms (FindLiveObjects: 1.263800 ms CreateObjectMapping: 1.177600 ms MarkObjects: 7.139300 ms  DeleteObjects: 4.394400 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.961 seconds
-Refreshing native plugins compatible for Editor in 1.22 ms, found 4 plugins.
-Native extension for WindowsStandalone target not found
-The project currently uses the compatibility mode where the Render Graph API is disabled. Support for this mode will be removed in future Unity versions. Migrate existing ScriptableRenderPasses to the new RenderGraph API. After the migration, disable the compatibility mode in Edit > Projects Settings > Graphics > Render Graph.
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEngine.Rendering.Universal.WarnUsingNonRenderGraph:EmitConsoleWarning () (at ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs:427)
-System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
-System.Reflection.MethodBase:Invoke (object,object[])
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs Line: 427)
-
-[MODES] ModeService[none].Initialize
-[MODES] ModeService[none].LoadModes
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.910 seconds
-Domain Reload Profiling: 1870ms
-	BeginReloadAssembly (194ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (54ms)
-	RebuildCommonClasses (35ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (22ms)
-	LoadAllAssembliesAndSetupDomain (700ms)
-		LoadAssemblies (601ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (193ms)
-			TypeCache.Refresh (8ms)
-				TypeCache.ScanAssembly (0ms)
-			BuildScriptInfoCaches (174ms)
-			ResolveRequiredComponents (8ms)
-	FinalizeReload (910ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (619ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (89ms)
-			ProcessInitializeOnLoadAttributes (438ms)
-			ProcessInitializeOnLoadMethodAttributes (79ms)
-			AfterProcessingInitializeOnLoad (6ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (10ms)
-Refreshing native plugins compatible for Editor in 1.22 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 41 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6976 unused Assets / (8.5 MB). Loaded Objects now: 7829.
-Memory consumption went from 185.0 MB to 176.5 MB.
-Total: 10.071100 ms (FindLiveObjects: 0.770600 ms CreateObjectMapping: 0.718400 ms MarkObjects: 4.737700 ms  DeleteObjects: 3.842800 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 1.51 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 41 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6965 unused Assets / (8.0 MB). Loaded Objects now: 7829.
-Memory consumption went from 185.2 MB to 177.2 MB.
-Total: 8.547700 ms (FindLiveObjects: 0.705300 ms CreateObjectMapping: 0.285100 ms MarkObjects: 4.652100 ms  DeleteObjects: 2.904200 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.737 seconds
-Refreshing native plugins compatible for Editor in 1.49 ms, found 4 plugins.
-Native extension for WindowsStandalone target not found
-The project currently uses the compatibility mode where the Render Graph API is disabled. Support for this mode will be removed in future Unity versions. Migrate existing ScriptableRenderPasses to the new RenderGraph API. After the migration, disable the compatibility mode in Edit > Projects Settings > Graphics > Render Graph.
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEngine.Rendering.Universal.WarnUsingNonRenderGraph:EmitConsoleWarning () (at ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs:427)
-System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
-System.Reflection.MethodBase:Invoke (object,object[])
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs Line: 427)
-
-[MODES] ModeService[none].Initialize
-[MODES] ModeService[none].LoadModes
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.954 seconds
-Domain Reload Profiling: 1692ms
-	BeginReloadAssembly (210ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (59ms)
-	RebuildCommonClasses (28ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (22ms)
-	LoadAllAssembliesAndSetupDomain (469ms)
-		LoadAssemblies (352ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (217ms)
-			TypeCache.Refresh (7ms)
-				TypeCache.ScanAssembly (1ms)
-			BuildScriptInfoCaches (192ms)
-			ResolveRequiredComponents (11ms)
-	FinalizeReload (954ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (678ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (83ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			SetLoadedEditorAssemblies (8ms)
+			BeforeProcessingInitializeOnLoad (170ms)
 			ProcessInitializeOnLoadAttributes (486ms)
-			ProcessInitializeOnLoadMethodAttributes (96ms)
-			AfterProcessingInitializeOnLoad (6ms)
+			ProcessInitializeOnLoadMethodAttributes (122ms)
+			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (12ms)
-Refreshing native plugins compatible for Editor in 1.74 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 26.29 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 41 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6976 unused Assets / (8.4 MB). Loaded Objects now: 7831.
-Memory consumption went from 185.0 MB to 176.6 MB.
-Total: 12.446200 ms (FindLiveObjects: 1.247700 ms CreateObjectMapping: 0.913300 ms MarkObjects: 6.119600 ms  DeleteObjects: 4.163900 ms)
+Unloading 204 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4717 unused Assets / (8.3 MB). Loaded Objects now: 5387.
+Memory consumption went from 188.2 MB to 179.9 MB.
+Total: 13.148500 ms (FindLiveObjects: 0.670900 ms CreateObjectMapping: 0.633800 ms MarkObjects: 6.826900 ms  DeleteObjects: 5.014300 ms)
 
-Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 4412.975495 seconds.
+  path: Assets/YottabyteGames/FinalCharacterController
+  artifactKey: Guid(38eb69f52793e904fb2ddce08600d81d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FinalCharacterController using Guid(38eb69f52793e904fb2ddce08600d81d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5b0c88a09b1908e434d64870c856fbef') in 0.0125627 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.537440 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Resources
+  artifactKey: Guid(411548e038eb6a6488eaebe3937b4b66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Resources using Guid(411548e038eb6a6488eaebe3937b4b66) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0e442409303777fa9ff6834c3c9e29fb') in 0.0009725 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.556727 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Settings
+  artifactKey: Guid(4a4fa7d97acc913428e3423160ee5d60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Settings using Guid(4a4fa7d97acc913428e3423160ee5d60) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2f36ba07389d7b28fe3784574fc3992e') in 0.0011639 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.509724 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Plugins/TextMesh Pro
+  artifactKey: Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Plugins/TextMesh Pro using Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9d9fb0228d58a6cbacf333d75f72b4ab') in 0.0010546 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.865020 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Plugins
+  artifactKey: Guid(817d0259948d92a47a57954e07f43fb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Plugins using Guid(817d0259948d92a47a57954e07f43fb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '15671e4c9e222504e5db826266e53bb6') in 0.001076 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
 ========================================================================
 Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.850 seconds
-Refreshing native plugins compatible for Editor in 1.83 ms, found 4 plugins.
-Native extension for WindowsStandalone target not found
-The project currently uses the compatibility mode where the Render Graph API is disabled. Support for this mode will be removed in future Unity versions. Migrate existing ScriptableRenderPasses to the new RenderGraph API. After the migration, disable the compatibility mode in Edit > Projects Settings > Graphics > Render Graph.
-UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-UnityEngine.Rendering.Universal.WarnUsingNonRenderGraph:EmitConsoleWarning () (at ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs:427)
-System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
-System.Reflection.MethodBase:Invoke (object,object[])
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs Line: 427)
-
-[MODES] ModeService[none].Initialize
-[MODES] ModeService[none].LoadModes
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.917 seconds
-Domain Reload Profiling: 1765ms
-	BeginReloadAssembly (267ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (9ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (71ms)
-	RebuildCommonClasses (26ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (24ms)
-	LoadAllAssembliesAndSetupDomain (521ms)
-		LoadAssemblies (404ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (247ms)
-			TypeCache.Refresh (112ms)
-				TypeCache.ScanAssembly (97ms)
-			BuildScriptInfoCaches (124ms)
-			ResolveRequiredComponents (9ms)
-	FinalizeReload (917ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (614ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (67ms)
-			ProcessInitializeOnLoadAttributes (444ms)
-			ProcessInitializeOnLoadMethodAttributes (88ms)
-			AfterProcessingInitializeOnLoad (9ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (16ms)
-Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 1.63 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 24.31 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 52 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7109 unused Assets / (9.4 MB). Loaded Objects now: 7959.
-Memory consumption went from 188.8 MB to 179.5 MB.
-Total: 13.318400 ms (FindLiveObjects: 1.382900 ms CreateObjectMapping: 1.280700 ms MarkObjects: 6.013000 ms  DeleteObjects: 4.640000 ms)
+Unloading 45 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4548 unused Assets / (7.0 MB). Loaded Objects now: 5289.
+Memory consumption went from 148.7 MB to 141.7 MB.
+Total: 16.154200 ms (FindLiveObjects: 0.922900 ms CreateObjectMapping: 1.029700 ms MarkObjects: 9.146700 ms  DeleteObjects: 5.052200 ms)
 
-Prepare: number of updated asset objects reloaded= 0
+Prepare: number of updated asset objects reloaded= 11
 ========================================================================
 Received Import Request.
-  Time since last request: 1439.188183 seconds.
-  path: Assets/YottabyteGames/FirstPersonController/ProjectSettings/ClusterInputManager.asset
-  artifactKey: Guid(568317a38ad26684bb31389887fd5158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FirstPersonController/ProjectSettings/ClusterInputManager.asset using Guid(568317a38ad26684bb31389887fd5158) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '33399d9e3541c91e141a5e80770e2fef') in 0.0645264 seconds
+  Time since last request: 39.134647 seconds.
+  path: Assets/YottabyteGames/Scripts
+  artifactKey: Guid(d4ed9d148d0fd9147888f12694e1b502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Scripts using Guid(d4ed9d148d0fd9147888f12694e1b502) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'da2c30ab7484232398ba878058a99e3c') in 0.0122119 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/YottabyteGames/FirstPersonController/ProjectSettings/TimeManager.asset
-  artifactKey: Guid(9225ac26747ffb24db72ab6ed7d2863e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FirstPersonController/ProjectSettings/TimeManager.asset using Guid(9225ac26747ffb24db72ab6ed7d2863e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e48ed64c188103d6193fd75c3807de55') in 0.0007016 seconds
+  Time since last request: 2.765809 seconds.
+  path: Assets/YottabyteGames/Shaders/BWShader.shadergraph
+  artifactKey: Guid(23f94cecbcf88ae469ea87040f328612) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Shaders/BWShader.shadergraph using Guid(23f94cecbcf88ae469ea87040f328612) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c3d3f63c1f8b241c5e3da4e39cf5b483') in 0.1043277 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.611636 seconds.
+  path: Assets/YottabyteGames/Shaders
+  artifactKey: Guid(34d015c432e5f34489e6cb54357eb2d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Shaders using Guid(34d015c432e5f34489e6cb54357eb2d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c8be98b7253c343bf6cce89f6739fb56') in 0.0012915 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/YottabyteGames/FirstPersonController/ProjectSettings/XRSettings.asset
-  artifactKey: Guid(a17c5a3fb3f530c4aad37727646072b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FirstPersonController/ProjectSettings/XRSettings.asset using Guid(a17c5a3fb3f530c4aad37727646072b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Failed to load 'C:/Users/anwor/Documents/GitHub/Flashback/Assets/YottabyteGames/FirstPersonController/ProjectSettings/XRSettings.asset'. File may be corrupted or was serialized with a newer version of Unity.
- -> (artifact id: '55296e5e6d23ddc816833fc9e43b3499') in 0.0014719 seconds
+  Time since last request: 28.982898 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Prefabs
+  artifactKey: Guid(a85dfa04d657b1f44914767b24f18ee8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Prefabs using Guid(a85dfa04d657b1f44914767b24f18ee8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9ab46781c8421630c4615fb9a5e65a9d') in 0.0013705 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/YottabyteGames/FirstPersonController/ProjectSettings/TagManager.asset
-  artifactKey: Guid(902dc34c624a704449c713d41a902d3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FirstPersonController/ProjectSettings/TagManager.asset using Guid(902dc34c624a704449c713d41a902d3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '18a2305ebda8983640cb67ab0bc6cee1') in 0.00104 seconds
+  Time since last request: 16.501957 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Presets
+  artifactKey: Guid(654f346a80a97cc47a9af0a5feb1d283) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Presets using Guid(654f346a80a97cc47a9af0a5feb1d283) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dcc113b73701bddb10bda8dc358eacd2') in 0.0008942 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/YottabyteGames/FirstPersonController/ProjectSettings/UnityConnectSettings.asset
-  artifactKey: Guid(7088bcc4453b5d8418e81cdee0921fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FirstPersonController/ProjectSettings/UnityConnectSettings.asset using Guid(7088bcc4453b5d8418e81cdee0921fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dc4dadf27c739cfdc8c9ccf43f823c47') in 0.0007257 seconds
+  Time since last request: 0.243696 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Scenes
+  artifactKey: Guid(e8017cc51343be5438de5327fa90c7d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Scenes using Guid(e8017cc51343be5438de5327fa90c7d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6f88b22aca8b677ea3cb6c76b02f6355') in 0.0009887 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/YottabyteGames/FirstPersonController/ProjectSettings/NetworkManager.asset
-  artifactKey: Guid(e81a2d91ce923fc44b83116c938bee32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FirstPersonController/ProjectSettings/NetworkManager.asset using Guid(e81a2d91ce923fc44b83116c938bee32) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fbf4971876794df191542c1b69118c98') in 0.0007617 seconds
+  Time since last request: 0.226842 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Scripts
+  artifactKey: Guid(b01e14f3633ee2643ac8e869c00acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Scripts using Guid(b01e14f3633ee2643ac8e869c00acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1f8fd9f05e04dab35cd5a9fe866ed263') in 0.0008689 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/YottabyteGames/FirstPersonController/ProjectSettings/PresetManager.asset
-  artifactKey: Guid(826d18e16e46631459981331459fb5e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FirstPersonController/ProjectSettings/PresetManager.asset using Guid(826d18e16e46631459981331459fb5e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '579fd69638dfe953460fed83deb1fbce') in 0.0007702 seconds
+  Time since last request: 0.521157 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Scripts/Camera_Controller
+  artifactKey: Guid(33a092341551e4941b5be7ed916a0604) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Scripts/Camera_Controller using Guid(33a092341551e4941b5be7ed916a0604) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e2c349d833c248a95f1e5669cc6e701f') in 0.0012847 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/YottabyteGames/FirstPersonController/ProjectSettings/NavMeshAreas.asset
-  artifactKey: Guid(e7a07e09f7756384db8e3b504ed5ae9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/YottabyteGames/FirstPersonController/ProjectSettings/NavMeshAreas.asset using Guid(e7a07e09f7756384db8e3b504ed5ae9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '895ed14e6e465073fb02b46689aaff60') in 0.0007926 seconds
+  Time since last request: 0.387166 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Scripts/First_Person_Controller
+  artifactKey: Guid(4a0799580eaf37c409cd64ce4125a600) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Scripts/First_Person_Controller using Guid(4a0799580eaf37c409cd64ce4125a600) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f287a530ae459f0b0af66ad6c4fc064a') in 0.0010353 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.608797 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Scripts/Input_Handler
+  artifactKey: Guid(e9e46b8bf3bf07843b51ba6a25ed1438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Scripts/Input_Handler using Guid(e9e46b8bf3bf07843b51ba6a25ed1438) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '06ec6cb186b450b39e36ca9e17591d16') in 0.0011151 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.589683 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Scripts/Interactables
+  artifactKey: Guid(28d90e3ef5a849946ae53e069548358e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Scripts/Interactables using Guid(28d90e3ef5a849946ae53e069548358e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd77ddbd720a8715d513e109f6ab4a29b') in 0.0009808 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.496270 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Scripts/Interaction_System
+  artifactKey: Guid(46b6a42d2fa49b144bceba3ca02ec4bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Scripts/Interaction_System using Guid(46b6a42d2fa49b144bceba3ca02ec4bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ccd1d950c9d8561eef213eb02ac053e9') in 0.0012195 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.595293 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Scripts/Perlin_Noise_Scroller
+  artifactKey: Guid(f4a52426ca3fe1348a9e10a9574a6c17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Scripts/Perlin_Noise_Scroller using Guid(f4a52426ca3fe1348a9e10a9574a6c17) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '84870764b32b85d541929cc8c09253e8') in 0.0008182 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.521304 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Scripts/Scriptable_Objects
+  artifactKey: Guid(3dec3b6834b5c01488b5c6e3e43eb15a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Scripts/Scriptable_Objects using Guid(3dec3b6834b5c01488b5c6e3e43eb15a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14c44d65cb5afc3cb181e20c4dac06f4') in 0.0008237 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.459585 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Sprites
+  artifactKey: Guid(5aef03a3b7826ba4681f811a00f4599f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Sprites using Guid(5aef03a3b7826ba4681f811a00f4599f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2132107e67528bf9f8778baa3a60d5d0') in 0.0008943 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.793794 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Sprites/Ball.png
+  artifactKey: Guid(d718746f4eaf7a84084cfe539db938c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Sprites/Ball.png using Guid(d718746f4eaf7a84084cfe539db938c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '36529b6e64aa4c7e9fff5c756f505107') in 0.0400472 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.211199 seconds.
+  path: Assets/YottabyteGames/Models
+  artifactKey: Guid(c87e313fef0a4894cbcbecdd8d3f3bec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Models using Guid(c87e313fef0a4894cbcbecdd8d3f3bec) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f47b8c2f6c66a87b9fb99ca6a93186bd') in 0.0010098 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.090043 seconds.
+  path: Assets/YottabyteGames/PlayerAnimator.controller
+  artifactKey: Guid(f0837f11504dcd747977062da677c8b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/PlayerAnimator.controller using Guid(f0837f11504dcd747977062da677c8b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b02ff2f06e6676b2b17e5ad3e7fbae6d') in 0.0028196 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.417583 seconds.
+  path: Assets/LookAtCursor.cs
+  artifactKey: Guid(8b4d55169cffada418d149e0db4092f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LookAtCursor.cs using Guid(8b4d55169cffada418d149e0db4092f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '310c0bca4e709ea4de9d0aa925134d0e') in 0.0009971 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.269233 seconds.
+  path: Assets/YottabyteGames/Materials
+  artifactKey: Guid(63db497224a86934d859b799c392f0e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Materials using Guid(63db497224a86934d859b799c392f0e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c000da0c40bb92901ffda0ceaa9328e5') in 0.0007652 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.197234 seconds.
+  path: Assets/YottabyteGames/Levels
+  artifactKey: Guid(fc5a14deff5834147817accae6c6df52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Levels using Guid(fc5a14deff5834147817accae6c6df52) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'eb73e8dc464f352e47ae960adaa95a2b') in 0.0008077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.209463 seconds.
+  path: Assets/YottabyteGames/FirstPersonController/Sprites/WhiteSquare.jpg
+  artifactKey: Guid(905916ca15f2132409bb0eddd3bb7c98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/FirstPersonController/Sprites/WhiteSquare.jpg using Guid(905916ca15f2132409bb0eddd3bb7c98) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ac3af2f4262a022d95127508b76441df') in 0.0166034 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.855588 seconds.
+  path: Assets/YottabyteGames/Levels/Level 1
+  artifactKey: Guid(d2a84df67fd12ae43a98ebe59276bf23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Levels/Level 1 using Guid(d2a84df67fd12ae43a98ebe59276bf23) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '09d80dc5ae19ae319b099163a8a80d09') in 0.0013529 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.447999 seconds.
+  path: Assets/YottabyteGames/Levels/Level 1.2
+  artifactKey: Guid(7c5ab023ee749de448386599873408e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Levels/Level 1.2 using Guid(7c5ab023ee749de448386599873408e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3743beef1e9dff0944f7966befba5492') in 0.0012898 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.448896 seconds.
+  path: Assets/YottabyteGames/Levels/Level 1.2/_Textures
+  artifactKey: Guid(644ce21a301224457b5cab0d7e57b83a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Levels/Level 1.2/_Textures using Guid(644ce21a301224457b5cab0d7e57b83a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c82ec37e07d6989dd2b5bcadfa279fea') in 0.0008353 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.561994 seconds.
+  path: Assets/YottabyteGames/Levels/Level 1.2/_Textures/Snowman
+  artifactKey: Guid(fac86c3f75d51904d88d73ad000af782) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Levels/Level 1.2/_Textures/Snowman using Guid(fac86c3f75d51904d88d73ad000af782) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5e2abb4a2d02ad66a9530f9fb556d5bb') in 0.000748 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.315080 seconds.
+  path: Packages/com.unity.ai.navigation
+  artifactKey: Guid(4b0ed6d63eef8d0b92bcb738adc0b519) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.ai.navigation using Guid(4b0ed6d63eef8d0b92bcb738adc0b519) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cc472b44d11b77e518966c89e36858e3') in 0.0010025 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.084927 seconds.
+  path: Packages/com.unity.ai.navigation/Editor
+  artifactKey: Guid(63b588f3892bb4b5eb73ad3d2791e05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.ai.navigation/Editor using Guid(63b588f3892bb4b5eb73ad3d2791e05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9efae50e7c119c379a58b9f79dc22cee') in 0.000893 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.124021 seconds.
+  path: Packages/com.unity.ai.navigation/Editor/ConversionSystem/converter_editor.uxml
+  artifactKey: Guid(cd1eb3c3c695c494d855ea678fe7395b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.ai.navigation/Editor/ConversionSystem/converter_editor.uxml using Guid(cd1eb3c3c695c494d855ea678fe7395b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a96dcc37b8eca3a89410129db037a97f') in 0.0465544 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.221516 seconds.
+  path: Packages/com.unity.ai.navigation/Editor/ConversionSystem/converter_editor.uss
+  artifactKey: Guid(3eb99c80b411349188e1e5167887ac6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.ai.navigation/Editor/ConversionSystem/converter_editor.uss using Guid(3eb99c80b411349188e1e5167887ac6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '83ddfe0d5ff9dacc81e233c0809c8958') in 0.0055751 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.463227 seconds.
+  path: Packages/com.unity.ai.navigation/Editor/ConversionSystem/AssemblyInfo.cs
+  artifactKey: Guid(a86108f91b07e4fe3b5cd8fedc9f1797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.ai.navigation/Editor/ConversionSystem/AssemblyInfo.cs using Guid(a86108f91b07e4fe3b5cd8fedc9f1797) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cb99e2785855ad0d2661e54c5d51f58d') in 0.0007725 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.096634 seconds.
+  path: Packages/com.unity.ai.navigation/Editor/ConversionSystem
+  artifactKey: Guid(d25d346918c1247368b4cb66a787b59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.ai.navigation/Editor/ConversionSystem using Guid(d25d346918c1247368b4cb66a787b59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e10cd6b349fecc94297e974acd1eaf32') in 0.0008469 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.305836 seconds.
+  path: Assets/Bucket.cs
+  artifactKey: Guid(098903dc3d6d0b04fa1b78ac9b402724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bucket.cs using Guid(098903dc3d6d0b04fa1b78ac9b402724) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c61349573ceab2983054c6daebeac208') in 0.0011187 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.103913 seconds.
+  path: Assets/YottabyteGames/Scripts/PickupController.cs
+  artifactKey: Guid(7410b83381157c445a6622445c558afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Scripts/PickupController.cs using Guid(7410b83381157c445a6622445c558afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '895d2236093f28063146b31ac955f828') in 0.0008332 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.193393 seconds.
+  path: Assets/YottabyteGames/Models/LH_Cat_animated.fbx
+  artifactKey: Guid(945bf999925608645a1a5a8d69031802) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Models/LH_Cat_animated.fbx using Guid(945bf999925608645a1a5a8d69031802) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '25c7fb602ff9cd6f30d534ae8803f71f') in 0.2665156 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1976
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.681897 seconds.
+  path: Assets/YottabyteGames/Scripts/FlashbackLighting.cs
+  artifactKey: Guid(7895704c30c0a7b489aaecb82f7e1ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames/Scripts/FlashbackLighting.cs using Guid(7895704c30c0a7b489aaecb82f7e1ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f03d44b96908f2bab4fca76281cbeb4f') in 0.0009837 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.563368 seconds.
+  path: Assets/YottabyteGames
+  artifactKey: Guid(05fe920db961bdf4cb9b26adb8836cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/YottabyteGames using Guid(05fe920db961bdf4cb9b26adb8836cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '12ab2f0d23c61b437defa24b8f7d448b') in 0.0007467 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.093304 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c391582d739b6e62a5220f35cbb167ac') in 0.0006374 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.438790 seconds.
+  path: Assets/!Scripts
+  artifactKey: Guid(5fd4b49ada92a124aa6a945e65072be6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/!Scripts using Guid(5fd4b49ada92a124aa6a945e65072be6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4c31320065c802176f3d8a9cb8fad068') in 0.0007896 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.480904 seconds.
+  path: Assets/_Barking_Dog
+  artifactKey: Guid(949c5795a83214ce290e76410698e7e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Barking_Dog using Guid(949c5795a83214ce290e76410698e7e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'caaa08190fc8304a7450f615f0677dc6') in 0.0008349 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.087089 seconds.
+  path: Assets/Animations
+  artifactKey: Guid(ecdc7bf23959382488b4ddb609a1fb4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations using Guid(ecdc7bf23959382488b4ddb609a1fb4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4b9a1152558b3ce31b1d522daa86506d') in 0.001514 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.108776 seconds.
+  path: Assets/Inputs
+  artifactKey: Guid(16445f9c519e71245b4d6163455c6c9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Inputs using Guid(16445f9c519e71245b4d6163455c6c9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2765bb6f4edc2939b42eb7d99642b923') in 0.0011286 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.107093 seconds.
+  path: Assets/ProBuilder Data
+  artifactKey: Guid(f9727b885964eaa4c98ea8b1d10f3392) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ProBuilder Data using Guid(f9727b885964eaa4c98ea8b1d10f3392) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '650b9968910eeec31337ec849274954c') in 0.0007829 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.108884 seconds.
+  path: Assets/Settings
+  artifactKey: Guid(709f11a7f3c4041caa4ef136ea32d874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Settings using Guid(709f11a7f3c4041caa4ef136ea32d874) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3daf5943cade026999cb2baf358ade14') in 0.0007692 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.109587 seconds.
+  path: Assets/TutorialInfo
+  artifactKey: Guid(ba062aa6c92b140379dbc06b43dd3b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TutorialInfo using Guid(ba062aa6c92b140379dbc06b43dd3b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0071cc214c7aa6e6ff730080dacceb93') in 0.0007901 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
