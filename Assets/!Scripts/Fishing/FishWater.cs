@@ -1,10 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Minigame.Fishing
 {
     public class FishWater : MonoBehaviour
     {
+        [SerializeField] List<Fish> fishList = new List<Fish>();
+
         Hook hookInWater;
 
         private void OnTriggerEnter(Collider other)
@@ -20,17 +23,14 @@ namespace Minigame.Fishing
             yield return new WaitForSeconds(5);
             int fishNum = Random.Range(0, 25 + 15 * (int)hookInWater.bait.type);
 
-            Fish fish = new Fish();
-            fish.RandomizeFish();
-            fish.SetFish((FishType)Mathf.RoundToInt(fishNum / 20));
+            Fish fish = Instantiate(fishList[Mathf.RoundToInt(fishNum / 20)].gameObject).GetComponent<Fish>();
 
-            if(fish.type != FishType.None)
+            if (fish.type != FishType.Trash)
             {
-                print(fish.type);
                 hookInWater.CatchFish(fish);
-            } else
+            }
+            else
             {
-                print("restart");
                 StartCoroutine(TryGetFish());
             }
         }

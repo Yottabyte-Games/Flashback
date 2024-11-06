@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace Minigame.Fishing
 {
     public enum FishType
     {
-        None = 0,
+        Trash = 0,
         Panfish = 1,
         Catfish = 2,
         Bass = 3,
@@ -13,26 +14,41 @@ namespace Minigame.Fishing
         GoliathTigerfish = 5,
     }
 
-    public struct Fish
+    [Serializable]
+    public class Fish : MonoBehaviour
     {
         public FishType type;
-        public float difficultyModifier;
+        [field: SerializeField] public float Weight { get; private set; } = 1;
+        [field: SerializeField] public float Size { get; private set; } = 1;
 
-        public float difficulty
+        [field: SerializeField] public float Difficulty { get; private set; }
+
+        [Space]
+        [SerializeField] Transform art;
+        public void Start()
         {
-            get
-            {
-                return ((float)type * 2 + difficultyModifier) * 2.5f;
-            }
+            RandomizeFish();
+            SetDifficulty(); 
+        }
+        void RandomizeFish()
+        {
+            Weight = UnityEngine.Random.Range(1f, 5f);
+            Size = UnityEngine.Random.Range(1f, 5f);
+
+            if (art == null) return;
+
+            art.transform.localScale = new Vector3(Weight / 4, art.transform.localScale.y, Size * 2);
+        }
+        void SetDifficulty()
+        {
+            Difficulty = ((float)type * 2 + Size + Weight / 2) * 2.5f;
         }
 
-        public void RandomizeFish()
+        private void OnDrawGizmosSelected()
         {
-            difficultyModifier = Random.Range(1f, 5f);
-        }
-        public void SetFish(FishType fish)
-        {
-            type = fish;
+            if (art == null) return;
+
+            art.transform.localScale = new Vector3(Weight / 4, art.transform.localScale.y, Size * 2);
         }
     }
 }

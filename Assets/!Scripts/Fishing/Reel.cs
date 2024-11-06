@@ -1,4 +1,5 @@
 using System;
+using GinjaGaming.FinalCharacterController;
 using Minigame.Fishing;
 using NaughtyAttributes;
 using UnityEngine;
@@ -9,22 +10,25 @@ namespace Minigame.Fishing
     public class Reel : MonoBehaviour
     {
         FishingRodInput input;
-        Casting cast;
+        FishingRod rod;
+        PlayerController player;
+        Bucket bucket;
 
         [ReadOnly, SerializeField] bool canReel;
         Fish toReel;
 
-        Vector2 lastReelPos, currentReelPos, difference;
-        float travelDistance;
-        Vector3 hookStartPos, hookEndPos;
-
         public event Action FinishReel;
+        [SerializeField] GameObject reelUI;
+
+        Vector2 currentMousePos, lastMousePos, mouseMoved;
 
         private void Start()
         {
+            player = FindFirstObjectByType<PlayerController>();
+            bucket = FindFirstObjectByType<Bucket>();
             input = GetComponent<FishingRodInput>();
-            cast = GetComponent<Casting>();
-            input.reel += ReelingValue;
+            rod = GetComponent<FishingRod>();
+            input.Reel += ReelingValue;
             FinishReel += FinishReeling;
         }
 
@@ -32,11 +36,11 @@ namespace Minigame.Fishing
         {
             if (!canReel) return;
 
-            Vector3 lerpValue = UMath.LerpVector3(hookStartPos, hookEndPos, travelDistance / toReel.difficulty);
-            cast.currentHook.transform.position = new Vector3(lerpValue.x, cast.currentHook.transform.position.y, lerpValue.z);
+            rod.AddPullStrength(mouseMoved.magnitude * Time.deltaTime / 7);
 
-            if(travelDistance / toReel.difficulty >= .65f)
+            if (MathF.Abs(Vector3.Distance(rod.hook.transform.position, rod.hookPoint.transform.position)) <= 1)
             {
+                bucket.AddFish(toReel);
                 FinishReel.Invoke();
             }
         }
@@ -44,34 +48,32 @@ namespace Minigame.Fishing
         {
             if (!canReel) return;
 
-            if (currentReelPos != null)
-                lastReelPos = currentReelPos;
-
-            currentReelPos = pos;
-
-            if(lastReelPos != null && currentReelPos != null)
+            if(currentMousePos != null)
             {
-                difference = currentReelPos - lastReelPos;
+                lastMousePos = currentMousePos;
             }
 
+            currentMousePos = pos;
 
-            travelDistance += difference.magnitude / 37.7f / 100;
+            mouseMoved = currentMousePos - lastMousePos;
         }
         public void StartReeling(Fish fishToReel)
         {
-            hookStartPos = cast.currentHook.transform.position;
-            hookEndPos = transform.position;
+            player.ToggleCameraMovement();
+            Cursor.lockState = CursorLockMode.Confined;
+
             toReel = fishToReel;
             canReel = true;
+            reelUI.SetActive(true);
         }
         void FinishReeling()
         {
+            player.ToggleCameraMovement();
+            Cursor.lockState = CursorLockMode.Locked;
+
             canReel = false;
-            toReel = new Fish();
-            travelDistance = 0;
-            lastReelPos = Vector2.zero;
-            currentReelPos = Vector2.zero;
-            difference = Vector2.zero;
+            //toReel = new Fish();
+            reelUI.SetActive(false);
         }
     }
 }
