@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD:Assets/DefaultVolumeProfile.asset
 --- !u!114 &-9068042238094984780
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -91,6 +92,9 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
 --- !u!114 &-6831724259119826331
+=======
+--- !u!114 &-8104416584915340131
+>>>>>>> Build:Assets/Settings/DefaultVolumeProfile.asset
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,6 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:Assets/DefaultVolumeProfile.asset
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
@@ -137,6 +142,38 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
 --- !u!114 &-5547234655331648876
+=======
+  m_Script: {fileID: 0}
+  m_Name: CopyPasteTestComponent2
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Editor.Tests:UnityEditor.Rendering.Tests:VolumeComponentCopyPasteTests/CopyPasteTestComponent2
+  active: 1
+  p1:
+    m_OverrideState: 1
+    m_Value: 0
+  p2:
+    m_OverrideState: 1
+    m_Value: 0
+  p21:
+    m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &-7750755424749557576
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f3b30c03e6ba64d9a27dc9dba8f28d, type: 3}
+  m_Name: OutlineVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  Enabled:
+    m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &-7274224791359825572
+>>>>>>> Build:Assets/Settings/DefaultVolumeProfile.asset
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,6 +188,7 @@ MonoBehaviour:
   active: 1
   texture:
     m_OverrideState: 1
+<<<<<<< HEAD:Assets/DefaultVolumeProfile.asset
     m_Value: {fileID: 0}
     dimension: 1
   contribution:
@@ -182,6 +220,33 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {fileID: 0}
 --- !u!114 &-3972241352278917474
+=======
+    m_Value:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.5
+        value: 10
+        inSlope: 0
+        outSlope: 10
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 15
+        inSlope: 10
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+--- !u!114 &-5589913406300901392
+>>>>>>> Build:Assets/Settings/DefaultVolumeProfile.asset
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/DefaultVolumeProfile.asset
   active: 1
   skipIterations:
     m_OverrideState: 1
@@ -229,6 +295,44 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
 --- !u!114 &-3895147591588672593
+=======
+  active: 0
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
+  threshold:
+    m_OverrideState: 0
+    m_Value: 0.08
+  intensity:
+    m_OverrideState: 0
+    m_Value: 0
+  scatter:
+    m_OverrideState: 0
+    m_Value: 0.7
+  clamp:
+    m_OverrideState: 0
+    m_Value: 65472
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  highQualityFiltering:
+    m_OverrideState: 0
+    m_Value: 0
+  downscale:
+    m_OverrideState: 0
+    m_Value: 0
+  maxIterations:
+    m_OverrideState: 0
+    m_Value: 6
+  dirtTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  dirtIntensity:
+    m_OverrideState: 0
+    m_Value: 0
+--- !u!114 &-5360449096862653589
+>>>>>>> Build:Assets/Settings/DefaultVolumeProfile.asset
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,6 +341,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:Assets/DefaultVolumeProfile.asset
   m_Script: {fileID: 11500000, guid: 70afe9e12c7a7ed47911bb608a23a8ff, type: 3}
   m_Name: SplitToning
   m_EditorClassIdentifier: 
@@ -251,6 +356,13 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
 --- !u!114 &-2247886411757394745
+=======
+  m_Script: {fileID: 0}
+  m_Name: VolumeComponentSupportedEverywhere
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Editor.Tests:UnityEngine.Rendering.Tests:VolumeComponentEditorSupportedOnTests/VolumeComponentSupportedEverywhere
+  active: 1
+--- !u!114 &-5139089513906902183
+>>>>>>> Build:Assets/Settings/DefaultVolumeProfile.asset
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,6 +371,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:Assets/DefaultVolumeProfile.asset
   m_Script: {fileID: 11500000, guid: 3eb4b772797da9440885e8bd939e9560, type: 3}
   m_Name: ColorCurves
   m_EditorClassIdentifier: 
@@ -440,6 +553,28 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
 --- !u!114 &-1508700777186862678
+=======
+  m_Script: {fileID: 11500000, guid: 5a00a63fdd6bd2a45ab1f2d869305ffd, type: 3}
+  m_Name: OasisFogVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  Density:
+    m_OverrideState: 1
+    m_Value: 0
+  StartDistance:
+    m_OverrideState: 1
+    m_Value: 0
+  HeightRange:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 50}
+  Tint:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  SunScatteringIntensity:
+    m_OverrideState: 1
+    m_Value: 2
+--- !u!114 &-581120513425526550
+>>>>>>> Build:Assets/Settings/DefaultVolumeProfile.asset
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -448,6 +583,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:Assets/DefaultVolumeProfile.asset
   m_Script: {fileID: 11500000, guid: cdfbdbb87d3286943a057f7791b43141, type: 3}
   m_Name: ChannelMixer
   m_EditorClassIdentifier: 
@@ -479,6 +615,21 @@ MonoBehaviour:
   blueOutBlueIn:
     m_OverrideState: 1
     m_Value: 100
+=======
+  m_Script: {fileID: 0}
+  m_Name: CopyPasteTestComponent3
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Editor.Tests:UnityEditor.Rendering.Tests:VolumeComponentCopyPasteTests/CopyPasteTestComponent3
+  active: 1
+  p1:
+    m_OverrideState: 1
+    m_Value: 0
+  p2:
+    m_OverrideState: 1
+    m_Value: 0
+  p31:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+>>>>>>> Build:Assets/Settings/DefaultVolumeProfile.asset
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +643,7 @@ MonoBehaviour:
   m_Name: DefaultVolumeProfile
   m_EditorClassIdentifier: 
   components:
+<<<<<<< HEAD:Assets/DefaultVolumeProfile.asset
   - {fileID: 1641988064499665214}
   - {fileID: -5547234655331648876}
   - {fileID: 5584641689577555687}
@@ -512,6 +664,68 @@ MonoBehaviour:
   - {fileID: -3895147591588672593}
   - {fileID: 1934711878725955602}
 --- !u!114 &1641988064499665214
+=======
+  - {fileID: 3720576110741010856}
+  - {fileID: -5589913406300901392}
+--- !u!114 &3720576110741010856
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: 
+  active: 0
+  postExposure:
+    m_OverrideState: 1
+    m_Value: 0.5
+  contrast:
+    m_OverrideState: 1
+    m_Value: 0
+  colorFilter:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  hueShift:
+    m_OverrideState: 1
+    m_Value: 0
+  saturation:
+    m_OverrideState: 1
+    m_Value: 50
+--- !u!114 &4251301726029935498
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74955a4b0b4243bc87231e8b59ed9140, type: 3}
+  m_Name: TestVolume
+  m_EditorClassIdentifier: 
+  active: 1
+  param:
+    m_OverrideState: 1
+    m_Value: 123
+--- !u!114 &6940869943325143175
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: VolumeComponentSupportedOnAnySRP
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Editor.Tests:UnityEngine.Rendering.Tests:VolumeComponentEditorSupportedOnTests/VolumeComponentSupportedOnAnySRP
+  active: 1
+--- !u!114 &9122958982931076880
+>>>>>>> Build:Assets/Settings/DefaultVolumeProfile.asset
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
