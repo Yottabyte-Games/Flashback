@@ -1,6 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using YottabyteGames.FinalCharacterController;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {

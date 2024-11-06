@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using YottabyteGames.FinalCharacterController;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-2)]
-    public class PlayerActionsInput : MonoBehaviour, PlayerControls.IPlayerActionsMapActions
+    public class PlayerActionsInput : MonoBehaviour, PlayerControls.IPlayerLocomotionMapActions
     {
         #region Class Variables
 
@@ -30,8 +31,8 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
                 return;
             }
 
-            PlayerInputManager.Instance.PlayerControls.PlayerActionsMap.Enable();
-            PlayerInputManager.Instance.PlayerControls.PlayerActionsMap.SetCallbacks(this);
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.Enable();
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.SetCallbacks(this);
         }
 
         void OnDisable()
@@ -42,8 +43,8 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
                 return;
             }
 
-            PlayerInputManager.Instance.PlayerControls.PlayerActionsMap.Disable();
-            PlayerInputManager.Instance.PlayerControls.PlayerActionsMap.RemoveCallbacks(this);
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.Disable();
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.RemoveCallbacks(this);
         }
         #endregion
 
@@ -87,5 +88,25 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
             AttackPressed = true;
         }
         #endregion
+
+        public void OnMovement(InputAction.CallbackContext context)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OnLook(InputAction.CallbackContext context)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OnToggleSprint(InputAction.CallbackContext context)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OnJump(InputAction.CallbackContext context)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
