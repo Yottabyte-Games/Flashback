@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using _Scripts.Fishing;
 
 namespace Minigame.Fishing
 {

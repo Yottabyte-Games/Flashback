@@ -1,10 +1,8 @@
 using Unity.Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-2)]
     public class ThirdPersonInput : MonoBehaviour, PlayerControls.IThirdPersonMapActions
@@ -12,20 +10,22 @@ namespace GinjaGaming.FinalCharacterController
         #region Class Variables
         public Vector2 ScrollInput { get; private set; }
 
-        [SerializeField] private CinemachineCamera _virtualCamera;
-        [SerializeField] private float _cameraZoomSpeed = 0.1f;
-        [SerializeField] private float _cameraMinZoom = 1f;
-        [SerializeField] private float _cameraMaxZoom = 5f;
+        [SerializeField] CinemachineCamera _virtualCamera;
+        [SerializeField] float _cameraZoomSpeed = 0.1f;
+        [SerializeField] float _cameraMinZoom = 1f;
+        [SerializeField] float _cameraMaxZoom = 5f;
 
-        private CinemachineThirdPersonFollow _thirdPersonFollow;
+        CinemachineThirdPersonFollow _thirdPersonFollow;
         #endregion
 
         #region Startup
-        private void Awake()
+
+        void Awake()
         {
             _thirdPersonFollow = _virtualCamera.GetComponent<CinemachineThirdPersonFollow>();
         }
-        private void OnEnable()
+
+        void OnEnable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -37,7 +37,7 @@ namespace GinjaGaming.FinalCharacterController
             PlayerInputManager.Instance.PlayerControls.ThirdPersonMap.SetCallbacks(this);
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -51,12 +51,13 @@ namespace GinjaGaming.FinalCharacterController
         #endregion
 
         #region Update
-        private void Update()
+
+        void Update()
         {
             _thirdPersonFollow.CameraDistance = Mathf.Clamp(_thirdPersonFollow.CameraDistance + ScrollInput.y, _cameraMinZoom, _cameraMaxZoom);
         }
 
-        private void LateUpdate()
+        void LateUpdate()
         {
             ScrollInput = Vector2.zero;
         }

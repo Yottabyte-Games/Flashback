@@ -1,53 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupController : MonoBehaviour
+namespace YottabyteGames.Scripts
 {
-    //[SerializeField] private ProjectileGun catScript;
-    public Rigidbody rb;
-    public BoxCollider coll;
-    public Transform player, catContainer, fpsCam;
-
-    public float pickUpRange;
-    public float dropForwardForce, dropUpwardForce;
-
-    public bool equipped;
-    public static bool slotFull;
-
-    private void Update()
+    public class PickupController : MonoBehaviour
     {
-        // Check if player is in range and "E" is pressed
-        Vector3 distaceToPlayer = player.position - transform.position;
-        if (!equipped && distaceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull) PickUp();
+        //[SerializeField] private ProjectileGun catScript;
+        public Rigidbody rb;
+        public BoxCollider coll;
+        public Transform player, catContainer, fpsCam;
 
-        // Drop if equipped and "Q" is pressed
-        if (equipped && Input.GetKeyDown(KeyCode.Q)) Drop();
-    }
+        public float pickUpRange;
+        public float dropForwardForce, dropUpwardForce;
 
-    private void PickUp()
-    {
-        equipped = true;
-        slotFull = true;
+        public bool equipped;
+        public static bool slotFull;
 
-        // Make Rigidbody kinematic and BoxCollider a trigger so it can't move anymore
-        rb.isKinematic = true;
-        coll.isTrigger = true;
+        void Update()
+        {
+            // Check if player is in range and "E" is pressed
+            Vector3 distaceToPlayer = player.position - transform.position;
+            if (!equipped && distaceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull) PickUp();
 
-        // Enable script
-        //catScript.enabled = true;
-    }
+            // Drop if equipped and "Q" is pressed
+            if (equipped && Input.GetKeyDown(KeyCode.Q)) Drop();
+        }
 
-    private void Drop()
-    {
-        equipped = false;
-        slotFull = false;
+        void PickUp()
+        {
+            equipped = true;
+            slotFull = true;
 
-        // Make Rigidbody not kinematic and BoxCollider normal so it can't move anymore
-        rb.isKinematic = false;
-        coll.isTrigger = false;
+            // Make Rigidbody kinematic and BoxCollider a trigger so it can't move anymore
+            rb.isKinematic = true;
+            coll.isTrigger = true;
 
-        // Disable script
-        // catScript.enabled = false;
+            // Enable script
+            //catScript.enabled = true;
+        }
+
+        void Drop()
+        {
+            equipped = false;
+            slotFull = false;
+
+            // Make Rigidbody not kinematic and BoxCollider normal so it can't move anymore
+            rb.isKinematic = false;
+            coll.isTrigger = false;
+
+            // Disable script
+            // catScript.enabled = false;
+        }
     }
 }

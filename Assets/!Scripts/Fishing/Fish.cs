@@ -1,8 +1,7 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public enum FishType
     {
@@ -44,7 +43,7 @@ namespace Minigame.Fishing
             Difficulty = ((float)type * 2 + Size + Weight / 2) * 2.5f;
         }
 
-        private void OnDrawGizmosSelected()
+        void OnDrawGizmosSelected()
         {
             if (art == null) return;
 

@@ -36,7 +36,7 @@ public class MouseLook : MonoBehaviour
 	public KeyCode leftKey = KeyCode.A;
 	public KeyCode backKey = KeyCode.S;
 	public KeyCode rightKey = KeyCode.D;
-	private float speedX, speedZ=0;
+	float speedX, speedZ=0;
 
 	void Start ()
 	{

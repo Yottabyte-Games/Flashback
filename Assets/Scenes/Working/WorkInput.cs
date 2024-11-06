@@ -8,18 +8,19 @@ public class WorkInput : MonoBehaviour, WorkInputs.IWorkActions
     public event Action interact;
     WorkInteractable toInteractWith;
 
-    private void OnEnable()
+    void OnEnable()
     {
         input = new WorkInputs();
         input.Work.Enable();
         input.Work.SetCallbacks(this);
     }
-    private void Start()
+
+    void Start()
     {
         interact += Interact;
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out WorkInteractable interactable))
         {

@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
     [DefaultExecutionOrder(-1)]
     public class PlayerController : MonoBehaviour
     {
         #region Class Variables
         [Header("Components")]
-        [SerializeField] private CharacterController _characterController;
-        [SerializeField] private Camera _playerCamera;
+        [SerializeField]
+        CharacterController _characterController;
+        [SerializeField] Camera _playerCamera;
         public float RotationMismatch { get; private set; }
         public bool IsRotatingToTarget { get; private set; }
 
@@ -41,26 +39,28 @@ namespace GinjaGaming.FinalCharacterController
         public bool cameraMovement { get; private set; } = true;
 
         [Header("Environment Details")]
-        [SerializeField] private LayerMask _groundLayers;
+        [SerializeField]
+        LayerMask _groundLayers;
 
-        private PlayerLocomotionInput _playerLocomotionInput;
-        private PlayerState _playerState;
+        PlayerLocomotionInput _playerLocomotionInput;
+        PlayerState _playerState;
 
-        private Vector2 _cameraRotation = Vector2.zero;
-        private Vector2 _playerTargetRotation = Vector2.zero;
+        Vector2 _cameraRotation = Vector2.zero;
+        Vector2 _playerTargetRotation = Vector2.zero;
 
-        private bool _jumpedLastFrame;
-        private bool _isRotatingClockwise;
-        private float _rotatingToTargetTimer;
-        private float _verticalVelocity;
-        private float _antiBump;
-        private float _stepOffset;
+        bool _jumpedLastFrame;
+        bool _isRotatingClockwise;
+        float _rotatingToTargetTimer;
+        float _verticalVelocity;
+        float _antiBump;
+        float _stepOffset;
 
-        private PlayerMovementState _lastMovementState = PlayerMovementState.Falling;
+        PlayerMovementState _lastMovementState = PlayerMovementState.Falling;
         #endregion
 
         #region Startup
-        private void Awake()
+
+        void Awake()
         {
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
@@ -73,7 +73,8 @@ namespace GinjaGaming.FinalCharacterController
         #endregion
 
         #region Update Logic
-        private void Update()
+
+        void Update()
         {
             UpdateMovementState();
             
@@ -82,7 +83,7 @@ namespace GinjaGaming.FinalCharacterController
             HandleLateralMovement();
         }
 
-        private void UpdateMovementState()
+        void UpdateMovementState()
         {
             _lastMovementState = _playerState.CurrentPlayerMovementState;
 
@@ -118,7 +119,7 @@ namespace GinjaGaming.FinalCharacterController
             }
         }
 
-        private void HandleVerticalMovement()
+        void HandleVerticalMovement()
         {
             var isGrounded = _playerState.InGroundedState();
 
@@ -145,7 +146,7 @@ namespace GinjaGaming.FinalCharacterController
             }
         }
 
-        private void HandleLateralMovement()
+        void HandleLateralMovement()
         {
             // Create quick references for current state
             var isSprinting = _playerState.CurrentPlayerMovementState == PlayerMovementState.Sprinting;
@@ -180,7 +181,7 @@ namespace GinjaGaming.FinalCharacterController
             _characterController.Move(newVelocity * Time.deltaTime);
         }
 
-        private Vector3 HandleSteepWalls(Vector3 velocity)
+        Vector3 HandleSteepWalls(Vector3 velocity)
         {
             var normal = CharacterControllerUtils.GetNormalWithSphereCast(_characterController, _groundLayers);
             var angle = Vector3.Angle(normal, Vector3.up);
@@ -194,13 +195,14 @@ namespace GinjaGaming.FinalCharacterController
         #endregion
 
         #region Late Update Logic
-        private void LateUpdate()
+
+        void LateUpdate()
         {
             if(cameraMovement)
                 UpdateCameraRotation();
         }
 
-        private void UpdateCameraRotation()
+        void UpdateCameraRotation()
         {
             _cameraRotation.x += lookSenseH * _playerLocomotionInput.LookInput.x;
             _cameraRotation.y = Mathf.Clamp(_cameraRotation.y - lookSenseV * _playerLocomotionInput.LookInput.y, -lookLimitV, lookLimitV);
@@ -231,7 +233,7 @@ namespace GinjaGaming.FinalCharacterController
             RotationMismatch = sign * Vector3.Angle(transform.forward, camForwardProjectedXZ);
         }
 
-        private void UpdateIdleRotation(float rotationTolerance)
+        void UpdateIdleRotation(float rotationTolerance)
         {
             // Initiate new rotation direction
             if (Mathf.Abs(RotationMismatch) > rotationTolerance)
@@ -249,7 +251,7 @@ namespace GinjaGaming.FinalCharacterController
             }
         }
 
-        private void RotatePlayerToTarget()
+        void RotatePlayerToTarget()
         {
             var targetRotationX = Quaternion.Euler(0f, _playerTargetRotation.x, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotationX, playerModelRotationSpeed * Time.deltaTime);
@@ -262,21 +264,22 @@ namespace GinjaGaming.FinalCharacterController
         #endregion
 
         #region State Checks
-        private bool IsMovingLaterally()
+
+        bool IsMovingLaterally()
         {
             var lateralVelocity = new Vector3(_characterController.velocity.x, 0f, _characterController.velocity.z);
 
             return lateralVelocity.magnitude > movingThreshold;
         }
 
-        private bool IsGrounded()
+        bool IsGrounded()
         {
             var grounded = _playerState.InGroundedState() ? IsGroundedWhileGrounded() : IsGroundedWhileAirborne();
 
             return grounded;
         }
 
-        private bool IsGroundedWhileGrounded()
+        bool IsGroundedWhileGrounded()
         {
             var spherePosition = new Vector3(transform.position.x, transform.position.y - _characterController.radius, transform.position.z);
 
@@ -285,7 +288,7 @@ namespace GinjaGaming.FinalCharacterController
             return grounded;
         }
 
-        private bool IsGroundedWhileAirborne()
+        bool IsGroundedWhileAirborne()
         {
             var normal = CharacterControllerUtils.GetNormalWithSphereCast(_characterController, _groundLayers);
             var angle = Vector3.Angle(normal, Vector3.up);
@@ -294,7 +297,7 @@ namespace GinjaGaming.FinalCharacterController
             return _characterController.isGrounded && validAngle;
         }
 
-        private bool CanRun()
+        bool CanRun()
         {
             // This means player is moving diagonally at 45 degrees or forward, if so, we can run
             return _playerLocomotionInput.MovementInput.y >= Mathf.Abs(_playerLocomotionInput.MovementInput.x);

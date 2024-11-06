@@ -1,4 +1,4 @@
-using GinjaGaming.FinalCharacterController;
+using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using UnityEngine;
 
 public class FacePlayer : MonoBehaviour

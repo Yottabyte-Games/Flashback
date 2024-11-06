@@ -1,106 +1,108 @@
 using UnityEngine;
-using TMPro;
 
-public class GunSystem : MonoBehaviour
+namespace YottabyteGames.Scripts
 {
-    // Gun stats
-    public int damage;
-    public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
-    public int magazineSize, bulletsPerTap;
-    public bool allowButtonHold;
-    int bulletsLeft, bulletsShot;
-
-    // bools
-    bool shooting, readyToShoot, reloading;
-
-    // Reference
-    public Camera fpsCam;
-    public Transform attackPoint;
-    public RaycastHit rayHit;
-    public LayerMask whatIsEnemy;
-
-    // Graphics
-    //public GameObject muzzleFlash, bulletHoleGraphic; 
-    //public CamShake camShake;
-    //public float camShakeMagnitude, camShakeDuration;
-    //public TextMeshProUGUI text;
-
-    private void Awake()
+    public class GunSystem : MonoBehaviour
     {
-        bulletsLeft = magazineSize;
-        readyToShoot = true;
-    }
+        // Gun stats
+        public int damage;
+        public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
+        public int magazineSize, bulletsPerTap;
+        public bool allowButtonHold;
+        int bulletsLeft, bulletsShot;
 
-    private void Update()
-    {
-        MyInput();
+        // bools
+        bool shooting, readyToShoot, reloading;
 
-        // Settext
-        //text.SetText(bulletsLeft + " / " + magazineSize);
-    }
+        // Reference
+        public Camera fpsCam;
+        public Transform attackPoint;
+        public RaycastHit rayHit;
+        public LayerMask whatIsEnemy;
 
-    private void MyInput()
-    {
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
-        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        // Graphics
+        //public GameObject muzzleFlash, bulletHoleGraphic; 
+        //public CamShake camShake;
+        //public float camShakeMagnitude, camShakeDuration;
+        //public TextMeshProUGUI text;
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
-
-        // Shoot
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        void Awake()
         {
-            bulletsShot = bulletsPerTap;
-            Shoot();
+            bulletsLeft = magazineSize;
+            readyToShoot = true;
         }
-    }
 
-    private void Shoot()
-    {
-        readyToShoot = false;
-
-        // Spread
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread);
-
-        // Calculate Direction with Spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
-
-        // RayCast
-        if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+        void Update()
         {
-            Debug.Log(rayHit.collider.name);
+            MyInput();
 
-            /*if (rayHit.collider.CompareTag("Enemy"))
+            // Settext
+            //text.SetText(bulletsLeft + " / " + magazineSize);
+        }
+
+        void MyInput()
+        {
+            if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
+            else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+
+            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+
+            // Shoot
+            if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+            {
+                bulletsShot = bulletsPerTap;
+                Shoot();
+            }
+        }
+
+        void Shoot()
+        {
+            readyToShoot = false;
+
+            // Spread
+            float x = Random.Range(-spread, spread);
+            float y = Random.Range(-spread, spread);
+
+            // Calculate Direction with Spread
+            Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+
+            // RayCast
+            if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
+            {
+                Debug.Log(rayHit.collider.name);
+
+                /*if (rayHit.collider.CompareTag("Enemy"))
                 rayHit.collider.GetComponent<ShootingAi>().TakeDamage(damage);*/
+            }
+
+            //Graphics
+            //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
+            //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity));
+
+            bulletsLeft--;
+            bulletsShot--;
+
+            Invoke("ResetShot", timeBetweenShooting);
+
+            if (bulletsShot > 0 && bulletsLeft > 0) 
+                Invoke("Shoot", timeBetweenShooting);
         }
 
-        //Graphics
-        //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
-        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity));
+        void ResetShot()
+        {
+            readyToShoot = true;
+        }
 
-        bulletsLeft--;
-        bulletsShot--;
+        void Reload()
+        {
+            reloading = true;
+            Invoke("ReloadFinished", reloadTime);
+        }
 
-        Invoke("ResetShot", timeBetweenShooting);
-
-        if (bulletsShot > 0 && bulletsLeft > 0) 
-        Invoke("Shoot", timeBetweenShooting);
-    }
-
-    private void ResetShot()
-    {
-        readyToShoot = true;
-    }
-
-    private void Reload()
-    {
-        reloading = true;
-        Invoke("ReloadFinished", reloadTime);
-    }
-
-    private void ReloadFinished()
-    {
-        bulletsLeft = magazineSize;
-        reloading = false;
+        void ReloadFinished()
+        {
+            bulletsLeft = magazineSize;
+            reloading = false;
+        }
     }
 }

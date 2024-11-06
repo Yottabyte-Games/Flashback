@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using YottabyteGames.FinalCharacterController;
 
-namespace YottabyteGames.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-2)]
     public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomotionMapActions
     {
         #region Class Variables
-        [SerializeField] private bool holdToSprint = true;
+        [SerializeField] bool holdToSprint = true;
 
         public bool SprintToggledOn {  get; private set; }
         public PlayerControls PlayerControls { get; private set; }
@@ -19,7 +18,8 @@ namespace YottabyteGames.FinalCharacterController
         #endregion
 
         #region Startup
-        private void OnEnable()
+
+        void OnEnable()
         {
             PlayerControls = new PlayerControls();
             PlayerControls.Enable();
@@ -28,7 +28,7 @@ namespace YottabyteGames.FinalCharacterController
             PlayerControls.PlayerLocomotionMap.SetCallbacks(this);
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             PlayerControls.PlayerLocomotionMap.Disable();
             PlayerControls.PlayerLocomotionMap.RemoveCallbacks(this);
@@ -36,7 +36,8 @@ namespace YottabyteGames.FinalCharacterController
         #endregion
 
         #region Late Update Logic
-        private void LateUpdate()
+
+        void LateUpdate()
         {
             JumpPressed = false;
         }

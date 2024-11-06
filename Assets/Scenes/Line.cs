@@ -7,19 +7,21 @@ public class Line : MonoBehaviour
     public List<Transform> stringPoints = new List<Transform>();
     [SerializeField] LineRenderer lineRenderer;
 
-    private void Start()
+    void Start()
     {
         if (lineRenderer == null)
             lineRenderer = GetComponent<LineRenderer>();
     }
-    private void Update()
+
+    void Update()
     {
         for (var i = 0; i < stringPoints.Count; i++)
         {
             lineRenderer.SetPosition(i, stringPoints[i].position);
         }
     }
-    private void OnDrawGizmos()
+
+    void OnDrawGizmos()
     {
         for (var i = 0; i < stringPoints.Count; i++)
         {
@@ -27,11 +29,12 @@ public class Line : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         lineRenderer.enabled = true;
     }
-    private void OnDisable()
+
+    void OnDisable()
     {
         lineRenderer.enabled = false;
     }

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class FishingRodInput : MonoBehaviour, FishingInputs.IFishingActions
     {
@@ -11,13 +11,14 @@ namespace Minigame.Fishing
         public event Action Cast;
         public event Action<Vector2> Reel;
 
-        private void OnEnable()
+        void OnEnable()
         {
             input = new FishingInputs();
             input.Fishing.Enable();
             input.Fishing.SetCallbacks(this);
         }
-        private void OnDisable()
+
+        void OnDisable()
         {
             input.Disable();
             input.Fishing.RemoveCallbacks(this);

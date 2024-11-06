@@ -1,11 +1,10 @@
 using System;
-using GinjaGaming.FinalCharacterController;
+using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using Minigame.Fishing;
 using NaughtyAttributes;
 using UnityEngine;
-using Utility.Math;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class Reel : MonoBehaviour
     {
@@ -22,7 +21,7 @@ namespace Minigame.Fishing
 
         Vector2 currentMousePos, lastMousePos, mouseMoved;
 
-        private void Start()
+        void Start()
         {
             player = FindFirstObjectByType<PlayerController>();
             bucket = FindFirstObjectByType<Bucket>();
@@ -32,7 +31,7 @@ namespace Minigame.Fishing
             FinishReel += FinishReeling;
         }
 
-        private void Update()
+        void Update()
         {
             if (!canReel) return;
 

@@ -1,3 +1,4 @@
+using _Scripts.Fishing;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI.Table;
 

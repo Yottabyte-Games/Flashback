@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
 
     bool isOpen;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         float whatSide = other.transform.position.x - transform.position.x;
         
@@ -21,7 +21,8 @@ public class Door : MonoBehaviour
             door.transform.localEulerAngles = new Vector3(0.0f, 100, 0.0f);
         }
     }
-    private void OnTriggerExit(Collider other)
+
+    void OnTriggerExit(Collider other)
     {
         door.transform.localEulerAngles = Vector3.zero;
     }

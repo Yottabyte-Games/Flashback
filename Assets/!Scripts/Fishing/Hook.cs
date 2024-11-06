@@ -2,7 +2,7 @@ using System;
 using Unity.Collections;
 using UnityEngine;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class Hook : MonoBehaviour
     {
@@ -14,7 +14,8 @@ namespace Minigame.Fishing
         public event Action<Fish> CaughtFish;
 
         public Rigidbody rb { get; private set; }
-        private void Start()
+
+        void Start()
         {
             rb = GetComponent<Rigidbody>();
         }

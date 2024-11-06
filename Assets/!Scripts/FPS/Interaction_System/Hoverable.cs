@@ -1,0 +1,49 @@
+﻿using NaughtyAttributes;
+using UnityEngine;
+
+namespace _Scripts.FPS.Interaction_System
+{
+    public class Hoverable : MonoBehaviour, IHoverable
+    {
+        
+        [BoxGroup("Settings")] public string tooltip;
+        [BoxGroup("Settings")] public Transform tooltipTransform;
+
+        Material m_myMat;
+        public Material MyMaterial => m_myMat;
+
+        MeshRenderer m_meshRenderer;
+        MeshRenderer MeshRenderer => m_meshRenderer;
+
+        public string Tooltip
+        {
+            get => tooltip;
+            set => tooltip = value;
+        }
+
+        public Transform TooltipTransform => tooltipTransform;
+
+
+        protected virtual void Awake()
+        {
+            GetComponents();
+        }
+
+        protected virtual void GetComponents()
+        {
+            m_meshRenderer = GetComponent<MeshRenderer>();
+            m_myMat = m_meshRenderer.material;
+        }
+
+        public void OnHoverStart(Material _hoverMat)
+        {
+            m_meshRenderer.material = _hoverMat;
+        }
+
+        public void OnHoverEnd()
+        {
+            m_meshRenderer.material = m_myMat;
+        }
+
+    }
+}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class FishWater : MonoBehaviour
     {
@@ -10,7 +10,7 @@ namespace Minigame.Fishing
 
         Hook hookInWater;
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if (hookInWater != null) return;
             hookInWater = other.GetComponent<Hook>();

@@ -6,7 +6,8 @@ public class TaskGoal : MonoBehaviour
     WorkInteractable interactable;
 
     public event Action reached;
-    private void Start()
+
+    void Start()
     {
         interactable = GetComponent<WorkInteractable>();
         interactable.interact.AddListener(Completed);

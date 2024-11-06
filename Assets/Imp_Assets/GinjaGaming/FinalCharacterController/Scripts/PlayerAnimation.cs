@@ -1,47 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
+using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
     public class PlayerAnimation : MonoBehaviour
     {
-        [SerializeField] private Animator _animator;
-        [SerializeField] private float locomotionBlendSpeed = 4f;
+        [SerializeField] Animator _animator;
+        [SerializeField] float locomotionBlendSpeed = 4f;
 
-        private PlayerLocomotionInput _playerLocomotionInput;
-        private PlayerState _playerState;
-        private PlayerController _playerController;
-        private PlayerActionsInput _playerActionsInput;
+        PlayerLocomotionInput _playerLocomotionInput;
+        PlayerState _playerState;
+        PlayerController _playerController;
+        PlayerActionsInput _playerActionsInput;
 
         // Locomotion
-        private static int inputXHash = Animator.StringToHash("inputX");
-        private static int inputYHash = Animator.StringToHash("inputY");
-        private static int inputMagnitudeHash = Animator.StringToHash("inputMagnitude");
-        private static int isIdlingHash = Animator.StringToHash("isIdling");
-        private static int isGroundedHash = Animator.StringToHash("isGrounded");
-        private static int isFallingHash = Animator.StringToHash("isFalling");
-        private static int isJumpingHash = Animator.StringToHash("isJumping");
+        static int inputXHash = Animator.StringToHash("inputX");
+        static int inputYHash = Animator.StringToHash("inputY");
+        static int inputMagnitudeHash = Animator.StringToHash("inputMagnitude");
+        static int isIdlingHash = Animator.StringToHash("isIdling");
+        static int isGroundedHash = Animator.StringToHash("isGrounded");
+        static int isFallingHash = Animator.StringToHash("isFalling");
+        static int isJumpingHash = Animator.StringToHash("isJumping");
 
         // Actions
-        private static int isAttackingHash = Animator.StringToHash("isAttacking");
-        private static int isGatheringHash = Animator.StringToHash("isGathering");
-        private static int isPlayingActionHash = Animator.StringToHash("isPlayingAction");
-        private int[] actionHashes;
+        static int isAttackingHash = Animator.StringToHash("isAttacking");
+        static int isGatheringHash = Animator.StringToHash("isGathering");
+        static int isPlayingActionHash = Animator.StringToHash("isPlayingAction");
+        int[] actionHashes;
 
         // Camera/Rotation
-        private static int isRotatingToTargetHash = Animator.StringToHash("isRotatingToTarget");
-        private static int rotationMismatchHash = Animator.StringToHash("rotationMismatch");
+        static int isRotatingToTargetHash = Animator.StringToHash("isRotatingToTarget");
+        static int rotationMismatchHash = Animator.StringToHash("rotationMismatch");
 
-        private Vector3 _currentBlendInput = Vector3.zero;
+        Vector3 _currentBlendInput = Vector3.zero;
 
-        private float _sprintMaxBlendValue = 1.5f;
-        private float _runMaxBlendValue = 1.0f;
-        private float _walkMaxBlendValue = 0.5f;
+        float _sprintMaxBlendValue = 1.5f;
+        float _runMaxBlendValue = 1.0f;
+        float _walkMaxBlendValue = 0.5f;
 
-        private void Awake()
+        void Awake()
         {
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
@@ -51,12 +49,12 @@ namespace GinjaGaming.FinalCharacterController
             actionHashes = new int[] { isGatheringHash };
         }
 
-        private void Update()
+        void Update()
         {
             UpdateAnimationState();
         }
 
-        private void UpdateAnimationState()
+        void UpdateAnimationState()
         {
             var isIdling = _playerState.CurrentPlayerMovementState == PlayerMovementState.Idling;
             var isRunning = _playerState.CurrentPlayerMovementState == PlayerMovementState.Running;

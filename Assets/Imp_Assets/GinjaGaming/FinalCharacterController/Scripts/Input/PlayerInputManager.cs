@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-3)]
     public class PlayerInputManager : MonoBehaviour
@@ -10,7 +8,7 @@ namespace GinjaGaming.FinalCharacterController
         public static PlayerInputManager Instance;
         public PlayerControls PlayerControls {  get; private set; }
 
-        private void Awake()
+        void Awake()
         {
             if (Instance != null && Instance != this)
             {
@@ -22,13 +20,13 @@ namespace GinjaGaming.FinalCharacterController
             DontDestroyOnLoad(gameObject);
         }
 
-        private void OnEnable()
+        void OnEnable()
         {
             PlayerControls = new PlayerControls();
             PlayerControls.Enable();
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             PlayerControls.Disable();
         }

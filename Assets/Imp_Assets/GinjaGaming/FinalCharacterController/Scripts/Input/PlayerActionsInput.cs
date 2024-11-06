@@ -1,25 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-2)]
     public class PlayerActionsInput : MonoBehaviour, PlayerControls.IPlayerActionsMapActions
     {
         #region Class Variables
-        private PlayerLocomotionInput _playerLocomotionInput;
-        private PlayerState _playerState;
+
+        PlayerLocomotionInput _playerLocomotionInput;
+        PlayerState _playerState;
         public bool GatherPressed { get; private set; }
         public bool AttackPressed { get; private set; }
         #endregion
 
         #region Startup
-        private void Awake()
+
+        void Awake()
         {
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
         }
-        private void OnEnable()
+
+        void OnEnable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -31,7 +34,7 @@ namespace GinjaGaming.FinalCharacterController
             PlayerInputManager.Instance.PlayerControls.PlayerActionsMap.SetCallbacks(this);
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -45,7 +48,8 @@ namespace GinjaGaming.FinalCharacterController
         #endregion
 
         #region Update
-        private void Update()
+
+        void Update()
         {
             if (_playerLocomotionInput.MovementInput != Vector2.zero ||
                 _playerState.CurrentPlayerMovementState == PlayerMovementState.Jumping ||
