@@ -14,8 +14,11 @@ namespace Minigame.Fishing
         {
             if (hookInWater != null) return;
             hookInWater = other.GetComponent<Hook>();
+            
+            if (hookInWater == null) return;
 
-            StartCoroutine(TryGetFish());
+            if (hookInWater.fish == null)
+                StartCoroutine(TryGetFish());
         }
 
         IEnumerator TryGetFish()

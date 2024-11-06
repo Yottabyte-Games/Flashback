@@ -1,9 +1,11 @@
 using System;
+using System.Threading.Tasks;
 using GinjaGaming.FinalCharacterController;
 using Minigame.Fishing;
 using NaughtyAttributes;
 using UnityEngine;
 using Utility.Math;
+using Utility.Physics;
 
 namespace Minigame.Fishing
 {
@@ -21,6 +23,7 @@ namespace Minigame.Fishing
         [SerializeField] GameObject reelUI;
 
         Vector2 currentMousePos, lastMousePos, mouseMoved;
+        float reelValue;
 
         private void Start()
         {
@@ -32,19 +35,7 @@ namespace Minigame.Fishing
             FinishReel += FinishReeling;
         }
 
-        private void Update()
-        {
-            if (!canReel) return;
-
-            rod.AddPullStrength(mouseMoved.magnitude * Time.deltaTime / 7);
-
-            if (MathF.Abs(Vector3.Distance(rod.hook.transform.position, rod.hookPoint.transform.position)) <= 1)
-            {
-                bucket.AddFish(toReel);
-                FinishReel.Invoke();
-            }
-        }
-        void ReelingValue(Vector2 pos)
+        async void ReelingValue(Vector2 pos)
         {
             if (!canReel) return;
 
@@ -56,6 +47,18 @@ namespace Minigame.Fishing
             currentMousePos = pos;
 
             mouseMoved = currentMousePos - lastMousePos;
+
+            reelValue += mouseMoved.magnitude / 2000;
+            print(reelValue + " " + toReel.Difficulty);
+
+            if (reelValue >= toReel.Difficulty)
+            {
+                await UPhysics.ThrowToAsync(rod.hook.rb, rod.hookPoint.position);
+
+                bucket.AddFish(toReel);
+                FinishReel.Invoke();
+                rod.hook.fish = null;
+            }
         }
         public void StartReeling(Fish fishToReel)
         {
@@ -65,6 +68,7 @@ namespace Minigame.Fishing
             toReel = fishToReel;
             canReel = true;
             reelUI.SetActive(true);
+            reelValue = 0;
         }
         void FinishReeling()
         {

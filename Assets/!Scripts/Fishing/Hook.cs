@@ -9,7 +9,7 @@ namespace Minigame.Fishing
         [SerializeField] float hookWeight = 10f;
         [SerializeField] Transform fishPos;
 
-        [SerializeField, ReadOnly] Fish fish;
+        [ReadOnly] public Fish fish;
         public Bait bait;
         public event Action<Fish> CaughtFish;
 
@@ -23,9 +23,7 @@ namespace Minigame.Fishing
             fishCaught.transform.parent = fishPos;
             fishCaught.transform.localPosition = Vector3.zero;
             fishCaught.transform.localEulerAngles = Vector3.zero;
-
             rb.AddForce(Vector3.down * 5000, ForceMode.Force);
-            rb.mass = hookWeight + fishCaught.Difficulty;
             fish = fishCaught;
             CaughtFish?.Invoke(fishCaught);
         }

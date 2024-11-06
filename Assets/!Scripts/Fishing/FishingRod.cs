@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 namespace Minigame.Fishing
 {
@@ -12,7 +11,6 @@ namespace Minigame.Fishing
         public Transform hookPoint;
         Reel reel;
 
-        [SerializeField] SpringJoint line;
         void Start()
         {
             reel = GetComponent<Reel>();
@@ -24,17 +22,12 @@ namespace Minigame.Fishing
 
         void CastHook()
         {
-            line.spring = 0;
             hook.Cast();
         }
         void ResetHook()
         {
             hook.transform.parent = hookPoint;
             hook.Ready();
-        }
-        public void AddPullStrength(float magnitude)
-        {
-            line.spring += magnitude;
         }
     }
 }
