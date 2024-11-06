@@ -74,7 +74,6 @@ Assets/Gemserk.SelectionHistory.asset
 Assets/Gemserk.Favorites.asset
 Assets/Gemserk.SelectionHistory.asset.meta
 Assets/Gemserk.Favorites.asset.meta
-<<<<<<< HEAD
 
 # Never ignore DLLs in the FMOD subfolder.
 !/[Aa]ssets/Plugins/FMOD/**/lib/*
@@ -91,8 +90,7 @@ Assets/Gemserk.Favorites.asset.meta
 /[Aa]ssets/StreamingAssets/**/*.bank.meta
 
 # If the source bank files are kept outside of the StreamingAssets folder then these can be ignored.
-# Log files can be ignored.
+# FMOD files
+Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
+Assets/StreamingAssets/*.bank
 fmod_editor.log
-=======
-/3rdPartyAssets
->>>>>>> main
