@@ -5,13 +5,13 @@ namespace _Scripts.Working
 {
     public class TaskGoal : MonoBehaviour
     {
-        WorkInteractable interactable;
+        WorkInteractable _interactable;
 
         public event Action reached;
         private void Start()
         {
-            interactable = GetComponent<WorkInteractable>();
-            interactable.interact.AddListener(Completed);
+            _interactable = GetComponent<WorkInteractable>();
+            _interactable.interact.AddListener(Completed);
         }
 
         public void Completed(Transform transform)

@@ -6,15 +6,15 @@ namespace _Scripts.Working
 {
     public class WorkInput : MonoBehaviour, WorkInputs.IWorkActions
     {
-        WorkInputs input;
+        WorkInputs _input;
         public event Action interact;
-        WorkInteractable toInteractWith;
+        WorkInteractable _toInteractWith;
 
         private void OnEnable()
         {
-            input = new WorkInputs();
-            input.Work.Enable();
-            input.Work.SetCallbacks(this);
+            _input = new WorkInputs();
+            _input.Work.Enable();
+            _input.Work.SetCallbacks(this);
         }
         private void Start()
         {
@@ -26,14 +26,14 @@ namespace _Scripts.Working
             if (other.TryGetComponent(out WorkInteractable interactable))
             {
                 if (interactable.enabled == false) return;
-                toInteractWith = interactable;
+                _toInteractWith = interactable;
             }
         }
 
         void Interact()
         {
-            if (toInteractWith == null) return;
-            toInteractWith.interact.Invoke(transform);
+            if (_toInteractWith == null) return;
+            _toInteractWith.interact.Invoke(transform);
         }
         public void OnInteract(InputAction.CallbackContext context)
         {

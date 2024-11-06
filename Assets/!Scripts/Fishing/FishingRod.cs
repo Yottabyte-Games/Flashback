@@ -5,20 +5,20 @@ namespace _Scripts.Fishing
     [RequireComponent(typeof(Reel))]
     public class FishingRod : MonoBehaviour
     {
-        FishingRodInput input;
+        FishingRodInput _input;
 
         public Hook hook;
         public Transform hookPoint;
-        Reel reel;
+        Reel _reel;
 
         [SerializeField] SpringJoint line;
         void Start()
         {
-            reel = GetComponent<Reel>();
-            input = GetComponent<FishingRodInput>();
-            input.Cast += CastHook;
-            hook.CaughtFish += reel.StartReeling;
-            reel.FinishReel += ResetHook;
+            _reel = GetComponent<Reel>();
+            _input = GetComponent<FishingRodInput>();
+            _input.Cast += CastHook;
+            hook.CaughtFish += _reel.StartReeling;
+            _reel.FinishReel += ResetHook;
         }
 
         void CastHook()

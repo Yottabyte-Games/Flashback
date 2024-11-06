@@ -19,7 +19,7 @@ namespace _Scripts.Working
         [SerializeField] ActivityRoom[] meetingRooms;
         [SerializeField] ActivityRoom breakRoom;
         [SerializeField] Transform bossOffice;
-        Cublicle[] cubicles;
+        Cublicle[] _cubicles;
 
         [Header("Other")]
         [SerializeField] TaskManager taskManager;
@@ -27,7 +27,7 @@ namespace _Scripts.Working
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         async void Start()
         {
-            cubicles = FindObjectsByType<Cublicle>(FindObjectsSortMode.None);
+            _cubicles = FindObjectsByType<Cublicle>(FindObjectsSortMode.None);
 
             GameObject bg = Instantiate(bossPrefab, enterance.position, enterance.rotation);
             boss = bg.GetComponent<Boss>();
@@ -36,7 +36,7 @@ namespace _Scripts.Working
             boss.officeStation = bossOffice;
 
 
-            foreach (var item in cubicles)
+            foreach (var item in _cubicles)
             {
                 if (!Application.isPlaying) return;
 

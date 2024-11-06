@@ -27,12 +27,12 @@ namespace _Scripts.Working
 
         public event Action<OfficeWorker> EndedActivity;
 
-        WorkInteractable workInteractable;
+        WorkInteractable _workInteractable;
         protected override void Awake()
         {
             base.Awake();
-            workInteractable = GetComponent<WorkInteractable>();
-            workInteractable.enabled = false;
+            _workInteractable = GetComponent<WorkInteractable>();
+            _workInteractable.enabled = false;
         }
 
         protected virtual async void Start()
@@ -173,7 +173,7 @@ namespace _Scripts.Working
 
         public void ToggleInteractable()
         {
-            workInteractable.enabled = !workInteractable.enabled;
+            _workInteractable.enabled = !_workInteractable.enabled;
         }
     }
 }

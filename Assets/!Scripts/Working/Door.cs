@@ -6,7 +6,7 @@ namespace _Scripts.Working
     {
         [SerializeField] Transform door;
 
-        bool isOpen;
+        bool _isOpen;
 
         private void OnTriggerEnter(Collider other)
         {

@@ -25,7 +25,7 @@ namespace _Scripts.Fishing
             fishCaught.transform.localEulerAngles = Vector3.zero;
 
             rb.AddForce(Vector3.down * 5000, ForceMode.Force);
-            rb.mass = hookWeight + fishCaught.Difficulty;
+            rb.mass = hookWeight + fishCaught.difficulty;
             fish = fishCaught;
             CaughtFish?.Invoke(fishCaught);
         }

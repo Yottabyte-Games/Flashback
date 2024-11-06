@@ -8,16 +8,16 @@ namespace _Scripts.Working
     {
         [SerializeField] Vector3 axis = Vector3.one;
 
-        Transform player;
+        Transform _player;
 
         void Start()
         {
-            player = FindFirstObjectByType<PlayerController>().transform;
+            _player = FindFirstObjectByType<PlayerController>().transform;
         }
 
         void Update()
         {
-            transform.LookAt(player.position);
+            transform.LookAt(_player.position);
 
             transform.localEulerAngles = new Vector3 (
                 transform.localEulerAngles.x * axis.x,

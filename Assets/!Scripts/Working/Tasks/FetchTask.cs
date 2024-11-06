@@ -2,8 +2,8 @@ namespace _Scripts.Working.Tasks
 {
     public class FetchTask : OfficeTask
     {
-        TaskItem toFetch;
-        TaskGoal goal;
+        TaskItem _toFetch;
+        TaskGoal _goal;
 
         protected override void OnEnable()
         {
@@ -15,24 +15,24 @@ namespace _Scripts.Working.Tasks
         {
             base.InitializeTask(worker);
 
-            toFetch = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
-            toFetch.InteractedWith += ProgressTask;
+            _toFetch = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
+            _toFetch.InteractedWith += ProgressTask;
         }
 
         protected override void ProgressTask()
         {
-            goal = creator.gameObject.AddComponent<TaskGoal>();
-            goal.reached += CompleteTask;
+            _goal = creator.gameObject.AddComponent<TaskGoal>();
+            _goal.reached += CompleteTask;
 
-            Line line = toFetch.gameObject.GetComponent<Line>();
+            Line line = _toFetch.gameObject.GetComponent<Line>();
             line.enabled = true;
-            line.stringPoints.Add(toFetch.transform);
-            line.stringPoints.Add(goal.transform);
+            line.stringPoints.Add(_toFetch.transform);
+            line.stringPoints.Add(_goal.transform);
         }
 
         public override void CompleteTask()
         {
-            Destroy(toFetch.gameObject);
+            Destroy(_toFetch.gameObject);
             base.CompleteTask();
         }
     }

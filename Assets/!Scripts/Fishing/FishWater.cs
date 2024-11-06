@@ -8,12 +8,12 @@ namespace _Scripts.Fishing
     {
         [SerializeField] List<Fish> fishList = new List<Fish>();
 
-        Hook hookInWater;
+        Hook _hookInWater;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (hookInWater != null) return;
-            hookInWater = other.GetComponent<Hook>();
+            if (_hookInWater != null) return;
+            _hookInWater = other.GetComponent<Hook>();
 
             StartCoroutine(TryGetFish());
         }
@@ -21,13 +21,13 @@ namespace _Scripts.Fishing
         IEnumerator TryGetFish()
         {
             yield return new WaitForSeconds(5);
-            int fishNum = Random.Range(0, 25 + 15 * (int)hookInWater.bait.type);
+            int fishNum = Random.Range(0, 25 + 15 * (int)_hookInWater.bait.type);
 
             Fish fish = Instantiate(fishList[Mathf.RoundToInt(fishNum / 20)].gameObject).GetComponent<Fish>();
 
             if (fish.type != FishType.Trash)
             {
-                hookInWater.CatchFish(fish);
+                _hookInWater.CatchFish(fish);
             }
             else
             {

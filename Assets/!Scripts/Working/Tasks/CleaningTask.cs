@@ -5,8 +5,8 @@ namespace _Scripts.Working.Tasks
 {
     public class CleaningTask : OfficeTask
     {
-        TaskItem toClean;
-        List<TaskGoal> goal = new List<TaskGoal>();
+        TaskItem _toClean;
+        List<TaskGoal> _goal = new List<TaskGoal>();
 
         protected override void OnEnable()
         {
@@ -16,8 +16,8 @@ namespace _Scripts.Working.Tasks
         public override void InitializeTask(OfficeWorker worker)
         {
             base.InitializeTask(worker);
-            toClean = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
-            toClean.InteractedWith += ProgressTask;
+            _toClean = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
+            _toClean.InteractedWith += ProgressTask;
         }
 
         protected override void ProgressTask()
@@ -25,7 +25,7 @@ namespace _Scripts.Working.Tasks
             foreach (var can in manager.trashcans)
             {
                 TaskGoal current = can.AddComponent<TaskGoal>();
-                goal.Add(current);
+                _goal.Add(current);
                 current.reached += CompleteTask;
             }
         }

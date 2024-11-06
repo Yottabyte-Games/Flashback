@@ -17,10 +17,10 @@ namespace _Scripts.Fishing
     public class Fish : MonoBehaviour
     {
         public FishType type;
-        [field: SerializeField] public float Weight { get; private set; } = 1;
-        [field: SerializeField] public float Size { get; private set; } = 1;
+        [field: SerializeField] public float weight { get; private set; } = 1;
+        [field: SerializeField] public float size { get; private set; } = 1;
 
-        [field: SerializeField] public float Difficulty { get; private set; }
+        [field: SerializeField] public float difficulty { get; private set; }
 
         [Space]
         [SerializeField] Transform art;
@@ -31,23 +31,23 @@ namespace _Scripts.Fishing
         }
         void RandomizeFish()
         {
-            Weight = UnityEngine.Random.Range(1f, 5f);
-            Size = UnityEngine.Random.Range(1f, 5f);
+            weight = UnityEngine.Random.Range(1f, 5f);
+            size = UnityEngine.Random.Range(1f, 5f);
 
             if (art == null) return;
 
-            art.transform.localScale = new Vector3(Weight / 4, art.transform.localScale.y, Size * 2);
+            art.transform.localScale = new Vector3(weight / 4, art.transform.localScale.y, size * 2);
         }
         void SetDifficulty()
         {
-            Difficulty = ((float)type * 2 + Size + Weight / 2) * 2.5f;
+            difficulty = ((float)type * 2 + size + weight / 2) * 2.5f;
         }
 
         private void OnDrawGizmosSelected()
         {
             if (art == null) return;
 
-            art.transform.localScale = new Vector3(Weight / 4, art.transform.localScale.y, Size * 2);
+            art.transform.localScale = new Vector3(weight / 4, art.transform.localScale.y, size * 2);
         }
     }
 }

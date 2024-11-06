@@ -23,7 +23,7 @@ namespace _Scripts
                 return;
             }
 
-            if(fish.Difficulty >  bestFish.Difficulty)
+            if(fish.difficulty >  bestFish.difficulty)
             {
                 SetBestFish(fish);
             }
@@ -32,8 +32,8 @@ namespace _Scripts
         void SetBestFish(Fish fish)
         {
             if(bestFish != null)
-                Debug.Log("Prevous Best Fish: " + bestFish.type + "; Size: " + bestFish.Size + "; Weight: " + bestFish.Weight + 
-                          " | Best Fish: " + fish.type + "; Size: " + fish.Size + "; Weight: " + fish.Weight);
+                Debug.Log("Prevous Best Fish: " + bestFish.type + "; Size: " + bestFish.size + "; Weight: " + bestFish.weight + 
+                          " | Best Fish: " + fish.type + "; Size: " + fish.size + "; Weight: " + fish.weight);
             bestFish = fish;
         }
     }
