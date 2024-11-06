@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class ItemPosition : MonoBehaviour
+namespace _Scripts.Working
 {
-    public bool isTaken;
+    public class ItemPosition : MonoBehaviour
+    {
+        public bool isTaken;
+    }
 }

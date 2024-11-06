@@ -1,48 +1,52 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class SnowballRoll : MonoBehaviour
+namespace _Scripts.Snowman_Scripts.Snowman_sc
 {
-    float mass = 0.4f;
-    
-    Rigidbody rb;
-
-    public GameObject SnowRemover;
-    
-    void Start()
+    public class SnowballRoll : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody>();
-    }
+        float _mass = 0.4f;
+    
+        Rigidbody _rb;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (rb.linearVelocity.magnitude > 0.1f)
+        [FormerlySerializedAs("SnowRemover")] public GameObject snowRemover;
+    
+        void Start()
         {
-            GrowSnowball();
-        }
-        if (mass > 0.8) 
-        {
-            gameObject.tag = "Interactable";
+            _rb = GetComponent<Rigidbody>();
         }
 
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            if (_rb.linearVelocity.magnitude > 0.1f)
+            {
+                GrowSnowball();
+            }
+            if (_mass > 0.8) 
+            {
+                gameObject.tag = "Interactable";
+            }
 
-    void GrowSnowball()
-    {
-        //Debug.Log(rb.linearVelocity.magnitude);
-        float speed = (rb.linearVelocity.magnitude * Time.deltaTime)/30;
-        SetMass(speed);
-    }
+        }
+
+        void GrowSnowball()
+        {
+            //Debug.Log(rb.linearVelocity.magnitude);
+            float speed = (_rb.linearVelocity.magnitude * Time.deltaTime)/30;
+            SetMass(speed);
+        }
     
 
-    void SetMass(float value)
-    {
-        mass = Mathf.Clamp(value+mass, 0.4f, 2);
-        Vector3 vectorMass = new Vector3(mass, mass, mass);
-        transform.localScale = vectorMass;
-        SnowRemover.transform.localScale = vectorMass;
+        void SetMass(float value)
+        {
+            _mass = Mathf.Clamp(value+_mass, 0.4f, 2);
+            Vector3 vectorMass = new Vector3(_mass, _mass, _mass);
+            transform.localScale = vectorMass;
+            snowRemover.transform.localScale = vectorMass;
         
-        float rbMass = Mathf.Clamp(mass, 1, 3);
-        rb.mass = rbMass;
+            float rbMass = Mathf.Clamp(_mass, 1, 3);
+            _rb.mass = rbMass;
+        }
     }
 }

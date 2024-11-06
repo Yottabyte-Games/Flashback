@@ -1,11 +1,10 @@
 using System;
 using GinjaGaming.FinalCharacterController;
-using Minigame.Fishing;
+using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using NaughtyAttributes;
 using UnityEngine;
-using Utility.Math;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class Reel : MonoBehaviour
     {

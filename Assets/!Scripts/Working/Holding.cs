@@ -1,26 +1,28 @@
 using UnityEngine;
-using UnityEngine.XR;
 
-public class Holding : MonoBehaviour
+namespace _Scripts.Working
 {
-    [SerializeField] Transform hand;
-    public GameObject heldItem { get; private set; }
-
-    public bool HoldItem(GameObject item)
+    public class Holding : MonoBehaviour
     {
-        if (heldItem != null) return false;
+        [SerializeField] Transform hand;
+        public GameObject heldItem { get; private set; }
 
-        heldItem = item;
-
-        item.transform.parent = hand.transform;
-        item.transform.localPosition = Vector3.zero;
-        item.gameObject.layer = 7;
-
-        for (int i = 0; i < item.transform.childCount; i++)
+        public bool HoldItem(GameObject item)
         {
-            item.transform.GetChild(i).gameObject.layer = 7;
-        }
+            if (heldItem != null) return false;
 
-        return true;
+            heldItem = item;
+
+            item.transform.parent = hand.transform;
+            item.transform.localPosition = Vector3.zero;
+            item.gameObject.layer = 7;
+
+            for (int i = 0; i < item.transform.childCount; i++)
+            {
+                item.transform.GetChild(i).gameObject.layer = 7;
+            }
+
+            return true;
+        }
     }
 }

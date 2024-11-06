@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-2)]
     public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomotionMapActions

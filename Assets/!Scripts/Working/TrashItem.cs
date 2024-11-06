@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public class TrashItem : TaskItem
+namespace _Scripts.Working
 {
+    public class TrashItem : TaskItem
+    {
 
+    }
 }

@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
     [DefaultExecutionOrder(-1)]
     public class PlayerController : MonoBehaviour

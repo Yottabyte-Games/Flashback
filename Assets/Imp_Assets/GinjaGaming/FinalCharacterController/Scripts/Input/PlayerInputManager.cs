@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-3)]
     public class PlayerInputManager : MonoBehaviour

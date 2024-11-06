@@ -1,7 +1,8 @@
+using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-2)]
     public class PlayerActionsInput : MonoBehaviour, PlayerControls.IPlayerActionsMapActions

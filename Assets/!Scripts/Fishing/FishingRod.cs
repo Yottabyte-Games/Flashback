@@ -1,7 +1,6 @@
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI.Table;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     [RequireComponent(typeof(Reel))]
     public class FishingRod : MonoBehaviour

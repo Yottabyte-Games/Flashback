@@ -1,10 +1,9 @@
+using GinjaGaming.FinalCharacterController;
 using Unity.Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-2)]
     public class ThirdPersonInput : MonoBehaviour, PlayerControls.IThirdPersonMapActions

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
+using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-namespace GinjaGaming.FinalCharacterController
+namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
     public class PlayerAnimation : MonoBehaviour
     {

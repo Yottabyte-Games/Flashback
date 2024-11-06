@@ -1,12 +1,12 @@
-using UnityEngine;
-
-
-public class Boss : OfficeWorker
+namespace _Scripts.Working
 {
-    protected override void Start()
+    public class Boss : OfficeWorker
     {
-        GenerateOfficeTask();
+        protected override void Start()
+        {
+            GenerateOfficeTask();
 
-        base.Start();
+            base.Start();
+        }
     }
 }

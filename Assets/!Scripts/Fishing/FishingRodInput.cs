@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class FishingRodInput : MonoBehaviour, FishingInputs.IFishingActions
     {

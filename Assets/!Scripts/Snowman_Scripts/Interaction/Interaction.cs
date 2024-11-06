@@ -1,135 +1,127 @@
-using _Scripts.Snowman_Scripts.Interaction;
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+namespace _Scripts.Snowman_Scripts.Interaction
 {
-    public Camera camera;
-    public float range = 100f;
-    Interactable interactable;
-    GameObject interactableObject = null;
-    GameObject ghostObject = null;
-
-    private float mouseZoom = 1;
-
-    public Material ghostMaterial;
-
-    private void Start()
+    public class Interaction : MonoBehaviour
     {
-;
-    }
+        public Camera mainCamera;
+        public float range = 100f;
+        Interactable _interactable;
+        GameObject _interactableObject = null;
+        GameObject _ghostObject = null;
 
-    void Update()
-    {
-        //mouseZoom += Input.GetAxis("Mouse ScrollWheel");
-        mouseZoom = Mathf.Clamp(mouseZoom+ Input.GetAxis("Mouse ScrollWheel")*8, 1f, 20);
-        Debug.Log(mouseZoom);
+        float _mouseZoom = 1;
 
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        public Material ghostMaterial;
 
-        if (Physics.Raycast(ray, out RaycastHit hit, range))
+        void Update()
         {
-            Interactable hitInteractable = hit.collider.tag == "Interactable" ? hit.collider.GetComponent<Interactable>() : null;
+            //mouseZoom += Input.GetAxis("Mouse ScrollWheel");
+            _mouseZoom = Mathf.Clamp(_mouseZoom+ Input.GetAxis("Mouse ScrollWheel")*8, 1f, 20);
+            Debug.Log(_mouseZoom);
 
-            // Outline Enable/Disable
-            if (hitInteractable != null)
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, range))
             {
-                EnableInteraction(hitInteractable);
+                Interactable hitInteractable = hit.collider.CompareTag("Interactable")
+                    ? hit.collider.GetComponent<Interactable>()
+                    : null;
+
+                // Outline Enable/Disable
+                if (hitInteractable is not null)
+                {
+                    EnableInteraction(hitInteractable);
+                }
+                else
+                {
+                    DisableInteraction();
+                }
+
+                // Item interaction
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (_interactableObject is null && hitInteractable is not null)
+                    {
+                        hitInteractable.Interact();
+                        if (hitInteractable.canInteract)
+                        {
+                            _interactableObject = hitInteractable.gameObject;
+                            Debug.Log(_interactableObject);
+                        }
+                    }
+                    else if (_interactableObject is not null)
+                    {
+                        PlaceObject(hit);
+                    }
+                }
             }
             else
             {
                 DisableInteraction();
             }
 
-            // Item interaction
-            if (Input.GetKeyDown(KeyCode.E))
+            if(_interactableObject is not null) { GhostBlock(hit); }
+        }
+
+
+        void GhostBlock(RaycastHit hit)
+        {
+            if(_ghostObject is null && hit.collider.gameObject is not null)
             {
-                if (interactableObject == null && hitInteractable != null)
-                {
-                    hitInteractable.Interact();
-                    if (hitInteractable.canInteract)
-                    {
-                        interactableObject = hitInteractable.gameObject;
-                        Debug.Log(interactableObject);
-                    }
-                }
-                else if (interactableObject != null)
-                {
-                    PlaceObject(hit);
-                }
-            }
-        }
-        else
-        {
-            DisableInteraction();
-        }
+                _ghostObject = Instantiate(_interactableObject, hit.point, Quaternion.identity);
+                _ghostObject.SetActive(true);
 
-        if(interactableObject != null) { GhostBlock(hit); }
-    }
-
-
-    void GhostBlock(RaycastHit hit)
-    {
-        if(ghostObject == null && hit.collider.gameObject != null)
-        {
-            ghostObject = Instantiate(interactableObject, hit.point, Quaternion.identity);
-            ghostObject.SetActive(true);
-
-            // "Disables" Rigidbody
-            Rigidbody rb = ghostObject.GetComponent<Rigidbody>();
-            rb.isKinematic = true;
-            rb.detectCollisions = false;
+                // "Disables" Rigidbody
+                Rigidbody rb = _ghostObject.GetComponent<Rigidbody>();
+                rb.isKinematic = true;
+                rb.detectCollisions = false;
             
-            //Sets material to transparent selected material
-            ghostObject.GetComponent<MeshRenderer>().material = ghostMaterial;
+                //Sets material to transparent selected material
+                _ghostObject.GetComponent<MeshRenderer>().material = ghostMaterial;
+            }
+            else
+            {
+                //Positions Ghostblock on update
+                _ghostObject.gameObject.transform.position = hit.point + _ghostObject.transform.up/(1f+_mouseZoom);
+                _ghostObject.transform.up = hit.normal;
+            }
+
         }
-        else
+
+
+
+        void PlaceObject(RaycastHit hit)
         {
+            if(hit.collider.CompareTag("Interactable")){ _interactable.DisableInteraction(); }
+            
+            GameObject placedObject = Instantiate(_interactableObject, _ghostObject.transform.position, Quaternion.identity);
+            placedObject.transform.up = hit.normal;  // Rotate to surface normal.
+            placedObject.SetActive(true);
 
-            //Positions Ghostblock on update
-            ghostObject.gameObject.transform.position = hit.point + ghostObject.transform.up/(1f+mouseZoom);
-            ghostObject.transform.up = hit.normal;
-        }
-
-    }
-
-
-
-    void PlaceObject(RaycastHit hit)
-    {
-        if(hit.collider.tag == "Interactable"){ interactable.DisableInteraction(); }
-        
-
-       
-        GameObject placedObject = Instantiate(interactableObject, ghostObject.transform.position, Quaternion.identity);
-        placedObject.transform.up = hit.normal;  // Rotate to surface normal.
-        placedObject.SetActive(true);
-
-        Destroy(ghostObject);
-        Debug.Log(ghostObject);
+            Destroy(_ghostObject);
+            Debug.Log(_ghostObject);
   
         
         
-        interactableObject = null;
-    }
-
-    //Disables outline on item
-    void DisableInteraction()
-    {
-        if (interactable != null)
-        {
-            interactable.DisableOutline();
-            interactable = null;
+            _interactableObject = null;
         }
-    }
 
-    // Enables interaction outline on item
-    void EnableInteraction(Interactable newInteractable)
-    {
-        if (interactable != newInteractable)
+        //Disables outline on item
+        void DisableInteraction()
         {
+            if (_interactable is null) return;
+            _interactable.DisableOutline();
+            _interactable = null;
+        }
+
+        // Enables interaction outline on item
+        void EnableInteraction(Interactable newInteractable)
+        {
+            if (_interactable == newInteractable) return;
             DisableInteraction();
-            interactable = newInteractable;
-            interactable.EnableOutline();
+            _interactable = newInteractable;
+            _interactable.EnableOutline();
         }
     }
 }

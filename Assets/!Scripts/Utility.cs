@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utility.Math
+namespace _Scripts
 {
     public static class UMath
     {
