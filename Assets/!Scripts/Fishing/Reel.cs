@@ -1,11 +1,7 @@
-using System;
-using System.Threading.Tasks;
 using GinjaGaming.FinalCharacterController;
-using Minigame.Fishing;
 using NaughtyAttributes;
+using System;
 using UnityEngine;
-using Utility.Math;
-using Utility.Physics;
 
 namespace Minigame.Fishing
 {
@@ -32,14 +28,13 @@ namespace Minigame.Fishing
             input = GetComponent<FishingRodInput>();
             rod = GetComponent<FishingRod>();
             input.Reel += ReelingValue;
-            FinishReel += FinishReeling;
         }
 
-        async void ReelingValue(Vector2 pos)
+        void ReelingValue(Vector2 pos)
         {
             if (!canReel) return;
 
-            if(currentMousePos != null)
+            if (currentMousePos != null)
             {
                 lastMousePos = currentMousePos;
             }
@@ -49,15 +44,10 @@ namespace Minigame.Fishing
             mouseMoved = currentMousePos - lastMousePos;
 
             reelValue += mouseMoved.magnitude / 2000;
-            print(reelValue + " " + toReel.Difficulty);
 
             if (reelValue >= toReel.Difficulty)
             {
-                await UPhysics.ThrowToAsync(rod.hook.rb, rod.hookPoint.position);
-
-                bucket.AddFish(toReel);
-                FinishReel.Invoke();
-                rod.hook.fish = null;
+                FinishReeling();
             }
         }
         public void StartReeling(Fish fishToReel)
@@ -70,14 +60,19 @@ namespace Minigame.Fishing
             reelUI.SetActive(true);
             reelValue = 0;
         }
-        void FinishReeling()
+        async void FinishReeling()
         {
             player.ToggleCameraMovement();
             Cursor.lockState = CursorLockMode.Locked;
 
             canReel = false;
-            //toReel = new Fish();
+            bucket.AddFish(toReel);
+            rod.hook.fish = null;
             reelUI.SetActive(false);
+
+            await rod.ReelHook();
+
+            FinishReel.Invoke();
         }
     }
 }

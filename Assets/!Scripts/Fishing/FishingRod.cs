@@ -1,4 +1,6 @@
+using System.Threading.Tasks;
 using UnityEngine;
+using Utility.Physics;
 
 namespace Minigame.Fishing
 {
@@ -24,6 +26,12 @@ namespace Minigame.Fishing
         {
             hook.Cast();
         }
+
+        public async Task ReelHook()
+        {
+            await UPhysics.ThrowToAsync(hook.rb, hookPoint.position);
+        }
+
         void ResetHook()
         {
             hook.transform.parent = hookPoint;

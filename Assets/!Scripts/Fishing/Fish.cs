@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using Utility.Methods;
 
 namespace Minigame.Fishing
 {
@@ -41,7 +42,12 @@ namespace Minigame.Fishing
         }
         void SetDifficulty()
         {
-            Difficulty = ((float)type * 2 + Size + Weight / 2) * 2.5f;
+            Difficulty = ((float)type * 2 + Size + Weight / 1.5f) * 2.5f;
+        }
+        public void Catch(Transform caughtOn)
+        {
+            transform.parent = caughtOn;
+            UMethods.ResetTransform(transform, true);
         }
 
         private void OnDrawGizmosSelected()

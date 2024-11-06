@@ -6,13 +6,11 @@ namespace Minigame.Fishing
     public class Bucket : MonoBehaviour
     {
         public Fish bestFish;
-        public List<Fish> fishCaught = new List<Fish>();
+        public List<Fish> fishCaught = new();
 
         public void AddFish(Fish fish)
         {
-            fish.transform.parent = transform;
-            fish.transform.localPosition = Vector3.zero;
-            fish.transform.localEulerAngles = Vector3.zero;
+            fish.Catch(transform);
 
             fishCaught.Add(fish);
 
