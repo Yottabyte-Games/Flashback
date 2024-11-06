@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Minigame.Fishing
 {
-    public class FishWater : MonoBehaviour
+    public class FishWater : Water
     {
         [SerializeField] List<Fish> fishList = new();
 
@@ -29,17 +29,21 @@ namespace Minigame.Fishing
         IEnumerator TryGetFish(Hook hook)
         {
             yield return new WaitForSeconds(5);
-            int fishNum = Random.Range(0, 25 + 15 * (int)hook.bait.type);
 
-            Fish fish = Instantiate(fishList[Mathf.RoundToInt(fishNum / 20)].gameObject).GetComponent<Fish>();
+            if (InWater(hook))
+            {
+                int fishNum = Random.Range(0, 25 + 15 * (int)hook.bait.type);
 
-            if (fish.type != FishType.Trash)
-            {
-                hook.CatchFish(fish);
-            }
-            else
-            {
-                StartCoroutine(TryGetFish(hook));
+                Fish fish = Instantiate(fishList[Mathf.RoundToInt(fishNum / 20)].gameObject).GetComponent<Fish>();
+
+                if (fish.type != FishType.Trash)
+                {
+                    hook.CatchFish(fish);
+                }
+                else
+                {
+                    StartCoroutine(TryGetFish(hook));
+                }
             }
         }
         public bool InWater(Hook hook)

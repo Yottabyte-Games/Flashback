@@ -9,7 +9,7 @@ namespace Minigame.Fishing
     {
         Trash = 0,
         Panfish = 1,
-        Catfish = 2,
+        RedTailCatfish = 2,
         Bass = 3,
         Sailfish = 4,
         GoliathTigerfish = 5,
@@ -19,8 +19,9 @@ namespace Minigame.Fishing
     public class Fish : MonoBehaviour
     {
         public FishType type;
-        [field: SerializeField] public float Weight { get; private set; } = 1;
-        [field: SerializeField] public float Size { get; private set; } = 1;
+
+        [field: SerializeField, Range(1f, 5f)] public float Weight { get; private set; } = 1;
+        [field: SerializeField, Range(1f, 5f)] public float Size { get; private set; } = 1;
 
         [field: SerializeField] public float Difficulty { get; private set; }
 
@@ -38,7 +39,7 @@ namespace Minigame.Fishing
 
             if (art == null) return;
 
-            art.transform.localScale = new Vector3(Weight / 4, art.transform.localScale.y, Size * 2);
+            SetVisualSize();
         }
         void SetDifficulty()
         {
@@ -49,12 +50,15 @@ namespace Minigame.Fishing
             transform.parent = caughtOn;
             UMethods.ResetTransform(transform, true);
         }
-
+        void SetVisualSize()
+        {
+            art.transform.localScale = new Vector3(Weight / 1.25f, Weight / 2.5f, Size / 2.5f);
+        }
         private void OnDrawGizmosSelected()
         {
             if (art == null) return;
 
-            art.transform.localScale = new Vector3(Weight / 4, art.transform.localScale.y, Size * 2);
+            SetVisualSize();
         }
     }
 }

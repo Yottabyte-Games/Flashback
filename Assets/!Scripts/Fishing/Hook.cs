@@ -15,28 +15,32 @@ namespace Minigame.Fishing
 
         [HideInInspector] public FishWater water;
 
-        public Rigidbody rb { get; private set; }
+        public Rigidbody Rb { get; private set; }
         private void Start()
         {
-            rb = GetComponent<Rigidbody>();
+            Rb = GetComponent<Rigidbody>();
         }
         public void CatchFish(Fish fishCaught)
         {
+            if (fish != null) return;
+
             fishCaught.Catch(fishPos);
-            rb.AddForce(Vector3.down * 500, ForceMode.Force);
+            //Rb.AddForce(Vector3.down * 500, ForceMode.Force);
             fish = fishCaught;
             CaughtFish?.Invoke(fishCaught);
         }
         public void Cast()
         {
+            print("Cast");
             transform.parent = null;
-            rb.isKinematic = false;
-            rb.AddForce(transform.forward * 500, ForceMode.Force);
+            Rb.isKinematic = false;
+            Rb.AddForce(transform.forward * 500, ForceMode.Force);
         }
         public void Ready()
         {
-            water.RemoveHook(this);
-            rb.isKinematic = true;
+            if(water != null)
+                water.RemoveHook(this);
+            Rb.isKinematic = true;
             UMethods.ResetTransform(transform, true);
         }
     }

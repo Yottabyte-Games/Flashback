@@ -15,7 +15,6 @@ namespace Minigame.Fishing
         [ReadOnly, SerializeField] bool canReel;
         Fish toReel;
 
-        public event Action FinishReel;
         [SerializeField] GameObject reelUI;
 
         Vector2 currentMousePos, lastMousePos, mouseMoved;
@@ -60,7 +59,7 @@ namespace Minigame.Fishing
             reelUI.SetActive(true);
             reelValue = 0;
         }
-        async void FinishReeling()
+        void FinishReeling()
         {
             player.ToggleCameraMovement();
             Cursor.lockState = CursorLockMode.Locked;
@@ -70,9 +69,7 @@ namespace Minigame.Fishing
             rod.hook.fish = null;
             reelUI.SetActive(false);
 
-            await rod.ReelHook();
-
-            FinishReel.Invoke();
+            rod.ReelHook();
         }
     }
 }
