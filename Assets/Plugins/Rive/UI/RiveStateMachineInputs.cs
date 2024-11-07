@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
 using Rive;
-using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using UnityEngine;
+
+namespace Plugins.Rive.UI
+{
+
 
 //! An example implementation to get/set Rive State Machine Inputs.
-namespace Rive
-{
     [RequireComponent(typeof(RiveScreen))]
     public class RiveStateMachineInputs : MonoBehaviour
     {
@@ -144,21 +146,21 @@ namespace Rive
         }
 
     }
-}
 
 #if UNITY_EDITOR
 // Creates a custom Label on the inspector.
 // This also solves this issue when exiting play mode: https://forum.unity.com/threads/nullreferenceexception-serializedobject-of-serializedproperty-has-been-disposed.1431907/
-[CustomEditor(typeof(RiveStateMachineInputs))]
-public class TestOnInspector : Editor
-{
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(RiveStateMachineInputs))]
+    public class TestOnInspector : Editor
     {
-        if (Application.isPlaying)
+        public override void OnInspectorGUI()
         {
-           base.OnInspectorGUI();
+            if (Application.isPlaying)
+            {
+                base.OnInspectorGUI();
+            }
+            GUILayout.Label ("Enter Play Mode to interact with available state machine inputs");
         }
-        GUILayout.Label ("Enter Play Mode to interact with available state machine inputs");
     }
-}
 #endif
+}

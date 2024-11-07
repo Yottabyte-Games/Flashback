@@ -1,8 +1,9 @@
+using Rive;
 using UnityEngine;
 
 //! An example implementation to access Rive Events.
 
-namespace Rive
+namespace Plugins.Rive.UI
 {
     [RequireComponent(typeof(RiveScreen))]
     public class RiveEvents : MonoBehaviour

@@ -56,7 +56,7 @@ namespace _Scripts.Snowman_Scripts
             animator.Play("ImageFade");
             displayImage.sprite = textureToSprite;
 
-            Invoke("DisplayImage", 3f);
+            Invoke(nameof(DisplayImage), 3f);
         }
 
         void DisplayImage()
@@ -76,8 +76,10 @@ namespace _Scripts.Snowman_Scripts
             var colliders = Physics.OverlapSphere(snowball.gameObject.transform.position, 3);
             foreach (var collider in colliders)
             {
-                if (collider.gameObject.CompareTag("Interactable"));
-                objects++;
+                if (collider.gameObject.CompareTag("Interactable"))
+                {
+                    objects++;
+                }
             }
 
             if (objects > 7) 
