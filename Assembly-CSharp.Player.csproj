@@ -97,6 +97,7 @@
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Interaction_System\Hoverable.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\ButtonAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\NaughtyAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Interactables\ActivateDialogueInteractable.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\GroupAttributes\BoxGroupAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Scriptable_Objects\PickableData.cs" />
@@ -977,6 +978,14 @@
       <HintPath>Library\ScriptAssemblies\Unity.Polybrush.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Splines">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Autodesk.Fbx">
       <HintPath>Library\ScriptAssemblies\Autodesk.Fbx.dll</HintPath>
       <Private>False</Private>
@@ -991,10 +1000,6 @@
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.ProBuilder">
