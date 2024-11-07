@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Utility.Methods;
+using static UnityEditor.FilePathAttribute;
 
 namespace Minigame.Fishing
 {
@@ -11,6 +12,11 @@ namespace Minigame.Fishing
 
         [SerializeField] Transform bestFishLocation;
         [SerializeField] List<Transform> fishLocations = new();
+
+        private void OnTriggerEnter(Collider other)
+        {
+            
+        }
 
         public void AddFish(Fish fish)
         {
@@ -27,7 +33,7 @@ namespace Minigame.Fishing
 
             print("added");
 
-            PlaceFish(fish);
+            UpdateFishLocations();
         }
 
         void SetBestFish(Fish fish)
@@ -38,55 +44,59 @@ namespace Minigame.Fishing
             bestFish = fish;
         }
 
-        void PlaceFish(Fish fish)
+        void UpdateFishLocations()
         {
-
-            print("hello");
-            if (fish == bestFish)
+            //set all fishes to be invisible and in the bucket
+            foreach (var fish in fishCaught)
             {
-                if (bestFishLocation.childCount > 0)
-                {
-                    Transform previousFish = bestFishLocation.GetChild(0);
-                    previousFish.gameObject.SetActive(false);
-                    previousFish.parent = transform;
-                }
-                fish.Catch(bestFishLocation);
-
-                return;
+                fish.Catch(transform);
+                fish.gameObject.SetActive(false);
             }
+
+            //set the last 4 fishes to be on fish locations
+            bool foundBestFish = false;
 
             for (int i = 0; i < fishLocations.Count; i++)
             {
-                if (fishLocations[i].childCount > 0)
+                if (fishCaught.Count > i)
                 {
-                    bool shouldContinue = false;
+                    Fish fishToPlace = foundBestFish ? fishCaught[^(i + 2)] : fishCaught[^(i + 1)];
 
-                    Transform previousFish = fishLocations[i].GetChild(0);
-
-                    print(i + 1 < fishLocations.Count);
-
-                    if (i + 1 < fishLocations.Count)
+                    if (fishToPlace != bestFish)
                     {
-                        if (fishLocations[i + 1].childCount > 0)
-                        {
-                            shouldContinue = true;
-                        }
-                        previousFish.transform.parent = fishLocations[i + 1];
-                        UMethods.ResetTransform(previousFish);
+                        fishToPlace.transform.parent = fishLocations[i];
                     }
-                    else
+                    else if(fishCaught.Count > i + 2)
                     {
-                        previousFish.gameObject.SetActive(false);
-                        previousFish.parent = transform;
+                        fishCaught[^(i + 2)].transform.parent = fishLocations[i];
+                        foundBestFish = true;
                     }
-
-                    if (shouldContinue)
-                        break;
                 }
             }
 
+            //set the best fish on the best fish location
+            if(bestFish != null)
+            {
+                bestFish.transform.parent = bestFishLocation;
+            }
 
-            fish.Catch(fishLocations[0]);
+            foreach (var location in fishLocations)
+            {
+                if(location.childCount > 0)
+                {
+                    Transform fish = location.GetChild(0);
+
+                    UMethods.ResetTransform(fish, true);
+                    fish.gameObject.SetActive(true);
+                }
+            }
+            if (bestFishLocation.childCount > 0)
+            {
+                Transform fish = bestFishLocation.GetChild(0);
+
+                UMethods.ResetTransform(fish, true);
+                fish.gameObject.SetActive(true);
+            }
         }
     }
 

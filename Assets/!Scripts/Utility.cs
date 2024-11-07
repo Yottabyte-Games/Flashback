@@ -38,14 +38,10 @@ namespace Utility
     {
         public class UMath
         {
-            static float Gravity
-            {
-                get { return -UnityEngine.Physics.gravity.y; }
-            }
 
-            public static Vector3 VeloctiyToDestination(Vector3 startPos, Vector3 endPos, float time)
+            public static Vector3 VeloctiyToDestination(Vector3 startPos, Vector3 endPos, float time, float gravity)
             {
-                float yForce = endPos.y - startPos.y + 0.5f * Gravity * time;
+                float yForce = endPos.y - startPos.y + 0.5f * -gravity * time;
                 float xForce = (endPos.x - startPos.x) / time;
                 float zForce = (endPos.z - startPos.z) / time;
 
@@ -58,6 +54,13 @@ namespace Utility
     {
         public class UPhysics
         {
+            /// <summary>
+            /// Returns the y of Physics.gravity.
+            /// </summary>
+            public static float Gravity
+            {
+                get { return UnityEngine.Physics.gravity.y; }
+            }
 
             /// <summary>
             /// Thow an object to a position
@@ -67,7 +70,7 @@ namespace Utility
             /// <param name="time">travel time in seconds</param>
             public static void ThrowTo(Rigidbody toThrow, Vector3 pos, float time = 1)
             {
-                toThrow.linearVelocity = UMath.VeloctiyToDestination(toThrow.transform.position, pos, time);
+                toThrow.linearVelocity = UMath.VeloctiyToDestination(toThrow.transform.position, pos, time, Gravity);
             }
             /// <summary>
             /// Thow an object to a position, but waits until the time has passed

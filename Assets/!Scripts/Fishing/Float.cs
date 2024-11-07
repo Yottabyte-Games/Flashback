@@ -13,7 +13,8 @@ namespace _Scripts
 
         private void OnTriggerEnter(Collider other)
         {
-            rb.linearVelocity /= 100;
+            if (rb.isKinematic) return;
+                rb.linearVelocity /= 100;
         }
 
         private void OnTriggerStay(Collider other)

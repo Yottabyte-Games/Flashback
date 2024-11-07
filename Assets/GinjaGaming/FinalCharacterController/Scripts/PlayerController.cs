@@ -38,7 +38,7 @@ namespace GinjaGaming.FinalCharacterController
         public float lookSenseH = 0.1f;
         public float lookSenseV = 0.1f;
         public float lookLimitV = 89f;
-        public bool cameraMovement { get; private set; } = true;
+        public bool CameraMovement { get; private set; } = true;
 
         [Header("Environment Details")]
         [SerializeField] private LayerMask _groundLayers;
@@ -196,7 +196,7 @@ namespace GinjaGaming.FinalCharacterController
         #region Late Update Logic
         private void LateUpdate()
         {
-            if(cameraMovement)
+            if(CameraMovement)
                 UpdateCameraRotation();
         }
 
@@ -255,9 +255,9 @@ namespace GinjaGaming.FinalCharacterController
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotationX, playerModelRotationSpeed * Time.deltaTime);
         }
 
-        public void ToggleCameraMovement()
+        public void ToggleCameraMovement(bool toggle)
         {
-            cameraMovement = !cameraMovement;
+            CameraMovement = toggle;
         }
         #endregion
 

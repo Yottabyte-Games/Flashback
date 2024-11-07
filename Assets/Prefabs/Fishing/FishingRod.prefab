@@ -105,7 +105,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Positions:
   - {x: 1.7729902, y: 3.6670904, z: 4.8925333}
   - {x: 1.7729902, y: 3.6670904, z: 4.8925333}
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b0de60297e1a7449d53bd53e440b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToReelHook: 1
   hook: {fileID: 6979856218046131222}
   hookPoint: {fileID: 7259583151857864958}
 --- !u!114 &2655846469277432644
@@ -189,12 +190,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3342296846655013807}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb95badbdd704914eb5cf51f0bb7af82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canReel: 0
   reelUI: {fileID: 4321318533496638657}
 --- !u!114 &5919947326873534013
 MonoBehaviour:
@@ -540,6 +540,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7259583151857864958}
     m_Modifications:
+    - target: {fileID: -3849529854558049447, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
+      propertyPath: buoyancy
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1262271193829830186, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

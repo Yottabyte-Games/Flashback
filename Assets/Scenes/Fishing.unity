@@ -255,23 +255,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540009321080785211, guid: c07dbd76c1d82d545b19536306fe5156, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3540009321080785211, guid: c07dbd76c1d82d545b19536306fe5156, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3540009321080785211, guid: c07dbd76c1d82d545b19536306fe5156, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4269333237098955535, guid: c07dbd76c1d82d545b19536306fe5156, type: 3}
       propertyPath: <Size>k__BackingField
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4269333237098955535, guid: c07dbd76c1d82d545b19536306fe5156, type: 3}
       propertyPath: <Weight>k__BackingField
-      value: 2.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269333237098955535, guid: c07dbd76c1d82d545b19536306fe5156, type: 3}
+      propertyPath: <Difficulty>k__BackingField
+      value: 9.75
       objectReference: {fileID: 0}
     - target: {fileID: 5915760575054095172, guid: c07dbd76c1d82d545b19536306fe5156, type: 3}
       propertyPath: m_LocalPosition.x
@@ -395,6 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 551632219}
   - component: {fileID: 551632220}
+  - component: {fileID: 551632221}
   m_Layer: 0
   m_Name: Bucket
   m_TagString: Untagged
@@ -442,6 +447,27 @@ MonoBehaviour:
   - {fileID: 581449878}
   - {fileID: 258394231}
   - {fileID: 1624255560}
+--- !u!65 &551632221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551632218}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 4, z: 5}
+  m_Center: {x: 0.5, y: 0, z: 0}
 --- !u!1 &581449877
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +625,6 @@ MonoBehaviour:
   - {fileID: 4269333237098955535, guid: a525df6367e7ea345bc19f5c12df15aa, type: 3}
   - {fileID: 4269333237098955535, guid: c07dbd76c1d82d545b19536306fe5156, type: 3}
   - {fileID: 4269333237098955535, guid: c66e67b136ac19f4aaeeee21f8672bc6, type: 3}
-  - {fileID: 4269333237098955535, guid: 2cb1f92309f938244b2ebf8e97669295, type: 3}
   - {fileID: 4269333237098955535, guid: 7d51cb52a20f9da4184fb11f5b97e768, type: 3}
 --- !u!1 &890869681
 GameObject:
@@ -646,23 +671,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540009321080785211, guid: c66e67b136ac19f4aaeeee21f8672bc6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3540009321080785211, guid: c66e67b136ac19f4aaeeee21f8672bc6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3540009321080785211, guid: c66e67b136ac19f4aaeeee21f8672bc6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4269333237098955535, guid: c66e67b136ac19f4aaeeee21f8672bc6, type: 3}
       propertyPath: <Size>k__BackingField
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4269333237098955535, guid: c66e67b136ac19f4aaeeee21f8672bc6, type: 3}
       propertyPath: <Weight>k__BackingField
-      value: 2.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269333237098955535, guid: c66e67b136ac19f4aaeeee21f8672bc6, type: 3}
+      propertyPath: <Difficulty>k__BackingField
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 5915760575054095172, guid: c66e67b136ac19f4aaeeee21f8672bc6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -861,11 +890,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4269333237098955535, guid: a525df6367e7ea345bc19f5c12df15aa, type: 3}
       propertyPath: <Size>k__BackingField
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4269333237098955535, guid: a525df6367e7ea345bc19f5c12df15aa, type: 3}
       propertyPath: <Weight>k__BackingField
-      value: 2.5
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269333237098955535, guid: a525df6367e7ea345bc19f5c12df15aa, type: 3}
+      propertyPath: <Difficulty>k__BackingField
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5915760575054095172, guid: a525df6367e7ea345bc19f5c12df15aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -938,11 +971,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4269333237098955535, guid: 7d51cb52a20f9da4184fb11f5b97e768, type: 3}
       propertyPath: <Size>k__BackingField
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4269333237098955535, guid: 7d51cb52a20f9da4184fb11f5b97e768, type: 3}
       propertyPath: <Weight>k__BackingField
-      value: 2.5
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269333237098955535, guid: 7d51cb52a20f9da4184fb11f5b97e768, type: 3}
+      propertyPath: <Difficulty>k__BackingField
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5915760575054095172, guid: 7d51cb52a20f9da4184fb11f5b97e768, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1107,21 +1144,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 304651799}
     m_Modifications:
-    - target: {fileID: 1059287152564210833, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1732557558554707759, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 304651796}
+    - target: {fileID: 2655846469277432644, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3342296846655013807, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
       propertyPath: m_Name
       value: FishingRod
-      objectReference: {fileID: 0}
-    - target: {fileID: 4262709089902594725, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: buoyancy
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6626804480151116304, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
       propertyPath: m_LocalPosition.x

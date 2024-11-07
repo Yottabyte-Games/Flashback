@@ -7,6 +7,8 @@ namespace Minigame.Fishing
 {
     public class Hook : MonoBehaviour
     {
+        public FishingRod connectedRod;
+
         [SerializeField] Transform fishPos;
 
         [ReadOnly] public Fish fish;
@@ -25,9 +27,10 @@ namespace Minigame.Fishing
             if (fish != null) return;
 
             fishCaught.Catch(fishPos);
-            //Rb.AddForce(Vector3.down * 500, ForceMode.Force);
             fish = fishCaught;
             CaughtFish?.Invoke(fishCaught);
+
+            connectedRod.ToggleReeling(true);
         }
         public void Cast()
         {
@@ -38,8 +41,9 @@ namespace Minigame.Fishing
         }
         public void Ready()
         {
-            if(water != null)
+            if (water != null)
                 water.RemoveHook(this);
+
             Rb.isKinematic = true;
             UMethods.ResetTransform(transform, true);
         }

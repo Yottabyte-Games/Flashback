@@ -1,6 +1,4 @@
 using GinjaGaming.FinalCharacterController;
-using NaughtyAttributes;
-using System;
 using UnityEngine;
 
 namespace Minigame.Fishing
@@ -9,10 +7,6 @@ namespace Minigame.Fishing
     {
         FishingRodInput input;
         FishingRod rod;
-        PlayerController player;
-        Bucket bucket;
-
-        [ReadOnly, SerializeField] bool canReel;
         Fish toReel;
 
         [SerializeField] GameObject reelUI;
@@ -20,19 +14,22 @@ namespace Minigame.Fishing
         Vector2 currentMousePos, lastMousePos, mouseMoved;
         float reelValue;
 
-        private void Start()
+        private void OnEnable()
         {
-            player = FindFirstObjectByType<PlayerController>();
-            bucket = FindFirstObjectByType<Bucket>();
             input = GetComponent<FishingRodInput>();
             rod = GetComponent<FishingRod>();
+
             input.Reel += ReelingValue;
+            StartReeling(rod.hook.fish);
+        }
+        private void OnDisable()
+        {
+            input.Reel -= ReelingValue;
+            FinishReeling();
         }
 
         void ReelingValue(Vector2 pos)
         {
-            if (!canReel) return;
-
             if (currentMousePos != null)
             {
                 lastMousePos = currentMousePos;
@@ -51,25 +48,20 @@ namespace Minigame.Fishing
         }
         public void StartReeling(Fish fishToReel)
         {
-            player.ToggleCameraMovement();
             Cursor.lockState = CursorLockMode.Confined;
 
             toReel = fishToReel;
-            canReel = true;
             reelUI.SetActive(true);
             reelValue = 0;
         }
-        void FinishReeling()
+        async void FinishReeling()
         {
-            player.ToggleCameraMovement();
             Cursor.lockState = CursorLockMode.Locked;
-
-            canReel = false;
-            bucket.AddFish(toReel);
-            rod.hook.fish = null;
             reelUI.SetActive(false);
 
-            rod.ReelHook();
+            await rod.ReelHook();
+
+            rod.ToggleReeling(false);
         }
     }
 }

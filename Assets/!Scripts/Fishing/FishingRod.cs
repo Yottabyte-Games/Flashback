@@ -1,3 +1,5 @@
+using GinjaGaming.FinalCharacterController;
+using System.Threading.Tasks;
 using UnityEngine;
 using Utility.Physics;
 
@@ -13,16 +15,22 @@ namespace Minigame.Fishing
         public Hook hook;
         public Transform hookPoint;
         Reel reel;
+        PlayerController player;
+
 
         public bool HookThrowAnim { get; private set; }
         public bool HookIsCast { get; private set; }
 
         void Start()
         {
+            player = FindFirstObjectByType<PlayerController>();
             reel = GetComponent<Reel>();
             input = GetComponent<FishingRodInput>();
             input.Cast += CastHook;
-            hook.CaughtFish += reel.StartReeling;
+            hook.connectedRod = this;
+
+
+            ToggleReeling(false);
         }
 
         void CastHook()
@@ -31,14 +39,18 @@ namespace Minigame.Fishing
             if (HookThrowAnim) return;
 
             if (HookIsCast)
-                ReelHook();
+                _ = ReelHook();
             else
                 hook.Cast();
 
             HookIsCast = !HookIsCast;
         }
-
-        public async void ReelHook()
+        public void ToggleReeling(bool toggle)
+        {
+            player.ToggleCameraMovement(!toggle);
+            reel.enabled = toggle;
+        }
+        public async Task ReelHook()
         {
             if (!hook.Rb.useGravity)
                 hook.Rb.useGravity = true;
