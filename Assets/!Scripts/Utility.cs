@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using Utility.Math;
 
 namespace Utility
 {
@@ -35,21 +36,20 @@ namespace Utility
 
     namespace Math
     {
-        public static class UMath
+        public class UMath
         {
-            /// <summary>
-            /// Linearly interpolates between two Vector3's.
-            /// </summary>
-            /// <param name="v1">The start value.</param>
-            /// <param name="v2">The end value.</param>
-            /// <param name="t">The interpolation value between the two floats.</param>
-            /// <returns>The interpolated vector3 result between the two vector3 values.</returns>
-            public static Vector3 LerpVector3(Vector3 v1, Vector3 v2, float t)
+            static float Gravity
             {
-                return new Vector3(
-                    Mathf.Lerp(v1.x, v2.x, t), 
-                    Mathf.Lerp(v1.y, v2.y, t), 
-                    Mathf.Lerp(v1.z, v2.z, t));
+                get { return -UnityEngine.Physics.gravity.y; }
+            }
+
+            public static Vector3 VeloctiyToDestination(Vector3 startPos, Vector3 endPos, float time)
+            {
+                float yForce = endPos.y - startPos.y + 0.5f * Gravity * time;
+                float xForce = (endPos.x - startPos.x) / time;
+                float zForce = (endPos.z - startPos.z) / time;
+
+                return new Vector3(xForce, yForce, zForce);
             }
         }
     }
@@ -58,10 +58,6 @@ namespace Utility
     {
         public class UPhysics
         {
-            static float Gravity
-            {
-                get { return -UnityEngine.Physics.gravity.y; }
-            }
 
             /// <summary>
             /// Thow an object to a position
@@ -71,7 +67,7 @@ namespace Utility
             /// <param name="time">travel time in seconds</param>
             public static void ThrowTo(Rigidbody toThrow, Vector3 pos, float time = 1)
             {
-                toThrow.linearVelocity = CalculateThrow(toThrow.transform.position, pos, time);
+                toThrow.linearVelocity = UMath.VeloctiyToDestination(toThrow.transform.position, pos, time);
             }
             /// <summary>
             /// Thow an object to a position, but waits until the time has passed
@@ -84,15 +80,6 @@ namespace Utility
                 ThrowTo(toThrow, pos, time / 1000f);
 
                 await Task.Delay(time);
-            }
-
-            static Vector3 CalculateThrow(Vector3 startPos, Vector3 endPos, float time)
-            {
-                float yForce = endPos.y - startPos.y + 0.5f * Gravity * time;
-                float xForce = (endPos.x - startPos.x) / time;
-                float zForce = (endPos.z - startPos.z) / time;
-
-                return new Vector3(xForce, yForce, zForce);
             }
         }
     }

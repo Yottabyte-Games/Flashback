@@ -32,7 +32,7 @@ namespace Minigame.Fishing
 
             if (InWater(hook))
             {
-                int fishNum = Random.Range(0, 25 + 15 * (int)hook.bait.type);
+                int fishNum = Random.Range(0, 25 + (15 * (int)hook.bait.type));
 
                 Fish fish = Instantiate(fishList[Mathf.RoundToInt(fishNum / 20)].gameObject).GetComponent<Fish>();
 

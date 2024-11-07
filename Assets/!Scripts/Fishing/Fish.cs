@@ -7,12 +7,11 @@ namespace Minigame.Fishing
 {
     public enum FishType
     {
-        Trash = 0,
-        Panfish = 1,
-        RedTailCatfish = 2,
-        Bass = 3,
-        Sailfish = 4,
-        GoliathTigerfish = 5,
+        Trash = 0, 
+        Mackerel = 1,//Mackerel 1.5$
+        Cod = 2, //4$
+        FjordTrout = 3, //6$
+        Salmon = 4, //7$
     }
 
     [Serializable]
