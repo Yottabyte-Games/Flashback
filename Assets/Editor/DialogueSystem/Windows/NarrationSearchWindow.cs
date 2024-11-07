@@ -1,0 +1,89 @@
+using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+
+namespace Narration.Windows
+{
+    using Elements;
+    using Enumerations;
+
+    public class NarrationSearchWindow : ScriptableObject, ISearchWindowProvider
+    {
+        NarrationGraphView graphView;
+        Texture2D indentationIcon;
+
+        public void Initialize(NarrationGraphView narrationGraphView)
+        {
+            graphView = narrationGraphView;
+
+            indentationIcon = new Texture2D(1, 1);
+            indentationIcon.SetPixel(0, 0, Color.clear);
+            indentationIcon.Apply();
+        }
+
+        public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context)
+        {
+            List<SearchTreeEntry> searchTreeEntries = new List<SearchTreeEntry>()
+            {
+                new SearchTreeGroupEntry(new GUIContent("Create Elements")),
+                new SearchTreeGroupEntry(new GUIContent("Dialogue Nodes"), 1),
+                new SearchTreeEntry(new GUIContent("Single Choice", indentationIcon))
+                {
+                    userData = NarrationDialogueType.SingleChoice,
+                    level = 2
+                },
+                new SearchTreeEntry(new GUIContent("Multiple Choice", indentationIcon))
+                {
+                    userData = NarrationDialogueType.MultipleChoice,
+                    level = 2
+                },
+                new SearchTreeGroupEntry(new GUIContent("Dialogue Groups"), 1),
+                new SearchTreeEntry(new GUIContent("Single Group", indentationIcon))
+                {
+                    userData = new Group(),
+                    level = 2
+                }
+            };
+
+            return searchTreeEntries;
+        }
+
+        public bool OnSelectEntry(SearchTreeEntry SearchTreeEntry, SearchWindowContext context)
+        {
+            Vector2 localMousePosition = graphView.GetLocalMousePosition(context.screenMousePosition, true);
+
+            switch (SearchTreeEntry.userData)
+            {
+                case NarrationDialogueType.SingleChoice:
+                {
+                    NarrationSingleChoiceNode singleChoiceNode = (NarrationSingleChoiceNode) graphView.CreateNode("DialogueName", NarrationDialogueType.SingleChoice, localMousePosition);
+
+                    graphView.AddElement(singleChoiceNode);
+
+                    return true;
+                }
+
+                case NarrationDialogueType.MultipleChoice:
+                {
+                    NarrationMultipleChoiceNode multipleChoiceNode = (NarrationMultipleChoiceNode) graphView.CreateNode("DialogueName", NarrationDialogueType.MultipleChoice, localMousePosition);
+
+                    graphView.AddElement(multipleChoiceNode);
+
+                    return true;
+                }
+
+                case Group _:
+                {
+                    graphView.CreateGroup("DialogueGroup", localMousePosition);
+
+                    return true;
+                }
+
+                default:
+                {
+                    return false;
+                }
+            }
+        }
+    }
+}
