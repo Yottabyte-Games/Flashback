@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7827960489168998650}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.025106832, z: -0, w: 0.99968475}
+  m_LocalRotation: {x: 0, y: 0.025103934, z: 0, w: 0.9996848}
   m_LocalPosition: {x: 131.66707, y: 8.38, z: 165.28401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,7 +48,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -68,4 +68,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTriggerEnterEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: _Scripts.Singletons.SceneSwapper, Assembly-CSharp
+        m_MethodName: Fishing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
