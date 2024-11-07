@@ -10,6 +10,7 @@ using RenderQueue = Rive.RenderQueue;
 
 namespace Plugins.Rive.UI
 {
+    
     internal class CameraTextureHelper
     {
         Camera _mainCamera;
