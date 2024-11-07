@@ -3,10 +3,10 @@ name: Actions 😎
 on:
   push:
     branches:
-      - Build
+      - main
   pull_request:
     branches:
-      - Build
+      - main
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
-
+          
       # Cache
       - uses: actions/cache@v4
         with:
@@ -30,7 +30,15 @@ jobs:
           restore-keys: |
             Library-${{ runner.os }}-
             Library-
-
+            
+      # Free Disk Space
+      - name: Free up Disk Space
+        run: |
+          sudo swapoff -a
+          sudo rm -f /swapfile
+          sudo apt clean
+          docker rmi $(docker image ls -aq)
+          df -h
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
@@ -39,17 +47,13 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          targetPlatform: StandaloneWindows64
-
-      # Ensure Directory Exists
-      - name: Ensure build directory exists
-        run: mkdir -p build/StandaloneWindows64
+          targetPlatform: WebGL
 
       # Output
       - uses: actions/upload-artifact@v4
         with:
           name: Build
-          path: build/StandaloneWindows64
+          path: build/WebGL
 
   deployPages:
     needs: build
@@ -64,24 +68,21 @@ jobs:
           name: Build
           path: build
 
-      - name: Ensure directory exists
-        run: mkdir -p build/StandaloneWindows64
-
       - name: Display structure of root files
         run: ls -R
-        working-directory: build/StandaloneWindows64
+        working-directory: build/WebGL
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.6.8
         with:
           branch: itch-io
-          folder: build/StandaloneWindows64
+          folder: build/WebGL
 
       - uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
-          CHANNEL: windows
+          CHANNEL: HTML
           ITCH_GAME: FLASHBACK
           ITCH_USER: MARZLARS
           BRANCH: itch-io
-          PACKAGE: build/StandaloneWindows64
+          PACKAGE: build/WebGL
