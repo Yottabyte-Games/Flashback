@@ -4,6 +4,9 @@ namespace _Scripts.SceneLogic
 {
     public class async : MonoBehaviour
     {
-        void loadMyScene(MySceneParams params, System.Action<MySceneOutcome> callback);
+        public void loadMyScene(MySceneParams sceneParams, System.Action<MySceneOutcome> callback)
+        {
+            MySceneBehaviour.LoadMyScene(sceneParams, callback);
+        }
     }
 }
