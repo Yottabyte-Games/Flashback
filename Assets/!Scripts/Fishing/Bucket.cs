@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utility.Methods;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class Bucket : MonoBehaviour
     {

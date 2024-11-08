@@ -1,7 +1,7 @@
 using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class Reel : MonoBehaviour
     {

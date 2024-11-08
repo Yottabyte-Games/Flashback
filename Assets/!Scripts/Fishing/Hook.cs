@@ -3,7 +3,7 @@ using Unity.Collections;
 using UnityEngine;
 using Utility.Methods;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class Hook : MonoBehaviour
     {

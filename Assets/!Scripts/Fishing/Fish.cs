@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Utility.Methods;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public enum FishType
     {
