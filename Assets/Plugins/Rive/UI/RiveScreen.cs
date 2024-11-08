@@ -239,5 +239,14 @@ namespace Plugins.Rive.UI
             }
 
         }
+        public void SetDialogue(string dialogueString)
+        {
+            _artboard.SetTextRun("DialogueText", dialogueString);
+        }
+
+        public void SetHoverItemName(string objectName)
+        {
+            _artboard.SetTextRun("ItemName", objectName);
+        }
     }
 }
