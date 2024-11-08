@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Narration.Utilities
+namespace DS.Utilities
 {
     public static class CollectionUtility
     {

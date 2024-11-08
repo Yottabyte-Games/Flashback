@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,7 +10,6 @@ public class SerializableDictionary
 }
 
 [Serializable]
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class SerializableDictionary<TKey, TValue> : SerializableDictionary, IDictionary<TKey, TValue>, ISerializationCallbackReceiver
 {
     [SerializeField] List<SerializableKeyValuePair> list = new List<SerializableKeyValuePair>();
