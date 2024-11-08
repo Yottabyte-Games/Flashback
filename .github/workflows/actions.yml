@@ -50,6 +50,10 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
 
+      # Ensure Directory Exists
+      - name: Ensure build directory exists
+        run: mkdir -p build/StandaloneWindows64
+
       # Output
       - uses: actions/upload-artifact@v4
         with:
@@ -67,7 +71,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: Build
-          path: build
+          path: build/StandaloneWindows64
 
       - name: Display structure of root files
         run: ls -R
@@ -82,7 +86,7 @@ jobs:
       - uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
-          CHANNEL: windows
+          CHANNEL: win
           ITCH_GAME: FLASHBACK
           ITCH_USER: MARZLARS
           BRANCH: itch-io
