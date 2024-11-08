@@ -20,7 +20,7 @@ namespace Minigame.Fishing
         public FishType type;
 
         [field: SerializeField, Range(1f, 10f)] public float Weight { get; private set; } = 1;
-        [field: SerializeField, Range(1f, 10f)] public float Size { get; private set; } = 1;
+        [field: SerializeField, Range(1f, 10f)] public float Length { get; private set; } = 1;
 
         [field: SerializeField] public float Difficulty { get; private set; }
 
@@ -34,7 +34,7 @@ namespace Minigame.Fishing
         void RandomizeFish()
         {
             Weight = UnityEngine.Random.Range(1f, 10f);
-            Size = UnityEngine.Random.Range(1f, 10f);
+            Length = UnityEngine.Random.Range(1f, 10f);
 
             if (art == null) return;
 
@@ -42,7 +42,7 @@ namespace Minigame.Fishing
         }
         void SetDifficulty()
         {
-            Difficulty = ((float)type * 2.5f + Size + Weight / 2f) * 2f;
+            Difficulty = ((float)type * 2.5f + Length + Weight / 2f) * 2f;
         }
         public void Catch(Transform caughtOn)
         {
@@ -51,7 +51,7 @@ namespace Minigame.Fishing
         }
         void SetVisualSize()
         {
-            art.transform.localScale = new Vector3(Weight / 2.5f, Weight / 5f, Size / 5f);
+            art.transform.localScale = new Vector3(Weight / 2.5f, Weight / 5f, Length / 5f);
         }
         private void OnDrawGizmosSelected()
         {

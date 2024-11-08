@@ -16,7 +16,7 @@ namespace Utility
             /// <param name="keepPosition">do we keep the position?</param>
             /// <param name="keepRotation">do we keep the rotation?</param>
             /// <param name="keepSize">do we keep the size?</param>
-            public static void ResetTransform(Transform transform, bool isLocal = false, bool keepPosition = false, bool keepRotation = false, bool keepSize = true)
+            public static void ResetTransform(this Transform transform, bool isLocal = false, bool keepPosition = false, bool keepRotation = false, bool keepSize = true)
             {
                 if (isLocal)
                 {
@@ -30,6 +30,11 @@ namespace Utility
                     if (!keepRotation) transform.eulerAngles = Vector3.zero;
                     if (!keepSize) transform.localScale = Vector3.one;
                 }
+            }
+
+            public static bool Contains(this LayerMask mask, int layer)
+            {
+                return mask == (mask | (1 << layer));
             }
         }
     }

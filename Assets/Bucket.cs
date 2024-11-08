@@ -1,21 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Utility.Methods;
-using static UnityEditor.FilePathAttribute;
 
 namespace Minigame.Fishing
 {
     public class Bucket : MonoBehaviour
     {
+        [SerializeField] FishingRod fishingRod;
+
+        [Space]
         public Fish bestFish;
         public List<Fish> fishCaught = new();
 
-        [SerializeField] Transform bestFishLocation;
-        [SerializeField] List<Transform> fishLocations = new();
+        [SerializeField] FishDisplay bestFishLocation;
+        [SerializeField] List<FishDisplay> fishLocations = new();
 
         private void OnTriggerEnter(Collider other)
         {
-            
+            if (fishingRod.hook.fish == null) return;
+            if (other.gameObject.layer != 9) return;
+
+            AddFish(fishingRod.hook.fish);
+            fishingRod.hook.fish = null;
         }
 
         public void AddFish(Fish fish)
@@ -39,18 +45,17 @@ namespace Minigame.Fishing
         void SetBestFish(Fish fish)
         {
             if (bestFish != null)
-                Debug.Log("Prevous Best Fish: " + bestFish.type + "; Size: " + bestFish.Size + "; Weight: " + bestFish.Weight +
-                          " | Best Fish: " + fish.type + "; Size: " + fish.Size + "; Weight: " + fish.Weight);
+                Debug.Log("Prevous Best Fish: " + bestFish.type + "; Size: " + bestFish.Length + "; Weight: " + bestFish.Weight +
+                          " | Best Fish: " + fish.type + "; Size: " + fish.Length + "; Weight: " + fish.Weight);
             bestFish = fish;
         }
 
         void UpdateFishLocations()
         {
             //set all fishes to be invisible and in the bucket
-            foreach (var fish in fishCaught)
+            foreach (var loc in fishLocations)
             {
-                fish.Catch(transform);
-                fish.gameObject.SetActive(false);
+                loc.RemoveFish();
             }
 
             //set the last 4 fishes to be on fish locations
@@ -64,38 +69,20 @@ namespace Minigame.Fishing
 
                     if (fishToPlace != bestFish)
                     {
-                        fishToPlace.transform.parent = fishLocations[i];
+                        fishLocations[i].DisplayFish(fishToPlace);
                     }
-                    else if(fishCaught.Count > i + 2)
+                    else if (fishCaught.Count > i + 2)
                     {
-                        fishCaught[^(i + 2)].transform.parent = fishLocations[i];
+                        fishLocations[i].DisplayFish(fishCaught[^(i + 2)]);
                         foundBestFish = true;
                     }
                 }
             }
 
             //set the best fish on the best fish location
-            if(bestFish != null)
+            if (bestFish != null)
             {
-                bestFish.transform.parent = bestFishLocation;
-            }
-
-            foreach (var location in fishLocations)
-            {
-                if(location.childCount > 0)
-                {
-                    Transform fish = location.GetChild(0);
-
-                    UMethods.ResetTransform(fish, true);
-                    fish.gameObject.SetActive(true);
-                }
-            }
-            if (bestFishLocation.childCount > 0)
-            {
-                Transform fish = bestFishLocation.GetChild(0);
-
-                UMethods.ResetTransform(fish, true);
-                fish.gameObject.SetActive(true);
+                bestFishLocation.DisplayFish(bestFish);
             }
         }
     }
