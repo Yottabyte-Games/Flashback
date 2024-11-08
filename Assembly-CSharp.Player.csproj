@@ -68,6 +68,7 @@
     <Compile Include="Assets\YottabyteGames\Scripts\GunSystem.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Scriptable_Objects\PerlinNoiseData.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\ValidatorAttributes\MinValueAttribute.cs" />
+    <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\ValidatorAttributes\ValidateInputAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\MetaAttributes\OnValueChangedAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FinalCharacterController\Scripts\PlayerLocomotionInput.cs" />
@@ -76,7 +77,10 @@
     <Compile Include="Assets\_Barking_Dog\Common Scripts\Turn_Move.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\EnableIfAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Camera_Controller\CameraZoom.cs" />
+    <Compile Include="Assets\YottabyteGames\Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\ReadOnlyAttribute.cs" />
+    <Compile Include="Assets\Materials\CameraShake.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Camera_Controller\CameraBreathing.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Scriptable_Objects\CameraInputData.cs" />
@@ -93,8 +97,10 @@
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Interaction_System\InteractionUI.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\LabelAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Interaction_System\InteractableBase.cs" />
+    <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\ShowAssetPreviewAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Interaction_System\Hoverable.cs" />
+    <Compile Include="Assets\Materials\ExplosionTrigger.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\ButtonAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\NaughtyAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Interactables\ActivateDialogueInteractable.cs" />
@@ -107,6 +113,7 @@
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Interaction_System\IPickable.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\ShowNonSerializedFieldAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\YottabyteGames\FinalCharacterController\Input\PlayerControls.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Camera_Controller\CameraSwaying.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\TagAttribute.cs" />
@@ -115,12 +122,14 @@
     <Compile Include="Assets\YottabyteGames\Scripts\FlashbackLighting.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Scriptable_Objects\PickableInputData.cs" />
+    <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
     <Compile Include="Assets\YottabyteGames\Scripts\PickupController.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\ReorderableListAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\SliderAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Scriptable_Objects\HeadBobData.cs" />
     <Compile Include="Assets\YottabyteGames\FinalCharacterController\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\ValidatorAttributes\RequiredAttribute.cs" />
+    <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Input_Handler\InputHandler.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Scripts\Interaction_System\InteractionController.cs" />
@@ -132,6 +141,7 @@
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\ProgressBarAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawConditionAttributes\ShowIfAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\DrawerAttributes\MinMaxSliderAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\MetaAttributes\MetaAttribute.cs" />
     <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Core\GroupAttributes\GroupAttribute.cs" />
@@ -163,6 +173,7 @@
     <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\UnityTechnologies\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\YottabyteGames\FirstPersonController\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />

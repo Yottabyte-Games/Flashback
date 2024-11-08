@@ -61,8 +61,8 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Editor\Utilities\TimedScope.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Editor\Volume\Drawers\BoolParameterDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Editor\Utilities\TimedScope.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Editor\CoreEditorDrawers.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Editor\Settings\RenderPipelineResourcesEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Editor\LookDev\LookDevRenderer.cs" />
@@ -813,6 +813,14 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ReportGeneratorMerged">
+      <HintPath>Library\PackageCache\com.unity.testtools.codecoverage\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PackageManagerAssembly">
+      <HintPath>Assets\UnityTechnologies\EffectExamples\Editor\PackageManagerAssembly\PackageManagerAssembly.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">
