@@ -71,7 +71,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: Build
-          path: build
+          path: build/StandaloneWindows64
 
       - name: Ensure directory exists
         run: mkdir -p build/StandaloneWindows64
@@ -89,7 +89,7 @@ jobs:
       - uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
-          CHANNEL: windows
+          CHANNEL: win
           ITCH_GAME: FLASHBACK
           ITCH_USER: MARZLARS
           BRANCH: itch-io
