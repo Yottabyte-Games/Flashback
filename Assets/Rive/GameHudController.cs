@@ -6,12 +6,14 @@ public class GameHudController : MonoBehaviour
     [SerializeField] private RiveScreen riveScreen;
     
 
+    // First Dialogue should call this
     public void StartDialogue(string dialogueString)
     {
         SetDialogue(dialogueString);
         riveScreen.stateMachine.GetTrigger("AddDialogue").Fire();
     }
 
+    // Every other dialogues calls this
     public void NextDialogue(string dialogueString)
     {
         SetDialogue(dialogueString);
@@ -19,6 +21,7 @@ public class GameHudController : MonoBehaviour
 
     }
     
+    // When last dialogue finishes, call this
     public void EndDialogue()
     {
         riveScreen.stateMachine.GetTrigger("RemoveDialogue").Fire();
@@ -28,7 +31,6 @@ public class GameHudController : MonoBehaviour
     {
         riveScreen.SetHoverItemName(objectName);
         riveScreen.stateMachine.GetBool("IsHovering").Value = true;
-
     }
 
     public void HoverOff()
@@ -36,7 +38,6 @@ public class GameHudController : MonoBehaviour
         riveScreen.stateMachine.GetBool("IsHovering").Value = false;
     }
     
-
     // Set Dialogue Text for the next dialogue
     private void SetDialogue(string dialogue)
     {
