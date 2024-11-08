@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WorkInteractable : MonoBehaviour
+namespace _Scripts.Working
 {
-    public UnityEvent<Transform> interact;
+    public class WorkInteractable : MonoBehaviour
+    {
+        public UnityEvent<Transform> interact;
+    }
 }

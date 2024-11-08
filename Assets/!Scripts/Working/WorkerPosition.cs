@@ -1,16 +1,19 @@
 using System;
 using UnityEngine;
 
-[Serializable]
-public class WorkerPosition 
+namespace _Scripts.Working
 {
-    public Transform transform;
+    [Serializable]
+    public class WorkerPosition 
+    {
+        public Transform transform;
 #nullable enable
-    public OfficeWorker? workerInPosition;
+        public OfficeWorker? workerInPosition;
 #nullable disable
 
-    public void SetWorker(OfficeWorker worker)
-    {
-        workerInPosition = worker;
+        public void SetWorker(OfficeWorker worker)
+        {
+            workerInPosition = worker;
+        }
     }
 }

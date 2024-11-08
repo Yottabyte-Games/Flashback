@@ -2,25 +2,25 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class FishingRodInput : MonoBehaviour, FishingInputs.IFishingActions
     {
-        FishingInputs input;
+        FishingInputs _input;
 
         public event Action Cast;
         public event Action<Vector2> Reel;
 
         private void OnEnable()
         {
-            input = new FishingInputs();
-            input.Fishing.Enable();
-            input.Fishing.SetCallbacks(this);
+            _input = new FishingInputs();
+            _input.Fishing.Enable();
+            _input.Fishing.SetCallbacks(this);
         }
         private void OnDisable()
         {
-            input.Disable();
-            input.Fishing.RemoveCallbacks(this);
+            _input.Disable();
+            _input.Fishing.RemoveCallbacks(this);
         }
         public void OnCast(InputAction.CallbackContext context)
         {

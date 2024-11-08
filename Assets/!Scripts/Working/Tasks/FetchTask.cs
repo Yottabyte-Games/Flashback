@@ -1,40 +1,39 @@
-using NaughtyAttributes;
-using Unity.VisualScripting;
-using UnityEngine;
-
-public class FetchTask : OfficeTask
+namespace _Scripts.Working.Tasks
 {
-    TaskItem toFetch;
-    TaskGoal goal;
-
-    protected override void OnEnable()
+    public class FetchTask : OfficeTask
     {
-        taskType = TaskType.Fetch;
-        base.OnEnable();
-    }
+        TaskItem _toFetch;
+        TaskGoal _goal;
 
-    public override void InitializeTask(OfficeWorker worker)
-    {
-        base.InitializeTask(worker);
+        protected override void OnEnable()
+        {
+            taskType = TaskType.Fetch;
+            base.OnEnable();
+        }
 
-        toFetch = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
-        toFetch.InteractedWith += ProgressTask;
-    }
+        public override void InitializeTask(OfficeWorker worker)
+        {
+            base.InitializeTask(worker);
 
-    protected override void ProgressTask()
-    {
-        goal = creator.gameObject.AddComponent<TaskGoal>();
-        goal.reached += CompleteTask;
+            _toFetch = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
+            _toFetch.InteractedWith += ProgressTask;
+        }
 
-        Line line = toFetch.gameObject.GetComponent<Line>();
-        line.enabled = true;
-        line.stringPoints.Add(toFetch.transform);
-        line.stringPoints.Add(goal.transform);
-    }
+        protected override void ProgressTask()
+        {
+            _goal = creator.gameObject.AddComponent<TaskGoal>();
+            _goal.reached += CompleteTask;
 
-    public override void CompleteTask()
-    {
-        Destroy(toFetch.gameObject);
-        base.CompleteTask();
+            Line line = _toFetch.gameObject.GetComponent<Line>();
+            line.enabled = true;
+            line.stringPoints.Add(_toFetch.transform);
+            line.stringPoints.Add(_goal.transform);
+        }
+
+        public override void CompleteTask()
+        {
+            Destroy(_toFetch.gameObject);
+            base.CompleteTask();
+        }
     }
 }

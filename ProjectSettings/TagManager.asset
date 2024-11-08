@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -11,9 +12,9 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Waypoints
-  - WaypointInteraction
-  - VehicleColliders
+  - Door
+  - Marker
+  - 
   - Player
   - 
   - 
@@ -25,8 +26,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Post Prossesing
+  - Terrain
   - 
   - 
   - 

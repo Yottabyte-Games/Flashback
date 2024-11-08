@@ -1,79 +1,81 @@
-using NaughtyAttributes;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using NaughtyAttributes;
 using UnityEngine;
 
-public class ActivityRoom : MonoBehaviour
+namespace _Scripts.Working
 {
-    [SerializeField] bool findRandomSeats;
-    public List<WorkerPosition> seats = new List<WorkerPosition>();
-
-    [Button]
-    async void FindAllSeats()
+    public class ActivityRoom : MonoBehaviour
     {
-        seats.Clear();
+        [SerializeField] bool findRandomSeats;
+        public List<WorkerPosition> seats = new List<WorkerPosition>();
 
-        Seat[] s = GetComponentsInChildren<Seat>();
-
-        for (int i = 0; i < s.Length; i++)
+        [Button]
+        async void FindAllSeats()
         {
-            seats.Add(new WorkerPosition() { transform = s[i].transform });
+            seats.Clear();
 
-            await Task.Delay(10);
+            Seat[] s = GetComponentsInChildren<Seat>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                seats.Add(new WorkerPosition() { transform = s[i].transform });
+
+                await Task.Delay(10);
+            }
+
         }
 
-    }
-
-    public void LeaveSeat(OfficeWorker worker)
-    {
-        for (int i = 0; i < seats.Count; i++)
+        public void LeaveSeat(OfficeWorker worker)
         {
-            if (seats[i].workerInPosition == worker)
+            for (int i = 0; i < seats.Count; i++)
             {
-                seats[i].workerInPosition = null;
-                break;
+                if (seats[i].workerInPosition == worker)
+                {
+                    seats[i].workerInPosition = null;
+                    break;
+                }
             }
         }
-    }
     
-    public Transform RequestSeat(OfficeWorker worker)
-    {
-        for (int i = 0; i < seats.Count; i++)
+        public Transform RequestSeat(OfficeWorker worker)
         {
-            if(!findRandomSeats)
+            for (int i = 0; i < seats.Count; i++)
             {
-                if (CheckSeat(seats[i]))
+                if(!findRandomSeats)
                 {
-                    seats[i].SetWorker(worker);
-                    worker.EndedActivity += LeaveSeat;
+                    if (CheckSeat(seats[i]))
+                    {
+                        seats[i].SetWorker(worker);
+                        worker.EndedActivity += LeaveSeat;
 
-                    return seats[i].transform;
-                }
-            } 
-            else
-            {
-                int seatInQuestion = Random.Range(0, seats.Count);
-
-                if (CheckSeat(seats[seatInQuestion]))
+                        return seats[i].transform;
+                    }
+                } 
+                else
                 {
-                    seats[seatInQuestion].SetWorker(worker);
-                    worker.EndedActivity += LeaveSeat;
+                    int seatInQuestion = Random.Range(0, seats.Count);
 
-                    return seats[seatInQuestion].transform;
+                    if (CheckSeat(seats[seatInQuestion]))
+                    {
+                        seats[seatInQuestion].SetWorker(worker);
+                        worker.EndedActivity += LeaveSeat;
+
+                        return seats[seatInQuestion].transform;
+                    }
                 }
             }
+
+            return null;
         }
 
-        return null;
-    }
-
-    bool CheckSeat(WorkerPosition seat)
-    {
-        if (seat.workerInPosition == null)
+        bool CheckSeat(WorkerPosition seat)
         {
-            return true;
+            if (seat.workerInPosition == null)
+            {
+                return true;
+            }
+            return false;
         }
-        return false;
     }
 }
