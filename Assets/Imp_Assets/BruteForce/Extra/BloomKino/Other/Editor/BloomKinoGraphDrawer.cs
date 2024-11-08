@@ -21,10 +21,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-using UnityEngine;
-using UnityEditor;
 
-namespace Kino
+using UnityEditor;
+using UnityEngine;
+
+namespace Imp_Assets.BruteForce.Extra.BloomKino.Other.Editor
 {
     // Class used for drawing the brightness response curve
 
@@ -34,7 +35,7 @@ namespace Kino
 #region Public Methods
 
         // Update internal state with a given bloom instance.
-        public void Prepare(BloomKino bloom)
+        public void Prepare(Kino.BloomKino bloom)
         {
 #if UNITY_5_6_OR_NEWER
             if (bloom.GetComponent<Camera>().allowHDR)

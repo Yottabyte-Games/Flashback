@@ -10,17 +10,18 @@ public class BF_SnowSubShowcase : MonoBehaviour
     public Text uiText;
     public List<GameObject> subShowcases;
     public List<string> nameSubs;
-    private int oldIndex = -1;
+    int oldIndex = -1;
 
-    private UnityAction showcaseChange;
+    UnityAction showcaseChange;
 
     // Start is called before the first frame update
-    private void OnEnable()
+    void OnEnable()
     {
         aM.maxSubIndex = subShowcases.Count-1;
         aM.m_ShowcaseChange.AddListener(ChangeIndex);
     }
-    private void OnDisable()
+
+    void OnDisable()
     {
         aM.m_ShowcaseChange.RemoveListener(ChangeIndex);
     }
@@ -40,7 +41,7 @@ public class BF_SnowSubShowcase : MonoBehaviour
         */
     }
 
-    private void ChangeIndex()
+    void ChangeIndex()
     {
         oldIndex = aM.subShowcaseIndex;
 

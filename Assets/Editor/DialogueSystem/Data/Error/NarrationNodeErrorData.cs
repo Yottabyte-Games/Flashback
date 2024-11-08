@@ -1,9 +1,8 @@
 using System.Collections.Generic;
+using Editor.DialogueSystem.Elements;
 
-namespace Narration.Data.Error
+namespace Editor.DialogueSystem.Data.Error
 {
-    using Elements;
-
     public class NarrationNodeErrorData
     {
         public NarrationErrorData ErrorData { get; set; }

@@ -1,28 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Editor.DialogueSystem.Data.Save;
+using Editor.DialogueSystem.Utilities;
+using Editor.DialogueSystem.Windows;
+using Narration.Enumerations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Port = UnityEditor.Experimental.GraphView.Port;
 
-namespace Narration.Elements
+namespace Editor.DialogueSystem.Elements
 {
-    using Data.Save;
-    using Enumerations;
-    using Utilities;
-    using Windows;
-
     public class NarrationNode : Node
     {
         public string ID { get; set; }
-        public string DialogueName { get; set; }
+        public string DialogueName { get; private set; }
         public List<NarrationChoiceSaveData> Choices { get; set; }
         public string Text { get; set; }
-        public NarrationDialogueType DialogueType { get; set; }
+        public NarrationDialogueType DialogueType { get; protected set; }
         public NarrationGroup Group { get; set; }
 
-        protected NarrationGraphView graphView;
-        private Color defaultBackgroundColor;
+        protected NarrationGraphView GraphView;
+        Color _defaultBackgroundColor;
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
@@ -42,11 +42,11 @@ namespace Narration.Elements
 
             SetPosition(new Rect(position, Vector2.zero));
 
-            graphView = narrationGraphView;
-            defaultBackgroundColor = new Color(29f / 255f, 29f / 255f, 30f / 255f);
+            GraphView = narrationGraphView;
+            _defaultBackgroundColor = new Color(29f / 255f, 29f / 255f, 30f / 255f);
 
-            mainContainer.AddToClassList("ds-node__main-container");
-            extensionContainer.AddToClassList("ds-node__extension-container");
+            mainContainer.AddToClassList("narration-node__main-container");
+            extensionContainer.AddToClassList("narration-node__extension-container");
         }
 
         public virtual void Draw()
@@ -59,45 +59,45 @@ namespace Narration.Elements
 
                 target.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
 
-                if (string.IsNullOrEmpty(target.value))
+                if (!string.IsNullOrEmpty(target.value))
                 {
-                    if (!string.IsNullOrEmpty(DialogueName))
+                    if (string.IsNullOrEmpty(DialogueName))
                     {
-                        ++graphView.NameErrorsAmount;
+                        --GraphView.NameErrorsAmount;
                     }
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(DialogueName))
+                    if (!string.IsNullOrEmpty(DialogueName))
                     {
-                        --graphView.NameErrorsAmount;
+                        ++GraphView.NameErrorsAmount;
                     }
                 }
 
-                if (Group == null)
+                if (Group is null)
                 {
-                    graphView.RemoveUngroupedNode(this);
+                    GraphView.RemoveUngroupedNode(this);
 
                     DialogueName = target.value;
 
-                    graphView.AddUngroupedNode(this);
+                    GraphView.AddUngroupedNode(this);
 
                     return;
                 }
 
                 NarrationGroup currentGroup = Group;
 
-                graphView.RemoveGroupedNode(this, Group);
+                GraphView.RemoveGroupedNode(this, Group);
 
                 DialogueName = target.value;
 
-                graphView.AddGroupedNode(this, currentGroup);
+                GraphView.AddGroupedNode(this, currentGroup);
             });
 
             dialogueNameTextField.AddClasses(
-                "ds-node__text-field",
-                "ds-node__text-field__hidden",
-                "ds-node__filename-text-field"
+                "narration-node__text-field",
+                "narration-node__text-field__hidden",
+                "narration-node__filename-text-field"
             );
 
             titleContainer.Insert(0, dialogueNameTextField);
@@ -112,15 +112,15 @@ namespace Narration.Elements
 
             VisualElement customDataContainer = new VisualElement();
 
-            customDataContainer.AddToClassList("ds-node__custom-data-container");
+            customDataContainer.AddToClassList("narration-node__custom-data-container");
 
             Foldout textFoldout = NarrationElementUtility.CreateFoldout("Dialogue Text");
 
             TextField textTextField = NarrationElementUtility.CreateTextArea(Text, null, callback => Text = callback.newValue);
 
             textTextField.AddClasses(
-                "ds-node__text-field",
-                "ds-node__quote-text-field"
+                "narration-node__text-field",
+                "narration-node__quote-text-field"
             );
 
             textFoldout.Add(textTextField);
@@ -136,17 +136,17 @@ namespace Narration.Elements
             DisconnectOutputPorts();
         }
 
-        private void DisconnectInputPorts()
+        void DisconnectInputPorts()
         {
             DisconnectPorts(inputContainer);
         }
 
-        private void DisconnectOutputPorts()
+        void DisconnectOutputPorts()
         {
             DisconnectPorts(outputContainer);
         }
 
-        private void DisconnectPorts(VisualElement container)
+        void DisconnectPorts(VisualElement container)
         {
             foreach (Port port in container.Children())
             {
@@ -155,7 +155,7 @@ namespace Narration.Elements
                     continue;
                 }
 
-                graphView.DeleteElements(port.connections);
+                GraphView.DeleteElements(port.connections);
             }
         }
 
@@ -173,7 +173,7 @@ namespace Narration.Elements
 
         public void ResetStyle()
         {
-            mainContainer.style.backgroundColor = defaultBackgroundColor;
+            mainContainer.style.backgroundColor = _defaultBackgroundColor;
         }
     }
 }

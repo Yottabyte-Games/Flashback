@@ -43,7 +43,7 @@ namespace _Scripts.Fishing
             difficulty = ((float)type * 2 + size + weight / 2) * 2.5f;
         }
 
-        private void OnDrawGizmosSelected()
+        void OnDrawGizmosSelected()
         {
             if (art == null) return;
 

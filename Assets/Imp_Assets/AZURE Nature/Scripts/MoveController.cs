@@ -8,10 +8,10 @@ public class MoveController : MonoBehaviour
     public float jumpSpeed;
     public float runMultiplier;
     public float gravity = -9.81f;    
-    Vector3 velocity; 
-    private CharacterController characterController;
+    Vector3 velocity;
+    CharacterController characterController;
 
-    private void Awake()
+    void Awake()
     {
         characterController = GetComponent<CharacterController>();
     }

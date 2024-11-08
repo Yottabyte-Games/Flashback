@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Narration.Data.Save
+namespace Editor.DialogueSystem.Data.Save
 {
     [Serializable]
     public class NarrationChoiceSaveData

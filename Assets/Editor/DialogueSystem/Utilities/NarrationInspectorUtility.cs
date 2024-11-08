@@ -1,7 +1,7 @@
 using System;
 using UnityEditor;
 
-namespace Narration.Utilities
+namespace Editor.DialogueSystem.Utilities
 {
     public static class NarrationInspectorUtility
     {

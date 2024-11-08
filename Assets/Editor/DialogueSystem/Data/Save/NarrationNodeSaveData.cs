@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Narration.Enumerations;
 using UnityEngine;
 
-namespace Narration.Data.Save
+namespace Editor.DialogueSystem.Data.Save
 {
-    using Enumerations;
-
     [Serializable]
     public class NarrationNodeSaveData
     {

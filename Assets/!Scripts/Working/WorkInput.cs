@@ -10,18 +10,19 @@ namespace _Scripts.Working
         public event Action interact;
         WorkInteractable _toInteractWith;
 
-        private void OnEnable()
+        void OnEnable()
         {
             _input = new WorkInputs();
             _input.Work.Enable();
             _input.Work.SetCallbacks(this);
         }
-        private void Start()
+
+        void Start()
         {
             interact += Interact;
         }
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out WorkInteractable interactable))
             {

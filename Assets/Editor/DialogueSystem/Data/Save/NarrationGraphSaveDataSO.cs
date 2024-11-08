@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Narration.Data.Save
+namespace Editor.DialogueSystem.Data.Save
 {
     public class NarrationGraphSaveDataSO : ScriptableObject
     {

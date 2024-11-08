@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Narration.Data.Error
+namespace Editor.DialogueSystem.Data.Error
 {
     public class NarrationErrorData
     {
@@ -11,7 +11,7 @@ namespace Narration.Data.Error
             GenerateRandomColor();
         }
 
-        private void GenerateRandomColor()
+        void GenerateRandomColor()
         {
             Color = new Color32(
                 (byte) Random.Range(65, 256),

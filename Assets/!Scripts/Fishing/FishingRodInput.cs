@@ -11,13 +11,14 @@ namespace _Scripts.Fishing
         public event Action Cast;
         public event Action<Vector2> Reel;
 
-        private void OnEnable()
+        void OnEnable()
         {
             _input = new FishingInputs();
             _input.Fishing.Enable();
             _input.Fishing.SetCallbacks(this);
         }
-        private void OnDisable()
+
+        void OnDisable()
         {
             _input.Disable();
             _input.Fishing.RemoveCallbacks(this);

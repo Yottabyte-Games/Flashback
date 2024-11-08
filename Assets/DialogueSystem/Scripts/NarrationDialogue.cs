@@ -7,16 +7,16 @@ namespace Narration
     public class NarrationDialogue : MonoBehaviour
     {
         /* Dialogue Scriptable Objects */
-        [SerializeField] private NarrationDialogueContainerSO dialogueContainer;
-        [SerializeField] private NarrationDialogueGroupSO dialogueGroup;
-        [SerializeField] private NarrationDialogueSO dialogue;
+        [SerializeField] NarrationDialogueContainerSO dialogueContainer;
+        [SerializeField] NarrationDialogueGroupSO dialogueGroup;
+        [SerializeField] NarrationDialogueSO dialogue;
 
         /* Filters */
-        [SerializeField] private bool groupedDialogues;
-        [SerializeField] private bool startingDialoguesOnly;
+        [SerializeField] bool groupedDialogues;
+        [SerializeField] bool startingDialoguesOnly;
 
         /* Indexes */
-        [SerializeField] private int selectedDialogueGroupIndex;
-        [SerializeField] private int selectedDialogueIndex;
+        [SerializeField] int selectedDialogueGroupIndex;
+        [SerializeField] int selectedDialogueIndex;
     }
 }

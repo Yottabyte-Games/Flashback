@@ -1,13 +1,12 @@
+using Editor.DialogueSystem.Data.Save;
+using Editor.DialogueSystem.Utilities;
+using Editor.DialogueSystem.Windows;
+using Narration.Enumerations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Narration.Elements
+namespace Editor.DialogueSystem.Elements
 {
-    using Data.Save;
-    using Enumerations;
-    using Utilities;
-    using Windows;
-
     public class NarrationSingleChoiceNode : NarrationNode
     {
         public override void Initialize(string nodeName, NarrationGraphView narrationGraphView, Vector2 position)

@@ -36,7 +36,8 @@ namespace Unity.Cinemachine.Samples
         public bool IsJumping => !m_IsGrounded;
 
         void Start() => TryGetComponent(out m_Rigidbody2D);
-        private void OnEnable()
+
+        void OnEnable()
         {
             m_IsGrounded = true;
             m_IsSprinting = false;

@@ -8,7 +8,8 @@ namespace _Scripts.Working
         WorkInteractable _interactable;
 
         public event Action reached;
-        private void Start()
+
+        void Start()
         {
             _interactable = GetComponent<WorkInteractable>();
             _interactable.interact.AddListener(Completed);

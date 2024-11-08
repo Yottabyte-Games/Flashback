@@ -12,27 +12,27 @@ public class BF_AddSnow : MonoBehaviour
     public bool useIntersection;
     public bool useUpdatedRotation;
 
-    private Mesh originalMesh;
-    private MeshFilter meshFilter;
-    private Mesh newMesh;
-    private GameObject newGO;
-    private float yIntersection;
-    private Quaternion ySlope = Quaternion.identity;
-    private float zNormal;
-    private Vector3 normalHit = Vector3.zero;
-    private float oldyIntersection = -1f;
+    Mesh originalMesh;
+    MeshFilter meshFilter;
+    Mesh newMesh;
+    GameObject newGO;
+    float yIntersection;
+    Quaternion ySlope = Quaternion.identity;
+    float zNormal;
+    Vector3 normalHit = Vector3.zero;
+    float oldyIntersection = -1f;
 
-    private int[] oldTri;
-    private Vector3[] oldVert;
-    private Vector3[] oldNorm;
-    private Vector3[] oldNormWorld;
-    private Vector2[] oldUV;
-    private Color[] oldCol;
+    int[] oldTri;
+    Vector3[] oldVert;
+    Vector3[] oldNorm;
+    Vector3[] oldNormWorld;
+    Vector2[] oldUV;
+    Color[] oldCol;
 
-    private List<int> triangles = new List<int>();
-    private List<Vector3> vertexs = new List<Vector3>();
-    private List<Vector2> uvs = new List<Vector2>();
-    private List<Color> cols = new List<Color>();
+    List<int> triangles = new List<int>();
+    List<Vector3> vertexs = new List<Vector3>();
+    List<Vector2> uvs = new List<Vector2>();
+    List<Color> cols = new List<Color>();
 
     void Start()
     {
@@ -40,7 +40,7 @@ public class BF_AddSnow : MonoBehaviour
         BuildInitialGeometry();
     }
 
-    private void Update()
+    void Update()
     {
         if (useIntersection)
         {
@@ -54,7 +54,7 @@ public class BF_AddSnow : MonoBehaviour
     }
 
 
-    private void CheckValues()
+    void CheckValues()
     {
         meshFilter = gameObject.GetComponent<MeshFilter>();
         originalMesh = meshFilter.mesh;
@@ -80,7 +80,7 @@ public class BF_AddSnow : MonoBehaviour
         oldUV = originalMesh.uv;
     }
 
-    private void CheckIntersection()
+    void CheckIntersection()
     {
         var layerMask = 1 << 0 | 1 << 4;
         RaycastHit hit;
@@ -128,7 +128,7 @@ public class BF_AddSnow : MonoBehaviour
         }
     }
 
-    private void ClearGeometry()
+    void ClearGeometry()
     {
         triangles.Clear();
         triangles.TrimExcess();
@@ -140,7 +140,7 @@ public class BF_AddSnow : MonoBehaviour
         cols.TrimExcess();
     }
 
-    private void BuildInitialGeometry()
+    void BuildInitialGeometry()
     {
         if (meshFilter == null)
         {
@@ -230,7 +230,7 @@ public class BF_AddSnow : MonoBehaviour
         newMesh.Optimize();
     }
 
-    private void UpdateVertexColor()
+    void UpdateVertexColor()
     {
         var updatedColors = newMesh.colors;
         var newNormWorld = newMesh.normals;
@@ -271,7 +271,7 @@ public class BF_AddSnow : MonoBehaviour
         newMesh.colors = updatedColors;
     }
 
-    private void UpdateSlopeColor()
+    void UpdateSlopeColor()
     {
         // This is not perfect for now but gets the job done... //
         var j = 0;
@@ -298,7 +298,7 @@ public class BF_AddSnow : MonoBehaviour
         newMesh.uv7 = updatedUV7;
     }
 
-    private void RecalculateNormalsSeamless(Mesh mesh)
+    void RecalculateNormalsSeamless(Mesh mesh)
     {
         var trianglesOriginal = mesh.triangles;
         var triangles = trianglesOriginal.ToArray();

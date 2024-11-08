@@ -1,60 +1,59 @@
 using System;
 using System.Collections.Generic;
+using Editor.DialogueSystem.Data.Error;
+using Editor.DialogueSystem.Data.Save;
+using Editor.DialogueSystem.Elements;
+using Editor.DialogueSystem.Utilities;
+using Narration.Enumerations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Narration.Windows
+namespace Editor.DialogueSystem.Windows
 {
-    using Data.Error;
-    using Data.Save;
-    using Elements;
-    using Enumerations;
-    using Utilities;
-
     public class NarrationGraphView : GraphView
     {
-        NarrationEditorWindow editorWindow;
-        NarrationSearchWindow searchWindow;
+        NarrationEditorWindow _editorWindow;
+        NarrationSearchWindow _searchWindow;
 
-        MiniMap miniMap;
+        MiniMap _miniMap;
 
-        SerializableDictionary<string, NarrationNodeErrorData> ungroupedNodes;
-        SerializableDictionary<string, NarrationGroupErrorData> groups;
-        SerializableDictionary<Group, SerializableDictionary<string, NarrationNodeErrorData>> groupedNodes;
+        SerializableDictionary<string, NarrationNodeErrorData> _ungroupedNodes;
+        SerializableDictionary<string, NarrationGroupErrorData> _groups;
+        SerializableDictionary<Group, SerializableDictionary<string, NarrationNodeErrorData>> _groupedNodes;
 
-        int nameErrorsAmount;
+        int _nameErrorsAmount;
 
         public int NameErrorsAmount
         {
             get
             {
-                return nameErrorsAmount;
+                return _nameErrorsAmount;
             }
 
             set
             {
-                nameErrorsAmount = value;
+                _nameErrorsAmount = value;
 
-                if (nameErrorsAmount == 0)
+                if (_nameErrorsAmount == 0)
                 {
-                    editorWindow.EnableSaving();
+                    _editorWindow.EnableSaving();
                 }
 
-                if (nameErrorsAmount == 1)
+                if (_nameErrorsAmount == 1)
                 {
-                    editorWindow.DisableSaving();
+                    _editorWindow.DisableSaving();
                 }
             }
         }
 
         public NarrationGraphView(NarrationEditorWindow narrationEditorWindow)
         {
-            editorWindow = narrationEditorWindow;
+            _editorWindow = narrationEditorWindow;
 
-            ungroupedNodes = new SerializableDictionary<string, NarrationNodeErrorData>();
-            groups = new SerializableDictionary<string, NarrationGroupErrorData>();
-            groupedNodes = new SerializableDictionary<Group, SerializableDictionary<string, NarrationNodeErrorData>>();
+            _ungroupedNodes = new SerializableDictionary<string, NarrationNodeErrorData>();
+            _groups = new SerializableDictionary<string, NarrationGroupErrorData>();
+            _groupedNodes = new SerializableDictionary<Group, SerializableDictionary<string, NarrationNodeErrorData>>();
 
             AddManipulators();
             AddGridBackground();
@@ -365,22 +364,22 @@ namespace Narration.Windows
         {
             string nodeName = node.DialogueName.ToLower();
 
-            if (!ungroupedNodes.ContainsKey(nodeName))
+            if (!_ungroupedNodes.ContainsKey(nodeName))
             {
                 NarrationNodeErrorData nodeErrorData = new NarrationNodeErrorData();
 
                 nodeErrorData.Nodes.Add(node);
 
-                ungroupedNodes.Add(nodeName, nodeErrorData);
+                _ungroupedNodes.Add(nodeName, nodeErrorData);
 
                 return;
             }
 
-            List<NarrationNode> ungroupedNodesList = ungroupedNodes[nodeName].Nodes;
+            List<NarrationNode> ungroupedNodesList = _ungroupedNodes[nodeName].Nodes;
 
             ungroupedNodesList.Add(node);
 
-            Color errorColor = ungroupedNodes[nodeName].ErrorData.Color;
+            Color errorColor = _ungroupedNodes[nodeName].ErrorData.Color;
 
             node.SetErrorStyle(errorColor);
 
@@ -396,7 +395,7 @@ namespace Narration.Windows
         {
             string nodeName = node.DialogueName.ToLower();
 
-            List<NarrationNode> ungroupedNodesList = ungroupedNodes[nodeName].Nodes;
+            List<NarrationNode> ungroupedNodesList = _ungroupedNodes[nodeName].Nodes;
 
             ungroupedNodesList.Remove(node);
 
@@ -413,7 +412,7 @@ namespace Narration.Windows
 
             if (ungroupedNodesList.Count == 0)
             {
-                ungroupedNodes.Remove(nodeName);
+                _ungroupedNodes.Remove(nodeName);
             }
         }
 
@@ -421,22 +420,22 @@ namespace Narration.Windows
         {
             string groupName = group.title.ToLower();
 
-            if (!groups.ContainsKey(groupName))
+            if (!_groups.ContainsKey(groupName))
             {
                 NarrationGroupErrorData groupErrorData = new NarrationGroupErrorData();
 
                 groupErrorData.Groups.Add(group);
 
-                groups.Add(groupName, groupErrorData);
+                _groups.Add(groupName, groupErrorData);
 
                 return;
             }
 
-            List<NarrationGroup> groupsList = groups[groupName].Groups;
+            List<NarrationGroup> groupsList = _groups[groupName].Groups;
 
             groupsList.Add(group);
 
-            Color errorColor = groups[groupName].ErrorData.Color;
+            Color errorColor = _groups[groupName].ErrorData.Color;
 
             group.SetErrorStyle(errorColor);
 
@@ -452,7 +451,7 @@ namespace Narration.Windows
         {
             string oldGroupName = group.OldTitle.ToLower();
 
-            List<NarrationGroup> groupsList = groups[oldGroupName].Groups;
+            List<NarrationGroup> groupsList = _groups[oldGroupName].Groups;
 
             groupsList.Remove(group);
 
@@ -469,7 +468,7 @@ namespace Narration.Windows
 
             if (groupsList.Count == 0)
             {
-                groups.Remove(oldGroupName);
+                _groups.Remove(oldGroupName);
             }
         }
 
@@ -479,27 +478,27 @@ namespace Narration.Windows
 
             node.Group = group;
 
-            if (!groupedNodes.ContainsKey(group))
+            if (!_groupedNodes.ContainsKey(group))
             {
-                groupedNodes.Add(group, new SerializableDictionary<string, NarrationNodeErrorData>());
+                _groupedNodes.Add(group, new SerializableDictionary<string, NarrationNodeErrorData>());
             }
 
-            if (!groupedNodes[group].ContainsKey(nodeName))
+            if (!_groupedNodes[group].ContainsKey(nodeName))
             {
                 NarrationNodeErrorData nodeErrorData = new NarrationNodeErrorData();
 
                 nodeErrorData.Nodes.Add(node);
 
-                groupedNodes[group].Add(nodeName, nodeErrorData);
+                _groupedNodes[group].Add(nodeName, nodeErrorData);
 
                 return;
             }
 
-            List<NarrationNode> groupedNodesList = groupedNodes[group][nodeName].Nodes;
+            List<NarrationNode> groupedNodesList = _groupedNodes[group][nodeName].Nodes;
 
             groupedNodesList.Add(node);
 
-            Color errorColor = groupedNodes[group][nodeName].ErrorData.Color;
+            Color errorColor = _groupedNodes[group][nodeName].ErrorData.Color;
 
             node.SetErrorStyle(errorColor);
 
@@ -517,7 +516,7 @@ namespace Narration.Windows
 
             node.Group = null;
 
-            List<NarrationNode> groupedNodesList = groupedNodes[group][nodeName].Nodes;
+            List<NarrationNode> groupedNodesList = _groupedNodes[group][nodeName].Nodes;
 
             groupedNodesList.Remove(node);
 
@@ -534,11 +533,11 @@ namespace Narration.Windows
 
             if (groupedNodesList.Count == 0)
             {
-                groupedNodes[group].Remove(nodeName);
+                _groupedNodes[group].Remove(nodeName);
 
-                if (groupedNodes[group].Count == 0)
+                if (_groupedNodes[group].Count == 0)
                 {
-                    groupedNodes.Remove(group);
+                    _groupedNodes.Remove(group);
                 }
             }
         }
@@ -554,28 +553,28 @@ namespace Narration.Windows
 
         void AddSearchWindow()
         {
-            if (searchWindow == null)
+            if (_searchWindow == null)
             {
-                searchWindow = ScriptableObject.CreateInstance<NarrationSearchWindow>();
+                _searchWindow = ScriptableObject.CreateInstance<NarrationSearchWindow>();
             }
 
-            searchWindow.Initialize(this);
+            _searchWindow.Initialize(this);
 
-            nodeCreationRequest = context => SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), searchWindow);
+            nodeCreationRequest = context => SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), _searchWindow);
         }
 
         void AddMiniMap()
         {
-            miniMap = new MiniMap()
+            _miniMap = new MiniMap()
             {
                 anchored = true
             };
 
-            miniMap.SetPosition(new Rect(15, 50, 200, 180));
+            _miniMap.SetPosition(new Rect(15, 50, 200, 180));
 
-            Add(miniMap);
+            Add(_miniMap);
 
-            miniMap.visible = false;
+            _miniMap.visible = false;
         }
 
         void AddStyles()
@@ -591,11 +590,11 @@ namespace Narration.Windows
             StyleColor backgroundColor = new StyleColor(new Color32(29, 29, 30, 255));
             StyleColor borderColor = new StyleColor(new Color32(51, 51, 51, 255));
 
-            miniMap.style.backgroundColor = backgroundColor;
-            miniMap.style.borderTopColor = borderColor;
-            miniMap.style.borderRightColor = borderColor;
-            miniMap.style.borderBottomColor = borderColor;
-            miniMap.style.borderLeftColor = borderColor;
+            _miniMap.style.backgroundColor = backgroundColor;
+            _miniMap.style.borderTopColor = borderColor;
+            _miniMap.style.borderRightColor = borderColor;
+            _miniMap.style.borderBottomColor = borderColor;
+            _miniMap.style.borderLeftColor = borderColor;
         }
 
         public Vector2 GetLocalMousePosition(Vector2 mousePosition, bool isSearchWindow = false)
@@ -604,7 +603,7 @@ namespace Narration.Windows
 
             if (isSearchWindow)
             {
-                worldMousePosition = editorWindow.rootVisualElement.ChangeCoordinatesTo(editorWindow.rootVisualElement.parent, mousePosition - editorWindow.position.position);
+                worldMousePosition = _editorWindow.rootVisualElement.ChangeCoordinatesTo(_editorWindow.rootVisualElement.parent, mousePosition - _editorWindow.position.position);
             }
 
             Vector2 localMousePosition = contentViewContainer.WorldToLocal(worldMousePosition);
@@ -616,16 +615,16 @@ namespace Narration.Windows
         {
             graphElements.ForEach(graphElement => RemoveElement(graphElement));
 
-            groups.Clear();
-            groupedNodes.Clear();
-            ungroupedNodes.Clear();
+            _groups.Clear();
+            _groupedNodes.Clear();
+            _ungroupedNodes.Clear();
 
             NameErrorsAmount = 0;
         }
 
         public void ToggleMiniMap()
         {
-            miniMap.visible = !miniMap.visible;
+            _miniMap.visible = !_miniMap.visible;
         }
     }
 }

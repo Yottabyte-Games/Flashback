@@ -14,7 +14,8 @@ namespace _Scripts.Fishing
         public event Action<Fish> CaughtFish;
 
         public Rigidbody rb { get; private set; }
-        private void Start()
+
+        void Start()
         {
             rb = GetComponent<Rigidbody>();
         }

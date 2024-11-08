@@ -10,7 +10,7 @@ namespace _Scripts.Fishing
 
         Hook _hookInWater;
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if (_hookInWater != null) return;
             _hookInWater = other.GetComponent<Hook>();

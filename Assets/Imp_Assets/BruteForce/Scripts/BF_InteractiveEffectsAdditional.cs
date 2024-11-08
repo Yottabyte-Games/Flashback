@@ -11,24 +11,26 @@ public class BF_InteractiveEffectsAdditional : MonoBehaviour
     public string GlobalOrthoName = "_OrthographicCamSizeAdditional";
     public bool isPaced;
 
-    private float orthoMem;
-    private Vector3 camDir;
-    private Coroutine waitPace;
-    private bool paceRunning;
-    private void Awake()
-    {
-        orthoMem = GetComponent<Camera>().orthographicSize;
-        Shader.SetGlobalFloat(GlobalOrthoName, orthoMem);
-        Shader.SetGlobalTexture(GlobalTexName, rt);
-    }
-    private void OnEnable()
+    float orthoMem;
+    Vector3 camDir;
+    Coroutine waitPace;
+    bool paceRunning;
+
+    void Awake()
     {
         orthoMem = GetComponent<Camera>().orthographicSize;
         Shader.SetGlobalFloat(GlobalOrthoName, orthoMem);
         Shader.SetGlobalTexture(GlobalTexName, rt);
     }
 
-    private void MoveCamera()
+    void OnEnable()
+    {
+        orthoMem = GetComponent<Camera>().orthographicSize;
+        Shader.SetGlobalFloat(GlobalOrthoName, orthoMem);
+        Shader.SetGlobalTexture(GlobalTexName, rt);
+    }
+
+    void MoveCamera()
     {
         if (mainCamera != null)
         {
@@ -45,7 +47,7 @@ public class BF_InteractiveEffectsAdditional : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
     }
 
-    private void Update()
+    void Update()
     {
         if (isPaced)
         {
@@ -65,7 +67,8 @@ public class BF_InteractiveEffectsAdditional : MonoBehaviour
             MoveCamera();
         }
     }
-    private IEnumerator WaitPace()
+
+    IEnumerator WaitPace()
     {
         for (; ; )
         {

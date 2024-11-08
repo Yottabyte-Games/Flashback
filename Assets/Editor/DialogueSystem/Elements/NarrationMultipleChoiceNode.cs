@@ -1,14 +1,13 @@
+using Editor.DialogueSystem.Data.Save;
+using Editor.DialogueSystem.Utilities;
+using Editor.DialogueSystem.Windows;
+using Narration.Enumerations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Narration.Elements
+namespace Editor.DialogueSystem.Elements
 {
-    using Data.Save;
-    using Enumerations;
-    using Utilities;
-    using Windows;
-
     public class NarrationMultipleChoiceNode : NarrationNode
     {
         public override void Initialize(string nodeName, NarrationGraphView narrationGraphView, Vector2 position)
@@ -61,7 +60,7 @@ namespace Narration.Elements
             RefreshExpandedState();
         }
 
-        private Port CreateChoicePort(object userData)
+        Port CreateChoicePort(object userData)
         {
             Port choicePort = this.CreatePort();
 
@@ -78,12 +77,12 @@ namespace Narration.Elements
 
                 if (choicePort.connected)
                 {
-                    graphView.DeleteElements(choicePort.connections);
+                    GraphView.DeleteElements(choicePort.connections);
                 }
 
                 Choices.Remove(choiceData);
 
-                graphView.RemoveElement(choicePort);
+                GraphView.RemoveElement(choicePort);
             });
 
             deleteChoiceButton.AddToClassList("ds-node__button");

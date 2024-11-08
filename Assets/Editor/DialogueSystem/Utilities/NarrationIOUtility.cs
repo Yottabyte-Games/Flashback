@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Editor.DialogueSystem.Data.Save;
+using Editor.DialogueSystem.Elements;
+using Editor.DialogueSystem.Windows;
+using Narration.Data;
+using Narration.ScriptableObjects;
+using Narration.Utilities;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Narration.Utilities
+namespace Editor.DialogueSystem.Utilities
 {
-    using Data;
-    using Data.Save;
-    using Elements;
-    using ScriptableObjects;
-    using Windows;
-
     public static class NarrationIOUtility
     {
         static NarrationGraphView graphView;

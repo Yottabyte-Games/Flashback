@@ -1,13 +1,13 @@
 using System.Collections.Generic;
+using Editor.DialogueSystem.Utilities;
+using Narration;
+using Narration.ScriptableObjects;
 using UnityEditor;
 
-namespace Narration.Inspectors
+namespace Editor.DialogueSystem.Inspectors
 {
-    using Utilities;
-    using ScriptableObjects;
-
     [CustomEditor(typeof(NarrationDialogue))]
-    public class NarrationInspector : Editor
+    public class NarrationInspector : UnityEditor.Editor
     {
         /* Dialogue Scriptable Objects */
         SerializedProperty dialogueContainerProperty;

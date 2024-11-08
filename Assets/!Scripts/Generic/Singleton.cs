@@ -4,7 +4,7 @@ namespace _Scripts.Generic
 {
     public class Singleton<T> : MonoBehaviour where T : Component
     {
-        private static T _instance;
+        static T _instance;
         public static T instance
         {
             get
@@ -24,7 +24,8 @@ namespace _Scripts.Generic
         {
             RemoveDuplicates();
         }
-        private static void SetupInstance()
+
+        static void SetupInstance()
         {
             _instance = (T)FindAnyObjectByType(typeof(T));
             if (_instance is not null) return;
@@ -35,7 +36,8 @@ namespace _Scripts.Generic
             _instance = gameObj.AddComponent<T>();
             DontDestroyOnLoad(gameObj);
         }
-        private void RemoveDuplicates()
+
+        void RemoveDuplicates()
         {
             switch (_instance)
             {

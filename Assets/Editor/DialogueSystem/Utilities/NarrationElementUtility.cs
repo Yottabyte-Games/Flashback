@@ -1,11 +1,10 @@
 using System;
+using Editor.DialogueSystem.Elements;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
-namespace Narration.Utilities
+namespace Editor.DialogueSystem.Utilities
 {
-    using Elements;
-
     public static class NarrationElementUtility
     {
         public static Button CreateButton(string text, Action onClick = null)

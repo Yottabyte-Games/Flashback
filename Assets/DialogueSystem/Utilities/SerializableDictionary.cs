@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,10 +11,10 @@ public class SerializableDictionary
 }
 
 [Serializable]
+[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class SerializableDictionary<TKey, TValue> : SerializableDictionary, IDictionary<TKey, TValue>, ISerializationCallbackReceiver
 {
-    [SerializeField]
-    private List<SerializableKeyValuePair> list = new List<SerializableKeyValuePair>();
+    [SerializeField] List<SerializableKeyValuePair> list = new List<SerializableKeyValuePair>();
 
     [Serializable]
     public struct SerializableKeyValuePair
@@ -33,8 +34,8 @@ public class SerializableDictionary<TKey, TValue> : SerializableDictionary, IDic
         }
     }
 
-    private Dictionary<TKey, uint> KeyPositions => _keyPositions.Value;
-    private Lazy<Dictionary<TKey, uint>> _keyPositions;
+    Dictionary<TKey, uint> KeyPositions => _keyPositions.Value;
+    Lazy<Dictionary<TKey, uint>> _keyPositions;
 
     public SerializableDictionary()
     {
@@ -56,7 +57,7 @@ public class SerializableDictionary<TKey, TValue> : SerializableDictionary, IDic
         }
     }
 
-    private Dictionary<TKey, uint> MakeKeyPositions()
+    Dictionary<TKey, uint> MakeKeyPositions()
     {
         int numEntries = list.Count;
 

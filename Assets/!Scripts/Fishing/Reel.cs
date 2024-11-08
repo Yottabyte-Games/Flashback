@@ -21,7 +21,7 @@ namespace _Scripts.Fishing
 
         Vector2 _currentMousePos, _lastMousePos, _mouseMoved;
 
-        private void Start()
+        void Start()
         {
             _player = FindFirstObjectByType<PlayerController>();
             _bucket = FindFirstObjectByType<Bucket>();
@@ -31,7 +31,7 @@ namespace _Scripts.Fishing
             FinishReel += FinishReeling;
         }
 
-        private void Update()
+        void Update()
         {
             if (!canReel) return;
 

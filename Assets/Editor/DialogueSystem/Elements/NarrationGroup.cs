@@ -2,15 +2,15 @@ using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Narration.Elements
+namespace Editor.DialogueSystem.Elements
 {
     public class NarrationGroup : Group
     {
         public string ID { get; set; }
         public string OldTitle { get; set; }
 
-        private Color defaultBorderColor;
-        private float defaultBorderWidth;
+        Color _defaultBorderColor;
+        float _defaultBorderWidth;
 
         public NarrationGroup(string groupTitle, Vector2 position)
         {
@@ -21,8 +21,8 @@ namespace Narration.Elements
 
             SetPosition(new Rect(position, Vector2.zero));
 
-            defaultBorderColor = contentContainer.style.borderBottomColor.value;
-            defaultBorderWidth = contentContainer.style.borderBottomWidth.value;
+            _defaultBorderColor = contentContainer.style.borderBottomColor.value;
+            _defaultBorderWidth = contentContainer.style.borderBottomWidth.value;
         }
 
         public void SetErrorStyle(Color color)
@@ -33,8 +33,8 @@ namespace Narration.Elements
 
         public void ResetStyle()
         {
-            contentContainer.style.borderBottomColor = defaultBorderColor;
-            contentContainer.style.borderBottomWidth = defaultBorderWidth;
+            contentContainer.style.borderBottomColor = _defaultBorderColor;
+            contentContainer.style.borderBottomWidth = _defaultBorderWidth;
         }
     }
 }

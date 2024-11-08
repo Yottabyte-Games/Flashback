@@ -1,24 +1,23 @@
 using System.Collections.Generic;
+using Editor.DialogueSystem.Elements;
+using Narration.Enumerations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Narration.Windows
+namespace Editor.DialogueSystem.Windows
 {
-    using Elements;
-    using Enumerations;
-
     public class NarrationSearchWindow : ScriptableObject, ISearchWindowProvider
     {
-        NarrationGraphView graphView;
-        Texture2D indentationIcon;
+        NarrationGraphView _graphView;
+        Texture2D _indentationIcon;
 
         public void Initialize(NarrationGraphView narrationGraphView)
         {
-            graphView = narrationGraphView;
+            _graphView = narrationGraphView;
 
-            indentationIcon = new Texture2D(1, 1);
-            indentationIcon.SetPixel(0, 0, Color.clear);
-            indentationIcon.Apply();
+            _indentationIcon = new Texture2D(1, 1);
+            _indentationIcon.SetPixel(0, 0, Color.clear);
+            _indentationIcon.Apply();
         }
 
         public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context)
@@ -27,18 +26,18 @@ namespace Narration.Windows
             {
                 new SearchTreeGroupEntry(new GUIContent("Create Elements")),
                 new SearchTreeGroupEntry(new GUIContent("Dialogue Nodes"), 1),
-                new SearchTreeEntry(new GUIContent("Single Choice", indentationIcon))
+                new SearchTreeEntry(new GUIContent("Single Choice", _indentationIcon))
                 {
                     userData = NarrationDialogueType.SingleChoice,
                     level = 2
                 },
-                new SearchTreeEntry(new GUIContent("Multiple Choice", indentationIcon))
+                new SearchTreeEntry(new GUIContent("Multiple Choice", _indentationIcon))
                 {
                     userData = NarrationDialogueType.MultipleChoice,
                     level = 2
                 },
                 new SearchTreeGroupEntry(new GUIContent("Dialogue Groups"), 1),
-                new SearchTreeEntry(new GUIContent("Single Group", indentationIcon))
+                new SearchTreeEntry(new GUIContent("Single Group", _indentationIcon))
                 {
                     userData = new Group(),
                     level = 2
@@ -48,33 +47,33 @@ namespace Narration.Windows
             return searchTreeEntries;
         }
 
-        public bool OnSelectEntry(SearchTreeEntry SearchTreeEntry, SearchWindowContext context)
+        public bool OnSelectEntry(SearchTreeEntry searchTreeEntry, SearchWindowContext context)
         {
-            Vector2 localMousePosition = graphView.GetLocalMousePosition(context.screenMousePosition, true);
+            Vector2 localMousePosition = _graphView.GetLocalMousePosition(context.screenMousePosition, true);
 
-            switch (SearchTreeEntry.userData)
+            switch (searchTreeEntry.userData)
             {
                 case NarrationDialogueType.SingleChoice:
                 {
-                    NarrationSingleChoiceNode singleChoiceNode = (NarrationSingleChoiceNode) graphView.CreateNode("DialogueName", NarrationDialogueType.SingleChoice, localMousePosition);
+                    NarrationSingleChoiceNode singleChoiceNode = (NarrationSingleChoiceNode) _graphView.CreateNode("DialogueName", NarrationDialogueType.SingleChoice, localMousePosition);
 
-                    graphView.AddElement(singleChoiceNode);
+                    _graphView.AddElement(singleChoiceNode);
 
                     return true;
                 }
 
                 case NarrationDialogueType.MultipleChoice:
                 {
-                    NarrationMultipleChoiceNode multipleChoiceNode = (NarrationMultipleChoiceNode) graphView.CreateNode("DialogueName", NarrationDialogueType.MultipleChoice, localMousePosition);
+                    NarrationMultipleChoiceNode multipleChoiceNode = (NarrationMultipleChoiceNode) _graphView.CreateNode("DialogueName", NarrationDialogueType.MultipleChoice, localMousePosition);
 
-                    graphView.AddElement(multipleChoiceNode);
+                    _graphView.AddElement(multipleChoiceNode);
 
                     return true;
                 }
 
                 case Group _:
                 {
-                    graphView.CreateGroup("DialogueGroup", localMousePosition);
+                    _graphView.CreateGroup("DialogueGroup", localMousePosition);
 
                     return true;
                 }

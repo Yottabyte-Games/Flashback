@@ -1,24 +1,22 @@
 using System.IO;
+using Editor.DialogueSystem.Utilities;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace Narration.Windows
+namespace Editor.DialogueSystem.Windows
 {
-    using System;
-    using Utilities;
-
     public class NarrationEditorWindow : EditorWindow
     {
-        NarrationGraphView graphView;
+        NarrationGraphView _graphView;
 
-        readonly string defaultFileName = "DialoguesFileName";
+        readonly string _defaultFileName = "DialoguesFileName";
 
-        static TextField fileNameTextField;
-        Button saveButton;
-        Button miniMapButton;
+        static TextField _fileNameTextField;
+        Button _saveButton;
+        Button _miniMapButton;
 
-        [MenuItem("Window/DS/Dialogue Graph")]
+        [MenuItem("Narration/Dialogue Graph")]
         public static void Open()
         {
             GetWindow<NarrationEditorWindow>("Dialogue Graph");
@@ -34,57 +32,57 @@ namespace Narration.Windows
 
         void AddGraphView()
         {
-            graphView = new NarrationGraphView(this);
+            _graphView = new NarrationGraphView(this);
 
-            graphView.StretchToParentSize();
+            _graphView.StretchToParentSize();
 
-            rootVisualElement.Add(graphView);
+            rootVisualElement.Add(_graphView);
         }
 
         void AddToolbar()
         {
             Toolbar toolbar = new Toolbar();
 
-            fileNameTextField = NarrationElementUtility.CreateTextField(defaultFileName, "File Name:", callback =>
+            _fileNameTextField = NarrationElementUtility.CreateTextField(_defaultFileName, "File Name:", callback =>
             {
-                fileNameTextField.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
+                _fileNameTextField.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
             });
 
-            saveButton = NarrationElementUtility.CreateButton("Save", () => Save());
+            _saveButton = NarrationElementUtility.CreateButton("Save", () => Save());
 
             Button loadButton = NarrationElementUtility.CreateButton("Load", () => Load());
             Button clearButton = NarrationElementUtility.CreateButton("Clear", () => Clear());
             Button resetButton = NarrationElementUtility.CreateButton("Reset", () => ResetGraph());
 
-            miniMapButton = NarrationElementUtility.CreateButton("Minimap", () => ToggleMiniMap());
+            _miniMapButton = NarrationElementUtility.CreateButton("Minimap", () => ToggleMiniMap());
 
-            toolbar.Add(fileNameTextField);
-            toolbar.Add(saveButton);
+            toolbar.Add(_fileNameTextField);
+            toolbar.Add(_saveButton);
             toolbar.Add(loadButton);
             toolbar.Add(clearButton);
             toolbar.Add(resetButton);
-            toolbar.Add(miniMapButton);
+            toolbar.Add(_miniMapButton);
 
-            toolbar.AddStyleSheets("DialogueSystem/DSToolbarStyles.uss");
+            toolbar.AddStyleSheets("DialogueSystem/NarrationToolbarStyles.uss");
 
             rootVisualElement.Add(toolbar);
         }
 
         void AddStyles()
         {
-            rootVisualElement.AddStyleSheets("DialogueSystem/DSVariables.uss");
+            rootVisualElement.AddStyleSheets("DialogueSystem/NarrationVariables.uss");
         }
 
         void Save()
         {
-            if (string.IsNullOrEmpty(fileNameTextField.value))
+            if (string.IsNullOrEmpty(_fileNameTextField.value))
             {
                 EditorUtility.DisplayDialog("Invalid file name.", "Please ensure the file name you've typed in is valid.", "Roger!");
 
                 return;
             }
 
-            NarrationIOUtility.Initialize(graphView, fileNameTextField.value);
+            NarrationIOUtility.Initialize(_graphView, _fileNameTextField.value);
             NarrationIOUtility.Save();
         }
 
@@ -99,42 +97,42 @@ namespace Narration.Windows
 
             Clear();
 
-            NarrationIOUtility.Initialize(graphView, Path.GetFileNameWithoutExtension(filePath));
+            NarrationIOUtility.Initialize(_graphView, Path.GetFileNameWithoutExtension(filePath));
             NarrationIOUtility.Load();
         }
 
         void Clear()
         {
-            graphView.ClearGraph();
+            _graphView.ClearGraph();
         }
 
         void ResetGraph()
         {
             Clear();
 
-            UpdateFileName(defaultFileName);
+            UpdateFileName(_defaultFileName);
         }
 
         void ToggleMiniMap()
         {
-            graphView.ToggleMiniMap();
+            _graphView.ToggleMiniMap();
 
-            miniMapButton.ToggleInClassList("ds-toolbar__button__selected");
+            _miniMapButton.ToggleInClassList("narration-toolbar__button__selected");
         }
 
         public static void UpdateFileName(string newFileName)
         {
-            fileNameTextField.value = newFileName;
+            _fileNameTextField.value = newFileName;
         }
 
         public void EnableSaving()
         {
-            saveButton.SetEnabled(true);
+            _saveButton.SetEnabled(true);
         }
 
         public void DisableSaving()
         {
-            saveButton.SetEnabled(false);
+            _saveButton.SetEnabled(false);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Narration.ScriptableObjects
@@ -19,14 +20,7 @@ namespace Narration.ScriptableObjects
 
         public List<string> GetDialogueGroupNames()
         {
-            List<string> dialogueGroupNames = new List<string>();
-
-            foreach (NarrationDialogueGroupSO dialogueGroup in DialogueGroups.Keys)
-            {
-                dialogueGroupNames.Add(dialogueGroup.GroupName);
-            }
-
-            return dialogueGroupNames;
+            return DialogueGroups.Keys.Select(dialogueGroup => dialogueGroup.GroupName).ToList();
         }
 
         public List<string> GetGroupedDialogueNames(NarrationDialogueGroupSO dialogueGroup, bool startingDialoguesOnly)
