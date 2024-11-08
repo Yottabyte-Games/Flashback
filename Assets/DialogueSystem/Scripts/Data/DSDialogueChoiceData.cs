@@ -1,10 +1,9 @@
 using System;
+using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
 
-namespace DS.Data
+namespace DialogueSystem.Scripts.Data
 {
-    using ScriptableObjects;
-
     [Serializable]
     public class DSDialogueChoiceData
     {

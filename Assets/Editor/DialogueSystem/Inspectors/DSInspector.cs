@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using DialogueSystem.Scripts;
+using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEditor;
 
 namespace DS.Inspectors
 {
     using Utilities;
-    using ScriptableObjects;
 
     [CustomEditor(typeof(DSDialogue))]
     public class DSInspector : Editor

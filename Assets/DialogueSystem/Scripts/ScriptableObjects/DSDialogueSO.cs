@@ -1,11 +1,10 @@
 using System.Collections.Generic;
+using DialogueSystem.Scripts.Data;
+using DS.Enumerations;
 using UnityEngine;
 
-namespace DS.ScriptableObjects
+namespace DialogueSystem.Scripts.ScriptableObjects
 {
-    using Data;
-    using Enumerations;
-
     public class DSDialogueSO : ScriptableObject
     {
         [field: SerializeField] public string DialogueName { get; set; }

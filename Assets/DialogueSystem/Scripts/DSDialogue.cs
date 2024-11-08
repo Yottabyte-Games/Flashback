@@ -1,9 +1,8 @@
+using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
 
-namespace DS
+namespace DialogueSystem.Scripts
 {
-    using ScriptableObjects;
-
     public class DSDialogue : MonoBehaviour
     {
         /* Dialogue Scriptable Objects */

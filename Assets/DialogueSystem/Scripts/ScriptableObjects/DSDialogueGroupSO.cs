@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DS.ScriptableObjects
+namespace DialogueSystem.Scripts.ScriptableObjects
 {
     public class DSDialogueGroupSO : ScriptableObject
     {
