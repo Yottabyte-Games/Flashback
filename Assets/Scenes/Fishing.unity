@@ -1098,7 +1098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540009321080785211, guid: 7d51cb52a20f9da4184fb11f5b97e768, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4269333237098955535, guid: 7d51cb52a20f9da4184fb11f5b97e768, type: 3}
       propertyPath: <Size>k__BackingField
@@ -1400,37 +1400,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 93553487}
     m_Modifications:
-    - target: {fileID: 1059287152564210833, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_Positions.Array.data[0].x
-      value: 1.7729901
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059287152564210833, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_Positions.Array.data[0].y
-      value: 3.6670904
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059287152564210833, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_Positions.Array.data[0].z
-      value: 4.7345333
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059287152564210833, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_Positions.Array.data[1].x
-      value: 1.7729901
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059287152564210833, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_Positions.Array.data[1].y
-      value: 3.6670904
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059287152564210833, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_Positions.Array.data[1].z
-      value: 4.7345333
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732557558554707759, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_Camera
+    - target: {fileID: 1369678686663692670, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+      propertyPath: m_Sprite
       value: 
+      objectReference: {fileID: 21300000, guid: 37e29f39367fb4e4983b1ef44c7fab5e, type: 3}
+    - target: {fileID: 1369678686663692670, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+      propertyPath: m_Color.a
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386224844817155469, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3342296846655013807, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
       propertyPath: m_Name
       value: FishingRod
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643789245577992575, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6626804480151116304, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
       propertyPath: m_LocalPosition.x
