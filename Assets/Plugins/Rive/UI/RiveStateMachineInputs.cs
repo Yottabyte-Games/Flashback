@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Plugins.Rive.UI
 {
-
+// https://rive.app/community/doc/text/docn2E6y1lXo
 
 //! An example implementation to get/set Rive State Machine Inputs.
     [RequireComponent(typeof(RiveScreen))]
@@ -61,6 +61,7 @@ namespace Plugins.Rive.UI
 
         StateMachine _mRiveStateMachine;
 
+        
         [SerializeField]
         public List<SmiTriggerDescriptor> triggers;
         [SerializeField]
@@ -70,6 +71,7 @@ namespace Plugins.Rive.UI
 
         void Start()
         {
+            
             var riveScreen = GetComponent<RiveScreen>();
             _mRiveStateMachine = riveScreen.stateMachine;
 
@@ -77,6 +79,7 @@ namespace Plugins.Rive.UI
             triggers = new List<SmiTriggerDescriptor>();
             numbers = new List<SmiNumberDescriptor>();
 
+            
             var inputs = _mRiveStateMachine.Inputs();
             foreach (var input in inputs)
             {

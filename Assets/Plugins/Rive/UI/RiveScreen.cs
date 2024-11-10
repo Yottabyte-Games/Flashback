@@ -10,6 +10,7 @@ using RenderQueue = Rive.RenderQueue;
 
 namespace Plugins.Rive.UI
 {
+    
     internal class CameraTextureHelper
     {
         Camera _mainCamera;
@@ -237,6 +238,15 @@ namespace Plugins.Rive.UI
                 _mainCamera.RemoveCommandBuffer(cameraEvent, _commandBuffer);
             }
 
+        }
+        public void SetDialogue(string dialogueString)
+        {
+            _artboard.SetTextRun("DialogueText", dialogueString);
+        }
+
+        public void SetHoverItemName(string objectName)
+        {
+            _artboard.SetTextRun("ItemName", objectName);
         }
     }
 }
