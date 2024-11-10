@@ -1,11 +1,4 @@
-<<<<<<< HEAD:Assets/Scenes/Working/Tasks/FetchTask.cs
-using NaughtyAttributes;
-using UnityEngine;
-
-public class FetchTask : OfficeTask
-=======
 namespace _Scripts.Working.Tasks
->>>>>>> Build:Assets/!Scripts/Working/Tasks/FetchTask.cs
 {
     public class FetchTask : OfficeTask
     {

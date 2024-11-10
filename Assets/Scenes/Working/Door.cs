@@ -2,15 +2,7 @@ using UnityEngine;
 
 namespace _Scripts.Working
 {
-<<<<<<< HEAD:Assets/Scenes/Working/Door.cs
-    [SerializeField] Transform door;
-
-    bool isOpen;
-
-    void OnTriggerEnter(Collider other)
-=======
     public class Door : MonoBehaviour
->>>>>>> Build:Assets/!Scripts/Working/Door.cs
     {
         [SerializeField] Transform door;
 
@@ -34,12 +26,4 @@ namespace _Scripts.Working
             door.transform.localEulerAngles = Vector3.zero;
         }
     }
-<<<<<<< HEAD:Assets/Scenes/Working/Door.cs
-
-    void OnTriggerExit(Collider other)
-    {
-        door.transform.localEulerAngles = Vector3.zero;
-    }
-=======
->>>>>>> Build:Assets/!Scripts/Working/Door.cs
 }

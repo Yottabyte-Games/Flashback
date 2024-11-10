@@ -3,15 +3,7 @@ using UnityEngine;
 
 namespace _Scripts.Working
 {
-<<<<<<< HEAD:Assets/Scenes/Working/TaskItem.cs
-    public GameObject indicator;
-
-    public event Action InteractedWith;
-
-    void Start()
-=======
     public class TaskItem : MonoBehaviour
->>>>>>> Build:Assets/!Scripts/Working/TaskItem.cs
     {
         public GameObject indicator;
 

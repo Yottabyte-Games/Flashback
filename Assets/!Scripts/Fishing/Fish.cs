@@ -52,12 +52,7 @@ namespace _Scripts.Fishing
         {
             art.transform.localScale = new Vector3(Weight / 2.5f, Weight / 5f, Length / 5f);
         }
-<<<<<<< HEAD
-
-        void OnDrawGizmosSelected()
-=======
         private void OnDrawGizmosSelected()
->>>>>>> Build
         {
             if (art == null) return;
 

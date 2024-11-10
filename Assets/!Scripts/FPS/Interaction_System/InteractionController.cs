@@ -23,16 +23,11 @@ namespace _Scripts.FPS.Interaction_System
 
             bool _hitSomething;
 
-<<<<<<< HEAD:Assets/!Scripts/FPS/Interaction_System/InteractionController.cs
-            #region Private
-                [SerializeField] Camera m_cam;
-=======
             public int layer;
 
 
         #region Private
                 [SerializeField] private Camera m_cam;
->>>>>>> Therapy-FPS:Assets/YottabyteGames/FirstPersonController/Assets/Scripts/Interaction_System/InteractionController.cs
 
                 bool m_interacting;
                 float m_holdTimer = 0f;

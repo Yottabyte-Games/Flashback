@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-using System;
-using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
-using Minigame.Fishing;
-using NaughtyAttributes;
-=======
 using GinjaGaming.FinalCharacterController;
->>>>>>> Build
 using UnityEngine;
 
 namespace _Scripts.Fishing
@@ -21,11 +14,7 @@ namespace _Scripts.Fishing
         Vector2 currentMousePos, lastMousePos, mouseMoved;
         float reelValue;
 
-<<<<<<< HEAD
-        void Start()
-=======
         private void OnEnable()
->>>>>>> Build
         {
             input = GetComponent<FishingRodInput>();
             rod = GetComponent<FishingRod>();
@@ -33,12 +22,7 @@ namespace _Scripts.Fishing
             input.Reel += ReelingValue;
             StartReeling(rod.hook.fish);
         }
-<<<<<<< HEAD
-
-        void Update()
-=======
         private void OnDisable()
->>>>>>> Build
         {
             input.Reel -= ReelingValue;
             FinishReeling();

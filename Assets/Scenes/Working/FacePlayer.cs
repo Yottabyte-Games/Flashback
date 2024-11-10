@@ -1,7 +1,4 @@
-<<<<<<< HEAD:Assets/Scenes/Working/FacePlayer.cs
-=======
 using GinjaGaming.FinalCharacterController;
->>>>>>> Build:Assets/!Scripts/Working/FacePlayer.cs
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using UnityEngine;
 

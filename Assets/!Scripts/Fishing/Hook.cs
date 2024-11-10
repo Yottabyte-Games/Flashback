@@ -15,16 +15,10 @@ namespace _Scripts.Fishing
         public Bait bait;
         public event Action<Fish> CaughtFish;
 
-<<<<<<< HEAD
-        public Rigidbody rb { get; private set; }
-
-        void Start()
-=======
         [HideInInspector] public FishWater water;
 
         public Rigidbody Rb { get; private set; }
         private void Start()
->>>>>>> Build
         {
             Rb = GetComponent<Rigidbody>();
         }

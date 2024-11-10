@@ -1,9 +1,5 @@
 using System.Collections.Generic;
-<<<<<<< HEAD:Assets/Scenes/Working/Tasks/CleaningTask.cs
-using UnityEngine;
-=======
 using Unity.VisualScripting;
->>>>>>> Build:Assets/!Scripts/Working/Tasks/CleaningTask.cs
 
 namespace _Scripts.Working.Tasks
 {

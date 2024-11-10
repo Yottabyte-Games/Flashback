@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
->>>>>>> Build
 using UnityEngine;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts

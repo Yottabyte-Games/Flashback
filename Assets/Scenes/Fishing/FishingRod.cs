@@ -1,9 +1,5 @@
-<<<<<<< HEAD:Assets/Scenes/Fishing/FishingRod.cs
-using _Scripts.Fishing;
-=======
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using System.Threading.Tasks;
->>>>>>> Build:Assets/!Scripts/Fishing/FishingRod.cs
 using UnityEngine;
 using Utility.Physics;
 

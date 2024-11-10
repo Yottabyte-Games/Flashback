@@ -3,15 +3,7 @@ using UnityEngine;
 
 namespace _Scripts.Working
 {
-<<<<<<< HEAD:Assets/Scenes/Working/TaskGoal.cs
-    WorkInteractable interactable;
-
-    public event Action reached;
-
-    void Start()
-=======
     public class TaskGoal : MonoBehaviour
->>>>>>> Build:Assets/!Scripts/Working/TaskGoal.cs
     {
         WorkInteractable _interactable;
 
