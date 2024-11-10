@@ -10,6 +10,7 @@ public class InputShit : MonoBehaviour
     [Header("Only needed if we are swapping scene")]
     [SerializeField] private SceneReference sceneToLoad;
     
+    private bool hasTalkedAlready = false;
     private DialogueManager dialogueManager;
 
     private void Start()
@@ -23,11 +24,13 @@ public class InputShit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        StartDialogue();
+        if (!hasTalkedAlready)
+            StartDialogue();
     }
 
     private void StartDialogue()
     {
-        dialogueManager.SetDialogue(startingDialogue);
+        dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
+        hasTalkedAlready = true;
     }
 }

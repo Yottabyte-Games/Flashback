@@ -25,16 +25,6 @@ MonoBehaviour:
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
     <Position>k__BackingField: {x: 78, y: 158}
-  - <ID>k__BackingField: 9c9b83c8-b691-43f6-a90a-2fdd63a5fa22
-    <Name>k__BackingField: Dialogue2
-    <Text>k__BackingField: "But first I need to stop by the local J\xE5ker to buy
-      milk.\r\n"
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: f1b3859d-0019-48e3-88fc-c978e3292f3a
-    <GroupID>k__BackingField: 
-    <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 660, y: 158}
   - <ID>k__BackingField: f1b3859d-0019-48e3-88fc-c978e3292f3a
     <Name>k__BackingField: Dialogue3
     <Text>k__BackingField: "I should use the Arrow Keys or W A S D to move while
@@ -55,11 +45,21 @@ MonoBehaviour:
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
     <Position>k__BackingField: {x: 1695, y: 158}
+  - <ID>k__BackingField: 9c9b83c8-b691-43f6-a90a-2fdd63a5fa22
+    <Name>k__BackingField: Dialogue2
+    <Text>k__BackingField: "But first I need to stop by the local J\xE5ker to buy
+      milk.\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: f1b3859d-0019-48e3-88fc-c978e3292f3a
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 660, y: 158}
   <OldGroupNames>k__BackingField: []
   <OldUngroupedNodeNames>k__BackingField:
   - Dialogue1
-  - Dialogue2
   - Dialogue3
   - Dialogue4
+  - Dialogue2
   <OldGroupedNodeNames>k__BackingField:
     list: []

@@ -23,7 +23,7 @@ namespace DialogueSystem.Scripts
 
         private void Update()
         {
-            if (NextDialogueAction.IsPressed() && isDialogueActive)
+            if (NextDialogueAction.WasPressedThisFrame() && isDialogueActive)
             {
                 PlayDialogueLine();
             }
