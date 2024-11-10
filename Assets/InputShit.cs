@@ -1,16 +1,24 @@
 using DialogueSystem.Scripts;
+using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class InputShit : MonoBehaviour
 {
-    [SerializeField] ActivateDialouge activeDialogue;
+    [SerializeField] private DSDialogueSO startingDialogue;
     
-    void Update()
+    private DialogueManager dialogueManager;
+
+    private void Start()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
+        if (dialogueManager == null)
         {
-            activeDialogue.NextDialogue();
+            print("Dialogue Manager is null");
         }
+    }
+
+    public void StartDialogue()
+    {
+        dialogueManager.SetDialogue(startingDialogue);
     }
 }

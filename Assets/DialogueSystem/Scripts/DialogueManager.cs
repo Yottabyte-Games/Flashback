@@ -1,38 +1,41 @@
-using DialogueSystem.Scripts.Data;
 using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 namespace DialogueSystem.Scripts
 {
-    public class ActivateDialouge : MonoBehaviour
+    public class DialogueManager : MonoBehaviour
     {
-        [SerializeField] DSDialogueSO startingDialogue;
-        [SerializeField] DSDialogueContainerSO dialogueContainer;
-        [SerializeField] GameHudController gameHudController;
+        [SerializeField] private GameHudController gameHudController;
 
-        DSDialogueSO currentDialogue;
+        private DSDialogueSO currentDialogue;
+        private bool isDialogueActive;
         
-        int dialogueIndex = 0;
 
-        void Awake()
+        public void SetDialogue(DSDialogueSO startingDialogue)
         {
-            dialogueIndex = 0;
             currentDialogue = startingDialogue;
+            PlayDialogueLine();
+        }
+
+        public void OnInteraction(InputAction.CallbackContext context)
+        {
+            if (context.performed && isDialogueActive)
+            {
+                PlayDialogueLine();
+            }
         }
         
-        public void NextDialogue()
+        void PlayDialogueLine()
         {
-            OnOptionChosen(dialogueIndex);
-        }
-        void OnOptionChosen(int choiceIndex)
-        {
-            Debug.Log("Choice Index: " + choiceIndex);
-            if (choiceIndex < dialogueContainer.UngroupedDialogues.Count)
+            if (currentDialogue != null)
             {
                 // If first dialogue load Text Box
                 if (currentDialogue.IsStartingDialogue)
                 {
                     gameHudController.StartDialogue(currentDialogue.Text);
+                    isDialogueActive = true;
                 }
                 // For every other text go to next text
                 else
@@ -46,8 +49,8 @@ namespace DialogueSystem.Scripts
             else
             {
                 gameHudController.EndDialogue();
+                isDialogueActive = false;
             }
-            dialogueIndex++;
         }
     }
 }
