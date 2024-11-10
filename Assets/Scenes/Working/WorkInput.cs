@@ -2,12 +2,15 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class WorkInput : MonoBehaviour, WorkInputs.IWorkActions
+namespace _Scripts.Working
 {
-    WorkInputs input;
-    public event Action interact;
-    WorkInteractable toInteractWith;
+    public class WorkInput : MonoBehaviour, WorkInputs.IWorkActions
+    {
+        WorkInputs _input;
+        public event Action interact;
+        WorkInteractable _toInteractWith;
 
+<<<<<<< HEAD:Assets/Scenes/Working/WorkInput.cs
     void OnEnable()
     {
         input = new WorkInputs();
@@ -23,20 +26,37 @@ public class WorkInput : MonoBehaviour, WorkInputs.IWorkActions
     void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out WorkInteractable interactable))
+=======
+        private void OnEnable()
+>>>>>>> Build:Assets/!Scripts/Working/WorkInput.cs
         {
-            if (interactable.enabled == false) return;
-            toInteractWith = interactable;
+            _input = new WorkInputs();
+            _input.Work.Enable();
+            _input.Work.SetCallbacks(this);
         }
-    }
+        private void Start()
+        {
+            interact += Interact;
+        }
 
-    void Interact()
-    {
-        if (toInteractWith == null) return;
-        toInteractWith.interact.Invoke(transform);
-    }
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        if (!context.started) return;
-        interact?.Invoke();
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out WorkInteractable interactable))
+            {
+                if (interactable.enabled == false) return;
+                _toInteractWith = interactable;
+            }
+        }
+
+        void Interact()
+        {
+            if (_toInteractWith == null) return;
+            _toInteractWith.interact.Invoke(transform);
+        }
+        public void OnInteract(InputAction.CallbackContext context)
+        {
+            if (!context.started) return;
+            interact?.Invoke();
+        }
     }
 }

@@ -89,9 +89,20 @@ Assets/Gemserk.Favorites.asset.meta
 /[Aa]ssets/StreamingAssets/**/*.bank
 /[Aa]ssets/StreamingAssets/**/*.bank.meta
 
+# Don't ignore images and gizmos used by FMOD in the Unity Editor.
+!/[Aa]ssets/Gizmos/FMOD/*
+!/[Aa]ssets/Editor Default Resources/FMOD/*
+
 # If the source bank files are kept outside of the StreamingAssets folder then these can be ignored.
-# Log files can be ignored.
+# FMOD files
+Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
+Assets/StreamingAssets/*.bank
 fmod_editor.log
+<<<<<<< HEAD
 /Logs
 /obj
 /.vscode
+=======
+/Assets/Plugins/FMOD/platforms/mac
+
+>>>>>>> Build

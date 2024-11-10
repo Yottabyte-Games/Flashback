@@ -1,30 +1,37 @@
 using System.Collections.Generic;
+<<<<<<< HEAD:Assets/Scenes/Working/Tasks/CleaningTask.cs
 using UnityEngine;
+=======
+using Unity.VisualScripting;
+>>>>>>> Build:Assets/!Scripts/Working/Tasks/CleaningTask.cs
 
-public class CleaningTask : OfficeTask
+namespace _Scripts.Working.Tasks
 {
-    TaskItem toClean;
-    List<TaskGoal> goal = new List<TaskGoal>();
+    public class CleaningTask : OfficeTask
+    {
+        TaskItem _toClean;
+        List<TaskGoal> _goal = new List<TaskGoal>();
 
-    protected override void OnEnable()
-    {
-        taskType = TaskType.Cleaning;
-        base.OnEnable();
-    }
-    public override void InitializeTask(OfficeWorker worker)
-    {
-        base.InitializeTask(worker);
-        toClean = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
-        toClean.InteractedWith += ProgressTask;
-    }
-
-    protected override void ProgressTask()
-    {
-        foreach (var can in manager.trashcans)
+        protected override void OnEnable()
         {
-            TaskGoal current = can.AddComponent<TaskGoal>();
-            goal.Add(current);
-            current.reached += CompleteTask;
+            taskType = TaskType.Cleaning;
+            base.OnEnable();
+        }
+        public override void InitializeTask(OfficeWorker worker)
+        {
+            base.InitializeTask(worker);
+            _toClean = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
+            _toClean.InteractedWith += ProgressTask;
+        }
+
+        protected override void ProgressTask()
+        {
+            foreach (var can in manager.trashcans)
+            {
+                TaskGoal current = can.AddComponent<TaskGoal>();
+                _goal.Add(current);
+                current.reached += CompleteTask;
+            }
         }
     }
 }

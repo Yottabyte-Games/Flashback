@@ -1,53 +1,56 @@
-using System.Threading.Tasks;
-using UnityEngine;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using NaughtyAttributes;
+using UnityEngine;
 
-public class OfficeManager : MonoBehaviour
+namespace _Scripts.Working
 {
-    [Header("Workers")]
-    [SerializeField] GameObject bossPrefab;
-    [SerializeField] GameObject officeWorkerPrefab;
-
-    [ReadOnly] public Boss boss;
-    [ReadOnly] public List<OfficeWorker> workers = new List<OfficeWorker>();
-
-    [Header("Rooms")]
-    [SerializeField] Transform enterance;
-    [SerializeField] ActivityRoom[] meetingRooms;
-    [SerializeField] ActivityRoom breakRoom;
-    [SerializeField] Transform bossOffice;
-    Cublicle[] cubicles;
-
-    [Header("Other")]
-    [SerializeField] TaskManager taskManager;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    async void Start()
+    public class OfficeManager : MonoBehaviour
     {
-        cubicles = FindObjectsByType<Cublicle>(FindObjectsSortMode.None);
+        [Header("Workers")]
+        [SerializeField] GameObject bossPrefab;
+        [SerializeField] GameObject officeWorkerPrefab;
 
-        GameObject bg = Instantiate(bossPrefab, enterance.position, enterance.rotation);
-        boss = bg.GetComponent<Boss>();
-        boss.breakRoom = breakRoom;
-        boss.meetingRooms = meetingRooms;
-        boss.officeStation = bossOffice;
+        [ReadOnly] public Boss boss;
+        [ReadOnly] public List<OfficeWorker> workers = new List<OfficeWorker>();
 
+        [Header("Rooms")]
+        [SerializeField] Transform enterance;
+        [SerializeField] ActivityRoom[] meetingRooms;
+        [SerializeField] ActivityRoom breakRoom;
+        [SerializeField] Transform bossOffice;
+        Cublicle[] _cubicles;
 
-        foreach (var item in cubicles)
+        [Header("Other")]
+        [SerializeField] TaskManager taskManager;
+
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        async void Start()
         {
-            if (!Application.isPlaying) return;
+            _cubicles = FindObjectsByType<Cublicle>(FindObjectsSortMode.None);
 
-            GameObject wg = Instantiate(officeWorkerPrefab, enterance.position, enterance.rotation);
+            GameObject bg = Instantiate(bossPrefab, enterance.position, enterance.rotation);
+            boss = bg.GetComponent<Boss>();
+            boss.breakRoom = breakRoom;
+            boss.meetingRooms = meetingRooms;
+            boss.officeStation = bossOffice;
 
-            OfficeWorker worker = wg.GetComponent<OfficeWorker>();
-            worker.officeStation = item.transform;
-            worker.meetingRooms = meetingRooms;
-            worker.breakRoom = breakRoom;
 
-            workers.Add(worker);
+            foreach (var item in _cubicles)
+            {
+                if (!Application.isPlaying) return;
 
-            await Task.Delay(1000);
+                GameObject wg = Instantiate(officeWorkerPrefab, enterance.position, enterance.rotation);
+
+                OfficeWorker worker = wg.GetComponent<OfficeWorker>();
+                worker.officeStation = item.transform;
+                worker.meetingRooms = meetingRooms;
+                worker.breakRoom = breakRoom;
+
+                workers.Add(worker);
+
+                await Task.Delay(1000);
+            }
         }
     }
 }

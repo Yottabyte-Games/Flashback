@@ -1,3 +1,4 @@
+using GinjaGaming.FinalCharacterController;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;

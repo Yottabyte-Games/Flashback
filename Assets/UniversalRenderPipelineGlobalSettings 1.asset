@@ -313,9 +313,20 @@ MonoBehaviour:
     - rid: 584136580774494227
       type: {class: ProbeVolumeGlobalSettings, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
       data:
+<<<<<<< HEAD:Assets/UniversalRenderPipelineGlobalSettings 1.asset
         m_Version: 1
         m_ProbeVolumeDisableStreamingAssets: 0
     - rid: 584136580774494228
+=======
+        m_Version: 0
+        m_VolumeProfile: {fileID: 11400000, guid: dc25cd3d3e8e7b94e9b4b288d870f735, type: 2}
+    - rid: 6852985685364965385
+      type: {class: RenderGraphSettings, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_EnableRenderCompatibilityMode: 0
+    - rid: 6852985685364965392
+>>>>>>> Build:Assets/Settings/UniversalRenderPipelineGlobalSettings.asset
       type: {class: ShaderStrippingSetting, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
       data:
         m_Version: 0

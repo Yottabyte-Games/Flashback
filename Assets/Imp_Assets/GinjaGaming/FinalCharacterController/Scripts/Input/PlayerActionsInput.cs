@@ -1,3 +1,4 @@
+using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using YottabyteGames.FinalCharacterController;

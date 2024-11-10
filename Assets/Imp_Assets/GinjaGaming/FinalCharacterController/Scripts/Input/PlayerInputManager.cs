@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+using GinjaGaming.FinalCharacterController;
+>>>>>>> Build
 using UnityEngine;
 using YottabyteGames.FinalCharacterController;
 

@@ -1,20 +1,30 @@
 using System;
 using UnityEngine;
 
-public class TaskGoal : MonoBehaviour
+namespace _Scripts.Working
 {
+<<<<<<< HEAD:Assets/Scenes/Working/TaskGoal.cs
     WorkInteractable interactable;
 
     public event Action reached;
 
     void Start()
+=======
+    public class TaskGoal : MonoBehaviour
+>>>>>>> Build:Assets/!Scripts/Working/TaskGoal.cs
     {
-        interactable = GetComponent<WorkInteractable>();
-        interactable.interact.AddListener(Completed);
-    }
+        WorkInteractable _interactable;
 
-    public void Completed(Transform transform)
-    {
-        reached?.Invoke();
+        public event Action reached;
+        private void Start()
+        {
+            _interactable = GetComponent<WorkInteractable>();
+            _interactable.interact.AddListener(Completed);
+        }
+
+        public void Completed(Transform transform)
+        {
+            reached?.Invoke();
+        }
     }
 }

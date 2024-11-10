@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700f64bfb9c9afb40b655f78a65f0ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnowRemover: {fileID: 1541599637}
+  snowRemover: {fileID: 1541599637}
 --- !u!54 &194222406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700f64bfb9c9afb40b655f78a65f0ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnowRemover: {fileID: 1909645085}
+  snowRemover: {fileID: 1909645085}
 --- !u!114 &336276674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2061,7 +2061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9cfe61cc776b954ea8e1b35369a0c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 794430722}
+  mainCamera: {fileID: 0}
   range: 100
   ghostMaterial: {fileID: 2100000, guid: 1c9c91ef2dac60e4182ffae5be28858f, type: 2}
 --- !u!114 &648959380
@@ -2320,11 +2320,6 @@ MonoBehaviour:
 --- !u!1 &794430717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5242010300582068122, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-  m_PrefabInstance: {fileID: 1586159317}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &794430722 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5256384803381100468, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
   m_PrefabInstance: {fileID: 1586159317}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &794430723
@@ -3851,7 +3846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700f64bfb9c9afb40b655f78a65f0ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnowRemover: {fileID: 810597846}
+  snowRemover: {fileID: 810597846}
 --- !u!54 &1380164220
 Rigidbody:
   m_ObjectHideFlags: 0
