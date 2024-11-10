@@ -1,5 +1,5 @@
+using DialogueSystem.Scripts.Data;
 using DialogueSystem.Scripts.ScriptableObjects;
-using TMPro;
 using UnityEngine;
 
 namespace DialogueSystem.Scripts
@@ -7,32 +7,47 @@ namespace DialogueSystem.Scripts
     public class ActivateDialouge : MonoBehaviour
     {
         [SerializeField] DSDialogueSO startingDialogue;
-        [SerializeField] TextMeshProUGUI textUI;
+        [SerializeField] DSDialogueContainerSO dialogueContainer;
+        [SerializeField] GameHudController gameHudController;
 
         DSDialogueSO currentDialogue;
+        
+        int dialogueIndex = 0;
 
         void Awake()
         {
+            dialogueIndex = 0;
             currentDialogue = startingDialogue;
         }
-
-        void ShowText()
+        
+        public void NextDialogue()
         {
-            textUI.text = currentDialogue.Text;
+            OnOptionChosen(dialogueIndex);
         }
-
         void OnOptionChosen(int choiceIndex)
         {
-            DSDialogueSO nextDialogue = currentDialogue.Choices[choiceIndex].NextDialogue;
-
-            if (nextDialogue is null)
+            Debug.Log("Choice Index: " + choiceIndex);
+            if (choiceIndex < dialogueContainer.UngroupedDialogues.Count)
             {
-                return; // No more dialogues to show, do whatever
+                // If first dialogue load Text Box
+                if (currentDialogue.IsStartingDialogue)
+                {
+                    gameHudController.StartDialogue(currentDialogue.Text);
+                }
+                // For every other text go to next text
+                else
+                {
+                    gameHudController.NextDialogue(currentDialogue.Text);
+                }
+                //Stores Next Dialogue
+                DSDialogueSO nextDialogue = currentDialogue.Choices[0].NextDialogue;
+                currentDialogue = nextDialogue;
             }
-
-            currentDialogue = nextDialogue;
-
-            ShowText();
+            else
+            {
+                gameHudController.EndDialogue();
+            }
+            dialogueIndex++;
         }
     }
 }
