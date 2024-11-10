@@ -1,10 +1,11 @@
 ﻿using _Scripts.FPS.Interaction_System;
+using UnityEngine;
 
 namespace VHS
 {
     public class DestroyInteractable : InteractableBase
     {
-        [SerializeField] private GameObject cat;
+        [SerializeField] GameObject cat;
 
         public override void OnInteract()
         {

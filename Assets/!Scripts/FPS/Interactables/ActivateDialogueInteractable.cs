@@ -1,10 +1,11 @@
+using _Scripts.FPS.Interaction_System;
 using UnityEngine;
 
 namespace VHS
 {
     public class ActivateDialogueInteractable : InteractableBase
     {
-        [SerializeField] private InteractionController interactionController;
+        [SerializeField] InteractionController interactionController;
 
         public override void OnInteract()
         {

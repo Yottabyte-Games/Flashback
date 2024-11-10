@@ -1,6 +1,6 @@
+using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using YottabyteGames.FinalCharacterController;
 
 namespace _Scripts.FPS.Scripts
 {
@@ -74,6 +74,12 @@ namespace _Scripts.FPS.Scripts
 
             JumpPressed = true;
         }
+
+        public void OnToggleWalk(InputAction.CallbackContext context)
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
     }
 }
