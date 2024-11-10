@@ -268,7 +268,7 @@ namespace GinjaGaming.FinalCharacterController
                     ""name"": ""Gathering"",
                     ""type"": ""Button"",
                     ""id"": ""d9ba9315-bc1d-4791-ad3e-9601169f85de"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
