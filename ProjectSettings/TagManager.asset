@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - Level
   layers:
   - Default
   - TransparentFX
@@ -11,11 +13,19 @@ TagManager:
   - 
   - Water
   - UI
+<<<<<<< HEAD
   - 
   - 
   - 
   - 
   - 
+=======
+  - PostProcessing
+  - Level
+  - Interactable
+  - Pickable
+  - Dialogue
+>>>>>>> Therapy-FPS
   - 
   - 
   - 

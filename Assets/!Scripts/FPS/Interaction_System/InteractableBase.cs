@@ -27,15 +27,14 @@ namespace _Scripts.FPS.Interaction_System
             public bool HoldInteract => holdInteract;
             public bool MultipleUse => multipleUse;
             public bool IsInteractable => isInteractable;
-
             public string TooltipMessage => tooltipMessage;
         #endregion
 
         #region Methods
         public virtual void OnInteract()
-            {
-                Debug.Log("INTERACTED: " + gameObject.name);
-            }
+        {
+            //Debug.Log("INTERACTED: " + gameObject.name);
+        }
         #endregion
     }
 }

@@ -14,11 +14,17 @@ namespace YottabyteGames.Scripts
         // bools
         bool shooting, readyToShoot, reloading;
 
+<<<<<<< HEAD
         // Reference
         public Camera fpsCam;
         public Transform attackPoint;
         public RaycastHit rayHit;
         public LayerMask whatIsEnemy;
+=======
+        // Settext
+        // text.SetText(bulletsLeft + " / " + magazineSize);
+    }
+>>>>>>> Therapy-FPS
 
         // Graphics
         //public GameObject muzzleFlash, bulletHoleGraphic; 

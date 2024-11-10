@@ -46,8 +46,85 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Assets\Imp_Assets\IL3DN\Scripts\Editor\IL3DN_Wind_Editor.cs" />
     <Compile Include="Assets\Imp_Assets\Blink\Art\Characters\LowPoly\Editor\MaterialTilingOffset.cs" />
+=======
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\IAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\EnableIfPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\PropertyMetaAttribute.cs" />
+    <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyGroupers\PropertyGrouper.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\MethodDrawerAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\CodeGenerator.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\FieldDrawerDatabase.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\PropertyMetaDatabase.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyMetas\PropertyMeta.cs" />
+    <Compile Include="Assets\Blink\Art\Characters\LowPoly\Editor\MaterialTilingOffset.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\PropertyValidatorAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyMetas\OnValueChangedPropertyMeta.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyValidators\PropertyValidator.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\NativePropertyDrawerDatabase.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\PropertyValidatorDatabase.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\FieldDrawers\FieldDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Utility\PropertyUtility.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\ProgressBarPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\BaseAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\ResizableTextAreaPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\NativePropertyDrawers\NativePropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\MethodDrawers\MethodDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyValidators\ValidateInputPropertyValidator.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\ReadOnlyPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\PropertyGrouperAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\PropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\ReorderableListPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Utility\IOUtility.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyValidators\MinValuePropertyValidator.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\ShowAssetPreviewPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\FieldDrawerAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\SliderPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Utility\EditorDrawUtility.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\PropertyDrawConditionAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\TagPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\DisableIfPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Editors\InspectorEditor.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\NativePropertyDrawerAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyValidators\MaxValuePropertyValidator.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\MethodDrawers\ButtonMethodDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\MethodDrawerDatabase.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\NativePropertyDrawers\ShowNativePropertyNativePropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyGroupers\BoxGroupPropertyGrouper.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Attributes\PropertyDrawerAttribute.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyValidators\RequiredPropertyValidator.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\Utility\ReflectionUtility.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyMetas\InfoBoxPropertyMeta.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\MinMaxSliderPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawConditions\HideIfPropertyDrawCondition.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\PropertyGrouperDatabase.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\PropertyDrawConditionDatabase.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\DropdownPropertyDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawConditions\PropertyDrawCondition.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\FieldDrawers\ShowNonSerializedFieldFieldDrawer.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\PropertyDrawerDatabase.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawConditions\ShowIfPropertyDrawCondition.cs" />
+    <Compile Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\PropertyDrawers\LabelPropertyDrawer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\Templates\MethodDrawerDatabaseTemplate.txt" />
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\Templates\PropertyValidatorDatabaseTemplate.txt" />
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\Templates\PropertyDrawerDatabaseTemplate.txt" />
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\Templates\PropertyDrawConditionDatabaseTemplate.txt" />
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\Templates\FieldDrawerDatabaseTemplate.txt" />
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll" />
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\Templates\NativePropertyDrawerDbTemplate.txt" />
+    <None Include="Assets\UnityTechnologies\EffectExamples\Editor\PackageManagerAssembly\PackageManagerAssembly.dll" />
+    <None Include="Assets\UnityTechnologies\EffectExamples\Editor\PackageManagerAssembly\PackageImportList.txt" />
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\Templates\PropertyMetaDatabaseTemplate.txt" />
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
+    <None Include="Assets\YottabyteGames\FirstPersonController\Assets\Plugins\NaughtyAttributes\Scripts\Editor\CodeGeneration\Templates\PropertyGrouperDatabaseTemplate.txt" />
+  </ItemGroup>
+  <ItemGroup>
+>>>>>>> Therapy-FPS
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -435,6 +512,14 @@
     <Reference Include="DOTweenUpgradeManager">
       <HintPath>C:\Users\lars_\Unity\Flashback\Assets\Plugins\Demigiant\DOTween\Editor\DOTweenUpgradeManager.dll</HintPath>
     </Reference>
+    <Reference Include="ReportGeneratorMerged">
+      <HintPath>Library\PackageCache\com.unity.testtools.codecoverage\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PackageManagerAssembly">
+      <HintPath>Assets\UnityTechnologies\EffectExamples\Editor\PackageManagerAssembly\PackageManagerAssembly.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
     </Reference>
@@ -814,7 +899,12 @@
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
+<<<<<<< HEAD
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+=======
+      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+      <Private>False</Private>
+>>>>>>> Therapy-FPS
     </Reference>
     <Reference Include="Unity.InputSystem.ForUI">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
@@ -825,11 +915,21 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="Unity.AI.Navigation">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Cinemachine.Editor">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
+=======
+    <Reference Include="Unity.Cinemachine.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Polybrush.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Polybrush.Editor.dll</HintPath>
+      <Private>False</Private>
+>>>>>>> Therapy-FPS
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -837,14 +937,50 @@
     <Reference Include="Unity.Timeline">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="Unity.Splines">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
+=======
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Polybrush">
+      <HintPath>Library\ScriptAssemblies\Unity.Polybrush.dll</HintPath>
+      <Private>False</Private>
+>>>>>>> Therapy-FPS
+    </Reference>
+    <Reference Include="Unity.Splines">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="Unity.Cinemachine">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
+=======
+    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Autodesk.Fbx">
+      <HintPath>Library\ScriptAssemblies\Autodesk.Fbx.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+      <Private>False</Private>
+>>>>>>> Therapy-FPS
     </Reference>
     <Reference Include="Unity.ProBuilder.Editor">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
@@ -855,6 +991,10 @@
     <Reference Include="Unity.Splines.Editor">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Splines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
@@ -864,17 +1004,65 @@
     <Reference Include="Eflatun.SceneReference">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Eflatun.SceneReference.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="Unity.AI.Navigation.Updater">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+=======
+    <Reference Include="Unity.VisualScripting.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+      <Private>False</Private>
+>>>>>>> Therapy-FPS
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="Unity.AI.Navigation.Editor">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+=======
+    <Reference Include="Autodesk.Fbx.Editor">
+      <HintPath>Library\ScriptAssemblies\Autodesk.Fbx.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Toolchain.Win-x86_64-Linux-x86_64">
+      <HintPath>Library\ScriptAssemblies\Unity.Toolchain.Win-x86_64-Linux-x86_64.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+      <Private>False</Private>
+>>>>>>> Therapy-FPS
     </Reference>
     <Reference Include="Unity.ProBuilder">
       <HintPath>C:\Users\lars_\Unity\Flashback\Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
