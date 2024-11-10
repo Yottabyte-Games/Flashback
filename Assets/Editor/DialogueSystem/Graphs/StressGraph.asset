@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: StressGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: Stress
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: 630735ee-98e6-4577-be2b-7c924a43e7fe
+    <Name>k__BackingField: Dialogue2
+    <Text>k__BackingField: "Maybe it is something I should bring up with the psychologist
+      though?\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1054, y: 136}
+  - <ID>k__BackingField: 0522d2d6-916e-44ef-bc4d-8ad109345632
+    <Name>k__BackingField: Dialogue1
+    <Text>k__BackingField: "That day was particularly stressful, I was drowning in
+      work and had to go home after that episode, luckily this doesn\u2019t happen
+      often."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 630735ee-98e6-4577-be2b-7c924a43e7fe
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 330, y: 136}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Dialogue2
+  - Dialogue1
+  <OldGroupedNodeNames>k__BackingField:
+    list: []

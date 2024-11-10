@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: TheToyCarGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: TheToyCar
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: 00ec1d9f-7e2b-4326-b4cf-b9a530d331ea
+    <Name>k__BackingField: Dialogue1
+    <Text>k__BackingField: The toys kids play with these days, they have so many
+      that they are always losing some.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 401cee9b-a74d-4753-a166-3af71d37ed92
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 204, y: -19}
+  - <ID>k__BackingField: 401cee9b-a74d-4753-a166-3af71d37ed92
+    <Name>k__BackingField: Dialogue2
+    <Text>k__BackingField: "Looks like there is a toy car over there no one is playing
+      with.\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 9be3b2b7-080a-446a-b765-cfc453a6c70b
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 875, y: -19}
+  - <ID>k__BackingField: 9be3b2b7-080a-446a-b765-cfc453a6c70b
+    <Name>k__BackingField: Dialogue3
+    <Text>k__BackingField: I had a toy car like this when I was younger, I played
+      with it everyday of my childhood.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1399, y: -19}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Dialogue1
+  - Dialogue2
+  - Dialogue3
+  <OldGroupedNodeNames>k__BackingField:
+    list: []

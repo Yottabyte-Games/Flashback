@@ -1,7 +1,7 @@
+using Eflatun.SceneReference;
 using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 
 namespace DialogueSystem.Scripts
 {
@@ -9,26 +9,36 @@ namespace DialogueSystem.Scripts
     {
         [SerializeField] private GameHudController gameHudController;
 
+        
         private DSDialogueSO currentDialogue;
         private bool isDialogueActive;
+        private SceneReference sceneToLoad;
         
+        InputAction NextDialogueAction;
 
-        public void SetDialogue(DSDialogueSO startingDialogue)
+        private void Start()
         {
-            currentDialogue = startingDialogue;
-            PlayDialogueLine();
+            NextDialogueAction = InputSystem.actions.FindAction("Interact");
         }
 
-        public void OnInteraction(InputAction.CallbackContext context)
+        private void Update()
         {
-            if (context.performed && isDialogueActive)
+            if (NextDialogueAction.IsPressed() && isDialogueActive)
             {
                 PlayDialogueLine();
             }
         }
+
+        public void SetDialogue(DSDialogueSO startingDialogue, SceneReference scene = null)
+        {
+            currentDialogue = startingDialogue;
+            PlayDialogueLine();
+            sceneToLoad = scene;
+        }
         
         void PlayDialogueLine()
         {
+            print("Playing Dialogue");
             if (currentDialogue != null)
             {
                 // If first dialogue load Text Box
@@ -48,7 +58,7 @@ namespace DialogueSystem.Scripts
             }
             else
             {
-                gameHudController.EndDialogue();
+                gameHudController.EndDialogue(sceneToLoad);
                 isDialogueActive = false;
             }
         }

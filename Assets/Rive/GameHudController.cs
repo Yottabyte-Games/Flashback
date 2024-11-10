@@ -1,5 +1,7 @@
+using Eflatun.SceneReference;
 using Plugins.Rive.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameHudController : MonoBehaviour
 {
@@ -33,9 +35,13 @@ public class GameHudController : MonoBehaviour
     }
     
     // When last dialogue finishes, call this
-    public void EndDialogue()
+    public void EndDialogue(SceneReference sceneReference)
     {
         riveScreen.stateMachine.GetTrigger("RemoveDialogue").Fire();
+        if (sceneReference != null)
+        {
+            SceneManager.LoadScene(sceneReference.Name);
+        }
     }
 
     public void HoverOn(string objectName)

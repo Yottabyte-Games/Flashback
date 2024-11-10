@@ -72,7 +72,7 @@
                     "name": "Next",
                     "type": "Button",
                     "id": "b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -129,15 +129,6 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Dialogue",
-                    "type": "Button",
-                    "id": "06233a21-90b4-4fa4-b31c-25b9647f169b",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -496,11 +487,33 @@
                 },
                 {
                     "name": "",
+                    "id": "58500ff9-8097-46f4-8ba9-d18e43ac981e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b3f66d0b-7751-423f-908b-a11c5bd95930",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a9d27bba-6b94-42c5-bbfb-9feb071f8c18",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -579,17 +592,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Scene5_Work",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "58500ff9-8097-46f4-8ba9-d18e43ac981e",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Dialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

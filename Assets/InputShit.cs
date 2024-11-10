@@ -1,10 +1,14 @@
+using System;
 using DialogueSystem.Scripts;
 using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
+using Eflatun.SceneReference;
 
 public class InputShit : MonoBehaviour
 {
     [SerializeField] private DSDialogueSO startingDialogue;
+    [Header("Only needed if we are swapping scene")]
+    [SerializeField] private SceneReference sceneToLoad;
     
     private DialogueManager dialogueManager;
 
@@ -17,7 +21,12 @@ public class InputShit : MonoBehaviour
         }
     }
 
-    public void StartDialogue()
+    private void OnTriggerEnter(Collider other)
+    {
+        StartDialogue();
+    }
+
+    private void StartDialogue()
     {
         dialogueManager.SetDialogue(startingDialogue);
     }
