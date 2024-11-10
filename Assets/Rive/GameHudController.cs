@@ -1,10 +1,22 @@
+using System;
 using Plugins.Rive.UI;
 using UnityEngine;
 
 public class GameHudController : MonoBehaviour
 {
     [SerializeField] private RiveScreen riveScreen;
-    
+
+    private void Start()
+    {
+        if (riveScreen == null)
+        {
+            riveScreen = GetComponent<RiveScreen>();
+            if (riveScreen == null)
+            {
+                Debug.LogError("No RiveScreen component found on " + gameObject.name);
+            }
+        }
+    }
 
     // First Dialogue should call this
     public void StartDialogue(string dialogueString)
