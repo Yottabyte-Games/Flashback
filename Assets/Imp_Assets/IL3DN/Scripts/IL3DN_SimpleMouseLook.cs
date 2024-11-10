@@ -17,9 +17,9 @@
         public float smoothTime = 5f;
         public bool lockCursor = true;
 
-        Quaternion m_CharacterTargetRot;
-        Quaternion m_CameraTargetRot;
-        bool m_cursorIsLocked = true;
+        private Quaternion m_CharacterTargetRot;
+        private Quaternion m_CameraTargetRot;
+        private bool m_cursorIsLocked = true;
 
         public void Init(Transform character, Transform camera)
         {
@@ -71,7 +71,7 @@
                 InternalLockUpdate();
         }
 
-        void InternalLockUpdate()
+        private void InternalLockUpdate()
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {

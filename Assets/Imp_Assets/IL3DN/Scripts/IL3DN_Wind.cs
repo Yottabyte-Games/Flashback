@@ -5,7 +5,7 @@ namespace IL3DN
 
     public class IL3DN_Wind : MonoBehaviour
     {
-        float WindGizmo = 0.5f;
+        private float WindGizmo = 0.5f;
 
         void Update()
         {

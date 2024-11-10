@@ -1,30 +1,26 @@
 using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using YottabyteGames.FinalCharacterController;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-2)]
-    public class PlayerActionsInput : MonoBehaviour, PlayerControls.IPlayerLocomotionMapActions
+    public class PlayerActionsInput : MonoBehaviour, PlayerControls.IPlayerActionsMapActions
     {
         #region Class Variables
-
-        PlayerLocomotionInput _playerLocomotionInput;
-        PlayerState _playerState;
+        private PlayerLocomotionInput _playerLocomotionInput;
+        private PlayerState _playerState;
         public bool GatherPressed { get; private set; }
         public bool AttackPressed { get; private set; }
         #endregion
 
         #region Startup
-
-        void Awake()
+        private void Awake()
         {
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
         }
-
-        void OnEnable()
+        private void OnEnable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -32,11 +28,11 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
                 return;
             }
 
-            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.Enable();
-            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.SetCallbacks(this);
+            PlayerInputManager.Instance.PlayerControls.PlayerActionsMap.Enable();
+            PlayerInputManager.Instance.PlayerControls.PlayerActionsMap.SetCallbacks(this);
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -44,14 +40,13 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
                 return;
             }
 
-            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.Disable();
-            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.RemoveCallbacks(this);
+            PlayerInputManager.Instance.PlayerControls.PlayerActionsMap.Disable();
+            PlayerInputManager.Instance.PlayerControls.PlayerActionsMap.RemoveCallbacks(this);
         }
         #endregion
 
         #region Update
-
-        void Update()
+        private void Update()
         {
             if (_playerLocomotionInput.MovementInput != Vector2.zero ||
                 _playerState.CurrentPlayerMovementState == PlayerMovementState.Jumping ||
@@ -89,25 +84,5 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
             AttackPressed = true;
         }
         #endregion
-
-        public void OnMovement(InputAction.CallbackContext context)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void OnLook(InputAction.CallbackContext context)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void OnToggleSprint(InputAction.CallbackContext context)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void OnJump(InputAction.CallbackContext context)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

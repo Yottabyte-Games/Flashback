@@ -1,0 +1,25 @@
+using System;
+using UnityEngine;
+
+namespace _Scripts.Working
+{
+    public class TaskItem : MonoBehaviour
+    {
+        public GameObject indicator;
+
+        public event Action InteractedWith;
+        private void Start()
+        {
+            indicator = Instantiate(indicator, transform);
+        }
+
+        public void Interact(Transform heldBy)
+        {
+            if(heldBy.GetComponent<Holding>().HoldItem(gameObject))
+            {
+                indicator.SetActive(false);
+                InteractedWith?.Invoke();
+            }
+        }
+    }
+}

@@ -2,7 +2,6 @@ using GinjaGaming.FinalCharacterController;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using YottabyteGames.FinalCharacterController;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
@@ -12,22 +11,20 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
         #region Class Variables
         public Vector2 ScrollInput { get; private set; }
 
-        [SerializeField] CinemachineCamera _virtualCamera;
-        [SerializeField] float _cameraZoomSpeed = 0.1f;
-        [SerializeField] float _cameraMinZoom = 1f;
-        [SerializeField] float _cameraMaxZoom = 5f;
+        [SerializeField] private CinemachineCamera _virtualCamera;
+        [SerializeField] private float _cameraZoomSpeed = 0.1f;
+        [SerializeField] private float _cameraMinZoom = 1f;
+        [SerializeField] private float _cameraMaxZoom = 5f;
 
-        CinemachineThirdPersonFollow _thirdPersonFollow;
+        private CinemachineThirdPersonFollow _thirdPersonFollow;
         #endregion
 
         #region Startup
-
-        void Awake()
+        private void Awake()
         {
             _thirdPersonFollow = _virtualCamera.GetComponent<CinemachineThirdPersonFollow>();
         }
-
-        void OnEnable()
+        private void OnEnable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -39,7 +36,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
             PlayerInputManager.Instance.PlayerControls.ThirdPersonMap.SetCallbacks(this);
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -53,13 +50,12 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
         #endregion
 
         #region Update
-
-        void Update()
+        private void Update()
         {
             _thirdPersonFollow.CameraDistance = Mathf.Clamp(_thirdPersonFollow.CameraDistance + ScrollInput.y, _cameraMinZoom, _cameraMaxZoom);
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
             ScrollInput = Vector2.zero;
         }

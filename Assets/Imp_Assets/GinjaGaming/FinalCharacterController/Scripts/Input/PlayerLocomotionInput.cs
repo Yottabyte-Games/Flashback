@@ -1,7 +1,6 @@
 using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using YottabyteGames.FinalCharacterController;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
@@ -9,36 +8,42 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
     public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomotionMapActions
     {
         #region Class Variables
-        [SerializeField] bool holdToSprint = true;
-
-        public bool SprintToggledOn {  get; private set; }
-        public PlayerControls PlayerControls { get; private set; }
+        [SerializeField] private bool holdToSprint = true;
         public Vector2 MovementInput { get; private set; }
         public Vector2 LookInput { get; private set; }
         public bool JumpPressed { get; private set; }
+        public bool SprintToggledOn { get; private set; }
+        public bool WalkToggledOn { get; private set; }
         #endregion
 
         #region Startup
-
-        void OnEnable()
+        private void OnEnable()
         {
-            PlayerControls = new PlayerControls();
-            PlayerControls.Enable();
+            if (PlayerInputManager.Instance?.PlayerControls == null)
+            {
+                Debug.LogError("Player controls is not initialized - cannot enable");
+                return;
+            }
 
-            PlayerControls.PlayerLocomotionMap.Enable();
-            PlayerControls.PlayerLocomotionMap.SetCallbacks(this);
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.Enable();
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.SetCallbacks(this);
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
-            PlayerControls.PlayerLocomotionMap.Disable();
-            PlayerControls.PlayerLocomotionMap.RemoveCallbacks(this);
+            if (PlayerInputManager.Instance?.PlayerControls == null)
+            {
+                Debug.LogError("Player controls is not initialized - cannot disable");
+                return;
+            }
+
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.Disable();
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.RemoveCallbacks(this);
         }
         #endregion
 
         #region Late Update Logic
-
-        void LateUpdate()
+        private void LateUpdate()
         {
             JumpPressed = false;
         }
@@ -48,7 +53,6 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
         public void OnMovement(InputAction.CallbackContext context)
         {
             MovementInput = context.ReadValue<Vector2>();
-            print(MovementInput);
         }
 
         public void OnLook(InputAction.CallbackContext context)
@@ -74,6 +78,14 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
                 return;
 
             JumpPressed = true;
+        }
+
+        public void OnToggleWalk(InputAction.CallbackContext context)
+        {
+            if (!context.performed)
+                return;
+
+            WalkToggledOn = !WalkToggledOn;
         }
         #endregion
     }

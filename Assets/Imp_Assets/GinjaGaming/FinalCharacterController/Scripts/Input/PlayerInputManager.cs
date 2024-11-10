@@ -1,6 +1,5 @@
 using GinjaGaming.FinalCharacterController;
 using UnityEngine;
-using YottabyteGames.FinalCharacterController;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
@@ -10,7 +9,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
         public static PlayerInputManager Instance;
         public PlayerControls PlayerControls {  get; private set; }
 
-        void Awake()
+        private void Awake()
         {
             if (Instance != null && Instance != this)
             {
@@ -22,13 +21,13 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
             DontDestroyOnLoad(gameObject);
         }
 
-        void OnEnable()
+        private void OnEnable()
         {
             PlayerControls = new PlayerControls();
             PlayerControls.Enable();
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
             PlayerControls.Disable();
         }

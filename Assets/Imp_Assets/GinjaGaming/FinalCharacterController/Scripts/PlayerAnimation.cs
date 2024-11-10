@@ -6,40 +6,40 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
     public class PlayerAnimation : MonoBehaviour
     {
-        [SerializeField] Animator _animator;
-        [SerializeField] float locomotionBlendSpeed = 4f;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private float locomotionBlendSpeed = 4f;
 
-        PlayerLocomotionInput _playerLocomotionInput;
-        PlayerState _playerState;
-        PlayerController _playerController;
-        PlayerActionsInput _playerActionsInput;
+        private PlayerLocomotionInput _playerLocomotionInput;
+        private PlayerState _playerState;
+        private PlayerController _playerController;
+        private PlayerActionsInput _playerActionsInput;
 
         // Locomotion
-        static int inputXHash = Animator.StringToHash("inputX");
-        static int inputYHash = Animator.StringToHash("inputY");
-        static int inputMagnitudeHash = Animator.StringToHash("inputMagnitude");
-        static int isIdlingHash = Animator.StringToHash("isIdling");
-        static int isGroundedHash = Animator.StringToHash("isGrounded");
-        static int isFallingHash = Animator.StringToHash("isFalling");
-        static int isJumpingHash = Animator.StringToHash("isJumping");
+        private static int inputXHash = Animator.StringToHash("inputX");
+        private static int inputYHash = Animator.StringToHash("inputY");
+        private static int inputMagnitudeHash = Animator.StringToHash("inputMagnitude");
+        private static int isIdlingHash = Animator.StringToHash("isIdling");
+        private static int isGroundedHash = Animator.StringToHash("isGrounded");
+        private static int isFallingHash = Animator.StringToHash("isFalling");
+        private static int isJumpingHash = Animator.StringToHash("isJumping");
 
         // Actions
-        static int isAttackingHash = Animator.StringToHash("isAttacking");
-        static int isGatheringHash = Animator.StringToHash("isGathering");
-        static int isPlayingActionHash = Animator.StringToHash("isPlayingAction");
-        int[] actionHashes;
+        private static int isAttackingHash = Animator.StringToHash("isAttacking");
+        private static int isGatheringHash = Animator.StringToHash("isGathering");
+        private static int isPlayingActionHash = Animator.StringToHash("isPlayingAction");
+        private int[] actionHashes;
 
         // Camera/Rotation
-        static int isRotatingToTargetHash = Animator.StringToHash("isRotatingToTarget");
-        static int rotationMismatchHash = Animator.StringToHash("rotationMismatch");
+        private static int isRotatingToTargetHash = Animator.StringToHash("isRotatingToTarget");
+        private static int rotationMismatchHash = Animator.StringToHash("rotationMismatch");
 
-        Vector3 _currentBlendInput = Vector3.zero;
+        private Vector3 _currentBlendInput = Vector3.zero;
 
-        float _sprintMaxBlendValue = 1.5f;
-        float _runMaxBlendValue = 1.0f;
-        float _walkMaxBlendValue = 0.5f;
+        private float _sprintMaxBlendValue = 1.5f;
+        private float _runMaxBlendValue = 1.0f;
+        private float _walkMaxBlendValue = 0.5f;
 
-        void Awake()
+        private void Awake()
         {
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
@@ -49,12 +49,12 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             actionHashes = new int[] { isGatheringHash };
         }
 
-        void Update()
+        private void Update()
         {
             UpdateAnimationState();
         }
 
-        void UpdateAnimationState()
+        private void UpdateAnimationState()
         {
             var isIdling = _playerState.CurrentPlayerMovementState == PlayerMovementState.Idling;
             var isRunning = _playerState.CurrentPlayerMovementState == PlayerMovementState.Running;
