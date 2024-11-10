@@ -1,4 +1,3 @@
-using System;
 using Plugins.Rive.UI;
 using UnityEngine;
 
