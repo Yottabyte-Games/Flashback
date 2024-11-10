@@ -37,7 +37,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         public float lookSenseH = 0.1f;
         public float lookSenseV = 0.1f;
         public float lookLimitV = 89f;
-        public bool cameraMovement { get; private set; } = true;
+        public bool CameraMovement { get; private set; } = true;
 
         [Header("Environment Details")]
         [SerializeField]
@@ -199,7 +199,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         void LateUpdate()
         {
-            if(cameraMovement)
+            if(CameraMovement)
                 UpdateCameraRotation();
         }
 
@@ -258,9 +258,9 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotationX, playerModelRotationSpeed * Time.deltaTime);
         }
 
-        public void ToggleCameraMovement()
+        public void ToggleCameraMovement(bool toggle)
         {
-            cameraMovement = !cameraMovement;
+            CameraMovement = toggle;
         }
         #endregion
 

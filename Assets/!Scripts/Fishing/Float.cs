@@ -1,30 +1,27 @@
 using UnityEngine;
 
-namespace _Scripts.Fishing
+namespace _Scripts
 {
     public class Float : MonoBehaviour
     {
-        Rigidbody _rb;
-
-        void Start()
+        [SerializeField] float buoyancy = 20;
+        Rigidbody rb;
+        private void Start()
         {
-            _rb = GetComponent<Rigidbody>();
+            rb = GetComponent<Rigidbody>();
         }
 
-        void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
-            _rb.useGravity = false;
+            if (rb.isKinematic) return;
+                rb.linearVelocity /= 100;
         }
 
-        void OnTriggerStay(Collider other)
+        private void OnTriggerStay(Collider other)
         {
-            _rb.AddForce(-Physics.gravity, ForceMode.Force);
-            _rb.linearVelocity = _rb.linearVelocity / 2;
+            if (transform.position.y < other.transform.position.y)
+                rb.AddForce(other.transform.up * buoyancy);
         }
 
-        void OnTriggerExit(Collider other)
-        {
-            _rb.useGravity = true;
-        }
     }
 }

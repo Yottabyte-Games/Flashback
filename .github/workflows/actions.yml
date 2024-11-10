@@ -22,6 +22,10 @@ jobs:
         with:
           lfs: true
 
+      # Ensure Library Directory Exists
+      - name: Ensure Library directory exists
+        run: mkdir -p Library
+
       # Cache
       - uses: actions/cache@v4
         with:
@@ -30,6 +34,7 @@ jobs:
           restore-keys: |
             Library-${{ runner.os }}-
             Library-
+
       # Free Disk Space
       - name: Free up Disk Space
         run: |
@@ -38,6 +43,7 @@ jobs:
           sudo apt clean
           docker rmi $(docker image ls -aq)
           df -h
+
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
@@ -70,7 +76,7 @@ jobs:
         with:
           name: Build
           path: build/StandaloneWindows64
-
+          
       - name: Display structure of root files
         run: ls -R
         working-directory: build/StandaloneWindows64
@@ -84,7 +90,7 @@ jobs:
       - uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
-          CHANNEL: win
+          CHANNEL: windows
           ITCH_GAME: FLASHBACK
           ITCH_USER: MARZLARS
           BRANCH: itch-io
