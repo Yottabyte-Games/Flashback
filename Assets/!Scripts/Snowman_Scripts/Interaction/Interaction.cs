@@ -4,36 +4,6 @@ namespace _Scripts.Snowman_Scripts.Interaction
 {
     public class Interaction : MonoBehaviour
     {
-        public Camera camera;
-        public float range = 100f;
-        Interactable interactable;
-        GameObject interactableObject = null;
-        GameObject ghostObject = null;
-
-        float mouseZoom = 1;
-
-        public Material ghostMaterial;
-
-        void Start()
-        {
-            ;
-        }
-
-        void Update()
-        {
-            //mouseZoom += Input.GetAxis("Mouse ScrollWheel");
-            mouseZoom = Mathf.Clamp(mouseZoom+ Input.GetAxis("Mouse ScrollWheel")*8, 1f, 20);
-            Debug.Log(mouseZoom);
-
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out RaycastHit hit, range))
-            {
-                Interactable hitInteractable = hit.collider.tag == "Interactable" ? hit.collider.GetComponent<Interactable>() : null;
-
-                // Outline Enable/Disable
-                if (hitInteractable != null);
-            }
         public Camera mainCamera;
         public float range = 100f;
         Interactable _interactable;
