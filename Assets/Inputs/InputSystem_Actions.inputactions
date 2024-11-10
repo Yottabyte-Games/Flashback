@@ -121,6 +121,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Scene5_Work",
+                    "type": "Button",
+                    "id": "7ff93b8b-da51-42dd-8783-c9a66462f79e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -550,6 +559,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Scene4_Snowman",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "185e04dc-8d71-4517-bb02-77b898c376e1",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Scene5_Work",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
