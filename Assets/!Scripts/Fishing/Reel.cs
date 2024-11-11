@@ -14,7 +14,7 @@ namespace _Scripts.Fishing
         Vector2 currentMousePos, lastMousePos, mouseMoved;
         float reelValue;
 
-        private void OnEnable()
+        void OnEnable()
         {
             input = GetComponent<FishingRodInput>();
             rod = GetComponent<FishingRod>();
@@ -22,7 +22,8 @@ namespace _Scripts.Fishing
             input.Reel += ReelingValue;
             StartReeling(rod.hook.fish);
         }
-        private void OnDisable()
+
+        void OnDisable()
         {
             input.Reel -= ReelingValue;
             FinishReeling();

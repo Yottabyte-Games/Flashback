@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameHudController : MonoBehaviour
 {
-    [SerializeField] private RiveScreen riveScreen;
+    [SerializeField] RiveScreen riveScreen;
 
-    private void Start()
+    void Start()
     {
         if (riveScreen == null)
         {
@@ -56,7 +56,7 @@ public class GameHudController : MonoBehaviour
     }
     
     // Set Dialogue Text for the next dialogue
-    private void SetDialogue(string dialogue)
+    void SetDialogue(string dialogue)
     {
         riveScreen.SetDialogue(dialogue);
     }

@@ -1,4 +1,3 @@
-using System;
 using DialogueSystem.Scripts;
 using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
@@ -6,14 +5,15 @@ using Eflatun.SceneReference;
 
 public class InputShit : MonoBehaviour
 {
-    [SerializeField] private DSDialogueSO startingDialogue;
+    [SerializeField] DSDialogueSO startingDialogue;
     [Header("Only needed if we are swapping scene")]
-    [SerializeField] private SceneReference sceneToLoad;
-    
-    private bool hasTalkedAlready = false;
-    private DialogueManager dialogueManager;
+    [SerializeField]
+    SceneReference sceneToLoad;
 
-    private void Start()
+    bool hasTalkedAlready = false;
+    DialogueManager dialogueManager;
+
+    void Start()
     {
         dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
         if (dialogueManager == null)
@@ -22,13 +22,13 @@ public class InputShit : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (!hasTalkedAlready)
             StartDialogue();
     }
 
-    private void StartDialogue()
+    void StartDialogue()
     {
         dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
         hasTalkedAlready = true;

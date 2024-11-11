@@ -7,7 +7,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference PlayerFootsteps { get; private set; }
     public static FMODEvents Instance { get; private set; }
 
-    private void Awake()
+    void Awake()
     {
         if (Instance != null)
         {

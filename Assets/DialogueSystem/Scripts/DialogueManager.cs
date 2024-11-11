@@ -7,21 +7,21 @@ namespace DialogueSystem.Scripts
 {
     public class DialogueManager : MonoBehaviour
     {
-        [SerializeField] private GameHudController gameHudController;
+        [SerializeField] GameHudController gameHudController;
 
-        
-        private DSDialogueSO currentDialogue;
-        private bool isDialogueActive;
-        private SceneReference sceneToLoad;
+
+        DSDialogueSO currentDialogue;
+        bool isDialogueActive;
+        SceneReference sceneToLoad;
         
         InputAction NextDialogueAction;
 
-        private void Start()
+        void Start()
         {
             NextDialogueAction = InputSystem.actions.FindAction("Interact");
         }
 
-        private void Update()
+        void Update()
         {
             if (NextDialogueAction.WasPressedThisFrame() && isDialogueActive)
             {

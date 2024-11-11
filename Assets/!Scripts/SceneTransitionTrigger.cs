@@ -5,7 +5,7 @@ public class OnTriggerEnterEvent : MonoBehaviour
 {
     public UnityEvent onTriggerEnterEvent;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         onTriggerEnterEvent.Invoke();
     }

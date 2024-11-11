@@ -11,7 +11,7 @@ namespace _Scripts.Fishing
         Fish fishToDisplay;
         [SerializeField] string additionalInfo;
 
-        private void Start()
+        void Start()
         {
             fishInfo.text = null;
         }

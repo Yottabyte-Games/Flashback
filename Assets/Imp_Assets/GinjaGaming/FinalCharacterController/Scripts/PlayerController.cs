@@ -58,10 +58,9 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         float _antiBump;
         float _stepOffset;
 
-        [Header("Audio")]
-        private EventInstance PlayerFootsteps;
+        [Header("Audio")] EventInstance PlayerFootsteps;
 
-        private PlayerMovementState _lastMovementState = PlayerMovementState.Falling;
+        PlayerMovementState _lastMovementState = PlayerMovementState.Falling;
         #endregion
 
         #region Startup
@@ -75,7 +74,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             _stepOffset = _characterController.stepOffset;
         }
 
-        private void Start()
+        void Start()
         {
             PlayerFootsteps = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.PlayerFootsteps);
         }
@@ -93,12 +92,12 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             
         }
 
-        private void FixedUpdate()
+        void FixedUpdate()
         {
             UpdateSound();
         }
 
-        private void UpdateMovementState()
+        void UpdateMovementState()
         {
             _lastMovementState = _playerState.CurrentPlayerMovementState;
 
@@ -208,7 +207,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             return velocity;
         }
 
-        private void UpdateSound()
+        void UpdateSound()
         {
             // Check if the player is moving laterally
             bool isMovingLaterally = IsMovingLaterally();

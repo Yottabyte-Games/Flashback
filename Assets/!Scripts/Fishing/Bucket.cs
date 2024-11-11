@@ -15,7 +15,7 @@ namespace _Scripts.Fishing
         [SerializeField] FishDisplay bestFishLocation;
         [SerializeField] List<FishDisplay> fishLocations = new();
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if (fishingRod.hook.fish == null) return;
             if (other.gameObject.layer != 9) return;
