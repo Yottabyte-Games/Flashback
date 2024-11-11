@@ -53,6 +53,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
+          unityVersion: 6000.0.26f1
 
       # Ensure Directory Exists
       - name: Ensure build directory exists
