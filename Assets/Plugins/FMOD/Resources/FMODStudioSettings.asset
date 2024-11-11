@@ -537,7 +537,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: ../../FMOD Studio/Flashback/Flashback.fspro
-  sourceBankPath: Fmodassets/Desktop
+  sourceBankPath: Fmodassets
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -561,13 +561,9 @@ MonoBehaviour:
   MasterBanks:
   - Desktop/Master
   Banks:
-  - Ambiance.assets
   - Desktop/Ambiance
   - Desktop/Music
   - Desktop/SFX
-  - Master.assets
-  - Music.assets
-  - SFX.assets
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
