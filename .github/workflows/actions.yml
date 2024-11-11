@@ -54,6 +54,7 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
           unityVersion: 6000.0.25f1
+          args: -force-d3d11
 
       # Ensure Directory Exists
       - name: Ensure build directory exists
