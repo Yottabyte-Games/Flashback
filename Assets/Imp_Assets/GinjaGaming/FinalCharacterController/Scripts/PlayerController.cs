@@ -1,5 +1,7 @@
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
@@ -56,7 +58,10 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         float _antiBump;
         float _stepOffset;
 
-        PlayerMovementState _lastMovementState = PlayerMovementState.Falling;
+        [Header("Audio")]
+        private EventInstance PlayerFootsteps;
+
+        private PlayerMovementState _lastMovementState = PlayerMovementState.Falling;
         #endregion
 
         #region Startup
@@ -68,8 +73,11 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
             _antiBump = sprintSpeed;
             _stepOffset = _characterController.stepOffset;
+        }
 
-            Cursor.lockState = CursorLockMode.Locked;
+        private void Start()
+        {
+            PlayerFootsteps = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.PlayerFootsteps);
         }
         #endregion
 
@@ -82,9 +90,15 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
             HandleVerticalMovement();
             HandleLateralMovement();
+            
         }
 
-        void UpdateMovementState()
+        private void FixedUpdate()
+        {
+            UpdateSound();
+        }
+
+        private void UpdateMovementState()
         {
             _lastMovementState = _playerState.CurrentPlayerMovementState;
 
@@ -192,6 +206,34 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
                 velocity = Vector3.ProjectOnPlane(velocity, normal);
 
             return velocity;
+        }
+
+        private void UpdateSound()
+        {
+            // Check if the player is moving laterally
+            bool isMovingLaterally = IsMovingLaterally();
+
+            // Check if the player is grounded
+            bool isGrounded = IsGrounded();
+
+            // Start or stop the footstep event based on movement and grounded state
+            if (isMovingLaterally && isGrounded)
+            {
+                PLAYBACK_STATE playbackState;
+                PlayerFootsteps.getPlaybackState(out playbackState);
+                if (playbackState != PLAYBACK_STATE.PLAYING)
+                {
+                    PlayerFootsteps.start();
+                }
+            }
+            else
+            {
+                // Stop the FMOD footstep event
+                if (PlayerFootsteps.isValid())
+                {
+                    PlayerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                }
+            }
         }
         #endregion
 
