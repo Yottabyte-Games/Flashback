@@ -5,12 +5,12 @@ namespace _Scripts.FPS.Interaction_System
     [RequireComponent(typeof(Rigidbody))]
     public class Pickable : MonoBehaviour, IPickable
     {
-        void Awake()
+        private void Awake()
         {
             rigid = GetComponent<Rigidbody>();
         }
 
-        Rigidbody rigid;
+        private Rigidbody rigid;
 
         public Rigidbody Rigid
         {
@@ -18,7 +18,7 @@ namespace _Scripts.FPS.Interaction_System
             set => rigid = value;
         }
 
-        bool Picked
+        private bool Picked
         {
             get;
             set;

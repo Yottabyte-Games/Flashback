@@ -5,9 +5,9 @@ namespace _Scripts.FPS.Scriptable_Objects
     [CreateAssetMenu(fileName = "PickableInputData", menuName = "FirstPersonController/Data/PickableInputData", order = 0)]
     public class PickableInputData : ScriptableObject
     {
-        bool pickClicked;
-        bool pickHold;
-        bool pickReleased;
+        private bool pickClicked;
+        private bool pickHold;
+        private bool pickReleased;
 
         public bool PickClicked
         {

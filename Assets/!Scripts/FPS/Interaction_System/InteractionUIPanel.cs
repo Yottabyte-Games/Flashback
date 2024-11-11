@@ -6,8 +6,8 @@ namespace _Scripts.FPS.Interaction_System
 {        
     public class InteractionUIPanel : MonoBehaviour
     {
-        [SerializeField] Image progressBar;
-        [SerializeField] TextMeshProUGUI tooltipText;
+        [SerializeField] private Image progressBar;
+        [SerializeField] private TextMeshProUGUI tooltipText;
 
         public void SetTooltip(string tooltip)
         {

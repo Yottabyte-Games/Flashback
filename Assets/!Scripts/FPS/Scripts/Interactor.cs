@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Scripts.FPS.Scripts
 {
-    internal interface IInteractable
+    interface IInteractable
     {
         public void Interact();
     }

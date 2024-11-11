@@ -7,19 +7,16 @@ namespace _Scripts.FPS.Interaction_System
     {
         #region Variables    
             [Space, Header("Data")]
-            [SerializeField]
-            InteractionInputData interactionInputData = null;
-            [SerializeField] InteractionData interactionData = null;
+            [SerializeField] private InteractionInputData interactionInputData = null;
+            [SerializeField] private InteractionData interactionData = null;
 
             [Space, Header("UI")]
-            [SerializeField]
-            InteractionUIPanel uiPanel;
+            [SerializeField] private InteractionUIPanel uiPanel;
 
             [Space, Header("Ray Settings")]
-            [SerializeField]
-            float rayDistance = 0f;
-            [SerializeField] float raySphereRadius = 0f;
-            [SerializeField] LayerMask interactableLayer = ~0;
+            [SerializeField] private float rayDistance = 0f;
+            [SerializeField] private float raySphereRadius = 0f;
+            [SerializeField] private LayerMask interactableLayer = ~0;
 
             bool _hitSomething;
 
@@ -29,8 +26,8 @@ namespace _Scripts.FPS.Interaction_System
         #region Private
                 [SerializeField] private Camera m_cam;
 
-                bool m_interacting;
-                float m_holdTimer = 0f;
+                private bool m_interacting;
+                private float m_holdTimer = 0f;
 
         #endregion
 

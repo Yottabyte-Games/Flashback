@@ -6,7 +6,7 @@ namespace _Scripts.FPS.Scriptable_Objects
     [CreateAssetMenu(fileName = "PickableData", menuName = "FirstPersonController/Data/PickableData", order = 0)]
     public class PickableData : ScriptableObject
     {
-        Pickable pickable;
+        private Pickable pickable;
         public Pickable PickableItem
         {
             get => pickable;

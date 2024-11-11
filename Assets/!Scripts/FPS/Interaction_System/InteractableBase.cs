@@ -8,17 +8,14 @@ namespace _Scripts.FPS.Interaction_System
         #region Variables    
             [Space,Header("Interactable Settings")]
 
-            [SerializeField]
-            bool holdInteract = true;
-            [ShowIf("holdInteract")][SerializeField]
-            float holdDuration = 1f;
+            [SerializeField] private bool holdInteract = true;
+            [ShowIf("holdInteract")][SerializeField] private float holdDuration = 1f;
             
             [Space] 
-            [SerializeField]
-            bool multipleUse = false;
-            [SerializeField] bool isInteractable = true;
+            [SerializeField] private bool multipleUse = false;
+            [SerializeField] private bool isInteractable = true;
 
-            [SerializeField] string tooltipMessage = "interact";
+            [SerializeField] private string tooltipMessage = "interact";
         #endregion
 
         #region Properties    

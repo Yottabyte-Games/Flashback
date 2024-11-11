@@ -5,7 +5,7 @@ namespace _Scripts.FPS.Interaction_System
     [CreateAssetMenu(fileName = "Interaction Data", menuName = "InteractionSystem/InteractionData")]
     public class InteractionData : ScriptableObject
     {
-        InteractableBase m_interactable;
+        private InteractableBase m_interactable;
 
         public InteractableBase Interactable
         {

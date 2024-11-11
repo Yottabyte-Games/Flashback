@@ -8,8 +8,8 @@ namespace _Scripts.FPS.Interaction_System
     {
         public Image holdProgressIMG;
         public Image tooltipBG;
-        RectTransform m_canvasTransform;
-        TextMeshProUGUI m_interactableTooltip;
+        private RectTransform m_canvasTransform;
+        private TextMeshProUGUI m_interactableTooltip;
 
         public void Init()
         {

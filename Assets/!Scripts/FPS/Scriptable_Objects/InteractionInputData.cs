@@ -5,8 +5,8 @@ namespace _Scripts.FPS.Scriptable_Objects
     [CreateAssetMenu(fileName = "InteractionInputData", menuName = "InteractionSystem/InputData")]
     public class InteractionInputData : ScriptableObject
     {
-        bool m_interactedClicked;
-        bool m_interactedRelease;
+        private bool m_interactedClicked;
+        private bool m_interactedRelease;
 
         public bool InteractedClicked
         {

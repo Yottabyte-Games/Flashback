@@ -9,11 +9,11 @@ namespace _Scripts.FPS.Interaction_System
         [BoxGroup("Settings")] public string tooltip;
         [BoxGroup("Settings")] public Transform tooltipTransform;
 
-        Material m_myMat;
+        private Material m_myMat;
         public Material MyMaterial => m_myMat;
 
-        MeshRenderer m_meshRenderer;
-        MeshRenderer MeshRenderer => m_meshRenderer;
+        private MeshRenderer m_meshRenderer;
+        private MeshRenderer MeshRenderer => m_meshRenderer;
 
         public string Tooltip
         {

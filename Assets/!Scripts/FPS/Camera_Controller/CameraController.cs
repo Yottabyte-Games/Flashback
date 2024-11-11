@@ -9,37 +9,31 @@ namespace _Scripts.FPS.Camera_Controller
         #region Variables
             #region Data
                 [Space,Header("Data")]
-                [SerializeField]
-                CameraInputData camInputData = null;
+                [SerializeField] private CameraInputData camInputData = null;
 
                 [Space,Header("Custom Classes")]
-                [SerializeField]
-                CameraZoom cameraZoom = null;
-                [SerializeField] CameraSwaying cameraSway = null;
+                [SerializeField] private CameraZoom cameraZoom = null;
+                [SerializeField] private CameraSwaying cameraSway = null;
 
             #endregion
 
             #region Settings
                 [Space,Header("Look Settings")]
-                [SerializeField]
-                Vector2 sensitivity = Vector2.zero;
-                [SerializeField] Vector2 smoothAmount = Vector2.zero;
-                [SerializeField] [MinMaxSlider(-90f,90f)]
-                Vector2 lookAngleMinMax = Vector2.zero;
+                [SerializeField] private Vector2 sensitivity = Vector2.zero;
+                [SerializeField] private Vector2 smoothAmount = Vector2.zero;
+                [SerializeField] [MinMaxSlider(-90f,90f)] private Vector2 lookAngleMinMax = Vector2.zero;
             #endregion
 
             #region Private
+               private float m_yaw;
+               private float m_pitch;
 
-            float m_yaw;
-            float m_pitch;
+               private float m_desiredYaw;
+               private float m_desiredPitch;
 
-            float m_desiredYaw;
-            float m_desiredPitch;
-
-                #region Components
-
-                Transform m_pitchTranform;
-                Camera m_cam;
+                #region Components                    
+                    private Transform m_pitchTranform;
+                    private Camera m_cam;
                 #endregion
             #endregion
             

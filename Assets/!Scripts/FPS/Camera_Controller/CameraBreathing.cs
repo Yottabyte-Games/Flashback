@@ -8,18 +8,16 @@ namespace _Scripts.FPS.Camera_Controller
     {
         #region Variables
             [Space,Header("Data")]
-            [SerializeField]
-            PerlinNoiseData data = null;
+            [SerializeField] private PerlinNoiseData data = null;
 
             [Space,Header("Axis")]
-            [SerializeField]
-            bool x = true;
-            [SerializeField] bool y = true;
-            [SerializeField] bool z = true;
+            [SerializeField] private bool x = true;
+            [SerializeField] private bool y = true;
+            [SerializeField] private bool z = true;
 
-            PerlinNoiseScroller m_perlinNoiseScroller;
-            [SerializeField] Vector3 m_finalRot;
-            [SerializeField] Vector3 m_finalPos;
+            private PerlinNoiseScroller m_perlinNoiseScroller;
+            [SerializeField] private Vector3 m_finalRot;
+            [SerializeField] private Vector3 m_finalPos;
         #endregion
 
         #region BuiltIn Methods

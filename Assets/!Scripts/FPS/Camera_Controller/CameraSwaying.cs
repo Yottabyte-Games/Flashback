@@ -7,23 +7,21 @@ namespace _Scripts.FPS.Camera_Controller
     {
         #region Variables
             [Space,Header("Sway Settings")]
-            [SerializeField]
-            float swayAmount = 0f;
-            [SerializeField] float swaySpeed = 0f;
-            [SerializeField] float returnSpeed = 0f;
-            [SerializeField] float changeDirectionMultiplier = 0f;
+            [SerializeField] private float swayAmount = 0f;
+            [SerializeField] private float swaySpeed = 0f;
+            [SerializeField] private float returnSpeed = 0f;
+            [SerializeField] private float changeDirectionMultiplier = 0f;
 
-            [SerializeField] AnimationCurve swayCurve = new AnimationCurve();
+            [SerializeField] private AnimationCurve swayCurve = new AnimationCurve();
 
             #region Private
+                private Transform m_camTransform;
+                private float _scrollSpeed;
 
-            Transform m_camTransform;
-            float _scrollSpeed;
-
-            float m_xAmountThisFrame;
-            float m_xAmountPreviousFrame;
-
-            bool m_diffrentDirection;
+                private float m_xAmountThisFrame;
+                private float m_xAmountPreviousFrame;
+ 
+                private bool m_diffrentDirection;
             #endregion
         #endregion
 

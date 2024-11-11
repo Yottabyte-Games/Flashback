@@ -9,8 +9,7 @@ namespace _Scripts.FPS.Input_Handler
         [Space, Header("Input Data")]
             //[SerializeField] private CameraInputData cameraInputData = null;
             //[SerializeField] private MovementInputData movementInputData = null;
-            [SerializeField]
-            InteractionInputData interactionInputData;
+            [SerializeField] private InteractionInputData interactionInputData;
         #endregion
 
         #region BuiltIn Methods

@@ -11,39 +11,33 @@ namespace _Scripts.FPS.Camera_Controller
 
             #region Private Serialized
                 [Space,Header("Zoom Settings")]
-                [Range(20f,60f)] [SerializeField]
-                float zoomFOV = 20f;
-                [SerializeField] AnimationCurve zoomCurve = new AnimationCurve();
-                [SerializeField] float zoomTransitionDuration = 0f;
+                [Range(20f,60f)] [SerializeField] private float zoomFOV = 20f;
+                [SerializeField] private AnimationCurve zoomCurve = new AnimationCurve();
+                [SerializeField] private float zoomTransitionDuration = 0f;
 
                 [Space,Header("Run Settings")]
-                [Range(60f,100f)] [SerializeField]
-                float runFOV = 60f;
-                [SerializeField] AnimationCurve runCurve = new AnimationCurve();
-                [SerializeField] float runTransitionDuration = 0f;
-                [SerializeField] float runReturnTransitionDuration = 0f;
+                [Range(60f,100f)] [SerializeField] private float runFOV = 60f;
+                [SerializeField] private AnimationCurve runCurve = new AnimationCurve();
+                [SerializeField] private float runTransitionDuration = 0f;
+                [SerializeField] private float runReturnTransitionDuration = 0f;
             #endregion
 
             #region Private Non Serialized
-
-            float m_initFOV;
-            CameraInputData m_camInputData;
+                private float m_initFOV;
+                private CameraInputData m_camInputData;
 
                 #region Flags
-
-                bool m_running;
-                bool m_zooming;
+                    private bool m_running;
+                    private bool m_zooming;
                 #endregion
 
                 #region Components
-
-                Camera m_cam;
+                    private Camera m_cam;
                 #endregion
 
                 #region Reference/Cache
-
-                IEnumerator m_ChangeFOVRoutine;
-                IEnumerator m_ChangeRunFOVRoutine;
+                    private IEnumerator m_ChangeFOVRoutine;
+                    private IEnumerator m_ChangeRunFOVRoutine;
                 #endregion
             #endregion
         #endregion
