@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 namespace GinjaGaming.FinalCharacterController
 {
@@ -55,6 +56,9 @@ namespace GinjaGaming.FinalCharacterController
         private float _antiBump;
         private float _stepOffset;
 
+        [Header("Audio")]
+        private EventInstance PlayerFootsteps;
+
         private PlayerMovementState _lastMovementState = PlayerMovementState.Falling;
         #endregion
 
@@ -67,6 +71,11 @@ namespace GinjaGaming.FinalCharacterController
             _antiBump = sprintSpeed;
             _stepOffset = _characterController.stepOffset;
         }
+
+        private void Start()
+        {
+            PlayerFootsteps = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.PlayerFootsteps);
+        }
         #endregion
 
         #region Update Logic
@@ -77,6 +86,12 @@ namespace GinjaGaming.FinalCharacterController
 
             HandleVerticalMovement();
             HandleLateralMovement();
+            
+        }
+
+        private void FixedUpdate()
+        {
+            UpdateSound();
         }
 
         private void UpdateMovementState()
@@ -187,6 +202,34 @@ namespace GinjaGaming.FinalCharacterController
                 velocity = Vector3.ProjectOnPlane(velocity, normal);
 
             return velocity;
+        }
+
+        private void UpdateSound()
+        {
+            // Check if the player is moving laterally
+            bool isMovingLaterally = IsMovingLaterally();
+
+            // Check if the player is grounded
+            bool isGrounded = IsGrounded();
+
+            // Start or stop the footstep event based on movement and grounded state
+            if (isMovingLaterally && isGrounded)
+            {
+                PLAYBACK_STATE playbackState;
+                PlayerFootsteps.getPlaybackState(out playbackState);
+                if (playbackState != PLAYBACK_STATE.PLAYING)
+                {
+                    PlayerFootsteps.start();
+                }
+            }
+            else
+            {
+                // Stop the FMOD footstep event
+                if (PlayerFootsteps.isValid())
+                {
+                    PlayerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                }
+            }
         }
         #endregion
 
