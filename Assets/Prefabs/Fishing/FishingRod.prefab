@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 6626804480151116304}
   - component: {fileID: 4920310363561004457}
   - component: {fileID: 1059287152564210833}
-  - component: {fileID: 925384196887425904}
   - component: {fileID: 2655846469277432644}
-  - component: {fileID: 5919947326873534013}
   - component: {fileID: 8955303659129978476}
   m_Layer: 0
   m_Name: FishingRod
@@ -168,21 +166,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &925384196887425904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3342296846655013807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b0de60297e1a7449d53bd53e440b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToReelHook: 1
-  hook: {fileID: 6979856218046131222}
-  hookPoint: {fileID: 7259583151857864958}
 --- !u!114 &2655846469277432644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,22 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reelUI: {fileID: 4321318533496638657}
---- !u!114 &5919947326873534013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3342296846655013807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eea994c1b9831849866e84c7194bf8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stringPoints:
-  - {fileID: 7259583151857864958}
-  - {fileID: 6935520738671071190}
-  lineRenderer: {fileID: 1059287152564210833}
 --- !u!114 &8955303659129978476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,14 +573,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1262271193829830186, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
   m_PrefabInstance: {fileID: 8195310708409721340}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6979856218046131222 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1253963964434845162, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
-  m_PrefabInstance: {fileID: 8195310708409721340}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d2f7cf9e2d69428877f442d23bc6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

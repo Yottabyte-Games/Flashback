@@ -12680,6 +12680,9 @@ MonoBehaviour:
   snowmanScene:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  workScene:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
 --- !u!43 &1618051365
 Mesh:
   m_ObjectHideFlags: 0
@@ -14824,6 +14827,10 @@ PrefabInstance:
     - target: {fileID: 3028184199123329612, guid: 6389e9da177236343a7c8575cfe7488c, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028184199123329614, guid: 6389e9da177236343a7c8575cfe7488c, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 3147519
       objectReference: {fileID: 0}
     - target: {fileID: 3028184199123329615, guid: 6389e9da177236343a7c8575cfe7488c, type: 3}
       propertyPath: cpMain
