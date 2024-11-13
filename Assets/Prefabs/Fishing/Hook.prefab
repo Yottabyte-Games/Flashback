@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3109309110852067301}
   - component: {fileID: 1253963964434845162}
   - component: {fileID: -3849529854558049447}
+  - component: {fileID: 3902773884667419756}
   m_Layer: 6
   m_Name: Hook
   m_TagString: Untagged
@@ -167,9 +168,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1253963964434845162
 MonoBehaviour:
@@ -183,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8d2f7cf9e2d69428877f442d23bc6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectedRod: {fileID: 0}
   fishPos: {fileID: 7154574993994969770}
   fish: {fileID: 0}
   bait:
@@ -200,6 +202,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76311d41c43bbea45bb918d2edaf6c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buoyancy: 20
+--- !u!145 &3902773884667419756
+SpringJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637437756332789110}
+  serializedVersion: 3
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_Spring: 10
+  m_Damper: 0.2
+  m_MinDistance: 0
+  m_MaxDistance: 0
+  m_Tolerance: 0.025
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &4149383446259590189
 GameObject:
   m_ObjectHideFlags: 0
