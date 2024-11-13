@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameHudController : MonoBehaviour
 {
     [SerializeField] RiveScreen riveScreen;
+    [SerializeField] SceneReference sceneToLoad;
 
     void Start()
     {
