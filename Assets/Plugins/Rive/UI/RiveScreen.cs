@@ -174,7 +174,7 @@ namespace Plugins.Rive.UI
         void Update()
         {
             _helper?.UpdateTextureHelper();
-            if (_artboard == null)
+            if (_artboard is null)
             {
                 return;
             }
@@ -229,6 +229,7 @@ namespace Plugins.Rive.UI
 
             stateMachine?.Advance(Time.deltaTime);
             _riveRenderer.Submit();
+            GL.InvalidateState();
         }
 
         void OnDisable()
