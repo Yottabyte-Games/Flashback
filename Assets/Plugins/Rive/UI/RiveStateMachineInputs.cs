@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Rive;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -111,39 +112,30 @@ namespace Plugins.Rive.UI
         {
             // State machine triggers
             var triggerDidChange = false;
-            foreach (var inspectorInput in triggers)
+            foreach (var inspectorInput in triggers.Where(inspectorInput => inspectorInput.Reference is not null)
+                         .Where(inspectorInput => inspectorInput.trigger))
             {
-                if (inspectorInput.Reference is null) continue;
-                if (inspectorInput.trigger is true)
-                {
-                    inspectorInput.Reference.Fire();
-                    triggerDidChange = true;
-                }
+                inspectorInput.Reference.Fire();
+                triggerDidChange = true;
             }
 
             if (triggerDidChange)
             {
-                var updatedTriggers = new List<SmiTriggerDescriptor>();
-                foreach (var inspectorInput in triggers)
-                {
-                    updatedTriggers.Add(new SmiTriggerDescriptor(inspectorInput.name, inspectorInput.Reference));
-                }
+                var updatedTriggers = triggers.Select(inspectorInput => new SmiTriggerDescriptor(inspectorInput.name, inspectorInput.Reference)).ToList();
                 triggers = updatedTriggers;
             }
 
             // State machine booleans
-            foreach (var inspectorInput in booleans)
+            foreach (var inspectorInput in booleans.Where(inspectorInput => inspectorInput.Reference is not null)
+                         .Where(inspectorInput => inspectorInput.value != inspectorInput.Reference.Value))
             {
-                if (inspectorInput.Reference is null) continue;
-                if (inspectorInput.value == inspectorInput.Reference.Value) continue;
                 inspectorInput.Reference.Value = inspectorInput.value;
             }
 
             // State machine numbers
-            foreach (var inspectorInput in numbers)
+            foreach (var inspectorInput in numbers.Where(inspectorInput => inspectorInput.Reference is not null)
+                         .Where(inspectorInput => !Mathf.Approximately(inspectorInput.value, inspectorInput.Reference.Value)))
             {
-                if (inspectorInput.Reference is null) continue;
-                if (inspectorInput.value == inspectorInput.Reference.Value) continue;
                 inspectorInput.Reference.Value = inspectorInput.value;
             }
         }
