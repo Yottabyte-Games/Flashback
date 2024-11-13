@@ -146,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[0].z
-      value: 4.0999994
+      value: 4.099999
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[1].x
@@ -635,19 +635,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[0].x
-      value: 19.877329
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[0].y
-      value: -0.10406217
+      value: -1.5950001
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[0].z
-      value: 3.909051
+      value: 4.7495193
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 40
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[1].y
@@ -2671,7 +2671,12 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'RingFinger3_L'\n\tTransform 'Hip_L'\n\tTransform
+    'RingFinger1_R'\n\tTransform 'PinkyFinger1_R'\n\tTransform 'Wrist_L'\n\tTransform
+    'ThumbFinger3_L'\n\tTransform 'PinkyFinger2_R'\n\tTransform 'ThumbFinger2_L'\n\tTransform
+    'Ankle_L'\n\tTransform 'Root_M'\n\tand more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
