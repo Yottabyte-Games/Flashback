@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Utility.Methods;
 
 namespace _Scripts.Fishing
 {
-    public class Bucket : MonoBehaviour
+    public class FishDisplayer : MonoBehaviour
     {
         [SerializeField] FishingRod fishingRod;
 
@@ -14,6 +15,8 @@ namespace _Scripts.Fishing
 
         [SerializeField] FishDisplay bestFishLocation;
         [SerializeField] List<FishDisplay> fishLocations = new();
+
+        public event Action FishAdded;
 
         void OnTriggerEnter(Collider other)
         {
@@ -40,6 +43,7 @@ namespace _Scripts.Fishing
             print("added");
 
             UpdateFishLocations();
+            FishAdded.Invoke();
         }
 
         void SetBestFish(Fish fish)
