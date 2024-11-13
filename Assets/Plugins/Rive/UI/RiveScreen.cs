@@ -82,6 +82,8 @@ namespace Plugins.Rive.UI
     public class RiveScreen : MonoBehaviour
     {
         public Asset asset;
+        [Tooltip("Default is HUD")]
+        [SerializeField] private string artboardName = "HUD";
         public CameraEvent cameraEvent = CameraEvent.AfterEverything;
         public Fit fit = Fit.Contain;
         public Alignment alignment = Alignment.Center;
@@ -136,7 +138,7 @@ namespace Plugins.Rive.UI
             if (asset is not null)
             {
                 _file = File.Load(asset);
-                _artboard = _file.Artboard(0);
+                _artboard = _file.Artboard(artboardName);
                 stateMachine = _artboard?.StateMachine();
             }
 

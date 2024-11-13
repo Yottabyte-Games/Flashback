@@ -164,6 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingDialogue: {fileID: 11400000, guid: 722485b450753e34aa47b4406c8e624a, type: 2}
+  sceneToLoad:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
 --- !u!1 &665616443
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad285bd189a64c34a0779c849d09c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asset: {fileID: -4516626237390682484, guid: 15b56837c1a5bb146906f7d54a059cae, type: 3}
+  asset: {fileID: -4516626237390682484, guid: 16c7518da8ec44c4aa526c4ea96cedd3, type: 3}
+  artboardName: Home Sreen
   cameraEvent: 20
   fit: 1
 --- !u!114 &1276681632
@@ -596,6 +600,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   riveScreen: {fileID: 1276681631}
+  sceneToLoad:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
 --- !u!114 &1276681634
 MonoBehaviour:
   m_ObjectHideFlags: 0
