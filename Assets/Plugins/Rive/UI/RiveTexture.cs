@@ -7,7 +7,7 @@ namespace Plugins.Rive.UI
     public class RiveTexture : MonoBehaviour
     {
         public Asset asset;
-        public Fit fit = Fit.Contain;
+        public Fit fit = Fit.contain;
         public int size = 512;
 
         RenderTexture _mRenderTexture;

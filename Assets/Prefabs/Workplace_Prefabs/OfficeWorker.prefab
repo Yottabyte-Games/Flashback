@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 8940889287277853475}
   - component: {fileID: 6219086609274360376}
   - component: {fileID: 4065514315038549544}
+  - component: {fileID: 8232452445551310118}
+  - component: {fileID: 3059449288817411506}
   m_Layer: 0
   m_Name: OfficeWorker
   m_TagString: Interactable
@@ -166,6 +168,51 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8232452445551310118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3949376191065782467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf7ade0420271e4194ebafab01c228a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <activity>k__BackingField: 0
+  <task>k__BackingField: {fileID: 0}
+  taskMarker: {fileID: 1353659752297980153}
+  officeStation: {fileID: 0}
+  breakRoom: {fileID: 0}
+  meetingRooms: []
+--- !u!114 &3059449288817411506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3949376191065782467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab724e10469363458335ec65dbddb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interact:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8232452445551310118}
+        m_TargetAssemblyTypeName: OfficeWorker, Assembly-CSharp
+        m_MethodName: StartOfficeTask
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &9176408763892710975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,12 +309,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62f7e00cc683a0148af2026d0bef1e14, type: 3}
+--- !u!1 &1353659752297980153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7894824962403196614, guid: 62f7e00cc683a0148af2026d0bef1e14, type: 3}
+  m_PrefabInstance: {fileID: 9176408763892710975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4826725992007938549 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4441356899448524746, guid: 62f7e00cc683a0148af2026d0bef1e14, type: 3}
