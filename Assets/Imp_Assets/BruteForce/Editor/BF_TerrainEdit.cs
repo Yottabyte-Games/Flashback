@@ -1,41 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
-using UnityEditor;
-using UnityEditor.UI;
 
-public class BF_TerrainEdit : Editor
+namespace Imp_Assets.BruteForce.Editor
 {
-    [CustomEditor(typeof(BF_SnowTerrain))]
-    class DecalMeshHelperEditor : Editor
+    public class BF_TerrainEdit : UnityEditor.Editor
     {
-        private GUIStyle style;
-        public override void OnInspectorGUI()
+        [CustomEditor(typeof(BF_SnowTerrain))]
+        class DecalMeshHelperEditor : UnityEditor.Editor
         {
-            BF_SnowTerrain myTarget = (BF_SnowTerrain)target;
-            myTarget.terrainToCopy = EditorGUILayout.ObjectField("Terrain To Copy (Data Override)", myTarget.terrainToCopy, typeof(Terrain), true) as Terrain;
-            myTarget.avoidCulling = EditorGUILayout.Toggle("Avoid Terrain Culling", myTarget.avoidCulling);
-            if (style == null)
+            GUIStyle style;
+            public override void OnInspectorGUI()
             {
-                style = new GUIStyle(GUI.skin.button);
-            }
-            if (myTarget.terrainToCopy != null)
-            {
-                if (GUILayout.Button("Sync Terrain Data (Data Override)", style))
+                BF_SnowTerrain myTarget = (BF_SnowTerrain)target;
+                myTarget.terrainToCopy = EditorGUILayout.ObjectField("Terrain To Copy (Data Override)", myTarget.terrainToCopy, typeof(Terrain), true) as Terrain;
+                myTarget.avoidCulling = EditorGUILayout.Toggle("Avoid Terrain Culling", myTarget.avoidCulling);
+                if (style == null)
                 {
-                    myTarget.CopyTerrainData();
-                    myTarget.MoveTerrainSync();
-                    style.normal.background = Texture2D.linearGrayTexture;
+                    style = new GUIStyle(GUI.skin.button);
                 }
-                if (GUILayout.Button("Revert Terrain Data"))
+                if (myTarget.terrainToCopy != null)
                 {
-                    myTarget.RevertTerrainData();
-                    style.normal.background = Texture2D.whiteTexture;
+                    if (GUILayout.Button("Sync Terrain Data (Data Override)", style))
+                    {
+                        myTarget.CopyTerrainData();
+                        myTarget.MoveTerrainSync();
+                        style.normal.background = Texture2D.linearGrayTexture;
+                    }
+                    if (GUILayout.Button("Revert Terrain Data"))
+                    {
+                        myTarget.RevertTerrainData();
+                        style.normal.background = Texture2D.whiteTexture;
+                    }
                 }
-            }
 
 
-            serializedObject.ApplyModifiedProperties();
+                serializedObject.ApplyModifiedProperties();
+            }
         }
     }
 }

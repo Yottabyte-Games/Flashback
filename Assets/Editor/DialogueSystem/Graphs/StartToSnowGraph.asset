@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: StartToSnowGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: StartToSnow
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: c845f62e-4a3c-4ef0-9961-20cb8067239e
+    <Name>k__BackingField: Dialogue1
+    <Text>k__BackingField: Looks like it has begun snowing, wish I had put on my
+      winter boots now.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 178c06c2-793e-4a9d-8ca2-b52f0ae8b442
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 323, y: 118}
+  - <ID>k__BackingField: 178c06c2-793e-4a9d-8ca2-b52f0ae8b442
+    <Name>k__BackingField: Dialogue2
+    <Text>k__BackingField: I can only remember one time it was snowing this much
+      and that was the day all the children went out to play.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 878, y: 118}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Dialogue1
+  - Dialogue2
+  <OldGroupedNodeNames>k__BackingField:
+    list: []

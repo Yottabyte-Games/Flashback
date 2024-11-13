@@ -11,7 +11,7 @@ namespace _Scripts.Fishing
         readonly List<Hook> hooksInWater = new();
 
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if(other.TryGetComponent(out Hook hookInWater))
             {

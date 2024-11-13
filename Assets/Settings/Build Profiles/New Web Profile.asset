@@ -21,11 +21,9 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 0
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/Hubworld.unity
+    m_path: Assets/Scenes/HubWorld.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Fishing.unity
-  - m_enabled: 1
-    m_path: Assets/ArcadeVehiclePhysics/SampleLevel/Scenes/TestTrack.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Snowman.unity
   m_ScriptingDefines: []
@@ -34,6 +32,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 1925617752298749952
       type: {class: WebGLPlatformSettings, ns: UnityEditor.WebGL, asm: UnityEditor.WebGL.Extensions}
       data:

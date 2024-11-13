@@ -1,15 +1,18 @@
 using Eflatun.SceneReference;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace _Scripts.SceneLogic
 {
+    [ShowOdinSerializedPropertiesInInspector]
     public class MySceneBehaviour: MonoBehaviour {
-        static MySceneParams _loadSceneRegister;
-    
-        public MySceneParams sceneParams;
-
-        static SceneReference _myScene;
+        [OdinSerialize] static MySceneParams _loadSceneRegister;
+        [OdinSerialize] MySceneParams sceneParams;
+        
+        [OdinSerialize] SceneReference myScene;
+        [OdinSerialize] static SceneReference _myScene;
 
         public static void LoadMyScene(MySceneParams sceneParams, System.Action<MySceneOutcome> callback) {
             _loadSceneRegister = sceneParams;
@@ -19,6 +22,7 @@ namespace _Scripts.SceneLogic
 
         public void Awake() {
             if (_loadSceneRegister != null) sceneParams = _loadSceneRegister;
+            _myScene = myScene;
             _loadSceneRegister = null; // the register has served its purpose, clear the state
         }
 

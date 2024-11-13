@@ -7,8 +7,8 @@ using UnityEngine;
 public class BF_SquareBanding : MonoBehaviour
 {
     public Material cinematicBandsFX;
-    
-    private void OnRenderImage(RenderTexture source, RenderTexture destination)
+
+    void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
         Graphics.Blit(source, destination, cinematicBandsFX);
     }

@@ -11,12 +11,12 @@ public class BF_PlayerSnow : MonoBehaviour
     public PhysicsMaterial playerMatSnow;
     public PhysicsMaterial playerMatIce;
 
-    private Rigidbody rB;
-    private float speedMult = 1;
-    private float lerpIce;
-    private MeshCollider oldMC;
-    private Mesh mesh;
-    private ParticleSystem.MainModule pSMain;
+    Rigidbody rB;
+    float speedMult = 1;
+    float lerpIce;
+    MeshCollider oldMC;
+    Mesh mesh;
+    ParticleSystem.MainModule pSMain;
 
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class BF_PlayerSnow : MonoBehaviour
         pSMain = particleSys.main;
     }
 
-    private void CheckIceCols(float snowCol)
+    void CheckIceCols(float snowCol)
     {
         lerpIce = snowCol / 255f;
 
@@ -54,7 +54,7 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
         if (lerpIce >= 0.925f && collision.collider.gameObject.layer == 4)
         {
@@ -66,7 +66,7 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if(collision.impulse.magnitude>10)
         {
@@ -74,7 +74,7 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    private void AddSnow(float multiplier)
+    void AddSnow(float multiplier)
     {
         if (playerCollider.transform.localScale.x < 7f)
         {
@@ -83,7 +83,8 @@ public class BF_PlayerSnow : MonoBehaviour
             playerCollider.transform.localScale += Vector3.zero + Vector3.one * 0.005f * 2 * multiplier * speedMult;
         }
     }
-    private void RemoveSnow(float multiplier)
+
+    void RemoveSnow(float multiplier)
     {
         if (playerCollider.transform.localScale.x >= 1.1f)
         {
@@ -105,13 +106,13 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         ChangePlayerMass();
         CheckSnowUnderneath();
     }
 
-    private void CheckSnowUnderneath()
+    void CheckSnowUnderneath()
     {
         RaycastHit hit;
 
@@ -148,7 +149,7 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    private void ChangePlayerMass()
+    void ChangePlayerMass()
     {
         rB.mass = Mathf.Lerp(1.95f, 2.5f, (playerCollider.transform.localScale.x-1.2f) / 7);
         pSMain.startSize = playerCollider.transform.localScale.x+0.5f;

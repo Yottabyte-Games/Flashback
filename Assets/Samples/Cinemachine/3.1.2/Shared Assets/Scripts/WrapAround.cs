@@ -12,7 +12,7 @@ namespace Unity.Cinemachine.Samples
         public float MinRange;
         public float MaxRange;
 
-        private void OnValidate()
+        void OnValidate()
         {
             MaxRange = Mathf.Max(MinRange, MaxRange);
         }

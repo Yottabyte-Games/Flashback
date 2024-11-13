@@ -8,7 +8,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
     public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomotionMapActions
     {
         #region Class Variables
-        [SerializeField] private bool holdToSprint = true;
+        [SerializeField] bool holdToSprint = true;
         public Vector2 MovementInput { get; private set; }
         public Vector2 LookInput { get; private set; }
         public bool JumpPressed { get; private set; }
@@ -17,7 +17,8 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
         #endregion
 
         #region Startup
-        private void OnEnable()
+
+        void OnEnable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -29,7 +30,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
             PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.SetCallbacks(this);
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             if (PlayerInputManager.Instance?.PlayerControls == null)
             {
@@ -43,7 +44,8 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
         #endregion
 
         #region Late Update Logic
-        private void LateUpdate()
+
+        void LateUpdate()
         {
             JumpPressed = false;
         }

@@ -5,7 +5,7 @@ namespace _Scripts.Snowman_Scripts.Interaction
 {
     public class Interactable : MonoBehaviour
     {
-        private Rigidbody _rb;
+        Rigidbody _rb;
         public UnityEvent onInteract;
         Outline _outline;
         public bool canInteract = true;

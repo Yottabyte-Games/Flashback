@@ -164,7 +164,7 @@ namespace Unity.Cinemachine.Samples
         // Note that m_Controller is an optional component: we'll use it if it's there.
         void Start() => TryGetComponent(out m_Controller);
 
-        private void OnEnable()
+        void OnEnable()
         {
             m_CurrentVelocityY = 0;
             m_IsSprinting = false;

@@ -9,25 +9,25 @@ public class MouseLook : MonoBehaviour
 
     public Transform playerBody;
 
-    private float xAxisClamp;
+    float xAxisClamp;
 
-    private void Awake()
+    void Awake()
     {
         LockCursor();
         xAxisClamp = 0.0f;
     }
-    
-    private void LockCursor()
+
+    void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
+    void Update()
     {
         CameraRotation();
     }
 
-    private void CameraRotation()
+    void CameraRotation()
     {
         var mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         var mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
@@ -51,7 +51,7 @@ public class MouseLook : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
-    private void ClampXAxisRotationToValue(float value)
+    void ClampXAxisRotationToValue(float value)
     {
         var eulerRotation = transform.eulerAngles;
         eulerRotation.x = value;

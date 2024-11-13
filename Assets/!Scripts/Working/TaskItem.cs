@@ -8,7 +8,8 @@ namespace _Scripts.Working
         public GameObject indicator;
 
         public event Action InteractedWith;
-        private void Start()
+
+        void Start()
         {
             indicator = Instantiate(indicator, transform);
         }

@@ -18,7 +18,8 @@ namespace _Scripts.Fishing
         [HideInInspector] public FishWater water;
 
         public Rigidbody Rb { get; private set; }
-        private void Start()
+
+        void Start()
         {
             Rb = GetComponent<Rigidbody>();
         }

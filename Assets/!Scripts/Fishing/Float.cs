@@ -6,18 +6,19 @@ namespace _Scripts
     {
         [SerializeField] float buoyancy = 20;
         Rigidbody rb;
-        private void Start()
+
+        void Start()
         {
             rb = GetComponent<Rigidbody>();
         }
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if (rb.isKinematic) return;
                 rb.linearVelocity /= 100;
         }
 
-        private void OnTriggerStay(Collider other)
+        void OnTriggerStay(Collider other)
         {
             if (transform.position.y < other.transform.position.y)
                 rb.AddForce(other.transform.up * buoyancy);

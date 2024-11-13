@@ -11,6 +11,7 @@ namespace _Scripts.Singletons
         [SerializeField] SceneReference fishingScene;
         [SerializeField] SceneReference toyCarScene;
         [SerializeField] SceneReference snowmanScene;
+        [SerializeField] SceneReference workScene;
     
         public void HubWorld()
         {
@@ -28,7 +29,11 @@ namespace _Scripts.Singletons
         {
             SceneManager.LoadScene(snowmanScene.Name);
         }
-        
+
+        public void Work()
+        {
+            SceneManager.LoadScene(workScene.Name);
+        }
 
     }
 }

@@ -9,7 +9,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
         public static PlayerInputManager Instance;
         public PlayerControls PlayerControls {  get; private set; }
 
-        private void Awake()
+        void Awake()
         {
             if (Instance != null && Instance != this)
             {
@@ -21,13 +21,13 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
             DontDestroyOnLoad(gameObject);
         }
 
-        private void OnEnable()
+        void OnEnable()
         {
             PlayerControls = new PlayerControls();
             PlayerControls.Enable();
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             PlayerControls.Disable();
         }

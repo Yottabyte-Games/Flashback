@@ -8,40 +8,40 @@ namespace IL3DN
     ///A simplified version of the FPSController from standard assets 
     public class IL3DN_SimpleFPSController : MonoBehaviour
     {
-        [SerializeField] private bool m_IsWalking = false;
-        [SerializeField] private float m_WalkSpeed = 2;
-        [SerializeField] private float m_RunSpeed = 5;
-        [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten = 0.7f;
-        [SerializeField] private float m_JumpSpeed = 5;
-        [SerializeField] private float m_StickToGroundForce = 10;
-        [SerializeField] private float m_GravityMultiplier = 2;
-        [SerializeField] private IL3DN_SimpleMouseLook m_MouseLook = default;
-        [SerializeField] private float m_StepInterval = 2;
-        [SerializeField] private AudioClip[] m_FootstepSounds = default;    // an array of footstep sounds that will be randomly selected from.
-        [SerializeField] private AudioClip m_JumpSound = default;           // the sound played when character leaves the ground.
-        [SerializeField] private AudioClip m_LandSound = default;           // the sound played when character touches back on ground.
+        [SerializeField] bool m_IsWalking = false;
+        [SerializeField] float m_WalkSpeed = 2;
+        [SerializeField] float m_RunSpeed = 5;
+        [SerializeField] [Range(0f, 1f)] float m_RunstepLenghten = 0.7f;
+        [SerializeField] float m_JumpSpeed = 5;
+        [SerializeField] float m_StickToGroundForce = 10;
+        [SerializeField] float m_GravityMultiplier = 2;
+        [SerializeField] IL3DN_SimpleMouseLook m_MouseLook = default;
+        [SerializeField] float m_StepInterval = 2;
+        [SerializeField] AudioClip[] m_FootstepSounds = default;    // an array of footstep sounds that will be randomly selected from.
+        [SerializeField] AudioClip m_JumpSound = default;           // the sound played when character leaves the ground.
+        [SerializeField] AudioClip m_LandSound = default;           // the sound played when character touches back on ground.
 
-        private Camera m_Camera;
-        private bool m_Jump;
-        private float m_YRotation;
-        private Vector2 m_Input;
-        private Vector3 m_MoveDir = Vector3.zero;
-        private CharacterController m_CharacterController;
-        private CollisionFlags m_CollisionFlags;
-        private bool m_PreviouslyGrounded;
-        private float m_StepCycle;
-        private float m_NextStep;
-        private bool m_Jumping;
-        private AudioSource m_AudioSource;
-        private AudioClip[] footStepsOverride;
-        private AudioClip jumpSoundOverride;
-        private AudioClip landSoundOverride;
-        private bool isInSpecialSurface;
+        Camera m_Camera;
+        bool m_Jump;
+        float m_YRotation;
+        Vector2 m_Input;
+        Vector3 m_MoveDir = Vector3.zero;
+        CharacterController m_CharacterController;
+        CollisionFlags m_CollisionFlags;
+        bool m_PreviouslyGrounded;
+        float m_StepCycle;
+        float m_NextStep;
+        bool m_Jumping;
+        AudioSource m_AudioSource;
+        AudioClip[] footStepsOverride;
+        AudioClip jumpSoundOverride;
+        AudioClip landSoundOverride;
+        bool isInSpecialSurface;
 
         /// <summary>
         /// Initialize the controller
         /// </summary>
-        private void Start()
+        void Start()
         {
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
@@ -52,7 +52,7 @@ namespace IL3DN
             m_MouseLook.Init(transform, m_Camera.transform);
         }
 
-        private void Update()
+        void Update()
         {
             RotateView();
             // the jump state needs to read here to make sure it is not missed
@@ -78,7 +78,7 @@ namespace IL3DN
         /// <summary>
         /// Plays a sound when Player touches the ground for the first time
         /// </summary>
-        private void PlayLandingSound()
+        void PlayLandingSound()
         {
             if (isInSpecialSurface)
             {
@@ -95,7 +95,7 @@ namespace IL3DN
         /// <summary>
         /// Move the Player
         /// </summary>
-        private void FixedUpdate()
+        void FixedUpdate()
         {
             float speed;
             GetInput(out speed);
@@ -138,7 +138,7 @@ namespace IL3DN
         /// <summary>
         /// Plays a jump sound
         /// </summary>
-        private void PlayJumpSound()
+        void PlayJumpSound()
         {
             if (isInSpecialSurface)
             {
@@ -155,7 +155,7 @@ namespace IL3DN
         /// Play foot steps sound based on time and velocity
         /// </summary>
         /// <param name="speed"></param>
-        private void ProgressStepCycle(float speed)
+        void ProgressStepCycle(float speed)
         {
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
@@ -176,7 +176,7 @@ namespace IL3DN
         /// <summary>
         /// Plays a random sound for a footstep 
         /// </summary>
-        private void PlayFootStepAudio()
+        void PlayFootStepAudio()
         {
             if (!m_CharacterController.isGrounded)
             {
@@ -212,7 +212,7 @@ namespace IL3DN
         /// Reads user input
         /// </summary>
         /// <param name="speed"></param>
-        private void GetInput(out float speed)
+        void GetInput(out float speed)
         {
             // Read input
             float horizontal = Input.GetAxis("Horizontal");
@@ -237,7 +237,7 @@ namespace IL3DN
         /// <summary>
         /// Moves camera based on player position
         /// </summary>
-        private void RotateView()
+        void RotateView()
         {
             m_MouseLook.LookRotation(transform, m_Camera.transform);
         }
@@ -246,7 +246,7 @@ namespace IL3DN
         /// Used to determine if a player is in a special area to override  the sounds
         /// </summary>
         /// <param name="other"></param>
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             IL3DN_ChangeWalkingSound soundScript = other.GetComponent<IL3DN_ChangeWalkingSound>();
             if (soundScript != null)
@@ -262,7 +262,7 @@ namespace IL3DN
         /// Player exits the special area
         /// </summary>
         /// <param name="other"></param>
-        private void OnTriggerExit(Collider other)
+        void OnTriggerExit(Collider other)
         {
             isInSpecialSurface = false;
         }
