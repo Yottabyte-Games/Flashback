@@ -10,12 +10,11 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         NMA = GetComponent<NavMeshAgent>();
-        //Player = GameObject.()
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //NMA.destination = Player.
+        NMA.destination = Player.transform.position;    
     }
 }

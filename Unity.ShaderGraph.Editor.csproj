@@ -490,8 +490,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Views\PropertyNodeView.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Input\Texture\TexelSizeNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Vector\CrossProductNode.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Graphs\Texture2DInputMaterialSlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Blackboard\SGBlackboardRow.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Graphs\Texture2DInputMaterialSlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Inspector\PropertyDrawers\GradientPropertyDrawer.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Interfaces\IMayRequirePosition.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Advanced\ReciprocalSquareRootNode.cs" />
@@ -1374,6 +1374,10 @@
       <HintPath>Library\PackageCache\com.unity.ext.nunit\net40\unity-custom\nunit.framework.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="ReportGeneratorMerged">
+      <HintPath>Library\PackageCache\com.unity.testtools.codecoverage\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
       <Private>False</Private>
@@ -1402,6 +1406,10 @@
       <HintPath>Assets\YottabyteGames\FirstPersonController\Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="PackageManagerAssembly">
+      <HintPath>Assets\UnityTechnologies\EffectExamples\Editor\PackageManagerAssembly\PackageManagerAssembly.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -1412,14 +1420,6 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil\Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ReportGeneratorMerged">
-      <HintPath>Library\PackageCache\com.unity.testtools.codecoverage\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="PackageManagerAssembly">
-      <HintPath>Assets\UnityTechnologies\EffectExamples\Editor\PackageManagerAssembly\PackageManagerAssembly.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">

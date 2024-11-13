@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ExplosionTrigger : MonoBehaviour
 {
-    public ParticleSystem explosion;
-    public CameraShake cameraShake;
+    [SerializeField] private ParticleSystem explosion;
+    [SerializeField] private CameraShake cameraShake;
 
     private void Update()
     {
