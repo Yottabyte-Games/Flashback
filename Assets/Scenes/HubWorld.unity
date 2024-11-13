@@ -1474,7 +1474,6 @@ GameObject:
   m_Component:
   - component: {fileID: 93566566}
   - component: {fileID: 93566569}
-  - component: {fileID: 93566568}
   - component: {fileID: 93566567}
   m_Layer: 0
   m_Name: AfterSnowManDialogue
@@ -1514,18 +1513,6 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
---- !u!114 &93566568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93566565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc24cedd29031449bf9e45c2daae462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &93566569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1671,7 +1658,6 @@ GameObject:
   - component: {fileID: 113348641}
   - component: {fileID: 113348645}
   - component: {fileID: 113348644}
-  - component: {fileID: 113348643}
   - component: {fileID: 113348642}
   m_Layer: 0
   m_Name: AboutCharacterDialogue
@@ -1711,18 +1697,6 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
---- !u!114 &113348643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113348640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc24cedd29031449bf9e45c2daae462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &113348644
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9026,7 +9000,6 @@ GameObject:
   m_Component:
   - component: {fileID: 519650820}
   - component: {fileID: 519650823}
-  - component: {fileID: 519650822}
   - component: {fileID: 519650821}
   m_Layer: 0
   m_Name: IntroDialogue
@@ -9066,18 +9039,6 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
---- !u!114 &519650822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519650819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc24cedd29031449bf9e45c2daae462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &519650823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10206,7 +10167,6 @@ GameObject:
   m_Component:
   - component: {fileID: 578493522}
   - component: {fileID: 578493525}
-  - component: {fileID: 578493524}
   - component: {fileID: 578493523}
   m_Layer: 0
   m_Name: AfterWorkDialogue
@@ -10246,18 +10206,6 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
---- !u!114 &578493524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578493521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc24cedd29031449bf9e45c2daae462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &578493525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29569,7 +29517,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1755675397}
   - component: {fileID: 1755675400}
-  - component: {fileID: 1755675399}
   - component: {fileID: 1755675398}
   m_Layer: 0
   m_Name: AfterCarDialogue
@@ -29609,18 +29556,6 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
---- !u!114 &1755675399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755675396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc24cedd29031449bf9e45c2daae462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1755675400
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34787,7 +34722,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2091029106}
   - component: {fileID: 2091029109}
-  - component: {fileID: 2091029108}
   - component: {fileID: 2091029107}
   m_Layer: 0
   m_Name: AfterFishDialogue
@@ -34827,18 +34761,6 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
---- !u!114 &2091029108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091029105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc24cedd29031449bf9e45c2daae462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2091029109
 BoxCollider:
   m_ObjectHideFlags: 0
