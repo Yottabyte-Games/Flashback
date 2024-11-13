@@ -636,7 +636,7 @@ MonoBehaviour:
   m_RendererIndex: 1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 128
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
@@ -1195,6 +1195,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 266552575439998672, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 288750031280486073, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1279,6 +1283,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1926469787744511765, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1990611251454140578, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1327,6 +1335,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3010361531995867675, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3066231787431217026, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1343,6 +1355,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3159094496056082759, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3196318728177363189, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1358,6 +1374,10 @@ PrefabInstance:
     - target: {fileID: 3367371170310278447, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557077576370855240, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 3145855
       objectReference: {fileID: 0}
     - target: {fileID: 3794787019967637658, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Layer
@@ -1665,7 +1685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8730949856958983954, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_RendererIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8730949856958983954, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Cameras.Array.size
