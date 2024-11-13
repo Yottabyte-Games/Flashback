@@ -3,7 +3,7 @@ using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
 using Eflatun.SceneReference;
 
-public class InputShit : MonoBehaviour
+public class DialogueStarter : MonoBehaviour
 {
     [SerializeField] DSDialogueSO startingDialogue;
     [Header("Only needed if we are swapping scene")]
