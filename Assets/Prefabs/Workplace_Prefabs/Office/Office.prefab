@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3808406324759464866}
   - component: {fileID: 4872093465467521668}
-  - component: {fileID: 7234187517906749069}
   m_Layer: 0
   m_Name: Office
   m_TagString: Untagged
@@ -104,29 +103,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: b046a0beba31c2a4c9bc2f6b1baa05ea, type: 2}
   m_BuildHeightMesh: 0
---- !u!114 &7234187517906749069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5128727280968151837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d4b7921c7de5146b91fcc3c0cf1803, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossPrefab: {fileID: 5146195183947905620, guid: 6df65b9b4309dc641b79d14d29561b91, type: 3}
-  officeWorkerPrefab: {fileID: 3949376191065782467, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
-  boss: {fileID: 0}
-  workers: []
-  enterance: {fileID: 6573317896103760571}
-  meetingRooms:
-  - {fileID: 3749361052346750669}
-  - {fileID: 7828214109838367671}
-  breakRoom: {fileID: 7687899268933284027}
-  bossOffice: {fileID: 4155811781777577803}
-  taskManager: {fileID: 0}
 --- !u!1 &6954349971008211528
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,17 +767,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3201043106160647932, guid: 1d03af67097c7ff43acd3f22a27ecc70, type: 3}
   m_PrefabInstance: {fileID: 5755962463528197385}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7687899268933284027 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2689122841732083122, guid: 1d03af67097c7ff43acd3f22a27ecc70, type: 3}
-  m_PrefabInstance: {fileID: 5755962463528197385}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fdbcd4790042c94688b0350e9fd2645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7881099896924029915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2503442585504374482, guid: 1d03af67097c7ff43acd3f22a27ecc70, type: 3}
@@ -1174,17 +1139,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5788492246518463347, guid: e06e5d3cffbaaca42b09ad524cabf45d, type: 3}
   m_PrefabInstance: {fileID: 7122368118471333601}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3749361052346750669 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6259955182031667244, guid: e06e5d3cffbaaca42b09ad524cabf45d, type: 3}
-  m_PrefabInstance: {fileID: 7122368118471333601}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fdbcd4790042c94688b0350e9fd2645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4735347418793363739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549294065668644858, guid: e06e5d3cffbaaca42b09ad524cabf45d, type: 3}
@@ -1205,17 +1159,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 648470265450739209, guid: e06e5d3cffbaaca42b09ad524cabf45d, type: 3}
   m_PrefabInstance: {fileID: 7122368118471333601}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7828214109838367671 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1041698552747707734, guid: e06e5d3cffbaaca42b09ad524cabf45d, type: 3}
-  m_PrefabInstance: {fileID: 7122368118471333601}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fdbcd4790042c94688b0350e9fd2645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8961127116495008053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2201114196907861972, guid: e06e5d3cffbaaca42b09ad524cabf45d, type: 3}

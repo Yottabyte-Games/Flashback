@@ -214,10 +214,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3059449288817411506, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
-      propertyPath: interact.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8504464359345979648}
-    - target: {fileID: 3059449288817411506, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
       propertyPath: interact.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartOfficeTask
       objectReference: {fileID: 0}
@@ -272,42 +268,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8940889287277853475, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1672078555203561427}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3949376191065782467, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 8504464359345979648}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
 --- !u!4 &986744160664730036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8940889287277853475, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
-  m_PrefabInstance: {fileID: 8189221949735830167}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5146195183947905620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3949376191065782467, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
-  m_PrefabInstance: {fileID: 8189221949735830167}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8504464359345979648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5146195183947905620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18bdcb705d62f3242b84ad0739e40057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <activity>k__BackingField: 0
-  <task>k__BackingField: {fileID: 0}
-  taskMarker: {fileID: 7164347015569138286}
-  officeStation: {fileID: 0}
-  breakRoom: {fileID: 0}
-  meetingRooms: []
-  InteractingWith: {fileID: 0}
---- !u!1 &7164347015569138286 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1353659752297980153, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
   m_PrefabInstance: {fileID: 8189221949735830167}
   m_PrefabAsset: {fileID: 0}

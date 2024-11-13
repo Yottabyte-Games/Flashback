@@ -2064,23 +2064,6 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   range: 100
   ghostMaterial: {fileID: 2100000, guid: 1c9c91ef2dac60e4182ffae5be28858f, type: 2}
---- !u!114 &648959380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648959371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e883a06244be4a44acb66e4f72f91c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onScreenPhoto: {fileID: 1080420250}
-  cameraOverlay: {fileID: 128623923}
-  displayImage: {fileID: 715351433}
-  animator: {fileID: 715351436}
-  snowball: {fileID: 1380164216}
 --- !u!1001 &702730216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4669,9 +4652,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5241267463746980526, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
       insertIndex: -1
       addedObject: {fileID: 648959376}
-    - targetCorrespondingSourceObject: {fileID: 5241267463746980526, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 648959380}
     - targetCorrespondingSourceObject: {fileID: 5242010300582068122, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
       insertIndex: -1
       addedObject: {fileID: 794430723}

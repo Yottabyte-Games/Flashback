@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917f0b86c81adb14a96b04d8c17d44ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishingRod: {fileID: 1050904235}
+  fishingRod: {fileID: 0}
   bestFish: {fileID: 0}
   fishCaught: []
   bestFishLocation: {fileID: 1255319045}
@@ -1875,17 +1875,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6626804480151116304, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
   m_PrefabInstance: {fileID: 2134194838}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1050904235 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 925384196887425904, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-  m_PrefabInstance: {fileID: 2134194838}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b0de60297e1a7449d53bd53e440b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1067351567
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,7 +3885,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 925384196887425904, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+    - {fileID: 5919947326873534013, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
