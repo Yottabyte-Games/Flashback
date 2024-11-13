@@ -7,16 +7,20 @@ public class ExplosionTrigger : MonoBehaviour
 {
     [SerializeField] private ParticleSystem explosion;
     [SerializeField] private CameraShake cameraShake;
+    [SerializeField] private GameObject cat;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (cat.activeInHierarchy)
         {
-            explosion.Play();
+            if (Input.GetMouseButtonDown(0))
+            {
+                explosion.Play();
 
-            Debug.Log("BLABLABLA");
-          
-            StartCoroutine(cameraShake.Shake(.15f, .4f));
+                Debug.Log("BLABLABLA");
+
+                StartCoroutine(cameraShake.Shake(.15f, .4f));
+            }
         }
     }
 }
