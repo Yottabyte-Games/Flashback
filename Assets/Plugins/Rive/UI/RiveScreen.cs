@@ -83,7 +83,7 @@ namespace Plugins.Rive.UI
     {
         public Asset asset;
         public CameraEvent cameraEvent = CameraEvent.AfterEverything;
-        public Fit fit = Fit.contain;
+        public Fit fit = Fit.Contain;
         public Alignment alignment = Alignment.Center;
         public event RiveEventDelegate OnRiveEvent;
         public delegate void RiveEventDelegate(ReportedEvent reportedEvent);
