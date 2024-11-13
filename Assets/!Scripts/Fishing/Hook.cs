@@ -17,10 +17,12 @@ namespace _Scripts.Fishing
 
         [HideInInspector] public FishWater water;
 
+        public SpringJoint Spring { get; private set; }
         public Rigidbody Rb { get; private set; }
 
         void Start()
         {
+            Spring = GetComponent<SpringJoint>();
             Rb = GetComponent<Rigidbody>();
         }
         public void CatchFish(Fish fishCaught)
@@ -37,7 +39,7 @@ namespace _Scripts.Fishing
         {
             print("Cast");
             transform.parent = null;
-            Rb.isKinematic = false;
+            Spring.spring = 0;
             Rb.AddForce(transform.forward * 500, ForceMode.Force);
         }
         public void Ready()
@@ -45,7 +47,7 @@ namespace _Scripts.Fishing
             if (water != null)
                 water.RemoveHook(this);
 
-            Rb.isKinematic = true;
+            Spring.spring = 20;
             UMethods.ResetTransform(transform, true);
         }
     }
