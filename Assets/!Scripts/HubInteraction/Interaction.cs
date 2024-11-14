@@ -24,21 +24,19 @@ public class Interaction : MonoBehaviour
     void Interact()
     {
         RaycastHit hit;
-        // Send en stråle fra midten av skjermen for å sjekke om vi ser på noe interaktivt
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, interactionRange))
         {
             DialogueStarter interactable = hit.collider.GetComponent<DialogueStarter>();
-            Debug.Log(interactable);
-            if (interactable != null && interactionObject == null)
+            if (hit.collider.tag == "Interactable" && interactionObject == null)
             {
                 StartInteraction(interactable);
             }
-            else if (interactable == null && interactionObject != null)
+            else if (hit.collider.tag != "Interactable" && interactionObject != null)
             {
                 StopInteraction();
             }
 
-            if (interactable != null && Input.GetKeyDown(KeyCode.F)) { interactable.StartDialogue(); }
+            if (interactable != null && Input.GetKeyDown(KeyCode.E)) { interactable.StartDialogue(); }
         }
         else if (interactionObject != null){ StopInteraction();}
     }
