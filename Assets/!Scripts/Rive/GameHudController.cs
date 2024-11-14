@@ -20,7 +20,7 @@ public class GameHudController : MonoBehaviour
                 Debug.LogError("No RiveScreen component found on " + gameObject.name);
             }
         }
-       
+
         riveScreen = GetComponent<RiveScreen>();
 
         riveScreen.OnRiveEvent += RiveEventHandler;
@@ -33,6 +33,7 @@ public class GameHudController : MonoBehaviour
             SceneManager.LoadScene(_sceneToLoad.Name);
         }
     }
+    
 
     // First Dialogue should call this
     public void StartDialogue(string dialogueString)
@@ -46,9 +47,8 @@ public class GameHudController : MonoBehaviour
     {
         SetDialogue(dialogueString);
         riveScreen.stateMachine.GetTrigger("NextDialogue").Fire();
-
     }
-    
+
     // When last dialogue finishes, call this
     public void EndDialogue(SceneReference sceneReference)
     {
@@ -70,8 +70,8 @@ public class GameHudController : MonoBehaviour
     {
         riveScreen.stateMachine.GetBool("IsHovering").Value = false;
     }
-    
-    
+
+
     // Set Dialogue Text for the next dialogue
     void SetDialogue(string dialogue)
     {
