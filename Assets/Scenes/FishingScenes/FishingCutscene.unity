@@ -146,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[0].z
-      value: 4.099999
+      value: 4.0999994
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[1].x
@@ -267,7 +267,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 44fd38ce35fc2ec4d88f5abfd17e63f1, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -533,6 +533,53 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1360431520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1360431521}
+  - component: {fileID: 1360431522}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1360431521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360431520}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1360431522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360431520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0f0959cca62784b9d425d4992e7046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  director: {fileID: 1068604261}
+  nextScene: 0
+  sceneChangeDelay: 1
 --- !u!1 &1517626387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 314584907435906744, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
@@ -658,6 +705,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4618067738407472316, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 1677084430}
+    - target: {fileID: 4618067738407472316, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: 'stringPoints.Array.data[1]'
       value: 
       objectReference: {fileID: 1258072285}
@@ -721,6 +772,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1677084432}
   m_SourcePrefab: {fileID: 100100000, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
+--- !u!120 &1677084430 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
+  m_PrefabInstance: {fileID: 1677084429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1677084431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 314584907435906744, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
@@ -2671,12 +2727,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'RingFinger3_L'\n\tTransform 'Hip_L'\n\tTransform
-    'RingFinger1_R'\n\tTransform 'PinkyFinger1_R'\n\tTransform 'Wrist_L'\n\tTransform
-    'ThumbFinger3_L'\n\tTransform 'PinkyFinger2_R'\n\tTransform 'ThumbFinger2_L'\n\tTransform
-    'Ankle_L'\n\tTransform 'Root_M'\n\tand more ..."
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -6759,3 +6810,4 @@ SceneRoots:
   - {fileID: 1258072284}
   - {fileID: 1677084429}
   - {fileID: 1068604260}
+  - {fileID: 1360431521}
