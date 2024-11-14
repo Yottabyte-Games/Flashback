@@ -40,8 +40,6 @@ namespace _Scripts.Fishing
                 SetBestFish(fish);
             }
 
-            print("added");
-
             UpdateFishLocations();
             FishAdded.Invoke();
         }
@@ -70,16 +68,24 @@ namespace _Scripts.Fishing
                 if (fishCaught.Count > i)
                 {
                     Fish fishToPlace = foundBestFish ? fishCaught[^(i + 2)] : fishCaught[^(i + 1)];
+                    fishLocations[i].DisplayFish(fishToPlace);
 
-                    if (fishToPlace != bestFish)
-                    {
-                        fishLocations[i].DisplayFish(fishToPlace);
-                    }
-                    else if (fishCaught.Count > i + 2)
-                    {
-                        fishLocations[i].DisplayFish(fishCaught[^(i + 2)]);
-                        foundBestFish = true;
-                    }
+                    //if (fishToPlace == null)
+                    //    break;
+
+                    //if (fishToPlace != bestFish)
+                    //{
+                    //    fishLocations[i].DisplayFish(fishToPlace);
+                    //}
+                    //else if (fishCaught.Count > i + 2)
+                    //{
+                    //    if (fishCaught[^(i + 2)] == null)
+                    //        break;
+
+                    //    fishLocations[i].DisplayFish(fishCaught[^(i + 2)]);
+
+                    //    foundBestFish = true;
+                    //}
                 }
             }
 

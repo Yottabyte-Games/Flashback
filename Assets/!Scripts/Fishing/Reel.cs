@@ -1,5 +1,6 @@
 using GinjaGaming.FinalCharacterController;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Scripts.Fishing
 {
@@ -10,16 +11,21 @@ namespace _Scripts.Fishing
         Fish toReel;
 
         [SerializeField] GameObject reelUI;
+        [SerializeField] Slider indicator;
 
         Vector2 currentMousePos, lastMousePos, mouseMoved;
         float reelValue;
 
-        void OnEnable()
+        private void Awake()
         {
             input = GetComponent<FishingRodInput>();
             rod = GetComponent<FishingRod>();
-
+        }
+        void OnEnable()
+        {
             input.Reel += ReelingValue;
+
+            if (rod.hook.fish)
             StartReeling(rod.hook.fish);
         }
 
@@ -46,6 +52,8 @@ namespace _Scripts.Fishing
             {
                 FinishReeling();
             }
+
+            indicator.value = reelValue;
         }
         public void StartReeling(Fish fishToReel)
         {
@@ -54,6 +62,9 @@ namespace _Scripts.Fishing
             toReel = fishToReel;
             reelUI.SetActive(true);
             reelValue = 0;
+
+            indicator.value = 0;
+            indicator.maxValue = toReel.Difficulty;
         }
         async void FinishReeling()
         {
