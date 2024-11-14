@@ -9,6 +9,7 @@ public class DialogueStarter : MonoBehaviour
     [Header("Only needed if we are swapping scene")]
     [SerializeField]
     SceneReference sceneToLoad;
+    [SerializeField] bool loadSceneAfterDialogue = false;
 
     bool hasTalkedAlready = false;
     DialogueManager dialogueManager;
@@ -30,7 +31,10 @@ public class DialogueStarter : MonoBehaviour
 
     public void StartDialogue()
     {
-        dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
+        if (loadSceneAfterDialogue)
+            dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
+        else
+            dialogueManager.SetDialogue(startingDialogue);
         hasTalkedAlready = true;
     }
 }

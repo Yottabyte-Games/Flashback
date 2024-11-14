@@ -58,7 +58,11 @@ namespace DialogueSystem.Scripts
             }
             else
             {
-                gameHudController.EndDialogue(sceneToLoad);
+                if (sceneToLoad!=null)
+                {
+                    gameHudController.EndDialogue(sceneToLoad);
+                }
+                gameHudController.EndDialogue();
                 isDialogueActive = false;
             }
         }

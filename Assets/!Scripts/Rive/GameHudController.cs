@@ -12,10 +12,10 @@ public class GameHudController : MonoBehaviour
 
     void Start()
     {
-        if (riveScreen == null)
+        if (riveScreen is null)
         {
             riveScreen = GetComponent<RiveScreen>();
-            if (riveScreen == null)
+            if (riveScreen is null)
             {
                 Debug.LogError("No RiveScreen component found on " + gameObject.name);
             }
@@ -50,7 +50,7 @@ public class GameHudController : MonoBehaviour
     }
 
     // When last dialogue finishes, call this
-    public void EndDialogue(SceneReference sceneReference)
+    public void EndDialogue(SceneReference sceneReference = null)
     {
         riveScreen.stateMachine.GetTrigger("RemoveDialogue").Fire();
         if (sceneReference != null)
