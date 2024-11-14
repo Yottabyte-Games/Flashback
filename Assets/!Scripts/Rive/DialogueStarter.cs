@@ -28,7 +28,7 @@ public class DialogueStarter : MonoBehaviour
             StartDialogue();
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
         dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
         hasTalkedAlready = true;
