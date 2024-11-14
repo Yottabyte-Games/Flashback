@@ -44,8 +44,6 @@ namespace _Scripts.Fishing
         }
         public void Cast()
         {
-            print("Cast");
-            //transform.parent = null;
             Spring.spring = 0;
             Rb.mass = 1;
             Rb.linearDamping = 0;

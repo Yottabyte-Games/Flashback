@@ -16,12 +16,16 @@ namespace _Scripts.Fishing
         Vector2 currentMousePos, lastMousePos, mouseMoved;
         float reelValue;
 
-        void OnEnable()
+        private void Awake()
         {
             input = GetComponent<FishingRodInput>();
             rod = GetComponent<FishingRod>();
-
+        }
+        void OnEnable()
+        {
             input.Reel += ReelingValue;
+
+            if (rod.hook.fish)
             StartReeling(rod.hook.fish);
         }
 
@@ -33,7 +37,6 @@ namespace _Scripts.Fishing
 
         void ReelingValue(Vector2 pos)
         {
-            print(toReel.Difficulty);
             if (currentMousePos != null)
             {
                 lastMousePos = currentMousePos;
@@ -60,6 +63,7 @@ namespace _Scripts.Fishing
             reelUI.SetActive(true);
             reelValue = 0;
 
+            indicator.value = 0;
             indicator.maxValue = toReel.Difficulty;
         }
         async void FinishReeling()
