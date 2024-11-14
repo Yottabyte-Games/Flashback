@@ -1,12 +1,14 @@
+using System;
 using Eflatun.SceneReference;
 using Plugins.Rive.UI;
+using Rive;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameHudController : MonoBehaviour
 {
     [SerializeField] RiveScreen riveScreen;
-    [SerializeField] SceneReference sceneToLoad;
+    SceneReference _sceneToLoad;
 
     void Start()
     {
@@ -17,6 +19,18 @@ public class GameHudController : MonoBehaviour
             {
                 Debug.LogError("No RiveScreen component found on " + gameObject.name);
             }
+        }
+       
+        riveScreen = GetComponent<RiveScreen>();
+
+        riveScreen.OnRiveEvent += RiveEventHandler;
+    }
+
+    private void RiveEventHandler(ReportedEvent reportedevent)
+    {
+        if (reportedevent.Name == "FlashbackEvent" && _sceneToLoad != null)
+        {
+            SceneManager.LoadScene(_sceneToLoad.Name);
         }
     }
 
@@ -41,7 +55,8 @@ public class GameHudController : MonoBehaviour
         riveScreen.stateMachine.GetTrigger("RemoveDialogue").Fire();
         if (sceneReference != null)
         {
-            SceneManager.LoadScene(sceneReference.Name);
+            riveScreen.stateMachine.GetTrigger("FlashBack").Fire();
+            _sceneToLoad = sceneReference;
         }
     }
 
@@ -55,6 +70,7 @@ public class GameHudController : MonoBehaviour
     {
         riveScreen.stateMachine.GetBool("IsHovering").Value = false;
     }
+    
     
     // Set Dialogue Text for the next dialogue
     void SetDialogue(string dialogue)

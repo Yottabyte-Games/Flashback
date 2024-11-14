@@ -540,9 +540,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asset: {fileID: -4516626237390682484, guid: 16c7518da8ec44c4aa526c4ea96cedd3, type: 3}
-  artboardName: Home Sreen
   cameraEvent: 20
   fit: 1
+  _riveSceneForUI: 1
 --- !u!114 &1276681632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,9 +600,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   riveScreen: {fileID: 1276681631}
-  sceneToLoad:
-    asset: {fileID: 0}
-    guid: 00000000000000000000000000000000
 --- !u!114 &1276681634
 MonoBehaviour:
   m_ObjectHideFlags: 0

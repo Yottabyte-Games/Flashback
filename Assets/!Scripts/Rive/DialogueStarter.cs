@@ -18,7 +18,7 @@ public class DialogueStarter : MonoBehaviour
         dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
         if (dialogueManager == null)
         {
-            print("Dialogue Manager is null");
+            Debug.LogError("Dialogue Manager is null");
         }
     }
 
