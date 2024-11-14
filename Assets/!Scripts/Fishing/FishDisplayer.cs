@@ -40,8 +40,6 @@ namespace _Scripts.Fishing
                 SetBestFish(fish);
             }
 
-            print("added");
-
             UpdateFishLocations();
             FishAdded.Invoke();
         }

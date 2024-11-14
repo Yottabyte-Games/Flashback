@@ -22,11 +22,11 @@ namespace _Scripts.Fishing
         [field: SerializeField, Range(1f, 10f)] public float Weight { get; private set; } = 1;
         [field: SerializeField, Range(1f, 10f)] public float Length { get; private set; } = 1;
 
-        [field: SerializeField] public float Difficulty { get; private set; }
+        [field: SerializeField] public float Difficulty { get; private set; } 
 
         [Space]
         [SerializeField] Transform art;
-        public void Start()
+        public void Awake()
         {
             RandomizeFish();
             SetDifficulty(); 
