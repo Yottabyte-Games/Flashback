@@ -72,5 +72,25 @@ namespace Dreamteck.Splines
             result.forward = rotation * Vector3.forward;
             result.up = rotation * invertedNormal;
         }
+        public Quaternion GetRotation(SplineSample sample)
+        {
+            if (keys.Length == 0) return sample.rotation;
+
+            Quaternion offset = Quaternion.identity, look = sample.rotation;
+            for (int i = 0; i < keys.Length; i++)
+            {
+                if (keys[i].useLookTarget && keys[i].target is not null)
+                {
+                    Quaternion lookDir = Quaternion.LookRotation(keys[i].target.position - sample.position);
+                    look = Quaternion.Slerp(look, lookDir, keys[i].Evaluate(sample.percent) * blend);
+                }
+                else
+                {
+                    Quaternion euler = Quaternion.Euler(keys[i].rotation.x, keys[i].rotation.y, keys[i].rotation.z);
+                    offset = Quaternion.Slerp(offset, offset * euler, keys[i].Evaluate(sample.percent) * blend);
+                }
+            }
+            return look * offset;
+        }
     }
 }
