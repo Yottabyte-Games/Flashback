@@ -39,10 +39,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/SFX.bank
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   Path: Fmodassets/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
   lastModified: 638671736150116126
+=======
+  Path: Fmodassets/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638671019319769066
+>>>>>>> Stashed changes
   FileSizes: []
   Exists: 1
 --- !u!114 &-3041084729912290451
@@ -60,7 +67,11 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< Updated upstream
   lastModified: 638671050133462754
+=======
+  lastModified: 638671019319759063
+>>>>>>> Stashed changes
   FileSizes: []
   Exists: 1
 --- !u!114 &-1670589960752684169
@@ -75,10 +86,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Music.bank
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   Path: Fmodassets/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
   lastModified: 638671050133482716
+=======
+  Path: Fmodassets/Desktop/Ambiance.bank
+  Name: Ambiance
+  StudioPath: bank:/Ambiance
+  lastModified: 638671019319759063
+>>>>>>> Stashed changes
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -105,10 +123,17 @@ MonoBehaviour:
   MasterBanks:
   - {fileID: -3041084729912290451}
   StringsBanks:
+<<<<<<< Updated upstream
   - {fileID: 5860233060725915191}
   cacheTime: 638671736150116126
   cacheVersion: 131621
 --- !u!114 &3521601476074736388
+=======
+  - {fileID: 6398861563525494573}
+  cacheTime: 638671019319769066
+  cacheVersion: 131620
+--- !u!114 &1347493128411527731
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,10 +145,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Ambiance.bank
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   Path: Fmodassets/Desktop/Ambiance.bank
   Name: Ambiance
   StudioPath: bank:/Ambiance
   lastModified: 638671050133462754
+=======
+  Path: Fmodassets/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638671019319769066
+>>>>>>> Stashed changes
   FileSizes: []
   Exists: 1
 --- !u!114 &5860233060725915191
@@ -141,7 +173,11 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< Updated upstream
   lastModified: 638671736150000327
+=======
+  lastModified: 638671019319759063
+>>>>>>> Stashed changes
   FileSizes:
   - Name: 
     Value: 910
