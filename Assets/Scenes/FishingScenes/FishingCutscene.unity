@@ -292,6 +292,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3849529854558049447, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1262271193829830186, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -336,9 +340,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hook
       objectReference: {fileID: 0}
+    - target: {fileID: 3109309110852067301, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3902773884667419756, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
     - {fileID: 1253963964434845162, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
+    - {fileID: -3849529854558049447, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
+    - {fileID: 3109309110852067301, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
+    - {fileID: 1453456413690093118, guid: d393af43d33c0b7448cd2dd6efd28d5c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -682,19 +693,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[0].x
-      value: 20
+      value: 19.986044
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[0].y
-      value: -1.5950001
+      value: -1.0790375
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[0].z
-      value: 4.7495193
+      value: 4.453941
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4392048733548160280, guid: 90169dd78a193e345a5d2d1fc613bdf2, type: 3}
       propertyPath: m_Positions.Array.data[1].y
