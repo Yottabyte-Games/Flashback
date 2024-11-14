@@ -1,6 +1,33 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9177294407608432380
+--- !u!114 &-7053899427167205696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PlayerSFX/PlayerFootsteps
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/PlayerSFX/PlayerFootsteps
+  Guid:
+    Data1: -442184197
+    Data2: 1112547695
+    Data3: -322619000
+    Data4: 999850934
+  Banks:
+  - {fileID: -6223540903381039150}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-6223540903381039150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,35 +39,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/SFX.bank
   m_EditorClassIdentifier: 
-  Path: ../../FMOD Studio/Flashback/Build/Desktop/SFX.bank
+  Path: Fmodassets/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638666708651741521
-  FileSizes:
-  - Name: Desktop
-    Value: 28736
+  lastModified: 638671736150116126
+  FileSizes: []
   Exists: 1
---- !u!114 &-3305240884959005435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
-  m_EditorClassIdentifier: 
-  Path: ../../FMOD Studio/Flashback/Build/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-  lastModified: 638659668257934870
-  FileSizes:
-  - Name: Desktop
-    Value: 494
-  Exists: 1
---- !u!114 &-1306332433388077868
+--- !u!114 &-3041084729912290451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,13 +57,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../../FMOD Studio/Flashback/Build/Desktop/Master.bank
+  Path: Fmodassets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638666686361363097
-  FileSizes:
-  - Name: Desktop
-    Value: 1036
+  lastModified: 638671050133462754
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-1670589960752684169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: Fmodassets/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638671050133482716
+  FileSizes: []
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -73,41 +94,21 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 3335255413733245059}
-  - {fileID: 3988215333878862080}
-  - {fileID: -1306332433388077868}
-  - {fileID: -3305240884959005435}
-  - {fileID: -9177294407608432380}
+  - {fileID: 5860233060725915191}
+  - {fileID: 3521601476074736388}
+  - {fileID: -3041084729912290451}
+  - {fileID: -1670589960752684169}
+  - {fileID: -6223540903381039150}
   EditorEvents:
-  - {fileID: 6044379551423217516}
+  - {fileID: -7053899427167205696}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -1306332433388077868}
+  - {fileID: -3041084729912290451}
   StringsBanks:
-  - {fileID: 3335255413733245059}
-  cacheTime: 638666708651741521
+  - {fileID: 5860233060725915191}
+  cacheTime: 638671736150116126
   cacheVersion: 131621
---- !u!114 &3335255413733245059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../../FMOD Studio/Flashback/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638666686361373106
-  FileSizes:
-  - Name: Desktop
-    Value: 896
-  Exists: 1
---- !u!114 &3988215333878862080
+--- !u!114 &3521601476074736388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,15 +120,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Ambiance.bank
   m_EditorClassIdentifier: 
-  Path: ../../FMOD Studio/Flashback/Build/Desktop/Ambiance.bank
+  Path: Fmodassets/Desktop/Ambiance.bank
   Name: Ambiance
   StudioPath: bank:/Ambiance
-  lastModified: 638659668257969920
-  FileSizes:
-  - Name: Desktop
-    Value: 494
+  lastModified: 638671050133462754
+  FileSizes: []
   Exists: 1
---- !u!114 &6044379551423217516
+--- !u!114 &5860233060725915191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,21 +135,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/PlayerFootsteps
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: event:/PlayerFootsteps
-  Guid:
-    Data1: -442184197
-    Data2: 1112547695
-    Data3: -322619000
-    Data4: 999850934
-  Banks:
-  - {fileID: -9177294407608432380}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 500
+  Path: Fmodassets/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638671736150000327
+  FileSizes:
+  - Name: 
+    Value: 910
+  Exists: 1
