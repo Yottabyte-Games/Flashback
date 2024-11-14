@@ -3,7 +3,7 @@ using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
 using Eflatun.SceneReference;
 
-public class InputShit : MonoBehaviour
+public class DialogueStarter : MonoBehaviour
 {
     [SerializeField] DSDialogueSO startingDialogue;
     [Header("Only needed if we are swapping scene")]
@@ -18,7 +18,7 @@ public class InputShit : MonoBehaviour
         dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
         if (dialogueManager == null)
         {
-            print("Dialogue Manager is null");
+            Debug.LogError("Dialogue Manager is null");
         }
     }
 
