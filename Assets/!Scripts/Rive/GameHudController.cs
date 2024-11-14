@@ -32,8 +32,23 @@ public class GameHudController : MonoBehaviour
         {
             SceneManager.LoadScene(_sceneToLoad.Name);
         }
+        //Event that loads Quit scene
+        if (reportedevent.Name == "SettingsEvent")
+        {
+            
+        }
+        if (reportedevent.Name == "ResumeEvent")
+        {
+            
+        }
+        
     }
-    
+
+    /// <summary>
+    /// Input for when pausing that activates lol
+    /// </summary>
+    /// <param name="dialogueString"></param>
+
 
     // First Dialogue should call this
     public void StartDialogue(string dialogueString)

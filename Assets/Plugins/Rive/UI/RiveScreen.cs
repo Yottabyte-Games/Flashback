@@ -82,7 +82,7 @@ namespace Plugins.Rive.UI
 // Draw a Rive artboard to the screen. Must be bound to a camera.
     public class RiveScreen : MonoBehaviour
     {
-        enum RiveScenes
+        public enum RiveScenes
         {
             HUD,
             MainMenu,
@@ -155,7 +155,7 @@ namespace Plugins.Rive.UI
             if (asset is not null)
             {
                 _file = File.Load(asset);
-                _artboard = _file.Artboard(GetSelectedRiveSceneName());
+                _artboard = _file.Artboard(GetSelectedRiveSceneName(_riveSceneForUI));
                 stateMachine = _artboard?.StateMachine();
             }
 
@@ -260,9 +260,10 @@ namespace Plugins.Rive.UI
 
         }
         
-        private string GetSelectedRiveSceneName()
+        
+        private string GetSelectedRiveSceneName(RiveScenes swapTo)
         {
-            return referenceNames[_riveSceneForUI];
+            return referenceNames[swapTo];
         }
         public void SetDialogue(string dialogueString)
         {
