@@ -240,7 +240,7 @@ namespace Plugins.Rive.UI
                     stateMachine?.PointerDown(local);
                     _wasMouseDown = true;
                 }
-                else if (_wasMouseDown)
+                else if (Input.GetMouseButtonUp(0))
                 {
                     _wasMouseDown = false;
                     Vector2 local = _artboard.LocalCoordinate(

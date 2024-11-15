@@ -49,7 +49,11 @@ public class RiveEventHandler : MonoBehaviour
                 }
                 break;
             case RiveScreen.RiveScenes.SettingsMenu:
-                print(riveScreen.stateMachine.GetBool("IsHovering").Value);
+                if (reportedEvent.Name == "Master Active")
+                    print("Clicking the thing");
+                if (reportedEvent.Name == "Master Inactive")
+                    print("Unclick the thing");
+
                 if (reportedEvent.Name == "Return Event")
                 {
                     print("ReturnEvent");
