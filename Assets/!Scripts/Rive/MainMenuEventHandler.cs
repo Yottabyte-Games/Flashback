@@ -6,17 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuEventHandler : MonoBehaviour
 {
-    private RiveScreen RiveScreen;
+    private RiveScreen riveScreen;
     
     private void Start()
     {
-        RiveScreen = GetComponent<RiveScreen>();
+        riveScreen = GetComponent<RiveScreen>();
 
-        RiveScreen.OnRiveEvent += RiveEventHandler;
+        riveScreen.OnRiveEvent += RiveEventHandler;
     }
 
     private void RiveEventHandler(ReportedEvent reportedEvent)
     {
+        #region ButtonInput Events
+
         if (reportedEvent.Name == "StartGameEvent")
         {
             print("StartGameEvent");
@@ -27,20 +29,46 @@ public class MainMenuEventHandler : MonoBehaviour
             print("MiniGameEvent");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
         if (reportedEvent.Name == "SettingsEvent")
         {
             print("SettingsEvent");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        
         if (reportedEvent.Name == "ExitEvent")
         {
             print("ExitEvent");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        
+
+        #endregion
+
+        #region SliderChange Events
+
+        if (reportedEvent.Name == "Master Change Event")
+        {
+            print("Master Change Event");
+        }
+        if (reportedEvent.Name == "Music Change Event")
+        {
+            print("Music Change Event");
+        }
+        if (reportedEvent.Name == "SFX Change Event")
+        {
+            print("SFX Change Event");
+        }
+        if (reportedEvent.Name == "Voice Change Event")
+        {
+            print("Voice Change Event");
+        }
+
+        #endregion
     }
     
     private void OnDisable()
     {
-        RiveScreen.OnRiveEvent -= RiveEventHandler;
+        riveScreen.OnRiveEvent -= RiveEventHandler;
     }
 }

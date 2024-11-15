@@ -8,8 +8,7 @@ namespace DialogueSystem.Scripts
     public class DialogueManager : MonoBehaviour
     {
         [SerializeField] GameHudController gameHudController;
-
-
+        
         DSDialogueSO currentDialogue;
         bool isDialogueActive;
         SceneReference sceneToLoad;
