@@ -5,7 +5,7 @@ using Eflatun.SceneReference;
 
 public class DialogueStarter : MonoBehaviour
 {
-    [SerializeField] DSDialogueSO startingDialogue;
+    [SerializeField] DSDialogueSo startingDialogue;
     [Header("Only needed if we are swapping scene")]
     [SerializeField]
     SceneReference sceneToLoad;
