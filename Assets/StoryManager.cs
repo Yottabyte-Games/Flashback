@@ -2,6 +2,7 @@ using UnityEngine;
 
 public enum StoryBeat
 {
+    None,
     Introduction,
     Fishing,
     FinishedFishing,
@@ -21,9 +22,9 @@ public static class StoryManager
     public static StoryBeat StoryBeat { get; private set; }
     public static StoryBeat UpcomingStoryBeat { get { return StoryBeat + 1; } }
 
-    public static void ProgressStory()
+    public static void ProgressStory(StoryBeat storyBeat)
     {
-        StoryBeat++;
+        StoryBeat = storyBeat;
         Debug.Log(StoryBeat);
     }
 }
