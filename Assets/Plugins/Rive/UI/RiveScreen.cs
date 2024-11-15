@@ -89,7 +89,14 @@ namespace Plugins.Rive.UI
             PauseMenu,
             SettingsMenu,
         }
-        
+        private static readonly Dictionary<RiveScenes, string> referenceNames = new Dictionary<RiveScenes, string>()
+        {
+            { RiveScenes.HUD, "HUD" },
+            { RiveScenes.MainMenu, "Home Screen" },
+            { RiveScenes.PauseMenu, "Pause Menu" },
+            { RiveScenes.SettingsMenu, "Settings Menu" },
+        };
+        public RiveScenes currentScene;
         
         public Asset asset;
         public CameraEvent cameraEvent = CameraEvent.AfterEverything;
@@ -111,13 +118,7 @@ namespace Plugins.Rive.UI
         [Tooltip("Default is HUD")]
         [SerializeField] private RiveScenes _riveSceneForUI = RiveScenes.HUD;
         
-        private static readonly Dictionary<RiveScenes, string> referenceNames = new Dictionary<RiveScenes, string>()
-        {
-            { RiveScenes.HUD, "HUD" },
-            { RiveScenes.MainMenu, "Home Screen" },
-            { RiveScenes.PauseMenu, "Pause Menu" },
-            { RiveScenes.SettingsMenu, "Settings Menu" },
-        };
+        
 
         void Start()
         {
@@ -168,6 +169,7 @@ namespace Plugins.Rive.UI
                 _file = File.Load(asset);
                 _artboard = _file.Artboard(GetSelectedRiveSceneName(scenes));
                 stateMachine = _artboard?.StateMachine();
+                currentScene = scenes;
             }
 
             Camera mainCamera = gameObject.GetComponent<Camera>();
