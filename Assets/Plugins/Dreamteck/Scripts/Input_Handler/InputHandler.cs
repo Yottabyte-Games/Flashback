@@ -1,7 +1,7 @@
+using Plugins.Dreamteck.Scripts.Scriptable_Objects;
 using UnityEngine;
-using NaughtyAttributes;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Input_Handler
 {    
     public class InputHandler : MonoBehaviour
     {

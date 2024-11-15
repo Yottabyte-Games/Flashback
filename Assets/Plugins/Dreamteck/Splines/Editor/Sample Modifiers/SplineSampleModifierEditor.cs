@@ -1,8 +1,11 @@
-﻿namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using UnityEditor;
+﻿using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Editor.Components;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Sample_Modifiers
+{
     public class SplineSampleModifierEditor : SplineUserSubEditor
     {
         protected int selected = -1;

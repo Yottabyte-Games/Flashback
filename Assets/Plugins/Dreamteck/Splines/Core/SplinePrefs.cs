@@ -1,10 +1,10 @@
 #if UNITY_EDITOR
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using Plugins.Dreamteck.Splines.Components;
 using UnityEditor;
+using UnityEngine;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Core
 {
     public static class SplinePrefs
     {

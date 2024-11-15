@@ -1,10 +1,11 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using UnityEditor;
-    using System.Collections.Generic;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules
+{
     public class PointModule : EditorModule
     {
         protected bool isClosed
@@ -115,7 +116,7 @@ namespace Dreamteck.Splines.Editor
                 e.Use();
             }
 
-            if(e.type == EventType.ExecuteCommand && Tools.current == Tool.None)
+            if(e.type == EventType.ExecuteCommand && UnityEditor.Tools.current == Tool.None)
             {
                 switch (e.commandName)
                 {

@@ -1,9 +1,10 @@
-namespace Dreamteck.Splines
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Utilities;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Core
+{
     public static class SplineUtility
     {
         public enum MergeSide { Start, End }

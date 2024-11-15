@@ -1,9 +1,6 @@
 using UnityEngine;
-using UnityEngine.Events;
-using System.Collections;
-using UnityEngine.Serialization;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     [ExecuteInEditMode]
     [AddComponentMenu("Dreamteck/Splines/Users/Spline Projector")]

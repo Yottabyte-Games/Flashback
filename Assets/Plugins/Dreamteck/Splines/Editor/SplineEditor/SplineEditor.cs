@@ -1,12 +1,12 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using Dreamteck.Editor;
-    using UnityEngine;
-    using UnityEditor;
-    using Dreamteck.Splines;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor
+{
     public class SplineEditor : SplineEditorBase
     {
         public enum Space { World, Local };
@@ -279,7 +279,7 @@ namespace Dreamteck.Splines.Editor
             base.Destroy();
             mainModule.Deselect();
             if (currentModule != null) currentModule.Deselect();
-            if(lastEditorTool != Tool.None && Tools.current == Tool.None) Tools.current = lastEditorTool;
+            if(lastEditorTool != Tool.None && UnityEditor.Tools.current == Tool.None) UnityEditor.Tools.current = lastEditorTool;
         }
 
         public virtual void SetSplineClosed(bool closed)
@@ -454,10 +454,10 @@ namespace Dreamteck.Splines.Editor
             }
             base.DrawScene(current);
             Event e = Event.current;
-            if (Tools.current != Tool.None)
+            if (UnityEditor.Tools.current != Tool.None)
             {
-                lastEditorTool = Tools.current;
-                Tools.current = Tool.None;
+                lastEditorTool = UnityEditor.Tools.current;
+                UnityEditor.Tools.current = Tool.None;
             }
             int controlID = GUIUtility.GetControlID(FocusType.Passive);
             if (e.GetTypeForControl(controlID) == EventType.Layout) HandleUtility.AddDefaultControl(controlID);
@@ -552,7 +552,7 @@ namespace Dreamteck.Splines.Editor
 
         public void ToggleModule(int index)
         {
-            Tools.current = Tool.None;
+            UnityEditor.Tools.current = Tool.None;
             if (currentModule != null) currentModule.Deselect();
             if (index == _module) _module = -1;
             else

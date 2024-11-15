@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Plugins.Dreamteck.Scripts.Interaction_System;
+using UnityEngine;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Scriptable_Objects
 {
     [CreateAssetMenu(fileName = "PickableData", menuName = "FirstPersonController/Data/PickableData", order = 0)]
     public class PickableData : ScriptableObject

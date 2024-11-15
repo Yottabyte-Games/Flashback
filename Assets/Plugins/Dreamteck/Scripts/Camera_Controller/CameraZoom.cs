@@ -1,8 +1,8 @@
 using System.Collections;
+using Plugins.Dreamteck.Scripts.Scriptable_Objects;
 using UnityEngine;
-using NaughtyAttributes;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Camera_Controller
 {    
     [System.Serializable]
     public class CameraZoom

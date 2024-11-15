@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dreamteck.Utilities
+namespace Plugins.Dreamteck.Utilities
 {
     public static class Utilities
     {

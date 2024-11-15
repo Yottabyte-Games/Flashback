@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Plugins.Dreamteck.Scripts.Scriptable_Objects;
+using UnityEngine;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Perlin_Noise_Scroller
 {    
     public class PerlinNoiseScroller
     {

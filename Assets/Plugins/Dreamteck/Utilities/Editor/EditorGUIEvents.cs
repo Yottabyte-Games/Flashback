@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEditor;
 
-namespace Dreamteck
+namespace Plugins.Dreamteck.Utilities.Editor
 {
     public class EditorGUIEvents
     {

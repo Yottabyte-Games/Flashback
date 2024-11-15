@@ -1,6 +1,7 @@
+using Plugins.Dreamteck.Scripts.Interaction_System;
 using UnityEngine;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Interactables
 {
     public class ActivateDialogueInteractable : InteractableBase
     {

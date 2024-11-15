@@ -1,10 +1,7 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEditor;
+using Plugins.Dreamteck.Splines.Components;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.DS_Editor
+{
     public class ComputerEditorModule : EditorModule
     {
         protected SplineComputer spline;

@@ -1,8 +1,11 @@
-﻿namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using UnityEditor;
+﻿using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor
+{
     public static class SplineComputerEditorHandles
     {
         private static SplineSample evalResult = new SplineSample();

@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Interaction_System
 {        
     public class InteractionUIPanel : MonoBehaviour
     {

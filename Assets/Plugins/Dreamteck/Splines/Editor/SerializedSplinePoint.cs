@@ -1,8 +1,9 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEditor;
-    using UnityEngine;
+using Plugins.Dreamteck.Splines.Core;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor
+{
     public struct SerializedSplinePoint
     {
         public bool changed;

@@ -1,9 +1,9 @@
-namespace Dreamteck
-{
-    using UnityEditor;
-    using UnityEngine;
-    using System.Collections.Generic;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Utilities.Editor
+{
     public static class DreamteckEditorGUI
     {
         public static Texture2D blankImage

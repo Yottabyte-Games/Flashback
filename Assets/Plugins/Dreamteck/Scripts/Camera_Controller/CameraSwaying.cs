@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using NaughtyAttributes;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Camera_Controller
 {    
     [System.Serializable]
     public class CameraSwaying

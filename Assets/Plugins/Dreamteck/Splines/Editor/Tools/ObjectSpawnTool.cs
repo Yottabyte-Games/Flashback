@@ -1,11 +1,12 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEditor;
-    using System.IO;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Tools
+{
     public class ObjectSpawnTool : SplineTool
     {
         internal class SpawnCollection

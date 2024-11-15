@@ -1,12 +1,12 @@
-namespace Dreamteck.Splines.Editor
-{
-    using Dreamteck.Editor;
-    using System.Collections.Generic;
-    using System.IO;
-    using UnityEditor;
-    using UnityEngine;
-    using UnityEngine.Networking;
+using System.Collections.Generic;
+using System.IO;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.Networking;
 
+namespace Plugins.Dreamteck.Splines.Editor
+{
     [InitializeOnLoad]
     public static class PluginInfo
     {

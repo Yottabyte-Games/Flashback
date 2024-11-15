@@ -1,7 +1,8 @@
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
 using UnityEngine;
-using System.Collections;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     [ExecuteInEditMode]
     [AddComponentMenu("Dreamteck/Splines/Node Connector")]

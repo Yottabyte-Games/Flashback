@@ -1,9 +1,7 @@
 using UnityEngine;
-using System.Collections;
-using System.Reflection;
 using UnityEngine.Events;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     [AddComponentMenu("Dreamteck/Splines/Users/Length Calculator")]
     public class LengthCalculator : SplineUser

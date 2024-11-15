@@ -1,7 +1,7 @@
+using Plugins.Dreamteck.Utilities;
 using UnityEngine;
-using Dreamteck;
 
-namespace Dreamteck.Splines{
+namespace Plugins.Dreamteck.Splines.Core{
     [System.Serializable]
 	public struct SplineSample {
         public Vector3 position;

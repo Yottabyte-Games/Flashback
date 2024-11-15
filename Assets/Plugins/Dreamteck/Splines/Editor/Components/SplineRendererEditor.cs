@@ -1,9 +1,8 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using UnityEditor;
+using Plugins.Dreamteck.Splines.Components;
+using UnityEditor;
 
+namespace Plugins.Dreamteck.Splines.Editor.Components
+{
     [CustomEditor(typeof(SplineRenderer), true)]
     [CanEditMultipleObjects]
     public class SplineRendererEditor : MeshGenEditor

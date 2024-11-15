@@ -1,12 +1,15 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using UnityEditor;
-    using System.Collections.Generic;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Components
+{
     [CustomEditor(typeof(Node), true)]
     [CanEditMultipleObjects]
-    public class NodeEditor : Editor {
+    public class NodeEditor : UnityEditor.Editor {
         private SplineComputer addComp = null;
         private int addPoint = 0;
         private Node lastnode = null;

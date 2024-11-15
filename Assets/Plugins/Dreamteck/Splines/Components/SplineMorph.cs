@@ -1,6 +1,9 @@
-namespace Dreamteck.Splines
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
+using UnityEngine;
+
+namespace Plugins.Dreamteck.Splines.Components
 {
-    using UnityEngine;
     [AddComponentMenu("Dreamteck/Splines/Morph")]
     public class SplineMorph : MonoBehaviour
     {

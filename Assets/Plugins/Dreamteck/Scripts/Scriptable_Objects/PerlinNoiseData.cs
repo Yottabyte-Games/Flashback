@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Scriptable_Objects
 {
     public enum TransformTarget
     {

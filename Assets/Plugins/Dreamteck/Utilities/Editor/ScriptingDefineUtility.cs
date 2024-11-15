@@ -1,8 +1,8 @@
-namespace Dreamteck.Editor
-{
-    using UnityEngine;
-    using UnityEditor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Utilities.Editor
+{
     public static class ScriptingDefineUtility 
     {
         public static void Add(string define, BuildTargetGroup target, bool log = false)

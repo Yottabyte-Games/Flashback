@@ -1,10 +1,10 @@
 ﻿using System;
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-namespace Dreamteck
+namespace Plugins.Dreamteck.Utilities
 {
     public class AsyncJobSystem : MonoBehaviour
     {

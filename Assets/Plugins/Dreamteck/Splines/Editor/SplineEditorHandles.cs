@@ -1,8 +1,9 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEditor;
-    using UnityEngine;
+using Plugins.Dreamteck.Splines.Core;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor
+{
     public static class SplineEditorHandles
     {
         public static bool SliderButton(Vector3 position, bool drawHandle, Color color, float size)

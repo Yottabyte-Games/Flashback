@@ -1,9 +1,8 @@
-using UnityEngine;
-using System.Collections;
+using Plugins.Dreamteck.Splines.Components;
 using UnityEditor;
-using System.IO;
+using UnityEngine;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Editor.Tools
 {
     public class UpdateTool : SplineTool
     {

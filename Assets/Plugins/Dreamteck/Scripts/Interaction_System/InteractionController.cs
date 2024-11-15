@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Plugins.Dreamteck.Scripts.Scriptable_Objects;
 using UnityEngine;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Interaction_System
 {    
     public class InteractionController : MonoBehaviour
     {

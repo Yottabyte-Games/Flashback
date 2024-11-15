@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Core;
 using UnityEngine;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     public class SplineTracer : SplineUser
     {

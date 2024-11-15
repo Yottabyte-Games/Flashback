@@ -1,10 +1,12 @@
-namespace Dreamteck.Splines.Editor
+using System.Text.RegularExpressions;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
+
+namespace Plugins.Dreamteck.Splines.Editor
 {
-    using UnityEngine;
-    using UnityEditor;
-    using System.Text.RegularExpressions;
-
-
     public static class SplineEditorGUI
     {
         public static readonly GUIStyle leftButtonStyle, midButtonStyle, rightButtonStyle, boxStyle;

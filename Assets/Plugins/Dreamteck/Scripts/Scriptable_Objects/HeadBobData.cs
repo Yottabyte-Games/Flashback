@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using NaughtyAttributes;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Scriptable_Objects
 {
     [CreateAssetMenu(fileName = "HeadBobData", menuName = "FirstPersonController/Data/HeadBobData", order = 3)]
     public class HeadBobData : ScriptableObject

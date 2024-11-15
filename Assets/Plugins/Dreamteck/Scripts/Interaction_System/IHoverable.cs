@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Interaction_System
 {    
     public interface IHoverable
     {

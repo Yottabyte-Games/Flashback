@@ -1,10 +1,12 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System;
-    using System.Collections.Generic;
-    using UnityEditor;
+using System;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Tools
+{
     public class SplineToolsWindow : EditorWindow
     {
         private static SplineTool[] tools;

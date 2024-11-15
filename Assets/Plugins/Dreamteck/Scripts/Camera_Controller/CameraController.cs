@@ -1,7 +1,7 @@
-﻿using NaughtyAttributes;
+﻿using Plugins.Dreamteck.Scripts.Scriptable_Objects;
 using UnityEngine;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Camera_Controller
 {    
     public class CameraController : MonoBehaviour
     {

@@ -1,9 +1,9 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules
+{
     public class PointTransformModule : PointModule
     {
         public enum EditSpace { World, Transform, Spline }

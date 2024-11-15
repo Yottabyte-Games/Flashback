@@ -1,7 +1,9 @@
-namespace Dreamteck.Splines
-{
-    using UnityEngine;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Components
+{
     [RequireComponent(typeof(MeshFilter))]
     [RequireComponent(typeof(MeshRenderer))]
     [AddComponentMenu("Dreamteck/Splines/Complex Surface Generator")]

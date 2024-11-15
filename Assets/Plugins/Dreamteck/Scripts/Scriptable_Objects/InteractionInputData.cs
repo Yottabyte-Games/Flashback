@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Scriptable_Objects
 {    
     [CreateAssetMenu(fileName = "InteractionInputData", menuName = "InteractionSystem/InputData")]
     public class InteractionInputData : ScriptableObject

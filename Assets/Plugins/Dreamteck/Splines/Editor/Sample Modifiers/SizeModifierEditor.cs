@@ -1,11 +1,10 @@
-namespace Dreamteck.Splines.Editor
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Editor.Components;
+using UnityEditor;
+using UnityEngine;
+
+namespace Plugins.Dreamteck.Splines.Editor.Sample_Modifiers
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-
-    using UnityEditor;
-
     public class SizeModifierEditor : SplineSampleModifierEditor
     {
         public bool allowSelection = true;

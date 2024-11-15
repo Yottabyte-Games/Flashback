@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using NaughtyAttributes;
+﻿using Plugins.Dreamteck.Scripts.Perlin_Noise_Scroller;
+using Plugins.Dreamteck.Scripts.Scriptable_Objects;
+using UnityEngine;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Camera_Controller
 {    
     public class CameraBreathing : MonoBehaviour
     {

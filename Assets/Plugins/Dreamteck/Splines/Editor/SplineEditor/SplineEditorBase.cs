@@ -1,8 +1,9 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEditor;
-    using UnityEngine;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor
+{
     public class SplineEditorBase
     {
         public bool open = false;

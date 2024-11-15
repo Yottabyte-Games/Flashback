@@ -1,10 +1,10 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEditor;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Core;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules
+{
     public class PointMirrorModule : PointTransformModule
     {
         public enum Axis { X, Y, Z }

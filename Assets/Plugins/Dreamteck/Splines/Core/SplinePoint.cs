@@ -1,8 +1,9 @@
+using System;
+using Plugins.Dreamteck.Utilities;
 using UnityEngine;
 using UnityEngine.Serialization;
-using System;
 
-namespace Dreamteck.Splines{
+namespace Plugins.Dreamteck.Splines.Core{
 	[System.Serializable]
     //A control point used by the SplineClass
 	public struct SplinePoint {

@@ -1,9 +1,9 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using UnityEditor;
+using Plugins.Dreamteck.Splines.Components;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Components
+{
     [CustomEditor(typeof(WaveformGenerator), true)]
     [CanEditMultipleObjects]
     public class WaveGeneratorEditor : MeshGenEditor

@@ -1,10 +1,10 @@
-﻿namespace Dreamteck.Splines.Primitives
-{
-    using UnityEngine;
-    using UnityEditor;
-    using System.Collections;
-    using Dreamteck.Splines.Editor;
+﻿using Plugins.Dreamteck.Splines.Core.Primitives;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.DS_Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Primitives
+{
     [System.Serializable]
     public class PrimitiveEditor
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Scriptable_Objects
 {    
     [CreateAssetMenu(fileName = "MovementInputData", menuName = "FirstPersonController/Data/MovementInputData", order = 1)]
     public class MovementInputData : ScriptableObject

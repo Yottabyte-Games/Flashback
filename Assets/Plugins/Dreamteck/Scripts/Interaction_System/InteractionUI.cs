@@ -1,9 +1,8 @@
-using NaughtyAttributes;
-using UnityEngine.UI;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.Interaction_System
 {    
     public class InteractionUI : MonoBehaviour
     {

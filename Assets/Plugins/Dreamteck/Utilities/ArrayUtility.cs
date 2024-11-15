@@ -1,7 +1,7 @@
-namespace Dreamteck
-{
-    using System;
+using System;
 
+namespace Plugins.Dreamteck.Utilities
+{
     public static class ArrayUtility
     {
         public static void Add<T>(ref T[] array, T item)

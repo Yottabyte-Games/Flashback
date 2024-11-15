@@ -1,7 +1,9 @@
-namespace Dreamteck.Splines
-{
-    using UnityEngine;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Utilities;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Core
+{
     [System.Serializable]
     public class SampleCollection
     {

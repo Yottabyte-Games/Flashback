@@ -1,10 +1,11 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEditor;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Splines.Editor.Components;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.DS_Editor
+{
     public class SplineTriggersEditor : SplineEditorBase
     {
         private int selected = -1, selectedGroup = -1;

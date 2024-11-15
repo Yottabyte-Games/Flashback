@@ -1,10 +1,8 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEditor;
+using Plugins.Dreamteck.Splines.Components;
+using UnityEditor;
 
+namespace Plugins.Dreamteck.Splines.Editor.Components
+{
     public class SplineUserSubEditor
     {
         protected string title = "";

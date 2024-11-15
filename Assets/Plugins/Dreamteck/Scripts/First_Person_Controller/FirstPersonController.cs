@@ -1,8 +1,10 @@
 ﻿using System.Collections;
+using Plugins.Dreamteck.Scripts.Camera_Controller;
+using Plugins.Dreamteck.Scripts.Scriptable_Objects;
+using Sirenix.OdinInspector;
 using UnityEngine;
-using NaughtyAttributes;
 
-namespace VHS
+namespace Plugins.Dreamteck.Scripts.First_Person_Controller
 {
     [RequireComponent(typeof(CharacterController))]
     public class FirstPersonController : MonoBehaviour

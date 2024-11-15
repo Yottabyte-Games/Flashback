@@ -1,8 +1,9 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using UnityEditor;
+using Plugins.Dreamteck.Splines.Core;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules
+{
     public class PointNormalModule : PointModule
     {
         public enum NormalMode { Auto, Free }

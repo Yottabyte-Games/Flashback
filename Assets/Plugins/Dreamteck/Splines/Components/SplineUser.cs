@@ -1,6 +1,9 @@
+using Plugins.Dreamteck.Splines.Components.Sample_Modifiers;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
 using UnityEngine;
 
-namespace Dreamteck.Splines {
+namespace Plugins.Dreamteck.Splines.Components {
     [ExecuteInEditMode]
     public class SplineUser : MonoBehaviour, ISerializationCallbackReceiver, ISampleModifier
     {

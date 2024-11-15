@@ -1,12 +1,13 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEditor;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using UnityEditor;
+using UnityEngine;
+using ArrayUtility = Plugins.Dreamteck.Utilities.ArrayUtility;
 
+namespace Plugins.Dreamteck.Splines.Editor.Components
+{
     [CustomEditor(typeof(SplineMorph))]
-    public class SplineMorphEditor : Editor
+    public class SplineMorphEditor : UnityEditor.Editor
     {
         private string addName = "";
         bool rename = false;
@@ -79,12 +80,12 @@ namespace Dreamteck.Splines.Editor
                                 var points = morph.GetSnapshot(i);
                                 while (points.Length < morph.spline.pointCount)
                                 {
-                                    Dreamteck.ArrayUtility.Add(ref points, new SplinePoint());
+                                    ArrayUtility.Add(ref points, new SplinePoint());
                                 }
 
                                 while (points.Length > morph.spline.pointCount)
                                 {
-                                    Dreamteck.ArrayUtility.RemoveAt(ref points, points.Length-1);
+                                    ArrayUtility.RemoveAt(ref points, points.Length-1);
                                 }
 
                                 morph.SetSnapshot(i, points);

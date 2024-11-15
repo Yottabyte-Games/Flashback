@@ -1,5 +1,6 @@
 using System;
 using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _Scripts.Working.Tasks

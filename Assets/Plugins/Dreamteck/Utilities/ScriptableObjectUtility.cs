@@ -1,9 +1,9 @@
-#if UNITY_EDITOR
-namespace Dreamteck {
-    using UnityEngine;
-    using UnityEditor;
-    using System.IO;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
 
+#if UNITY_EDITOR
+namespace Plugins.Dreamteck.Utilities {
     public static class ScriptableObjectUtility
     {
         public static T CreateAsset<T>(string name = "", bool selectAfterCreation = true) where T : ScriptableObject
