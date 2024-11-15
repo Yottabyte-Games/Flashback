@@ -53,23 +53,23 @@ public class GameHudController : MonoBehaviour
     public void StartDialogue(string dialogueString)
     {
         SetDialogue(dialogueString);
-        riveScreen.StateMachine.GetTrigger("AddDialogue").Fire();
+        riveScreen.stateMachine.GetTrigger("AddDialogue").Fire();
     }
 
     // Every other dialogues calls this
     public void NextDialogue(string dialogueString)
     {
         SetDialogue(dialogueString);
-        riveScreen.StateMachine.GetTrigger("NextDialogue").Fire();
+        riveScreen.stateMachine.GetTrigger("NextDialogue").Fire();
     }
 
     // When last dialogue finishes, call this
     public void EndDialogue(SceneReference sceneReference)
     {
-        riveScreen.StateMachine.GetTrigger("RemoveDialogue").Fire();
+        riveScreen.stateMachine.GetTrigger("RemoveDialogue").Fire();
         if (sceneReference != null)
         {
-            riveScreen.StateMachine.GetTrigger("FlashBack").Fire();
+            riveScreen.stateMachine.GetTrigger("FlashBack").Fire();
             _sceneToLoad = sceneReference;
         }
     }
@@ -77,12 +77,12 @@ public class GameHudController : MonoBehaviour
     public void HoverOn(string objectName)
     {
         riveScreen.SetHoverItemName(objectName);
-        riveScreen.StateMachine.GetBool("IsHovering").Value = true;
+        riveScreen.stateMachine.GetBool("IsHovering").Value = true;
     }
 
     public void HoverOff()
     {
-        riveScreen.StateMachine.GetBool("IsHovering").Value = false;
+        riveScreen.stateMachine.GetBool("IsHovering").Value = false;
     }
 
 

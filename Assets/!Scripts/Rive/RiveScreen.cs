@@ -110,7 +110,9 @@ public class RiveScreen : MonoBehaviour
     public float fallbackDPI = 96f;
 
     [SerializeField] private float m_referenceDPI = 150f;
-    
+
+    [Tooltip("Default is HUD")]
+    [SerializeField] private RiveScenes _riveSceneForUI = RiveScenes.HUD;
     
     public delegate void RiveEventDelegate(ReportedEvent reportedEvent);
 
@@ -138,17 +140,17 @@ public class RiveScreen : MonoBehaviour
 
     private void Start()
     {
-        InitializeRiveAsset(currentScene);
+        InitializeRiveAsset();
         SetupCamera();
         ConfigureRiveRenderer();
     }
 
-    private void InitializeRiveAsset(RiveScenes sceneToLoad)
+    private void InitializeRiveAsset()
     {
         if (asset == null) return;
 
         m_file = Rive.File.Load(asset);
-        m_artboard = m_file.Artboard(GetSelectedRiveSceneName(sceneToLoad));
+        m_artboard = m_file.Artboard(0);
         m_stateMachine = m_artboard?.StateMachine();
 
         // Store original artboard dimensions
@@ -452,15 +454,5 @@ public class RiveScreen : MonoBehaviour
     private void OnDestroy()
     {
         m_file?.Dispose();
-    }
-
-    public void ReturnToOriginalScene()
-    {
-        InitializeRiveAsset(currentScene);
-    }
-
-    public void SetRiveScene(RiveScenes sceneToSet)
-    {
-        InitializeRiveAsset(sceneToSet);
     }
 }
