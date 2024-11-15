@@ -3208,9 +3208,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad285bd189a64c34a0779c849d09c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asset: {fileID: -4516626237390682484, guid: 15b56837c1a5bb146906f7d54a059cae, type: 3}
+  asset: {fileID: 0}
   cameraEvent: 20
   fit: 1
+  _riveSceneForUI: 0
 --- !u!114 &266552575439998672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3252,6 +3253,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameHudController: {fileID: 266552575439998672}
+  dialogueEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &4923079350185540872
 GameObject:
   m_ObjectHideFlags: 0
