@@ -116,6 +116,7 @@ namespace Plugins.Rive.UI
             { RiveScenes.HUD, "HUD" },
             { RiveScenes.MainMenu, "Home Screen" },
             { RiveScenes.PauseMenu, "Pause Menu" },
+            { RiveScenes.SettingsMenu, "Settings Menu" },
         };
 
         void Start()
