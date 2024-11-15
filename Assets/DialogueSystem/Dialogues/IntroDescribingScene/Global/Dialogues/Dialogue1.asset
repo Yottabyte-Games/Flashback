@@ -12,11 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
-  <DialogueName>k__BackingField: Dialogue1
-  <Text>k__BackingField: "Today is the day I\u2019m going to the psychiatrist, another
-    day where everything is fine."
-  <Choices>k__BackingField:
-  - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: e42a2716502f00746a71672f2e6e68c3, type: 2}
-  <DialogueType>k__BackingField: 0
-  <IsStartingDialogue>k__BackingField: 1
+  <dialogueName>k__BackingField: Dialogue1
+  <text>k__BackingField: "Today is the day I\u2019m going to the psychiatrist, another
+    day where everything is fine.But first I need to stop by the local J\xE5ker to
+    buy milk"
+  <choices>k__BackingField:
+  - <text>k__BackingField: Next Dialogue
+    <nextDialogue>k__BackingField: {fileID: 11400000, guid: e42a2716502f00746a71672f2e6e68c3, type: 2}
+  <dialogueType>k__BackingField: 0
+  <isStartingDialogue>k__BackingField: 1
+  <voiceEvent>k__BackingField:
+    Guid:
+      Data1: -1742131369
+      Data2: 1222634033
+      Data3: -1602676589
+      Data4: 1080459112
+    Path: event:/VO/MainChar Dialogue 1

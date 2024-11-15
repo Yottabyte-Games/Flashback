@@ -12,10 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
   m_Name: Dialogue2
   m_EditorClassIdentifier: 
-  <DialogueName>k__BackingField: Dialogue2
-  <Text>k__BackingField: "But first I need to stop by the local J\xE5ker to buy milk.\r"
-  <Choices>k__BackingField:
-  - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 905b986058dcc7545b07f8fd7c855137, type: 2}
-  <DialogueType>k__BackingField: 0
-  <IsStartingDialogue>k__BackingField: 0
+  <dialogueName>k__BackingField: Dialogue2
+  <text>k__BackingField: "I should use the Arrow Keys or W A S D to move while using
+    the mouse to look around.If I see something, I can interact with them by pressing
+    the E button.\r"
+  <choices>k__BackingField:
+  - <text>k__BackingField: Next Dialogue
+    <nextDialogue>k__BackingField: {fileID: 0}
+  <dialogueType>k__BackingField: 0
+  <isStartingDialogue>k__BackingField: 0
+  <voiceEvent>k__BackingField:
+    Guid:
+      Data1: -91504258
+      Data2: 1326290725
+      Data3: -437000569
+      Data4: 1845096413
+    Path: event:/VO/MainChar Dialogue 2
