@@ -6,9 +6,9 @@ namespace DialogueSystem.Scripts
     public class DSDialogue : MonoBehaviour
     {
         /* Dialogue Scriptable Objects */
-        [SerializeField] DSDialogueContainerSO dialogueContainer;
-        [SerializeField] DSDialogueGroupSO dialogueGroup;
-        [SerializeField] DSDialogueSO dialogue;
+        [SerializeField] DSDialogueContainerSo dialogueContainer;
+        [SerializeField] DSDialogueGroupSo dialogueGroup;
+        [SerializeField] DSDialogueSo dialogue;
 
         /* Filters */
         [SerializeField] bool groupedDialogues;
