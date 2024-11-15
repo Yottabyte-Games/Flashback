@@ -4,10 +4,15 @@ public enum StoryBeat
 {
     Introduction,
     Fishing,
+    FinishedFishing,
     ToyCar,
+    FinishedToyCar,
     Snowman,
+    FinishedSnowman,
     Office,
+    FinishedOffice,
     Therapist,
+    FinishedTherapist,
     Ending
 }
 
