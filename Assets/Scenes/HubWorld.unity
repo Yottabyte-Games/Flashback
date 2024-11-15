@@ -1474,7 +1474,6 @@ GameObject:
   m_Component:
   - component: {fileID: 93566566}
   - component: {fileID: 93566569}
-  - component: {fileID: 93566567}
   m_Layer: 0
   m_Name: AfterSnowManDialogue
   m_TagString: Untagged
@@ -1497,22 +1496,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1848592279}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &93566567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93566565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingDialogue: {fileID: 11400000, guid: 5b7f3d43b3a026d4f9ca23af62b901ec, type: 2}
-  sceneToLoad:
-    asset: {fileID: 0}
-    guid: 00000000000000000000000000000000
 --- !u!65 &93566569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3579,7 +3562,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransitionTrigger
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3547554383088801273, guid: eea382bafdb9f8c46b3aed651879bf9c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -34230,6 +34214,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c3ffc95b2e49a498e6c96ba2621f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Ambience>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <PlayerFootsteps>k__BackingField:
     Guid:
       Data1: -442184197
@@ -34237,6 +34228,13 @@ MonoBehaviour:
       Data3: -322619000
       Data4: 999850934
     Path: event:/PlayerFootsteps
+  <Dialogue>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &2073946860
 GameObject:
   m_ObjectHideFlags: 0
@@ -34726,7 +34724,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2091029106}
   - component: {fileID: 2091029109}
-  - component: {fileID: 2091029107}
   m_Layer: 0
   m_Name: AfterFishDialogue
   m_TagString: Untagged
@@ -34749,22 +34746,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1848592279}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2091029107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091029105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingDialogue: {fileID: 11400000, guid: 42aaa3a0a5779c840833f8ed79c31f8c, type: 2}
-  sceneToLoad:
-    asset: {fileID: 0}
-    guid: 00000000000000000000000000000000
 --- !u!65 &2091029109
 BoxCollider:
   m_ObjectHideFlags: 0
