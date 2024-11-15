@@ -87,6 +87,7 @@ namespace Plugins.Rive.UI
             HUD,
             MainMenu,
             PauseMenu,
+            SettingsMenu,
         }
         
         
@@ -114,7 +115,7 @@ namespace Plugins.Rive.UI
         {
             { RiveScenes.HUD, "HUD" },
             { RiveScenes.MainMenu, "Home Screen" },
-            { RiveScenes.PauseMenu, "Pause Menu" }
+            { RiveScenes.PauseMenu, "Pause Menu" },
         };
 
         void Start()
@@ -152,10 +153,19 @@ namespace Plugins.Rive.UI
 
         void Awake()
         {
+            SetRiveScene(_riveSceneForUI);
+        }
+
+        public void ReturnToOriginalScene()
+        {
+            SetRiveScene(_riveSceneForUI);
+        }
+        public void SetRiveScene(RiveScenes scenes)
+        {
             if (asset is not null)
             {
                 _file = File.Load(asset);
-                _artboard = _file.Artboard(GetSelectedRiveSceneName(_riveSceneForUI));
+                _artboard = _file.Artboard(GetSelectedRiveSceneName(scenes));
                 stateMachine = _artboard?.StateMachine();
             }
 
