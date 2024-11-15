@@ -422,4 +422,5 @@ namespace Dreamteck.Splines
         [System.Serializable]
         public class FloatEvent : UnityEvent<float> { }
     }
+    
 }

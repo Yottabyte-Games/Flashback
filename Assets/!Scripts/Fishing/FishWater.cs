@@ -1,6 +1,9 @@
+using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace _Scripts.Fishing
 {
@@ -10,6 +13,7 @@ namespace _Scripts.Fishing
 
         readonly List<Hook> hooksInWater = new();
 
+        [SerializeField, Scene]int sceneToPlayWhenPlayerInWater;
 
         void OnTriggerEnter(Collider other)
         {
@@ -23,7 +27,10 @@ namespace _Scripts.Fishing
                     StartCoroutine(TryGetFish(hookInWater));
             }
 
-            print(hookInWater);
+            if(other.TryGetComponent(out PlayerController player))
+            {
+                SceneManager.LoadScene(sceneToPlayWhenPlayerInWater);
+            }
         }
 
         IEnumerator TryGetFish(Hook hook)

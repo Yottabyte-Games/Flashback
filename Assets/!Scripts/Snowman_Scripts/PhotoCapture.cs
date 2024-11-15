@@ -1,5 +1,7 @@
+using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace _Scripts.Snowman_Scripts
@@ -17,6 +19,8 @@ namespace _Scripts.Snowman_Scripts
         [SerializeField] GameObject snowball;
 
         Texture2D _capturedImage;
+
+        public UnityEvent FishedPhotoTaken;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -69,7 +73,7 @@ namespace _Scripts.Snowman_Scripts
             //Check if completed and go out of scene. Else remove image
             CheckCompleted();
         }
-
+        
         void CheckCompleted()
         {
             int objects = 0;
@@ -85,7 +89,7 @@ namespace _Scripts.Snowman_Scripts
             if (objects > 7) 
             {
                 Debug.Log("Finished");
-                // Swap Scene
+                FishedPhotoTaken.Invoke();
             }
         }
 

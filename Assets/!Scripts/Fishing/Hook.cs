@@ -18,12 +18,19 @@ namespace _Scripts.Fishing
         [HideInInspector] public FishWater water;
 
         public SpringJoint Spring { get; private set; }
+        float springValue;
+        float mass;
+        float drag;
         public Rigidbody Rb { get; private set; }
 
         void Start()
         {
             Spring = GetComponent<SpringJoint>();
+            springValue = Spring.spring;
             Rb = GetComponent<Rigidbody>();
+            mass = Rb.mass;
+            drag = Rb.linearDamping;
+            transform.parent = null;
         }
         public void CatchFish(Fish fishCaught)
         {
@@ -37,18 +44,20 @@ namespace _Scripts.Fishing
         }
         public void Cast()
         {
-            print("Cast");
-            transform.parent = null;
             Spring.spring = 0;
-            Rb.AddForce(transform.forward * 500, ForceMode.Force);
+            Rb.mass = 1;
+            Rb.linearDamping = 0;
+            Rb.AddForce(connectedRod.transform.forward * 500, ForceMode.Force);
         }
         public void Ready()
         {
             if (water != null)
                 water.RemoveHook(this);
 
-            Spring.spring = 20;
-            UMethods.ResetTransform(transform, true);
+            Rb.linearVelocity = Vector3.zero;
+            Rb.mass = mass;
+            Rb.linearDamping = drag;
+            Spring.spring = springValue;
         }
     }
 }

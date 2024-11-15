@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7053899427167205696
+--- !u!114 &-7102477327085002388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: -322619000
     Data4: 999850934
   Banks:
-  - {fileID: -6223540903381039150}
+  - {fileID: 7249088380641788302}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
---- !u!114 &-6223540903381039150
+--- !u!114 &-7020457571789859156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,22 +37,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
+  m_Name: bank:/Desktop/Dialogue.bank
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  Path: Fmodassets/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638671736150116126
-=======
-  Path: Fmodassets/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-  lastModified: 638671019319769066
->>>>>>> Stashed changes
+  Path: Fmodassets/Desktop/Dialogue.bank
+  Name: Desktop/Dialogue
+  StudioPath: bank:/Dialogue
+  lastModified: 638672612933240574
   FileSizes: []
   Exists: 1
---- !u!114 &-3041084729912290451
+--- !u!114 &-6450275884131285073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Birds and trees
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Birds and trees
+  Guid:
+    Data1: -1859774952
+    Data2: 1313774827
+    Data3: 588832950
+    Data4: 1731131611
+  Banks:
+  - {fileID: 4007849378778337356}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 25128
+--- !u!114 &-5631110551937880946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,19 +82,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: bank:/Desktop/Master.bank
   m_EditorClassIdentifier: 
   Path: Fmodassets/Desktop/Master.bank
-  Name: Master
+  Name: Desktop/Master
   StudioPath: bank:/Master
-<<<<<<< Updated upstream
-  lastModified: 638671050133462754
-=======
-  lastModified: 638671019319759063
->>>>>>> Stashed changes
+  lastModified: 638672612933250549
   FileSizes: []
   Exists: 1
---- !u!114 &-1670589960752684169
+--- !u!114 &-672593153779330895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,19 +100,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
+  m_Name: bank:/Desktop/Music.bank
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: Fmodassets/Desktop/Music.bank
-  Name: Music
+  Name: Desktop/Music
   StudioPath: bank:/Music
-  lastModified: 638671050133482716
-=======
-  Path: Fmodassets/Desktop/Ambiance.bank
-  Name: Ambiance
-  StudioPath: bank:/Ambiance
-  lastModified: 638671019319759063
->>>>>>> Stashed changes
+  lastModified: 638672612933318727
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -112,28 +121,52 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 5860233060725915191}
-  - {fileID: 3521601476074736388}
-  - {fileID: -3041084729912290451}
-  - {fileID: -1670589960752684169}
-  - {fileID: -6223540903381039150}
+  - {fileID: 4890594795221495791}
+  - {fileID: 4007849378778337356}
+  - {fileID: -5631110551937880946}
+  - {fileID: -672593153779330895}
+  - {fileID: 7249088380641788302}
+  - {fileID: -7020457571789859156}
   EditorEvents:
-  - {fileID: -7053899427167205696}
+  - {fileID: 167923204530544130}
+  - {fileID: -7102477327085002388}
+  - {fileID: -6450275884131285073}
+  - {fileID: 8148043820129951356}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -3041084729912290451}
+  - {fileID: -5631110551937880946}
   StringsBanks:
-<<<<<<< Updated upstream
-  - {fileID: 5860233060725915191}
-  cacheTime: 638671736150116126
+  - {fileID: 4890594795221495791}
+  cacheTime: 638672612933323889
   cacheVersion: 131621
---- !u!114 &3521601476074736388
-=======
-  - {fileID: 6398861563525494573}
-  cacheTime: 638671019319769066
-  cacheVersion: 131620
---- !u!114 &1347493128411527731
->>>>>>> Stashed changes
+--- !u!114 &167923204530544130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Ocean
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Ocean
+  Guid:
+    Data1: 1643072026
+    Data2: 1256969767
+    Data3: 875762063
+    Data4: -550341990
+  Banks:
+  - {fileID: 4007849378778337356}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 120168
+--- !u!114 &4007849378778337356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,22 +176,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Ambiance.bank
+  m_Name: bank:/Desktop/Ambiance.bank
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: Fmodassets/Desktop/Ambiance.bank
-  Name: Ambiance
+  Name: Desktop/Ambiance
   StudioPath: bank:/Ambiance
-  lastModified: 638671050133462754
-=======
-  Path: Fmodassets/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638671019319769066
->>>>>>> Stashed changes
+  lastModified: 638672612932843642
   FileSizes: []
   Exists: 1
---- !u!114 &5860233060725915191
+--- !u!114 &4890594795221495791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,17 +194,58 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Desktop/Master.strings.bank
   m_EditorClassIdentifier: 
   Path: Fmodassets/Desktop/Master.strings.bank
-  Name: Master.strings
+  Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-<<<<<<< Updated upstream
-  lastModified: 638671736150000327
-=======
-  lastModified: 638671019319759063
->>>>>>> Stashed changes
+  lastModified: 638672612933310389
   FileSizes:
   - Name: 
-    Value: 910
+    Value: 1112
   Exists: 1
+--- !u!114 &7249088380641788302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Fmodassets/Desktop/SFX.bank
+  Name: Desktop/SFX
+  StudioPath: bank:/SFX
+  lastModified: 638672612933323889
+  FileSizes: []
+  Exists: 1
+--- !u!114 &8148043820129951356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/Dialogue
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/Dialogue
+  Guid:
+    Data1: 1455170350
+    Data2: 1308444938
+    Data3: 1789892992
+    Data4: 813175994
+  Banks:
+  - {fileID: -7020457571789859156}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 11800

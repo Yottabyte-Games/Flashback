@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using Rive;
 using UnityEngine;
@@ -81,9 +82,15 @@ namespace Plugins.Rive.UI
 // Draw a Rive artboard to the screen. Must be bound to a camera.
     public class RiveScreen : MonoBehaviour
     {
+        enum RiveScenes
+        {
+            HUD,
+            MainMenu,
+            PauseMenu,
+        }
+        
+        
         public Asset asset;
-        [Tooltip("Default is HUD")]
-        [SerializeField] private string artboardName = "HUD";
         public CameraEvent cameraEvent = CameraEvent.AfterEverything;
         public Fit fit = Fit.Contain;
         public Alignment alignment = Alignment.Center;
@@ -99,6 +106,16 @@ namespace Plugins.Rive.UI
         CameraTextureHelper _helper;
 
         public StateMachine stateMachine { get; private set; }
+        
+        [Tooltip("Default is HUD")]
+        [SerializeField] private RiveScenes _riveSceneForUI = RiveScenes.HUD;
+        
+        private static readonly Dictionary<RiveScenes, string> referenceNames = new Dictionary<RiveScenes, string>()
+        {
+            { RiveScenes.HUD, "HUD" },
+            { RiveScenes.MainMenu, "Home Screen" },
+            { RiveScenes.PauseMenu, "Pause Menu" }
+        };
 
         void Start()
         {
@@ -138,7 +155,7 @@ namespace Plugins.Rive.UI
             if (asset is not null)
             {
                 _file = File.Load(asset);
-                _artboard = _file.Artboard(artboardName);
+                _artboard = _file.Artboard(GetSelectedRiveSceneName());
                 stateMachine = _artboard?.StateMachine();
             }
 
@@ -242,14 +259,19 @@ namespace Plugins.Rive.UI
             }
 
         }
+        
+        private string GetSelectedRiveSceneName()
+        {
+            return referenceNames[_riveSceneForUI];
+        }
         public void SetDialogue(string dialogueString)
         {
             _artboard.SetTextRun("DialogueText", dialogueString);
         }
 
-        public void SetHoverItemName(string objectName)
+        public void SetHoverItemName(string itemName)
         {
-            _artboard.SetTextRun("ItemName", objectName);
+            _artboard.SetTextRun("ItemName", itemName);
         }
     }
 }

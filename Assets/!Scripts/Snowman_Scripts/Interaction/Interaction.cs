@@ -17,7 +17,7 @@ namespace _Scripts.Snowman_Scripts.Interaction
         void Update()
         {
             //mouseZoom += Input.GetAxis("Mouse ScrollWheel");
-            _mouseZoom = Mathf.Clamp(_mouseZoom+ Input.GetAxis("Mouse ScrollWheel")*8, 1f, 20);
+            _mouseZoom = Mathf.Clamp(_mouseZoom + Input.GetAxis("Mouse ScrollWheel") * 8, 1f, 20);
             Debug.Log(_mouseZoom);
 
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -61,13 +61,13 @@ namespace _Scripts.Snowman_Scripts.Interaction
                 DisableInteraction();
             }
 
-            if(_interactableObject is not null) { GhostBlock(hit); }
+            if (_interactableObject is not null) { GhostBlock(hit); }
         }
 
 
         void GhostBlock(RaycastHit hit)
         {
-            if(_ghostObject is null && hit.collider.gameObject is not null)
+            if (_ghostObject is null && hit.collider.gameObject is not null)
             {
                 _ghostObject = Instantiate(_interactableObject, hit.point, Quaternion.identity);
                 _ghostObject.SetActive(true);
@@ -76,14 +76,16 @@ namespace _Scripts.Snowman_Scripts.Interaction
                 Rigidbody rb = _ghostObject.GetComponent<Rigidbody>();
                 rb.isKinematic = true;
                 rb.detectCollisions = false;
-            
+
                 //Sets material to transparent selected material
                 _ghostObject.GetComponent<MeshRenderer>().material = ghostMaterial;
             }
             else
             {
                 //Positions Ghostblock on update
-                _ghostObject.gameObject.transform.position = hit.point + _ghostObject.transform.up/(1f+_mouseZoom);
+                Transform _ghostTrans = _ghostObject.transform;
+
+                _ghostTrans.position = hit.point + Vector3.ClampMagnitude(_ghostTrans.up / (1f + _mouseZoom), _ghostTrans.localScale.magnitude / 4);
                 _ghostObject.transform.up = hit.normal;
             }
 
@@ -93,17 +95,17 @@ namespace _Scripts.Snowman_Scripts.Interaction
 
         void PlaceObject(RaycastHit hit)
         {
-            if(hit.collider.CompareTag("Interactable")){ _interactable.DisableInteraction(); }
-            
+            if (hit.collider.CompareTag("Interactable")) { _interactable.DisableInteraction(); }
+
             GameObject placedObject = Instantiate(_interactableObject, _ghostObject.transform.position, Quaternion.identity);
             placedObject.transform.up = hit.normal;  // Rotate to surface normal.
             placedObject.SetActive(true);
 
             Destroy(_ghostObject);
             Debug.Log(_ghostObject);
-  
-        
-        
+
+
+            _ghostObject = null;
             _interactableObject = null;
         }
 

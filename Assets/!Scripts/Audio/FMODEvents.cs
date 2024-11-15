@@ -3,8 +3,13 @@ using FMODUnity;
 
 public class FMODEvents : MonoBehaviour
 {
+    [field: Header("Ambience")]
+    [field: SerializeField] public EventReference Ambience { get; private set; }
+
+
     [field: Header("Player SFX")]
     [field: SerializeField] public EventReference PlayerFootsteps { get; private set; }
+
     public static FMODEvents Instance { get; private set; }
 
     void Awake()

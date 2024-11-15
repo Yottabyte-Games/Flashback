@@ -64,7 +64,7 @@ namespace _Scripts.Fishing
 
         void ResetHook()
         {
-            hook.transform.parent = hookPoint;
+            //hook.transform.parent = hookPoint;
             hook.Ready();
             HookIsCast = false;
         }
