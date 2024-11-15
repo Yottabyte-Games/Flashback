@@ -1475,6 +1475,7 @@ GameObject:
   - component: {fileID: 93566566}
   - component: {fileID: 93566569}
   - component: {fileID: 93566567}
+  - component: {fileID: 93566570}
   m_Layer: 0
   m_Name: AfterSnowManDialogue
   m_TagString: Untagged
@@ -1513,6 +1514,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &93566569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1534,6 +1536,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 28.74, y: 9.96, z: 44.1}
   m_Center: {x: 0, y: 0, z: 11.3}
+--- !u!114 &93566570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93566565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347f6058b0ba8a4479ad5e40c15ec39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnProgressedStory:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &111485811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,6 +1676,7 @@ GameObject:
   - component: {fileID: 113348645}
   - component: {fileID: 113348644}
   - component: {fileID: 113348642}
+  - component: {fileID: 113348646}
   m_Layer: 0
   m_Name: AboutCharacterDialogue
   m_TagString: Untagged
@@ -1697,6 +1715,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &113348644
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1739,6 +1758,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.1, y: 0.5, z: 17.17}
   m_Center: {x: 6.76, y: 0, z: 4.41}
+--- !u!114 &113348646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113348640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347f6058b0ba8a4479ad5e40c15ec39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnProgressedStory:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &114210535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6580,6 +6614,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5272657471857185710, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
+      propertyPath: isGrounded
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 61887755032589378, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6703,10 +6741,6 @@ PrefabInstance:
     - target: {fileID: 8730949856958983954, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5272657471857185710, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: isGrounded
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 32272296840888117, guid: a04dcea7919aa20478479d862a0ac5fd, type: 3}
       propertyPath: m_Layer
@@ -8546,6 +8580,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 102900000, guid: 24c892a4eb0920c47a1558b1b7436f29, type: 3}
     guid: 24c892a4eb0920c47a1558b1b7436f29
+  loadSceneAfterDialogue: 0
 --- !u!1 &495977351
 GameObject:
   m_ObjectHideFlags: 0
@@ -9043,6 +9078,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &519650823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10172,6 +10208,7 @@ GameObject:
   - component: {fileID: 578493522}
   - component: {fileID: 578493525}
   - component: {fileID: 578493523}
+  - component: {fileID: 578493526}
   m_Layer: 0
   m_Name: AfterWorkDialogue
   m_TagString: Untagged
@@ -10210,6 +10247,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &578493525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10231,6 +10269,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 28.74, y: 9.96, z: 37.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &578493526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578493521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347f6058b0ba8a4479ad5e40c15ec39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnProgressedStory:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &584265263
 GameObject:
   m_ObjectHideFlags: 0
@@ -12876,6 +12929,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!1001 &730496171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18472,6 +18526,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 102900000, guid: 50371236d87164241a69dccfc9309c13, type: 3}
     guid: 50371236d87164241a69dccfc9309c13
+  loadSceneAfterDialogue: 0
 --- !u!1 &1057603348 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7df9b1681309cdf40be22d5419d00390, type: 3}
@@ -29522,6 +29577,7 @@ GameObject:
   - component: {fileID: 1755675397}
   - component: {fileID: 1755675400}
   - component: {fileID: 1755675398}
+  - component: {fileID: 1755675401}
   m_Layer: 0
   m_Name: AfterCarDialogue
   m_TagString: Untagged
@@ -29560,6 +29616,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &1755675400
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29581,6 +29638,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.2, y: 9.96, z: 37.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1755675401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755675396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347f6058b0ba8a4479ad5e40c15ec39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnProgressedStory:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1766400958
 GameObject:
   m_ObjectHideFlags: 0
@@ -33564,6 +33636,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 102900000, guid: a50356cddb2b1e1488e2f82103496854, type: 3}
     guid: a50356cddb2b1e1488e2f82103496854
+  loadSceneAfterDialogue: 0
 --- !u!1001 &2058085269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34230,6 +34303,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c3ffc95b2e49a498e6c96ba2621f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Ambience>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <PlayerFootsteps>k__BackingField:
     Guid:
       Data1: -442184197
@@ -34727,6 +34807,7 @@ GameObject:
   - component: {fileID: 2091029106}
   - component: {fileID: 2091029109}
   - component: {fileID: 2091029107}
+  - component: {fileID: 2091029110}
   m_Layer: 0
   m_Name: AfterFishDialogue
   m_TagString: Untagged
@@ -34765,6 +34846,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &2091029109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34786,6 +34868,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 28.74, y: 9.96, z: 37.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2091029110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091029105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347f6058b0ba8a4479ad5e40c15ec39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnProgressedStory:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2110098911
 PrefabInstance:
   m_ObjectHideFlags: 0
