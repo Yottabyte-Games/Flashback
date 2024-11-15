@@ -74,7 +74,7 @@ namespace Plugins.Rive.UI
         {
             
             var riveScreen = GetComponent<RiveScreen>();
-            _mRiveStateMachine = riveScreen.stateMachine;
+            _mRiveStateMachine = riveScreen.StateMachine;
 
             booleans = new List<SmiBoolDescriptor>();
             triggers = new List<SmiTriggerDescriptor>();
