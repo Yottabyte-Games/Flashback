@@ -1,80 +1,83 @@
+using Rive;
 using UnityEngine;
 using UnityEngine.Rendering;
-using Rive;
-using static Rive.File;
-using System;
 
-public class RiveTexture : MonoBehaviour
+namespace Plugins.Rive.UI
 {
-    public Rive.Asset asset;
-    public RenderTexture renderTexture;
-    public Fit fit = Fit.Contain;
-    public Alignment alignment = Alignment.Center;
-
-    private Rive.RenderQueue m_renderQueue;
-    private CommandBuffer m_commandBuffer;
-    private Rive.Renderer m_riveRenderer;
-
-    private Rive.File m_file;
-    private Artboard m_artboard;
-    private StateMachine m_stateMachine;
-
-    private Camera m_camera;
-
-
-    private void Start()
+    public class RiveTexture : MonoBehaviour
     {
-        m_renderQueue = new Rive.RenderQueue(renderTexture);
-        m_riveRenderer = m_renderQueue.Renderer();
-        if (asset != null)
-        {
-            m_file = Rive.File.Load(asset);
-            m_artboard = m_file.Artboard(0);
-            m_stateMachine = m_artboard?.StateMachine();
-        }
+        public Asset asset;
+        public Fit fit = Fit.Contain;
+        public int size = 512;
 
-        if (m_artboard != null && renderTexture != null)
-        {
-            m_riveRenderer.Align(fit, alignment, m_artboard);
-            m_riveRenderer.Draw(m_artboard);
+        RenderTexture _mRenderTexture;
+        global::Rive.RenderQueue _mRenderQueue;
+        global::Rive.Renderer _mRiveRenderer;
+        CommandBuffer _mCommandBuffer;
 
-            m_commandBuffer = new CommandBuffer();
-            m_riveRenderer.ToCommandBuffer();
-            m_commandBuffer.SetRenderTarget(renderTexture);
-            m_commandBuffer.ClearRenderTarget(true, true, UnityEngine.Color.clear, 0.0f);
-            m_riveRenderer.AddToCommandBuffer(m_commandBuffer);
-            m_camera = Camera.main;
-            if (m_camera != null)
+        File _mFile;
+        Artboard _mArtboard;
+        StateMachine _mStateMachine;
+        public StateMachine stateMachine => _mStateMachine;
+
+        static bool FlipY()
+        {
+            switch (SystemInfo.graphicsDeviceType)
             {
-                Camera.main.AddCommandBuffer(CameraEvent.AfterEverything, m_commandBuffer);
+                case GraphicsDeviceType.Metal:
+                case GraphicsDeviceType.Direct3D11:
+                    return true;
+                default:
+                    return false;
             }
         }
-    }
 
-
-
-    private void Update()
-    {
-        if (m_stateMachine != null)
+        void Awake()
         {
-            m_stateMachine.Advance(Time.deltaTime);
+            _mRenderTexture = new RenderTexture(TextureHelper.Descriptor(size, size));
+            _mRenderTexture.Create();
+
+            UnityEngine.Renderer renderer = GetComponent<UnityEngine.Renderer>();
+            Material material = renderer.material;
+            material.mainTexture = _mRenderTexture;
+
+            if (!FlipY())
+            {
+                // Flip the render texture vertically for OpenGL
+                material.mainTextureScale = new Vector2(1, -1);
+                material.mainTextureOffset = new Vector2(0, 1);
+            }
+
+            _mRenderQueue = new global::Rive.RenderQueue(_mRenderTexture);
+            _mRiveRenderer = _mRenderQueue.Renderer();
+            if (asset != null)
+            {
+                _mFile = File.Load(asset);
+                _mArtboard = _mFile.Artboard(0);
+                _mStateMachine = _mArtboard?.StateMachine();
+            }
+
+            if (_mArtboard != null && _mRenderTexture != null)
+            {
+                _mRiveRenderer.Align(fit, Alignment.Center, _mArtboard);
+                _mRiveRenderer.Draw(_mArtboard);
+
+                _mCommandBuffer = new CommandBuffer();
+                _mCommandBuffer.SetRenderTarget(_mRenderTexture);
+                _mCommandBuffer.ClearRenderTarget(true, true, UnityEngine.Color.clear, 0.0f);
+                _mRiveRenderer.AddToCommandBuffer(_mCommandBuffer);
+            }
         }
-    }
 
-
-    private void OnDisable()
-    {
-        if (m_camera != null && m_commandBuffer != null)
+        void Update()
         {
-            m_camera.RemoveCommandBuffer(CameraEvent.AfterEverything, m_commandBuffer);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (m_file != null)
-        {
-            m_file.Dispose();
+            _mRiveRenderer.Submit();
+            GL.InvalidateState();
+        
+            if (_mStateMachine != null)
+            {
+                _mStateMachine.Advance(Time.deltaTime);
+            }
         }
     }
 }

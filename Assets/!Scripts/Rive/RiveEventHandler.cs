@@ -76,7 +76,7 @@ public class RiveEventHandler : MonoBehaviour
                 }
                 break;
             case RiveScreen.RiveScenes.PauseMenu:
-                if (riveScreen.StateMachine.GetBool("IsTryingToQuit").Value != true)
+                if (riveScreen.stateMachine.GetBool("IsTryingToQuit").Value != true)
                 {
                     if (reportedEvent.Name == "ResumeEvent")
                     {
