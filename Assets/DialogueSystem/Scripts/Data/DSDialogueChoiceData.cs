@@ -8,6 +8,6 @@ namespace DialogueSystem.Scripts.Data
     public class DSDialogueChoiceData
     {
         [field: SerializeField] public string text { get; set; }
-        [field: SerializeField] public DSDialogueSo nextDialogue { get; set; }
+        [field: SerializeField] public DSDialogueSO nextDialogue { get; set; }
     }
 }

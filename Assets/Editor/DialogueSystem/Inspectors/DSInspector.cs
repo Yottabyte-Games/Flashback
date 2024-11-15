@@ -42,7 +42,7 @@ namespace DS.Inspectors
 
             DrawDialogueContainerArea();
 
-            DSDialogueContainerSo currentDialogueContainer = (DSDialogueContainerSo) dialogueContainerProperty.objectReferenceValue;
+            DSDialogueContainerSO currentDialogueContainer = (DSDialogueContainerSO) dialogueContainerProperty.objectReferenceValue;
 
             if (currentDialogueContainer == null)
             {
@@ -75,7 +75,7 @@ namespace DS.Inspectors
 
                 DrawDialogueGroupArea(currentDialogueContainer, dialogueGroupNames);
 
-                DSDialogueGroupSo dialogueGroup = (DSDialogueGroupSo) dialogueGroupProperty.objectReferenceValue;
+                DSDialogueGroupSO dialogueGroup = (DSDialogueGroupSO) dialogueGroupProperty.objectReferenceValue;
 
                 dialogueNames = currentDialogueContainer.GetGroupedDialogueNames(dialogueGroup, currentStartingDialoguesOnlyFilter);
 
@@ -123,13 +123,13 @@ namespace DS.Inspectors
             DSInspectorUtility.DrawSpace();
         }
 
-        void DrawDialogueGroupArea(DSDialogueContainerSo dialogueContainer, List<string> dialogueGroupNames)
+        void DrawDialogueGroupArea(DSDialogueContainerSO dialogueContainer, List<string> dialogueGroupNames)
         {
             DSInspectorUtility.DrawHeader("Dialogue Group");
 
             int oldSelectedDialogueGroupIndex = selectedDialogueGroupIndexProperty.intValue;
 
-            DSDialogueGroupSo oldDialogueGroup = (DSDialogueGroupSo) dialogueGroupProperty.objectReferenceValue;
+            DSDialogueGroupSO oldDialogueGroup = (DSDialogueGroupSO) dialogueGroupProperty.objectReferenceValue;
 
             bool isOldDialogueGroupNull = oldDialogueGroup == null;
 
@@ -141,7 +141,7 @@ namespace DS.Inspectors
 
             string selectedDialogueGroupName = dialogueGroupNames[selectedDialogueGroupIndexProperty.intValue];
 
-            DSDialogueGroupSo selectedDialogueGroup = DSIOUtility.LoadAsset<DSDialogueGroupSo>($"Assets/DialogueSystem/Dialogues/{dialogueContainer.fileName}/Groups/{selectedDialogueGroupName}", selectedDialogueGroupName);
+            DSDialogueGroupSO selectedDialogueGroup = DSIOUtility.LoadAsset<DSDialogueGroupSO>($"Assets/DialogueSystem/Dialogues/{dialogueContainer.fileName}/Groups/{selectedDialogueGroupName}", selectedDialogueGroupName);
 
             dialogueGroupProperty.objectReferenceValue = selectedDialogueGroup;
 
@@ -156,7 +156,7 @@ namespace DS.Inspectors
 
             int oldSelectedDialogueIndex = selectedDialogueIndexProperty.intValue;
 
-            DSDialogueSo oldDialogue = (DSDialogueSo) dialogueProperty.objectReferenceValue;
+            DSDialogueSO oldDialogue = (DSDialogueSO) dialogueProperty.objectReferenceValue;
 
             bool isOldDialogueNull = oldDialogue == null;
 
@@ -168,7 +168,7 @@ namespace DS.Inspectors
 
             string selectedDialogueName = dialogueNames[selectedDialogueIndexProperty.intValue];
 
-            DSDialogueSo selectedDialogue = DSIOUtility.LoadAsset<DSDialogueSo>(dialogueFolderPath, selectedDialogueName);
+            DSDialogueSO selectedDialogue = DSIOUtility.LoadAsset<DSDialogueSO>(dialogueFolderPath, selectedDialogueName);
 
             dialogueProperty.objectReferenceValue = selectedDialogue;
 

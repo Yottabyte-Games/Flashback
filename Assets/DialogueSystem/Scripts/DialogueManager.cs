@@ -1,20 +1,19 @@
-using Eflatun.SceneReference;
 using DialogueSystem.Scripts.ScriptableObjects;
-using UnityEngine;
-using UnityEngine.InputSystem;
+using Eflatun.SceneReference;
 using FMODUnity;
 using FMOD.Studio;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace DialogueSystem.Scripts
 {
     public class DialogueManager : MonoBehaviour
     {
         [SerializeField] GameHudController gameHudController;
-        [SerializeField] EventReference dialogueEvent;
 
         bool _isDialogueActive;
 
-        DSDialogueSo _currentDialogue;
+        DSDialogueSO _currentDialogue;
         InputAction _nextDialogueAction;
         EventInstance _dialogueInstance;
         SceneReference _sceneToLoad;
@@ -22,8 +21,6 @@ namespace DialogueSystem.Scripts
         void Start()
         {
             _nextDialogueAction = InputSystem.actions.FindAction("Interact");
-            _dialogueInstance = RuntimeManager.CreateInstance(dialogueEvent);
-
         }
 
         void Update()
@@ -34,13 +31,13 @@ namespace DialogueSystem.Scripts
             }
         }
 
-        public void SetDialogue(DSDialogueSo startingDialogue, SceneReference scene = null)
+        public void SetDialogue(DSDialogueSO startingDialogue, SceneReference scene = null)
         {
             _currentDialogue = startingDialogue;
             PlayDialogueLine();
             _sceneToLoad = scene;
         }
-        
+
         void PlayDialogueLine()
         {
             print("Playing Dialogue");
@@ -57,12 +54,11 @@ namespace DialogueSystem.Scripts
                 {
                     gameHudController.NextDialogue(_currentDialogue.text);
                 }
-                
-                SetFMODParameterAndPlay(_currentDialogue.voiceClipIndex);
 
-                
-                //Stores Next Dialogue
-                DSDialogueSo nextDialogue = _currentDialogue.choices[0].nextDialogue;
+                SetFMODEventAndPlay(_currentDialogue.voiceEvent);
+
+                // Stores Next Dialogue
+                DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
                 _currentDialogue = nextDialogue;
             }
             else
@@ -76,9 +72,10 @@ namespace DialogueSystem.Scripts
                 _isDialogueActive = false;
             }
         }
-        void SetFMODParameterAndPlay(int voiceClipIndex)
+
+        void SetFMODEventAndPlay(EventReference voiceEvent)
         {
-            _dialogueInstance.setParameterByName("VoiceClipIndex", voiceClipIndex);
+            _dialogueInstance = RuntimeManager.CreateInstance(voiceEvent);
             _dialogueInstance.start();
         }
     }

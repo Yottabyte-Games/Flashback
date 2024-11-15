@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace DialogueSystem.Scripts.ScriptableObjects
 {
-    public class DSDialogueGroupSo : ScriptableObject
+    public class DSDialogueGroupSO : ScriptableObject
     {
         [field: SerializeField] public string groupName { get; set; }
 

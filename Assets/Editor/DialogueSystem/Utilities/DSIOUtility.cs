@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DialogueSystem.Scripts.Data;
 using DialogueSystem.Scripts.ScriptableObjects;
+using FMODUnity;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -24,8 +25,8 @@ namespace DS.Utilities
         static List<DSNode> nodes;
         static List<DSGroup> groups;
 
-        static Dictionary<string, DSDialogueGroupSo> createdDialogueGroups;
-        static Dictionary<string, DSDialogueSo> createdDialogues;
+        static Dictionary<string, DSDialogueGroupSO> createdDialogueGroups;
+        static Dictionary<string, DSDialogueSO> createdDialogues;
 
         static Dictionary<string, DSGroup> loadedGroups;
         static Dictionary<string, DSNode> loadedNodes;
@@ -40,8 +41,8 @@ namespace DS.Utilities
             nodes = new List<DSNode>();
             groups = new List<DSGroup>();
 
-            createdDialogueGroups = new Dictionary<string, DSDialogueGroupSo>();
-            createdDialogues = new Dictionary<string, DSDialogueSo>();
+            createdDialogueGroups = new Dictionary<string, DSDialogueGroupSO>();
+            createdDialogues = new Dictionary<string, DSDialogueSO>();
 
             loadedGroups = new Dictionary<string, DSGroup>();
             loadedNodes = new Dictionary<string, DSNode>();
@@ -57,7 +58,7 @@ namespace DS.Utilities
 
             graphData.Initialize(graphFileName);
 
-            DSDialogueContainerSo dialogueContainer = CreateAsset<DSDialogueContainerSo>(containerFolderPath, graphFileName);
+            DSDialogueContainerSO dialogueContainer = CreateAsset<DSDialogueContainerSO>(containerFolderPath, graphFileName);
 
             dialogueContainer.Initialize(graphFileName);
 
@@ -68,7 +69,7 @@ namespace DS.Utilities
             SaveAsset(dialogueContainer);
         }
 
-        static void SaveGroups(DSGraphSaveDataSO graphData, DSDialogueContainerSo dialogueContainer)
+        static void SaveGroups(DSGraphSaveDataSO graphData, DSDialogueContainerSO dialogueContainer)
         {
             List<string> groupNames = new List<string>();
 
@@ -95,20 +96,20 @@ namespace DS.Utilities
             graphData.Groups.Add(groupData);
         }
 
-        static void SaveGroupToScriptableObject(DSGroup group, DSDialogueContainerSo dialogueContainer)
+        static void SaveGroupToScriptableObject(DSGroup group, DSDialogueContainerSO dialogueContainer)
         {
             string groupName = group.title;
 
             CreateFolder($"{containerFolderPath}/Groups", groupName);
             CreateFolder($"{containerFolderPath}/Groups/{groupName}", "Dialogues");
 
-            DSDialogueGroupSo dialogueGroup = CreateAsset<DSDialogueGroupSo>($"{containerFolderPath}/Groups/{groupName}", groupName);
+            DSDialogueGroupSO dialogueGroup = CreateAsset<DSDialogueGroupSO>($"{containerFolderPath}/Groups/{groupName}", groupName);
 
             dialogueGroup.Initialize(groupName);
 
             createdDialogueGroups.Add(group.ID, dialogueGroup);
 
-            dialogueContainer.dialogueGroups.Add(dialogueGroup, new List<DSDialogueSo>());
+            dialogueContainer.dialogueGroups.Add(dialogueGroup, new List<DSDialogueSO>());
 
             SaveAsset(dialogueGroup);
         }
@@ -128,7 +129,7 @@ namespace DS.Utilities
             graphData.OldGroupNames = new List<string>(currentGroupNames);
         }
 
-        static void SaveNodes(DSGraphSaveDataSO graphData, DSDialogueContainerSo dialogueContainer)
+        static void SaveNodes(DSGraphSaveDataSO graphData, DSDialogueContainerSO dialogueContainer)
         {
             SerializableDictionary<string, List<string>> groupedNodeNames = new SerializableDictionary<string, List<string>>();
             List<string> ungroupedNodeNames = new List<string>();
@@ -172,19 +173,19 @@ namespace DS.Utilities
             graphData.Nodes.Add(nodeData);
         }
 
-        static void SaveNodeToScriptableObject(DSNode node, DSDialogueContainerSo dialogueContainer)
+        static void SaveNodeToScriptableObject(DSNode node, DSDialogueContainerSO dialogueContainer)
         {
-            DSDialogueSo dialogue;
+            DSDialogueSO dialogue;
 
             if (node.Group != null)
             {
-                dialogue = CreateAsset<DSDialogueSo>($"{containerFolderPath}/Groups/{node.Group.title}/Dialogues", node.DialogueName);
+                dialogue = CreateAsset<DSDialogueSO>($"{containerFolderPath}/Groups/{node.Group.title}/Dialogues", node.DialogueName);
 
                 dialogueContainer.dialogueGroups.AddItem(createdDialogueGroups[node.Group.ID], dialogue);
             }
             else
             {
-                dialogue = CreateAsset<DSDialogueSo>($"{containerFolderPath}/Global/Dialogues", node.DialogueName);
+                dialogue = CreateAsset<DSDialogueSO>($"{containerFolderPath}/Global/Dialogues", node.DialogueName);
 
                 dialogueContainer.ungroupedDialogues.Add(dialogue);
             }
@@ -194,14 +195,14 @@ namespace DS.Utilities
                 node.Text,
                 ConvertNodeChoicesToDialogueChoices(node.Choices),
                 node.DialogueType,
-                node.IsStartingNode()
+                node.IsStartingNode(),
+                node.voiceEvent 
             );
 
             createdDialogues.Add(node.ID, dialogue);
 
             SaveAsset(dialogue);
         }
-
         static List<DSDialogueChoiceData> ConvertNodeChoicesToDialogueChoices(List<DSChoiceSaveData> nodeChoices)
         {
             List<DSDialogueChoiceData> dialogueChoices = new List<DSDialogueChoiceData>();
@@ -223,7 +224,7 @@ namespace DS.Utilities
         {
             foreach (DSNode node in nodes)
             {
-                DSDialogueSo dialogue = createdDialogues[node.ID];
+                DSDialogueSO dialogue = createdDialogues[node.ID];
 
                 for (int choiceIndex = 0; choiceIndex < node.Choices.Count; ++choiceIndex)
                 {

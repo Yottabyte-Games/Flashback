@@ -3,25 +3,25 @@ using UnityEngine;
 
 namespace DialogueSystem.Scripts.ScriptableObjects
 {
-    public class DSDialogueContainerSo : ScriptableObject
+    public class DSDialogueContainerSO : ScriptableObject
     {
         [field: SerializeField] public string fileName { get; set; }
-        [field: SerializeField] public SerializableDictionary<DSDialogueGroupSo, List<DSDialogueSo>> dialogueGroups { get; set; }
-        [field: SerializeField] public List<DSDialogueSo> ungroupedDialogues { get; set; }
+        [field: SerializeField] public SerializableDictionary<DSDialogueGroupSO, List<DSDialogueSO>> dialogueGroups { get; set; }
+        [field: SerializeField] public List<DSDialogueSO> ungroupedDialogues { get; set; }
 
         public void Initialize(string fileName)
         {
             this.fileName = fileName;
 
-            dialogueGroups = new SerializableDictionary<DSDialogueGroupSo, List<DSDialogueSo>>();
-            ungroupedDialogues = new List<DSDialogueSo>();
+            dialogueGroups = new SerializableDictionary<DSDialogueGroupSO, List<DSDialogueSO>>();
+            ungroupedDialogues = new List<DSDialogueSO>();
         }
 
         public List<string> GetDialogueGroupNames()
         {
             List<string> dialogueGroupNames = new List<string>();
 
-            foreach (DSDialogueGroupSo dialogueGroup in dialogueGroups.Keys)
+            foreach (DSDialogueGroupSO dialogueGroup in dialogueGroups.Keys)
             {
                 dialogueGroupNames.Add(dialogueGroup.groupName);
             }
@@ -29,13 +29,13 @@ namespace DialogueSystem.Scripts.ScriptableObjects
             return dialogueGroupNames;
         }
 
-        public List<string> GetGroupedDialogueNames(DSDialogueGroupSo dialogueGroup, bool startingDialoguesOnly)
+        public List<string> GetGroupedDialogueNames(DSDialogueGroupSO dialogueGroup, bool startingDialoguesOnly)
         {
-            List<DSDialogueSo> groupedDialogues = dialogueGroups[dialogueGroup];
+            List<DSDialogueSO> groupedDialogues = dialogueGroups[dialogueGroup];
 
             List<string> groupedDialogueNames = new List<string>();
 
-            foreach (DSDialogueSo groupedDialogue in groupedDialogues)
+            foreach (DSDialogueSO groupedDialogue in groupedDialogues)
             {
                 if (startingDialoguesOnly && !groupedDialogue.isStartingDialogue)
                 {
@@ -52,7 +52,7 @@ namespace DialogueSystem.Scripts.ScriptableObjects
         {
             List<string> ungroupedDialogueNames = new List<string>();
 
-            foreach (DSDialogueSo ungroupedDialogue in ungroupedDialogues)
+            foreach (DSDialogueSO ungroupedDialogue in ungroupedDialogues)
             {
                 if (startingDialoguesOnly && !ungroupedDialogue.isStartingDialogue)
                 {
