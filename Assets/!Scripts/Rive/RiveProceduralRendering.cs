@@ -5,9 +5,6 @@ using Color = Rive.Color;
 using Renderer = Rive.Renderer;
 using RenderQueue = Rive.RenderQueue;
 
-//! An example implementation that showcases using the Rive Renderer to draw procedural shapes.
-
-//[ExecuteInEditMode]
 namespace Plugins.Rive.UI
 {
     public class RiveProcedural : MonoBehaviour

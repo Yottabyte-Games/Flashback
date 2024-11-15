@@ -9,9 +9,6 @@ using UnityEngine;
 
 namespace Plugins.Rive.UI
 {
-// https://rive.app/community/doc/text/docn2E6y1lXo
-
-//! An example implementation to get/set Rive State Machine Inputs.
     [RequireComponent(typeof(RiveScreen))]
     public class RiveStateMachineInputs : MonoBehaviour
     {
