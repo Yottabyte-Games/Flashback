@@ -115,11 +115,6 @@ namespace Plugins.Rive.UI
 
         public StateMachine stateMachine { get; private set; }
         
-        [Tooltip("Default is HUD")]
-        [SerializeField] private RiveScenes _riveSceneForUI = RiveScenes.HUD;
-        
-        
-
         void Start()
         {
             _mainCamera = gameObject.GetComponent<Camera>();
@@ -155,12 +150,12 @@ namespace Plugins.Rive.UI
 
         void Awake()
         {
-            SetRiveScene(_riveSceneForUI);
+            SetRiveScene(currentScene);
         }
 
         public void ReturnToOriginalScene()
         {
-            SetRiveScene(_riveSceneForUI);
+            SetRiveScene(currentScene);
         }
         public void SetRiveScene(RiveScenes scenes)
         {
@@ -200,7 +195,7 @@ namespace Plugins.Rive.UI
         }
 
         Vector2 _mLastMousePosition;
-        bool _wasMouseDown;
+       
         Camera _mainCamera;
 
         void Update()
@@ -238,11 +233,9 @@ namespace Plugins.Rive.UI
                         alignment
                     );
                     stateMachine?.PointerDown(local);
-                    _wasMouseDown = true;
                 }
                 else if (Input.GetMouseButtonUp(0))
                 {
-                    _wasMouseDown = false;
                     Vector2 local = _artboard.LocalCoordinate(
                         mouseRiveScreenPos,
                         new Rect(0, 0, _mainCamera.pixelWidth, _mainCamera.pixelHeight),
