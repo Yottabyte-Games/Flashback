@@ -99,6 +99,7 @@ public class RiveEventHandler : MonoBehaviour
                 {
                     if (reportedEvent.Name == "ResumeEvent")
                     {
+                        print("ResumeEvent");
                         riveScreen.ReturnToOriginalScene();
                     }
                     if (reportedEvent.Name == "SettingsEvent")
@@ -107,6 +108,7 @@ public class RiveEventHandler : MonoBehaviour
                         riveScreen.SetRiveScene(RiveScreen.RiveScenes.SettingsMenu);
                     }
                 }
+                
                 if (reportedEvent.Name == "QuitEvent")
                 {
                     print("QuitEvent");

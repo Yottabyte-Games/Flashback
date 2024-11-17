@@ -44,6 +44,8 @@ public class GameHudController : MonoBehaviour
     {
         if (_pauseAction.WasPressedThisFrame())
         { 
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             // Set Pause Scene from Rive
             riveScreen.SetRiveScene(RiveScreen.RiveScenes.PauseMenu);
         }

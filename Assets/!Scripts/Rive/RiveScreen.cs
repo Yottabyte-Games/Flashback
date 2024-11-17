@@ -99,6 +99,7 @@ namespace Plugins.Rive.UI
             { RiveScenes.SettingsMenu, "Settings Menu" },
         };
         public RiveScenes currentScene;
+        private RiveScenes firstScene;
         
         public Asset asset;
         public CameraEvent cameraEvent = CameraEvent.AfterEverything;
@@ -152,12 +153,13 @@ namespace Plugins.Rive.UI
 
         void Awake()
         {
+            firstScene = currentScene;
             SetRiveScene(currentScene);
         }
 
         public void ReturnToOriginalScene()
         {
-            SetRiveScene(currentScene);
+            SetRiveScene(firstScene);
         }
         public void SetRiveScene(RiveScenes scenes)
         {
