@@ -86,6 +86,7 @@ namespace Plugins.Rive.UI
         {
             HUD,
             MainMenu,
+            MiniGameSelectMenu,
             PauseMenu,
             SettingsMenu,
         }
@@ -93,6 +94,7 @@ namespace Plugins.Rive.UI
         {
             { RiveScenes.HUD, "HUD" },
             { RiveScenes.MainMenu, "Home Screen" },
+            { RiveScenes.MiniGameSelectMenu, "Mini Games Select Menu" },
             { RiveScenes.PauseMenu, "Pause Menu" },
             { RiveScenes.SettingsMenu, "Settings Menu" },
         };

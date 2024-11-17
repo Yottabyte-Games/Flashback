@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 1086910899}
   - component: {fileID: 1086910898}
   - component: {fileID: 1086910897}
-  - component: {fileID: 1086910896}
   - component: {fileID: 1086910895}
   - component: {fileID: 1086910894}
   m_Layer: 0
@@ -198,21 +197,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &1086910896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086910893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1ef72edd0c641d584d048b76a828b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggers: []
-  booleans: []
-  numbers: []
 --- !u!114 &1086910897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,10 +222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad285bd189a64c34a0779c849d09c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentScene: 1
   asset: {fileID: -4516626237390682484, guid: 16c7518da8ec44c4aa526c4ea96cedd3, type: 3}
   cameraEvent: 20
   fit: 1
-  _riveSceneForUI: 1
 --- !u!81 &1086910899
 AudioListener:
   m_ObjectHideFlags: 0

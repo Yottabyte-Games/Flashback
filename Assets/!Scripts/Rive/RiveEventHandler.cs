@@ -2,13 +2,12 @@ using System;
 using Plugins.Rive.UI;
 using UnityEngine;
 using Rive;
-using UnityEditor;
+using Eflatun.SceneReference;
 using UnityEngine.SceneManagement;
 
 public class RiveEventHandler : MonoBehaviour
 {
     private RiveScreen riveScreen;
-    
     
     
     private void Start()
@@ -25,54 +24,74 @@ public class RiveEventHandler : MonoBehaviour
             case RiveScreen.RiveScenes.HUD:
                 break;
             case RiveScreen.RiveScenes.MainMenu:
-                if (reportedEvent.Name == "StartGameEvent")
+                switch (reportedEvent.Name)
                 {
-                    print("StartGameEvent");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                }
-                if (reportedEvent.Name == "MiniGameEvent")
-                {
-                    print("MiniGameEvent");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    case "StartGameEvent":
+                        print("StartGameEvent");
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                        break;
+                    case "MiniGameEvent":
+                        print("MiniGameEvent");
+                        riveScreen.SetRiveScene(RiveScreen.RiveScenes.MiniGameSelectMenu);
+                        break;
+                    case "SettingsEvent":
+                        print("SettingsEvent");
+                        riveScreen.SetRiveScene(RiveScreen.RiveScenes.SettingsMenu);
+                        break;
+                    case "ExitEvent":
+                        print("ExitEvent");
+                        Application.Quit();
+                        break;
                 }
 
-                if (reportedEvent.Name == "SettingsEvent")
+                break;
+            case RiveScreen.RiveScenes.MiniGameSelectMenu:
+                switch (reportedEvent.Name)
                 {
-                    print("SettingsEvent");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                }
-        
-                if (reportedEvent.Name == "ExitEvent")
-                {
-                    print("ExitEvent");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    case "Return Event":
+                        print("Return Event");
+                        riveScreen.ReturnToOriginalScene();
+                        break;
+                    case "Fishing Event":
+                        print("Fishing Event");
+                        SceneManager.LoadScene("Fishing");
+                        break;
+                    case "Racing Event":
+                        print("Racing Event");
+                        SceneManager.LoadScene("ToyCarGame");
+                        break;
+                    case "Snowman Event":
+                        print("Snowman Event");
+                        SceneManager.LoadScene("Snowman");
+                        break;
+                    case "Work Event":
+                        print("Work Event");
+                        SceneManager.LoadScene("Working");
+                        break;
+                    case "Shooting Event":
+                        print("Shoot Event");
+                        //SceneManager.LoadScene();
+                        break;
                 }
                 break;
             case RiveScreen.RiveScenes.SettingsMenu:
-                if (reportedEvent.Name == "Master Active")
-                    print("Clicking the thing");
-                if (reportedEvent.Name == "Master Inactive")
-                    print("Unclick the thing");
-
-                if (reportedEvent.Name == "Return Event")
+                switch (reportedEvent.Name)
                 {
-                    print("ReturnEvent");
-                }
-                if (reportedEvent.Name == "Master Change Event")
-                {
-                    print("Master Change Event");
-                }
-                if (reportedEvent.Name == "Music Change Event")
-                {
-                    print("Music Change Event");
-                }
-                if (reportedEvent.Name == "SFX Change Event")
-                {
-                    print("SFX Change Event");
-                }
-                if (reportedEvent.Name == "Voice Change Event")
-                {
-                    print("Voice Change Event");
+                    case "Return Event":
+                        riveScreen.ReturnToOriginalScene();
+                        break;
+                    case "Master Change Event":
+                        print("Master Change Event");
+                        break;
+                    case "Music Change Event":
+                        print("Music Change Event");
+                        break;
+                    case "SFX Change Event":
+                        print("SFX Change Event");
+                        break;
+                    case "Voice Change Event":
+                        print("Voice Change Event");
+                        break;
                 }
                 break;
             case RiveScreen.RiveScenes.PauseMenu:
@@ -85,7 +104,7 @@ public class RiveEventHandler : MonoBehaviour
                     if (reportedEvent.Name == "SettingsEvent")
                     {
                         print("SettingsEvent");
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                        riveScreen.SetRiveScene(RiveScreen.RiveScenes.SettingsMenu);
                     }
                 }
                 if (reportedEvent.Name == "QuitEvent")
