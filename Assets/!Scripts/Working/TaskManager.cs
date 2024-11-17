@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using _Scripts.Working.Tasks;
 using NaughtyAttributes;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _Scripts.Working
