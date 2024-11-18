@@ -25,19 +25,23 @@ public class DialogueStarter : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!hasTalkedAlready)
+        
             StartDialogue();
     }
 
     public void StartDialogue()
     {
-        if (loadSceneAfterDialogue)
+        if (!hasTalkedAlready)
         {
-            dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
+            if (loadSceneAfterDialogue)
+            {
+                dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
+                hasTalkedAlready = true;
+            }
+            else
+                dialogueManager.SetDialogue(startingDialogue);
             hasTalkedAlready = true;
         }
-        else
-            dialogueManager.SetDialogue(startingDialogue);
-        hasTalkedAlready = true;
+        
     }
 }
