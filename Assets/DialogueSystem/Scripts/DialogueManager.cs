@@ -56,17 +56,18 @@ namespace DialogueSystem.Scripts
                     gameHudController.NextDialogue(_currentDialogue.text);
                 }
 
+                var voiceActing = _currentDialogue.voiceEvent;
                 // Stores Next Dialogue
                 DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
                 _currentDialogue = nextDialogue;
 
-                if (!_currentDialogue.voiceEvent.IsNull)
+                if (!voiceActing.IsNull)
                 {
-                    SetFMODEventAndPlay(_currentDialogue.voiceEvent);
+                    SetFMODEventAndPlay(voiceActing);
                 }
                 else
                 {
-                    Debug.LogError("Dialogue Event is Empty on " + _currentDialogue);
+                    Debug.LogError("Dialogue Event is Empty on The current line");
                 }
                 
             }
