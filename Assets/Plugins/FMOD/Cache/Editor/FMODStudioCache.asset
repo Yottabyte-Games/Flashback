@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638672753853055041
+  lastModified: 638675366981901424
   FileSizes: []
   Exists: 1
 --- !u!114 &-2466395734737021999
@@ -87,9 +87,36 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/VO.bank
   Name: Desktop/VO
   StudioPath: bank:/VO
-  lastModified: 638672829880800524
+  lastModified: 638675366982723195
   FileSizes: []
   Exists: 1
+--- !u!114 &-1670733792254927291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/MainChar Dialogue 5
+  m_EditorClassIdentifier: 
+  Path: event:/VO/MainChar Dialogue 5
+  Guid:
+    Data1: 750824714
+    Data2: 1187686216
+    Data3: -1367357521
+    Data4: -1707510919
+  Banks:
+  - {fileID: -2466395734737021999}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3291
 --- !u!114 &-672593153779330895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,12 +161,14 @@ MonoBehaviour:
   - {fileID: 8629863078189514493}
   - {fileID: 8524935482943922532}
   - {fileID: 6045107951564929259}
+  - {fileID: -1670733792254927291}
+  - {fileID: 6426724616987695822}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5631110551937880946}
   StringsBanks:
   - {fileID: 4890594795221495791}
-  cacheTime: 638672829880800524
+  cacheTime: 638675366982723195
   cacheVersion: 131621
 --- !u!114 &167923204530544130
 MonoBehaviour:
@@ -201,10 +230,10 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638672753853065900
+  lastModified: 638675366981901424
   FileSizes:
   - Name: 
-    Value: 1188
+    Value: 1252
   Exists: 1
 --- !u!114 &6045107951564929259
 MonoBehaviour:
@@ -233,6 +262,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 20009
+--- !u!114 &6426724616987695822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/MainChar Dialogue 4
+  m_EditorClassIdentifier: 
+  Path: event:/VO/MainChar Dialogue 4
+  Guid:
+    Data1: 946964764
+    Data2: 1214465293
+    Data3: -361469306
+    Data4: 1094057669
+  Banks:
+  - {fileID: -2466395734737021999}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4336
 --- !u!114 &7249088380641788302
 MonoBehaviour:
   m_ObjectHideFlags: 0
