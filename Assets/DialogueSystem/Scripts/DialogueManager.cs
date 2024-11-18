@@ -75,6 +75,14 @@ namespace DialogueSystem.Scripts
 
         void SetFMODEventAndPlay(EventReference voiceEvent)
         {
+            // Stop the currently playing instance if it exists
+            if (_dialogueInstance.isValid())
+            {
+                _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _dialogueInstance.release();
+            }
+
+            // Create and start the new instance
             _dialogueInstance = RuntimeManager.CreateInstance(voiceEvent);
             _dialogueInstance.start();
         }

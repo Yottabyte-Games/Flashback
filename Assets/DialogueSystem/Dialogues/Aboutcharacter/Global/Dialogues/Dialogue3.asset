@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
   m_Name: Dialogue3
   m_EditorClassIdentifier: 
-  <dialogueName>k__BackingField: 
-  <text>k__BackingField: 
-  <choices>k__BackingField: []
+  <dialogueName>k__BackingField: Dialogue3
+  <text>k__BackingField: "But before I go there I should probably get some milk at
+    the store. I should walk by the sea\r"
+  <choices>k__BackingField:
+  - <text>k__BackingField: Next Dialogue
+    <nextDialogue>k__BackingField: {fileID: 0}
   <dialogueType>k__BackingField: 0
   <isStartingDialogue>k__BackingField: 0
   <voiceEvent>k__BackingField:
     Guid:
-      Data1: 1627243438
-      Data2: 1109530674
-      Data3: 1106485925
-      Data4: 1796185894
-    Path: event:/VO/MainChar Dialogue 3
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 

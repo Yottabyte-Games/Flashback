@@ -12,12 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
   m_Name: MultiChoice
   m_EditorClassIdentifier: 
-  <DialogueName>k__BackingField: MultiChoice
-  <Text>k__BackingField: Yooo
-  <Choices>k__BackingField:
-  - <Text>k__BackingField: Yes
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 5919e3c4ef763ab4ea38ba67b01b22d1, type: 2}
-  - <Text>k__BackingField: No
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 5773f749217ef2245afb41fd34e91963, type: 2}
-  <DialogueType>k__BackingField: 1
-  <IsStartingDialogue>k__BackingField: 0
+  <dialogueName>k__BackingField: MultiChoice
+  <text>k__BackingField: Yooo
+  <choices>k__BackingField:
+  - <text>k__BackingField: Yes
+    <nextDialogue>k__BackingField: {fileID: 11400000, guid: 5919e3c4ef763ab4ea38ba67b01b22d1, type: 2}
+  - <text>k__BackingField: No
+    <nextDialogue>k__BackingField: {fileID: 11400000, guid: 5773f749217ef2245afb41fd34e91963, type: 2}
+  <dialogueType>k__BackingField: 1
+  <isStartingDialogue>k__BackingField: 0
+  <voiceEvent>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 

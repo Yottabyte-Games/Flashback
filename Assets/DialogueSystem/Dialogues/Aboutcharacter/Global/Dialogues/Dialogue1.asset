@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
-  <dialogueName>k__BackingField: 
-  <text>k__BackingField: text
-  <choices>k__BackingField: []
+  <dialogueName>k__BackingField: Dialogue1
+  <text>k__BackingField: Today is a nice day, the sun is shining and the clouds are
+    white, I feel that this day will be a great day.
+  <choices>k__BackingField:
+  - <text>k__BackingField: Next Dialogue
+    <nextDialogue>k__BackingField: {fileID: 11400000, guid: 7c4d07cd60d103c4480ed3b5907f4879, type: 2}
   <dialogueType>k__BackingField: 0
   <isStartingDialogue>k__BackingField: 1
   <voiceEvent>k__BackingField:
     Guid:
-      Data1: -1742131369
-      Data2: 1222634033
-      Data3: -1602676589
-      Data4: 1080459112
-    Path: event:/VO/MainChar Dialogue 1
+      Data1: 1627243438
+      Data2: 1109530674
+      Data3: 1106485925
+      Data4: 1796185894
+    Path: event:/VO/MainChar Dialogue 3

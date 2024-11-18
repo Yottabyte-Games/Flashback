@@ -7,13 +7,13 @@ public class MarkerManager : MonoBehaviour
 
     public void AddMarker(Transform t)
     {
-        if (currentMarker != null) Destroy(currentMarker);
+        if (currentMarker is not null) Destroy(currentMarker);
 
         currentMarker = Instantiate(MarkerPrefab, t.transform.position + Vector3.up * 10, t.transform.rotation);
         currentMarker.transform.localScale = Vector3.one*10;
     }
     public void RemoveMarker()
     {
-        if (currentMarker != null) Destroy(currentMarker);
+        if (currentMarker is not null) Destroy(currentMarker);
     }
 }

@@ -17,7 +17,7 @@ public class DialogueStarter : MonoBehaviour
     void Start()
     {
         dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
-        if (dialogueManager == null)
+        if (dialogueManager is null)
         {
             Debug.LogError("Dialogue Manager is null");
         }
@@ -32,7 +32,10 @@ public class DialogueStarter : MonoBehaviour
     public void StartDialogue()
     {
         if (loadSceneAfterDialogue)
+        {
             dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
+            hasTalkedAlready = true;
+        }
         else
             dialogueManager.SetDialogue(startingDialogue);
         hasTalkedAlready = true;
