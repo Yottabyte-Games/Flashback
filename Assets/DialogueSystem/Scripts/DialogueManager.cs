@@ -2,6 +2,7 @@ using DialogueSystem.Scripts.ScriptableObjects;
 using Eflatun.SceneReference;
 using FMODUnity;
 using FMOD.Studio;
+using Rive.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -55,11 +56,19 @@ namespace DialogueSystem.Scripts
                     gameHudController.NextDialogue(_currentDialogue.text);
                 }
 
-                SetFMODEventAndPlay(_currentDialogue.voiceEvent);
-
                 // Stores Next Dialogue
                 DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
                 _currentDialogue = nextDialogue;
+
+                if (!_currentDialogue.voiceEvent.IsNull)
+                {
+                    SetFMODEventAndPlay(_currentDialogue.voiceEvent);
+                }
+                else
+                {
+                    Debug.LogError("Dialogue Event is Empty on " + _currentDialogue);
+                }
+                
             }
             else
             {
