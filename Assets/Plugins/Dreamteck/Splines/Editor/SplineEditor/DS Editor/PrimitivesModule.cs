@@ -1,13 +1,14 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System;
-    using UnityEngine;
-    using Dreamteck.Splines;
-    using Dreamteck.Splines.Primitives;
-    using UnityEditor;
-    using System.Collections;
-    using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Splines.Editor.Primitives;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.DS_Editor
+{
     public class PrimitivesModule : PointTransformModule
     {
         DreamteckSplinesEditor dsEditor = null;
@@ -18,7 +19,7 @@ namespace Dreamteck.Splines.Editor
         int mode = 0, selectedPrimitive = 0, selectedPreset = 0;
         bool createPresetMode = false;
         GUIContent[] toolbarContents = new GUIContent[2];
-        Dreamteck.Editor.Toolbar toolbar;
+        Toolbar toolbar;
 
         private string savePresetName = "", savePresetDescription = "";
 
@@ -31,7 +32,7 @@ namespace Dreamteck.Splines.Editor
             dsEditor = ((DreamteckSplinesEditor)editor);
             toolbarContents[0] = new GUIContent("Primitives", "Procedural Primitives");
             toolbarContents[1] = new GUIContent("Presets", "Saved spline presets");
-            toolbar = new Dreamteck.Editor.Toolbar(toolbarContents, toolbarContents);
+            toolbar = new Toolbar(toolbarContents, toolbarContents);
         }
 
         public override GUIContent GetIconOff()

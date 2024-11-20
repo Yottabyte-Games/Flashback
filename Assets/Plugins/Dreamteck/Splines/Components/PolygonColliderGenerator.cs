@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Threading;
-namespace Dreamteck.Splines
+
+namespace Plugins.Dreamteck.Splines.Components
 {
     [AddComponentMenu("Dreamteck/Splines/Users/Polygon Collider Generator")]
     [RequireComponent(typeof(PolygonCollider2D))]

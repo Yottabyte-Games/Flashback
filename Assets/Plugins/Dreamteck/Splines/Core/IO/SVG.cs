@@ -1,15 +1,14 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
-using System.Text.RegularExpressions;
 using System.Linq;
-using Dreamteck.Splines.Primitives;
-using System;
+using System.Text.RegularExpressions;
+using System.Xml;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core.Primitives;
+using UnityEngine;
 
-namespace Dreamteck.Splines.IO
+namespace Plugins.Dreamteck.Splines.Core.IO
 {
     public class SVG : SplineParser
     {

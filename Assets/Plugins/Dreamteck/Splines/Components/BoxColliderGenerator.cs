@@ -1,7 +1,8 @@
-﻿namespace Dreamteck.Splines
-{
-    using UnityEngine;
+﻿using Plugins.Dreamteck.Splines.Core;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Components
+{
     public class BoxColliderGenerator : SplineUser, ISerializationCallbackReceiver
     {
         [SerializeField] private Vector2 _boxSize = Vector2.one;

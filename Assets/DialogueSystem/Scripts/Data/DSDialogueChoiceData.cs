@@ -7,7 +7,7 @@ namespace DialogueSystem.Scripts.Data
     [Serializable]
     public class DSDialogueChoiceData
     {
-        [field: SerializeField] public string text { get; set; }
-        [field: SerializeField] public DSDialogueSO nextDialogue { get; set; }
+        [field: SerializeField] public string Text { get; set; }
+        [field: SerializeField] public DSDialogueSO NextDialogue { get; set; }
     }
 }

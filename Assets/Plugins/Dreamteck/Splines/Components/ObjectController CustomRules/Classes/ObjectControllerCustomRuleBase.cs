@@ -1,7 +1,8 @@
-namespace Dreamteck.Splines
-{
-    using UnityEngine;
+using Plugins.Dreamteck.Splines.Core;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Components.ObjectController_CustomRules.Classes
+{
     public class ObjectControllerCustomRuleBase : ScriptableObject
     {
         protected ObjectController currentController;

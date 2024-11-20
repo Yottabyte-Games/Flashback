@@ -1,12 +1,13 @@
-using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
+using UnityEditor;
+using UnityEngine;
+using MeshUtility = Plugins.Dreamteck.Utilities.MeshUtility;
+#if UNITY_EDITOR
+#endif
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     [AddComponentMenu("Dreamteck/Splines/Users/Object Bender")]
     public class ObjectBender : SplineUser

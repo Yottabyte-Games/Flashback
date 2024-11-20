@@ -1,9 +1,10 @@
-﻿namespace Dreamteck.Splines
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
+﻿using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Components.Sample_Modifiers
+{
     [System.Serializable]
     public class OffsetModifier : SplineSampleModifier
     {

@@ -1,12 +1,13 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEditor;
-    using System.IO;
-    using Dreamteck.Splines.IO;
+using System.Collections.Generic;
+using System.IO;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Splines.Core.IO;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Tools
+{
     public class ImportExportTool : SplineTool
     {
         private float scaleFactor = 1f;

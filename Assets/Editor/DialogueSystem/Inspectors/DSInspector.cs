@@ -58,7 +58,7 @@ namespace DS.Inspectors
             
             List<string> dialogueNames;
 
-            string dialogueFolderPath = $"Assets/DialogueSystem/Dialogues/{currentDialogueContainer.fileName}";
+            string dialogueFolderPath = $"Assets/DialogueSystem/Dialogues/{currentDialogueContainer.FileName}";
 
             string dialogueInfoMessage;
 
@@ -79,7 +79,7 @@ namespace DS.Inspectors
 
                 dialogueNames = currentDialogueContainer.GetGroupedDialogueNames(dialogueGroup, currentStartingDialoguesOnlyFilter);
 
-                dialogueFolderPath += $"/Groups/{dialogueGroup.groupName}/Dialogues";
+                dialogueFolderPath += $"/Groups/{dialogueGroup.GroupName}/Dialogues";
 
                 dialogueInfoMessage = "There are no" + (currentStartingDialoguesOnlyFilter ? " Starting" : "") + " Dialogues in this Dialogue Group.";
             }
@@ -133,7 +133,7 @@ namespace DS.Inspectors
 
             bool isOldDialogueGroupNull = oldDialogueGroup == null;
 
-            string oldDialogueGroupName = isOldDialogueGroupNull ? "" : oldDialogueGroup.groupName;
+            string oldDialogueGroupName = isOldDialogueGroupNull ? "" : oldDialogueGroup.GroupName;
 
             UpdateIndexOnNamesListUpdate(dialogueGroupNames, selectedDialogueGroupIndexProperty, oldSelectedDialogueGroupIndex, oldDialogueGroupName, isOldDialogueGroupNull);
 
@@ -141,7 +141,7 @@ namespace DS.Inspectors
 
             string selectedDialogueGroupName = dialogueGroupNames[selectedDialogueGroupIndexProperty.intValue];
 
-            DSDialogueGroupSO selectedDialogueGroup = DSIOUtility.LoadAsset<DSDialogueGroupSO>($"Assets/DialogueSystem/Dialogues/{dialogueContainer.fileName}/Groups/{selectedDialogueGroupName}", selectedDialogueGroupName);
+            DSDialogueGroupSO selectedDialogueGroup = DSIOUtility.LoadAsset<DSDialogueGroupSO>($"Assets/DialogueSystem/Dialogues/{dialogueContainer.FileName}/Groups/{selectedDialogueGroupName}", selectedDialogueGroupName);
 
             dialogueGroupProperty.objectReferenceValue = selectedDialogueGroup;
 
@@ -160,7 +160,7 @@ namespace DS.Inspectors
 
             bool isOldDialogueNull = oldDialogue == null;
 
-            string oldDialogueName = isOldDialogueNull ? "" : oldDialogue.dialogueName;
+            string oldDialogueName = isOldDialogueNull ? "" : oldDialogue.DialogueName;
 
             UpdateIndexOnNamesListUpdate(dialogueNames, selectedDialogueIndexProperty, oldSelectedDialogueIndex, oldDialogueName, isOldDialogueNull);
 

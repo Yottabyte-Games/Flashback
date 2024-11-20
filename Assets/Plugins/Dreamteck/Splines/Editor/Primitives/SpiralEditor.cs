@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Plugins.Dreamteck.Splines.Core.Primitives;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.DS_Editor;
 using UnityEditor;
-using Dreamteck.Splines.Editor;
 
-namespace Dreamteck.Splines.Primitives
+namespace Plugins.Dreamteck.Splines.Editor.Primitives
 {
     public class SpiralEditor : PrimitiveEditor
     {

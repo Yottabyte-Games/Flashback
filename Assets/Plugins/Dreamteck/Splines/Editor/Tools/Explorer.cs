@@ -1,11 +1,11 @@
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using UnityEditor;
+using UnityEngine;
 
-namespace Dreamteck.Splines.Editor
+namespace Plugins.Dreamteck.Splines.Editor.Tools
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEditor;
-
     public class Explorer : SplineTool
     {
         GUIStyle normalRow;

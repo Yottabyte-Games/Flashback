@@ -1,9 +1,13 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEditor;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.DS_Editor
+{
     public class DreamteckSplinesEditor : SplineEditor
     {
         public SplineComputer spline = null;
@@ -15,7 +19,7 @@ namespace Dreamteck.Splines.Editor
 
         private Transform _transform;
         private DSCreatePointModule _createPointModule = null;
-        private Dreamteck.Editor.Toolbar _nodesToolbar;
+        private Toolbar _nodesToolbar;
         private bool _splineChanged = false;
 
         private List<Vector3> _triggerWorldPositions = new List<Vector3>();
@@ -49,7 +53,7 @@ namespace Dreamteck.Splines.Editor
             nodeToolbarContents[0] = new GUIContent("Select");
             nodeToolbarContents[1] = new GUIContent("Delete");
             nodeToolbarContents[2] = new GUIContent("Disconnect");
-            _nodesToolbar = new Dreamteck.Editor.Toolbar(nodeToolbarContents);
+            _nodesToolbar = new Toolbar(nodeToolbarContents);
         }
 
         protected override void Load()

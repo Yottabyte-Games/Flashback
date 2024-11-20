@@ -1,8 +1,7 @@
-namespace Dreamteck
-{
-    using System.Linq;
-    using UnityEngine;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Utilities
+{
     public class PrivateSingleton<T> : MonoBehaviour where T : Component
     {
         [SerializeField] protected bool _dontDestryOnLoad = true;

@@ -1,11 +1,13 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using UnityEditor;
-    using System.Collections.Generic;
-    using System.IO;
+using System.Collections.Generic;
+using System.IO;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Editor.Components;
+using UnityEditor;
+using UnityEngine;
+using MeshUtility = Plugins.Dreamteck.Utilities.MeshUtility;
 
+namespace Plugins.Dreamteck.Splines.Editor.Tools
+{
     public class BakeTool : SplineTool
     {
         public enum BakeGroup { All, Selected, AllExcluding }
@@ -165,7 +167,7 @@ namespace Dreamteck.Splines.Editor
                 string meshName = filter.sharedMesh.name;
                 if (files.Length > 0) meshName += "_" + files.Length;
                 string path = savePath + "/" + meshName + ".obj";
-                string objString = Dreamteck.MeshUtility.ToOBJString(filter.sharedMesh, renderer.sharedMaterials);
+                string objString = MeshUtility.ToOBJString(filter.sharedMesh, renderer.sharedMaterials);
                 File.WriteAllText(path, objString);
                 if (copy)
                 {
@@ -185,7 +187,7 @@ namespace Dreamteck.Splines.Editor
                 string relativepath = "Assets" + path.Substring(Application.dataPath.Length);
                 if (copy)
                 {
-                    Mesh assetMesh = Dreamteck.MeshUtility.Copy(filter.sharedMesh);
+                    Mesh assetMesh = MeshUtility.Copy(filter.sharedMesh);
                     AssetDatabase.CreateAsset(assetMesh, relativepath);
                 } else AssetDatabase.CreateAsset(filter.sharedMesh, relativepath);
             }

@@ -1,8 +1,8 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using UnityEditor;
+using Plugins.Dreamteck.Splines.Components;
+using UnityEditor;
 
+namespace Plugins.Dreamteck.Splines.Editor.Components
+{
     [CustomEditor(typeof(CapsuleColliderGenerator), true)]
     [CanEditMultipleObjects]
     public class CapsuleColliderGeneratorEditor : SplineUserEditor

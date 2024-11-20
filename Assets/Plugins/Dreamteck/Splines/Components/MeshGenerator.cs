@@ -1,11 +1,10 @@
-using UnityEngine;
-using System.Collections;
-using System.Threading;
-#if UNITY_EDITOR
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
 using UnityEditor;
-#endif 
+using UnityEngine;
+using MeshUtility = Plugins.Dreamteck.Utilities.MeshUtility;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     public class MeshGenerator : SplineUser
     {

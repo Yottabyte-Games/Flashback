@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace Dreamteck
+namespace Plugins.Dreamteck.Utilities
 {
     [System.Serializable]
     public class TS_Bounds

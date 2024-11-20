@@ -1,10 +1,9 @@
-using UnityEngine;
 using System.Collections;
-#if UNITY_EDITOR
+using Plugins.Dreamteck.Splines.Components.ObjectController_CustomRules.Classes;
 using UnityEditor;
-#endif
+using UnityEngine;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     [AddComponentMenu("Dreamteck/Splines/Users/Object Controller")]
     public class ObjectController : SplineUser

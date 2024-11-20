@@ -1,10 +1,10 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using UnityEditor;
-    using System.IO;
+using System.IO;
+using Plugins.Dreamteck.Splines.Components;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Components
+{
     public class BakeMeshWindow : EditorWindow
     {
         public bool isStatic = true;
@@ -162,14 +162,14 @@ namespace Dreamteck.Splines.Editor
             {
                 if (copy)
                 {
-                    Mesh assetMesh = Dreamteck.MeshUtility.Copy(filter.sharedMesh);
+                    Mesh assetMesh = Utilities.MeshUtility.Copy(filter.sharedMesh);
                     AssetDatabase.CreateAsset(assetMesh, relativePath);
                 } else AssetDatabase.CreateAsset(filter.sharedMesh, relativePath);
             }
 
             if (format == SaveFormat.OBJ)
             {
-                string objString = Dreamteck.MeshUtility.ToOBJString(filter.sharedMesh, renderer.sharedMaterials);
+                string objString = Utilities.MeshUtility.ToOBJString(filter.sharedMesh, renderer.sharedMaterials);
                 File.WriteAllText(savePath, objString);
                 if (!copy) DestroyImmediate(filter.sharedMesh);
                 if (relativePath != "") //Import back the OBJ

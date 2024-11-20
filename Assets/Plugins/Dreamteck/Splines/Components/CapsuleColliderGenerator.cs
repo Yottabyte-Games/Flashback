@@ -1,7 +1,8 @@
-﻿namespace Dreamteck.Splines
-{
-    using UnityEngine;
+﻿using Plugins.Dreamteck.Splines.Core;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Components
+{
     public class CapsuleColliderGenerator : SplineUser, ISerializationCallbackReceiver
     {
         [SerializeField, HideInInspector, Min(0f)] private float _radius = 1f;

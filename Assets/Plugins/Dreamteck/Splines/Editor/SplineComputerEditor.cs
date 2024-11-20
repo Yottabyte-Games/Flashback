@@ -1,12 +1,16 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections.Generic;
-    using UnityEditor;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.DS_Editor;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor
+{
     [CustomEditor(typeof(SplineComputer), true)]
     [CanEditMultipleObjects]
-    public partial class SplineComputerEditor : Editor 
+    public partial class SplineComputerEditor : UnityEditor.Editor 
     {
         public SplineComputer spline;
         public SplineComputer[] splines = new SplineComputer[0];
@@ -139,7 +143,7 @@ namespace Dreamteck.Splines.Editor
             _pathEditor = new DreamteckSplinesEditor(spline, serializedObject);
             _pathEditor.undoHandler = RecordUndo;
             _pathEditor.repaintHandler = OnRepaint;
-            _pathEditor.editSpace = (SplineEditor.Space)SplinePrefs.pointEditSpace;
+            _pathEditor.editSpace = (SplineEditor.SplineEditor.Space)SplinePrefs.pointEditSpace;
         }
 
         private void InitializeComputerEditor()
@@ -200,7 +204,7 @@ namespace Dreamteck.Splines.Editor
                 SplineEditorGUI.BeginContainerBox(ref _pathEditor.open, "Edit");
                 if (_pathEditor.open)
                 {
-                    SplineEditor.Space lastSpace = _pathEditor.editSpace;
+                    SplineEditor.SplineEditor.Space lastSpace = _pathEditor.editSpace;
                     _pathEditor.DrawInspector();
                     if (lastSpace != _pathEditor.editSpace)
                     {
@@ -208,9 +212,9 @@ namespace Dreamteck.Splines.Editor
                         SplinePrefs.SavePrefs();
                     }
                 }
-                else if (_pathEditor.lastEditorTool != Tool.None && Tools.current == Tool.None)
+                else if (_pathEditor.lastEditorTool != Tool.None && UnityEditor.Tools.current == Tool.None)
                 {
-                    Tools.current = _pathEditor.lastEditorTool;
+                    UnityEditor.Tools.current = _pathEditor.lastEditorTool;
                 }
                 SplineEditorGUI.EndContainerBox();
             }

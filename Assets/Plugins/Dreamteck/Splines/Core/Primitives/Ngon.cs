@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Dreamteck.Splines.Primitives
+namespace Plugins.Dreamteck.Splines.Core.Primitives
 {
     public class Ngon : SplinePrimitive
     {

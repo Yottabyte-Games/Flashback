@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using DialogueSystem.Scripts.Data;
 using DialogueSystem.Scripts.ScriptableObjects;
-using FMODUnity;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -109,7 +108,7 @@ namespace DS.Utilities
 
             createdDialogueGroups.Add(group.ID, dialogueGroup);
 
-            dialogueContainer.dialogueGroups.Add(dialogueGroup, new List<DSDialogueSO>());
+            dialogueContainer.DialogueGroups.Add(dialogueGroup, new List<DSDialogueSO>());
 
             SaveAsset(dialogueGroup);
         }
@@ -181,13 +180,13 @@ namespace DS.Utilities
             {
                 dialogue = CreateAsset<DSDialogueSO>($"{containerFolderPath}/Groups/{node.Group.title}/Dialogues", node.DialogueName);
 
-                dialogueContainer.dialogueGroups.AddItem(createdDialogueGroups[node.Group.ID], dialogue);
+                dialogueContainer.DialogueGroups.AddItem(createdDialogueGroups[node.Group.ID], dialogue);
             }
             else
             {
                 dialogue = CreateAsset<DSDialogueSO>($"{containerFolderPath}/Global/Dialogues", node.DialogueName);
 
-                dialogueContainer.ungroupedDialogues.Add(dialogue);
+                dialogueContainer.UngroupedDialogues.Add(dialogue);
             }
 
             dialogue.Initialize(
@@ -195,14 +194,14 @@ namespace DS.Utilities
                 node.Text,
                 ConvertNodeChoicesToDialogueChoices(node.Choices),
                 node.DialogueType,
-                node.IsStartingNode(),
-                node.voiceEvent 
+                node.IsStartingNode()
             );
 
             createdDialogues.Add(node.ID, dialogue);
 
             SaveAsset(dialogue);
         }
+
         static List<DSDialogueChoiceData> ConvertNodeChoicesToDialogueChoices(List<DSChoiceSaveData> nodeChoices)
         {
             List<DSDialogueChoiceData> dialogueChoices = new List<DSDialogueChoiceData>();
@@ -211,7 +210,7 @@ namespace DS.Utilities
             {
                 DSDialogueChoiceData choiceData = new DSDialogueChoiceData()
                 {
-                    text = nodeChoice.Text
+                    Text = nodeChoice.Text
                 };
 
                 dialogueChoices.Add(choiceData);
@@ -235,7 +234,7 @@ namespace DS.Utilities
                         continue;
                     }
 
-                    dialogue.choices[choiceIndex].nextDialogue = createdDialogues[nodeChoice.NodeID];
+                    dialogue.Choices[choiceIndex].NextDialogue = createdDialogues[nodeChoice.NodeID];
 
                     SaveAsset(dialogue);
                 }

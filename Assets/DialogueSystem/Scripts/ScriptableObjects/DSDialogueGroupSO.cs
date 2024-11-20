@@ -4,11 +4,11 @@ namespace DialogueSystem.Scripts.ScriptableObjects
 {
     public class DSDialogueGroupSO : ScriptableObject
     {
-        [field: SerializeField] public string groupName { get; set; }
+        [field: SerializeField] public string GroupName { get; set; }
 
         public void Initialize(string groupName)
         {
-            this.groupName = groupName;
+            GroupName = groupName;
         }
     }
 }

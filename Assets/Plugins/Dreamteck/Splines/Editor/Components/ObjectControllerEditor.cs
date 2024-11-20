@@ -1,10 +1,10 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using UnityEditor;
-    using Dreamteck.Splines;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Components.ObjectController_CustomRules.Classes;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Components
+{
     [CustomEditor(typeof(ObjectController))]
     [CanEditMultipleObjects]
     public class ObjectControllerEditor : SplineUserEditor

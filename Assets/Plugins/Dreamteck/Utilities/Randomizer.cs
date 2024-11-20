@@ -1,7 +1,7 @@
-namespace Dreamteck.Utilities
-{
-    using UnityEngine;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Utilities
+{
     public class Randomizer
     {
         private int _seed;

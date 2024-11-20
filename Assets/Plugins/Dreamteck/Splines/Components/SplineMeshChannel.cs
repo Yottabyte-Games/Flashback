@@ -1,7 +1,9 @@
-using UnityEngine;
 using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components.Sample_Modifiers;
+using Plugins.Dreamteck.Utilities;
+using UnityEngine;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     public partial class SplineMesh : MeshGenerator
     {

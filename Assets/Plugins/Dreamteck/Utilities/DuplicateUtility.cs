@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dreamteck
+namespace Plugins.Dreamteck.Utilities
 {
     public static class DuplicateUtility
     {

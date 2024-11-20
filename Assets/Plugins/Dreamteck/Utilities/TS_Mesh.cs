@@ -1,8 +1,8 @@
-namespace Dreamteck
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Plugins.Dreamteck.Utilities
 {
-    using UnityEngine;
-    using System.Collections;
-    using System.Collections.Generic;
     //Thread-safe mesh & bounds classes for working with threads.
     public class TS_Mesh
     {

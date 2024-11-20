@@ -1,10 +1,13 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEditor;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.DS_Editor
+{
     public class ComputerEditor : SplineEditorBase
     {
         public bool drawComputer = true;
@@ -13,9 +16,9 @@ namespace Dreamteck.Splines.Editor
         private DreamteckSplinesEditor _pathEditor;
         private int _operation = -1, _module = -1, _transformTool = 1;
         private ComputerEditorModule[] _modules = new ComputerEditorModule[0];
-        private Dreamteck.Editor.Toolbar _utilityToolbar;
-        private Dreamteck.Editor.Toolbar _operationsToolbar;
-        private Dreamteck.Editor.Toolbar _transformToolbar;
+        private Toolbar _utilityToolbar;
+        private Toolbar _operationsToolbar;
+        private Toolbar _transformToolbar;
         private SplineComputer _spline = null;
         private SplineComputer[] _splines = new SplineComputer[0];
         private bool _pathToolsFoldout = false, _interpolationFoldout = false;
@@ -65,7 +68,7 @@ namespace Dreamteck.Splines.Editor
                 _modules[i].undoHandler += OnRecordUndo;
                 _modules[i].repaintHandler += OnRepaint;
             }
-            _utilityToolbar = new Dreamteck.Editor.Toolbar(utilityContents, utilityContentsSelected, 35f);
+            _utilityToolbar = new Toolbar(utilityContents, utilityContentsSelected, 35f);
             _utilityToolbar.newLine = false;
 
 
@@ -83,7 +86,7 @@ namespace Dreamteck.Splines.Editor
             transformContents[index] = EditorGUIUtility.IconContent("ScaleTool");
             transformContentsSelected[index] = EditorGUIUtility.IconContent("ScaleTool On");
 
-            _transformToolbar = new Dreamteck.Editor.Toolbar(transformContents, transformContentsSelected, 35f);
+            _transformToolbar = new Toolbar(transformContents, transformContentsSelected, 35f);
             _transformToolbar.newLine = false;
 
             index = 0;
@@ -93,7 +96,7 @@ namespace Dreamteck.Splines.Editor
                 operationContents[i] = new GUIContent("");
                 operationContentsSelected[i] = new GUIContent("");
             }
-            _operationsToolbar = new Dreamteck.Editor.Toolbar(operationContents, operationContentsSelected, 64f);
+            _operationsToolbar = new Toolbar(operationContents, operationContentsSelected, 64f);
             _operationsToolbar.newLine = false;
         }
 
@@ -331,7 +334,7 @@ namespace Dreamteck.Splines.Editor
             if (lastTool != _transformTool && _transformTool > 0)
             {
                 _pathEditor.UntoggleCurrentModule();
-                Tools.current = Tool.None;
+                UnityEditor.Tools.current = Tool.None;
             }
             EditorGUILayout.EndHorizontal();
 
@@ -537,7 +540,7 @@ namespace Dreamteck.Splines.Editor
 
             if (_pathEditor.currentModule == null)
             {
-                if(_splines.Length > 1 || Tools.current != Tool.None)
+                if(_splines.Length > 1 || UnityEditor.Tools.current != Tool.None)
                 {
                     _transformTool = 0;
                 }

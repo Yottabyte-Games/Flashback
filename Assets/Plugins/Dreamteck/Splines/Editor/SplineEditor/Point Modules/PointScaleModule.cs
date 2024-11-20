@@ -1,10 +1,8 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using UnityEditor;
-    using System.Collections;
-    using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules
+{
     public class PointScaleModule : PointTransformModule
     {
         public bool scaleSize = true;

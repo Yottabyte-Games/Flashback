@@ -1,7 +1,10 @@
+using Plugins.Dreamteck.Splines.Components.Sample_Modifiers;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     public delegate void SplineReachHandler();
     [AddComponentMenu("Dreamteck/Splines/Users/Spline Follower")]

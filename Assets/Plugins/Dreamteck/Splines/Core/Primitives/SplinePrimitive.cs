@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Plugins.Dreamteck.Splines.Components;
 using UnityEngine;
 
-namespace Dreamteck.Splines.Primitives {
+namespace Plugins.Dreamteck.Splines.Core.Primitives {
     public class SplinePrimitive
     {
         protected bool closed = false;

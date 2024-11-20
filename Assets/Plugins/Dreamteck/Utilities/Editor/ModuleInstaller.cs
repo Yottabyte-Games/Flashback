@@ -1,11 +1,10 @@
-namespace Dreamteck.Editor
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using System.IO;
-    using UnityEditor;
+using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Utilities.Editor
+{
     public class ModuleInstaller
     {
         protected const string DREAMTECK_FOLDER_NAME = "Dreamteck";

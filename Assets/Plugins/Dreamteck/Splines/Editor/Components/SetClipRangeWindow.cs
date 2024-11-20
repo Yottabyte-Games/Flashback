@@ -1,9 +1,8 @@
-﻿namespace Dreamteck.Splines.Editor
+﻿using UnityEditor;
+using UnityEngine;
+
+namespace Plugins.Dreamteck.Splines.Editor.Components
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEditor;
     public class ClipRangeWindow : EditorWindow
     {
         private float from = 0f;

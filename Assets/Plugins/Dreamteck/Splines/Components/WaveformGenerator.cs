@@ -1,8 +1,7 @@
+using Plugins.Dreamteck.Utilities;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     [RequireComponent(typeof(MeshFilter))]
     [RequireComponent(typeof(MeshRenderer))]

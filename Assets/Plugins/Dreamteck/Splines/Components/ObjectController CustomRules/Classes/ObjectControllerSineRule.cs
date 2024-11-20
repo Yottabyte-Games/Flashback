@@ -1,7 +1,7 @@
-namespace Dreamteck.Splines
-{
-    using UnityEngine;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Components.ObjectController_CustomRules.Classes
+{
     //Use the CreateAssetMenu attribute to add the object to the Create Asset context menu
     //After that, go to Assets/Create/Dreamteck/Splines/... and create the scriptable object
     [CreateAssetMenu(menuName = "Dreamteck/Splines/Object Controller Rules/Sine Rule")]

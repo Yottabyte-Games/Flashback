@@ -1,9 +1,10 @@
-using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
 using UnityEditor;
+using UnityEngine;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Editor.Tools
 {
     public class LevelTerrainTool : SplineTool
     {

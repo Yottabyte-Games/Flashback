@@ -1,8 +1,5 @@
-using DialogueSystem.Scripts.ScriptableObjects;
 using Eflatun.SceneReference;
-using FMODUnity;
-using FMOD.Studio;
-using Rive.Utils;
+using DialogueSystem.Scripts.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,21 +9,21 @@ namespace DialogueSystem.Scripts
     {
         [SerializeField] GameHudController gameHudController;
 
-        bool _isDialogueActive;
 
-        DSDialogueSO _currentDialogue;
-        InputAction _nextDialogueAction;
-        EventInstance _dialogueInstance;
-        SceneReference _sceneToLoad;
+        DSDialogueSO currentDialogue;
+        bool isDialogueActive;
+        SceneReference sceneToLoad;
+        
+        InputAction NextDialogueAction;
 
         void Start()
         {
-            _nextDialogueAction = InputSystem.actions.FindAction("Interact");
+            NextDialogueAction = InputSystem.actions.FindAction("Interact");
         }
 
         void Update()
         {
-            if (_nextDialogueAction.WasPressedThisFrame() && _isDialogueActive)
+            if (NextDialogueAction.WasPressedThisFrame() && isDialogueActive)
             {
                 PlayDialogueLine();
             }
@@ -34,67 +31,40 @@ namespace DialogueSystem.Scripts
 
         public void SetDialogue(DSDialogueSO startingDialogue, SceneReference scene = null)
         {
-            _currentDialogue = startingDialogue;
+            currentDialogue = startingDialogue;
             PlayDialogueLine();
-            _sceneToLoad = scene;
+            sceneToLoad = scene;
         }
-
+        
         void PlayDialogueLine()
         {
             print("Playing Dialogue");
-            if (_currentDialogue is not null)
+            if (currentDialogue != null)
             {
                 // If first dialogue load Text Box
-                if (_currentDialogue.isStartingDialogue)
+                if (currentDialogue.IsStartingDialogue)
                 {
-                    gameHudController.StartDialogue(_currentDialogue.text);
-                    _isDialogueActive = true;
+                    gameHudController.StartDialogue(currentDialogue.Text);
+                    isDialogueActive = true;
                 }
                 // For every other text go to next text
                 else
                 {
-                    gameHudController.NextDialogue(_currentDialogue.text);
+                    gameHudController.NextDialogue(currentDialogue.Text);
                 }
-
-                var voiceActing = _currentDialogue.voiceEvent;
-                // Stores Next Dialogue
-                DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
-                _currentDialogue = nextDialogue;
-
-                if (!voiceActing.IsNull)
-                {
-                    SetFMODEventAndPlay(voiceActing);
-                }
-                else
-                {
-                    Debug.LogError("Dialogue Event is Empty on The current line");
-                }
-                
+                //Stores Next Dialogue
+                DSDialogueSO nextDialogue = currentDialogue.Choices[0].NextDialogue;
+                currentDialogue = nextDialogue;
             }
             else
             {
-                if (_sceneToLoad is not null)
+                if (sceneToLoad!=null)
                 {
-                    gameHudController.EndDialogue(_sceneToLoad);
+                    gameHudController.EndDialogue(sceneToLoad);
                 }
-
                 gameHudController.EndDialogue();
-                _isDialogueActive = false;
+                isDialogueActive = false;
             }
-        }
-
-        void SetFMODEventAndPlay(EventReference voiceEvent)
-        {
-            // Stop the currently playing instance if it exists
-            if (_dialogueInstance.isValid())
-            {
-                _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                _dialogueInstance.release();
-            }
-
-            // Create and start the new instance
-            _dialogueInstance = RuntimeManager.CreateInstance(voiceEvent);
-            _dialogueInstance.start();
         }
     }
 }

@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEditorInternal;
 using System.Collections.Generic;
+using NaughtyAttributes.Scripts.Editor.Utility;
 
 namespace NaughtyAttributes.Editor
 {

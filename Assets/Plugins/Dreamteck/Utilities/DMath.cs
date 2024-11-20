@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
+﻿using System;
+using UnityEngine;
 
-namespace Dreamteck
+namespace Plugins.Dreamteck.Utilities
 {
     public static class DMath
     {

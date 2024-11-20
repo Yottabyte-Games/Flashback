@@ -1,13 +1,16 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEditor;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Splines.Editor.Sample_Modifiers;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.Components
+{
     [CustomEditor(typeof(SplineUser), true)]
     [CanEditMultipleObjects]
-    public class SplineUserEditor : Editor
+    public class SplineUserEditor : UnityEditor.Editor
     {
         protected bool showClip = true;
         protected bool showAveraging = true;

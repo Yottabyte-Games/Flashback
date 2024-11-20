@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.IO;
 
-namespace Dreamteck
+namespace Plugins.Dreamteck.Utilities
 {
     public static class LinearAlgebraUtility
     {

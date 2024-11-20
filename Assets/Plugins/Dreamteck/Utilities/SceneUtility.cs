@@ -1,9 +1,9 @@
-namespace Dreamteck
-{
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
+namespace Plugins.Dreamteck.Utilities
+{
     public static class SceneUtility
     {
         public static List<Transform> childrenList = new List<Transform>();

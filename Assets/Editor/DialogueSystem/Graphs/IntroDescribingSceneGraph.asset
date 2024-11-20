@@ -15,31 +15,51 @@ MonoBehaviour:
   <FileName>k__BackingField: IntroDescribingScene
   <Groups>k__BackingField: []
   <Nodes>k__BackingField:
+  - <ID>k__BackingField: 0f02cc7e-061e-4e36-8fdc-ec7cc524bc5c
+    <Name>k__BackingField: Dialogue1
+    <Text>k__BackingField: "Today is the day I\u2019m going to the psychiatrist,
+      another day where everything is fine."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 9c9b83c8-b691-43f6-a90a-2fdd63a5fa22
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 78, y: 158}
   - <ID>k__BackingField: f1b3859d-0019-48e3-88fc-c978e3292f3a
-    <Name>k__BackingField: Dialogue2
+    <Name>k__BackingField: Dialogue3
     <Text>k__BackingField: "I should use the Arrow Keys or W A S D to move while
-      using the mouse to look around.If I see something, I can interact with them
-      by pressing the E button.\r"
+      using the mouse to look around.\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 793a4107-8065-4f70-b795-4a35cd0d78e5
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1085, y: 158}
+  - <ID>k__BackingField: 793a4107-8065-4f70-b795-4a35cd0d78e5
+    <Name>k__BackingField: Dialogue4
+    <Text>k__BackingField: "If I see something, I can interact with them by pressing
+      the E button.\r"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1085, y: 158}
-  - <ID>k__BackingField: 0f02cc7e-061e-4e36-8fdc-ec7cc524bc5c
-    <Name>k__BackingField: Dialogue1
-    <Text>k__BackingField: "Today is the day I\u2019m going to the psychiatrist,
-      another day where everything is fine.But first I need to stop by the local
-      J\xE5ker to buy milk"
+    <Position>k__BackingField: {x: 1695, y: 158}
+  - <ID>k__BackingField: 9c9b83c8-b691-43f6-a90a-2fdd63a5fa22
+    <Name>k__BackingField: Dialogue2
+    <Text>k__BackingField: "But first I need to stop by the local J\xE5ker to buy
+      milk.\r"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: f1b3859d-0019-48e3-88fc-c978e3292f3a
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 137, y: 145}
+    <Position>k__BackingField: {x: 660, y: 158}
   <OldGroupNames>k__BackingField: []
   <OldUngroupedNodeNames>k__BackingField:
-  - Dialogue2
   - Dialogue1
+  - Dialogue3
+  - Dialogue4
+  - Dialogue2
   <OldGroupedNodeNames>k__BackingField:
     list: []

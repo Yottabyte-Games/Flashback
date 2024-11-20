@@ -1,10 +1,12 @@
-namespace Dreamteck.Splines.Editor
-{
-using UnityEngine;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities;
+using Plugins.Dreamteck.Utilities.Editor;
 using UnityEditor;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
+using ArrayUtility = Plugins.Dreamteck.Utilities.ArrayUtility;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules
+{
     public class CreatePointModule : PointModule
     {
         public enum AppendMode { Beginning = 0, End = 1}
@@ -187,12 +189,12 @@ using System.Collections.Generic;
             SplinePoint[] newPoints = editor.GetPointsArray();
             if (appendMode == AppendMode.End)
             {
-                Dreamteck.ArrayUtility.Add(ref newPoints, newPoint);
+                ArrayUtility.Add(ref newPoints, newPoint);
                 lastCreated = newPoints.Length - 1;
             }
             else
             {
-                Dreamteck.ArrayUtility.Insert(ref newPoints, 0, newPoint);
+                ArrayUtility.Insert(ref newPoints, 0, newPoint);
                 lastCreated = 0;
             }
 

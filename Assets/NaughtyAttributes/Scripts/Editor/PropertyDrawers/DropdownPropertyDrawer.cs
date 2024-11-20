@@ -4,8 +4,11 @@ using System.Collections;
 using System.Reflection;
 using System;
 using System.Collections.Generic;
+using NaughtyAttributes.Editor;
+using NaughtyAttributes.Scripts.Editor.Utility;
 
-namespace NaughtyAttributes.Editor
+//Scripts.Editor.PropertyDrawers
+namespace NaughtyAttributes.Scripts.Editor.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(DropdownAttribute))]
     public class DropdownPropertyDrawer : PropertyDrawerBase

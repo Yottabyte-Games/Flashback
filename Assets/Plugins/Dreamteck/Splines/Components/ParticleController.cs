@@ -1,9 +1,9 @@
-namespace Dreamteck.Splines
-{
-    using UnityEngine;
-    using System.Collections;
-    using System.Collections.Generic;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Utilities;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Components
+{
     [ExecuteInEditMode]
     [AddComponentMenu("Dreamteck/Splines/Users/Particle Controller")]
     public class ParticleController : SplineUser

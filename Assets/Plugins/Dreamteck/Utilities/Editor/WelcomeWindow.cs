@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Dreamteck
+namespace Plugins.Dreamteck.Utilities.Editor
 {
     public class WelcomeWindow : EditorWindow
     {

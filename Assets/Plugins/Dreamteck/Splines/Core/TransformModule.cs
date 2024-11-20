@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Core
 {
 
     [System.Serializable]

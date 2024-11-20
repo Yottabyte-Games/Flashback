@@ -3,16 +3,12 @@ using Eflatun.SceneReference;
 using Plugins.Rive.UI;
 using Rive;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameHudController : MonoBehaviour
 {
-    [SerializeField] private RiveScreen riveScreen;
-    private SceneReference _sceneToLoad;
-    
-    private InputAction _pauseAction;
-
+    [SerializeField] RiveScreen riveScreen;
+    SceneReference _sceneToLoad;
 
     void Start()
     {
@@ -28,29 +24,16 @@ public class GameHudController : MonoBehaviour
         riveScreen = GetComponent<RiveScreen>();
 
         riveScreen.OnRiveEvent += RiveEventHandler;
-        
-        _pauseAction = InputSystem.actions.FindAction("Pause");
     }
 
-    private void RiveEventHandler(ReportedEvent reportedEvent)
+    private void RiveEventHandler(ReportedEvent reportedevent)
     {
-        if (reportedEvent.Name == "FlashbackEvent" && _sceneToLoad != null)
+        if (reportedevent.Name == "FlashbackEvent" && _sceneToLoad != null)
         {
             SceneManager.LoadScene(_sceneToLoad.Name);
         }
     }
-
-    private void Update()
-    {
-        if (_pauseAction.WasPressedThisFrame())
-        { 
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            // Set Pause Scene from Rive
-            riveScreen.SetRiveScene(RiveScreen.RiveScenes.PauseMenu);
-        }
-    }
-
+    
 
     // First Dialogue should call this
     public void StartDialogue(string dialogueString)

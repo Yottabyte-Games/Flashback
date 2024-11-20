@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
 using UnityEngine;
 
-namespace Dreamteck.Splines.IO
+namespace Plugins.Dreamteck.Splines.Core.IO
 {
     public class SplineParser 
     {

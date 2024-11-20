@@ -1,9 +1,10 @@
 #if UNITY_EDITOR
-using Dreamteck.Splines.Editor;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules;
 using UnityEditor;
 using UnityEngine;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Editor.Components
 {
     [CustomEditor(typeof(ComplexSurfaceGenerator), true)]
     public class ComplexSurfaceGeneratorEditor : MeshGenEditor

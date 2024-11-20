@@ -17,7 +17,7 @@ public class DialogueStarter : MonoBehaviour
     void Start()
     {
         dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
-        if (dialogueManager is null)
+        if (dialogueManager == null)
         {
             Debug.LogError("Dialogue Manager is null");
         }
@@ -25,23 +25,16 @@ public class DialogueStarter : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+        if (!hasTalkedAlready)
             StartDialogue();
     }
 
     public void StartDialogue()
     {
-        if (!hasTalkedAlready)
-        {
-            if (loadSceneAfterDialogue)
-            {
-                dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
-                hasTalkedAlready = true;
-            }
-            else
-                dialogueManager.SetDialogue(startingDialogue);
-            hasTalkedAlready = true;
-        }
-        
+        if (loadSceneAfterDialogue)
+            dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
+        else
+            dialogueManager.SetDialogue(startingDialogue);
+        hasTalkedAlready = true;
     }
 }

@@ -1,11 +1,12 @@
-namespace Dreamteck.Splines.Editor
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Splines.Editor.Components;
+using Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules;
+using UnityEditor;
+using UnityEngine;
+
+namespace Plugins.Dreamteck.Splines.Editor.Sample_Modifiers
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-
-    using UnityEditor;
-
     public class OffsetModifierEditor : SplineSampleModifierEditor
     {
         public bool allowSelection = true;

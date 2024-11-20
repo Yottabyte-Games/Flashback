@@ -1,10 +1,10 @@
-namespace Dreamteck.Splines.Editor
-{
-    using UnityEngine;
-    using UnityEditor;
-    using System.Collections;
-    using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Core;
+using Plugins.Dreamteck.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor.SplineEditor.Point_Modules
+{
     public class PointMoveModule : PointTransformModule
     {
         public bool snap = false;

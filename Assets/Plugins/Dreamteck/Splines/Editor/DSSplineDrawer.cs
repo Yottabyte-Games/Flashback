@@ -1,11 +1,12 @@
-namespace Dreamteck.Splines.Editor
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEditor;
-    using UnityEngine;
-    using UnityEditor.SceneManagement;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Splines.Core;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
 
+namespace Plugins.Dreamteck.Splines.Editor
+{
     [InitializeOnLoad]
     public static class DSSplineDrawer
     {

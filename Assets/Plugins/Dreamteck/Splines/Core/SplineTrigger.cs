@@ -1,9 +1,11 @@
-namespace Dreamteck.Splines
-{
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.Events;
+using System.Collections.Generic;
+using Plugins.Dreamteck.Splines.Components;
+using Plugins.Dreamteck.Utilities;
+using UnityEngine;
+using UnityEngine.Events;
 
+namespace Plugins.Dreamteck.Splines.Core
+{
     [System.Serializable]
     public class TriggerGroup{
 #if UNITY_EDITOR

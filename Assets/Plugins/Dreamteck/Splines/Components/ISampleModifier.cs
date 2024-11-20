@@ -1,6 +1,7 @@
+using Plugins.Dreamteck.Splines.Core;
 using UnityEngine;
 
-namespace Dreamteck.Splines
+namespace Plugins.Dreamteck.Splines.Components
 {
     public interface ISampleModifier
     {
