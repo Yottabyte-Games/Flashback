@@ -3648,48 +3648,39 @@ PrefabInstance:
     m_TransformParent: {fileID: 93553487}
     m_Modifications:
     - target: {fileID: 925384196887425904, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: FishCaught.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 925384196887425904, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: FishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 925384196887425904, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
       propertyPath: FishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1229144151}
-    - target: {fileID: 925384196887425904, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: FishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+    - target: {fileID: 1369678686663692670, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+      propertyPath: m_Color.a
+      value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 925384196887425904, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: FishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 925384196887425904, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: FishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialoguePlayer, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 925384196887425904, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: FishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+    - target: {fileID: 1369678686663692670, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2428569267528506156, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
       propertyPath: m_Color.a
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2428569267528506156, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_FillAmount
-      value: 0.721
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 2428569267528506156, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428569267528506156, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7
+      objectReference: {fileID: 0}
+>>>>>>> Fishing
     - target: {fileID: 3342296846655013807, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
       propertyPath: m_Name
       value: FishingRod
-      objectReference: {fileID: 0}
-    - target: {fileID: 6552885596054496566, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
-      propertyPath: m_Value
-      value: 0.721
       objectReference: {fileID: 0}
     - target: {fileID: 6626804480151116304, guid: 2ccfff7b6b781e744890ee5c9e7ee567, type: 3}
       propertyPath: m_LocalPosition.x
