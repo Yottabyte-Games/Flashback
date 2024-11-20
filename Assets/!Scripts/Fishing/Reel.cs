@@ -83,7 +83,8 @@ namespace _Scripts.Fishing
         //Sorry Torje
         private void PlayDialogue()
         {
-            ds[reelCounter].StartDialogue();
+            if (reelCounter < ds.Length)
+                ds[reelCounter].StartDialogue();
             reelCounter++;
         }
     }
