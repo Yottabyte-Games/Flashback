@@ -74,10 +74,9 @@ namespace _Scripts.Fishing
             reelUI.SetActive(false);
 
             await rod.ReelHook();
+            rod.ToggleReeling(false);
 
             PlayDialogue();
-            
-            rod.ToggleReeling(false);
         }
 
         //Sorry Torje
