@@ -3,6 +3,7 @@ using Eflatun.SceneReference;
 using Plugins.Rive.UI;
 using Rive;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameHudController : MonoBehaviour
@@ -10,6 +11,11 @@ public class GameHudController : MonoBehaviour
     [SerializeField] RiveScreen riveScreen;
     SceneReference _sceneToLoad;
 
+    
+    InputAction PauseAction;
+
+   
+    
     void Start()
     {
         if (riveScreen is null)
@@ -23,7 +29,17 @@ public class GameHudController : MonoBehaviour
 
         riveScreen = GetComponent<RiveScreen>();
 
+        PauseAction = InputSystem.actions.FindAction("Pause");
+
         riveScreen.OnRiveEvent += RiveEventHandler;
+    }
+
+    private void Update()
+    {
+        if (PauseAction.WasPressedThisFrame())
+        {
+            riveScreen.SetRiveScene(RiveScreen.RiveScenes.PauseMenu);
+        }
     }
 
     private void RiveEventHandler(ReportedEvent reportedevent)
