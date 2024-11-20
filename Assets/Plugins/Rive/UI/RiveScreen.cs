@@ -82,13 +82,24 @@ namespace Plugins.Rive.UI
 // Draw a Rive artboard to the screen. Must be bound to a camera.
     public class RiveScreen : MonoBehaviour
     {
-        enum RiveScenes
+        public enum RiveScenes
         {
             HUD,
             MainMenu,
+            MiniGameSelectMenu,
             PauseMenu,
+            SettingsMenu,
         }
-        
+        private static readonly Dictionary<RiveScenes, string> referenceNames = new Dictionary<RiveScenes, string>()
+        {
+            { RiveScenes.HUD, "HUD" },
+            { RiveScenes.MainMenu, "Home Screen" },
+            { RiveScenes.MiniGameSelectMenu, "Mini Games Select Menu" },
+            { RiveScenes.PauseMenu, "Pause Menu" },
+            { RiveScenes.SettingsMenu, "Settings Menu" },
+        };
+        public RiveScenes currentScene;
+        private RiveScenes firstScene;
         
         public Asset asset;
         public CameraEvent cameraEvent = CameraEvent.AfterEverything;
@@ -109,16 +120,6 @@ namespace Plugins.Rive.UI
 
         public StateMachine stateMachine { get; private set; }
         
-        [Tooltip("Default is HUD")]
-        [SerializeField] private RiveScenes _riveSceneForUI = RiveScenes.HUD;
-        
-        private static readonly Dictionary<RiveScenes, string> referenceNames = new Dictionary<RiveScenes, string>()
-        {
-            { RiveScenes.HUD, "HUD" },
-            { RiveScenes.MainMenu, "Home Screen" },
-            { RiveScenes.PauseMenu, "Pause Menu" }
-        };
-
         void Start()
         {
             _mainCamera = gameObject.GetComponent<Camera>();
@@ -154,11 +155,22 @@ namespace Plugins.Rive.UI
 
         void Awake()
         {
+            firstScene = currentScene;
+            SetRiveScene(currentScene);
+        }
+
+        public void ReturnToOriginalScene()
+        {
+            SetRiveScene(firstScene);
+        }
+        public void SetRiveScene(RiveScenes scenes)
+        {
             if (asset is not null)
             {
                 _file = File.Load(asset);
-                _artboard = _file.Artboard(GetSelectedRiveSceneName());
+                _artboard = _file.Artboard(GetSelectedRiveSceneName(scenes));
                 stateMachine = _artboard?.StateMachine();
+                currentScene = scenes;
             }
 
             Camera mainCamera = gameObject.GetComponent<Camera>();
@@ -189,7 +201,7 @@ namespace Plugins.Rive.UI
         }
 
         Vector2 _mLastMousePosition;
-        bool _wasMouseDown;
+       
         Camera _mainCamera;
 
         void Update()
@@ -227,11 +239,9 @@ namespace Plugins.Rive.UI
                         alignment
                     );
                     stateMachine?.PointerDown(local);
-                    _wasMouseDown = true;
                 }
-                else if (_wasMouseDown)
+                else if (Input.GetMouseButtonUp(0))
                 {
-                    _wasMouseDown = false;
                     Vector2 local = _artboard.LocalCoordinate(
                         mouseRiveScreenPos,
                         new Rect(0, 0, _mainCamera.pixelWidth, _mainCamera.pixelHeight),
@@ -262,9 +272,10 @@ namespace Plugins.Rive.UI
 
         }
         
-        private string GetSelectedRiveSceneName()
+        
+        private string GetSelectedRiveSceneName(RiveScenes swapTo)
         {
-            return referenceNames[_riveSceneForUI];
+            return referenceNames[swapTo];
         }
         public void SetDialogue(string dialogueString)
         {
