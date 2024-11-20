@@ -1513,6 +1513,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &93566569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1697,6 +1698,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &113348644
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6609,6 +6611,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3010361531995867675, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
+      propertyPath: asset
+      value: 
+      objectReference: {fileID: -4516626237390682484, guid: 16c7518da8ec44c4aa526c4ea96cedd3, type: 3}
+    - target: {fileID: 3010361531995867675, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -8554,6 +8560,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 102900000, guid: 24c892a4eb0920c47a1558b1b7436f29, type: 3}
     guid: 24c892a4eb0920c47a1558b1b7436f29
+  loadSceneAfterDialogue: 0
 --- !u!1 &495977351
 GameObject:
   m_ObjectHideFlags: 0
@@ -9051,6 +9058,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &519650823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10218,6 +10226,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &578493525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12884,6 +12893,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!1001 &730496171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18478,8 +18488,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingDialogue: {fileID: 11400000, guid: 5b47f944d67f6044b95013693432f507, type: 2}
   sceneToLoad:
-    asset: {fileID: 102900000, guid: 50371236d87164241a69dccfc9309c13, type: 3}
-    guid: 50371236d87164241a69dccfc9309c13
+    asset: {fileID: 102900000, guid: bf7be9a4d15a01949a430eaf45433159, type: 3}
+    guid: bf7be9a4d15a01949a430eaf45433159
+  loadSceneAfterDialogue: 1
 --- !u!1 &1057603348 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7df9b1681309cdf40be22d5419d00390, type: 3}
@@ -29568,6 +29579,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &1755675400
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33572,6 +33584,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 102900000, guid: a50356cddb2b1e1488e2f82103496854, type: 3}
     guid: a50356cddb2b1e1488e2f82103496854
+  loadSceneAfterDialogue: 0
 --- !u!1001 &2058085269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34238,6 +34251,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c3ffc95b2e49a498e6c96ba2621f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Ambience>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <PlayerFootsteps>k__BackingField:
     Guid:
       Data1: -442184197
@@ -34773,6 +34793,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!65 &2091029109
 BoxCollider:
   m_ObjectHideFlags: 0
