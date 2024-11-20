@@ -7,6 +7,7 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] FishingStoryManager manager;
     public void PlayDialogue()
     {
-        dialogueStarters[manager.fishCaught - 1].StartDialogue();
+        print(manager.fishCaught);
+        dialogueStarters[manager.fishCaught].StartDialogue();
     }
 }
