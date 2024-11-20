@@ -9,14 +9,14 @@ namespace _Scripts.Fishing
         FishingRodInput input;
         FishingRod rod;
         Fish toReel;
-        
-        [SerializeField] DialogueStarter[] ds;
+       
         [SerializeField] GameObject reelUI;
         [SerializeField] Slider indicator;
 
         Vector2 currentMousePos, lastMousePos, mouseMoved;
         float reelValue;
-        int reelCounter;
+
+        bool finishReel;
 
         private void Awake()
         {
@@ -25,6 +25,7 @@ namespace _Scripts.Fishing
         }
         void OnEnable()
         {
+            finishReel = false;
             input.Reel += ReelingValue;
 
             if (rod.hook.fish)
@@ -39,6 +40,8 @@ namespace _Scripts.Fishing
 
         void ReelingValue(Vector2 pos)
         {
+            if (finishReel) return;
+
             if (currentMousePos != null)
             {
                 lastMousePos = currentMousePos;
@@ -70,22 +73,16 @@ namespace _Scripts.Fishing
         }
         async void FinishReeling()
         {
+            finishReel = true;
             Cursor.lockState = CursorLockMode.Locked;
             reelUI.SetActive(false);
 
             await rod.ReelHook();
-
-            PlayDialogue();
-            
             rod.ToggleReeling(false);
+            rod.FishCaught.Invoke();
         }
 
         //Sorry Torje
-        private void PlayDialogue()
-        {
-            if (reelCounter < ds.Length)
-                ds[reelCounter].StartDialogue();
-            reelCounter++;
-        }
+        //its okay we fix
     }
 }

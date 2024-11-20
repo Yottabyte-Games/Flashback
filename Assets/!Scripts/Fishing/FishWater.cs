@@ -9,6 +9,8 @@ namespace _Scripts.Fishing
 {
     public class FishWater : Water
     {
+        [SerializeField] GameObject splashEffect;
+
         [SerializeField] List<Fish> fishList = new();
 
         readonly List<Hook> hooksInWater = new();
@@ -20,6 +22,9 @@ namespace _Scripts.Fishing
             if(other.TryGetComponent(out Hook hookInWater))
             {
                 if (InWater(hookInWater)) return;
+
+                Destroy(Instantiate(splashEffect, other.transform.position, other.transform.rotation), 1);
+                
 
                 AddHook(hookInWater);
 
