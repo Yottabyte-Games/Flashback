@@ -13,14 +13,4 @@ public class DialoguePlayer : MonoBehaviour
         print(manager.fishCaught);
         dialogueStarters[manager.fishCaught].StartDialogue();
     }
-
-    [Button]
-    public async void FindAllDialogueStarters()
-    {
-        foreach (var dialogueStarter in GetComponentsInChildren<DialogueStarter>())
-        {
-            dialogueStarters.Add(dialogueStarter);
-            await Task.Delay(10);
-        }
-    }
 }
