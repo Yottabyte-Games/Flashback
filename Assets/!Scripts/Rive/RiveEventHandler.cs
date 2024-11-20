@@ -82,15 +82,23 @@ public class RiveEventHandler : MonoBehaviour
                         break;
                     case "Master Change Event":
                         print("Master Change Event");
+                        //Get value between 1 and 100
+                        print(riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Master Slider"));
                         break;
                     case "Music Change Event":
                         print("Music Change Event");
+                        //Get value between 1 and 100
+                        print(riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Music Slider"));
                         break;
                     case "SFX Change Event":
                         print("SFX Change Event");
+                        //Get value between 1 and 100
+                        print(riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "SFX Slider"));
                         break;
                     case "Voice Change Event":
                         print("Voice Change Event");
+                        //Get value between 1 and 100
+                        print(riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Voice Slider"));
                         break;
                 }
                 break;

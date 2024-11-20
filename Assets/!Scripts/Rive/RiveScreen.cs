@@ -115,6 +115,8 @@ namespace Plugins.Rive.UI
         File _file;
         Artboard _artboard;
         CameraTextureHelper _helper;
+        
+        public Artboard artboard => _artboard;
 
         public StateMachine stateMachine { get; private set; }
         
