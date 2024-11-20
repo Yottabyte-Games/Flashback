@@ -167,6 +167,7 @@ MonoBehaviour:
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!1 &665616443
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +429,6 @@ GameObject:
   - component: {fileID: 1276681627}
   - component: {fileID: 1276681631}
   - component: {fileID: 1276681633}
-  - component: {fileID: 1276681630}
   - component: {fileID: 1276681632}
   - component: {fileID: 1276681634}
   m_Layer: 0
@@ -512,21 +512,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1276681630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276681626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1ef72edd0c641d584d048b76a828b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggers: []
-  booleans: []
-  numbers: []
 --- !u!114 &1276681631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,11 +524,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad285bd189a64c34a0779c849d09c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentScene: 4
+  currentScene: 0
   asset: {fileID: -4516626237390682484, guid: 16c7518da8ec44c4aa526c4ea96cedd3, type: 3}
   cameraEvent: 20
   fit: 1
-  _riveSceneForUI: 0
 --- !u!114 &1276681632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,7 +594,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276681626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1541754bddb91d44af5d04027e096df, type: 3}
+  m_Script: {fileID: 11500000, guid: de67388c1840b80468372a24f51d666d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1368769134
