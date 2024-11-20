@@ -12,7 +12,7 @@ namespace _Scripts.Fishing
     {
         [SerializeField] FishDisplayer fishDisplayer;
 
-        [SerializeField] int fishCaught { get { return fishDisplayer.fishCaught.Count; } }
+        public int fishCaught { get { return fishDisplayer.fishCaught.Count; } }
         [SerializeField] int amountOfFishNeeded;
 
         [Scene]

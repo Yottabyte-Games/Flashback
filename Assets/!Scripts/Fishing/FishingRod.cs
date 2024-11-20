@@ -1,6 +1,7 @@
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 using Utility.Physics;
 
 namespace _Scripts.Fishing
@@ -8,6 +9,8 @@ namespace _Scripts.Fishing
     [RequireComponent(typeof(Reel))]
     public class FishingRod : MonoBehaviour
     {
+        public UnityEvent FishCaught;
+
         [SerializeField] float timeToReelHook = 1;
 
         FishingRodInput input;

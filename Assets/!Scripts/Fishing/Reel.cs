@@ -9,14 +9,12 @@ namespace _Scripts.Fishing
         FishingRodInput input;
         FishingRod rod;
         Fish toReel;
-        
-        [SerializeField] DialogueStarter[] ds;
+       
         [SerializeField] GameObject reelUI;
         [SerializeField] Slider indicator;
 
         Vector2 currentMousePos, lastMousePos, mouseMoved;
         float reelValue;
-        int reelCounter;
 
         private void Awake()
         {
@@ -75,15 +73,10 @@ namespace _Scripts.Fishing
 
             await rod.ReelHook();
             rod.ToggleReeling(false);
-
-            PlayDialogue();
+            rod.FishCaught.Invoke();
         }
 
         //Sorry Torje
-        private void PlayDialogue()
-        {
-            ds[reelCounter].StartDialogue();
-            reelCounter++;
-        }
+        //its okay we fix
     }
 }
