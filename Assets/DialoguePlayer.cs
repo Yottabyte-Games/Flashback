@@ -1,13 +1,26 @@
 using _Scripts.Fishing;
+using NaughtyAttributes;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class DialoguePlayer : MonoBehaviour
 {
-    [SerializeField] DialogueStarter[] dialogueStarters;
+    [SerializeField] List<DialogueStarter> dialogueStarters = new();
     [SerializeField] FishingStoryManager manager;
     public void PlayDialogue()
     {
         print(manager.fishCaught);
         dialogueStarters[manager.fishCaught].StartDialogue();
+    }
+
+    [Button]
+    public async void FindAllDialogueStarters()
+    {
+        foreach (var dialogueStarter in GetComponentsInChildren<DialogueStarter>())
+        {
+            dialogueStarters.Add(dialogueStarter);
+            await Task.Delay(10);
+        }
     }
 }
