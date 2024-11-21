@@ -1,8 +1,5 @@
-using System;
-using Plugins.Rive.UI;
 using UnityEngine;
 using Rive;
-using Eflatun.SceneReference;
 using UnityEngine.SceneManagement;
 
 public class RiveEventHandler : MonoBehaviour
