@@ -6,9 +6,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(RiveScreen))]
 public class GameHudController : MonoBehaviour
 {
-    [SerializeField] private RiveScreen riveScreen;
+    private RiveScreen riveScreen;
     private SceneReference _sceneToLoad;
     
     private InputAction _pauseAction;
