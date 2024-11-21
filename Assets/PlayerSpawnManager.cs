@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
-    static Vector3 playerPosition;
+    static Vector3 spawnPosition;
     static bool firstTime = true;
 
     [SerializeField] Transform player;
@@ -12,15 +12,15 @@ public class PlayerSpawnManager : MonoBehaviour
     {
         if (firstTime)
         {
-            playerPosition = player.position;
+            spawnPosition = player.position;
             firstTime = false;
         }
 
-        player.position = playerPosition;
+        player.position = spawnPosition;
     }
 
     void OnDestroy()
     {
-        playerPosition = player.position;
+        spawnPosition = player.position;
     }
 }
