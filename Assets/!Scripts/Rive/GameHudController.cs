@@ -15,7 +15,7 @@ public class GameHudController : MonoBehaviour
     private InputAction _pauseAction;
 
 
-    void Start()
+    void Awake()
     {
         if (riveScreen is null)
         {
@@ -27,6 +27,7 @@ public class GameHudController : MonoBehaviour
         }
 
         riveScreen = GetComponent<RiveScreen>();
+        print(riveScreen);
 
         riveScreen.OnRiveEvent += RiveEventHandler;
         
@@ -93,6 +94,7 @@ public class GameHudController : MonoBehaviour
     // Set Dialogue Text for the next dialogue
     void SetDialogue(string dialogue)
     {
+        print(riveScreen);
         riveScreen.SetDialogue(dialogue);
     }
 }

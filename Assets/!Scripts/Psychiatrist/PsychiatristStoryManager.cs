@@ -1,26 +1,51 @@
 using DialogueSystem.Scripts;
+using DialogueSystem.Scripts.ScriptableObjects;
+using NaughtyAttributes;
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace _Scripts.Psychiatrist
 {
     public class PsychiatristStoryManager : MonoBehaviour
     {
-        [SerializeField] DialogueStarter[] dialogues;
+        [SerializeField] Dialogue[] dialogues;
         DialogueManager dialogueManager;
 
         async void Start()
         {
-            dialogueManager = FindFirstObjectByType<DialogueManager>();
+            dialogueManager = GetComponent<DialogueManager>();
 
             foreach (var dialogue in dialogues)
             {
-                dialogue.StartDialogue();
+                StartDualogue(dialogue.dialogue);
 
+                while(dialogueManager._isDialogueActive)
+                {
+                    await Task.Delay(100);
+                }
 
-                //dialogueManager._currentDialogue.voiceEvent.
-                //await Task.Delay(dialogue.startingDialogue.voiceEvent.)
+                dialogueManager.StopDialog();
+
+                if(dialogue.ChangeSceneTo > 0)
+                {
+                    SceneManager.LoadScene(dialogue.ChangeSceneTo);
+                }
             }
         }
+
+        void StartDualogue(DSDialogueSO dialogue)
+        {
+            dialogueManager.SetDialogue(dialogue);
+        }
+    }
+
+    [Serializable]
+    public class Dialogue
+    {
+        public DSDialogueSO dialogue;
+        [Scene]
+        public int ChangeSceneTo;
     }
 }

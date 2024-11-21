@@ -5,6 +5,8 @@ using FMOD.Studio;
 using Rive.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Mathematics;
+using System.Threading.Tasks;
 
 namespace DialogueSystem.Scripts
 {
@@ -14,9 +16,9 @@ namespace DialogueSystem.Scripts
         
         GameHudController gameHudController;
 
-        bool _isDialogueActive;
+        public bool _isDialogueActive { get; private set; }
 
-        public DSDialogueSO _currentDialogue { get; private set; }
+        DSDialogueSO _currentDialogue;
         InputAction _nextDialogueAction;
         EventInstance _dialogueInstance;
         SceneReference _sceneToLoad;
@@ -106,6 +108,11 @@ namespace DialogueSystem.Scripts
             // Create and start the new instance
             _dialogueInstance = RuntimeManager.CreateInstance(voiceEvent);
             _dialogueInstance.start();
+        }
+
+        public void StopDialog()
+        {
+            _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
     }
 }
