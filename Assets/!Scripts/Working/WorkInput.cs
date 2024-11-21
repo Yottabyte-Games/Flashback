@@ -8,7 +8,6 @@ namespace _Scripts.Working
     {
         WorkInputs _input;
         public event Action interact;
-        WorkInteractable _toInteractWith;
 
         void OnEnable()
         {
@@ -22,17 +21,14 @@ namespace _Scripts.Working
             interact += Interact;
         }
 
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent(out WorkInteractable interactable))
-            {
-                if (interactable.enabled == false) return;
-                _toInteractWith = interactable;
-            }
-        }
-
         void Interact()
         {
+            WorkInteractable _toInteractWith = null;
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 5))
+            {
+                hit.collider.TryGetComponent(out _toInteractWith);
+            }
+
             if (_toInteractWith == null) return;
             _toInteractWith.interact.Invoke(transform);
         }

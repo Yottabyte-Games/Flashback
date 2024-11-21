@@ -213,6 +213,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 637700507089091713, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3059449288817411506, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
       propertyPath: interact.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -220,6 +224,10 @@ PrefabInstance:
     - target: {fileID: 3059449288817411506, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
       propertyPath: interact.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartOfficeTask
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120316819602754983, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3949376191065782467, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
       propertyPath: m_Name
@@ -265,6 +273,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9178697608329722771, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8232452445551310118, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
     m_RemovedGameObjects: []
@@ -280,6 +292,11 @@ PrefabInstance:
 --- !u!4 &986744160664730036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8940889287277853475, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
+  m_PrefabInstance: {fileID: 8189221949735830167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1064183363980392708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9178697608329722771, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
   m_PrefabInstance: {fileID: 8189221949735830167}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5146195183947905620 stripped
@@ -300,14 +317,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <activity>k__BackingField: 0
+  <emotionalState>k__BackingField: 3
+  Eyes:
+  - {fileID: 6550593840046100272}
+  - {fileID: 8964211514456066193}
+  - {fileID: 8753982560406060566}
+  - {fileID: 1064183363980392708}
   <task>k__BackingField: {fileID: 0}
   taskMarker: {fileID: 7164347015569138286}
   officeStation: {fileID: 0}
   breakRoom: {fileID: 0}
   meetingRooms: []
-  InteractingWith: {fileID: 0}
+--- !u!1 &6550593840046100272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3120316819602754983, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
+  m_PrefabInstance: {fileID: 8189221949735830167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7164347015569138286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1353659752297980153, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
+  m_PrefabInstance: {fileID: 8189221949735830167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8753982560406060566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 637700507089091713, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
+  m_PrefabInstance: {fileID: 8189221949735830167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8964211514456066193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 991551789378095622, guid: b62baa39ec5c2c84e98f85c0643bed12, type: 3}
   m_PrefabInstance: {fileID: 8189221949735830167}
   m_PrefabAsset: {fileID: 0}

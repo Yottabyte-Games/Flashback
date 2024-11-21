@@ -6,6 +6,14 @@ using UnityEngine;
 
 namespace _Scripts.Working
 {
+    public enum EmotionalState
+    {
+        Random,
+        Happy,
+        Sad,
+        Annoyed,
+        Tired
+    }
     public enum Activity
     {
         Nothing,
@@ -17,6 +25,8 @@ namespace _Scripts.Working
     public class OfficeWorker : Creature
     {
         [field: SerializeField] public Activity activity { get; private set; }
+        [field: SerializeField] public EmotionalState emotionalState { get; private set; }
+        [SerializeField] GameObject[] Eyes;
         public bool interacting { get; private set; }
         [field: SerializeField, Expandable] public OfficeTask task { get; private set; }
         [SerializeField] GameObject taskMarker;
@@ -37,6 +47,9 @@ namespace _Scripts.Working
 
         protected virtual async void Start()
         {
+            if(emotionalState == EmotionalState.Random)
+                SetEmotionalState((EmotionalState)UnityEngine.Random.Range(1, 5));
+
             while (Application.isPlaying)
             {
                 await IsInteracting();
@@ -159,7 +172,8 @@ namespace _Scripts.Working
             }
 
             interacting = true;
-            SetDestination(interactor);
+            SetDestination(null);
+            transform.LookAt(interactor);
             task.InitializeTask(this);
             taskMarker.SetActive(false);
             task.Completed += ToggleInteractable;
@@ -174,6 +188,18 @@ namespace _Scripts.Working
         public void ToggleInteractable()
         {
             _workInteractable.enabled = !_workInteractable.enabled;
+        }
+
+        public void SetEmotionalState(EmotionalState state)
+        {
+            emotionalState = state;
+
+            foreach (var item in Eyes)
+            {
+                item.SetActive(false);
+            }
+
+            Eyes[(int)emotionalState].SetActive(true);
         }
     }
 }
