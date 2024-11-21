@@ -86,6 +86,7 @@ public class RiveScreen : MonoBehaviour
         MiniGameSelectMenu,
         PauseMenu,
         SettingsMenu,
+        PsychologyScene,
     }
     private static readonly Dictionary<RiveScenes, string> referenceNames = new Dictionary<RiveScenes, string>()
     {
@@ -94,9 +95,28 @@ public class RiveScreen : MonoBehaviour
         { RiveScenes.MiniGameSelectMenu, "Mini Games Select Menu" },
         { RiveScenes.PauseMenu, "Pause Menu" },
         { RiveScenes.SettingsMenu, "Settings Menu" },
+        { RiveScenes.PsychologyScene, "Psychologist MindScene"},
     };
     public RiveScenes currentScene;
     private RiveScenes firstScene;
+
+    public enum TextPath
+    {
+        HUDItem,
+        Dialogue,
+        Psychologist,
+        Option1,
+        Option2,
+    }
+    
+    private readonly Dictionary<TextPath, string> textRunReferences = new()
+    {
+        { TextPath.HUDItem, "ItemName"},
+        { TextPath.Dialogue, "DialogueText"},
+        { TextPath.Psychologist, "Psychologist Text Run" },
+        { TextPath.Option1, "Option 1 Text Run" },
+        { TextPath.Option2, "Option 2 Text Run" }
+    };
     
     public Asset asset;
     public CameraEvent cameraEvent = CameraEvent.AfterEverything;
@@ -273,13 +293,16 @@ public class RiveScreen : MonoBehaviour
     {
         return referenceNames[swapTo];
     }
-    public void SetDialogue(string dialogueString)
+    
+    public void SetTextRunAtPath(string textRun, TextPath path)
     {
-        _artboard.SetTextRun("DialogueText", dialogueString);
-    }
-
-    public void SetHoverItemName(string itemName)
-    {
-        _artboard.SetTextRun("ItemName", itemName);
+        if (textRunReferences.TryGetValue(path, out var stringPath))
+        {
+            artboard.SetTextRun(stringPath, textRun);
+        }
+        else
+        {
+            Debug.LogError($"Invalid text target: {path}");
+        }
     }
 }

@@ -81,7 +81,7 @@ public class GameHudController : MonoBehaviour
 
     public void HoverOn(string objectName)
     {
-        riveScreen.SetHoverItemName(objectName);
+        riveScreen.SetTextRunAtPath(objectName, RiveScreen.TextPath.HUDItem);
         riveScreen.stateMachine.GetBool("IsHovering").Value = true;
     }
 
@@ -95,6 +95,6 @@ public class GameHudController : MonoBehaviour
     void SetDialogue(string dialogue)
     {
         print(riveScreen);
-        riveScreen.SetDialogue(dialogue);
+        riveScreen.SetTextRunAtPath(dialogue, RiveScreen.TextPath.Dialogue);
     }
 }

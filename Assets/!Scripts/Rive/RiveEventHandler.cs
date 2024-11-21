@@ -120,6 +120,17 @@ public class RiveEventHandler : MonoBehaviour
                     SceneManager.LoadScene("MainMenu");
                 }
                 break;
+            case RiveScreen.RiveScenes.PsychologyScene:
+                if (reportedEvent.Name == "Option 1 Pressed Event")
+                {
+                    print("Option 1 Pressed Event");
+                }
+
+                if (reportedEvent.Name == "Option 2 Pressed Event")
+                {
+                    print("Option 2 Pressed Event");
+                }
+                break;
         }
     }
     

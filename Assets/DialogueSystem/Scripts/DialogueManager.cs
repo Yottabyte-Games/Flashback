@@ -2,11 +2,8 @@ using DialogueSystem.Scripts.ScriptableObjects;
 using Eflatun.SceneReference;
 using FMODUnity;
 using FMOD.Studio;
-using Rive.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Unity.Mathematics;
-using System.Threading.Tasks;
 
 namespace DialogueSystem.Scripts
 {
