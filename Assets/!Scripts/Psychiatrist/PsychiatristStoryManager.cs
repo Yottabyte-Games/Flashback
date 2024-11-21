@@ -46,7 +46,7 @@ namespace _Scripts.Psychiatrist
     public class Dialogue
     {
         public DSDialogueSO dialogue;
-        [Scene]
+        [Scene, InfoBox("0 = Don't change scene")]
         public int ChangeSceneTo;
     }
 }
