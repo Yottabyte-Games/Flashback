@@ -4,6 +4,7 @@ using NaughtyAttributes;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 namespace _Scripts.Psychiatrist
