@@ -8,19 +8,30 @@ using UnityEngine.InputSystem;
 
 namespace DialogueSystem.Scripts
 {
+    [RequireComponent(typeof(GameHudController))]
     public class DialogueManager : MonoBehaviour
     {
-        [SerializeField] GameHudController gameHudController;
+        
+        GameHudController gameHudController;
 
         bool _isDialogueActive;
 
-        DSDialogueSO _currentDialogue;
+        public DSDialogueSO _currentDialogue { get; private set; }
         InputAction _nextDialogueAction;
         EventInstance _dialogueInstance;
         SceneReference _sceneToLoad;
 
+        private void OnValidate()
+        {
+            if(gameHudController == null)
+                gameHudController = GetComponent<GameHudController>();
+        }
+
         void Start()
         {
+            if (gameHudController == null)
+                gameHudController = GetComponent<GameHudController>();
+
             _nextDialogueAction = InputSystem.actions.FindAction("Interact");
         }
 
