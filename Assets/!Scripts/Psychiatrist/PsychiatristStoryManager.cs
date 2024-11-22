@@ -29,8 +29,6 @@ namespace _Scripts.Psychiatrist
                     await Task.Delay(100);
                 }
 
-                dialogueManager.StopDialog();
-
                 if(dialogue.ChangeSceneTo > 0)
                 {
                     SceneManager.LoadScene(dialogue.ChangeSceneTo);
