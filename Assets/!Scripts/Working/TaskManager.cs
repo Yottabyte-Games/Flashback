@@ -3,12 +3,15 @@ using System.Threading.Tasks;
 using _Scripts.Working.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace _Scripts.Working
 {
     public class TaskManager : MonoBehaviour
     {
         public int tasksCompleted;
+        public UnityEvent<int> TaskCompleted;
+        public UnityEvent<int> TaskAdded;
         [Expandable, ReadOnly] public List<OfficeTask> currentTasks = new List<OfficeTask>();
     
 
@@ -18,10 +21,12 @@ namespace _Scripts.Working
         public void AddOfficeTask(OfficeTask task)
         {
             currentTasks.Add(task);
+            TaskAdded.Invoke(currentTasks.Count);
         }
         public void CompleteOfficeTask(OfficeTask task)
         {
             tasksCompleted++;
+            TaskCompleted.Invoke(tasksCompleted);
             currentTasks.Remove(task);
         }
 

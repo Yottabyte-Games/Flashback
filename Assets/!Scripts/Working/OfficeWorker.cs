@@ -29,6 +29,8 @@ namespace _Scripts.Working
         [SerializeField] GameObject[] Eyes;
         public bool interacting { get; private set; }
         [field: SerializeField, Expandable] public OfficeTask task { get; private set; }
+        [SerializeField] int startingChanceOfTask;
+        float ChanceOfTask { get { return startingChanceOfTask - Time.timeSinceLevelLoad / 50; } }
         [SerializeField] GameObject taskMarker;
 
         [HideInInspector] public Transform officeStation;
@@ -61,7 +63,9 @@ namespace _Scripts.Working
 
                 if(task == null)
                 {
-                    int task = UnityEngine.Random.Range(0, 16);
+                    print(Mathf.RoundToInt(ChanceOfTask));
+                    int chance = Mathf.RoundToInt(ChanceOfTask) > 3 ? Mathf.RoundToInt(ChanceOfTask) : 3;
+                    int task = UnityEngine.Random.Range(0, chance);
                     if (task == 0)
                     {
                         GenerateOfficeTask();
@@ -212,7 +216,7 @@ namespace _Scripts.Working
                 item.SetActive(false);
             }
 
-            Eyes[(int)emotionalState].SetActive(true);
+            Eyes[(int)emotionalState - 1].SetActive(true);
         }
     }
 }
