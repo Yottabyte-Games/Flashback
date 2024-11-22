@@ -1,21 +1,30 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using EventHandler = System.EventHandler;
+using Eflatun.SceneReference;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using FMODUnity;
+
 
 namespace _Scripts.WaypointSystem {
     public class TrackWaypoints : MonoBehaviour {
         #region Declarations
+        [SerializeField] SceneReference sceneToLoad;
+        [SerializeField] EventReference winConditionFmodEvent;
+
+        List<SingleWaypoint> WaypointSingleList { get; set; }
+        List<int> NextWaypointSingleIndexList { get; set; }
+        int CarIndex { get; set; }
+
         public event EventHandler OnPlayerCorrectWaypoint;
         public event EventHandler OnPlayerWrongWaypoint;
-        List<SingleWaypoint> waypointSingleList { get; set; }
-        List<int> nextWaypointSingleIndexList { get; set; }
-        int carIndex { get; set; }
         #endregion
 
         #region Unity Methods
         void Awake() {
-            carIndex = 0;
+            CarIndex = 0;
             InitializeWaypoints();
             InitializeNextWaypointIndices();
         }
@@ -27,14 +36,14 @@ namespace _Scripts.WaypointSystem {
 
         #region Initialization
         void InitializeWaypoints() {
-            waypointSingleList = new List<SingleWaypoint>();
+            WaypointSingleList = new List<SingleWaypoint>();
             foreach (Transform child in transform) {
                 AddWaypoint(child);
             }
         }
 
         void InitializeNextWaypointIndices() {
-            nextWaypointSingleIndexList = new List<int> { 0 };
+            NextWaypointSingleIndexList = new List<int> { 0 };
         }
 
         void AddWaypoint(Transform child) {
@@ -42,18 +51,18 @@ namespace _Scripts.WaypointSystem {
             if (singleWaypoint is null) return;
             singleWaypoint.SetTrackWaypoints(this);
             singleWaypoint.Hide();
-            waypointSingleList.Add(singleWaypoint);
+            WaypointSingleList.Add(singleWaypoint);
         }
         #endregion
 
         #region Waypoint Handling
         void ShowFirstWaypoint() {
-            waypointSingleList.FirstOrDefault()?.Show();
+            WaypointSingleList.FirstOrDefault()?.Show();
         }
 
         public void CarThroughWaypoint(SingleWaypoint singleWaypoint, Transform carTransform) {
-            var nextWaypointSingleIndex = nextWaypointSingleIndexList[carIndex];
-            var currentWaypointIndex = waypointSingleList.IndexOf(singleWaypoint);
+            var nextWaypointSingleIndex = NextWaypointSingleIndexList[CarIndex];
+            var currentWaypointIndex = WaypointSingleList.IndexOf(singleWaypoint);
 
             if (!currentWaypointIndex.Equals(nextWaypointSingleIndex)) {
                 HandleWrongWaypoint(nextWaypointSingleIndex);
@@ -72,34 +81,45 @@ namespace _Scripts.WaypointSystem {
             OnPlayerCorrectWaypoint?.Invoke(this, EventArgs.Empty);
             HideCurrentWaypoint(nextWaypointSingleIndex);
             UpdateNextWaypointIndex();
-            ShowNextWaypoint();
+            if (NextWaypointSingleIndexList[CarIndex] == 0) {
+                WinConditionReached();
+            } else {
+                ShowNextWaypoint();
+            }
         }
         #endregion
 
         #region Helper Methods
         void ShowCorrectWaypoint(int nextWaypointSingleIndex) {
-            var correctSingleWaypoint = waypointSingleList[nextWaypointSingleIndex];
+            var correctSingleWaypoint = WaypointSingleList[nextWaypointSingleIndex];
             correctSingleWaypoint.Show();
             correctSingleWaypoint.ResetTrigger();
         }
 
         void ShowNextWaypoint() {
-            var nextWaypointSingle = waypointSingleList[nextWaypointSingleIndexList[carIndex]];
+            var nextWaypointSingle = WaypointSingleList[NextWaypointSingleIndexList[CarIndex]];
             nextWaypointSingle.Show();
         }
 
         void HideCurrentWaypoint(int nextWaypointSingleIndex) {
-            var correctSingleWaypoint = waypointSingleList[nextWaypointSingleIndex];
+            var correctSingleWaypoint = WaypointSingleList[nextWaypointSingleIndex];
             correctSingleWaypoint.Hide();
         }
-        
+
         void ResetAllWaypoints() {
-            foreach (var waypoint in waypointSingleList) {
+            foreach (var waypoint in WaypointSingleList) {
                 waypoint.ResetTrigger();
             }
         }
+
         void UpdateNextWaypointIndex() {
-            nextWaypointSingleIndexList[carIndex] = (nextWaypointSingleIndexList[carIndex] + 1) % waypointSingleList.Count;
+            NextWaypointSingleIndexList[CarIndex] = (NextWaypointSingleIndexList[CarIndex] + 1) % WaypointSingleList.Count;
+        }
+
+        void WinConditionReached() {
+            Debug.Log("Win Condition Reached!");
+            RuntimeManager.PlayOneShot(winConditionFmodEvent, transform.position);
+            SceneManager.LoadScene(sceneToLoad.Name);
         }
         #endregion
     }

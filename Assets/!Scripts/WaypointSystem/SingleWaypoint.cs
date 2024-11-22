@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
+using FMODUnity;
 
 namespace _Scripts.WaypointSystem {
     public class SingleWaypoint : MonoBehaviour {
         [SerializeField] string waypointInteractionLayer = "WaypointInteraction";
-        
+        [SerializeField] EventReference fmodEvent;
+
         TrackWaypoints _trackWaypoints;
         MeshRenderer _meshRenderer;
-        
+
         int _waypointTriggerLayer;
         bool _isTriggered;
 
@@ -25,6 +27,9 @@ namespace _Scripts.WaypointSystem {
             if (_isTriggered) return;
             _isTriggered = true;
             _trackWaypoints.CarThroughWaypoint(this, other.transform);
+
+            // Play FMOD event as a one-shot
+            RuntimeManager.PlayOneShot(fmodEvent, transform.position);
         }
 
         public void Show() {

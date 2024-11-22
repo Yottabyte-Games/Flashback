@@ -44,11 +44,16 @@ public class CarController : MonoBehaviour
         {
             verticalInput = 0;
         }
+        /*
+        if (verticalInput == -1)
+        {
+            verticalInput *= 100;
+        }*/
         Debug.Log("AddingSpeed" + verticalInput);
-        wheels[0].motorTorque = verticalInput * motorForce * Time.deltaTime;
-        wheels[1].motorTorque = verticalInput * motorForce * Time.deltaTime;
-        wheels[2].motorTorque = verticalInput * motorForce * Time.deltaTime;
-        wheels[3].motorTorque = verticalInput * motorForce * Time.deltaTime;
+        wheels[0].motorTorque = verticalInput * motorForce;
+        wheels[1].motorTorque = verticalInput * motorForce;
+        wheels[2].motorTorque = verticalInput * motorForce;
+        wheels[3].motorTorque = verticalInput * motorForce;
     }
 
     void ApplyBraking()
@@ -71,7 +76,7 @@ public class CarController : MonoBehaviour
     float ApplyMotorBrake()
     {
         float motorBrakeForce;
-        if (verticalInput < 0.1f)
+        if (verticalInput == 0)
         {
             motorBrakeForce = motorBrake;
         }
