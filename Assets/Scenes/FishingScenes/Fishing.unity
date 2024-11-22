@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingDialogue: {fileID: 11400000, guid: a640b4d5ea0e91c4cba89b30f38c80aa, type: 2}
+  <startingDialogue>k__BackingField: {fileID: 0}
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingDialogue: {fileID: 11400000, guid: 89df3550055d70845bfac8d668805d36, type: 2}
+  <startingDialogue>k__BackingField: {fileID: 0}
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
@@ -1663,7 +1663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingDialogue: {fileID: 11400000, guid: c270fe5652fccfe40800dcb2f855ad10, type: 2}
+  <startingDialogue>k__BackingField: {fileID: 0}
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
@@ -3949,6 +3949,10 @@ PrefabInstance:
     - target: {fileID: 344441532034407643, guid: 3221da27ff3b9524fa6147efe456f476, type: 3}
       propertyPath: m_Name
       value: FishingEnvironment
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536300329580557496, guid: 3221da27ff3b9524fa6147efe456f476, type: 3}
+      propertyPath: sceneToPlayWhenPlayerInWater
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
