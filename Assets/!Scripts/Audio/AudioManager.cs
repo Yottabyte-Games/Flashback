@@ -28,26 +28,19 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeAmbience(FMODEvents.Instance.Ambience);
+        InitializeAmbience(FMODEvents.Instance.AmbienceHubworld);
     }
 
-    private void InitializeAmbience(EventReference ambianceEventReference)
+    private void InitializeAmbience(EventReference ambienceEventReference)
     {
-        ambienceEventInstance = CreateEventInstance(ambianceEventReference);
+        ambienceEventInstance = CreateEventInstance(ambienceEventReference);
         ambienceEventInstance.start();
     }
-
-    public void SetAmbianceParameter(string parameterName, float parameterValue)
-    {
-        ambienceEventInstance.setParameterByName(parameterName, parameterValue);
-    }
-
+    
     public void SetAmbienceArea(AmbienceArea area)
     {
-        ambienceEventInstance.setParameterByName("Area", (float)area);
+        ambienceEventInstance.setParameterByName("area", (float)area);
     }
-
-
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {

@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class AmbienceChangeTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("Area")]
+    [SerializeField] private AmbienceArea area;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            AudioManager.Instance.SetAmbienceArea(area);
+        }
     }
 }
