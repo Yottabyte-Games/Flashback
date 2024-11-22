@@ -57,7 +57,7 @@ namespace DialogueSystem.Scripts
         void PlayDialogueLine()
         {
             print("Playing Dialogue");
-            if (_currentDialogue is not null)
+            if (_currentDialogue)
             {
                 // If first dialogue load Text Box
                 if (_currentDialogue.isStartingDialogue)
@@ -94,6 +94,7 @@ namespace DialogueSystem.Scripts
                 }
 
                 gameHudController.EndDialogue();
+                StopDialog();
                 _isDialogueActive = false;
             }
         }
@@ -112,7 +113,7 @@ namespace DialogueSystem.Scripts
             _dialogueInstance.start();
         }
 
-        public void StopDialog()
+        private void StopDialog()
         {
             _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }

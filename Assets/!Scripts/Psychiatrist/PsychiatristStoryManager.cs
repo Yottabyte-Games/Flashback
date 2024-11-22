@@ -1,42 +1,43 @@
-using DialogueSystem.Scripts;
 using DialogueSystem.Scripts.ScriptableObjects;
 using NaughtyAttributes;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.SceneManagement;
+
 
 namespace _Scripts.Psychiatrist
 {
     public class PsychiatristStoryManager : MonoBehaviour
     {
         [SerializeField] Dialogue dialogue;
-        DialogueManager dialogueManager;
+        PsychologistUIController _psychologistUIController;
+        
+
 
         async void Start()
         {
-            dialogueManager = GetComponent<DialogueManager>();
+            _psychologistUIController = GetComponent<PsychologistUIController>();
 
+            
+            
             await Task.Delay(2000);
+            
+            StartDialogue(dialogue.dialogue, dialogue.ChangeSceneTo);
 
-            StartDualogue(dialogue.dialogue);
-
-            while (dialogueManager._isDialogueActive)
+            while (_psychologistUIController.isActive)
             {
                 await Task.Delay(100);
             }
-
+/*
             if (dialogue.ChangeSceneTo > 0)
             {
-                dialogueManager.StopDialog();
                 SceneManager.LoadScene(dialogue.ChangeSceneTo);
-            }
+            }*/
         }
 
-        void StartDualogue(DSDialogueSO dialogue)
+        void StartDialogue(DSDialogueSO dialogue, int sceneIndex)
         {
-            dialogueManager.SetDialogue(dialogue);
+            _psychologistUIController.SetDialogue(dialogue, sceneIndex);
         }
     }
 

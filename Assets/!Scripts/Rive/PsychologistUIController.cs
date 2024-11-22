@@ -5,15 +5,19 @@ using FMODUnity;
 using Rive;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PsychologistUIController : MonoBehaviour
 {
     RiveScreen riveScreen;
     EventInstance _dialogueInstance;
-    private InputAction _playNextDialogueAction;
-    [Header("Start Dialogue")]
-    [SerializeField] DSDialogueSO _currentDialogue;
+    InputAction _playNextDialogueAction;
+    DSDialogueSO _currentDialogue;
+    int sceneToLoad;
+
+    [SerializeField] private bool dissolveBackgroundOnStart;
     
+    public bool isActive { get; private set; }
     private bool _isMultipleChoice;
 
     private void Start()
@@ -22,12 +26,10 @@ public class PsychologistUIController : MonoBehaviour
         riveScreen.OnRiveEvent += RiveEventHappens;
 
         _playNextDialogueAction = InputSystem.actions.FindAction("Interact");
-        
-        PlayPsychologistLine();
     }
     void Update()
     {
-        if (_playNextDialogueAction.WasPressedThisFrame() && !_isMultipleChoice)
+        if (_playNextDialogueAction.WasPressedThisFrame() && isActive && !_isMultipleChoice)
         {
             // Plays disappearing animation, when done RiveEventHappens and plays PlayPsychologistLine
             riveScreen.stateMachine.GetTrigger("Disappear").Fire();
@@ -41,6 +43,11 @@ public class PsychologistUIController : MonoBehaviour
         {
             PlayPsychologistLine();
         }
+
+        if (reportedEvent.Name == "Background Visible Event")
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
         if (_isMultipleChoice)
         {
             if (reportedEvent.Name == "Option 1 Pressed Event")
@@ -48,6 +55,7 @@ public class PsychologistUIController : MonoBehaviour
                 DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
                 _currentDialogue = nextDialogue;
                 riveScreen.stateMachine.GetTrigger("Disappear").Fire();
+                _isMultipleChoice = false;
             }
 
             if (reportedEvent.Name == "Option 2 Pressed Event")
@@ -55,14 +63,29 @@ public class PsychologistUIController : MonoBehaviour
                 DSDialogueSO nextDialogue = _currentDialogue.choices[1].nextDialogue;
                 _currentDialogue = nextDialogue;
                 riveScreen.stateMachine.GetTrigger("Disappear").Fire();
+                _isMultipleChoice = false;
             }
         }
+        
     }
 
+    public void SetDialogue(DSDialogueSO dialogue, int sceneIndex)
+    {
+        _currentDialogue = dialogue;
+        sceneToLoad = sceneIndex;
+        
+        if (dissolveBackgroundOnStart)
+        {
+            riveScreen.stateMachine.GetTrigger("BackgroundRemove").Fire();
+        }
+        PlayPsychologistLine();
+        
+    }
     private void PlayPsychologistLine()
     {
         if (_currentDialogue)
         {
+            isActive = true;
             switch (_currentDialogue.dialogueType)
             {
                 // For single dialogue
@@ -71,7 +94,16 @@ public class PsychologistUIController : MonoBehaviour
                     riveScreen.SetTextRunAtPath(_currentDialogue.text, RiveScreen.TextPath.Psychologist);
             
                     riveScreen.stateMachine.GetTrigger("PsychologistAppear").Fire();
-                    
+                   
+                    var voiceActing = _currentDialogue.voiceEvent;
+                    if (!voiceActing.IsNull)
+                    {
+                        SetFMODEventAndPlay(voiceActing);
+                    }
+                    else
+                    {
+                        Debug.LogError("Dialogue Event is Empty on The current line");
+                    }
                     // Stores Next Dialogue
                     DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
                     _currentDialogue = nextDialogue;
@@ -92,15 +124,13 @@ public class PsychologistUIController : MonoBehaviour
                     
                     break;
             }
-            var voiceActing = _currentDialogue.voiceEvent;
-            if (!voiceActing.IsNull)
-            {
-                SetFMODEventAndPlay(voiceActing);
-            }
+        }
+        else
+        {
+            if (dissolveBackgroundOnStart)
+                riveScreen.stateMachine.GetTrigger("BackgroundAdd").Fire();
             else
-            {
-                Debug.LogError("Dialogue Event is Empty on The current line");
-            }
+                SceneManager.LoadScene(sceneToLoad);
         }
     }
     
