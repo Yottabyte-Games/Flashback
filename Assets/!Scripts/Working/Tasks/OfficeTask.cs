@@ -15,7 +15,7 @@ namespace _Scripts.Working.Tasks
     [CreateAssetMenu(fileName = "Task", menuName = "Minigames/Office/Task")]
     public abstract class OfficeTask : ScriptableObject
     {
-        [ReadOnly, SerializeField] protected TaskType taskType;
+        [ReadOnly, SerializeField] public TaskType taskType;
         protected TaskManager manager { get; private set; }
         protected OfficeWorker creator { get; private set; }
 
