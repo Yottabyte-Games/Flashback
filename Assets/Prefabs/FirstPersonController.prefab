@@ -802,7 +802,6 @@ GameObject:
   - component: {fileID: 7750163126055952797}
   - component: {fileID: 5369303837033779877}
   - component: {fileID: 4791057793747532278}
-  - component: {fileID: 3507975346009581367}
   - component: {fileID: 1432964663590129095}
   - component: {fileID: 3617840315791621367}
   m_Layer: 20
@@ -966,10 +965,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad285bd189a64c34a0779c849d09c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentScene: 0
   asset: {fileID: -4516626237390682484, guid: 16c7518da8ec44c4aa526c4ea96cedd3, type: 3}
   cameraEvent: 20
   fit: 1
-  _riveSceneForUI: 0
 --- !u!114 &4791057793747532278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,22 +981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a47c784d17894458f19a65708e1d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  riveScreen: {fileID: 5369303837033779877}
---- !u!114 &3507975346009581367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767337348850305630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1ef72edd0c641d584d048b76a828b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggers: []
-  booleans: []
-  numbers: []
 --- !u!114 &1432964663590129095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,7 +993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bb24dfe4f950144aade3d02d3c8c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameHudController: {fileID: 4791057793747532278}
 --- !u!114 &3617840315791621367
 MonoBehaviour:
   m_ObjectHideFlags: 0
