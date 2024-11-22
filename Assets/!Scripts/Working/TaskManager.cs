@@ -26,6 +26,7 @@ namespace _Scripts.Working
         public void CompleteOfficeTask(OfficeTask task)
         {
             tasksCompleted++;
+            print(tasksCompleted);
             TaskCompleted.Invoke(tasksCompleted);
             currentTasks.Remove(task);
         }
