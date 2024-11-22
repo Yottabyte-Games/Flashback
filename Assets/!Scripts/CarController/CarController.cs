@@ -15,6 +15,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float currentBrakeforce;
     [SerializeField] private float verticalInput;
+    [SerializeField] float rpm;
 
     private float horizontalInput;
     private Rigidbody rb;
@@ -26,6 +27,8 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rpm = wheels[0].rpm;
+        
         // Car speed to KM/H
         speed = rb.linearVelocity.magnitude * 3.6f;
 
@@ -70,7 +73,7 @@ public class CarController : MonoBehaviour
         float motorBrakeForce;
         if (verticalInput < 0.1f)
         {
-            motorBrakeForce = 0;
+            motorBrakeForce = motorBrake;
         }
         else
         {
