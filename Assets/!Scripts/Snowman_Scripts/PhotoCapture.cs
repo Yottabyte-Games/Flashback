@@ -77,7 +77,7 @@ namespace _Scripts.Snowman_Scripts
         void CheckCompleted()
         {
             int objects = 0;
-            var colliders = Physics.OverlapSphere(snowball.gameObject.transform.position, 3);
+            var colliders = Physics.OverlapSphere(snowball.gameObject.transform.position, 5);
             foreach (var collider in colliders)
             {
                 if (collider.gameObject.CompareTag("Interactable"))
@@ -86,7 +86,7 @@ namespace _Scripts.Snowman_Scripts
                 }
             }
 
-            if (objects > 7) 
+            if (objects > 5) 
             {
                 Debug.Log("Finished");
                 FishedPhotoTaken.Invoke();

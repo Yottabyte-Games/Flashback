@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638671050133462754
+  lastModified: 638678881018789927
   FileSizes: []
   Exists: 1
 --- !u!114 &-9096998428633864927
@@ -222,12 +222,12 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638678774601776537
+  lastModified: 638678881018799960
   FileSizes:
   - Name: 
-    Value: 2002
+    Value: 1992
   Exists: 1
---- !u!114 &-6216580225098269530
+--- !u!114 &-5899713135836677861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,25 +236,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Ambience/BackgroundAmbienceHubWorld
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Ambience.bank
   m_EditorClassIdentifier: 
-  Path: event:/Ambience/BackgroundAmbienceHubWorld
-  Guid:
-    Data1: -487788544
-    Data2: 1278413560
-    Data3: 1190069940
-    Data4: -1733974116
-  Banks:
-  - {fileID: -1050589474114074690}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 6359063526613254404}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
+  Path: Fmodassets/Desktop/Ambience.bank
+  Name: Desktop/Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638678881018779959
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-5572015173167932605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,24 +542,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2847
---- !u!114 &-1050589474114074690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Ambiance.bank
-  m_EditorClassIdentifier: 
-  Path: Fmodassets/Desktop/Ambiance.bank
-  Name: Desktop/Ambiance
-  StudioPath: bank:/Ambiance
-  lastModified: 638678774601676464
-  FileSizes: []
-  Exists: 1
 --- !u!114 &-775886482421318095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,13 +583,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -6223951116764215624}
-  - {fileID: -1050589474114074690}
   - {fileID: -9101679869472781976}
   - {fileID: 8781093941112066060}
   - {fileID: 6483814421426825321}
   - {fileID: 6315954475152604005}
+  - {fileID: -5899713135836677861}
   EditorEvents:
-  - {fileID: -6216580225098269530}
   - {fileID: 5967174146398732752}
   - {fileID: 1536732728089487330}
   - {fileID: 3436166341579095604}
@@ -646,12 +617,13 @@ MonoBehaviour:
   - {fileID: -4534202319874449454}
   - {fileID: 12083225670746611}
   - {fileID: -1338680878756856893}
+  - {fileID: 7567124471187759367}
   EditorParameters: []
   MasterBanks:
   - {fileID: -9101679869472781976}
   StringsBanks:
   - {fileID: -6223951116764215624}
-  cacheTime: 638678774601776537
+  cacheTime: 638678881019828152
   cacheVersion: 131621
 --- !u!114 &12083225670746611
 MonoBehaviour:
@@ -857,39 +829,8 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/VO.bank
   Name: Desktop/VO
   StudioPath: bank:/VO
-  lastModified: 638677815236653416
+  lastModified: 638678881019828152
   FileSizes: []
-  Exists: 1
---- !u!114 &6359063526613254404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/BackgroundAmbienceHubWorld/Area
-  m_EditorClassIdentifier: 
-  Name: Area
-  StudioPath: 
-  Min: 0
-  Max: 6
-  Default: 0
-  ID:
-    data1: 2280451373
-    data2: 1365421388
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - Apartment
-  - Path
-  - Ocean
-  - Store
-  - Playground
-  - Forrest
-  - Office
   Exists: 1
 --- !u!114 &6483814421426825321
 MonoBehaviour:
@@ -906,8 +847,35 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/SFX.bank
   Name: Desktop/SFX
   StudioPath: bank:/SFX
-  lastModified: 638677815235768133
+  lastModified: 638678881018889658
   FileSizes: []
+  Exists: 1
+--- !u!114 &6796615553363418751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AmbienceHubworld/area
+  m_EditorClassIdentifier: 
+  Name: area
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2947688296
+    data2: 868566397
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Apartment
+  - Forrest
+  - Ocean
   Exists: 1
 --- !u!114 &6966027619773085608
 MonoBehaviour:
@@ -963,6 +931,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 67082
+--- !u!114 &7567124471187759367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/AmbienceHubworld
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/AmbienceHubworld
+  Guid:
+    Data1: 1502518022
+    Data2: 1201259142
+    Data3: -323442266
+    Data4: -1023140234
+  Banks:
+  - {fileID: -5899713135836677861}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6796615553363418751}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8781093941112066060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,6 +974,6 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Music.bank
   Name: Desktop/Music
   StudioPath: bank:/Music
-  lastModified: 638671050133482716
+  lastModified: 638678881018809877
   FileSizes: []
   Exists: 1
