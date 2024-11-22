@@ -1,3 +1,4 @@
+using System;
 using Eflatun.SceneReference;
 using Rive;
 using UnityEngine;
@@ -25,11 +26,18 @@ public class GameHudController : MonoBehaviour
         }
 
         riveScreen = GetComponent<RiveScreen>();
-        print(riveScreen);
-
-        riveScreen.OnRiveEvent += RiveEventHandler;
+        
         
         _pauseAction = InputSystem.actions.FindAction("Pause");
+    }
+
+    private void Start()
+    {
+        riveScreen.OnRiveEvent += RiveEventHandler;
+        if (riveScreen.currentScene == RiveScreen.RiveScenes.HUD)
+        {
+            riveScreen.stateMachine.GetTrigger("UnFlash").Fire();
+        }
     }
 
     private void RiveEventHandler(ReportedEvent reportedEvent)

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: RoadBlockGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: RoadBlock
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: e12372e9-d83e-4e22-bcf9-1b0a14349b3d
+    <Name>k__BackingField: RoadBlock1
+    <Text>k__BackingField: Looks the road is closed today.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 94f90249-71aa-420a-bef0-3c1d7be47539
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 88, y: 144.8}
+  - <ID>k__BackingField: 94f90249-71aa-420a-bef0-3c1d7be47539
+    <Name>k__BackingField: RoadBlock2
+    <Text>k__BackingField: Now I have to take the path by the water.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 508.8, y: 144.8}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - RoadBlock1
+  - RoadBlock2
+  <OldGroupedNodeNames>k__BackingField:
+    list: []
