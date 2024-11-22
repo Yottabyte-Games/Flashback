@@ -77,7 +77,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         void Start()
         {
-            PlayerFootsteps = AudioManager.Instance.CreateInstance(FMODEvents.Instance.PlayerFootsteps);
+            PlayerFootsteps = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.PlayerFootsteps);
         }
         #endregion
 

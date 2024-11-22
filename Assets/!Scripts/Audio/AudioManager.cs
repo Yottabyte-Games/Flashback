@@ -33,16 +33,23 @@ public class AudioManager : MonoBehaviour
 
     private void InitializeAmbience(EventReference ambianceEventReference)
     {
-        ambienceEventInstance = CreateInstance(ambianceEventReference);
+        ambienceEventInstance = CreateEventInstance(ambianceEventReference);
         ambienceEventInstance.start();
     }
+
+    private void SetAmbianceParameter(string parameterName, float parameterValue)
+    {
+        ambienceEventInstance.setParameterByName(parameterName, parameterValue);
+    }
+
+
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
-    public EventInstance CreateInstance(EventReference eventReference)
+    public EventInstance CreateEventInstance(EventReference eventReference)
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
         eventInstances.Add(eventInstance);
