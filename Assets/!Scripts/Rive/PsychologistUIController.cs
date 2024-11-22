@@ -72,12 +72,11 @@ public class PsychologistUIController : MonoBehaviour
             
                     riveScreen.stateMachine.GetTrigger("PsychologistAppear").Fire();
                     
-                    
                     // Stores Next Dialogue
                     DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
                     _currentDialogue = nextDialogue;
-                    
                     _isMultipleChoice = false;
+                    
                     break;
                 }
                 case DSDialogueType.MultipleChoice:
@@ -90,6 +89,7 @@ public class PsychologistUIController : MonoBehaviour
                     // For dialogue with options
                     riveScreen.stateMachine.GetTrigger("Appear").Fire();
                     _isMultipleChoice = true;
+                    
                     break;
             }
             var voiceActing = _currentDialogue.voiceEvent;
