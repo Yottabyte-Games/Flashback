@@ -64,7 +64,7 @@ namespace _Scripts.Working
                 if(task == null)
                 {
                     print(Mathf.RoundToInt(ChanceOfTask));
-                    int chance = Mathf.RoundToInt(ChanceOfTask) > 3 ? Mathf.RoundToInt(ChanceOfTask) : 3;
+                    int chance = Mathf.RoundToInt(ChanceOfTask) > 3 ? Mathf.RoundToInt(ChanceOfTask) : 1;
                     int task = UnityEngine.Random.Range(0, chance);
                     if (task == 0)
                     {
