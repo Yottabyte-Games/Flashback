@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Interactable
+  - Enemy
+  - Level
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - UI
   - Door
   - Marker
-  - 
+  - Level
   - Player
   - Body
   - 
@@ -23,8 +25,8 @@ TagManager:
   - 
   - WaypointInteraction
   - 
-  - 
-  - 
+  - Interaction
+  - Dialogue
   - 
   - Post Prossesing
   - Terrain
