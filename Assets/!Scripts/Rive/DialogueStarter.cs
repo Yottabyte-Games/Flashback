@@ -44,4 +44,8 @@ public class DialogueStarter : MonoBehaviour
         }
         
     }
+    public void NextDialogue()
+    {
+        dialogueManager.NextDialogue();
+    }
 }

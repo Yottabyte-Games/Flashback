@@ -14,6 +14,7 @@ namespace DialogueSystem.Scripts
         GameHudController gameHudController;
 
         public bool _isDialogueActive { get; private set; }
+        [SerializeField] bool canSkipDialogue = true;
 
         DSDialogueSO _currentDialogue;
         InputAction _nextDialogueAction;
@@ -37,7 +38,7 @@ namespace DialogueSystem.Scripts
         void Update()
         {
 
-            if (_nextDialogueAction.WasPressedThisFrame() && _isDialogueActive)
+            if (_nextDialogueAction.WasPressedThisFrame() && _isDialogueActive && canSkipDialogue)
             {
                 PlayDialogueLine();
             }
@@ -49,7 +50,10 @@ namespace DialogueSystem.Scripts
             PlayDialogueLine();
             _sceneToLoad = scene;
         }
-
+        public void NextDialogue()
+        {
+            PlayDialogueLine();
+        }
         void PlayDialogueLine()
         {
             print("Playing Dialogue");
