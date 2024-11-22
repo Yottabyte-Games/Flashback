@@ -31,7 +31,6 @@ public class PsychologistUIController : MonoBehaviour
         {
             // Plays disappearing animation, when done RiveEventHappens and plays PlayPsychologistLine
             riveScreen.stateMachine.GetTrigger("Disappear").Fire();
-            print("click");
         }
     }
 
@@ -48,12 +47,14 @@ public class PsychologistUIController : MonoBehaviour
             {
                 DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
                 _currentDialogue = nextDialogue;
+                riveScreen.stateMachine.GetTrigger("Disappear").Fire();
             }
 
             if (reportedEvent.Name == "Option 2 Pressed Event")
             {
                 DSDialogueSO nextDialogue = _currentDialogue.choices[1].nextDialogue;
                 _currentDialogue = nextDialogue;
+                riveScreen.stateMachine.GetTrigger("Disappear").Fire();
             }
         }
     }
@@ -71,19 +72,11 @@ public class PsychologistUIController : MonoBehaviour
             
                     riveScreen.stateMachine.GetTrigger("PsychologistAppear").Fire();
                     
-                    var voiceActing = _currentDialogue.voiceEvent;
+                    
                     // Stores Next Dialogue
                     DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
                     _currentDialogue = nextDialogue;
-
-                    if (!voiceActing.IsNull)
-                    {
-                        SetFMODEventAndPlay(voiceActing);
-                    }
-                    else
-                    {
-                        Debug.LogError("Dialogue Event is Empty on The current line");
-                    }
+                    
                     _isMultipleChoice = false;
                     break;
                 }
@@ -98,6 +91,15 @@ public class PsychologistUIController : MonoBehaviour
                     riveScreen.stateMachine.GetTrigger("Appear").Fire();
                     _isMultipleChoice = true;
                     break;
+            }
+            var voiceActing = _currentDialogue.voiceEvent;
+            if (!voiceActing.IsNull)
+            {
+                SetFMODEventAndPlay(voiceActing);
+            }
+            else
+            {
+                Debug.LogError("Dialogue Event is Empty on The current line");
             }
         }
     }
