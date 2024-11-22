@@ -38,10 +38,13 @@ namespace _Scripts.Working
         public event Action<OfficeWorker> EndedActivity;
 
         WorkInteractable _workInteractable;
+
+        [SerializeField] OfficeAudioManager officeAudio;
         protected override void Awake()
         {
             base.Awake();
             _workInteractable = GetComponent<WorkInteractable>();
+            officeAudio = FindFirstObjectByType<OfficeAudioManager>();
             _workInteractable.enabled = false;
         }
 
@@ -171,8 +174,18 @@ namespace _Scripts.Working
                 return;
             }
 
+            switch (task.taskType)
+            {
+                case TaskType.Fetch:
+                    officeAudio.PlayVoiceLine(officeAudio.RandomFetchLine());
+                    break;
+                case TaskType.Cleaning:
+                    officeAudio.PlayVoiceLine(officeAudio.RandomCleaningLine());
+                    break;
+            }
+
             interacting = true;
-            SetDestination(null);
+            SetDestination(transform);
             transform.LookAt(interactor);
             task.InitializeTask(this);
             taskMarker.SetActive(false);
