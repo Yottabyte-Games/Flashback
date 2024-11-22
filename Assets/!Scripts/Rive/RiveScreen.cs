@@ -288,7 +288,6 @@ public class RiveScreen : MonoBehaviour
 
     }
     
-    
     private string GetSelectedRiveSceneName(RiveScenes swapTo)
     {
         return referenceNames[swapTo];
