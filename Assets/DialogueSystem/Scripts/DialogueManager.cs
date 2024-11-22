@@ -20,7 +20,7 @@ namespace DialogueSystem.Scripts
         EventInstance _dialogueInstance;
         SceneReference _sceneToLoad;
 
-        private void OnValidate()
+        void OnValidate()
         {
             if(gameHudController == null)
                 gameHudController = GetComponent<GameHudController>();

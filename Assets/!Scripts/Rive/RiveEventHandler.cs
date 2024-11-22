@@ -4,19 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class RiveEventHandler : MonoBehaviour
 {
-    private RiveScreen riveScreen;
-    
-    
-    private void Start()
-    {
-        riveScreen = GetComponent<RiveScreen>();
+    RiveScreen _riveScreen;
 
-        riveScreen.OnRiveEvent += RiveEventHappens;
+
+    void Start()
+    {
+        _riveScreen = GetComponent<RiveScreen>();
+
+        _riveScreen.OnRiveEvent += RiveEventHappens;
     }
 
-    private void RiveEventHappens(ReportedEvent reportedEvent)
+    void RiveEventHappens(ReportedEvent reportedEvent)
     {
-        switch (riveScreen.currentScene)
+        switch (_riveScreen.currentScene)
         {
             case RiveScreen.RiveScenes.HUD:
                 break;
@@ -29,11 +29,11 @@ public class RiveEventHandler : MonoBehaviour
                         break;
                     case "MiniGameEvent":
                         print("MiniGameEvent");
-                        riveScreen.SetRiveScene(RiveScreen.RiveScenes.MiniGameSelectMenu);
+                        _riveScreen.SetRiveScene(RiveScreen.RiveScenes.MiniGameSelectMenu);
                         break;
                     case "SettingsEvent":
                         print("SettingsEvent");
-                        riveScreen.SetRiveScene(RiveScreen.RiveScenes.SettingsMenu);
+                        _riveScreen.SetRiveScene(RiveScreen.RiveScenes.SettingsMenu);
                         break;
                     case "ExitEvent":
                         print("ExitEvent");
@@ -47,7 +47,7 @@ public class RiveEventHandler : MonoBehaviour
                 {
                     case "Return Event":
                         print("Return Event");
-                        riveScreen.ReturnToOriginalScene();
+                        _riveScreen.ReturnToOriginalScene();
                         break;
                     case "Fishing Event":
                         print("Fishing Event");
@@ -75,42 +75,42 @@ public class RiveEventHandler : MonoBehaviour
                 switch (reportedEvent.Name)
                 {
                     case "Return Event":
-                        riveScreen.ReturnToOriginalScene();
+                        _riveScreen.ReturnToOriginalScene();
                         break;
                     case "Master Change Event":
                         print("Master Change Event");
                         //Get value between 1 and 100
-                        print(riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Master Slider"));
+                        print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Master Slider"));
                         break;
                     case "Music Change Event":
                         print("Music Change Event");
                         //Get value between 1 and 100
-                        print(riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Music Slider"));
+                        print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Music Slider"));
                         break;
                     case "SFX Change Event":
                         print("SFX Change Event");
                         //Get value between 1 and 100
-                        print(riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "SFX Slider"));
+                        print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "SFX Slider"));
                         break;
                     case "Voice Change Event":
                         print("Voice Change Event");
                         //Get value between 1 and 100
-                        print(riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Voice Slider"));
+                        print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Voice Slider"));
                         break;
                 }
                 break;
             case RiveScreen.RiveScenes.PauseMenu:
-                if (riveScreen.stateMachine.GetBool("IsTryingToQuit").Value != true)
+                if (_riveScreen.stateMachine.GetBool("IsTryingToQuit").Value != true)
                 {
                     if (reportedEvent.Name == "ResumeEvent")
                     {
                         print("ResumeEvent");
-                        riveScreen.ReturnToOriginalScene();
+                        _riveScreen.ReturnToOriginalScene();
                     }
                     if (reportedEvent.Name == "SettingsEvent")
                     {
                         print("SettingsEvent");
-                        riveScreen.SetRiveScene(RiveScreen.RiveScenes.SettingsMenu);
+                        _riveScreen.SetRiveScene(RiveScreen.RiveScenes.SettingsMenu);
                     }
                 }
                 
@@ -133,9 +133,9 @@ public class RiveEventHandler : MonoBehaviour
                 break;
         }
     }
-    
-    private void OnDisable()
+
+    void OnDisable()
     {
-        riveScreen.OnRiveEvent -= RiveEventHappens;
+        _riveScreen.OnRiveEvent -= RiveEventHappens;
     }
 }
