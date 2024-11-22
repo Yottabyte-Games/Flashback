@@ -18,6 +18,8 @@ namespace _Scripts.Psychiatrist
         {
             dialogueManager = GetComponent<DialogueManager>();
 
+            await Task.Delay(2000);
+
             foreach (var dialogue in dialogues)
             {
                 StartDualogue(dialogue.dialogue);

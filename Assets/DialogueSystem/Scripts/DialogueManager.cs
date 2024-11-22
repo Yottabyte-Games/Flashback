@@ -44,6 +44,9 @@ namespace DialogueSystem.Scripts
 
         public void SetDialogue(DSDialogueSO startingDialogue, SceneReference scene = null)
         {
+            if(_isDialogueActive)
+                StopDialog();
+
             _currentDialogue = startingDialogue;
             PlayDialogueLine();
             _sceneToLoad = scene;
