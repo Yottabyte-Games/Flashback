@@ -18,6 +18,7 @@ namespace _Scripts.Working
 
         void Start()
         {
+            Cursor.lockState = CursorLockMode.Locked;
             interact += Interact;
         }
 
