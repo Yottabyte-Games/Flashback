@@ -1,6 +1,4 @@
-using System;
 using Eflatun.SceneReference;
-using Plugins.Rive.UI;
 using Rive;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -94,7 +92,6 @@ public class GameHudController : MonoBehaviour
     // Set Dialogue Text for the next dialogue
     void SetDialogue(string dialogue)
     {
-        print(riveScreen);
         riveScreen.SetTextRunAtPath(dialogue, RiveScreen.TextPath.Dialogue);
     }
 }
