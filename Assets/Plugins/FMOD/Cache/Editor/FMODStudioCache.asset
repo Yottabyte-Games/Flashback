@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638678881018789927
+  lastModified: 638678903886383144
   FileSizes: []
   Exists: 1
 --- !u!114 &-9096998428633864927
@@ -222,10 +222,10 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638678881018799960
+  lastModified: 638678903886393084
   FileSizes:
   - Name: 
-    Value: 1992
+    Value: 2104
   Exists: 1
 --- !u!114 &-5899713135836677861
 MonoBehaviour:
@@ -242,7 +242,7 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Ambience.bank
   Name: Desktop/Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638678881018779959
+  lastModified: 638678903886332580
   FileSizes: []
   Exists: 1
 --- !u!114 &-5572015173167932605
@@ -321,7 +321,7 @@ MonoBehaviour:
   - {fileID: 6315954475152604005}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -618,12 +618,14 @@ MonoBehaviour:
   - {fileID: 12083225670746611}
   - {fileID: -1338680878756856893}
   - {fileID: 7567124471187759367}
+  - {fileID: 7318711287533692427}
+  - {fileID: 3743394709179448010}
   EditorParameters: []
   MasterBanks:
   - {fileID: -9101679869472781976}
   StringsBanks:
   - {fileID: -6223951116764215624}
-  cacheTime: 638678881019828152
+  cacheTime: 638678907811105719
   cacheVersion: 131621
 --- !u!114 &12083225670746611
 MonoBehaviour:
@@ -760,6 +762,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 13583
+--- !u!114 &3743394709179448010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CarSfx/FinishLine
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/CarSfx/FinishLine
+  Guid:
+    Data1: 344215722
+    Data2: 1163347483
+    Data3: 2112671398
+    Data4: -333787251
+  Banks:
+  - {fileID: 6483814421426825321}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5967174146398732752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,7 +858,7 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/VO.bank
   Name: Desktop/VO
   StudioPath: bank:/VO
-  lastModified: 638678881019828152
+  lastModified: 638678903888716438
   FileSizes: []
   Exists: 1
 --- !u!114 &6483814421426825321
@@ -847,7 +876,7 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/SFX.bank
   Name: Desktop/SFX
   StudioPath: bank:/SFX
-  lastModified: 638678881018889658
+  lastModified: 638678907811105719
   FileSizes: []
   Exists: 1
 --- !u!114 &6796615553363418751
@@ -931,6 +960,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 67082
+--- !u!114 &7318711287533692427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CarSfx/Checkpoint
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/CarSfx/Checkpoint
+  Guid:
+    Data1: 1345037453
+    Data2: 1233615116
+    Data3: 1736200594
+    Data4: -2025231541
+  Banks:
+  - {fileID: 6483814421426825321}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7567124471187759367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,6 +1030,6 @@ MonoBehaviour:
   Path: Fmodassets/Desktop/Music.bank
   Name: Desktop/Music
   StudioPath: bank:/Music
-  lastModified: 638678881018809877
+  lastModified: 638671043555645435
   FileSizes: []
   Exists: 1
