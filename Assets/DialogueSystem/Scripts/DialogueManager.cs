@@ -36,6 +36,7 @@ namespace DialogueSystem.Scripts
 
         void Update()
         {
+
             if (_nextDialogueAction.WasPressedThisFrame() && _isDialogueActive)
             {
                 PlayDialogueLine();
@@ -44,9 +45,6 @@ namespace DialogueSystem.Scripts
 
         public void SetDialogue(DSDialogueSO startingDialogue, SceneReference scene = null)
         {
-            if(_isDialogueActive)
-                StopDialog();
-
             _currentDialogue = startingDialogue;
             PlayDialogueLine();
             _sceneToLoad = scene;

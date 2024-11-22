@@ -47,8 +47,8 @@ Camera:
   m_GameObject: {fileID: 4205853433399601681}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -199,11 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dc427008b945143a28a14f9004a96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogues:
-  - dialogue: {fileID: 11400000, guid: db4eedd9a7c9b514b8cb4d878fcf2313, type: 2}
-    ChangeSceneTo: 0
-  - dialogue: {fileID: 11400000, guid: 5b7f3d43b3a026d4f9ca23af62b901ec, type: 2}
+  dialogue:
+    dialogue: {fileID: 11400000, guid: ad5229d0f9c22b74d98dfd5ff536ddea, type: 2}
     ChangeSceneTo: 8
-  - dialogue: {fileID: 11400000, guid: 8da2c8b450d5b25428ee567f409e5e6a, type: 2}
-    ChangeSceneTo: 0
-  dialogueManager: {fileID: 0}
