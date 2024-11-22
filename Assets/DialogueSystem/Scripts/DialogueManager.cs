@@ -36,6 +36,7 @@ namespace DialogueSystem.Scripts
 
         void Update()
         {
+
             if (_nextDialogueAction.WasPressedThisFrame() && _isDialogueActive)
             {
                 PlayDialogueLine();

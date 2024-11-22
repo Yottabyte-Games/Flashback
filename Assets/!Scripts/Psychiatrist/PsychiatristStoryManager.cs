@@ -11,28 +11,26 @@ namespace _Scripts.Psychiatrist
 {
     public class PsychiatristStoryManager : MonoBehaviour
     {
-        [SerializeField] Dialogue[] dialogues;
+        [SerializeField] Dialogue dialogue;
         DialogueManager dialogueManager;
 
         async void Start()
         {
             dialogueManager = GetComponent<DialogueManager>();
 
-            foreach (var dialogue in dialogues)
+            await Task.Delay(2000);
+
+            StartDualogue(dialogue.dialogue);
+
+            while (dialogueManager._isDialogueActive)
             {
-                StartDualogue(dialogue.dialogue);
+                await Task.Delay(100);
+            }
 
-                while(dialogueManager._isDialogueActive)
-                {
-                    await Task.Delay(100);
-                }
-
+            if (dialogue.ChangeSceneTo > 0)
+            {
                 dialogueManager.StopDialog();
-
-                if(dialogue.ChangeSceneTo > 0)
-                {
-                    SceneManager.LoadScene(dialogue.ChangeSceneTo);
-                }
+                SceneManager.LoadScene(dialogue.ChangeSceneTo);
             }
         }
 
