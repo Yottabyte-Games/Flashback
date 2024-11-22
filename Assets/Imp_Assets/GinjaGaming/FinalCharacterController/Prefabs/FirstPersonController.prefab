@@ -3078,7 +3078,6 @@ GameObject:
   - component: {fileID: 3010361531995867675}
   - component: {fileID: 266552575439998672}
   - component: {fileID: 1926469787744511765}
-  - component: {fileID: 6659342755865468279}
   - component: {fileID: 6389354569228472559}
   m_Layer: 20
   m_Name: Main Camera
@@ -3227,7 +3226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a47c784d17894458f19a65708e1d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  riveScreen: {fileID: 3010361531995867675}
 --- !u!114 &1926469787744511765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3238,19 +3236,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72bb24dfe4f950144aade3d02d3c8c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameHudController: {fileID: 266552575439998672}
---- !u!114 &6659342755865468279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4907722347570765139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1541754bddb91d44af5d04027e096df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6389354569228472559

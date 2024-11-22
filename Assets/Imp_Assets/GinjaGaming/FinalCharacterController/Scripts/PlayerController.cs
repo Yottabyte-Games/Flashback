@@ -2,6 +2,7 @@ using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using FMOD.Studio;
+using FMODUnity;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
@@ -76,7 +77,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         void Start()
         {
-            PlayerFootsteps = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.PlayerFootsteps);
+            PlayerFootsteps = AudioManager.Instance.CreateInstance(FMODEvents.Instance.PlayerFootsteps);
         }
         #endregion
 
