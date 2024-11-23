@@ -26,6 +26,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Visual Studio Code cache directory
+.vscode/
+
 # Gradle cache directory
 .gradle/
 
@@ -93,17 +96,28 @@ Assets/Gemserk.Favorites.asset.meta
 !/[Aa]ssets/Gizmos/FMOD/*
 !/[Aa]ssets/Editor Default Resources/FMOD/*
 
+# Ignore Sirenix demo assets
+/Assets/Plugins/Sirenix/Demos
+
 # If the source bank files are kept outside of the StreamingAssets folder then these can be ignored.
 # FMOD files
 fmod_editor.log
 Assets/StreamingAssets/*.bank
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
 Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+Assets/Plugins/FMOD/platforms/mac
+
+# FMOD files - some of this keeps getting re-added by Unity
 /Assets/StreamingAssets/*.bank
 /Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
 /Assets/Plugins/FMOD/Cache
 /Assets/Plugins/FMOD/Cache/Editor
 /Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
 /Assets/Plugins/FMOD/platforms/mac
-/Assets/Plugins/Sirenix/Demos
-/.vscode
+/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudioL.bundle/Contents
+
+# Project settings that don't need to be pushed to the repo
+ProjectSettings/Packages/com.eflatun.scenereference/Settings.json
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
+
+# other shii
