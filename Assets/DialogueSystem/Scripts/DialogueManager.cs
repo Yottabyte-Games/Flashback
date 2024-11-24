@@ -21,6 +21,7 @@ namespace DialogueSystem.Scripts
         EventInstance _dialogueInstance;
         SceneReference _sceneToLoad;
 
+        private float cd;
         void OnValidate()
         {
             if(gameHudController == null)
@@ -38,7 +39,11 @@ namespace DialogueSystem.Scripts
         void Update()
         {
 
-            if (_nextDialogueAction.WasPressedThisFrame() && _isDialogueActive && canSkipDialogue)
+            if (cd>0)
+            {
+                cd -= Time.deltaTime;
+            }
+            else if (_nextDialogueAction.WasPressedThisFrame() && _isDialogueActive && canSkipDialogue)
             {
                 PlayDialogueLine();
             }
@@ -56,7 +61,7 @@ namespace DialogueSystem.Scripts
         }
         void PlayDialogueLine()
         {
-            print("Playing Dialogue");
+//            print("Playing Dialogue");
             if (_currentDialogue)
             {
                 // If first dialogue load Text Box
@@ -97,6 +102,8 @@ namespace DialogueSystem.Scripts
                 StopDialog();
                 _isDialogueActive = false;
             }
+
+            cd = .5f;
         }
 
         void SetFMODEventAndPlay(EventReference voiceEvent)

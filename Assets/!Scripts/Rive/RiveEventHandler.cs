@@ -55,7 +55,7 @@ public class RiveEventHandler : MonoBehaviour
                         break;
                     case "Racing Event":
                         print("Racing Event");
-                        SceneManager.LoadScene("ToyCarGame");
+                        SceneManager.LoadScene("ToyCarGame - Backup");
                         break;
                     case "Snowman Event":
                         print("Snowman Event");
@@ -67,7 +67,7 @@ public class RiveEventHandler : MonoBehaviour
                         break;
                     case "Shooting Event":
                         print("Shoot Event");
-                        //SceneManager.LoadScene();
+                        SceneManager.LoadScene("Psychologist");
                         break;
                 }
                 break;

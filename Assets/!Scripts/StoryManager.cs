@@ -4,6 +4,7 @@ public enum StoryBeat
 {
     None,
     Introduction,
+    Reroute,
     Fishing,
     FinishedFishing,
     ToyCar,

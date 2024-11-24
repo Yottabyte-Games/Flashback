@@ -33,11 +33,19 @@ namespace _Scripts.WaypointSystem {
         }
 
         public void Show() {
-            if (_meshRenderer is not null) _meshRenderer.enabled = true;
+            if (_meshRenderer is not null)
+            {
+                _meshRenderer.enabled = true;
+                _meshRenderer.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
 
         public void Hide() {
-            if (_meshRenderer is not null) _meshRenderer.enabled = false;
+            if (_meshRenderer is not null)
+            {
+                _meshRenderer.enabled = false;
+                _meshRenderer.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            }
             ResetTrigger();
         }
 

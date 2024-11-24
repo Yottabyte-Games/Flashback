@@ -18,7 +18,7 @@ namespace _Scripts.Snowman_Scripts.Interaction
         {
             //mouseZoom += Input.GetAxis("Mouse ScrollWheel");
             _mouseZoom = Mathf.Clamp(_mouseZoom + Input.GetAxis("Mouse ScrollWheel") * 8, 1f, 20);
-            Debug.Log(_mouseZoom);
+//            Debug.Log(_mouseZoom);
 
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -47,7 +47,7 @@ namespace _Scripts.Snowman_Scripts.Interaction
                         if (hitInteractable.canInteract)
                         {
                             _interactableObject = hitInteractable.gameObject;
-                            Debug.Log(_interactableObject);
+//                            Debug.Log(_interactableObject);
                         }
                     }
                     else if (_interactableObject is not null)

@@ -2354,7 +2354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a47c784d17894458f19a65708e1d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &794430735
+--- !u!114 &794430740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2363,7 +2363,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 794430717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1541754bddb91d44af5d04027e096df, type: 3}
+  m_Script: {fileID: 11500000, guid: de67388c1840b80468372a24f51d666d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &810597846 stripped
@@ -4407,10 +4407,10 @@ PrefabInstance:
       addedObject: {fileID: 794430730}
     - targetCorrespondingSourceObject: {fileID: 5242010300582068122, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 794430735}
+      addedObject: {fileID: 794430729}
     - targetCorrespondingSourceObject: {fileID: 5242010300582068122, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 794430729}
+      addedObject: {fileID: 794430740}
   m_SourcePrefab: {fileID: 100100000, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
 --- !u!1 &1609383609
 GameObject:
@@ -5516,7 +5516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7107303763558304481
 MonoBehaviour:
   m_ObjectHideFlags: 0

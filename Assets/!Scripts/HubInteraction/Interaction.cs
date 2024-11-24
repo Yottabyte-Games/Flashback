@@ -1,6 +1,7 @@
 using _Scripts.Snowman_Scripts.Interaction;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class Interaction : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class Interaction : MonoBehaviour
     private GameObject interactionObject;
 
     private GameHudController ghd;
+    
+    private InputAction _interactAction;
 
     private void Start()
     {
         ghd = GetComponent<GameHudController>();
+        _interactAction = InputSystem.actions.FindAction("Interact");
     }
 
     void Update()
@@ -36,7 +40,11 @@ public class Interaction : MonoBehaviour
                 StopInteraction();
             }
 
-            if (interactable != null && Input.GetKeyDown(KeyCode.E)) { interactable.StartDialogue(); }
+            if (interactable != null && _interactAction.WasPressedThisFrame())
+            {
+                interactable.StartDialogue();
+                interactable.gameObject.GetComponent<StoryProgresser>().SelectNextStoryBeat();
+            }
         }
         else if (interactionObject != null){ StopInteraction();}
     }
@@ -45,12 +53,12 @@ public class Interaction : MonoBehaviour
     {
         interactionObject = interactable.gameObject;
         ghd.HoverOn(interactable.name);
-        Debug.Log("Started Interaction");
+//        Debug.Log("Started Interaction");
     }
 
     void StopInteraction()
     {
-        Debug.Log("Stopped Interaction");
+//        Debug.Log("Stopped Interaction");
         interactionObject = null;
         ghd.HoverOff();
     }

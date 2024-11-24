@@ -9,6 +9,12 @@ public class StoryProgresser : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        SelectNextStoryBeat();
+    }
+
+    public void SelectNextStoryBeat()
+    {
+        print(StoryManager.StoryBeat + " " + ActOnBeat);
         if(StoryManager.StoryBeat != ActOnBeat) return;
 
         StoryManager.ProgressStory(ChangeToBeat);

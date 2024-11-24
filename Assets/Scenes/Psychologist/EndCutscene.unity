@@ -211,12 +211,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3326710022535801438, guid: 0e79e923479782a4489a2e3871a70b23, type: 3}
+      propertyPath: dialogue.dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f79686da3cf5f14e9714432b516e6b8, type: 2}
+    - target: {fileID: 3326710022535801438, guid: 0e79e923479782a4489a2e3871a70b23, type: 3}
       propertyPath: dialogues.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3326710022535801438, guid: 0e79e923479782a4489a2e3871a70b23, type: 3}
       propertyPath: dialogue.ChangeSceneTo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3326710022535801438, guid: 0e79e923479782a4489a2e3871a70b23, type: 3}
       propertyPath: dialogues.Array.data[1].ChangeSceneTo

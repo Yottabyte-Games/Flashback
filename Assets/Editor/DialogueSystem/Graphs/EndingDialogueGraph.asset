@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: EndingDialogueGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: EndingDialogue
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: fcf73157-7d98-4291-8669-0673b4617d49
+    <Name>k__BackingField: Ending01
+    <Text>k__BackingField: (The player travels home)
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 87bc91e4-0d69-4f13-aba9-30a1369355a5
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 54, y: -267}
+  - <ID>k__BackingField: 87bc91e4-0d69-4f13-aba9-30a1369355a5
+    <Name>k__BackingField: Ending02
+    <Text>k__BackingField: Today has been a lot, but it feels like I made some progress.
+      Talking about the different events that have been bothering me lately feels
+      good.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: d66c6ac7-5d89-4897-85dd-cb0eb7511039
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 363, y: -267}
+  - <ID>k__BackingField: d1b37212-3a44-4dd9-bb27-0bda9e53ee99
+    <Name>k__BackingField: Ending04
+    <Text>k__BackingField: "The psychologist told me that I\u2019ve been bothered
+      by these thoughts for a long time probably without thinking about them."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 950efb5b-eaa6-4bd7-a584-ee45028b79f1
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 54, y: 67}
+  - <ID>k__BackingField: d66c6ac7-5d89-4897-85dd-cb0eb7511039
+    <Name>k__BackingField: Ending03
+    <Text>k__BackingField: The psychologist seems happy with me opening up and says
+      that they have a better understanding about what is bothering me.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: d1b37212-3a44-4dd9-bb27-0bda9e53ee99
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1116, y: -253}
+  - <ID>k__BackingField: 950efb5b-eaa6-4bd7-a584-ee45028b79f1
+    <Name>k__BackingField: Ending05
+    <Text>k__BackingField: Me falling into the water caused me to develop a fear
+      that my parents ignored and thought I would forget. Playing with toys and building
+      snowmen were just a coping mechanism for me to avoid thinking about the bad
+      thoughts.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 5ff19ea0-a0b9-4c23-8367-93f13b84cf6a
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 755, y: 67}
+  - <ID>k__BackingField: 5ff19ea0-a0b9-4c23-8367-93f13b84cf6a
+    <Name>k__BackingField: Ending06
+    <Text>k__BackingField: The problem resurfaced at work whenever I was stressing
+      too much causing me to have a mental breakdown. Now I am aware of my condition
+      and can avoid scenes that cause stress.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: b5ffe9ea-0079-417b-94fe-9b447aaec293
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 46, y: 350}
+  - <ID>k__BackingField: b5ffe9ea-0079-417b-94fe-9b447aaec293
+    <Name>k__BackingField: Ending07
+    <Text>k__BackingField: "Thank god i talked honestly to my psychologist, it has
+      really improved things for me, but there\u2019s still a lot of work ahead.\r\n"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 778, y: 350}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Ending01
+  - Ending02
+  - Ending04
+  - Ending03
+  - Ending05
+  - Ending06
+  - Ending07
+  <OldGroupedNodeNames>k__BackingField:
+    list: []
