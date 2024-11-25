@@ -13,12 +13,12 @@ namespace Dreamteck.Splines.Editor
             get { return _splineChanged; }
         }
 
-        private Transform _transform;
-        private DSCreatePointModule _createPointModule = null;
-        private Dreamteck.Editor.Toolbar _nodesToolbar;
-        private bool _splineChanged = false;
+        Transform _transform;
+        DSCreatePointModule _createPointModule = null;
+        Dreamteck.Editor.Toolbar _nodesToolbar;
+        bool _splineChanged = false;
 
-        private List<Vector3> _triggerWorldPositions = new List<Vector3>();
+        List<Vector3> _triggerWorldPositions = new List<Vector3>();
 
 
         protected override string editorName { get { return "DreamteckSplines"; } }
@@ -59,7 +59,7 @@ namespace Dreamteck.Splines.Editor
             base.Load();
         }
 
-        private void OnDuplicatePoint(int[] points)
+        void OnDuplicatePoint(int[] points)
         {
             for (int i = 0; i < points.Length; i++)
             {
@@ -107,7 +107,7 @@ namespace Dreamteck.Splines.Editor
             _serializedObject.ApplyModifiedProperties();
         }
 
-        private void OnBeforeDeleteSelectedPoints()
+        void OnBeforeDeleteSelectedPoints()
         {
             CacheTriggerPositions();
             string nodeString = "";
@@ -393,7 +393,7 @@ namespace Dreamteck.Splines.Editor
             spline.RebuildImmediate(true, true);
         }
 
-        private void TransformPoints()
+        void TransformPoints()
         {
             _matrix = spline.transform.localToWorldMatrix;
             for (int i = 0; i < points.Length; i++)
@@ -407,7 +407,7 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void InverseTransformPoints()
+        void InverseTransformPoints()
         {
             _matrix = spline.transform.localToWorldMatrix;
             Matrix4x4 invMatrix = _matrix.inverse;
@@ -427,7 +427,7 @@ namespace Dreamteck.Splines.Editor
             spline.SetPoints(points);
         }
 
-        private void HandleUndo(string title)
+        void HandleUndo(string title)
         {
             Undo.RecordObject(spline, title);
         }
@@ -464,7 +464,7 @@ namespace Dreamteck.Splines.Editor
             ResetCurrentModule();
         }
 
-        private void SetupModule(PointModule module)
+        void SetupModule(PointModule module)
         {
             module.duplicationDirection = SplinePrefs.duplicationDirection;
             module.highlightColor = SplinePrefs.highlightColor;

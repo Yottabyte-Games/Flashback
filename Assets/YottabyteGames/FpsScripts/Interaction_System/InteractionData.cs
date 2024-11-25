@@ -5,7 +5,7 @@ namespace YottabyteGames.FpsScripts.Interaction_System
     [CreateAssetMenu(fileName = "Interaction Data", menuName = "InteractionSystem/InteractionData")]
     public class InteractionData : ScriptableObject
     {
-        private InteractableBase m_interactable;
+        InteractableBase m_interactable;
 
         public InteractableBase Interactable
         {

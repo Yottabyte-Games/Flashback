@@ -131,7 +131,7 @@
                 }
             }
 
-            [SerializeField] private double _featherStart = 0.0, _featherEnd = 0.0, _centerStart = 0.25, _centerEnd = 0.75;
+            [SerializeField] double _featherStart = 0.0, _featherEnd = 0.0, _centerStart = 0.25, _centerEnd = 0.75;
             public AnimationCurve interpolation;
             public float blend = 1f;
 
@@ -142,7 +142,7 @@
                 interpolation = AnimationCurve.Linear(0f, 0f, 1f, 1f);
             }
 
-            private double GlobalToLocalPercent(double t)
+            double GlobalToLocalPercent(double t)
             {
                 if (_featherStart > _featherEnd)
                 {
@@ -153,7 +153,7 @@
                 return DMath.InverseLerp(_featherStart, _featherEnd, t);
             }
 
-            private double LocalToGlobalPercent(double t)
+            double LocalToGlobalPercent(double t)
             {
                 if (_featherStart > _featherEnd)
                 {

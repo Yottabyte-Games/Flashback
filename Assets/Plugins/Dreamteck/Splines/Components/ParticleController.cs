@@ -19,8 +19,8 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private ParticleSystem _particleSystem;
-        private ParticleSystemRenderer _renderer;
+        ParticleSystem _particleSystem;
+        ParticleSystemRenderer _renderer;
         public enum EmitPoint { Beginning, Ending, Random, Ordered }
         public enum MotionType { None, UseParticleSystem, FollowForward, FollowBackward, ByNormal, ByNormalRandomized }
         public enum Wrap { Default, Loop }
@@ -48,11 +48,11 @@ namespace Dreamteck.Splines
         [HideInInspector]
         public float maxCycles = 1f;
 
-        private ParticleSystem.Particle[] _particles = new ParticleSystem.Particle[0];
-        private Particle[] _controllers = new Particle[0];
-        private int _particleCount = 0;
-        private int _birthIndex = 0;
-        private List<Vector4> _customParticleData = new List<Vector4>();
+        ParticleSystem.Particle[] _particles = new ParticleSystem.Particle[0];
+        Particle[] _controllers = new Particle[0];
+        int _particleCount = 0;
+        int _birthIndex = 0;
+        List<Vector4> _customParticleData = new List<Vector4>();
 
         protected override void LateRun()
         {
@@ -165,7 +165,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void OnParticleBorn(int index)
+        void OnParticleBorn(int index)
         {
             Vector4 custom = _customParticleData[index];
             custom.w = 1;

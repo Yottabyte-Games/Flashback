@@ -9,10 +9,10 @@ namespace Dreamteck.Splines.Editor
     [InitializeOnLoad]
     public static class DSSplineDrawer
     {
-        private static bool refreshComputers = false;
-        private static List<SplineComputer> drawComputers = new List<SplineComputer>();
-        private static Vector3[] positions = new Vector3[0];
-        private static UnityEngine.SceneManagement.Scene currentScene;
+        static bool refreshComputers = false;
+        static List<SplineComputer> drawComputers = new List<SplineComputer>();
+        static Vector3[] positions = new Vector3[0];
+        static UnityEngine.SceneManagement.Scene currentScene;
 
         static DSSplineDrawer()
         {
@@ -33,7 +33,7 @@ namespace Dreamteck.Splines.Editor
             refreshComputers = true;
         }
 
-        private static void HerarchyWindowChanged()
+        static void HerarchyWindowChanged()
         {
         if (currentScene != EditorSceneManager.GetActiveScene())
             {
@@ -43,14 +43,14 @@ namespace Dreamteck.Splines.Editor
             
         }
 
-        private static void FindComputers()
+        static void FindComputers()
         {
             drawComputers.Clear();
             SplineComputer[] computers = GameObject.FindObjectsOfType<SplineComputer>();
             drawComputers.AddRange(computers);
         }
 
-        private static void AutoDrawComputers(SceneView current)
+        static void AutoDrawComputers(SceneView current)
         {
             if (refreshComputers)
             {

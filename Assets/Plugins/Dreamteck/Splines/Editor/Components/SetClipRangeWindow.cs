@@ -6,10 +6,10 @@
     using UnityEditor;
     public class ClipRangeWindow : EditorWindow
     {
-        private float from = 0f;
-        private float to = 0f;
-        private  System.Action<float, float> rcv;
-        private float length = 0f;
+        float from = 0f;
+        float to = 0f;
+        System.Action<float, float> rcv;
+        float length = 0f;
         public void Init(System.Action<float, float> receiver, float fromDistance, float toDistance, float totalLength)
         {
             rcv = receiver;
@@ -20,7 +20,7 @@
             minSize = maxSize = new Vector2(240, 120);
         }
 
-        private void OnGUI()
+        void OnGUI()
         {
             if (Event.current.type == EventType.KeyDown && (Event.current.keyCode == KeyCode.KeypadEnter || Event.current.keyCode == KeyCode.Return))
             {

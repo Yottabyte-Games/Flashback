@@ -26,8 +26,8 @@ namespace Dreamteck
 
         public volatile bool hasUpdate = false;
 
-        private int[] _submeshTrisCount = new int[0];
-        private int[] _submeshOffsets = new int[0];
+        int[] _submeshTrisCount = new int[0];
+        int[] _submeshOffsets = new int[0];
 
 
         public TS_Mesh()

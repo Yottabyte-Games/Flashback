@@ -123,7 +123,7 @@ namespace NaughtyAttributes.Editor
             EditorGUI.EndProperty();
         }
 
-        private object GetValues(SerializedProperty property, string valuesName)
+        object GetValues(SerializedProperty property, string valuesName)
         {
             object target = PropertyUtility.GetTargetObjectWithProperty(property);
 
@@ -150,7 +150,7 @@ namespace NaughtyAttributes.Editor
             return null;
         }
 
-        private bool AreValuesValid(object values, FieldInfo dropdownField)
+        bool AreValuesValid(object values, FieldInfo dropdownField)
         {
             if (values == null || dropdownField == null)
             {
@@ -166,7 +166,7 @@ namespace NaughtyAttributes.Editor
             return false;
         }
 
-        private Type GetElementType(object values)
+        Type GetElementType(object values)
         {
             Type valuesType = values.GetType();
             Type elementType = ReflectionUtility.GetListElementType(valuesType);

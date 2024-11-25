@@ -8,7 +8,7 @@ namespace Dreamteck.Splines
 {
     public static class SplinePrefs
     {
-        private static bool loaded = false;
+        static bool loaded = false;
         public static Spline.Direction duplicationDirection = Spline.Direction.Forward;
         public static bool defaultAlwaysDraw = false;
         public static SplineComputer.EditorUpdateMode defaultEditorUpdateMode = SplineComputer.EditorUpdateMode.Default;
@@ -117,7 +117,7 @@ namespace Dreamteck.Splines
             loaded = true;
         }
 
-        private static Color LoadColor(string name, Color defaultValue)
+        static Color LoadColor(string name, Color defaultValue)
         {
             Color col = Color.white;
             string colorString = EditorPrefs.GetString(name, defaultValue.r+":"+defaultValue.g+ ":" + defaultValue.b+ ":" + defaultValue.a);

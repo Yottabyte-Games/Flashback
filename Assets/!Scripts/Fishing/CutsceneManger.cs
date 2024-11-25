@@ -13,7 +13,7 @@ namespace _Scripts.Fishing
         [SerializeField] int nextScene;
         [SerializeField] float sceneChangeDelay;
 
-        private void Start()
+        void Start()
         {
             director.Play();
             director.stopped += NextScene;

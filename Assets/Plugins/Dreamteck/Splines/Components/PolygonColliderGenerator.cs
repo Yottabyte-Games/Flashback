@@ -51,13 +51,13 @@ namespace Dreamteck.Splines
         }
         [SerializeField]
         [HideInInspector]
-        private Type _type = Type.Path;
+        Type _type = Type.Path;
         [SerializeField]
         [HideInInspector]
-        private float _size = 1f;
+        float _size = 1f;
         [SerializeField]
         [HideInInspector]
-        private float _offset = 0f;
+        float _offset = 0f;
         [SerializeField]
         [HideInInspector]
         protected PolygonCollider2D polygonCollider;
@@ -70,7 +70,7 @@ namespace Dreamteck.Splines
         public float updateRate = 0.1f;
         protected float lastUpdateTime = 0f;
 
-        private bool updateCollider = false;
+        bool updateCollider = false;
 
         protected override void Awake()
         {
@@ -145,7 +145,7 @@ namespace Dreamteck.Splines
 #endif
         }
 
-        private void GeneratePath()
+        void GeneratePath()
         {
             int vertexCount = sampleCount * 2;
             if (vertices.Length != vertexCount) vertices = new Vector2[vertexCount];
@@ -158,7 +158,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void GenerateShape()
+        void GenerateShape()
         {
             if (vertices.Length != sampleCount) vertices = new Vector2[sampleCount];
             for (int i = 0; i < sampleCount; i++)

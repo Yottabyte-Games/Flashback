@@ -4,8 +4,8 @@ namespace Dreamteck.Utilities
 
     public class Randomizer
     {
-        private int _seed;
-        private System.Random _random;
+        int _seed;
+        System.Random _random;
 
         public System.Random random => _random;
 

@@ -2,82 +2,84 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using System.Collections.Generic;
+using _Scripts.Generic;
+using UnityEngine.Serialization;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
 
     [Header("Volume")]
     [Range(0f, 1f)]
-
-    public float masterVolume = 1f;
+    public float MasterVolume = 1f;
+    
     [Range(0f, 1f)]
-
-    public float musicVolume = 1f;
+    public float MusicVolume = 1f;
+    
     [Range(0f, 1f)]
-
-    public float sfxVolume = 1f;
+    public float SfxVolume = 1f;
+    
     [Range(0f, 1f)]
+    public float VoiceVolume = 1f;
+    
+    [Range(0f, 1f)] 
+    
+    Bus _masterBus;
 
-    public float voiceVolume = 1f;
-    [Range(0f, 1f)]
+    Bus _musicBus;
 
-    private Bus masterBus;
+    Bus _sfxBus;
 
-    private Bus musicBus;
-
-    private Bus sfxBus;
-
-    private Bus voiceBus;
+    Bus _voiceBus;
 
 
-    private List<EventInstance> eventInstances;
-    private List<StudioEventEmitter> eventEmitters;
+    List<EventInstance> _eventInstances;
+    List<StudioEventEmitter> _eventEmitters;
 
-    private EventInstance ambienceEventInstance;
+    EventInstance _ambienceEventInstance;
 
     public static AudioManager Instance { get; private set; }
 
 
     void Awake()
     {
-        if (Instance != null)
+        if (Instance is not null)
         {
             Debug.LogError("More than one AudioManager in the scene");
         }
         Instance = this;
 
-        eventInstances = new List<EventInstance>();
-        eventEmitters = new List<StudioEventEmitter>();
+        _eventInstances = new List<EventInstance>();
+        _eventEmitters = new List<StudioEventEmitter>();
 
-        masterBus = RuntimeManager.GetBus("bus:/");
-        musicBus = RuntimeManager.GetBus("bus:/Music");
-        sfxBus = RuntimeManager.GetBus("bus:/SFX");
-        voiceBus = RuntimeManager.GetBus("bus:/Voice");
+        _masterBus = RuntimeManager.GetBus("bus:/");
+        _musicBus = RuntimeManager.GetBus("bus:/Music");
+        _sfxBus = RuntimeManager.GetBus("bus:/SFX");
+        _voiceBus = RuntimeManager.GetBus("bus:/Voice");
     }
 
-    private void Start()
+    void Start()
     {
         InitializeAmbience(FMODEvents.Instance.AmbienceHubworld);
     }
 
-    private void Update()
+    void Update()
     {
-        masterBus.setVolume(masterVolume);
-        musicBus.setVolume(musicVolume);
-        sfxBus.setVolume(sfxVolume);
-        voiceBus.setVolume(voiceVolume);
+        _masterBus.setVolume(MasterVolume);
+        _musicBus.setVolume(MusicVolume);
+        _sfxBus.setVolume(SfxVolume);
+        _voiceBus.setVolume(VoiceVolume);
     }
 
 
-    private void InitializeAmbience(EventReference ambienceEventReference)
+    void InitializeAmbience(EventReference ambienceEventReference)
     {
-        ambienceEventInstance = CreateEventInstance(ambienceEventReference);
-        ambienceEventInstance.start();
+        _ambienceEventInstance = CreateEventInstance(ambienceEventReference);
+        _ambienceEventInstance.start();
     }
     
     public void SetAmbienceArea(AmbienceArea area)
     {
-        ambienceEventInstance.setParameterByName("area", (float)area);
+        _ambienceEventInstance.setParameterByName("area", (float)area);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
@@ -88,7 +90,7 @@ public class AudioManager : MonoBehaviour
     public EventInstance CreateEventInstance(EventReference eventReference)
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
-        eventInstances.Add(eventInstance);
+        _eventInstances.Add(eventInstance);
         return eventInstance;
     }
 
@@ -96,26 +98,26 @@ public class AudioManager : MonoBehaviour
     {
         StudioEventEmitter emitter = emitterGameObject.GetComponent<StudioEventEmitter>();
         emitter.EventReference = eventReference;
-        eventEmitters.Add(emitter);
+        _eventEmitters.Add(emitter);
         return emitter;
     }
 
-    private void CleanUp()
+    void CleanUp()
     {
         // stop and release any created instances
-        foreach (EventInstance eventInstance in eventInstances)
+        foreach (EventInstance eventInstance in _eventInstances)
         {
             eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventInstance.release();
         }
         // stop all of the event emitters, because if we dont they may hang around other scenes
-        foreach (StudioEventEmitter emitter in eventEmitters)
+        foreach (StudioEventEmitter emitter in _eventEmitters)
         {
             emitter.Stop();
         }
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
         CleanUp();
     }

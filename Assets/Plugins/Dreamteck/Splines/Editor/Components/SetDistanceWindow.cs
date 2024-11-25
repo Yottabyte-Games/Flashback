@@ -18,7 +18,7 @@
             minSize = maxSize = new Vector2(240, 90);
         }
 
-        private void OnGUI()
+        void OnGUI()
         {
             if (Event.current.type == EventType.KeyDown && (Event.current.keyCode == KeyCode.KeypadEnter || Event.current.keyCode == KeyCode.Return))
             {

@@ -166,7 +166,7 @@ namespace Dreamteck.Splines.Editor
             return newSpline;
         }
 
-        private double ProjectMouse()
+        double ProjectMouse()
         {
             if (spline.pointCount == 0) return 0.0;
             float closestDistance = (Event.current.mousePosition - HandleUtility.WorldToGUIPoint(spline.GetPointPosition(0))).sqrMagnitude;

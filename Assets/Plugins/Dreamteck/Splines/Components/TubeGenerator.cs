@@ -94,25 +94,25 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private int _sides = 12;
+        int _sides = 12;
         [SerializeField]
         [HideInInspector]
-        private int _roundCapLatitude = 6;
+        int _roundCapLatitude = 6;
         [SerializeField]
         [HideInInspector]
-        private CapMethod _capMode = CapMethod.None;
+        CapMethod _capMode = CapMethod.None;
         [SerializeField]
         [HideInInspector]
         [Range(0f, 360f)]
-        private float _revolve = 360f;
+        float _revolve = 360f;
         [SerializeField]
         [HideInInspector]
-        private float _capUVScale = 1f;
+        float _capUVScale = 1f;
         [SerializeField]
         [HideInInspector]
-        private float _uvTwist = 0f;
+        float _uvTwist = 0f;
 
-        private bool useCap
+        bool useCap
         {
             get
             {
@@ -124,10 +124,10 @@ namespace Dreamteck.Splines
 
         protected override string meshName => "Tube";
 
-        private int bodyVertexCount = 0;
-        private int bodyTrisCount = 0;
-        private int capVertexCount = 0;
-        private int capTrisCount = 0;
+        int bodyVertexCount = 0;
+        int bodyTrisCount = 0;
+        int capVertexCount = 0;
+        int capTrisCount = 0;
 
         protected override void Reset()
         {

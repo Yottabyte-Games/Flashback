@@ -12,8 +12,8 @@ namespace Dreamteck.Splines.IO
             get { return fileName; }
         }
 
-        private System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-        private System.Globalization.NumberStyles style = System.Globalization.NumberStyles.Any;
+        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+        System.Globalization.NumberStyles style = System.Globalization.NumberStyles.Any;
 
         internal class Transformation
         {
@@ -44,7 +44,7 @@ namespace Dreamteck.Splines.IO
 
         internal class Translate : Transformation
         {
-            private Vector2 offset = Vector2.zero;
+            Vector2 offset = Vector2.zero;
             public Translate(Vector2 o)
             {
                 offset = o;
@@ -60,7 +60,7 @@ namespace Dreamteck.Splines.IO
 
         internal class Rotate : Transformation
         {
-            private float angle = 0f;
+            float angle = 0f;
             public Rotate(float a)
             {
                 angle = a;
@@ -76,7 +76,7 @@ namespace Dreamteck.Splines.IO
 
         internal class Scale : Transformation
         {
-            private Vector2 multiplier = Vector2.one;
+            Vector2 multiplier = Vector2.one;
             public Scale(Vector2 s)
             {
                 multiplier = s;
@@ -92,7 +92,7 @@ namespace Dreamteck.Splines.IO
 
         internal class SkewX : Transformation
         {
-            private float amount = 0f;
+            float amount = 0f;
             public SkewX(float a)
             {
                 amount = a;
@@ -112,7 +112,7 @@ namespace Dreamteck.Splines.IO
 
         internal class SkewY : Transformation
         {
-            private float amount = 0f;
+            float amount = 0f;
             public SkewY(float a)
             {
                 amount = a;
@@ -132,7 +132,7 @@ namespace Dreamteck.Splines.IO
 
         internal class MatrixTransform : Transformation
         {
-            private Matrix4x4 transformMatrix = new Matrix4x4();
+            Matrix4x4 transformMatrix = new Matrix4x4();
 
             public MatrixTransform(float a, float b, float c, float d, float e, float f)
             { 

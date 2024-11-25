@@ -34,8 +34,8 @@ public class PlayerPositionController : MonoBehaviour
         
         StartCoroutine(TransitionToScene(sceneName));
     }
-    
-    private IEnumerator TransitionToScene(string sceneName)
+
+    IEnumerator TransitionToScene(string sceneName)
     {
         PlayerPositionStorage.Instance.SavedPlayerPosition = transform.position;
         Debug.Log($"Saved position: {transform.position}");

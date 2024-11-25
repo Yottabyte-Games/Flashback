@@ -9,10 +9,10 @@ namespace Dreamteck.Splines.Editor
 
     public class ImportExportTool : SplineTool
     {
-        private float scaleFactor = 1f;
-        private bool alwaysDraw = true;
-        private string importPath = "";
-        private string exportPath = "";
+        float scaleFactor = 1f;
+        bool alwaysDraw = true;
+        string importPath = "";
+        string exportPath = "";
         List<SplinePoint[]> originalPoints = new List<SplinePoint[]>();
         List<SplineComputer> imported = new List<SplineComputer>();
         List<SplineComputer> exported = new List<SplineComputer>();

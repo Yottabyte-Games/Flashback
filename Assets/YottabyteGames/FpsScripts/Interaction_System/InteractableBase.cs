@@ -8,14 +8,16 @@ namespace YottabyteGames.FpsScripts.Interaction_System
         #region Variables    
             [Space,Header("Interactable Settings")]
 
-            [SerializeField] private bool holdInteract = true;
-            [ShowIf("holdInteract")][SerializeField] private float holdDuration = 1f;
+            [SerializeField]
+            bool holdInteract = true;
+            [ShowIf("holdInteract")][SerializeField] float holdDuration = 1f;
             
             [Space] 
-            [SerializeField] private bool multipleUse = false;
-            [SerializeField] private bool isInteractable = true;
+            [SerializeField]
+            bool multipleUse = false;
+            [SerializeField] bool isInteractable = true;
 
-            [SerializeField] private string tooltipMessage = "interact";
+            [SerializeField] string tooltipMessage = "interact";
         #endregion
 
         #region Properties    

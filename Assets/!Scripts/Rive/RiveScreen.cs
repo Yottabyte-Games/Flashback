@@ -88,7 +88,7 @@ public class RiveScreen : MonoBehaviour
         SettingsMenu,
         PsychologyScene,
     }
-    private static readonly Dictionary<RiveScenes, string> referenceNames = new Dictionary<RiveScenes, string>()
+    static readonly Dictionary<RiveScenes, string> referenceNames = new Dictionary<RiveScenes, string>()
     {
         { RiveScenes.HUD, "HUD" },
         { RiveScenes.MainMenu, "Home Screen" },
@@ -98,7 +98,7 @@ public class RiveScreen : MonoBehaviour
         { RiveScenes.PsychologyScene, "Psychologist MindScene"},
     };
     public RiveScenes currentScene;
-    private RiveScenes firstScene;
+    RiveScenes firstScene;
 
     public enum TextPath
     {
@@ -108,8 +108,8 @@ public class RiveScreen : MonoBehaviour
         Option1,
         Option2,
     }
-    
-    private readonly Dictionary<TextPath, string> textRunReferences = new()
+
+    readonly Dictionary<TextPath, string> textRunReferences = new()
     {
         { TextPath.HUDItem, "ItemName"},
         { TextPath.Dialogue, "DialogueText"},
@@ -287,8 +287,8 @@ public class RiveScreen : MonoBehaviour
         }
 
     }
-    
-    private string GetSelectedRiveSceneName(RiveScenes swapTo)
+
+    string GetSelectedRiveSceneName(RiveScenes swapTo)
     {
         return referenceNames[swapTo];
     }

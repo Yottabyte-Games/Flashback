@@ -26,10 +26,10 @@ namespace Dreamteck.Splines
         }
         [SerializeField]
         [HideInInspector]
-        private int _randomSeed = 1;
+        int _randomSeed = 1;
         [SerializeField]
         [HideInInspector]
-        private int index = 0;
+        int index = 0;
         [SerializeField]
         [HideInInspector]
         System.Random randomizer;

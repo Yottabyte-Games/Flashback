@@ -70,15 +70,15 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private int _module = -1, _selectModule = -1, _loadedModuleIndex = -1;
-        private PointModule[] _modules = new PointModule[0];
-        private string[] _pointOperationStrings = new string[0];
-        private float _editLabelAlpha = 0f;
-        private Vector2 _editLabelPosition = Vector2.zero;
-        private float lastEmptyClickTime = 0f;
-        private int _selectedPointOperation = 0;
-        private bool _emptyClick = false;
-        private string _customSplinePropertyName = "";
+        int _module = -1, _selectModule = -1, _loadedModuleIndex = -1;
+        PointModule[] _modules = new PointModule[0];
+        string[] _pointOperationStrings = new string[0];
+        float _editLabelAlpha = 0f;
+        Vector2 _editLabelPosition = Vector2.zero;
+        float lastEmptyClickTime = 0f;
+        int _selectedPointOperation = 0;
+        bool _emptyClick = false;
+        string _customSplinePropertyName = "";
 
         public Matrix4x4 matrix
         {
@@ -97,7 +97,7 @@ namespace Dreamteck.Splines.Editor
             Initialize(transformMatrix, splineHolder);
         }
 
-        private void Initialize(Matrix4x4 transformMatrix, SerializedObject splineHolder)
+        void Initialize(Matrix4x4 transformMatrix, SerializedObject splineHolder)
         {
             _matrix = transformMatrix;
             string[] serializedPath = splinePropertyName.Split('/');
@@ -340,7 +340,7 @@ namespace Dreamteck.Splines.Editor
             _selectedPointOperation = EditorPrefs.GetInt(GetSaveName("selectedPointOperation"), 0);
         }
 
-        private void HandleEditModeToggle()
+        void HandleEditModeToggle()
         {
             if(Event.current.type == EventType.KeyDown)
             {

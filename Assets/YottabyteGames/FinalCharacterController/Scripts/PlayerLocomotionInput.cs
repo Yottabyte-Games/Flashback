@@ -8,7 +8,7 @@ namespace YottabyteGames.FinalCharacterController.Scripts
     public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomotionMapActions
     {
         #region Class Variables
-        [SerializeField] private bool holdToSprint = true;
+        [SerializeField] bool holdToSprint = true;
 
         public bool SprintToggledOn {  get; private set; }
         public PlayerControls PlayerControls { get; private set; }
@@ -18,7 +18,7 @@ namespace YottabyteGames.FinalCharacterController.Scripts
         #endregion
 
         #region Startup
-        private void OnEnable()
+        void OnEnable()
         {
             PlayerControls = new PlayerControls();
             PlayerControls.Enable();
@@ -27,7 +27,7 @@ namespace YottabyteGames.FinalCharacterController.Scripts
             PlayerControls.PlayerLocomotionMap.SetCallbacks(this);
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             PlayerControls.PlayerLocomotionMap.Disable();
             PlayerControls.PlayerLocomotionMap.RemoveCallbacks(this);
@@ -35,7 +35,7 @@ namespace YottabyteGames.FinalCharacterController.Scripts
         #endregion
 
         #region Late Update Logic
-        private void LateUpdate()
+        void LateUpdate()
         {
             JumpPressed = false;
         }

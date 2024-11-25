@@ -973,7 +973,7 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Create(out IntPtr system, uint headerversion);
+        static extern RESULT FMOD5_System_Create(out IntPtr system, uint headerversion);
 
         #endregion
     }
@@ -995,9 +995,9 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Memory_Initialize(IntPtr poolmem, int poollen, MEMORY_ALLOC_CALLBACK useralloc, MEMORY_REALLOC_CALLBACK userrealloc, MEMORY_FREE_CALLBACK userfree, MEMORY_TYPE memtypeflags);
+        static extern RESULT FMOD5_Memory_Initialize(IntPtr poolmem, int poollen, MEMORY_ALLOC_CALLBACK useralloc, MEMORY_REALLOC_CALLBACK userrealloc, MEMORY_FREE_CALLBACK userfree, MEMORY_TYPE memtypeflags);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Memory_GetStats  (out int currentalloced, out int maxalloced, bool blocking);
+        static extern RESULT FMOD5_Memory_GetStats  (out int currentalloced, out int maxalloced, bool blocking);
 
         #endregion
     }
@@ -1014,7 +1014,7 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Debug_Initialize(DEBUG_FLAGS flags, DEBUG_MODE mode, DEBUG_CALLBACK callback, byte[] filename);
+        static extern RESULT FMOD5_Debug_Initialize(DEBUG_FLAGS flags, DEBUG_MODE mode, DEBUG_CALLBACK callback, byte[] filename);
 
         #endregion
     }
@@ -1028,7 +1028,7 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Thread_SetAttributes(THREAD_TYPE type, THREAD_AFFINITY affinity, THREAD_PRIORITY priority, THREAD_STACK_SIZE stacksize);
+        static extern RESULT FMOD5_Thread_SetAttributes(THREAD_TYPE type, THREAD_AFFINITY affinity, THREAD_PRIORITY priority, THREAD_STACK_SIZE stacksize);
         #endregion
     }
 
@@ -1532,191 +1532,191 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Release                   (IntPtr system);
+        static extern RESULT FMOD5_System_Release                   (IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetOutput                 (IntPtr system, OUTPUTTYPE output);
+        static extern RESULT FMOD5_System_SetOutput                 (IntPtr system, OUTPUTTYPE output);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetOutput                 (IntPtr system, out OUTPUTTYPE output);
+        static extern RESULT FMOD5_System_GetOutput                 (IntPtr system, out OUTPUTTYPE output);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetNumDrivers             (IntPtr system, out int numdrivers);
+        static extern RESULT FMOD5_System_GetNumDrivers             (IntPtr system, out int numdrivers);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetDriverInfo             (IntPtr system, int id, IntPtr name, int namelen, out Guid guid, out int systemrate, out SPEAKERMODE speakermode, out int speakermodechannels);
+        static extern RESULT FMOD5_System_GetDriverInfo             (IntPtr system, int id, IntPtr name, int namelen, out Guid guid, out int systemrate, out SPEAKERMODE speakermode, out int speakermodechannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetDriver                 (IntPtr system, int driver);
+        static extern RESULT FMOD5_System_SetDriver                 (IntPtr system, int driver);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetDriver                 (IntPtr system, out int driver);
+        static extern RESULT FMOD5_System_GetDriver                 (IntPtr system, out int driver);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetSoftwareChannels       (IntPtr system, int numsoftwarechannels);
+        static extern RESULT FMOD5_System_SetSoftwareChannels       (IntPtr system, int numsoftwarechannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetSoftwareChannels       (IntPtr system, out int numsoftwarechannels);
+        static extern RESULT FMOD5_System_GetSoftwareChannels       (IntPtr system, out int numsoftwarechannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetSoftwareFormat         (IntPtr system, int samplerate, SPEAKERMODE speakermode, int numrawspeakers);
+        static extern RESULT FMOD5_System_SetSoftwareFormat         (IntPtr system, int samplerate, SPEAKERMODE speakermode, int numrawspeakers);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetSoftwareFormat         (IntPtr system, out int samplerate, out SPEAKERMODE speakermode, out int numrawspeakers);
+        static extern RESULT FMOD5_System_GetSoftwareFormat         (IntPtr system, out int samplerate, out SPEAKERMODE speakermode, out int numrawspeakers);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetDSPBufferSize          (IntPtr system, uint bufferlength, int numbuffers);
+        static extern RESULT FMOD5_System_SetDSPBufferSize          (IntPtr system, uint bufferlength, int numbuffers);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetDSPBufferSize          (IntPtr system, out uint bufferlength, out int numbuffers);
+        static extern RESULT FMOD5_System_GetDSPBufferSize          (IntPtr system, out uint bufferlength, out int numbuffers);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetFileSystem             (IntPtr system, FILE_OPEN_CALLBACK useropen, FILE_CLOSE_CALLBACK userclose, FILE_READ_CALLBACK userread, FILE_SEEK_CALLBACK userseek, FILE_ASYNCREAD_CALLBACK userasyncread, FILE_ASYNCCANCEL_CALLBACK userasynccancel, int blockalign);
+        static extern RESULT FMOD5_System_SetFileSystem             (IntPtr system, FILE_OPEN_CALLBACK useropen, FILE_CLOSE_CALLBACK userclose, FILE_READ_CALLBACK userread, FILE_SEEK_CALLBACK userseek, FILE_ASYNCREAD_CALLBACK userasyncread, FILE_ASYNCCANCEL_CALLBACK userasynccancel, int blockalign);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_AttachFileSystem          (IntPtr system, FILE_OPEN_CALLBACK useropen, FILE_CLOSE_CALLBACK userclose, FILE_READ_CALLBACK userread, FILE_SEEK_CALLBACK userseek);
+        static extern RESULT FMOD5_System_AttachFileSystem          (IntPtr system, FILE_OPEN_CALLBACK useropen, FILE_CLOSE_CALLBACK userclose, FILE_READ_CALLBACK userread, FILE_SEEK_CALLBACK userseek);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetAdvancedSettings       (IntPtr system, ref ADVANCEDSETTINGS settings);
+        static extern RESULT FMOD5_System_SetAdvancedSettings       (IntPtr system, ref ADVANCEDSETTINGS settings);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetAdvancedSettings       (IntPtr system, ref ADVANCEDSETTINGS settings);
+        static extern RESULT FMOD5_System_GetAdvancedSettings       (IntPtr system, ref ADVANCEDSETTINGS settings);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetCallback               (IntPtr system, SYSTEM_CALLBACK callback, SYSTEM_CALLBACK_TYPE callbackmask);
+        static extern RESULT FMOD5_System_SetCallback               (IntPtr system, SYSTEM_CALLBACK callback, SYSTEM_CALLBACK_TYPE callbackmask);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetPluginPath             (IntPtr system, byte[] path);
+        static extern RESULT FMOD5_System_SetPluginPath             (IntPtr system, byte[] path);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_LoadPlugin                (IntPtr system, byte[] filename, out uint handle, uint priority);
+        static extern RESULT FMOD5_System_LoadPlugin                (IntPtr system, byte[] filename, out uint handle, uint priority);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_UnloadPlugin              (IntPtr system, uint handle);
+        static extern RESULT FMOD5_System_UnloadPlugin              (IntPtr system, uint handle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetNumNestedPlugins       (IntPtr system, uint handle, out int count);
+        static extern RESULT FMOD5_System_GetNumNestedPlugins       (IntPtr system, uint handle, out int count);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetNestedPlugin           (IntPtr system, uint handle, int index, out uint nestedhandle);
+        static extern RESULT FMOD5_System_GetNestedPlugin           (IntPtr system, uint handle, int index, out uint nestedhandle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetNumPlugins             (IntPtr system, PLUGINTYPE plugintype, out int numplugins);
+        static extern RESULT FMOD5_System_GetNumPlugins             (IntPtr system, PLUGINTYPE plugintype, out int numplugins);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetPluginHandle           (IntPtr system, PLUGINTYPE plugintype, int index, out uint handle);
+        static extern RESULT FMOD5_System_GetPluginHandle           (IntPtr system, PLUGINTYPE plugintype, int index, out uint handle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetPluginInfo             (IntPtr system, uint handle, out PLUGINTYPE plugintype, IntPtr name, int namelen, out uint version);
+        static extern RESULT FMOD5_System_GetPluginInfo             (IntPtr system, uint handle, out PLUGINTYPE plugintype, IntPtr name, int namelen, out uint version);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetOutputByPlugin         (IntPtr system, uint handle);
+        static extern RESULT FMOD5_System_SetOutputByPlugin         (IntPtr system, uint handle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetOutputByPlugin         (IntPtr system, out uint handle);
+        static extern RESULT FMOD5_System_GetOutputByPlugin         (IntPtr system, out uint handle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateDSPByPlugin         (IntPtr system, uint handle, out IntPtr dsp);
+        static extern RESULT FMOD5_System_CreateDSPByPlugin         (IntPtr system, uint handle, out IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetDSPInfoByPlugin        (IntPtr system, uint handle, out IntPtr description);
+        static extern RESULT FMOD5_System_GetDSPInfoByPlugin        (IntPtr system, uint handle, out IntPtr description);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_RegisterDSP               (IntPtr system, ref DSP_DESCRIPTION description, out uint handle);
+        static extern RESULT FMOD5_System_RegisterDSP               (IntPtr system, ref DSP_DESCRIPTION description, out uint handle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Init                      (IntPtr system, int maxchannels, INITFLAGS flags, IntPtr extradriverdata);
+        static extern RESULT FMOD5_System_Init                      (IntPtr system, int maxchannels, INITFLAGS flags, IntPtr extradriverdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Close                     (IntPtr system);
+        static extern RESULT FMOD5_System_Close                     (IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Update                    (IntPtr system);
+        static extern RESULT FMOD5_System_Update                    (IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetSpeakerPosition        (IntPtr system, SPEAKER speaker, float x, float y, bool active);
+        static extern RESULT FMOD5_System_SetSpeakerPosition        (IntPtr system, SPEAKER speaker, float x, float y, bool active);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetSpeakerPosition        (IntPtr system, SPEAKER speaker, out float x, out float y, out bool active);
+        static extern RESULT FMOD5_System_GetSpeakerPosition        (IntPtr system, SPEAKER speaker, out float x, out float y, out bool active);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetStreamBufferSize       (IntPtr system, uint filebuffersize, TIMEUNIT filebuffersizetype);
+        static extern RESULT FMOD5_System_SetStreamBufferSize       (IntPtr system, uint filebuffersize, TIMEUNIT filebuffersizetype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetStreamBufferSize       (IntPtr system, out uint filebuffersize, out TIMEUNIT filebuffersizetype);
+        static extern RESULT FMOD5_System_GetStreamBufferSize       (IntPtr system, out uint filebuffersize, out TIMEUNIT filebuffersizetype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Set3DSettings             (IntPtr system, float dopplerscale, float distancefactor, float rolloffscale);
+        static extern RESULT FMOD5_System_Set3DSettings             (IntPtr system, float dopplerscale, float distancefactor, float rolloffscale);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Get3DSettings             (IntPtr system, out float dopplerscale, out float distancefactor, out float rolloffscale);
+        static extern RESULT FMOD5_System_Get3DSettings             (IntPtr system, out float dopplerscale, out float distancefactor, out float rolloffscale);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Set3DNumListeners         (IntPtr system, int numlisteners);
+        static extern RESULT FMOD5_System_Set3DNumListeners         (IntPtr system, int numlisteners);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Get3DNumListeners         (IntPtr system, out int numlisteners);
+        static extern RESULT FMOD5_System_Get3DNumListeners         (IntPtr system, out int numlisteners);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Set3DListenerAttributes   (IntPtr system, int listener, ref VECTOR pos, ref VECTOR vel, ref VECTOR forward, ref VECTOR up);
+        static extern RESULT FMOD5_System_Set3DListenerAttributes   (IntPtr system, int listener, ref VECTOR pos, ref VECTOR vel, ref VECTOR forward, ref VECTOR up);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Get3DListenerAttributes   (IntPtr system, int listener, out VECTOR pos, out VECTOR vel, out VECTOR forward, out VECTOR up);
+        static extern RESULT FMOD5_System_Get3DListenerAttributes   (IntPtr system, int listener, out VECTOR pos, out VECTOR vel, out VECTOR forward, out VECTOR up);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_Set3DRolloffCallback      (IntPtr system, CB_3D_ROLLOFF_CALLBACK callback);
+        static extern RESULT FMOD5_System_Set3DRolloffCallback      (IntPtr system, CB_3D_ROLLOFF_CALLBACK callback);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_MixerSuspend              (IntPtr system);
+        static extern RESULT FMOD5_System_MixerSuspend              (IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_MixerResume               (IntPtr system);
+        static extern RESULT FMOD5_System_MixerResume               (IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetDefaultMixMatrix       (IntPtr system, SPEAKERMODE sourcespeakermode, SPEAKERMODE targetspeakermode, float[] matrix, int matrixhop);
+        static extern RESULT FMOD5_System_GetDefaultMixMatrix       (IntPtr system, SPEAKERMODE sourcespeakermode, SPEAKERMODE targetspeakermode, float[] matrix, int matrixhop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetSpeakerModeChannels    (IntPtr system, SPEAKERMODE mode, out int channels);
+        static extern RESULT FMOD5_System_GetSpeakerModeChannels    (IntPtr system, SPEAKERMODE mode, out int channels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetVersion                (IntPtr system, out uint version);
+        static extern RESULT FMOD5_System_GetVersion                (IntPtr system, out uint version);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetOutputHandle           (IntPtr system, out IntPtr handle);
+        static extern RESULT FMOD5_System_GetOutputHandle           (IntPtr system, out IntPtr handle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetChannelsPlaying        (IntPtr system, out int channels, IntPtr zero);
+        static extern RESULT FMOD5_System_GetChannelsPlaying        (IntPtr system, out int channels, IntPtr zero);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetChannelsPlaying        (IntPtr system, out int channels, out int realchannels);
+        static extern RESULT FMOD5_System_GetChannelsPlaying        (IntPtr system, out int channels, out int realchannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetCPUUsage               (IntPtr system, out CPU_USAGE usage);
+        static extern RESULT FMOD5_System_GetCPUUsage               (IntPtr system, out CPU_USAGE usage);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetFileUsage              (IntPtr system, out Int64 sampleBytesRead, out Int64 streamBytesRead, out Int64 otherBytesRead);
+        static extern RESULT FMOD5_System_GetFileUsage              (IntPtr system, out Int64 sampleBytesRead, out Int64 streamBytesRead, out Int64 otherBytesRead);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateSound               (IntPtr system, byte[] name_or_data, MODE mode, ref CREATESOUNDEXINFO exinfo, out IntPtr sound);
+        static extern RESULT FMOD5_System_CreateSound               (IntPtr system, byte[] name_or_data, MODE mode, ref CREATESOUNDEXINFO exinfo, out IntPtr sound);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateSound               (IntPtr system, IntPtr name_or_data, MODE mode, ref CREATESOUNDEXINFO exinfo, out IntPtr sound);
+        static extern RESULT FMOD5_System_CreateSound               (IntPtr system, IntPtr name_or_data, MODE mode, ref CREATESOUNDEXINFO exinfo, out IntPtr sound);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateStream              (IntPtr system, byte[] name_or_data, MODE mode, ref CREATESOUNDEXINFO exinfo, out IntPtr sound);
+        static extern RESULT FMOD5_System_CreateStream              (IntPtr system, byte[] name_or_data, MODE mode, ref CREATESOUNDEXINFO exinfo, out IntPtr sound);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateStream              (IntPtr system, IntPtr name_or_data, MODE mode, ref CREATESOUNDEXINFO exinfo, out IntPtr sound);
+        static extern RESULT FMOD5_System_CreateStream              (IntPtr system, IntPtr name_or_data, MODE mode, ref CREATESOUNDEXINFO exinfo, out IntPtr sound);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateDSP                 (IntPtr system, ref DSP_DESCRIPTION description, out IntPtr dsp);
+        static extern RESULT FMOD5_System_CreateDSP                 (IntPtr system, ref DSP_DESCRIPTION description, out IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateDSPByType           (IntPtr system, DSP_TYPE type, out IntPtr dsp);
+        static extern RESULT FMOD5_System_CreateDSPByType           (IntPtr system, DSP_TYPE type, out IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateChannelGroup        (IntPtr system, byte[] name, out IntPtr channelgroup);
+        static extern RESULT FMOD5_System_CreateChannelGroup        (IntPtr system, byte[] name, out IntPtr channelgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateSoundGroup          (IntPtr system, byte[] name, out IntPtr soundgroup);
+        static extern RESULT FMOD5_System_CreateSoundGroup          (IntPtr system, byte[] name, out IntPtr soundgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateReverb3D            (IntPtr system, out IntPtr reverb);
+        static extern RESULT FMOD5_System_CreateReverb3D            (IntPtr system, out IntPtr reverb);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_PlaySound                 (IntPtr system, IntPtr sound, IntPtr channelgroup, bool paused, out IntPtr channel);
+        static extern RESULT FMOD5_System_PlaySound                 (IntPtr system, IntPtr sound, IntPtr channelgroup, bool paused, out IntPtr channel);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_PlayDSP                   (IntPtr system, IntPtr dsp, IntPtr channelgroup, bool paused, out IntPtr channel);
+        static extern RESULT FMOD5_System_PlayDSP                   (IntPtr system, IntPtr dsp, IntPtr channelgroup, bool paused, out IntPtr channel);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetChannel                (IntPtr system, int channelid, out IntPtr channel);
+        static extern RESULT FMOD5_System_GetChannel                (IntPtr system, int channelid, out IntPtr channel);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetDSPInfoByType          (IntPtr system, DSP_TYPE type, out IntPtr description);
+        static extern RESULT FMOD5_System_GetDSPInfoByType          (IntPtr system, DSP_TYPE type, out IntPtr description);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetMasterChannelGroup     (IntPtr system, out IntPtr channelgroup);
+        static extern RESULT FMOD5_System_GetMasterChannelGroup     (IntPtr system, out IntPtr channelgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetMasterSoundGroup       (IntPtr system, out IntPtr soundgroup);
+        static extern RESULT FMOD5_System_GetMasterSoundGroup       (IntPtr system, out IntPtr soundgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_AttachChannelGroupToPort  (IntPtr system, PORT_TYPE portType, ulong portIndex, IntPtr channelgroup, bool passThru);
+        static extern RESULT FMOD5_System_AttachChannelGroupToPort  (IntPtr system, PORT_TYPE portType, ulong portIndex, IntPtr channelgroup, bool passThru);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_DetachChannelGroupFromPort(IntPtr system, IntPtr channelgroup);
+        static extern RESULT FMOD5_System_DetachChannelGroupFromPort(IntPtr system, IntPtr channelgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetReverbProperties       (IntPtr system, int instance, ref REVERB_PROPERTIES prop);
+        static extern RESULT FMOD5_System_SetReverbProperties       (IntPtr system, int instance, ref REVERB_PROPERTIES prop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetReverbProperties       (IntPtr system, int instance, out REVERB_PROPERTIES prop);
+        static extern RESULT FMOD5_System_GetReverbProperties       (IntPtr system, int instance, out REVERB_PROPERTIES prop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_LockDSP                   (IntPtr system);
+        static extern RESULT FMOD5_System_LockDSP                   (IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_UnlockDSP                 (IntPtr system);
+        static extern RESULT FMOD5_System_UnlockDSP                 (IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetRecordNumDrivers       (IntPtr system, out int numdrivers, out int numconnected);
+        static extern RESULT FMOD5_System_GetRecordNumDrivers       (IntPtr system, out int numdrivers, out int numconnected);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetRecordDriverInfo       (IntPtr system, int id, IntPtr name, int namelen, out Guid guid, out int systemrate, out SPEAKERMODE speakermode, out int speakermodechannels, out DRIVER_STATE state);
+        static extern RESULT FMOD5_System_GetRecordDriverInfo       (IntPtr system, int id, IntPtr name, int namelen, out Guid guid, out int systemrate, out SPEAKERMODE speakermode, out int speakermodechannels, out DRIVER_STATE state);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetRecordPosition         (IntPtr system, int id, out uint position);
+        static extern RESULT FMOD5_System_GetRecordPosition         (IntPtr system, int id, out uint position);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_RecordStart               (IntPtr system, int id, IntPtr sound, bool loop);
+        static extern RESULT FMOD5_System_RecordStart               (IntPtr system, int id, IntPtr sound, bool loop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_RecordStop                (IntPtr system, int id);
+        static extern RESULT FMOD5_System_RecordStop                (IntPtr system, int id);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_IsRecording               (IntPtr system, int id, out bool recording);
+        static extern RESULT FMOD5_System_IsRecording               (IntPtr system, int id, out bool recording);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_CreateGeometry            (IntPtr system, int maxpolygons, int maxvertices, out IntPtr geometry);
+        static extern RESULT FMOD5_System_CreateGeometry            (IntPtr system, int maxpolygons, int maxvertices, out IntPtr geometry);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetGeometrySettings       (IntPtr system, float maxworldsize);
+        static extern RESULT FMOD5_System_SetGeometrySettings       (IntPtr system, float maxworldsize);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetGeometrySettings       (IntPtr system, out float maxworldsize);
+        static extern RESULT FMOD5_System_GetGeometrySettings       (IntPtr system, out float maxworldsize);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_LoadGeometry              (IntPtr system, IntPtr data, int datasize, out IntPtr geometry);
+        static extern RESULT FMOD5_System_LoadGeometry              (IntPtr system, IntPtr data, int datasize, out IntPtr geometry);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetGeometryOcclusion      (IntPtr system, ref VECTOR listener, ref VECTOR source, out float direct, out float reverb);
+        static extern RESULT FMOD5_System_GetGeometryOcclusion      (IntPtr system, ref VECTOR listener, ref VECTOR source, out float direct, out float reverb);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetNetworkProxy           (IntPtr system, byte[] proxy);
+        static extern RESULT FMOD5_System_SetNetworkProxy           (IntPtr system, byte[] proxy);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetNetworkProxy           (IntPtr system, IntPtr proxy, int proxylen);
+        static extern RESULT FMOD5_System_GetNetworkProxy           (IntPtr system, IntPtr proxy, int proxylen);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetNetworkTimeout         (IntPtr system, int timeout);
+        static extern RESULT FMOD5_System_SetNetworkTimeout         (IntPtr system, int timeout);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetNetworkTimeout         (IntPtr system, out int timeout);
+        static extern RESULT FMOD5_System_GetNetworkTimeout         (IntPtr system, out int timeout);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_SetUserData               (IntPtr system, IntPtr userdata);
+        static extern RESULT FMOD5_System_SetUserData               (IntPtr system, IntPtr userdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_System_GetUserData               (IntPtr system, out IntPtr userdata);
+        static extern RESULT FMOD5_System_GetUserData               (IntPtr system, out IntPtr userdata);
         #endregion
 
         #region wrapperinternal
@@ -1959,95 +1959,95 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_Release                 (IntPtr sound);
+        static extern RESULT FMOD5_Sound_Release                 (IntPtr sound);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetSystemObject         (IntPtr sound, out IntPtr system);
+        static extern RESULT FMOD5_Sound_GetSystemObject         (IntPtr sound, out IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_Lock                    (IntPtr sound, uint offset, uint length, out IntPtr ptr1, out IntPtr ptr2, out uint len1, out uint len2);
+        static extern RESULT FMOD5_Sound_Lock                    (IntPtr sound, uint offset, uint length, out IntPtr ptr1, out IntPtr ptr2, out uint len1, out uint len2);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_Unlock                  (IntPtr sound, IntPtr ptr1,  IntPtr ptr2, uint len1, uint len2);
+        static extern RESULT FMOD5_Sound_Unlock                  (IntPtr sound, IntPtr ptr1,  IntPtr ptr2, uint len1, uint len2);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_SetDefaults             (IntPtr sound, float frequency, int priority);
+        static extern RESULT FMOD5_Sound_SetDefaults             (IntPtr sound, float frequency, int priority);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetDefaults             (IntPtr sound, out float frequency, out int priority);
+        static extern RESULT FMOD5_Sound_GetDefaults             (IntPtr sound, out float frequency, out int priority);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_Set3DMinMaxDistance     (IntPtr sound, float min, float max);
+        static extern RESULT FMOD5_Sound_Set3DMinMaxDistance     (IntPtr sound, float min, float max);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_Get3DMinMaxDistance     (IntPtr sound, out float min, out float max);
+        static extern RESULT FMOD5_Sound_Get3DMinMaxDistance     (IntPtr sound, out float min, out float max);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_Set3DConeSettings       (IntPtr sound, float insideconeangle, float outsideconeangle, float outsidevolume);
+        static extern RESULT FMOD5_Sound_Set3DConeSettings       (IntPtr sound, float insideconeangle, float outsideconeangle, float outsidevolume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_Get3DConeSettings       (IntPtr sound, out float insideconeangle, out float outsideconeangle, out float outsidevolume);
+        static extern RESULT FMOD5_Sound_Get3DConeSettings       (IntPtr sound, out float insideconeangle, out float outsideconeangle, out float outsidevolume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_Set3DCustomRolloff      (IntPtr sound, ref VECTOR points, int numpoints);
+        static extern RESULT FMOD5_Sound_Set3DCustomRolloff      (IntPtr sound, ref VECTOR points, int numpoints);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_Get3DCustomRolloff      (IntPtr sound, out IntPtr points, out int numpoints);
+        static extern RESULT FMOD5_Sound_Get3DCustomRolloff      (IntPtr sound, out IntPtr points, out int numpoints);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetSubSound             (IntPtr sound, int index, out IntPtr subsound);
+        static extern RESULT FMOD5_Sound_GetSubSound             (IntPtr sound, int index, out IntPtr subsound);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetSubSoundParent       (IntPtr sound, out IntPtr parentsound);
+        static extern RESULT FMOD5_Sound_GetSubSoundParent       (IntPtr sound, out IntPtr parentsound);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetName                 (IntPtr sound, IntPtr name, int namelen);
+        static extern RESULT FMOD5_Sound_GetName                 (IntPtr sound, IntPtr name, int namelen);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetLength               (IntPtr sound, out uint length, TIMEUNIT lengthtype);
+        static extern RESULT FMOD5_Sound_GetLength               (IntPtr sound, out uint length, TIMEUNIT lengthtype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetFormat               (IntPtr sound, out SOUND_TYPE type, out SOUND_FORMAT format, out int channels, out int bits);
+        static extern RESULT FMOD5_Sound_GetFormat               (IntPtr sound, out SOUND_TYPE type, out SOUND_FORMAT format, out int channels, out int bits);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetNumSubSounds         (IntPtr sound, out int numsubsounds);
+        static extern RESULT FMOD5_Sound_GetNumSubSounds         (IntPtr sound, out int numsubsounds);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetNumTags              (IntPtr sound, out int numtags, out int numtagsupdated);
+        static extern RESULT FMOD5_Sound_GetNumTags              (IntPtr sound, out int numtags, out int numtagsupdated);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetTag                  (IntPtr sound, byte[] name, int index, out TAG tag);
+        static extern RESULT FMOD5_Sound_GetTag                  (IntPtr sound, byte[] name, int index, out TAG tag);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetOpenState            (IntPtr sound, out OPENSTATE openstate, out uint percentbuffered, out bool starving, out bool diskbusy);
+        static extern RESULT FMOD5_Sound_GetOpenState            (IntPtr sound, out OPENSTATE openstate, out uint percentbuffered, out bool starving, out bool diskbusy);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_ReadData                (IntPtr sound, byte[] buffer, uint length, IntPtr zero);
+        static extern RESULT FMOD5_Sound_ReadData                (IntPtr sound, byte[] buffer, uint length, IntPtr zero);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_ReadData                (IntPtr sound, byte[] buffer, uint length, out uint read);
+        static extern RESULT FMOD5_Sound_ReadData                (IntPtr sound, byte[] buffer, uint length, out uint read);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_ReadData                (IntPtr sound, IntPtr buffer, uint length, out uint read);
+        static extern RESULT FMOD5_Sound_ReadData                (IntPtr sound, IntPtr buffer, uint length, out uint read);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_SeekData                (IntPtr sound, uint pcm);
+        static extern RESULT FMOD5_Sound_SeekData                (IntPtr sound, uint pcm);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_SetSoundGroup           (IntPtr sound, IntPtr soundgroup);
+        static extern RESULT FMOD5_Sound_SetSoundGroup           (IntPtr sound, IntPtr soundgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetSoundGroup           (IntPtr sound, out IntPtr soundgroup);
+        static extern RESULT FMOD5_Sound_GetSoundGroup           (IntPtr sound, out IntPtr soundgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetNumSyncPoints        (IntPtr sound, out int numsyncpoints);
+        static extern RESULT FMOD5_Sound_GetNumSyncPoints        (IntPtr sound, out int numsyncpoints);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetSyncPoint            (IntPtr sound, int index, out IntPtr point);
+        static extern RESULT FMOD5_Sound_GetSyncPoint            (IntPtr sound, int index, out IntPtr point);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetSyncPointInfo        (IntPtr sound, IntPtr point, IntPtr name, int namelen, out uint offset, TIMEUNIT offsettype);
+        static extern RESULT FMOD5_Sound_GetSyncPointInfo        (IntPtr sound, IntPtr point, IntPtr name, int namelen, out uint offset, TIMEUNIT offsettype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_AddSyncPoint            (IntPtr sound, uint offset, TIMEUNIT offsettype, byte[] name, out IntPtr point);
+        static extern RESULT FMOD5_Sound_AddSyncPoint            (IntPtr sound, uint offset, TIMEUNIT offsettype, byte[] name, out IntPtr point);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_DeleteSyncPoint         (IntPtr sound, IntPtr point);
+        static extern RESULT FMOD5_Sound_DeleteSyncPoint         (IntPtr sound, IntPtr point);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_SetMode                 (IntPtr sound, MODE mode);
+        static extern RESULT FMOD5_Sound_SetMode                 (IntPtr sound, MODE mode);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetMode                 (IntPtr sound, out MODE mode);
+        static extern RESULT FMOD5_Sound_GetMode                 (IntPtr sound, out MODE mode);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_SetLoopCount            (IntPtr sound, int loopcount);
+        static extern RESULT FMOD5_Sound_SetLoopCount            (IntPtr sound, int loopcount);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetLoopCount            (IntPtr sound, out int loopcount);
+        static extern RESULT FMOD5_Sound_GetLoopCount            (IntPtr sound, out int loopcount);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_SetLoopPoints           (IntPtr sound, uint loopstart, TIMEUNIT loopstarttype, uint loopend, TIMEUNIT loopendtype);
+        static extern RESULT FMOD5_Sound_SetLoopPoints           (IntPtr sound, uint loopstart, TIMEUNIT loopstarttype, uint loopend, TIMEUNIT loopendtype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetLoopPoints           (IntPtr sound, out uint loopstart, TIMEUNIT loopstarttype, out uint loopend, TIMEUNIT loopendtype);
+        static extern RESULT FMOD5_Sound_GetLoopPoints           (IntPtr sound, out uint loopstart, TIMEUNIT loopstarttype, out uint loopend, TIMEUNIT loopendtype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetMusicNumChannels     (IntPtr sound, out int numchannels);
+        static extern RESULT FMOD5_Sound_GetMusicNumChannels     (IntPtr sound, out int numchannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_SetMusicChannelVolume   (IntPtr sound, int channel, float volume);
+        static extern RESULT FMOD5_Sound_SetMusicChannelVolume   (IntPtr sound, int channel, float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetMusicChannelVolume   (IntPtr sound, int channel, out float volume);
+        static extern RESULT FMOD5_Sound_GetMusicChannelVolume   (IntPtr sound, int channel, out float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_SetMusicSpeed           (IntPtr sound, float speed);
+        static extern RESULT FMOD5_Sound_SetMusicSpeed           (IntPtr sound, float speed);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetMusicSpeed           (IntPtr sound, out float speed);
+        static extern RESULT FMOD5_Sound_GetMusicSpeed           (IntPtr sound, out float speed);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_SetUserData             (IntPtr sound, IntPtr userdata);
+        static extern RESULT FMOD5_Sound_SetUserData             (IntPtr sound, IntPtr userdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Sound_GetUserData             (IntPtr sound, out IntPtr userdata);
+        static extern RESULT FMOD5_Sound_GetUserData             (IntPtr sound, out IntPtr userdata);
         #endregion
 
         #region wrapperinternal
@@ -2064,7 +2064,7 @@ namespace FMOD
     /*
         'ChannelControl' API
     */
-    interface IChannelControl
+    internal interface IChannelControl
     {
         RESULT getSystemObject              (out System system);
 
@@ -2474,159 +2474,159 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetFrequency         (IntPtr channel, float frequency);
+        static extern RESULT FMOD5_Channel_SetFrequency         (IntPtr channel, float frequency);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetFrequency         (IntPtr channel, out float frequency);
+        static extern RESULT FMOD5_Channel_GetFrequency         (IntPtr channel, out float frequency);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetPriority          (IntPtr channel, int priority);
+        static extern RESULT FMOD5_Channel_SetPriority          (IntPtr channel, int priority);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetPriority          (IntPtr channel, out int priority);
+        static extern RESULT FMOD5_Channel_GetPriority          (IntPtr channel, out int priority);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetPosition          (IntPtr channel, uint position, TIMEUNIT postype);
+        static extern RESULT FMOD5_Channel_SetPosition          (IntPtr channel, uint position, TIMEUNIT postype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetPosition          (IntPtr channel, out uint position, TIMEUNIT postype);
+        static extern RESULT FMOD5_Channel_GetPosition          (IntPtr channel, out uint position, TIMEUNIT postype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetChannelGroup      (IntPtr channel, IntPtr channelgroup);
+        static extern RESULT FMOD5_Channel_SetChannelGroup      (IntPtr channel, IntPtr channelgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetChannelGroup      (IntPtr channel, out IntPtr channelgroup);
+        static extern RESULT FMOD5_Channel_GetChannelGroup      (IntPtr channel, out IntPtr channelgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetLoopCount         (IntPtr channel, int loopcount);
+        static extern RESULT FMOD5_Channel_SetLoopCount         (IntPtr channel, int loopcount);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetLoopCount         (IntPtr channel, out int loopcount);
+        static extern RESULT FMOD5_Channel_GetLoopCount         (IntPtr channel, out int loopcount);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetLoopPoints        (IntPtr channel, uint  loopstart, TIMEUNIT loopstarttype, uint  loopend, TIMEUNIT loopendtype);
+        static extern RESULT FMOD5_Channel_SetLoopPoints        (IntPtr channel, uint  loopstart, TIMEUNIT loopstarttype, uint  loopend, TIMEUNIT loopendtype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetLoopPoints        (IntPtr channel, out uint loopstart, TIMEUNIT loopstarttype, out uint loopend, TIMEUNIT loopendtype);
+        static extern RESULT FMOD5_Channel_GetLoopPoints        (IntPtr channel, out uint loopstart, TIMEUNIT loopstarttype, out uint loopend, TIMEUNIT loopendtype);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_IsVirtual            (IntPtr channel, out bool isvirtual);
+        static extern RESULT FMOD5_Channel_IsVirtual            (IntPtr channel, out bool isvirtual);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetCurrentSound      (IntPtr channel, out IntPtr sound);
+        static extern RESULT FMOD5_Channel_GetCurrentSound      (IntPtr channel, out IntPtr sound);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetIndex             (IntPtr channel, out int index);
+        static extern RESULT FMOD5_Channel_GetIndex             (IntPtr channel, out int index);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetSystemObject      (IntPtr channel, out IntPtr system);
+        static extern RESULT FMOD5_Channel_GetSystemObject      (IntPtr channel, out IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Stop                 (IntPtr channel);
+        static extern RESULT FMOD5_Channel_Stop                 (IntPtr channel);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetPaused            (IntPtr channel, bool paused);
+        static extern RESULT FMOD5_Channel_SetPaused            (IntPtr channel, bool paused);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetPaused            (IntPtr channel, out bool paused);
+        static extern RESULT FMOD5_Channel_GetPaused            (IntPtr channel, out bool paused);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetVolume            (IntPtr channel, float volume);
+        static extern RESULT FMOD5_Channel_SetVolume            (IntPtr channel, float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetVolume            (IntPtr channel, out float volume);
+        static extern RESULT FMOD5_Channel_GetVolume            (IntPtr channel, out float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetVolumeRamp        (IntPtr channel, bool ramp);
+        static extern RESULT FMOD5_Channel_SetVolumeRamp        (IntPtr channel, bool ramp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetVolumeRamp        (IntPtr channel, out bool ramp);
+        static extern RESULT FMOD5_Channel_GetVolumeRamp        (IntPtr channel, out bool ramp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetAudibility        (IntPtr channel, out float audibility);
+        static extern RESULT FMOD5_Channel_GetAudibility        (IntPtr channel, out float audibility);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetPitch             (IntPtr channel, float pitch);
+        static extern RESULT FMOD5_Channel_SetPitch             (IntPtr channel, float pitch);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetPitch             (IntPtr channel, out float pitch);
+        static extern RESULT FMOD5_Channel_GetPitch             (IntPtr channel, out float pitch);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetMute              (IntPtr channel, bool mute);
+        static extern RESULT FMOD5_Channel_SetMute              (IntPtr channel, bool mute);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetMute              (IntPtr channel, out bool mute);
+        static extern RESULT FMOD5_Channel_GetMute              (IntPtr channel, out bool mute);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetReverbProperties  (IntPtr channel, int instance, float wet);
+        static extern RESULT FMOD5_Channel_SetReverbProperties  (IntPtr channel, int instance, float wet);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetReverbProperties  (IntPtr channel, int instance, out float wet);
+        static extern RESULT FMOD5_Channel_GetReverbProperties  (IntPtr channel, int instance, out float wet);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetLowPassGain       (IntPtr channel, float gain);
+        static extern RESULT FMOD5_Channel_SetLowPassGain       (IntPtr channel, float gain);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetLowPassGain       (IntPtr channel, out float gain);
+        static extern RESULT FMOD5_Channel_GetLowPassGain       (IntPtr channel, out float gain);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetMode              (IntPtr channel, MODE mode);
+        static extern RESULT FMOD5_Channel_SetMode              (IntPtr channel, MODE mode);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetMode              (IntPtr channel, out MODE mode);
+        static extern RESULT FMOD5_Channel_GetMode              (IntPtr channel, out MODE mode);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetCallback          (IntPtr channel, CHANNELCONTROL_CALLBACK callback);
+        static extern RESULT FMOD5_Channel_SetCallback          (IntPtr channel, CHANNELCONTROL_CALLBACK callback);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_IsPlaying            (IntPtr channel, out bool isplaying);
+        static extern RESULT FMOD5_Channel_IsPlaying            (IntPtr channel, out bool isplaying);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetPan               (IntPtr channel, float pan);
+        static extern RESULT FMOD5_Channel_SetPan               (IntPtr channel, float pan);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetMixLevelsOutput   (IntPtr channel, float frontleft, float frontright, float center, float lfe, float surroundleft, float surroundright, float backleft, float backright);
+        static extern RESULT FMOD5_Channel_SetMixLevelsOutput   (IntPtr channel, float frontleft, float frontright, float center, float lfe, float surroundleft, float surroundright, float backleft, float backright);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetMixLevelsInput    (IntPtr channel, float[] levels, int numlevels);
+        static extern RESULT FMOD5_Channel_SetMixLevelsInput    (IntPtr channel, float[] levels, int numlevels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetMixMatrix         (IntPtr channel, float[] matrix, int outchannels, int inchannels, int inchannel_hop);
+        static extern RESULT FMOD5_Channel_SetMixMatrix         (IntPtr channel, float[] matrix, int outchannels, int inchannels, int inchannel_hop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetMixMatrix         (IntPtr channel, float[] matrix, out int outchannels, out int inchannels, int inchannel_hop);
+        static extern RESULT FMOD5_Channel_GetMixMatrix         (IntPtr channel, float[] matrix, out int outchannels, out int inchannels, int inchannel_hop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetDSPClock          (IntPtr channel, out ulong dspclock, out ulong parentclock);
+        static extern RESULT FMOD5_Channel_GetDSPClock          (IntPtr channel, out ulong dspclock, out ulong parentclock);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetDelay             (IntPtr channel, ulong dspclock_start, ulong dspclock_end, bool stopchannels);
+        static extern RESULT FMOD5_Channel_SetDelay             (IntPtr channel, ulong dspclock_start, ulong dspclock_end, bool stopchannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetDelay             (IntPtr channel, out ulong dspclock_start, out ulong dspclock_end, IntPtr zero);
+        static extern RESULT FMOD5_Channel_GetDelay             (IntPtr channel, out ulong dspclock_start, out ulong dspclock_end, IntPtr zero);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetDelay             (IntPtr channel, out ulong dspclock_start, out ulong dspclock_end, out bool stopchannels);
+        static extern RESULT FMOD5_Channel_GetDelay             (IntPtr channel, out ulong dspclock_start, out ulong dspclock_end, out bool stopchannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_AddFadePoint         (IntPtr channel, ulong dspclock, float volume);
+        static extern RESULT FMOD5_Channel_AddFadePoint         (IntPtr channel, ulong dspclock, float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetFadePointRamp     (IntPtr channel, ulong dspclock, float volume);
+        static extern RESULT FMOD5_Channel_SetFadePointRamp     (IntPtr channel, ulong dspclock, float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_RemoveFadePoints     (IntPtr channel, ulong dspclock_start, ulong dspclock_end);
+        static extern RESULT FMOD5_Channel_RemoveFadePoints     (IntPtr channel, ulong dspclock_start, ulong dspclock_end);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetFadePoints        (IntPtr channel, ref uint numpoints, ulong[] point_dspclock, float[] point_volume);
+        static extern RESULT FMOD5_Channel_GetFadePoints        (IntPtr channel, ref uint numpoints, ulong[] point_dspclock, float[] point_volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetDSP               (IntPtr channel, int index, out IntPtr dsp);
+        static extern RESULT FMOD5_Channel_GetDSP               (IntPtr channel, int index, out IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_AddDSP               (IntPtr channel, int index, IntPtr dsp);
+        static extern RESULT FMOD5_Channel_AddDSP               (IntPtr channel, int index, IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_RemoveDSP            (IntPtr channel, IntPtr dsp);
+        static extern RESULT FMOD5_Channel_RemoveDSP            (IntPtr channel, IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetNumDSPs           (IntPtr channel, out int numdsps);
+        static extern RESULT FMOD5_Channel_GetNumDSPs           (IntPtr channel, out int numdsps);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetDSPIndex          (IntPtr channel, IntPtr dsp, int index);
+        static extern RESULT FMOD5_Channel_SetDSPIndex          (IntPtr channel, IntPtr dsp, int index);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetDSPIndex          (IntPtr channel, IntPtr dsp, out int index);
+        static extern RESULT FMOD5_Channel_GetDSPIndex          (IntPtr channel, IntPtr dsp, out int index);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DAttributes      (IntPtr channel, ref VECTOR pos, ref VECTOR vel);
+        static extern RESULT FMOD5_Channel_Set3DAttributes      (IntPtr channel, ref VECTOR pos, ref VECTOR vel);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DAttributes      (IntPtr channel, out VECTOR pos, out VECTOR vel);
+        static extern RESULT FMOD5_Channel_Get3DAttributes      (IntPtr channel, out VECTOR pos, out VECTOR vel);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DMinMaxDistance  (IntPtr channel, float mindistance, float maxdistance);
+        static extern RESULT FMOD5_Channel_Set3DMinMaxDistance  (IntPtr channel, float mindistance, float maxdistance);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DMinMaxDistance  (IntPtr channel, out float mindistance, out float maxdistance);
+        static extern RESULT FMOD5_Channel_Get3DMinMaxDistance  (IntPtr channel, out float mindistance, out float maxdistance);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DConeSettings    (IntPtr channel, float insideconeangle, float outsideconeangle, float outsidevolume);
+        static extern RESULT FMOD5_Channel_Set3DConeSettings    (IntPtr channel, float insideconeangle, float outsideconeangle, float outsidevolume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DConeSettings    (IntPtr channel, out float insideconeangle, out float outsideconeangle, out float outsidevolume);
+        static extern RESULT FMOD5_Channel_Get3DConeSettings    (IntPtr channel, out float insideconeangle, out float outsideconeangle, out float outsidevolume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DConeOrientation (IntPtr channel, ref VECTOR orientation);
+        static extern RESULT FMOD5_Channel_Set3DConeOrientation (IntPtr channel, ref VECTOR orientation);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DConeOrientation (IntPtr channel, out VECTOR orientation);
+        static extern RESULT FMOD5_Channel_Get3DConeOrientation (IntPtr channel, out VECTOR orientation);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DCustomRolloff   (IntPtr channel, ref VECTOR points, int numpoints);
+        static extern RESULT FMOD5_Channel_Set3DCustomRolloff   (IntPtr channel, ref VECTOR points, int numpoints);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DCustomRolloff   (IntPtr channel, out IntPtr points, out int numpoints);
+        static extern RESULT FMOD5_Channel_Get3DCustomRolloff   (IntPtr channel, out IntPtr points, out int numpoints);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DOcclusion       (IntPtr channel, float directocclusion, float reverbocclusion);
+        static extern RESULT FMOD5_Channel_Set3DOcclusion       (IntPtr channel, float directocclusion, float reverbocclusion);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DOcclusion       (IntPtr channel, out float directocclusion, out float reverbocclusion);
+        static extern RESULT FMOD5_Channel_Get3DOcclusion       (IntPtr channel, out float directocclusion, out float reverbocclusion);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DSpread          (IntPtr channel, float angle);
+        static extern RESULT FMOD5_Channel_Set3DSpread          (IntPtr channel, float angle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DSpread          (IntPtr channel, out float angle);
+        static extern RESULT FMOD5_Channel_Get3DSpread          (IntPtr channel, out float angle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DLevel           (IntPtr channel, float level);
+        static extern RESULT FMOD5_Channel_Set3DLevel           (IntPtr channel, float level);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DLevel           (IntPtr channel, out float level);
+        static extern RESULT FMOD5_Channel_Get3DLevel           (IntPtr channel, out float level);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DDopplerLevel    (IntPtr channel, float level);
+        static extern RESULT FMOD5_Channel_Set3DDopplerLevel    (IntPtr channel, float level);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DDopplerLevel    (IntPtr channel, out float level);
+        static extern RESULT FMOD5_Channel_Get3DDopplerLevel    (IntPtr channel, out float level);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Set3DDistanceFilter  (IntPtr channel, bool custom, float customLevel, float centerFreq);
+        static extern RESULT FMOD5_Channel_Set3DDistanceFilter  (IntPtr channel, bool custom, float customLevel, float centerFreq);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_Get3DDistanceFilter  (IntPtr channel, out bool custom, out float customLevel, out float centerFreq);
+        static extern RESULT FMOD5_Channel_Get3DDistanceFilter  (IntPtr channel, out bool custom, out float customLevel, out float centerFreq);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_SetUserData          (IntPtr channel, IntPtr userdata);
+        static extern RESULT FMOD5_Channel_SetUserData          (IntPtr channel, IntPtr userdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Channel_GetUserData          (IntPtr channel, out IntPtr userdata);
+        static extern RESULT FMOD5_Channel_GetUserData          (IntPtr channel, out IntPtr userdata);
         #endregion
 
         #region wrapperinternal
@@ -2958,147 +2958,147 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Release             (IntPtr channelgroup);
+        static extern RESULT FMOD5_ChannelGroup_Release             (IntPtr channelgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_AddGroup            (IntPtr channelgroup, IntPtr group, bool propagatedspclock, IntPtr zero);
+        static extern RESULT FMOD5_ChannelGroup_AddGroup            (IntPtr channelgroup, IntPtr group, bool propagatedspclock, IntPtr zero);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_AddGroup            (IntPtr channelgroup, IntPtr group, bool propagatedspclock, out IntPtr connection);
+        static extern RESULT FMOD5_ChannelGroup_AddGroup            (IntPtr channelgroup, IntPtr group, bool propagatedspclock, out IntPtr connection);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetNumGroups        (IntPtr channelgroup, out int numgroups);
+        static extern RESULT FMOD5_ChannelGroup_GetNumGroups        (IntPtr channelgroup, out int numgroups);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetGroup            (IntPtr channelgroup, int index, out IntPtr group);
+        static extern RESULT FMOD5_ChannelGroup_GetGroup            (IntPtr channelgroup, int index, out IntPtr group);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetParentGroup      (IntPtr channelgroup, out IntPtr group);
+        static extern RESULT FMOD5_ChannelGroup_GetParentGroup      (IntPtr channelgroup, out IntPtr group);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetName             (IntPtr channelgroup, IntPtr name, int namelen);
+        static extern RESULT FMOD5_ChannelGroup_GetName             (IntPtr channelgroup, IntPtr name, int namelen);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetNumChannels      (IntPtr channelgroup, out int numchannels);
+        static extern RESULT FMOD5_ChannelGroup_GetNumChannels      (IntPtr channelgroup, out int numchannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetChannel          (IntPtr channelgroup, int index, out IntPtr channel);
+        static extern RESULT FMOD5_ChannelGroup_GetChannel          (IntPtr channelgroup, int index, out IntPtr channel);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetSystemObject     (IntPtr channelgroup, out IntPtr system);
+        static extern RESULT FMOD5_ChannelGroup_GetSystemObject     (IntPtr channelgroup, out IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Stop                (IntPtr channelgroup);
+        static extern RESULT FMOD5_ChannelGroup_Stop                (IntPtr channelgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetPaused           (IntPtr channelgroup, bool paused);
+        static extern RESULT FMOD5_ChannelGroup_SetPaused           (IntPtr channelgroup, bool paused);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetPaused           (IntPtr channelgroup, out bool paused);
+        static extern RESULT FMOD5_ChannelGroup_GetPaused           (IntPtr channelgroup, out bool paused);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetVolume           (IntPtr channelgroup, float volume);
+        static extern RESULT FMOD5_ChannelGroup_SetVolume           (IntPtr channelgroup, float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetVolume           (IntPtr channelgroup, out float volume);
+        static extern RESULT FMOD5_ChannelGroup_GetVolume           (IntPtr channelgroup, out float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetVolumeRamp       (IntPtr channelgroup, bool ramp);
+        static extern RESULT FMOD5_ChannelGroup_SetVolumeRamp       (IntPtr channelgroup, bool ramp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetVolumeRamp       (IntPtr channelgroup, out bool ramp);
+        static extern RESULT FMOD5_ChannelGroup_GetVolumeRamp       (IntPtr channelgroup, out bool ramp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetAudibility       (IntPtr channelgroup, out float audibility);
+        static extern RESULT FMOD5_ChannelGroup_GetAudibility       (IntPtr channelgroup, out float audibility);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetPitch            (IntPtr channelgroup, float pitch);
+        static extern RESULT FMOD5_ChannelGroup_SetPitch            (IntPtr channelgroup, float pitch);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetPitch            (IntPtr channelgroup, out float pitch);
+        static extern RESULT FMOD5_ChannelGroup_GetPitch            (IntPtr channelgroup, out float pitch);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetMute             (IntPtr channelgroup, bool mute);
+        static extern RESULT FMOD5_ChannelGroup_SetMute             (IntPtr channelgroup, bool mute);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetMute             (IntPtr channelgroup, out bool mute);
+        static extern RESULT FMOD5_ChannelGroup_GetMute             (IntPtr channelgroup, out bool mute);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetReverbProperties (IntPtr channelgroup, int instance, float wet);
+        static extern RESULT FMOD5_ChannelGroup_SetReverbProperties (IntPtr channelgroup, int instance, float wet);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetReverbProperties (IntPtr channelgroup, int instance, out float wet);
+        static extern RESULT FMOD5_ChannelGroup_GetReverbProperties (IntPtr channelgroup, int instance, out float wet);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetLowPassGain      (IntPtr channelgroup, float gain);
+        static extern RESULT FMOD5_ChannelGroup_SetLowPassGain      (IntPtr channelgroup, float gain);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetLowPassGain      (IntPtr channelgroup, out float gain);
+        static extern RESULT FMOD5_ChannelGroup_GetLowPassGain      (IntPtr channelgroup, out float gain);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetMode             (IntPtr channelgroup, MODE mode);
+        static extern RESULT FMOD5_ChannelGroup_SetMode             (IntPtr channelgroup, MODE mode);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetMode             (IntPtr channelgroup, out MODE mode);
+        static extern RESULT FMOD5_ChannelGroup_GetMode             (IntPtr channelgroup, out MODE mode);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetCallback         (IntPtr channelgroup, CHANNELCONTROL_CALLBACK callback);
+        static extern RESULT FMOD5_ChannelGroup_SetCallback         (IntPtr channelgroup, CHANNELCONTROL_CALLBACK callback);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_IsPlaying           (IntPtr channelgroup, out bool isplaying);
+        static extern RESULT FMOD5_ChannelGroup_IsPlaying           (IntPtr channelgroup, out bool isplaying);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetPan              (IntPtr channelgroup, float pan);
+        static extern RESULT FMOD5_ChannelGroup_SetPan              (IntPtr channelgroup, float pan);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetMixLevelsOutput  (IntPtr channelgroup, float frontleft, float frontright, float center, float lfe, float surroundleft, float surroundright, float backleft, float backright);
+        static extern RESULT FMOD5_ChannelGroup_SetMixLevelsOutput  (IntPtr channelgroup, float frontleft, float frontright, float center, float lfe, float surroundleft, float surroundright, float backleft, float backright);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetMixLevelsInput   (IntPtr channelgroup, float[] levels, int numlevels);
+        static extern RESULT FMOD5_ChannelGroup_SetMixLevelsInput   (IntPtr channelgroup, float[] levels, int numlevels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetMixMatrix        (IntPtr channelgroup, float[] matrix, int outchannels, int inchannels, int inchannel_hop);
+        static extern RESULT FMOD5_ChannelGroup_SetMixMatrix        (IntPtr channelgroup, float[] matrix, int outchannels, int inchannels, int inchannel_hop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetMixMatrix        (IntPtr channelgroup, float[] matrix, out int outchannels, out int inchannels, int inchannel_hop);
+        static extern RESULT FMOD5_ChannelGroup_GetMixMatrix        (IntPtr channelgroup, float[] matrix, out int outchannels, out int inchannels, int inchannel_hop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetDSPClock         (IntPtr channelgroup, out ulong dspclock, out ulong parentclock);
+        static extern RESULT FMOD5_ChannelGroup_GetDSPClock         (IntPtr channelgroup, out ulong dspclock, out ulong parentclock);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetDelay            (IntPtr channelgroup, ulong dspclock_start, ulong dspclock_end, bool stopchannels);
+        static extern RESULT FMOD5_ChannelGroup_SetDelay            (IntPtr channelgroup, ulong dspclock_start, ulong dspclock_end, bool stopchannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetDelay            (IntPtr channelgroup, out ulong dspclock_start, out ulong dspclock_end, IntPtr zero);
+        static extern RESULT FMOD5_ChannelGroup_GetDelay            (IntPtr channelgroup, out ulong dspclock_start, out ulong dspclock_end, IntPtr zero);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetDelay            (IntPtr channelgroup, out ulong dspclock_start, out ulong dspclock_end, out bool stopchannels);
+        static extern RESULT FMOD5_ChannelGroup_GetDelay            (IntPtr channelgroup, out ulong dspclock_start, out ulong dspclock_end, out bool stopchannels);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_AddFadePoint        (IntPtr channelgroup, ulong dspclock, float volume);
+        static extern RESULT FMOD5_ChannelGroup_AddFadePoint        (IntPtr channelgroup, ulong dspclock, float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetFadePointRamp    (IntPtr channelgroup, ulong dspclock, float volume);
+        static extern RESULT FMOD5_ChannelGroup_SetFadePointRamp    (IntPtr channelgroup, ulong dspclock, float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_RemoveFadePoints    (IntPtr channelgroup, ulong dspclock_start, ulong dspclock_end);
+        static extern RESULT FMOD5_ChannelGroup_RemoveFadePoints    (IntPtr channelgroup, ulong dspclock_start, ulong dspclock_end);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetFadePoints       (IntPtr channelgroup, ref uint numpoints, ulong[] point_dspclock, float[] point_volume);
+        static extern RESULT FMOD5_ChannelGroup_GetFadePoints       (IntPtr channelgroup, ref uint numpoints, ulong[] point_dspclock, float[] point_volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetDSP              (IntPtr channelgroup, int index, out IntPtr dsp);
+        static extern RESULT FMOD5_ChannelGroup_GetDSP              (IntPtr channelgroup, int index, out IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_AddDSP              (IntPtr channelgroup, int index, IntPtr dsp);
+        static extern RESULT FMOD5_ChannelGroup_AddDSP              (IntPtr channelgroup, int index, IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_RemoveDSP           (IntPtr channelgroup, IntPtr dsp);
+        static extern RESULT FMOD5_ChannelGroup_RemoveDSP           (IntPtr channelgroup, IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetNumDSPs          (IntPtr channelgroup, out int numdsps);
+        static extern RESULT FMOD5_ChannelGroup_GetNumDSPs          (IntPtr channelgroup, out int numdsps);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetDSPIndex         (IntPtr channelgroup, IntPtr dsp, int index);
+        static extern RESULT FMOD5_ChannelGroup_SetDSPIndex         (IntPtr channelgroup, IntPtr dsp, int index);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetDSPIndex         (IntPtr channelgroup, IntPtr dsp, out int index);
+        static extern RESULT FMOD5_ChannelGroup_GetDSPIndex         (IntPtr channelgroup, IntPtr dsp, out int index);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DAttributes     (IntPtr channelgroup, ref VECTOR pos, ref VECTOR vel);
+        static extern RESULT FMOD5_ChannelGroup_Set3DAttributes     (IntPtr channelgroup, ref VECTOR pos, ref VECTOR vel);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DAttributes     (IntPtr channelgroup, out VECTOR pos, out VECTOR vel);
+        static extern RESULT FMOD5_ChannelGroup_Get3DAttributes     (IntPtr channelgroup, out VECTOR pos, out VECTOR vel);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DMinMaxDistance (IntPtr channelgroup, float mindistance, float maxdistance);
+        static extern RESULT FMOD5_ChannelGroup_Set3DMinMaxDistance (IntPtr channelgroup, float mindistance, float maxdistance);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DMinMaxDistance (IntPtr channelgroup, out float mindistance, out float maxdistance);
+        static extern RESULT FMOD5_ChannelGroup_Get3DMinMaxDistance (IntPtr channelgroup, out float mindistance, out float maxdistance);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DConeSettings   (IntPtr channelgroup, float insideconeangle, float outsideconeangle, float outsidevolume);
+        static extern RESULT FMOD5_ChannelGroup_Set3DConeSettings   (IntPtr channelgroup, float insideconeangle, float outsideconeangle, float outsidevolume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DConeSettings   (IntPtr channelgroup, out float insideconeangle, out float outsideconeangle, out float outsidevolume);
+        static extern RESULT FMOD5_ChannelGroup_Get3DConeSettings   (IntPtr channelgroup, out float insideconeangle, out float outsideconeangle, out float outsidevolume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DConeOrientation(IntPtr channelgroup, ref VECTOR orientation);
+        static extern RESULT FMOD5_ChannelGroup_Set3DConeOrientation(IntPtr channelgroup, ref VECTOR orientation);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DConeOrientation(IntPtr channelgroup, out VECTOR orientation);
+        static extern RESULT FMOD5_ChannelGroup_Get3DConeOrientation(IntPtr channelgroup, out VECTOR orientation);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DCustomRolloff  (IntPtr channelgroup, ref VECTOR points, int numpoints);
+        static extern RESULT FMOD5_ChannelGroup_Set3DCustomRolloff  (IntPtr channelgroup, ref VECTOR points, int numpoints);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DCustomRolloff  (IntPtr channelgroup, out IntPtr points, out int numpoints);
+        static extern RESULT FMOD5_ChannelGroup_Get3DCustomRolloff  (IntPtr channelgroup, out IntPtr points, out int numpoints);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DOcclusion      (IntPtr channelgroup, float directocclusion, float reverbocclusion);
+        static extern RESULT FMOD5_ChannelGroup_Set3DOcclusion      (IntPtr channelgroup, float directocclusion, float reverbocclusion);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DOcclusion      (IntPtr channelgroup, out float directocclusion, out float reverbocclusion);
+        static extern RESULT FMOD5_ChannelGroup_Get3DOcclusion      (IntPtr channelgroup, out float directocclusion, out float reverbocclusion);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DSpread         (IntPtr channelgroup, float angle);
+        static extern RESULT FMOD5_ChannelGroup_Set3DSpread         (IntPtr channelgroup, float angle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DSpread         (IntPtr channelgroup, out float angle);
+        static extern RESULT FMOD5_ChannelGroup_Get3DSpread         (IntPtr channelgroup, out float angle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DLevel          (IntPtr channelgroup, float level);
+        static extern RESULT FMOD5_ChannelGroup_Set3DLevel          (IntPtr channelgroup, float level);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DLevel          (IntPtr channelgroup, out float level);
+        static extern RESULT FMOD5_ChannelGroup_Get3DLevel          (IntPtr channelgroup, out float level);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DDopplerLevel   (IntPtr channelgroup, float level);
+        static extern RESULT FMOD5_ChannelGroup_Set3DDopplerLevel   (IntPtr channelgroup, float level);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DDopplerLevel   (IntPtr channelgroup, out float level);
+        static extern RESULT FMOD5_ChannelGroup_Get3DDopplerLevel   (IntPtr channelgroup, out float level);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Set3DDistanceFilter (IntPtr channelgroup, bool custom, float customLevel, float centerFreq);
+        static extern RESULT FMOD5_ChannelGroup_Set3DDistanceFilter (IntPtr channelgroup, bool custom, float customLevel, float centerFreq);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_Get3DDistanceFilter (IntPtr channelgroup, out bool custom, out float customLevel, out float centerFreq);
+        static extern RESULT FMOD5_ChannelGroup_Get3DDistanceFilter (IntPtr channelgroup, out bool custom, out float customLevel, out float centerFreq);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_SetUserData         (IntPtr channelgroup, IntPtr userdata);
+        static extern RESULT FMOD5_ChannelGroup_SetUserData         (IntPtr channelgroup, IntPtr userdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_ChannelGroup_GetUserData         (IntPtr channelgroup, out IntPtr userdata);
+        static extern RESULT FMOD5_ChannelGroup_GetUserData         (IntPtr channelgroup, out IntPtr userdata);
         #endregion
 
         #region wrapperinternal
@@ -3204,39 +3204,39 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_Release               (IntPtr soundgroup);
+        static extern RESULT FMOD5_SoundGroup_Release               (IntPtr soundgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetSystemObject       (IntPtr soundgroup, out IntPtr system);
+        static extern RESULT FMOD5_SoundGroup_GetSystemObject       (IntPtr soundgroup, out IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_SetMaxAudible         (IntPtr soundgroup, int maxaudible);
+        static extern RESULT FMOD5_SoundGroup_SetMaxAudible         (IntPtr soundgroup, int maxaudible);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetMaxAudible         (IntPtr soundgroup, out int maxaudible);
+        static extern RESULT FMOD5_SoundGroup_GetMaxAudible         (IntPtr soundgroup, out int maxaudible);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_SetMaxAudibleBehavior (IntPtr soundgroup, SOUNDGROUP_BEHAVIOR behavior);
+        static extern RESULT FMOD5_SoundGroup_SetMaxAudibleBehavior (IntPtr soundgroup, SOUNDGROUP_BEHAVIOR behavior);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetMaxAudibleBehavior (IntPtr soundgroup, out SOUNDGROUP_BEHAVIOR behavior);
+        static extern RESULT FMOD5_SoundGroup_GetMaxAudibleBehavior (IntPtr soundgroup, out SOUNDGROUP_BEHAVIOR behavior);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_SetMuteFadeSpeed      (IntPtr soundgroup, float speed);
+        static extern RESULT FMOD5_SoundGroup_SetMuteFadeSpeed      (IntPtr soundgroup, float speed);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetMuteFadeSpeed      (IntPtr soundgroup, out float speed);
+        static extern RESULT FMOD5_SoundGroup_GetMuteFadeSpeed      (IntPtr soundgroup, out float speed);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_SetVolume             (IntPtr soundgroup, float volume);
+        static extern RESULT FMOD5_SoundGroup_SetVolume             (IntPtr soundgroup, float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetVolume             (IntPtr soundgroup, out float volume);
+        static extern RESULT FMOD5_SoundGroup_GetVolume             (IntPtr soundgroup, out float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_Stop                  (IntPtr soundgroup);
+        static extern RESULT FMOD5_SoundGroup_Stop                  (IntPtr soundgroup);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetName               (IntPtr soundgroup, IntPtr name, int namelen);
+        static extern RESULT FMOD5_SoundGroup_GetName               (IntPtr soundgroup, IntPtr name, int namelen);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetNumSounds          (IntPtr soundgroup, out int numsounds);
+        static extern RESULT FMOD5_SoundGroup_GetNumSounds          (IntPtr soundgroup, out int numsounds);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetSound              (IntPtr soundgroup, int index, out IntPtr sound);
+        static extern RESULT FMOD5_SoundGroup_GetSound              (IntPtr soundgroup, int index, out IntPtr sound);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetNumPlaying         (IntPtr soundgroup, out int numplaying);
+        static extern RESULT FMOD5_SoundGroup_GetNumPlaying         (IntPtr soundgroup, out int numplaying);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_SetUserData           (IntPtr soundgroup, IntPtr userdata);
+        static extern RESULT FMOD5_SoundGroup_SetUserData           (IntPtr soundgroup, IntPtr userdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_SoundGroup_GetUserData           (IntPtr soundgroup, out IntPtr userdata);
+        static extern RESULT FMOD5_SoundGroup_GetUserData           (IntPtr soundgroup, out IntPtr userdata);
         #endregion
 
         #region wrapperinternal
@@ -3463,81 +3463,81 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_Release                   (IntPtr dsp);
+        static extern RESULT FMOD5_DSP_Release                   (IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetSystemObject           (IntPtr dsp, out IntPtr system);
+        static extern RESULT FMOD5_DSP_GetSystemObject           (IntPtr dsp, out IntPtr system);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_AddInput                  (IntPtr dsp, IntPtr input, IntPtr zero, DSPCONNECTION_TYPE type);
+        static extern RESULT FMOD5_DSP_AddInput                  (IntPtr dsp, IntPtr input, IntPtr zero, DSPCONNECTION_TYPE type);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_AddInput                  (IntPtr dsp, IntPtr input, out IntPtr connection, DSPCONNECTION_TYPE type);
+        static extern RESULT FMOD5_DSP_AddInput                  (IntPtr dsp, IntPtr input, out IntPtr connection, DSPCONNECTION_TYPE type);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_DisconnectFrom            (IntPtr dsp, IntPtr target, IntPtr connection);
+        static extern RESULT FMOD5_DSP_DisconnectFrom            (IntPtr dsp, IntPtr target, IntPtr connection);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_DisconnectAll             (IntPtr dsp, bool inputs, bool outputs);
+        static extern RESULT FMOD5_DSP_DisconnectAll             (IntPtr dsp, bool inputs, bool outputs);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetNumInputs              (IntPtr dsp, out int numinputs);
+        static extern RESULT FMOD5_DSP_GetNumInputs              (IntPtr dsp, out int numinputs);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetNumOutputs             (IntPtr dsp, out int numoutputs);
+        static extern RESULT FMOD5_DSP_GetNumOutputs             (IntPtr dsp, out int numoutputs);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetInput                  (IntPtr dsp, int index, out IntPtr input, out IntPtr inputconnection);
+        static extern RESULT FMOD5_DSP_GetInput                  (IntPtr dsp, int index, out IntPtr input, out IntPtr inputconnection);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetOutput                 (IntPtr dsp, int index, out IntPtr output, out IntPtr outputconnection);
+        static extern RESULT FMOD5_DSP_GetOutput                 (IntPtr dsp, int index, out IntPtr output, out IntPtr outputconnection);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetActive                 (IntPtr dsp, bool active);
+        static extern RESULT FMOD5_DSP_SetActive                 (IntPtr dsp, bool active);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetActive                 (IntPtr dsp, out bool active);
+        static extern RESULT FMOD5_DSP_GetActive                 (IntPtr dsp, out bool active);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetBypass                 (IntPtr dsp, bool bypass);
+        static extern RESULT FMOD5_DSP_SetBypass                 (IntPtr dsp, bool bypass);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetBypass                 (IntPtr dsp, out bool bypass);
+        static extern RESULT FMOD5_DSP_GetBypass                 (IntPtr dsp, out bool bypass);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetWetDryMix              (IntPtr dsp, float prewet, float postwet, float dry);
+        static extern RESULT FMOD5_DSP_SetWetDryMix              (IntPtr dsp, float prewet, float postwet, float dry);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetWetDryMix              (IntPtr dsp, out float prewet, out float postwet, out float dry);
+        static extern RESULT FMOD5_DSP_GetWetDryMix              (IntPtr dsp, out float prewet, out float postwet, out float dry);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetChannelFormat          (IntPtr dsp, CHANNELMASK channelmask, int numchannels, SPEAKERMODE source_speakermode);
+        static extern RESULT FMOD5_DSP_SetChannelFormat          (IntPtr dsp, CHANNELMASK channelmask, int numchannels, SPEAKERMODE source_speakermode);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetChannelFormat          (IntPtr dsp, out CHANNELMASK channelmask, out int numchannels, out SPEAKERMODE source_speakermode);
+        static extern RESULT FMOD5_DSP_GetChannelFormat          (IntPtr dsp, out CHANNELMASK channelmask, out int numchannels, out SPEAKERMODE source_speakermode);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetOutputChannelFormat    (IntPtr dsp, CHANNELMASK inmask, int inchannels, SPEAKERMODE inspeakermode, out CHANNELMASK outmask, out int outchannels, out SPEAKERMODE outspeakermode);
+        static extern RESULT FMOD5_DSP_GetOutputChannelFormat    (IntPtr dsp, CHANNELMASK inmask, int inchannels, SPEAKERMODE inspeakermode, out CHANNELMASK outmask, out int outchannels, out SPEAKERMODE outspeakermode);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_Reset                     (IntPtr dsp);
+        static extern RESULT FMOD5_DSP_Reset                     (IntPtr dsp);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetCallback               (IntPtr dsp, DSP_CALLBACK callback);
+        static extern RESULT FMOD5_DSP_SetCallback               (IntPtr dsp, DSP_CALLBACK callback);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetParameterFloat         (IntPtr dsp, int index, float value);
+        static extern RESULT FMOD5_DSP_SetParameterFloat         (IntPtr dsp, int index, float value);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetParameterInt           (IntPtr dsp, int index, int value);
+        static extern RESULT FMOD5_DSP_SetParameterInt           (IntPtr dsp, int index, int value);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetParameterBool          (IntPtr dsp, int index, bool value);
+        static extern RESULT FMOD5_DSP_SetParameterBool          (IntPtr dsp, int index, bool value);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetParameterData          (IntPtr dsp, int index, IntPtr data, uint length);
+        static extern RESULT FMOD5_DSP_SetParameterData          (IntPtr dsp, int index, IntPtr data, uint length);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetParameterFloat         (IntPtr dsp, int index, out float value, IntPtr valuestr, int valuestrlen);
+        static extern RESULT FMOD5_DSP_GetParameterFloat         (IntPtr dsp, int index, out float value, IntPtr valuestr, int valuestrlen);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetParameterInt           (IntPtr dsp, int index, out int value, IntPtr valuestr, int valuestrlen);
+        static extern RESULT FMOD5_DSP_GetParameterInt           (IntPtr dsp, int index, out int value, IntPtr valuestr, int valuestrlen);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetParameterBool          (IntPtr dsp, int index, out bool value, IntPtr valuestr, int valuestrlen);
+        static extern RESULT FMOD5_DSP_GetParameterBool          (IntPtr dsp, int index, out bool value, IntPtr valuestr, int valuestrlen);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetParameterData          (IntPtr dsp, int index, out IntPtr data, out uint length, IntPtr valuestr, int valuestrlen);
+        static extern RESULT FMOD5_DSP_GetParameterData          (IntPtr dsp, int index, out IntPtr data, out uint length, IntPtr valuestr, int valuestrlen);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetNumParameters          (IntPtr dsp, out int numparams);
+        static extern RESULT FMOD5_DSP_GetNumParameters          (IntPtr dsp, out int numparams);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetParameterInfo          (IntPtr dsp, int index, out IntPtr desc);
+        static extern RESULT FMOD5_DSP_GetParameterInfo          (IntPtr dsp, int index, out IntPtr desc);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetDataParameterIndex     (IntPtr dsp, int datatype, out int index);
+        static extern RESULT FMOD5_DSP_GetDataParameterIndex     (IntPtr dsp, int datatype, out int index);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_ShowConfigDialog          (IntPtr dsp, IntPtr hwnd, bool show);
+        static extern RESULT FMOD5_DSP_ShowConfigDialog          (IntPtr dsp, IntPtr hwnd, bool show);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetInfo                   (IntPtr dsp, IntPtr name, out uint version, out int channels, out int configwidth, out int configheight);
+        static extern RESULT FMOD5_DSP_GetInfo                   (IntPtr dsp, IntPtr name, out uint version, out int channels, out int configwidth, out int configheight);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetType                   (IntPtr dsp, out DSP_TYPE type);
+        static extern RESULT FMOD5_DSP_GetType                   (IntPtr dsp, out DSP_TYPE type);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetIdle                   (IntPtr dsp, out bool idle);
+        static extern RESULT FMOD5_DSP_GetIdle                   (IntPtr dsp, out bool idle);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_SetUserData               (IntPtr dsp, IntPtr userdata);
+        static extern RESULT FMOD5_DSP_SetUserData               (IntPtr dsp, IntPtr userdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSP_GetUserData               (IntPtr dsp, out IntPtr userdata);
+        static extern RESULT FMOD5_DSP_GetUserData               (IntPtr dsp, out IntPtr userdata);
         [DllImport(VERSION.dll)]
         public static extern RESULT FMOD5_DSP_SetMeteringEnabled         (IntPtr dsp, bool inputEnabled, bool outputEnabled);
         [DllImport(VERSION.dll)]
@@ -3609,23 +3609,23 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSPConnection_GetInput        (IntPtr dspconnection, out IntPtr input);
+        static extern RESULT FMOD5_DSPConnection_GetInput        (IntPtr dspconnection, out IntPtr input);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSPConnection_GetOutput       (IntPtr dspconnection, out IntPtr output);
+        static extern RESULT FMOD5_DSPConnection_GetOutput       (IntPtr dspconnection, out IntPtr output);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSPConnection_SetMix          (IntPtr dspconnection, float volume);
+        static extern RESULT FMOD5_DSPConnection_SetMix          (IntPtr dspconnection, float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSPConnection_GetMix          (IntPtr dspconnection, out float volume);
+        static extern RESULT FMOD5_DSPConnection_GetMix          (IntPtr dspconnection, out float volume);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSPConnection_SetMixMatrix    (IntPtr dspconnection, float[] matrix, int outchannels, int inchannels, int inchannel_hop);
+        static extern RESULT FMOD5_DSPConnection_SetMixMatrix    (IntPtr dspconnection, float[] matrix, int outchannels, int inchannels, int inchannel_hop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSPConnection_GetMixMatrix    (IntPtr dspconnection, float[] matrix, out int outchannels, out int inchannels, int inchannel_hop);
+        static extern RESULT FMOD5_DSPConnection_GetMixMatrix    (IntPtr dspconnection, float[] matrix, out int outchannels, out int inchannels, int inchannel_hop);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSPConnection_GetType         (IntPtr dspconnection, out DSPCONNECTION_TYPE type);
+        static extern RESULT FMOD5_DSPConnection_GetType         (IntPtr dspconnection, out DSPCONNECTION_TYPE type);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSPConnection_SetUserData     (IntPtr dspconnection, IntPtr userdata);
+        static extern RESULT FMOD5_DSPConnection_SetUserData     (IntPtr dspconnection, IntPtr userdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_DSPConnection_GetUserData     (IntPtr dspconnection, out IntPtr userdata);
+        static extern RESULT FMOD5_DSPConnection_GetUserData     (IntPtr dspconnection, out IntPtr userdata);
         #endregion
 
         #region wrapperinternal
@@ -3733,45 +3733,45 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_Release              (IntPtr geometry);
+        static extern RESULT FMOD5_Geometry_Release              (IntPtr geometry);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_AddPolygon           (IntPtr geometry, float directocclusion, float reverbocclusion, bool doublesided, int numvertices, VECTOR[] vertices, out int polygonindex);
+        static extern RESULT FMOD5_Geometry_AddPolygon           (IntPtr geometry, float directocclusion, float reverbocclusion, bool doublesided, int numvertices, VECTOR[] vertices, out int polygonindex);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetNumPolygons       (IntPtr geometry, out int numpolygons);
+        static extern RESULT FMOD5_Geometry_GetNumPolygons       (IntPtr geometry, out int numpolygons);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetMaxPolygons       (IntPtr geometry, out int maxpolygons, out int maxvertices);
+        static extern RESULT FMOD5_Geometry_GetMaxPolygons       (IntPtr geometry, out int maxpolygons, out int maxvertices);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetPolygonNumVertices(IntPtr geometry, int index, out int numvertices);
+        static extern RESULT FMOD5_Geometry_GetPolygonNumVertices(IntPtr geometry, int index, out int numvertices);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_SetPolygonVertex     (IntPtr geometry, int index, int vertexindex, ref VECTOR vertex);
+        static extern RESULT FMOD5_Geometry_SetPolygonVertex     (IntPtr geometry, int index, int vertexindex, ref VECTOR vertex);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetPolygonVertex     (IntPtr geometry, int index, int vertexindex, out VECTOR vertex);
+        static extern RESULT FMOD5_Geometry_GetPolygonVertex     (IntPtr geometry, int index, int vertexindex, out VECTOR vertex);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_SetPolygonAttributes (IntPtr geometry, int index, float directocclusion, float reverbocclusion, bool doublesided);
+        static extern RESULT FMOD5_Geometry_SetPolygonAttributes (IntPtr geometry, int index, float directocclusion, float reverbocclusion, bool doublesided);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetPolygonAttributes (IntPtr geometry, int index, out float directocclusion, out float reverbocclusion, out bool doublesided);
+        static extern RESULT FMOD5_Geometry_GetPolygonAttributes (IntPtr geometry, int index, out float directocclusion, out float reverbocclusion, out bool doublesided);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_SetActive            (IntPtr geometry, bool active);
+        static extern RESULT FMOD5_Geometry_SetActive            (IntPtr geometry, bool active);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetActive            (IntPtr geometry, out bool active);
+        static extern RESULT FMOD5_Geometry_GetActive            (IntPtr geometry, out bool active);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_SetRotation          (IntPtr geometry, ref VECTOR forward, ref VECTOR up);
+        static extern RESULT FMOD5_Geometry_SetRotation          (IntPtr geometry, ref VECTOR forward, ref VECTOR up);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetRotation          (IntPtr geometry, out VECTOR forward, out VECTOR up);
+        static extern RESULT FMOD5_Geometry_GetRotation          (IntPtr geometry, out VECTOR forward, out VECTOR up);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_SetPosition          (IntPtr geometry, ref VECTOR position);
+        static extern RESULT FMOD5_Geometry_SetPosition          (IntPtr geometry, ref VECTOR position);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetPosition          (IntPtr geometry, out VECTOR position);
+        static extern RESULT FMOD5_Geometry_GetPosition          (IntPtr geometry, out VECTOR position);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_SetScale             (IntPtr geometry, ref VECTOR scale);
+        static extern RESULT FMOD5_Geometry_SetScale             (IntPtr geometry, ref VECTOR scale);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetScale             (IntPtr geometry, out VECTOR scale);
+        static extern RESULT FMOD5_Geometry_GetScale             (IntPtr geometry, out VECTOR scale);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_Save                 (IntPtr geometry, IntPtr data, out int datasize);
+        static extern RESULT FMOD5_Geometry_Save                 (IntPtr geometry, IntPtr data, out int datasize);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_SetUserData          (IntPtr geometry, IntPtr userdata);
+        static extern RESULT FMOD5_Geometry_SetUserData          (IntPtr geometry, IntPtr userdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Geometry_GetUserData          (IntPtr geometry, out IntPtr userdata);
+        static extern RESULT FMOD5_Geometry_GetUserData          (IntPtr geometry, out IntPtr userdata);
         #endregion
 
         #region wrapperinternal
@@ -3833,23 +3833,23 @@ namespace FMOD
 
         #region importfunctions
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Reverb3D_Release             (IntPtr reverb3d);
+        static extern RESULT FMOD5_Reverb3D_Release             (IntPtr reverb3d);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Reverb3D_Set3DAttributes     (IntPtr reverb3d, ref VECTOR position, float mindistance, float maxdistance);
+        static extern RESULT FMOD5_Reverb3D_Set3DAttributes     (IntPtr reverb3d, ref VECTOR position, float mindistance, float maxdistance);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Reverb3D_Get3DAttributes     (IntPtr reverb3d, ref VECTOR position, ref float mindistance, ref float maxdistance);
+        static extern RESULT FMOD5_Reverb3D_Get3DAttributes     (IntPtr reverb3d, ref VECTOR position, ref float mindistance, ref float maxdistance);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Reverb3D_SetProperties       (IntPtr reverb3d, ref REVERB_PROPERTIES properties);
+        static extern RESULT FMOD5_Reverb3D_SetProperties       (IntPtr reverb3d, ref REVERB_PROPERTIES properties);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Reverb3D_GetProperties       (IntPtr reverb3d, ref REVERB_PROPERTIES properties);
+        static extern RESULT FMOD5_Reverb3D_GetProperties       (IntPtr reverb3d, ref REVERB_PROPERTIES properties);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Reverb3D_SetActive           (IntPtr reverb3d, bool active);
+        static extern RESULT FMOD5_Reverb3D_SetActive           (IntPtr reverb3d, bool active);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Reverb3D_GetActive           (IntPtr reverb3d, out bool active);
+        static extern RESULT FMOD5_Reverb3D_GetActive           (IntPtr reverb3d, out bool active);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Reverb3D_SetUserData         (IntPtr reverb3d, IntPtr userdata);
+        static extern RESULT FMOD5_Reverb3D_SetUserData         (IntPtr reverb3d, IntPtr userdata);
         [DllImport(VERSION.dll)]
-        private static extern RESULT FMOD5_Reverb3D_GetUserData         (IntPtr reverb3d, out IntPtr userdata);
+        static extern RESULT FMOD5_Reverb3D_GetUserData         (IntPtr reverb3d, out IntPtr userdata);
         #endregion
 
         #region wrapperinternal
@@ -3924,7 +3924,7 @@ namespace FMOD
         }
     }
 
-    static class StringHelper
+    internal static class StringHelper
     {
         public class ThreadSafeEncoding : IDisposable
         {
@@ -3937,7 +3937,7 @@ namespace FMOD
             public bool InUse()    { return inUse; }
             public void SetInUse() { inUse = true; }
 
-            private int roundUpPowerTwo(int number)
+            int roundUpPowerTwo(int number)
             {
                 int newNumber = 1;
                 while (newNumber <= number)

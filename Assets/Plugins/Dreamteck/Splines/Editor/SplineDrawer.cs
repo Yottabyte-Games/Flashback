@@ -9,7 +9,7 @@ namespace Dreamteck.Splines.Editor
     [InitializeOnLoad]
     public static class SplineDrawer
     {
-        private static Vector3[] positions = new Vector3[0];
+        static Vector3[] positions = new Vector3[0];
 
         public static void DrawSpline(Spline spline, Color color, double from = 0.0, double to = 1.0, bool drawThickness = false, bool thicknessAutoRotate = false)
         {

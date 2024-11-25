@@ -5,7 +5,7 @@ namespace YottabyteGames.FpsScripts.Interactables
 {
     public class ActivateDialogueInteractable : InteractableBase
     {
-        [SerializeField] private InteractionController interactionController;
+        [SerializeField] InteractionController interactionController;
 
         public override void OnInteract()
         {

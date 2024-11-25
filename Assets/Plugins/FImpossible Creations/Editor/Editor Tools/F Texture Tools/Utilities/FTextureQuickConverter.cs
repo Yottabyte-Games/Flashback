@@ -7,8 +7,8 @@ namespace FIMSpace.FEditor
 {
     public class FTextureQuickConverter : EditorWindow
     {
-        private List<Texture2D> textures;
-        private bool dimSetted = false;
+        List<Texture2D> textures;
+        bool dimSetted = false;
         public string postFix = "-ToPNG";
 
         public enum EChannelSelect { R, G, B, A, SetBlack, SetWhite, SetGray }
@@ -176,7 +176,7 @@ namespace FIMSpace.FEditor
 
 
         [MenuItem("CONTEXT/Material/Convert Material Textures To PNGs")]
-        private static void ConvertMaterialTexturesToPNGs(MenuCommand menuCommand)
+        static void ConvertMaterialTexturesToPNGs(MenuCommand menuCommand)
         {
             Material targetMaterial = (Material)menuCommand.context;
 
@@ -204,7 +204,7 @@ namespace FIMSpace.FEditor
         }
 
         [MenuItem("CONTEXT/Material/Convert Material Textures To PNGs and Remove Sources")]
-        private static void ConvertMaterialTexturesToPNGsAndRemove(MenuCommand menuCommand)
+        static void ConvertMaterialTexturesToPNGsAndRemove(MenuCommand menuCommand)
         {
             Material targetMaterial = (Material)menuCommand.context;
 

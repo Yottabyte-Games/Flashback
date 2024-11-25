@@ -68,16 +68,16 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private Axis _axis = Axis.Y;
+        Axis _axis = Axis.Y;
         [SerializeField]
         [HideInInspector]
-        private bool _symmetry = false;
+        bool _symmetry = false;
         [SerializeField]
         [HideInInspector]
-        private UVWrapMode _uvWrapMode = UVWrapMode.Clamp;
+        UVWrapMode _uvWrapMode = UVWrapMode.Clamp;
         [SerializeField]
         [HideInInspector]
-        private int _slices = 1;
+        int _slices = 1;
 
         protected override string meshName => "Waveform";
 
@@ -97,7 +97,7 @@ namespace Dreamteck.Splines
             base.LateRun();
         }
 
-        private void Generate()
+        void Generate()
         {
             int vertexCount = sampleCount * (_slices + 1);
             AllocateMesh(vertexCount, _slices * (sampleCount - 1) * 6);

@@ -102,23 +102,23 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private int _slices = 1;
+        int _slices = 1;
         [SerializeField]
         [HideInInspector]
         [Tooltip("This will inflate sample sizes based on the angle between two samples in order to preserve geometry width")]
-        private bool _compensateCorners = false;
+        bool _compensateCorners = false;
         [SerializeField]
         [HideInInspector]
-        private bool _useShapeCurve = false;
+        bool _useShapeCurve = false;
         [SerializeField]
         [HideInInspector]
-        private AnimationCurve _shape;
+        AnimationCurve _shape;
         [SerializeField]
         [HideInInspector]
-        private AnimationCurve _lastShape;
+        AnimationCurve _lastShape;
         [SerializeField]
         [HideInInspector]
-        private float _shapeExposure = 1f;
+        float _shapeExposure = 1f;
 
 
         protected override void Reset()

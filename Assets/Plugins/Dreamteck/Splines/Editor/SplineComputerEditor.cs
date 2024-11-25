@@ -28,16 +28,16 @@ namespace Dreamteck.Splines.Editor
 
         protected bool closedOnMirror = false;
 
-        private DreamteckSplinesEditor _pathEditor;
-        private ComputerEditor _computerEditor;
-        private SplineTriggersEditor _triggersEditor;
-        private SplineComputerDebugEditor _debugEditor;
-        private bool _rebuildSpline = false;
-        private List<int> _selectedPoints = new List<int>();
+        DreamteckSplinesEditor _pathEditor;
+        ComputerEditor _computerEditor;
+        SplineTriggersEditor _triggersEditor;
+        SplineComputerDebugEditor _debugEditor;
+        bool _rebuildSpline = false;
+        List<int> _selectedPoints = new List<int>();
 
 
         [MenuItem("GameObject/3D Object/Spline Computer")]
-        private static void NewEmptySpline()
+        static void NewEmptySpline()
         {
             int count = GameObject.FindObjectsOfType<SplineComputer>().Length;
             string objName = "Spline";
@@ -57,7 +57,7 @@ namespace Dreamteck.Splines.Editor
         }
 
         [MenuItem("GameObject/3D Object/Spline Node")]
-        private static void NewSplineNode()
+        static void NewSplineNode()
         {
             int count = Object.FindObjectsOfType<Node>().Length;
             string objName = "Node";
@@ -83,7 +83,7 @@ namespace Dreamteck.Splines.Editor
             spline.Rebuild();
         }
 
-        private void OnEnable()
+        void OnEnable()
         {
             splines = new SplineComputer[targets.Length];
             for (int i = 0; i < splines.Length; i++)
@@ -115,7 +115,7 @@ namespace Dreamteck.Splines.Editor
             Undo.undoRedoPerformed += UndoRedoPerformed;
         }
 
-        private void BeforeSceneGUI(SceneView current)
+        void BeforeSceneGUI(SceneView current)
         {
             _pathEditor.BeforeSceneGUI(current);
 
@@ -134,7 +134,7 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void InitializeSplineEditor()
+        void InitializeSplineEditor()
         {
             _pathEditor = new DreamteckSplinesEditor(spline, serializedObject);
             _pathEditor.undoHandler = RecordUndo;
@@ -142,14 +142,14 @@ namespace Dreamteck.Splines.Editor
             _pathEditor.editSpace = (SplineEditor.Space)SplinePrefs.pointEditSpace;
         }
 
-        private void InitializeComputerEditor()
+        void InitializeComputerEditor()
         {
             _computerEditor = new ComputerEditor(splines, serializedObject, _pathEditor);
             _computerEditor.undoHandler = RecordUndo;
             _computerEditor.repaintHandler = OnRepaint;
         }
 
-        private void RecordUndo(string title)
+        void RecordUndo(string title)
         {
             for (int i = 0; i < splines.Length; i++)
             {
@@ -157,13 +157,13 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void OnRepaint()
+        void OnRepaint()
         {
             SceneView.RepaintAll();
             Repaint();
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             Undo.undoRedoPerformed -= UndoRedoPerformed;
 #if UNITY_2019_1_OR_NEWER
@@ -258,7 +258,7 @@ namespace Dreamteck.Splines.Editor
             return _selectedPoints.Contains(index);
         }
 
-        private void DuringSceneGUI(SceneView currentSceneView)
+        void DuringSceneGUI(SceneView currentSceneView)
         {
             _debugEditor.DrawScene(currentSceneView);
             _computerEditor.drawComputer = !(_pathEditor.currentModule is CreatePointModule);

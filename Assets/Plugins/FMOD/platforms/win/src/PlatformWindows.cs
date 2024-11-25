@@ -152,7 +152,7 @@ namespace FMODUnity
             }
         }
 
-        private static OutputType[] sValidOutputTypes = {
+        static OutputType[] sValidOutputTypes = {
            new OutputType() { displayName = "Windows Audio Session API", outputType = FMOD.OUTPUTTYPE.WASAPI },
            new OutputType() { displayName = "Windows Sonic", outputType = FMOD.OUTPUTTYPE.WINSONIC },
         };
@@ -162,7 +162,7 @@ namespace FMODUnity
 
         internal override List<CodecChannelCount> DefaultCodecChannels { get { return staticCodecChannels; } }
 
-        private static List<CodecChannelCount> staticCodecChannels = new List<CodecChannelCount>()
+        static List<CodecChannelCount> staticCodecChannels = new List<CodecChannelCount>()
         {
             new CodecChannelCount { format = CodecType.FADPCM, channels = 0 },
             new CodecChannelCount { format = CodecType.Vorbis, channels = 32 },

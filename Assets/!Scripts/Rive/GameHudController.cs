@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(RiveScreen))]
 public class GameHudController : MonoBehaviour
 {
-    private RiveScreen riveScreen;
-    private SceneReference _sceneToLoad;
+    RiveScreen riveScreen;
+    SceneReference _sceneToLoad;
     PlayerPositionController _playerPositionController;
-    
-    private InputAction _pauseAction;
+
+    InputAction _pauseAction;
 
 
     void Awake()
@@ -32,7 +32,7 @@ public class GameHudController : MonoBehaviour
         _pauseAction = InputSystem.actions.FindAction("Pause");
     }
 
-    private void Start()
+    void Start()
     {
         riveScreen.OnRiveEvent += RiveEventHandler;
         if (riveScreen.currentScene == RiveScreen.RiveScenes.HUD)
@@ -46,7 +46,7 @@ public class GameHudController : MonoBehaviour
         }
     }
 
-    private void RiveEventHandler(ReportedEvent reportedEvent)
+    void RiveEventHandler(ReportedEvent reportedEvent)
     {
         if (reportedEvent.Name == "FlashbackEvent" && _sceneToLoad != null)
         {
@@ -60,7 +60,7 @@ public class GameHudController : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         if (_pauseAction.WasPressedThisFrame())
         { 

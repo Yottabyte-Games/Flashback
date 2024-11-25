@@ -9,7 +9,7 @@ namespace Dreamteck.Splines.Editor
     public class FollowerSpeedModifierEditor : SplineSampleModifierEditor
     {
         public bool allowSelection = true;
-        private float addTime = 0f;
+        float addTime = 0f;
 
         public FollowerSpeedModifierEditor(SplineUser user, SplineUserEditor editor) : base(user, editor, "_speedModifier")
         {

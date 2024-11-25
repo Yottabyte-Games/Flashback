@@ -6,8 +6,8 @@ namespace YottabyteGames.FpsScripts.Interaction_System
 {        
     public class InteractionUIPanel : MonoBehaviour
     {
-        [SerializeField] private Image progressBar;
-        [SerializeField] private TextMeshProUGUI tooltipText;
+        [SerializeField] Image progressBar;
+        [SerializeField] TextMeshProUGUI tooltipText;
 
         public void SetTooltip(string tooltip)
         {

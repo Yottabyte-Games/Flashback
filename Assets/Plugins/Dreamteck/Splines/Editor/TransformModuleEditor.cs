@@ -7,8 +7,8 @@ namespace Dreamteck.Splines.Editor
 
     public class TransformModuleEditor : SplineUserSubEditor
     {
-        private TransformModule motionApplier;
-        private string[] toolStrings = new string[] { "3D", "2D" };
+        TransformModule motionApplier;
+        string[] toolStrings = new string[] { "3D", "2D" };
 
         public TransformModuleEditor(SplineUser user, SplineUserEditor parent, TransformModule input) : base(user, parent)
         {

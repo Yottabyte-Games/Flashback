@@ -58,20 +58,18 @@ namespace Dreamteck.Splines {
             }
         }
 
-        private static Vector3[] P = new Vector3[4];
-        private static Vector3 A1;
-        private static Vector3 A2;
-        private static Vector3 A3;
-        private static Vector3 B1;
-        private static Vector3 B2;
-        private static float t1;
-        private static float t2;
-        private static float t3;
+        static Vector3[] P = new Vector3[4];
+        static Vector3 A1;
+        static Vector3 A2;
+        static Vector3 A3;
+        static Vector3 B1;
+        static Vector3 B2;
+        static float t1;
+        static float t2;
+        static float t3;
 
-        [SerializeField]
-        private bool closed = false;
-        [SerializeField, Range(0f, 1f)]
-        private float _knotParametrization;
+        [SerializeField] bool closed = false;
+        [SerializeField, Range(0f, 1f)] float _knotParametrization;
 
         public Spline(Type type){
 			this.type = type;
@@ -651,7 +649,7 @@ namespace Dreamteck.Splines {
         }
 
         //Get closest point in spline segment. Used for projection
-        private double GetClosestPoint(int iterations, Vector3 point, double start, double end, int slices)
+        double GetClosestPoint(int iterations, Vector3 point, double start, double end, int slices)
         {
             if (iterations <= 0)
             {
@@ -773,7 +771,7 @@ namespace Dreamteck.Splines {
         /// <summary>
         /// Evaluates the position of the spline using one of the algorithms
         /// </summary>
-        private void CalculatePosition(ref Vector3 position, double percent, int pointIndex)
+        void CalculatePosition(ref Vector3 position, double percent, int pointIndex)
         {
             switch (type)
             {
@@ -802,7 +800,7 @@ namespace Dreamteck.Splines {
         /// <summary>
         /// Evaluates the direction of the spline using one of the algorithms
         /// </summary>
-        private void CalculateTangent(ref Vector3 tangent, double percent, int pointIndex)
+        void CalculateTangent(ref Vector3 tangent, double percent, int pointIndex)
         {
             switch (type)
             {
@@ -831,7 +829,7 @@ namespace Dreamteck.Splines {
         /// <summary>
         /// Slightly faster than calling GetPoint and GetTangent separately
         /// </summary>
-        private void CalculatePositionAndTangent(double percent, int pointIndex, ref Vector3 position, ref Vector3 tangent)
+        void CalculatePositionAndTangent(double percent, int pointIndex, ref Vector3 position, ref Vector3 tangent)
         {
             switch (type)
             {
@@ -865,7 +863,7 @@ namespace Dreamteck.Splines {
             }
         }
 
-        private void CalculateLinearPosition(ref Vector3 position, double t, int i)
+        void CalculateLinearPosition(ref Vector3 position, double t, int i)
         {
             if (points.Length == 0)
             {
@@ -876,7 +874,7 @@ namespace Dreamteck.Splines {
             position = Vector3.Lerp(P[1], P[2], (float)t);
         }
 
-        private void CalculateLinearTangent(ref Vector3 tangent, double t, int i)
+        void CalculateLinearTangent(ref Vector3 tangent, double t, int i)
         {
             if (points.Length == 0)
             {
@@ -888,7 +886,7 @@ namespace Dreamteck.Splines {
             else tangent = P[2] - P[1];
         }
 
-        private void CalculateBSplinePosition(ref Vector3 position, double time, int i)
+        void CalculateBSplinePosition(ref Vector3 position, double time, int i)
         {
             if (points.Length > 0) position = points[0].position;
             if (points.Length > 1)
@@ -901,7 +899,7 @@ namespace Dreamteck.Splines {
             }
         }
 
-        private void CalculateBezierPosition(ref Vector3 position, double t, int i)
+        void CalculateBezierPosition(ref Vector3 position, double t, int i)
         {
             if (points.Length > 0) position = points[0].position;
             else return;
@@ -921,7 +919,7 @@ namespace Dreamteck.Splines {
                 ft * ft * ft * points[it].position;
         }
 
-        private void CalculateBezierTangent(ref Vector3 tangent, double t, int i)
+        void CalculateBezierTangent(ref Vector3 tangent, double t, int i)
         {
             if (points.Length > 0) tangent = points[0].tangent;
             else return;
@@ -943,7 +941,7 @@ namespace Dreamteck.Splines {
            
         }
 
-        private void CalculateCatmullRomComponents(double t)
+        void CalculateCatmullRomComponents(double t)
         {
             const float t0 = 0f;
             t1 = GetInterval(P[0], P[1]);
@@ -965,13 +963,13 @@ namespace Dreamteck.Splines {
             }
         }
 
-        private void CalculateCatmullRomPosition(double t, ref Vector3 position)
+        void CalculateCatmullRomPosition(double t, ref Vector3 position)
         {
             float tf = Mathf.LerpUnclamped(t1, t2, (float)t);
             position = (t2 - tf) / (t2 - t1) * B1 + (tf - t1) / (t2 - t1) * B2;
         }
 
-        private void CalculateCatmullRomTangent(double t, ref Vector3 tangent)
+        void CalculateCatmullRomTangent(double t, ref Vector3 tangent)
         {
             float tf = Mathf.LerpUnclamped(t1, t2, (float)t);
             Vector3 A1p = (P[1] - P[0]) / t1;
@@ -984,7 +982,7 @@ namespace Dreamteck.Splines {
             tangent = (B2 - B1) / (t2 - t1) + (t2 - tf) / (t2 - t1) * B1p + (tf - t1) / (t2 - t1) * B2p;
         }
 
-        private void CalculateCatmullRomPositionFast(ref Vector3 position, double t, int i)
+        void CalculateCatmullRomPositionFast(ref Vector3 position, double t, int i)
         {
             float t1 = (float)t;
             float t2 = t1 * t1;
@@ -1004,7 +1002,7 @@ namespace Dreamteck.Splines {
             }
         }
 
-        private void CalculateCatmullRomTangentFast(ref Vector3 tangent, double t, int i)
+        void CalculateCatmullRomTangentFast(ref Vector3 tangent, double t, int i)
         {
             float t1 = (float)t;
             float t2 = t1 * t1;
@@ -1018,7 +1016,7 @@ namespace Dreamteck.Splines {
             }
         }
 
-        private void ComputeCatPoints(int i)
+        void ComputeCatPoints(int i)
         {
             int p1 = i - 1;
             int p2 = i;

@@ -29,19 +29,19 @@ namespace FIMSpace.FTextureTools
         }
 
         public static GUIStyle FrameBoxStyle { get { if (__frameBoxStyle != null) return __frameBoxStyle; __frameBoxStyle = new GUIStyle(EditorStyles.helpBox); Texture2D bg = Resources.Load<Texture2D>("Fimp/Backgrounds/FFrameBox"); __frameBoxStyle.normal.background = bg; __frameBoxStyle.border = new RectOffset(6, 6, 6, 6); __frameBoxStyle.padding = new RectOffset(1, 1, 1, 1); return __frameBoxStyle; } }
-        private static GUIStyle __frameBoxStyle = null;
+        static GUIStyle __frameBoxStyle = null;
 
         public static GUIStyle HeaderStyle { get { if (__headerStyle != null) return __headerStyle; __headerStyle = new GUIStyle(EditorStyles.boldLabel); __headerStyle.richText = true; __headerStyle.padding = new RectOffset(0, 0, 0, 0); __headerStyle.margin = __headerStyle.padding; __headerStyle.alignment = TextAnchor.MiddleCenter; __headerStyle.active.textColor = Color.white; return __headerStyle; } }
-        private static GUIStyle __headerStyle = null;
+        static GUIStyle __headerStyle = null;
 
         public static GUIStyle HeaderStyleBig { get { if (__headerStyleBig != null) return __headerStyleBig; __headerStyleBig = new GUIStyle(HeaderStyle); __headerStyleBig.fontSize = 17; __headerStyleBig.fontStyle = FontStyle.Normal; return __headerStyle; } }
-        private static GUIStyle __headerStyleBig = null;
+        static GUIStyle __headerStyleBig = null;
 
         public static GUIStyle BGInBoxStyle { get { if (__inBoxStyle != null) return __inBoxStyle; __inBoxStyle = new GUIStyle(EditorStyles.helpBox); Texture2D bg = Resources.Load<Texture2D>("FInBoxSprite"); __inBoxStyle.normal.background = bg; __inBoxStyle.border = new RectOffset(4, 4, 4, 4); __inBoxStyle.padding = new RectOffset(8, 6, 5, 5); __inBoxStyle.margin = new RectOffset(0, 0, 0, 0); return __inBoxStyle; } }
-        private static GUIStyle __inBoxStyle = null;
+        static GUIStyle __inBoxStyle = null;
 
         public static GUIStyle BGInBoxBlankStyle { get { if (__inBoxBlankStyle != null) return __inBoxBlankStyle; __inBoxBlankStyle = new GUIStyle(); __inBoxBlankStyle.padding = BGInBoxStyle.padding; __inBoxBlankStyle.margin = new RectOffset(10,10,4,4); return __inBoxBlankStyle; } }
-        private static GUIStyle __inBoxBlankStyle = null;
+        static GUIStyle __inBoxBlankStyle = null;
 
         static Dictionary<string, Texture2D> _Icons = null;
 

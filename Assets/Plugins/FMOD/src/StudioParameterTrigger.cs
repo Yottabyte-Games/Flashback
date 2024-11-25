@@ -16,7 +16,7 @@ namespace FMODUnity
         public EmitterRef[] Emitters;
         public EmitterGameEvent TriggerEvent;
 
-        private void Awake()
+        void Awake()
         {
             for (int i = 0; i < Emitters.Length; i++)
             {

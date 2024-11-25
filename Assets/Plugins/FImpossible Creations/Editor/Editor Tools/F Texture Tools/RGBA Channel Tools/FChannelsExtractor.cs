@@ -7,7 +7,7 @@ namespace FIMSpace.FEditor
 {
     public class FChannelsExtractor : EditorWindow
     {
-        private List<Texture2D> textures;
+        List<Texture2D> textures;
 
         EExtractType ExtractionType = EExtractType.ExtractAsBlackAndWhite;
         enum EExtractType

@@ -7,19 +7,19 @@ namespace FIMSpace.FTextureTools
 {
     public class FColorReplacerWindow : FTextureProcessWindow
     {
-        private float EffectBlend = 1f;
+        float EffectBlend = 1f;
 
-        private float HueMatching = 0.75f;
-        private float SaturationMatching = 0.0f;
-        private float ValueMatching = 0.0f;
-        private float ExtraMatching = 0.0f;
+        float HueMatching = 0.75f;
+        float SaturationMatching = 0.0f;
+        float ValueMatching = 0.0f;
+        float ExtraMatching = 0.0f;
 
-        private Color ToReplaceColor = Color.red;
-        private Color ToReplaceHSV;
+        Color ToReplaceColor = Color.red;
+        Color ToReplaceHSV;
 
-        private float HueOffset = 0.5f;
-        private float ValueOffset = 0f;
-        private float SaturationOffset = 0f;
+        float HueOffset = 0.5f;
+        float ValueOffset = 0f;
+        float SaturationOffset = 0f;
 
         Color MaskingColor = Color.white;
         public Texture2D TexturizeWith = null;

@@ -18,7 +18,7 @@ namespace Dreamteck
         protected List<UnityWebRequest> _textureWebRequests;
         protected Data _bannerData;
         protected string headerTitle = "";
-        private static bool init = true;
+        static bool init = true;
         protected virtual Vector2 _windowSize => new Vector2(450, 500);
 
         public virtual void Load()
@@ -176,9 +176,9 @@ namespace Dreamteck
             public enum SlideDiretion { Left, Right, Up, Down }
             public SlideDiretion openDirection = SlideDiretion.Left;
             public SlideDiretion closeDirection = SlideDiretion.Right;
-            private Vector2 origin = Vector2.zero;
-            private bool open = false;
-            private bool goingBack = false;
+            Vector2 origin = Vector2.zero;
+            bool open = false;
+            bool goingBack = false;
             public List<Element> elements = new List<Element>();
 
             public WindowPanel(string title, bool o, float slideDur = 1f)
@@ -360,9 +360,9 @@ namespace Dreamteck
 
             public class Banner : Element
             {
-                private string _title;
-                private string _description;
-                private Texture _image;
+                string _title;
+                string _description;
+                Texture _image;
 
                 public Banner(float x, float y, ActionLink a = null) : base(x, y, a) { }
 
@@ -414,9 +414,9 @@ namespace Dreamteck
 
             public class Thumbnail : Element
             {
-                private string thumbnailPath = "";
-                private string thumbnailName = "";
-                private Texture2D thumbnail = null;
+                string thumbnailPath = "";
+                string thumbnailName = "";
+                Texture2D thumbnail = null;
                 public string title = "";
                 public string description = "";
 
@@ -502,10 +502,10 @@ namespace Dreamteck
         }
 
         public class ActionLink {
-            private string URL = "";
-            private WindowPanel currentPanel = null;
-            private WindowPanel targetPanel = null;
-            private EmptyHandler customHandler = null;
+            string URL = "";
+            WindowPanel currentPanel = null;
+            WindowPanel targetPanel = null;
+            EmptyHandler customHandler = null;
 
             public ActionLink(string u)
             {

@@ -9,9 +9,9 @@ namespace NaughtyAttributes.Editor
     [CustomPropertyDrawer(typeof(InputAxisAttribute))]
     public class InputAxisPropertyDrawer : PropertyDrawerBase
     {
-        private static readonly string AssetPath = Path.Combine("ProjectSettings", "InputManager.asset");
-        private const string AxesPropertyPath = "m_Axes";
-        private const string NamePropertyPath = "m_Name";
+        static readonly string AssetPath = Path.Combine("ProjectSettings", "InputManager.asset");
+        const string AxesPropertyPath = "m_Axes";
+        const string NamePropertyPath = "m_Name";
 
         protected override float GetPropertyHeight_Internal(SerializedProperty property, GUIContent label)
         {

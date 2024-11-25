@@ -4,33 +4,33 @@ namespace YottabyteGames.FinalCharacterController.Scripts
 {
     public class PlayerAnimation : MonoBehaviour
     {
-        [SerializeField] private Animator _animator;
-        [SerializeField] private float locomotionBlendSpeed = 0.02f;
+        [SerializeField] Animator _animator;
+        [SerializeField] float locomotionBlendSpeed = 0.02f;
 
-        private PlayerLocomotionInput _playerLocomotionInput;
-        private PlayerState _playerState;
+        PlayerLocomotionInput _playerLocomotionInput;
+        PlayerState _playerState;
 
-        private static int inputXHash = Animator.StringToHash("inputX");
-        private static int inputYHash = Animator.StringToHash("inputY");
-        private static int inputMagnitudeHash = Animator.StringToHash("inputMagnitude");
-        private static int isGroundedHash = Animator.StringToHash("isGrounded");
-        private static int isFallingHash = Animator.StringToHash("isFalling");
-        private static int isJumpingHash = Animator.StringToHash("isJumping");
+        static int inputXHash = Animator.StringToHash("inputX");
+        static int inputYHash = Animator.StringToHash("inputY");
+        static int inputMagnitudeHash = Animator.StringToHash("inputMagnitude");
+        static int isGroundedHash = Animator.StringToHash("isGrounded");
+        static int isFallingHash = Animator.StringToHash("isFalling");
+        static int isJumpingHash = Animator.StringToHash("isJumping");
 
-        private Vector3 _currentBlendInput = Vector3.zero;
+        Vector3 _currentBlendInput = Vector3.zero;
 
-        private void Awake()
+        void Awake()
         {
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
         }
 
-        private void Update()
+        void Update()
         {
             UpdateAnimationState();
         }
 
-        private void UpdateAnimationState()
+        void UpdateAnimationState()
         {
             bool isIdling = _playerState.CurrentPlayerMovementState == PlayerMovementState.Idling;
             bool isRunning = _playerState.CurrentPlayerMovementState == PlayerMovementState.Running;

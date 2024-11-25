@@ -13,15 +13,15 @@ namespace Dreamteck.Splines
         //Mesh data
         [SerializeField]
         [HideInInspector, UnityEngine.Serialization.FormerlySerializedAs("channels")]
-        private List<Channel> _channels = new List<Channel>();
-        private bool _useLastResult = false;
-        private List<TS_Mesh> _combineMeshes = new List<TS_Mesh>();
+        List<Channel> _channels = new List<Channel>();
+        bool _useLastResult = false;
+        List<TS_Mesh> _combineMeshes = new List<TS_Mesh>();
 
         protected override string meshName => "Custom Mesh";
 
-        private Matrix4x4 _vertexMatrix = new Matrix4x4();
-        private Matrix4x4 _normalMatrix = new Matrix4x4();
-        private SplineSample _lastResult = new SplineSample();
+        Matrix4x4 _vertexMatrix = new Matrix4x4();
+        Matrix4x4 _normalMatrix = new Matrix4x4();
+        SplineSample _lastResult = new SplineSample();
 
         protected override void Awake()
         {
@@ -89,7 +89,7 @@ namespace Dreamteck.Splines
             Generate();
         }
 
-        private void Generate()
+        void Generate()
         {
             int meshCount = 0;
             for (int i = 0; i < _channels.Count; i++)
@@ -181,7 +181,7 @@ namespace Dreamteck.Splines
             _tsMesh.Combine(_combineMeshes);
         }
 
-        private void Place(Channel channel, TS_Mesh target, double percent)
+        void Place(Channel channel, TS_Mesh target, double percent)
         {
             Channel.MeshDefinition definition = channel.NextMesh();
             if (target == null) target = new TS_Mesh();
@@ -236,7 +236,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void Extrude(Channel channel, TS_Mesh target, double from, double to)
+        void Extrude(Channel channel, TS_Mesh target, double from, double to)
         {
             Channel.MeshDefinition definition = channel.NextMesh();
             if (target == null) target = new TS_Mesh();

@@ -30,7 +30,7 @@ namespace Dreamteck.Splines{
         [FormerlySerializedAs("type")]
         [SerializeField]
         [HideInInspector]
-        private Type _type;
+        Type _type;
 
         [HideInInspector]
         [FormerlySerializedAs("_position")]
@@ -70,7 +70,7 @@ namespace Dreamteck.Splines{
             return result;
         }
 
-        private static void GetInterpolatedTangents(SplinePoint a, SplinePoint b, float t, ref SplinePoint target)
+        static void GetInterpolatedTangents(SplinePoint a, SplinePoint b, float t, ref SplinePoint target)
         {
             Vector3 P0_1 = (1f - t) * a.position + t * a.tangent2;
             Vector3 P1_2 = (1f - t) * a.tangent2 + t * b.tangent;
@@ -90,7 +90,7 @@ namespace Dreamteck.Splines{
             return false;
         }
 
-        private bool EqualsFast(SplinePoint obj)
+        bool EqualsFast(SplinePoint obj)
         {
             SplinePoint other = (SplinePoint)obj;
             if (position != other.position) return false;
@@ -369,25 +369,25 @@ namespace Dreamteck.Splines{
             color.a = value;
         }
 
-        private void SmoothMirrorTangent2()
+        void SmoothMirrorTangent2()
         {
             tangent2 = position + (position - tangent);
             isDirty = true;
         }
 
-        private void SmoothMirrorTangent()
+        void SmoothMirrorTangent()
         {
             tangent = position + (position - tangent2);
             isDirty = true;
         }
 
-        private void SmoothFreeTangent2()
+        void SmoothFreeTangent2()
         {
             tangent2 = position + (position - tangent).normalized * (tangent2 - position).magnitude;
             isDirty = true;
         }
 
-        private void SmoothFreeTangent()
+        void SmoothFreeTangent()
         {
             tangent = position + (position - tangent2).normalized * (tangent - position).magnitude;
             isDirty = true;

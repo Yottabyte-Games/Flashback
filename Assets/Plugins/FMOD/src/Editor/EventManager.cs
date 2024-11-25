@@ -14,16 +14,16 @@ namespace FMODUnity
     [InitializeOnLoad]
     public class EventManager : MonoBehaviour
     {
-        private const string FMODLabel = "FMOD";
+        const string FMODLabel = "FMOD";
 
-        private const string AssetsFolderName = "Assets";
+        const string AssetsFolderName = "Assets";
 
-        private const string CacheAssetName = "FMODStudioCache";
+        const string CacheAssetName = "FMODStudioCache";
         public static string CacheAssetFullName = EditorUtils.WritableAssetPath(CacheAssetName);
-        private static EventCache eventCache;
+        static EventCache eventCache;
 
-        private const string StringBankExtension = "strings.bank";
-        private const string BankExtension = "bank";
+        const string StringBankExtension = "strings.bank";
+        const string BankExtension = "bank";
 
 #if UNITY_EDITOR
         [MenuItem("FMOD/Refresh Banks", priority = 1)]
@@ -44,7 +44,7 @@ namespace FMODUnity
         }
 #endif
 
-        private static void ClearCache()
+        static void ClearCache()
         {
             eventCache.CacheTime = DateTime.MinValue;
             eventCache.EditorBanks.Clear();
@@ -56,7 +56,7 @@ namespace FMODUnity
                 Settings.Instance.BanksToLoad.Clear();
         }
 
-        private static void AffirmEventCache()
+        static void AffirmEventCache()
         {
             if (eventCache == null)
             {
@@ -64,7 +64,7 @@ namespace FMODUnity
             }
         }
 
-        private static string UpdateCache()
+        static string UpdateCache()
         {
             if (eventCache == null)
             {
@@ -378,7 +378,7 @@ namespace FMODUnity
             return null;
         }
 
-        private static void ShowEventsRenamedDialog()
+        static void ShowEventsRenamedDialog()
         {
             bool runUpdater = EditorUtility.DisplayDialog("Events Renamed",
                 string.Format("Some events have been renamed in FMOD Studio. Do you want to run {0} " +
@@ -390,7 +390,7 @@ namespace FMODUnity
             }
         }
 
-        private static void UpdateCacheBank(EditorBankRef bankRef, ref bool renameOccurred)
+        static void UpdateCacheBank(EditorBankRef bankRef, ref bool renameOccurred)
         {
             // Clear out any cached events from this bank
             eventCache.EditorEvents.ForEach((x) => x.Banks.Remove(bankRef));
@@ -526,7 +526,7 @@ namespace FMODUnity
             }
         }
 
-        private static void InitializeParamRef(EditorParamRef paramRef, FMOD.Studio.PARAMETER_DESCRIPTION description,
+        static void InitializeParamRef(EditorParamRef paramRef, FMOD.Studio.PARAMETER_DESCRIPTION description,
             Func<int, string> getLabel)
         {
             paramRef.Name = description.name;
@@ -551,7 +551,7 @@ namespace FMODUnity
             }
         }
 
-        private static string[] GetParameterLabels(FMOD.Studio.PARAMETER_DESCRIPTION parameterDescription,
+        static string[] GetParameterLabels(FMOD.Studio.PARAMETER_DESCRIPTION parameterDescription,
             Func<int, string> getLabel)
         {
             string[] labels = new string[(int)parameterDescription.maximum + 1];
@@ -617,10 +617,10 @@ namespace FMODUnity
             }
         }
 
-        private static readonly string UpdaterInstructions =
+        static readonly string UpdaterInstructions =
             string.Format("Please run {0} to resolve this issue.", EventReferenceUpdater.MenuPath);
 
-        private static void ValidateEventEmitter(StudioEventEmitter emitter, Scene scene)
+        static void ValidateEventEmitter(StudioEventEmitter emitter, Scene scene)
         {
 #pragma warning disable 0618 // Suppress a warning about using the obsolete StudioEventEmitter.Event field
             if (!string.IsNullOrEmpty(emitter.Event))
@@ -640,7 +640,7 @@ namespace FMODUnity
             }
         }
 
-        private static void ValidateEventReferenceFields(MonoBehaviour behaviour, Scene scene)
+        static void ValidateEventReferenceFields(MonoBehaviour behaviour, Scene scene)
         {
             Type type = behaviour.GetType();
 
@@ -679,7 +679,7 @@ namespace FMODUnity
         }
 
         // Returns true if eventReference is valid, sets changed if eventReference was changed
-        private static bool ValidateEventReference(ref EventReference eventReference,
+        static bool ValidateEventReference(ref EventReference eventReference,
             Component parent, Scene scene, out bool changed)
         {
             changed = false;
@@ -1009,7 +1009,7 @@ namespace FMODUnity
             }
         }
 
-        private static void EnsureFoldersExist(string filePath, string basePath)
+        static void EnsureFoldersExist(string filePath, string basePath)
         {
             string dataPath = Application.dataPath + "/";
 
@@ -1048,7 +1048,7 @@ namespace FMODUnity
             }
         }
 
-        private static void BuildTargetChanged()
+        static void BuildTargetChanged()
         {
             RefreshBanks();
 #if UNITY_ANDROID
@@ -1060,7 +1060,7 @@ namespace FMODUnity
 #endif //UNITY_ANDROID
         }
 
-        private static void OnCacheChange()
+        static void OnCacheChange()
         {
             List<string> masterBanks = new List<string>();
             List<string> banks = new List<string>();
@@ -1258,7 +1258,7 @@ namespace FMODUnity
             }
         }
 
-        private static bool CompareLists(List<string> tempBanks, List<string> banks)
+        static bool CompareLists(List<string> tempBanks, List<string> banks)
         {
             if (tempBanks.Count != banks.Count)
                 return false;
@@ -1271,7 +1271,7 @@ namespace FMODUnity
             return true;
         }
 
-        private static bool AssetHasLabel(string assetPath, string label)
+        static bool AssetHasLabel(string assetPath, string label)
         {
             UnityEngine.Object asset = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(assetPath);
             string[] labels = AssetDatabase.GetLabels(asset);

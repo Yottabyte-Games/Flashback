@@ -13,7 +13,7 @@ namespace Dreamteck.Splines.Editor
         public float surfaceOffset = 0f;
         public LayerMask surfaceLayerMask = ~0;
 
-        private bool useTangentHandles => editor.mainModule.tangentMode || editor.selectedPoints.Count != 1;
+        bool useTangentHandles => editor.mainModule.tangentMode || editor.selectedPoints.Count != 1;
 
         public PointMoveModule(SplineEditor editor) : base(editor)
         {
@@ -73,7 +73,7 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private Vector3 SurfaceMoveHandle(Vector3 inputPosition, float size = 0.2f)
+        Vector3 SurfaceMoveHandle(Vector3 inputPosition, float size = 0.2f)
         {
             Vector3 lastPosition = inputPosition;
             inputPosition = SplineEditorHandles.FreeMoveHandle(inputPosition, HandleUtility.GetHandleSize(inputPosition) * size, Vector3.zero, Handles.CircleHandleCap);

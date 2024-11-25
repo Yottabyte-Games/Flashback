@@ -11,36 +11,28 @@ namespace FMODUnity
 {
     public class EventBrowser : EditorWindow, ISerializationCallbackReceiver
     {
-        [SerializeField]
-        private bool isStandaloneWindow;
+        [SerializeField] bool isStandaloneWindow;
 
-        [NonSerialized]
-        private float nextRepaintTime;
+        [NonSerialized] float nextRepaintTime;
 
-        [NonSerialized]
-        private float[] cachedMetering;
+        [NonSerialized] float[] cachedMetering;
 
-        private const float RepaintInterval = 1 / 30.0f;
+        const float RepaintInterval = 1 / 30.0f;
 
-        private Texture2D borderIcon;
-        private GUIStyle borderStyle;
+        Texture2D borderIcon;
+        GUIStyle borderStyle;
 
-        [NonSerialized]
-        private TreeView treeView;
+        [NonSerialized] TreeView treeView;
 
-        [NonSerialized]
-        private SearchField searchField;
+        [NonSerialized] SearchField searchField;
 
-        [SerializeField]
-        private PreviewArea previewArea = new PreviewArea();
+        [SerializeField] PreviewArea previewArea = new PreviewArea();
 
-        [SerializeField]
-        private TreeView.State treeViewState;
+        [SerializeField] TreeView.State treeViewState;
 
-        [NonSerialized]
-        private DateTime LastKnownCacheTime;
+        [NonSerialized] DateTime LastKnownCacheTime;
 
-        private SerializedProperty outputProperty;
+        SerializedProperty outputProperty;
 
         public static FMOD.Studio.EventInstance PreviewEventInstance { get; private set; }
 
@@ -69,7 +61,7 @@ namespace FMODUnity
         {
         }
 
-        private void Update()
+        void Update()
         {
             bool forceRepaint = false;
 
@@ -93,33 +85,33 @@ namespace FMODUnity
             }
         }
 
-        private void ReadEventCache()
+        void ReadEventCache()
         {
             LastKnownCacheTime = EventManager.CacheTime;
             treeView.Reload();
         }
 
-        private class TreeView : UnityEditor.IMGUI.Controls.TreeView
+        class TreeView : UnityEditor.IMGUI.Controls.TreeView
         {
-            private static readonly Texture2D folderOpenIcon = EditorUtils.LoadImage("FolderIconOpen.png");
-            private static readonly Texture2D folderClosedIcon = EditorUtils.LoadImage("FolderIconClosed.png");
-            private static readonly Texture2D eventIcon = EditorUtils.LoadImage("EventIcon.png");
-            private static readonly Texture2D snapshotIcon = EditorUtils.LoadImage("SnapshotIcon.png");
-            private static readonly Texture2D bankIcon = EditorUtils.LoadImage("BankIcon.png");
-            private static readonly Texture2D continuousParameterIcon = EditorUtils.LoadImage("ContinuousParameterIcon.png");
-            private static readonly Texture2D discreteParameterIcon = EditorUtils.LoadImage("DiscreteParameterIcon.png");
-            private static readonly Texture2D labeledParameterIcon = EditorUtils.LoadImage("LabeledParameterIcon.png");
+            static readonly Texture2D folderOpenIcon = EditorUtils.LoadImage("FolderIconOpen.png");
+            static readonly Texture2D folderClosedIcon = EditorUtils.LoadImage("FolderIconClosed.png");
+            static readonly Texture2D eventIcon = EditorUtils.LoadImage("EventIcon.png");
+            static readonly Texture2D snapshotIcon = EditorUtils.LoadImage("SnapshotIcon.png");
+            static readonly Texture2D bankIcon = EditorUtils.LoadImage("BankIcon.png");
+            static readonly Texture2D continuousParameterIcon = EditorUtils.LoadImage("ContinuousParameterIcon.png");
+            static readonly Texture2D discreteParameterIcon = EditorUtils.LoadImage("DiscreteParameterIcon.png");
+            static readonly Texture2D labeledParameterIcon = EditorUtils.LoadImage("LabeledParameterIcon.png");
 
-            private Dictionary<string, int> itemIDs = new Dictionary<string, int>();
+            Dictionary<string, int> itemIDs = new Dictionary<string, int>();
 
-            private const string EventPrefix = "event:/";
-            private const string SnapshotPrefix = "snapshot:/";
-            private const string BankPrefix = "bank:/";
-            private const string ParameterPrefix = "parameter:/";
+            const string EventPrefix = "event:/";
+            const string SnapshotPrefix = "snapshot:/";
+            const string BankPrefix = "bank:/";
+            const string ParameterPrefix = "parameter:/";
 
             bool expandNextFolderSet = false;
             string nextFramedItemPath;
-            private string[] searchStringSplit;
+            string[] searchStringSplit;
 
             IList<int> noSearchExpandState;
 
@@ -148,7 +140,7 @@ namespace FMODUnity
                 JumpToItem(BankPrefix + name);
             }
 
-            private void JumpToItem(string path)
+            void JumpToItem(string path)
             {
                 nextFramedItemPath = path;
                 Reload();
@@ -165,7 +157,7 @@ namespace FMODUnity
                 }
             }
 
-            private class LeafItem : TreeViewItem
+            class LeafItem : TreeViewItem
             {
                 public LeafItem(int id, int depth, ScriptableObject data)
                     : base(id, depth)
@@ -176,7 +168,7 @@ namespace FMODUnity
                 public ScriptableObject Data;
             }
 
-            private class FolderItem : TreeViewItem
+            class FolderItem : TreeViewItem
             {
                 public FolderItem(int id, int depth, string displayName)
                     : base(id, depth, displayName)
@@ -184,7 +176,7 @@ namespace FMODUnity
                 }
             }
 
-            private FolderItem CreateFolderItem(string name, string path, bool hasChildren, bool forceExpanded,
+            FolderItem CreateFolderItem(string name, string path, bool hasChildren, bool forceExpanded,
                 TreeViewItem parent)
             {
                 FolderItem item = new FolderItem(AffirmItemID("folder:" + path), 0, name);
@@ -230,7 +222,7 @@ namespace FMODUnity
                 return new TreeViewItem(-1, -1);
             }
 
-            private int AffirmItemID(string path)
+            int AffirmItemID(string path)
             {
                 int id;
 
@@ -290,9 +282,9 @@ namespace FMODUnity
                 return rows;
             }
 
-            private static NaturalComparer naturalComparer = new NaturalComparer();
+            static NaturalComparer naturalComparer = new NaturalComparer();
 
-            private void CreateSubTree<T>(string rootName, string rootPath,
+            void CreateSubTree<T>(string rootName, string rootPath,
                 IEnumerable<T> sourceRecords, Func<T, string> GetPath,
                 Func<string, T, string> MakeUniquePath = null)
                 where T : ScriptableObject
@@ -347,7 +339,7 @@ namespace FMODUnity
                 }
             }
 
-            private Texture2D IconForRecord(ScriptableObject record)
+            Texture2D IconForRecord(ScriptableObject record)
             {
                 EditorEventRef eventRef = record as EditorEventRef;
                 if (eventRef != null)
@@ -385,7 +377,7 @@ namespace FMODUnity
                 return null;
             }
 
-            private TreeViewItem CreateFolderItems(string path, List<TreeViewItem> currentFolderItems,
+            TreeViewItem CreateFolderItems(string path, List<TreeViewItem> currentFolderItems,
                 TreeViewItem root, out string leafName)
             {
                 TreeViewItem parent = root;
@@ -434,7 +426,7 @@ namespace FMODUnity
                 return parent;
             }
 
-            private static void AddChildrenInOrder(List<TreeViewItem> list, TreeViewItem item)
+            static void AddChildrenInOrder(List<TreeViewItem> list, TreeViewItem item)
             {
                 if (item.children != null)
                 {
@@ -645,7 +637,7 @@ namespace FMODUnity
             }
         }
 
-        private void AffirmResources()
+        void AffirmResources()
         {
             if (borderIcon == null)
             {
@@ -657,9 +649,9 @@ namespace FMODUnity
             }
         }
 
-        private bool InChooserMode { get { return outputProperty != null; } }
+        bool InChooserMode { get { return outputProperty != null; } }
 
-        private void OnGUI()
+        void OnGUI()
         {
             if (!IsOpen)
             {
@@ -693,7 +685,7 @@ namespace FMODUnity
             }
         }
 
-        private void HandleChooserModeEvents()
+        void HandleChooserModeEvents()
         {
             if (Event.current.isKey)
             {
@@ -718,7 +710,7 @@ namespace FMODUnity
             }
         }
 
-        private void SetOutputProperty(ScriptableObject data)
+        void SetOutputProperty(ScriptableObject data)
         {
             if (data is EditorEventRef)
             {
@@ -741,36 +733,30 @@ namespace FMODUnity
         }
 
         [Serializable]
-        private class PreviewArea
+        class PreviewArea
         {
             [NonSerialized]
             public TreeView treeView;
 
-            [NonSerialized]
-            private EditorEventRef currentEvent;
+            [NonSerialized] EditorEventRef currentEvent;
 
-            [SerializeField]
-            private DetailsView detailsView = new DetailsView();
+            [SerializeField] DetailsView detailsView = new DetailsView();
 
-            [SerializeField]
-            private TransportControls transportControls = new TransportControls();
+            [SerializeField] TransportControls transportControls = new TransportControls();
 
-            [SerializeField]
-            private Event3DPreview event3DPreview = new Event3DPreview();
+            [SerializeField] Event3DPreview event3DPreview = new Event3DPreview();
 
-            [SerializeField]
-            private PreviewMeters meters = new PreviewMeters();
+            [SerializeField] PreviewMeters meters = new PreviewMeters();
 
-            [SerializeField]
-            private EventParameterControls parameterControls = new EventParameterControls();
+            [SerializeField] EventParameterControls parameterControls = new EventParameterControls();
 
-            private GUIStyle mainStyle;
+            GUIStyle mainStyle;
 
-            private bool isNarrow;
+            bool isNarrow;
 
             public bool forceRepaint { get { return transportControls.forceRepaint; } }
 
-            private void SetEvent(EditorEventRef eventRef)
+            void SetEvent(EditorEventRef eventRef)
             {
                 if (eventRef != currentEvent)
                 {
@@ -783,7 +769,7 @@ namespace FMODUnity
                 }
             }
 
-            private void AffirmResources()
+            void AffirmResources()
             {
                 if (mainStyle ==  null)
                 {
@@ -839,12 +825,12 @@ namespace FMODUnity
                 }
             }
 
-            private void DrawSeparatorLine()
+            void DrawSeparatorLine()
             {
                 GUILayout.Box(GUIContent.none, GUILayout.Height(1), GUILayout.ExpandWidth(true));
             }
 
-            private void DrawEventPreview(EditorEventRef eventRef, float[] metering)
+            void DrawEventPreview(EditorEventRef eventRef, float[] metering)
             {
                 detailsView.DrawEvent(eventRef, isNarrow);
 
@@ -892,12 +878,12 @@ namespace FMODUnity
         }
 
         [Serializable]
-        private class DetailsView
+        class DetailsView
         {
-            private Texture copyIcon;
-            private GUIStyle textFieldNameStyle;
+            Texture copyIcon;
+            GUIStyle textFieldNameStyle;
 
-            private void AffirmResources()
+            void AffirmResources()
             {
                 if (copyIcon == null)
                 {
@@ -975,7 +961,7 @@ namespace FMODUnity
                 DrawTextField("Maximum", parameter.Max.ToString());
             }
 
-            private void DrawCopyableTextField(string name, string value)
+            void DrawCopyableTextField(string name, string value)
             {
                 EditorGUILayout.BeginHorizontal();
                 DrawTextField(name, value);
@@ -986,7 +972,7 @@ namespace FMODUnity
                 EditorGUILayout.EndHorizontal();
             }
 
-            private void DrawTextField(string name, string content)
+            void DrawTextField(string name, string content)
             {
                 EditorGUILayout.BeginHorizontal();
 
@@ -998,14 +984,14 @@ namespace FMODUnity
         }
 
         [Serializable]
-        private class TransportControls
+        class TransportControls
         {
-            private Texture playOff;
-            private Texture playOn;
-            private Texture stopOff;
-            private Texture stopOn;
-            private Texture openIcon;
-            private GUIStyle buttonStyle;
+            Texture playOff;
+            Texture playOn;
+            Texture stopOff;
+            Texture stopOn;
+            Texture openIcon;
+            GUIStyle buttonStyle;
 
             public bool forceRepaint { get; private set; }
 
@@ -1014,7 +1000,7 @@ namespace FMODUnity
                 forceRepaint = false;
             }
 
-            private void AffirmResources()
+            void AffirmResources()
             {
                 if (playOff == null)
                 {
@@ -1091,17 +1077,17 @@ namespace FMODUnity
         }
 
         [Serializable]
-        private class Event3DPreview
+        class Event3DPreview
         {
-            private bool isDragging;
-            private Rect arenaRect;
+            bool isDragging;
+            Rect arenaRect;
 
-            private Vector2 eventPosition;
-            private float eventDistance = 0;
-            private float eventOrientation = 0;
+            Vector2 eventPosition;
+            float eventDistance = 0;
+            float eventOrientation = 0;
 
-            private Texture arena;
-            private Texture emitter;
+            Texture arena;
+            Texture emitter;
 
             public void Reset()
             {
@@ -1110,7 +1096,7 @@ namespace FMODUnity
                 eventOrientation = 0;
             }
 
-            private void AffirmResources()
+            void AffirmResources()
             {
                 if (arena == null)
                 {
@@ -1212,16 +1198,13 @@ namespace FMODUnity
         }
 
         [Serializable]
-        private class EventParameterControls
+        class EventParameterControls
         {
-            [NonSerialized]
-            private Dictionary<string, float> parameterValues = new Dictionary<string, float>();
+            [NonSerialized] Dictionary<string, float> parameterValues = new Dictionary<string, float>();
 
-            [NonSerialized]
-            private Vector2 scrollPosition;
+            [NonSerialized] Vector2 scrollPosition;
 
-            [NonSerialized]
-            private bool showGlobalParameters;
+            [NonSerialized] bool showGlobalParameters;
 
             public Dictionary<string, float> ParameterValues { get { return parameterValues; } }
 
@@ -1297,12 +1280,12 @@ namespace FMODUnity
         }
 
         [Serializable]
-        private class PreviewMeters
+        class PreviewMeters
         {
-            private Texture meterOn;
-            private Texture meterOff;
+            Texture meterOn;
+            Texture meterOff;
 
-            private void AffirmResources()
+            void AffirmResources()
             {
                 if (meterOn == null)
                 {
@@ -1355,7 +1338,7 @@ namespace FMODUnity
                 }
             }
 
-            private FMOD.SPEAKERMODE speakerModeForChannelCount(int channelCount)
+            FMOD.SPEAKERMODE speakerModeForChannelCount(int channelCount)
             {
                 switch(channelCount)
                 {
@@ -1376,7 +1359,7 @@ namespace FMODUnity
                 }
             }
 
-            private List<float> meterPositionsForSpeakerMode(FMOD.SPEAKERMODE mode, float meterWidth, float groupGap, float lfeGap)
+            List<float> meterPositionsForSpeakerMode(FMOD.SPEAKERMODE mode, float meterWidth, float groupGap, float lfeGap)
             {
                 List<float> offsets = new List<float>();
 
@@ -1551,7 +1534,7 @@ namespace FMODUnity
         }
 
         [Flags]
-        private enum TypeFilter
+        enum TypeFilter
         {
             Event = 1,
             Bank = 2,
@@ -1591,7 +1574,7 @@ namespace FMODUnity
             treeView.JumpToEvent(path);
         }
 
-        private void BeginInspectorPopup(SerializedProperty property, TypeFilter typeFilter)
+        void BeginInspectorPopup(SerializedProperty property, TypeFilter typeFilter)
         {
             treeView.TypeFilter = typeFilter;
             outputProperty = property;
@@ -1600,7 +1583,7 @@ namespace FMODUnity
             ReadEventCache();
         }
 
-        private void BeginStandaloneWindow()
+        void BeginStandaloneWindow()
         {
             treeView.TypeFilter = TypeFilter.All;
             outputProperty = null;
@@ -1656,7 +1639,7 @@ namespace FMODUnity
             IsOpen = false;
         }
 
-        private static bool IsDraggable(UnityEngine.Object data)
+        static bool IsDraggable(UnityEngine.Object data)
         {
             return data is EditorEventRef || data is EditorBankRef || data is EditorParamRef;
         }
@@ -1667,7 +1650,7 @@ namespace FMODUnity
         }
 
         // This is an event handler on the hierachy view to handle dragging our objects from the browser
-        private void HierarchyUpdate(int instance, Rect rect)
+        void HierarchyUpdate(int instance, Rect rect)
         {
             if (Event.current.type == EventType.DragPerform && rect.Contains(Event.current.mousePosition))
             {
@@ -1712,7 +1695,7 @@ namespace FMODUnity
 
         // This is an event handler on the scene view to handle dragging our objects from the browser
         // and creating new gameobjects
-        private void SceneUpdate(SceneView sceneView)
+        void SceneUpdate(SceneView sceneView)
         {
             if (Event.current.type == EventType.DragPerform && IsDroppable(DragAndDrop.objectReferences))
             {

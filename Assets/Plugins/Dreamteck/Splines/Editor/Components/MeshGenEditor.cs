@@ -18,8 +18,8 @@ namespace Dreamteck.Splines.Editor
         protected bool showTangents = true;
         protected bool showNormalMethod = true;
 
-        private int _framesPassed = 0;
-        private bool _commonFoldout = false;
+        int _framesPassed = 0;
+        bool _commonFoldout = false;
 
         MeshGenerator[] generators = new MeshGenerator[0];
 

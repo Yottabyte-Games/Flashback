@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class SwapScene : MonoBehaviour
 {
     static bool swapedScene = false;
-    private void Start()
+    void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0 && !swapedScene)
         {

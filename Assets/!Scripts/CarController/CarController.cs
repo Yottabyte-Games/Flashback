@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    [SerializeField] private WheelCollider[] wheels;
+    [SerializeField] WheelCollider[] wheels;
     [Header("Settings")]
-    [SerializeField] private float maxSteeringAngle;
-    [SerializeField] private float minSteeringAngle;
-    [SerializeField] private float motorForce;
+    [SerializeField] float maxSteeringAngle;
+    [SerializeField] float minSteeringAngle;
+    [SerializeField] float motorForce;
     [SerializeField] float brakeForce;
-    [SerializeField] private float motorBrake;
-    [SerializeField] private float maxSpeed;
+    [SerializeField] float motorBrake;
+    [SerializeField] float maxSpeed;
 
     [Header("Debuging")]
-    [SerializeField] private float speed;
-    [SerializeField] private float currentBrakeforce;
-    [SerializeField] private float verticalInput;
+    [SerializeField] float speed;
+    [SerializeField] float currentBrakeforce;
+    [SerializeField] float verticalInput;
     [SerializeField] float rpm;
 
-    private float horizontalInput;
-    private Rigidbody rb;
+    float horizontalInput;
+    Rigidbody rb;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,7 +38,7 @@ public class CarController : MonoBehaviour
         ApplyBraking();
     }
 
-    private void HandleMotor()
+    void HandleMotor()
     {
         if (speed >= maxSpeed)
         {

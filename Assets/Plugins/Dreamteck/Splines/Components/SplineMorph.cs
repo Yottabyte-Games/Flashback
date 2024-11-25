@@ -34,10 +34,10 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private SplineComputer _spline;
-        private SplinePoint[] points = new SplinePoint[0];
-        private float cycleValue = 0f;
-        private short cycleDirection = 1;
+        SplineComputer _spline;
+        SplinePoint[] points = new SplinePoint[0];
+        float cycleValue = 0f;
+        short cycleDirection = 1;
 
 
         [System.Serializable]
@@ -55,24 +55,24 @@ namespace Dreamteck.Splines
         [HideInInspector]
         [SerializeField]
         [UnityEngine.Serialization.FormerlySerializedAs("morphStates")]
-        private Channel[] channels = new Channel[0];
+        Channel[] channels = new Channel[0];
 
-        private void Reset()
+        void Reset()
         {
             spline = GetComponent<SplineComputer>();
         }
 
-        private void Update()
+        void Update()
         {
             if (cycleUpdateMode == UpdateMode.Update) RunUpdate();
         }
 
-        private void FixedUpdate()
+        void FixedUpdate()
         {
             if (cycleUpdateMode == UpdateMode.FixedUpdate) RunUpdate();
         }
 
-        private void LateUpdate()
+        void LateUpdate()
         {
             if (cycleUpdateMode == UpdateMode.LateUpdate) RunUpdate();
         }
@@ -238,7 +238,7 @@ namespace Dreamteck.Splines
             UpdateMorph();
         }
 
-        private int GetChannelIndex(string name)
+        int GetChannelIndex(string name)
         {
             for (int i = 0; i < channels.Length; i++)
             {

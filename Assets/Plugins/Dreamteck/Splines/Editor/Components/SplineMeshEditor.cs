@@ -8,12 +8,12 @@ namespace Dreamteck.Splines.Editor
     [CanEditMultipleObjects]
     public class SplineMeshEditor : MeshGenEditor
     {
-        private int selectedChannel = -1;
+        int selectedChannel = -1;
         SplineMesh.Channel renameChannel = null;
         MeshDefinitionWindow definitionWindow = null;
         MeshScaleModifierEditor scaleModifierEditor;
 
-        private Mesh GetMeshFromObject(Object obj)
+        Mesh GetMeshFromObject(Object obj)
         {
             SplineMesh user = (SplineMesh)target;
             if (!(obj is GameObject)) return null;
@@ -439,7 +439,7 @@ namespace Dreamteck.Splines.Editor
                 else titleContent = new GUIContent("Configure Mesh");
             }
 
-            private void OnGUI()
+            void OnGUI()
             {
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.BeginVertical();

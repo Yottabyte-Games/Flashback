@@ -4,11 +4,11 @@
 
     public class CapsuleColliderGenerator : SplineUser, ISerializationCallbackReceiver
     {
-        [SerializeField, HideInInspector, Min(0f)] private float _radius = 1f;
-        [SerializeField, HideInInspector, Min(0f)] private float _height = 1f;
-        [SerializeField, HideInInspector] private bool _overlapCaps = true;
-        [SerializeField, HideInInspector] private CapsuleColliderZDirection _direction = CapsuleColliderZDirection.Z;
-        [SerializeField, HideInInspector] private ColliderObject[] _colliders = new ColliderObject[0];
+        [SerializeField, HideInInspector, Min(0f)] float _radius = 1f;
+        [SerializeField, HideInInspector, Min(0f)] float _height = 1f;
+        [SerializeField, HideInInspector] bool _overlapCaps = true;
+        [SerializeField, HideInInspector] CapsuleColliderZDirection _direction = CapsuleColliderZDirection.Z;
+        [SerializeField, HideInInspector] ColliderObject[] _colliders = new ColliderObject[0];
 
         public float radius
         {
@@ -62,7 +62,7 @@
             }
         }
 
-        private void DestroyCollider(ColliderObject collider)
+        void DestroyCollider(ColliderObject collider)
         {
 #if UNITY_EDITOR
             if (Application.isPlaying)
@@ -137,7 +137,7 @@
             }
         }
 
-        private void GenerateColliders(int count)
+        void GenerateColliders(int count)
         {
             ColliderObject[] newColliders = new ColliderObject[count];
             for (int i = 0; i < newColliders.Length; i++)

@@ -15,12 +15,12 @@ public class PsychologistUIController : MonoBehaviour
     DSDialogueSO _currentDialogue;
     int sceneToLoad;
 
-    [SerializeField] private bool dissolveBackgroundOnStart;
+    [SerializeField] bool dissolveBackgroundOnStart;
     
     public bool isActive { get; private set; }
-    private bool _isMultipleChoice;
+    bool _isMultipleChoice;
 
-    private void Start()
+    void Start()
     {
         riveScreen = GetComponent<RiveScreen>();
         riveScreen.OnRiveEvent += RiveEventHappens;
@@ -36,7 +36,7 @@ public class PsychologistUIController : MonoBehaviour
         }
     }
 
-    private void RiveEventHappens(ReportedEvent reportedEvent)
+    void RiveEventHappens(ReportedEvent reportedEvent)
     {
         // Dialogue has disappeared and is ready to play the next dialogue
         if (reportedEvent.Name == "Dialogue Gone Event")
@@ -81,7 +81,7 @@ public class PsychologistUIController : MonoBehaviour
         PlayPsychologistLine();
         
     }
-    private void PlayPsychologistLine()
+    void PlayPsychologistLine()
     {
         if (_currentDialogue)
         {
@@ -133,9 +133,9 @@ public class PsychologistUIController : MonoBehaviour
                 SceneManager.LoadScene(sceneToLoad);
         }
     }
-    
- 
-    private void SetText(RiveScreen.TextPath path, string textRun)
+
+
+    void SetText(RiveScreen.TextPath path, string textRun)
     {
         riveScreen.SetTextRunAtPath(textRun, path);
     }

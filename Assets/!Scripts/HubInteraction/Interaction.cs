@@ -6,13 +6,13 @@ public class Interaction : MonoBehaviour
     public float interactionRange = 3f;
     public Camera playerCamera;
 
-    private GameObject interactionObject;
+    GameObject interactionObject;
 
-    private GameHudController ghd;
-    
-    private InputAction _interactAction;
+    GameHudController ghd;
 
-    private void Start()
+    InputAction _interactAction;
+
+    void Start()
     {
         playerCamera = Camera.main;
         ghd = GetComponent<GameHudController>();

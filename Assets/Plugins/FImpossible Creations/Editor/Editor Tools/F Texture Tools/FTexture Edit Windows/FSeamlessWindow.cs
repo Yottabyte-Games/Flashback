@@ -9,15 +9,15 @@ namespace FIMSpace.FTextureTools
         public enum FESeamlessAxis { XY, X, Y }
         public enum FEStampMode { Stamping, SplatMode, NoStamping }
 
-        private float hardness = 0.6f;
-        private float randomize = 0.25f;
-        private float stamperRadius = 0.45f;
-        private float stampDensity = 0.4f;
-        private float stampNoiseMask = 1.0f;
-        private int stampRotate = 1;
+        float hardness = 0.6f;
+        float randomize = 0.25f;
+        float stamperRadius = 0.45f;
+        float stampDensity = 0.4f;
+        float stampNoiseMask = 1.0f;
+        int stampRotate = 1;
 
-        private FEStampMode stampMode = FEStampMode.Stamping;
-        private FESeamlessAxis toLoop = FESeamlessAxis.XY;
+        FEStampMode stampMode = FEStampMode.Stamping;
+        FESeamlessAxis toLoop = FESeamlessAxis.XY;
 
         public bool StampWithOtherTexture = false;
         public Texture2D StampWith = null;
@@ -234,8 +234,7 @@ namespace FIMSpace.FTextureTools
 
 
         #region Texture Small Operations
-
-        private Color32[] GetStamp(Texture2D source, Color32[] sourcePixels, int radius)
+        Color32[] GetStamp(Texture2D source, Color32[] sourcePixels, int radius)
         {
             double randD = -0.2 + rand.NextDouble() * 1.2;
             if (randomize > 0)
@@ -312,7 +311,7 @@ namespace FIMSpace.FTextureTools
         /// <summary>
         /// Pasting texture on another in certain place
         /// </summary>
-        private void PasteTo(Color32[] toPaste, Color32[] target, Vector2 origin, Vector2 toPasteDim, Vector2 targetDim)
+        void PasteTo(Color32[] toPaste, Color32[] target, Vector2 origin, Vector2 toPasteDim, Vector2 targetDim)
         {
             for (int x = 0; x < toPasteDim.x; x++)
             {

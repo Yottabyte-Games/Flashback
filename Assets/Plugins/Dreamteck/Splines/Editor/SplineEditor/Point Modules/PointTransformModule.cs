@@ -14,9 +14,9 @@ namespace Dreamteck.Splines.Editor
         protected SplinePoint[] originalPoints = new SplinePoint[0];
         protected SplinePoint[] localPoints = new SplinePoint[0];
 
-        private Matrix4x4 matrix = new Matrix4x4();
-        private Matrix4x4 inverseMatrix = new Matrix4x4();
-        private bool _unapplied = true;
+        Matrix4x4 matrix = new Matrix4x4();
+        Matrix4x4 inverseMatrix = new Matrix4x4();
+        bool _unapplied = true;
         SplineSample evalResult = new SplineSample();
 
         public PointTransformModule(SplineEditor editor) : base(editor)
@@ -107,7 +107,7 @@ namespace Dreamteck.Splines.Editor
             _unapplied = false;
         }
 
-        private void CacheOriginalPoints()
+        void CacheOriginalPoints()
         {
             originalPoints = editor.GetPointsArray();
         }

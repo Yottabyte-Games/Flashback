@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class RiveEventHandler : MonoBehaviour
 {
-    [SerializeField] SceneReference HubWorldScene;
+    [SerializeField] SceneReference hubWorldScene;
+    [SerializeField] AudioManager audioManager;
     RiveScreen _riveScreen;
     PlayerPositionController _playerPositionController;
     void Start()
     {
         _riveScreen = GetComponent<RiveScreen>();
-        if (SceneManager.GetActiveScene().name == HubWorldScene.Name)
+        if (SceneManager.GetActiveScene().name == hubWorldScene.Name)
         {
             _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
         }
@@ -29,7 +30,7 @@ public class RiveEventHandler : MonoBehaviour
                 {
                     case "StartGameEvent":
                         print("StartGameEvent");
-                        SceneManager.LoadScene(HubWorldScene.Name);
+                        SceneManager.LoadScene(hubWorldScene.Name);
                         break;
                     case "MiniGameEvent":
                         print("MiniGameEvent");
@@ -82,24 +83,32 @@ public class RiveEventHandler : MonoBehaviour
                         _riveScreen.ReturnToOriginalScene();
                         break;
                     case "Master Change Event":
-                        print("Master Change Event");
+                        //print("Master Change Event");
                         //Get value between 1 and 100
-                        print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Master Slider"));
+                        //print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Master Slider"));
+                        float masterVolume = (float)(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Master Slider") / 100f);
+                        UpdateVolume("Master", masterVolume);
                         break;
                     case "Music Change Event":
-                        print("Music Change Event");
+                        //print("Music Change Event");
                         //Get value between 1 and 100
-                        print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Music Slider"));
+                        //print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Music Slider"));
+                        float musicVolume = (float)(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Music Slider") / 100f);
+                        UpdateVolume("Music", musicVolume);
                         break;
                     case "SFX Change Event":
-                        print("SFX Change Event");
+                        //print("SFX Change Event");
                         //Get value between 1 and 100
-                        print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "SFX Slider"));
+                        //print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "SFX Slider"));
+                        float sfxVolume = (float)(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "SFX Slider") / 100f);
+                        UpdateVolume("SFX", sfxVolume);
                         break;
                     case "Voice Change Event":
-                        print("Voice Change Event");
+                        //print("Voice Change Event");
                         //Get value between 1 and 100
-                        print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Voice Slider"));
+                        //print(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Voice Slider"));
+                        float voiceVolume = (float)(_riveScreen.artboard.GetNumberInputStateAtPath("SliderValue", "Voice Slider") / 100f);
+                        UpdateVolume("Voice", voiceVolume);
                         break;
                 }
                 break;
@@ -141,6 +150,34 @@ public class RiveEventHandler : MonoBehaviour
                     print("Option 2 Pressed Event");
                 }
                 break;
+        }
+    }
+    void UpdateVolume(string volumeType, float volume)
+    {
+        if (audioManager is not null)
+        {
+            switch (volumeType)
+            {
+                case "Master":
+                    audioManager.MasterVolume = volume;
+                    break;
+                case "Music":
+                    audioManager.MusicVolume = volume;
+                    break;
+                case "SFX":
+                    audioManager.SfxVolume = volume;
+                    break;
+                case "Voice":
+                    audioManager.VoiceVolume = volume;
+                    break;
+                default:
+                    Debug.LogError("Invalid volume type specified.");
+                    break;
+            }
+        }
+        else
+        {
+            Debug.LogError("AudioManager is not assigned.");
         }
     }
 

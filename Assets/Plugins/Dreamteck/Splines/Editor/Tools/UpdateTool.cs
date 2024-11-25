@@ -9,7 +9,7 @@ namespace Dreamteck.Splines
     {
         protected GameObject obj;
         protected ObjectController spawner;
-        private string updated = "";
+        string updated = "";
 
         public override string GetName()
         {
@@ -55,7 +55,7 @@ namespace Dreamteck.Splines
             GUILayout.Label(updated);
         }
 
-        private void UpdateNodes()
+        void UpdateNodes()
         {
             Node[] nodes = GameObject.FindObjectsOfType<Node>();
             EditorUtility.ClearProgressBar();
@@ -70,7 +70,7 @@ namespace Dreamteck.Splines
             if (nodes.Length == 0) updated += System.Environment.NewLine+"No active Nodes found in the scene.";
         }
 
-        private void UpdateUsers()
+        void UpdateUsers()
         {
             SplineUser[] users = GameObject.FindObjectsOfType<SplineUser>();
             EditorUtility.ClearProgressBar();
@@ -85,7 +85,7 @@ namespace Dreamteck.Splines
             if (users.Length == 0) updated += System.Environment.NewLine+"No active SplineUsers found in the scene.";
         }
 
-        private void UpdateMeshGenerators()
+        void UpdateMeshGenerators()
         {
             MeshGenerator[] users = GameObject.FindObjectsOfType<MeshGenerator>();
             EditorUtility.ClearProgressBar();
@@ -100,7 +100,7 @@ namespace Dreamteck.Splines
             if (users.Length == 0) updated += System.Environment.NewLine + "No active MeshGenerators found in the scene.";
         }
 
-        private void UpdateComputers()
+        void UpdateComputers()
         {
             SplineComputer[] computers = GameObject.FindObjectsOfType<SplineComputer>();
             EditorUtility.ClearProgressBar();

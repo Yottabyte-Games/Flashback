@@ -12,8 +12,8 @@ namespace FIMSpace.FTextureTools
         protected enum FEPreview { m_1x1, m_2x2, m_4x4, m_8x8 }
         protected enum EMaskExport { None, Grayscale, Color }
 
-        private Object mainSelection;
-        private List<Texture2D> textures;
+        Object mainSelection;
+        List<Texture2D> textures;
         public Texture2D GetFirstTexture
         {
             get
@@ -24,8 +24,8 @@ namespace FIMSpace.FTextureTools
             }
         }
 
-        private Texture2D previewWorkTex;
-        private Texture2D previewTex;
+        Texture2D previewWorkTex;
+        Texture2D previewTex;
 
         protected int previewSize = 128;
         protected int seed;
@@ -377,7 +377,7 @@ namespace FIMSpace.FTextureTools
         }
 
 
-        private void ExampleTemplate(Texture2D source, Texture2D target, bool preview = true)
+        void ExampleTemplate(Texture2D source, Texture2D target, bool preview = true)
         {
             if (!preview) EditorUtility.DisplayProgressBar("Changing Texture...", "Preparing... ", 2f / 5f);
 
@@ -409,9 +409,7 @@ namespace FIMSpace.FTextureTools
 
 
         #region Texture Small Operations
-
-
-        private void GeneratePreviewTexture(int previewSize)
+        void GeneratePreviewTexture(int previewSize)
         {
             if (previewWorkTex != null) return;
 
@@ -436,7 +434,7 @@ namespace FIMSpace.FTextureTools
         /// <summary>
         /// Pasting texture on another in certain place
         /// </summary>
-        private void PasteTo(Color32[] toPaste, Color32[] target, Vector2 origin, Vector2 toPasteDim, Vector2 targetDim)
+        void PasteTo(Color32[] toPaste, Color32[] target, Vector2 origin, Vector2 toPasteDim, Vector2 targetDim)
         {
             for (int x = 0; x < toPasteDim.x; x++)
             {
@@ -577,7 +575,7 @@ namespace FIMSpace.FTextureTools
         }
 
 
-        private static void RotateSquare(Color32[] tex, int width, int height, double phi)
+        static void RotateSquare(Color32[] tex, int width, int height, double phi)
         {
             int x, y, i, j;
             double sn = System.Math.Sin(phi);
@@ -608,9 +606,7 @@ namespace FIMSpace.FTextureTools
 
 
         #region Window Utilities
-
-
-        private void ClearTextures()
+        void ClearTextures()
         {
             previewTex = null;
             previewWorkTex = null;
@@ -618,7 +614,7 @@ namespace FIMSpace.FTextureTools
         }
 
 
-        private void RefreshWindowPreview()
+        void RefreshWindowPreview()
         {
             rand = new System.Random(seed);
 

@@ -14,7 +14,7 @@ namespace Dreamteck.Splines.Editor
         Vector3 mirrorCenter = Vector3.zero;
 
 
-        private SplinePoint[] mirrored = new SplinePoint[0];
+        SplinePoint[] mirrored = new SplinePoint[0];
 
 
         public PointMirrorModule(SplineEditor editor) : base(editor)

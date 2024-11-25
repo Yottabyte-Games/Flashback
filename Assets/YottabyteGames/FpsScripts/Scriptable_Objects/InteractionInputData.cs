@@ -5,8 +5,8 @@ namespace YottabyteGames.FpsScripts.Scriptable_Objects
     [CreateAssetMenu(fileName = "InteractionInputData", menuName = "InteractionSystem/InputData")]
     public class InteractionInputData : ScriptableObject
     {
-        private bool m_interactedClicked;
-        private bool m_interactedRelease;
+        bool m_interactedClicked;
+        bool m_interactedRelease;
 
         public bool InteractedClicked
         {

@@ -8,11 +8,11 @@ namespace Dreamteck.Splines
     [CustomEditor(typeof(ComplexSurfaceGenerator), true)]
     public class ComplexSurfaceGeneratorEditor : MeshGenEditor
     {
-        private SplineComputer _lastEditedComputer;
-        private SplineComputer _highlightedComputer;
-        private int _lastEditedPointIndex = -1;
-        private bool _positionHandle = false;
-        private Vector2 _scroll = Vector2.zero;
+        SplineComputer _lastEditedComputer;
+        SplineComputer _highlightedComputer;
+        int _lastEditedPointIndex = -1;
+        bool _positionHandle = false;
+        Vector2 _scroll = Vector2.zero;
 
         protected override void Awake()
         {
@@ -152,7 +152,7 @@ namespace Dreamteck.Splines
             UVControls(gen);
         }
 
-        private void ValidateSplines(ComplexSurfaceGenerator gen, SerializedProperty computersProperty)
+        void ValidateSplines(ComplexSurfaceGenerator gen, SerializedProperty computersProperty)
         {
             for (int i = 0; i < computersProperty.arraySize; i++)
             {
@@ -191,7 +191,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void AddSpline(ComplexSurfaceGenerator gen)
+        void AddSpline(ComplexSurfaceGenerator gen)
         {
             SplineComputer reference = gen.spline;
             if (gen.otherComputers.Length > 0)

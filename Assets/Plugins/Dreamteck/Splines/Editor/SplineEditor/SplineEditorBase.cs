@@ -19,7 +19,7 @@ namespace Dreamteck.Splines.Editor
             get { return _gizmosEnabled; }
         }
 
-        private bool _gizmosEnabled = true;
+        bool _gizmosEnabled = true;
 
         protected readonly SerializedObject _serializedObject;
 

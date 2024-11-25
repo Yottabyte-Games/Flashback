@@ -79,23 +79,23 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private bool _hasOffset = false;
+        bool _hasOffset = false;
         [SerializeField]
         [HideInInspector]
-        private bool _hasRotationOffset = false;
+        bool _hasRotationOffset = false;
 
         [SerializeField]
         [HideInInspector]
-        private Vector2 _offset;
+        Vector2 _offset;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _rotationOffset = Vector3.zero;
+        Vector3 _rotationOffset = Vector3.zero;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _baseScale = Vector3.one;
+        Vector3 _baseScale = Vector3.one;
         [SerializeField]
         [HideInInspector]
-        private bool _2dMode = false;
+        bool _2dMode = false;
         public enum VelocityHandleMode { Zero, Preserve, Align, AlignRealistic }
         public VelocityHandleMode velocityHandleMode = VelocityHandleMode.Zero;
         public SplineSample splineResult
@@ -109,7 +109,7 @@ namespace Dreamteck.Splines
                 _splineResult = value;
             }
         }
-        private SplineSample _splineResult;
+        SplineSample _splineResult;
 
         public bool applyPositionX = true;
         public bool applyPositionY = true;
@@ -173,8 +173,8 @@ namespace Dreamteck.Splines
         public SplineUser targetUser = null;
 
         //These are used to save allocations
-        private static Vector3 position = Vector3.zero;
-        private static Quaternion rotation = Quaternion.identity;
+        static Vector3 position = Vector3.zero;
+        static Quaternion rotation = Quaternion.identity;
 
         public void ApplyTransform(Transform input)
         {
@@ -268,7 +268,7 @@ namespace Dreamteck.Splines
             return velocity;
         }
 
-        private Vector3 GetPosition(Vector3 inputPosition)
+        Vector3 GetPosition(Vector3 inputPosition)
         {
             position = _splineResult.position;
             Vector2 finalOffset = _offset;
@@ -293,7 +293,7 @@ namespace Dreamteck.Splines
             return inputPosition;
         }
 
-        private Quaternion GetRotation(Quaternion inputRotation)
+        Quaternion GetRotation(Quaternion inputRotation)
         {
             rotation = Quaternion.LookRotation(_splineResult.forward * (direction == Spline.Direction.Forward ? 1f : -1f), _splineResult.up);
             if (_2dMode)
@@ -341,7 +341,7 @@ namespace Dreamteck.Splines
             return inputRotation;
         }
 
-        private Vector3 GetScale(Vector3 inputScale)
+        Vector3 GetScale(Vector3 inputScale)
         {
             if (applyScaleX) inputScale.x = _baseScale.x * _splineResult.size;
             if (applyScaleY) inputScale.y = _baseScale.y * _splineResult.size;

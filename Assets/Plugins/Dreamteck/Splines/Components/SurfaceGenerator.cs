@@ -159,57 +159,57 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private float _expand = 0f;
+        float _expand = 0f;
         [SerializeField]
         [HideInInspector]
-        private float _extrude = 0f;
+        float _extrude = 0f;
         [SerializeField]
         [HideInInspector]
-        private Vector2 _sideUvScale = Vector2.one;
+        Vector2 _sideUvScale = Vector2.one;
         [SerializeField]
         [HideInInspector]
-        private Vector2 _sideUvOffset = Vector2.zero;
+        Vector2 _sideUvOffset = Vector2.zero;
         [SerializeField]
         [HideInInspector]
-        private float _sideUvRotation = 0f;
+        float _sideUvRotation = 0f;
         [SerializeField]
         [HideInInspector]
-        private SplineComputer _extrudeSpline;
+        SplineComputer _extrudeSpline;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _extrudeOffset = Vector3.zero;
+        Vector3 _extrudeOffset = Vector3.zero;
         [SerializeField]
         [HideInInspector]
-        private SplineSample[] extrudeResults = new SplineSample[0];
+        SplineSample[] extrudeResults = new SplineSample[0];
         [SerializeField]
         [HideInInspector]
-        private Vector3[] identityVertices = new Vector3[0];
+        Vector3[] identityVertices = new Vector3[0];
         [SerializeField]
         [HideInInspector]
-        private Vector3[] identityNormals = new Vector3[0];
+        Vector3[] identityNormals = new Vector3[0];
         [SerializeField]
         [HideInInspector]
-        private Vector2[] projectedVerts = new Vector2[0];
+        Vector2[] projectedVerts = new Vector2[0];
         [SerializeField]
         [HideInInspector]
-        private int[] surfaceTris = new int[0];
+        int[] surfaceTris = new int[0];
         [SerializeField]
         [HideInInspector]
-        private int[] wallTris = new int[0];
+        int[] wallTris = new int[0];
 
         [SerializeField]
         [HideInInspector]
-        private double _extrudeFrom = 0.0;
+        double _extrudeFrom = 0.0;
         [SerializeField]
         [HideInInspector]
-        private double _extrudeTo = 1.0;
+        double _extrudeTo = 1.0;
         [SerializeField]
         [HideInInspector]
-        private bool _uniformUvs = false;
+        bool _uniformUvs = false;
 
-        private Vector3 _trsRight = Vector3.right;
-        private Vector3 _trsUp = Vector3.up;
-        private Vector3 _trsForward = Vector3.forward;
+        Vector3 _trsRight = Vector3.right;
+        Vector3 _trsUp = Vector3.up;
+        Vector3 _trsForward = Vector3.forward;
 
         protected override string meshName => "Surface";
 
@@ -228,7 +228,7 @@ namespace Dreamteck.Splines
             Generate();
         }
 
-        private void LateUpdate()
+        void LateUpdate()
         {
             if (multithreaded && trs.hasChanged)
             {
@@ -456,13 +456,13 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void GenerateSurfaceTris(bool flip)
+        void GenerateSurfaceTris(bool flip)
         {
             MeshUtility.Triangulate(projectedVerts, ref surfaceTris);
             if (flip) MeshUtility.FlipTriangles(ref surfaceTris);
         }
 
-        private int WriteTris(ref int[] tris, ref int[] target, int vertexOffset, int trisOffset, bool flip)
+        int WriteTris(ref int[] tris, ref int[] target, int vertexOffset, int trisOffset, bool flip)
         {
             for (int i = trisOffset; i < trisOffset + tris.Length; i += 3)
             {

@@ -8,11 +8,11 @@ namespace Dreamteck
 {
     public class AsyncJobSystem : MonoBehaviour
     {
-        private Queue<IJobData> _jobs = new Queue<IJobData>();
+        Queue<IJobData> _jobs = new Queue<IJobData>();
 
-        private IJobData _currentJob = null;
+        IJobData _currentJob = null;
 
-        private bool _isWorking = false;
+        bool _isWorking = false;
 
         public AsyncJobOperation ScheduleJob<T>(JobData<T> data)
         {
@@ -20,7 +20,7 @@ namespace Dreamteck
             return new AsyncJobOperation(data);
         }
 
-        private void Update()
+        void Update()
         {
             if (_jobs.Count > 0 && !_isWorking)
             {
@@ -28,7 +28,7 @@ namespace Dreamteck
             }
         }
 
-        private IEnumerator JobCoroutine()
+        IEnumerator JobCoroutine()
         {
             _isWorking = true;
             
@@ -55,7 +55,7 @@ namespace Dreamteck
 
         public class AsyncJobOperation : CustomYieldInstruction
         {
-            private IJobData _job;
+            IJobData _job;
             
             public AsyncJobOperation(IJobData job)
             {
@@ -80,17 +80,17 @@ namespace Dreamteck
 
         public class JobData<T> : IJobData
         {
-            private int _index;
+            int _index;
 
-            private int _iterations = 0;
+            int _iterations = 0;
 
-            private IEnumerable<T> _collection;
+            IEnumerable<T> _collection;
 
-            private Action<JobData<T>> _onComplete;
+            Action<JobData<T>> _onComplete;
 
-            private Action<JobData<T>> _onIteration;
+            Action<JobData<T>> _onIteration;
 
-            private IEnumerator<T> _enumerator;
+            IEnumerator<T> _enumerator;
 
             public T current { get { return _enumerator.Current; } }
 

@@ -22,7 +22,7 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private float _offset = 0f;
+        float _offset = 0f;
         [SerializeField]
         [HideInInspector]
         protected EdgeCollider2D edgeCollider;
@@ -35,7 +35,7 @@ namespace Dreamteck.Splines
         public float updateRate = 0.1f;
         protected float lastUpdateTime = 0f;
 
-        private bool updateCollider = false;
+        bool updateCollider = false;
 
         protected override void Awake()
         {

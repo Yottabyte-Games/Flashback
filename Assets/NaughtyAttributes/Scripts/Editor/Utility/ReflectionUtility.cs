@@ -110,7 +110,7 @@ namespace NaughtyAttributes.Editor
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
-        private static List<Type> GetSelfAndBaseTypes(object target)
+        static List<Type> GetSelfAndBaseTypes(object target)
         {
             List<Type> types = new List<Type>()
             {

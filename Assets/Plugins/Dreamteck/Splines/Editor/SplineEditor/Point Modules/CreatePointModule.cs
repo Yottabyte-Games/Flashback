@@ -366,7 +366,7 @@ using System.Collections.Generic;
             Handles.color = Color.white;
         }
 
-        private void UpdateVisualizer()
+        void UpdateVisualizer()
         {
             if(visualizer == null) visualizer = new Spline(splineType);
             visualizer.type = splineType;

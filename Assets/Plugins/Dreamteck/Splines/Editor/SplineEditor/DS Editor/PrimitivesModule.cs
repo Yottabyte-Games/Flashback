@@ -11,19 +11,19 @@ namespace Dreamteck.Splines.Editor
     public class PrimitivesModule : PointTransformModule
     {
         DreamteckSplinesEditor dsEditor = null;
-        private PrimitiveEditor[] primitiveEditors;
-        private string[] primitiveNames;
-        private SplinePreset[] presets;
-        private string[] presetNames;
+        PrimitiveEditor[] primitiveEditors;
+        string[] primitiveNames;
+        SplinePreset[] presets;
+        string[] presetNames;
         int mode = 0, selectedPrimitive = 0, selectedPreset = 0;
         bool createPresetMode = false;
         GUIContent[] toolbarContents = new GUIContent[2];
         Dreamteck.Editor.Toolbar toolbar;
 
-        private string savePresetName = "", savePresetDescription = "";
+        string savePresetName = "", savePresetDescription = "";
 
-        private bool lastClosed = false;
-        private Spline.Type lastType = Spline.Type.Bezier;
+        bool lastClosed = false;
+        Spline.Type lastType = Spline.Type.Bezier;
 
 
         public PrimitivesModule(SplineEditor editor) : base(editor)

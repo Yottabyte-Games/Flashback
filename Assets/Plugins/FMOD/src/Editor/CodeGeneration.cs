@@ -19,7 +19,7 @@ namespace FMODUnity
             }
         }
 
-        private static void WriteStaticPluginRegistration(StreamWriter file, bool isFMODStaticallyLinked,
+        static void WriteStaticPluginRegistration(StreamWriter file, bool isFMODStaticallyLinked,
             IEnumerable<string> pluginFunctions)
         {
             file.WriteLine("#if ENABLE_IL2CPP");
@@ -73,7 +73,7 @@ namespace FMODUnity
             file.WriteLine("#endif // ENABLE_IL2CPP");
         }
 
-        private static List<string> ValidateStaticPlugins(List<string> staticPlugins, Action<string> reportError)
+        static List<string> ValidateStaticPlugins(List<string> staticPlugins, Action<string> reportError)
         {
             List<string> result = new List<string>();
 
@@ -96,7 +96,7 @@ namespace FMODUnity
             return result;
         }
 
-        private static bool IsValidFunctionName(string name, Action<string> reportError)
+        static bool IsValidFunctionName(string name, Action<string> reportError)
         {
             if (!(char.IsLetter(name[0]) || name[0] == '_'))
             {

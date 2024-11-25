@@ -7,7 +7,7 @@ public class StoryProgresser : MonoBehaviour
     [SerializeField] StoryBeat ChangeToBeat;
     public UnityEvent<StoryProgresser> OnProgressedStory;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         SelectNextStoryBeat();
     }

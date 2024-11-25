@@ -306,7 +306,7 @@ namespace FMODUnity
     public static class RuntimeUtils
     {
 #if UNITY_EDITOR
-        private static string pluginBasePath;
+        static string pluginBasePath;
 
         public const string BaseFolderGUID = "06ae579381df01a4a87bb149dec89954";
         public const string PluginBasePathDefault = "Assets/Plugins/FMOD";
@@ -536,7 +536,7 @@ namespace FMODUnity
             return fmodAffinity;
         }
 
-        private static void SetFMODAffinityBit(ThreadAffinity affinity, ThreadAffinity mask,
+        static void SetFMODAffinityBit(ThreadAffinity affinity, ThreadAffinity mask,
             FMOD.THREAD_AFFINITY fmodMask, ref FMOD.THREAD_AFFINITY fmodAffinity)
         {
             if ((affinity & mask) != 0)

@@ -6,21 +6,19 @@ namespace FMODUnity
     [AddComponentMenu("FMOD Studio/FMOD Studio Listener")]
     public class StudioListener : MonoBehaviour
     {
-        [SerializeField]
-        private bool nonRigidbodyVelocity = false;
+        [SerializeField] bool nonRigidbodyVelocity = false;
 
-        [SerializeField]
-        private GameObject attenuationObject = null;
+        [SerializeField] GameObject attenuationObject = null;
 
-        private Vector3 lastFramePosition = Vector3.zero;
+        Vector3 lastFramePosition = Vector3.zero;
 
 #if UNITY_PHYSICS_EXIST
-        private Rigidbody rigidBody;
+        Rigidbody rigidBody;
 #endif
 #if UNITY_PHYSICS2D_EXIST
-        private Rigidbody2D rigidBody2D;
+        Rigidbody2D rigidBody2D;
 #endif
-        private static List<StudioListener> listeners = new List<StudioListener>();
+        static List<StudioListener> listeners = new List<StudioListener>();
 
         public static int ListenerCount
         {
@@ -58,7 +56,7 @@ namespace FMODUnity
             return result;
         }
 
-        private static void AddListener(StudioListener listener)
+        static void AddListener(StudioListener listener)
         {
             // Is the listener already in the list?
             if (listeners.Contains(listener))
@@ -77,13 +75,13 @@ namespace FMODUnity
             RuntimeManager.StudioSystem.setNumListeners(Mathf.Clamp(listeners.Count, 1, FMOD.CONSTANTS.MAX_LISTENERS));
         }
 
-        private static void RemoveListener(StudioListener listener)
+        static void RemoveListener(StudioListener listener)
         {
             listeners.Remove(listener);
             RuntimeManager.StudioSystem.setNumListeners(Mathf.Clamp(listeners.Count, 1, FMOD.CONSTANTS.MAX_LISTENERS));
         }
 
-        private void OnEnable()
+        void OnEnable()
         {
             RuntimeUtils.EnforceLibraryOrder();
 #if UNITY_PHYSICS_EXIST
@@ -109,12 +107,12 @@ namespace FMODUnity
             lastFramePosition = transform.position;
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             RemoveListener(this);
         }
 
-        private void Update()
+        void Update()
         {
             if (ListenerNumber < 0 || ListenerNumber >= FMOD.CONSTANTS.MAX_LISTENERS)
             {

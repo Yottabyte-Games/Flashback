@@ -9,7 +9,7 @@ namespace Dreamteck.Splines.Editor
     public class SizeModifierEditor : SplineSampleModifierEditor
     {
         public bool allowSelection = true;
-        private float addTime = 0f;
+        float addTime = 0f;
 
         public SizeModifierEditor(SplineUser user, SplineUserEditor editor) : base(user, editor, "_sizeModifier")
         {

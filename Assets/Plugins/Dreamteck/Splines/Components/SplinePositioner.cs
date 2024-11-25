@@ -139,28 +139,28 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private GameObject _targetObject;
+        GameObject _targetObject;
         [SerializeField]
         [HideInInspector]
-        private SplineTracer _followTarget;
+        SplineTracer _followTarget;
         [SerializeField]
         [HideInInspector]
-        private float _followTargetDistance;
+        float _followTargetDistance;
         [SerializeField]
         [HideInInspector]
-        private bool _followLoop;
+        bool _followLoop;
         [SerializeField]
         [HideInInspector]
-        private Spline.Direction _followTargetDirection = Spline.Direction.Backward;
+        Spline.Direction _followTargetDirection = Spline.Direction.Backward;
         [SerializeField]
         [HideInInspector]
-        private float _position = 0f;
+        float _position = 0f;
         [SerializeField]
         [HideInInspector]
-        private Mode _mode = Mode.Percent;
-        private float _lastPosition = 0f;
+        Mode _mode = Mode.Percent;
+        float _lastPosition = 0f;
 
-        private void OnFollowTargetMotionApplied()
+        void OnFollowTargetMotionApplied()
         {
             float moved;
             double percent = Travel(followTarget.result.percent, _followTargetDistance, _followTargetDirection, out moved);

@@ -78,14 +78,11 @@ namespace FMODUnity
         // * As a key for SettingsEditor UI state
         // It should be kept stable for concrete platforms (like PlatformWindows) to support
         // settings migration in the future.
-        [SerializeField]
-        private string identifier;
+        [SerializeField] string identifier;
 
-        [SerializeField]
-        private string parentIdentifier;
+        [SerializeField] string parentIdentifier;
 
-        [SerializeField]
-        private bool active = false;
+        [SerializeField] bool active = false;
 
         [SerializeField]
         protected PropertyStorage Properties = new PropertyStorage();
@@ -94,17 +91,14 @@ namespace FMODUnity
         [FormerlySerializedAs("outputType")]
         internal string OutputTypeName;
 
-        private static List<ThreadAffinityGroup> StaticThreadAffinities = new List<ThreadAffinityGroup>();
+        static List<ThreadAffinityGroup> StaticThreadAffinities = new List<ThreadAffinityGroup>();
 
-        [SerializeField]
-        private PropertyThreadAffinityList threadAffinities = new PropertyThreadAffinityList();
+        [SerializeField] PropertyThreadAffinityList threadAffinities = new PropertyThreadAffinityList();
 
 #if UNITY_EDITOR
-        [SerializeField]
-        private float displaySortOrder;
+        [SerializeField] float displaySortOrder;
 
-        [SerializeField]
-        private List<string> childIdentifiers = new List<string>();
+        [SerializeField] List<string> childIdentifiers = new List<string>();
 #else
         // The parent platform from which this platform inherits its property values.
         [NonSerialized]
@@ -200,7 +194,7 @@ namespace FMODUnity
 
             public readonly BinaryType type;
 
-            private readonly FileRecord fileRecord;
+            readonly FileRecord fileRecord;
 
             public string LatestLocation()
             {
@@ -220,7 +214,7 @@ namespace FMODUnity
                 }
             }
 
-            private string GetLocation(FileLayout layout)
+            string GetLocation(FileLayout layout)
             {
                 string basePath = GetBasePath(layout);
 
@@ -255,8 +249,8 @@ namespace FMODUnity
                 this.buildTarget = buildTarget;
             }
 
-            private readonly Platform platform;
-            private readonly BuildTarget buildTarget;
+            readonly Platform platform;
+            readonly BuildTarget buildTarget;
 
             protected override string GetBasePath(FileLayout layout)
             {
@@ -302,7 +296,7 @@ namespace FMODUnity
                 return this;
             }
 
-            private void AddVersion(FileLayout layout, string path, bool absolute)
+            void AddVersion(FileLayout layout, string path, bool absolute)
             {
                 if (pathVersions == null)
                 {
@@ -330,14 +324,14 @@ namespace FMODUnity
                 path = latestPath;
             }
 
-            private struct PathInfo
+            struct PathInfo
             {
                 public string path;
                 public bool absolute;
             }
 
-            private readonly string latestPath;
-            private Dictionary<FileLayout, PathInfo> pathVersions;
+            readonly string latestPath;
+            Dictionary<FileLayout, PathInfo> pathVersions;
         }
 
         internal IEnumerable<BinaryFileInfo> GetBinaryFileInfo(BuildTarget buildTarget, BinaryType binaryType)
@@ -377,7 +371,7 @@ namespace FMODUnity
                 this.platform = platform;
             }
 
-            private readonly Platform platform;
+            readonly Platform platform;
 
             protected override string GetBasePath(FileLayout layout)
             {
@@ -743,8 +737,8 @@ namespace FMODUnity
         // platform properties in a generic manner.
         internal struct PropertyAccessor<T> : PropertyOverrideControl
         {
-            private readonly Func<PropertyStorage, Property<T>> Getter;
-            private readonly T DefaultValue;
+            readonly Func<PropertyStorage, Property<T>> Getter;
+            readonly T DefaultValue;
 
             public PropertyAccessor(Func<PropertyStorage, Property<T>> getter, T defaultValue)
             {
@@ -1002,7 +996,7 @@ namespace FMODUnity
 
         internal virtual List<CodecChannelCount> DefaultCodecChannels { get { return staticCodecChannels; } }
 
-        private static List<CodecChannelCount> staticCodecChannels = new List<CodecChannelCount>()
+        static List<CodecChannelCount> staticCodecChannels = new List<CodecChannelCount>()
         {
             new CodecChannelCount { format = CodecType.FADPCM, channels = 32 },
             new CodecChannelCount { format = CodecType.Vorbis, channels = 0 },
@@ -1013,8 +1007,7 @@ namespace FMODUnity
         {
         }
 
-        [SerializeField]
-        private PropertyCodecChannels codecChannels = new PropertyCodecChannels();
+        [SerializeField] PropertyCodecChannels codecChannels = new PropertyCodecChannels();
 
         internal List<CodecChannelCount> CodecChannels
         {

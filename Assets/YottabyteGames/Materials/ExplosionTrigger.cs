@@ -6,11 +6,11 @@ namespace YottabyteGames.Materials
 {
     public class ExplosionTrigger : MonoBehaviour
     {
-        [SerializeField] private ParticleSystem explosion;
-        [SerializeField] private CameraShake cameraShake;
-        [SerializeField] private GameObject cat;
+        [SerializeField] ParticleSystem explosion;
+        [SerializeField] CameraShake cameraShake;
+        [SerializeField] GameObject cat;
 
-        private void Update()
+        void Update()
         {
             if (cat.activeInHierarchy)
             {

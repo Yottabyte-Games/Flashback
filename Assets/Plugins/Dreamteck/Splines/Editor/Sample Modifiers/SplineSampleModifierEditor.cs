@@ -13,7 +13,7 @@
         protected SerializedProperty _useClipped;
         protected SerializedProperty _modifier;
         protected virtual string _keysPropertyName => "keys";
-        private int _deleteElement = -1;
+        int _deleteElement = -1;
 
         protected SerializedObject _serializedObject;
 

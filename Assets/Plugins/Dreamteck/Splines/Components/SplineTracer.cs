@@ -111,11 +111,11 @@ namespace Dreamteck.Splines
         public event JunctionHandler onNode;
         public event EmptySplineHandler onMotionApplied;
 
-        private SplineTrigger[] triggerInvokeQueue = new SplineTrigger[0];
-        private List<NodeConnection> nodeConnectionQueue = new List<NodeConnection>();
-        private int addTriggerIndex = 0;
+        SplineTrigger[] triggerInvokeQueue = new SplineTrigger[0];
+        List<NodeConnection> nodeConnectionQueue = new List<NodeConnection>();
+        int addTriggerIndex = 0;
 
-        private const double MIN_DELTA = 0.000001;
+        const double MIN_DELTA = 0.000001;
 
 #if UNITY_EDITOR
         public override void EditorAwake()
@@ -351,7 +351,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void AddTriggerToQueue(SplineTrigger trigger)
+        void AddTriggerToQueue(SplineTrigger trigger)
         {
             if (addTriggerIndex >= triggerInvokeQueue.Length)
             {

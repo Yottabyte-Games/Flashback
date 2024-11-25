@@ -168,10 +168,10 @@ namespace Dreamteck.Splines {
         //Serialized values
         [SerializeField]
         [HideInInspector]
-        private SplineComputer _spline;
+        SplineComputer _spline;
         [SerializeField]
         [HideInInspector]
-        private bool _autoUpdate = true;
+        bool _autoUpdate = true;
         [SerializeField]
         [HideInInspector]
         protected RotationModifier _rotationModifier = new RotationModifier();
@@ -186,33 +186,33 @@ namespace Dreamteck.Splines {
         protected SizeModifier _sizeModifier = new SizeModifier();
         [SerializeField]
         [HideInInspector]
-        private SplineSample _clipFromSample = new SplineSample(), _clipToSample = new SplineSample();
+        SplineSample _clipFromSample = new SplineSample(), _clipToSample = new SplineSample();
 
         [SerializeField]
         [HideInInspector]
-        private bool _loopSamples = false;
+        bool _loopSamples = false;
         [SerializeField]
         [HideInInspector]
-        private double _clipFrom = 0.0;
+        double _clipFrom = 0.0;
         [SerializeField]
         [HideInInspector]
-        private double _clipTo = 1.0;
+        double _clipTo = 1.0;
 
         //float values used for making animations
         [SerializeField]
         [HideInInspector]
-        private float animClipFrom = 0f;
+        float animClipFrom = 0f;
         [SerializeField]
         [HideInInspector]
-        private float animClipTo = 1f;
+        float animClipTo = 1f;
 
-        private SampleCollection _sampleCollection = new SampleCollection();
-        private bool rebuild = false, getSamples = false, postBuild = false;
-        private Transform _trs = null;
-        private bool _hasTransform = false;
-        private SplineSample _workSample = new SplineSample();
+        SampleCollection _sampleCollection = new SampleCollection();
+        bool rebuild = false, getSamples = false, postBuild = false;
+        Transform _trs = null;
+        bool _hasTransform = false;
+        SplineSample _workSample = new SplineSample();
 #if UNITY_EDITOR
-        private bool _isPlaying = false;
+        bool _isPlaying = false;
         protected bool isPlaying => _isPlaying;
 #endif
 
@@ -229,7 +229,7 @@ namespace Dreamteck.Splines {
             get { return _sampleCount; }
         }
 
-        private int _sampleCount = 0, _startSampleIndex = 0;
+        int _sampleCount = 0, _startSampleIndex = 0;
         /// <summary>
         /// Use this to work with the Evaluate and Project methods
         /// </summary>
@@ -374,7 +374,7 @@ namespace Dreamteck.Splines {
             return _sampleCollection.samples[index].percent;
         }
 
-        private void ClampLoopSampleIndex(ref int index)
+        void ClampLoopSampleIndex(ref int index)
         {
             if (index >= _sampleCount)
             {
@@ -486,7 +486,7 @@ namespace Dreamteck.Splines {
             getSamples = false;
         }
 
-        private void Update()
+        void Update()
         {
             if (updateMethod == UpdateMethod.Update)
             {
@@ -496,7 +496,7 @@ namespace Dreamteck.Splines {
             }
         }
 
-        private void LateUpdate()
+        void LateUpdate()
         {
             if (updateMethod == UpdateMethod.LateUpdate)
             {
@@ -514,7 +514,7 @@ namespace Dreamteck.Splines {
 #endif
         }
 
-        private void FixedUpdate()
+        void FixedUpdate()
         {
             if (updateMethod == UpdateMethod.FixedUpdate)
             {
@@ -525,7 +525,7 @@ namespace Dreamteck.Splines {
         }
 
         //Update logic for handling threads and rebuilding
-        private void RunUpdate()
+        void RunUpdate()
         {
 #if UNITY_EDITOR
             if (!_isPlaying) return;
@@ -568,7 +568,7 @@ namespace Dreamteck.Splines {
             postBuild = true;
         }
 
-        private void ResampleAndBuildThreaded()
+        void ResampleAndBuildThreaded()
         {
             while (postBuild)
             {
@@ -628,7 +628,7 @@ namespace Dreamteck.Splines {
             return sample.position;
         }
 
-        private void ApplyModifier(SplineSampleModifier modifier, ref SplineSample sample)
+        void ApplyModifier(SplineSampleModifier modifier, ref SplineSample sample)
         {
             if (!modifier.hasKeys) return;
             if (modifier.useClippedPercent)
@@ -661,7 +661,7 @@ namespace Dreamteck.Splines {
         /// <summary>
         /// Gets the clipped samples defined by clipFrom and clipTo
         /// </summary>
-        private void GetSamples()
+        void GetSamples()
         {
             getSamples = false;
             if (spline == null)
@@ -784,7 +784,7 @@ namespace Dreamteck.Splines {
             percent = DMath.Clamp01(percent);
         }
 
-        private int GetSampleIndex(double percent)
+        int GetSampleIndex(double percent)
         {
             int index;
             double lerp;

@@ -94,25 +94,25 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private Mode _mode = Mode.Cached;
+        Mode _mode = Mode.Cached;
         [SerializeField]
         [HideInInspector]
-        private bool _autoProject = true;
+        bool _autoProject = true;
         [SerializeField]
         [HideInInspector]
         [Range(3, 8)]
-        private int _subdivide = 4;
+        int _subdivide = 4;
         [SerializeField]
         [HideInInspector]
-        private Transform _projectTarget;
+        Transform _projectTarget;
 
 
         [SerializeField]
         [HideInInspector]
-        private Transform applyTarget = null;
+        Transform applyTarget = null;
         [SerializeField]
         [HideInInspector]
-        private GameObject _targetObject;
+        GameObject _targetObject;
 
         [SerializeField]
         [HideInInspector]
@@ -189,7 +189,7 @@ namespace Dreamteck.Splines
         }
 
 
-        private void Project()
+        void Project()
         {
             if (_mode == Mode.Accurate && spline != null)
             {

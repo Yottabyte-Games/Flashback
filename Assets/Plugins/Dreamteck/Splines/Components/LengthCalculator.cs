@@ -44,8 +44,8 @@ namespace Dreamteck.Splines
         public LengthEvent[] lengthEvents = new LengthEvent[0];
         [HideInInspector]
         public float idealLength = 1f;
-        private float _length = 0f;
-        private float lastLength = 0f;
+        float _length = 0f;
+        float lastLength = 0f;
         public float length
         {
             get {

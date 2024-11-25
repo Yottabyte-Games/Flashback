@@ -54,7 +54,7 @@ namespace FMODUnity
             return new BinaryAssetFolderInfo("android", "Plugins/Android/libs");
         }
 
-        private static readonly string[] Architectures = { "arm64-v8a", "armeabi-v7a", "x86", "x86_64" };
+        static readonly string[] Architectures = { "arm64-v8a", "armeabi-v7a", "x86", "x86_64" };
 
         protected override IEnumerable<FileRecord> GetBinaryFiles(BuildTarget buildTarget, bool allVariants, string suffix)
         {
@@ -115,7 +115,7 @@ namespace FMODUnity
             }
         }
 
-        private static OutputType[] sValidOutputTypes = {
+        static OutputType[] sValidOutputTypes = {
            new OutputType() { displayName = "Java Audio Track", outputType = FMOD.OUTPUTTYPE.AUDIOTRACK },
            new OutputType() { displayName = "OpenSL ES", outputType = FMOD.OUTPUTTYPE.OPENSL },
            new OutputType() { displayName = "AAudio", outputType = FMOD.OUTPUTTYPE.AAUDIO },

@@ -7,7 +7,7 @@ namespace NaughtyAttributes.Test
         [ValidateInput("NotZero0", "int0 must not be zero")]
         public int int0;
 
-        private bool NotZero0(int value)
+        bool NotZero0(int value)
         {
             return value != 0;
         }
@@ -24,7 +24,7 @@ namespace NaughtyAttributes.Test
         [AllowNesting] // Because it's nested we need to explicitly allow nesting
         public int int1;
 
-        private bool NotZero1(int value)
+        bool NotZero1(int value)
         {
             return value != 0;
         }
@@ -39,7 +39,7 @@ namespace NaughtyAttributes.Test
         [AllowNesting] // Because it's nested we need to explicitly allow nesting
         public int int2;
 
-        private bool NotZero2(int value)
+        bool NotZero2(int value)
         {
             return value != 0;
         }

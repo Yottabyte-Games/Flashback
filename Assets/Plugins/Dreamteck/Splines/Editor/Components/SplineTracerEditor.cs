@@ -8,11 +8,11 @@
     [CustomEditor(typeof(SplineTracer), true)]
     public class SplineTracerEditor : SplineUserEditor
     {
-        private bool cameraFoldout = false;
-        private TransformModuleEditor motionEditor;
-        private RenderTexture rt;
-        private Texture2D renderCanvas = null;
-        private Camera cam;
+        bool cameraFoldout = false;
+        TransformModuleEditor motionEditor;
+        RenderTexture rt;
+        Texture2D renderCanvas = null;
+        Camera cam;
         SplineTracer[] tracers = new SplineTracer[0];
 
         public delegate void DistanceReceiver(float distance);
@@ -29,17 +29,17 @@
             }
         }
 
-        private int GetRTWidth()
+        int GetRTWidth()
         {
             return Mathf.RoundToInt(EditorGUIUtility.currentViewWidth)-50;
         }
 
-        private int GetRTHeight()
+        int GetRTHeight()
         {
             return Mathf.RoundToInt(GetRTWidth()/cam.aspect);
         }
 
-        private void CreateRT()
+        void CreateRT()
         {
             if(rt != null)
             {

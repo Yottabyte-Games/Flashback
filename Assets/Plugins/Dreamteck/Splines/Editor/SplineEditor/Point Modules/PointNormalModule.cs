@@ -9,10 +9,10 @@ namespace Dreamteck.Splines.Editor
         public NormalMode normalMode = NormalMode.Auto;
         SplineSample evalResult = new SplineSample();
 
-        private string[] _normalOperations = new string[0];
-        private int _normalOperation = 0;
+        string[] _normalOperations = new string[0];
+        int _normalOperation = 0;
 
-        private NormalRotationWindow _rotationWindow;
+        NormalRotationWindow _rotationWindow;
 
         public PointNormalModule(SplineEditor editor) : base(editor)
         {
@@ -60,7 +60,7 @@ namespace Dreamteck.Splines.Editor
             return IconContent("N", "normal_on", "Set Point Normals");
         }
 
-        private void OnNormalRotationApplied()
+        void OnNormalRotationApplied()
         {
             editor.ApplyModifiedProperties(true);
             RegisterChange();
@@ -238,11 +238,11 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private class NormalRotationWindow : EditorWindow
+        class NormalRotationWindow : EditorWindow
         {
-            private float _angle = 0f;
-            private PointNormalModule _normalModule;
-            private System.Action _onRotationApplied;
+            float _angle = 0f;
+            PointNormalModule _normalModule;
+            System.Action _onRotationApplied;
 
             public void Init(PointNormalModule module, System.Action onRotationApplied)
             {
@@ -253,7 +253,7 @@ namespace Dreamteck.Splines.Editor
                 _angle = EditorPrefs.GetFloat("Dreamteck.Splines.Editor.PointNormalModule.NormalRotationWindow.angle", 0f);
             }
 
-            private void OnGUI()
+            void OnGUI()
             {
                 if (Event.current.type == EventType.KeyDown && (Event.current.keyCode == KeyCode.KeypadEnter || Event.current.keyCode == KeyCode.Return))
                 {
@@ -267,7 +267,7 @@ namespace Dreamteck.Splines.Editor
                 }
             }
 
-            private void ApplyRotationAndClose()
+            void ApplyRotationAndClose()
             {
                 SplineSample sample = new SplineSample();
                 for (int i = 0; i < _normalModule.selectedPoints.Count; i++)

@@ -433,104 +433,104 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private float _evaluateOffset = 0f;
+        float _evaluateOffset = 0f;
         [SerializeField]
         [HideInInspector]
-        private SpawnMethod _spawnMethod = SpawnMethod.Count;
+        SpawnMethod _spawnMethod = SpawnMethod.Count;
         [SerializeField]
         [HideInInspector]
-        private int _spawnCount = 0;
+        int _spawnCount = 0;
 #if UNITY_EDITOR
         [SerializeField]
         [HideInInspector]
-        private bool _retainPrefabInstancesInEditor = true;
+        bool _retainPrefabInstancesInEditor = true;
 #endif
         [SerializeField]
         [HideInInspector]
-        private Positioning _objectPositioning = Positioning.Stretch;
+        Positioning _objectPositioning = Positioning.Stretch;
         [SerializeField]
         [HideInInspector]
-        private Iteration _iteration = Iteration.Ordered;
+        Iteration _iteration = Iteration.Ordered;
         [SerializeField]
         [HideInInspector]
-        private int _randomSeed = 1;
+        int _randomSeed = 1;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _minOffset = Vector3.zero;
+        Vector3 _minOffset = Vector3.zero;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _maxOffset = Vector3.zero;
+        Vector3 _maxOffset = Vector3.zero;
         [SerializeField]
         [HideInInspector]
-        private bool _offsetUseWorldCoords = false;
+        bool _offsetUseWorldCoords = false;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _minRotation = Vector3.zero;
+        Vector3 _minRotation = Vector3.zero;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _maxRotation = Vector3.zero;
+        Vector3 _maxRotation = Vector3.zero;
         [SerializeField]
         [HideInInspector]
-        private bool _uniformScaleLerp = true;
+        bool _uniformScaleLerp = true;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _minScaleMultiplier = Vector3.one;
+        Vector3 _minScaleMultiplier = Vector3.one;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _maxScaleMultiplier = Vector3.one;
+        Vector3 _maxScaleMultiplier = Vector3.one;
         [SerializeField]
         [HideInInspector]
-        private bool _shellOffset = false;
+        bool _shellOffset = false;
         [SerializeField]
         [HideInInspector]
-        private bool _applyRotation = true;
+        bool _applyRotation = true;
         [SerializeField]
         [HideInInspector]
-        private bool _rotateByOffset = false;
+        bool _rotateByOffset = false;
         [SerializeField]
         [HideInInspector]
-        private bool _applyScale = false;
+        bool _applyScale = false;
         [SerializeField]
         [HideInInspector]
-        private ObjectMethod _objectMethod = ObjectMethod.Instantiate;
+        ObjectMethod _objectMethod = ObjectMethod.Instantiate;
         [HideInInspector]
         public bool delayedSpawn = false;
         [HideInInspector]
         public float spawnDelay = 0.1f;
         [SerializeField]
         [HideInInspector]
-        private int lastChildCount = 0;
+        int lastChildCount = 0;
         [SerializeField]
         [HideInInspector]
-        private float lastPointCount = 0;
+        float lastPointCount = 0;
         [SerializeField]
         [HideInInspector]
-        private ObjectControl[] spawned = new ObjectControl[0];
+        ObjectControl[] spawned = new ObjectControl[0];
         [SerializeField]
         [HideInInspector]
-        private bool _useCustomObjectDistance = false;
+        bool _useCustomObjectDistance = false;
         [SerializeField]
         [HideInInspector]
-        private float _minObjectDistance = 0f;
+        float _minObjectDistance = 0f;
         [SerializeField]
         [HideInInspector]
-        private float _maxObjectDistance = 0f;
+        float _maxObjectDistance = 0f;
         
         [SerializeField]
         [HideInInspector]
-        private ObjectControllerCustomRuleBase _customOffsetRule;
+        ObjectControllerCustomRuleBase _customOffsetRule;
 
         [SerializeField]
         [HideInInspector]
-        private ObjectControllerCustomRuleBase _customRotationRule;
+        ObjectControllerCustomRuleBase _customRotationRule;
 
         [SerializeField]
         [HideInInspector]
-        private ObjectControllerCustomRuleBase _customScaleRule;
+        ObjectControllerCustomRuleBase _customScaleRule;
 
         System.Random offsetRandomizer, shellRandomizer, rotationRandomizer, scaleRandomizer, distanceRandomizer;
 
-        private int GetTargetCount()
+        int GetTargetCount()
         {
             switch (_spawnMethod)
             {
@@ -563,12 +563,12 @@ namespace Dreamteck.Splines
             spawned = new ObjectControl[0];
         }
 
-        private void OnValidate()
+        void OnValidate()
         {
             if (_spawnCount < 0) _spawnCount = 0;
         }
 
-        private void Remove()
+        void Remove()
         {
             int targetCount = GetTargetCount();
             if (targetCount >= spawned.Length) return;
@@ -674,7 +674,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void InstantiateAll()
+        void InstantiateAll()
         {
             if (spline == null) return;
             if (objects.Length == 0) return;
@@ -686,7 +686,7 @@ namespace Dreamteck.Splines
             RebuildImmediate();
         }
 
-        private void InstantiateSingle()
+        void InstantiateSingle()
         {
             if (objects.Length == 0) return;
             int index = 0;

@@ -96,14 +96,14 @@ namespace FMODUnity
 #if UNITY_EDITOR
         [FormerlySerializedAs("SwitchSettingsMigration")]
         [SerializeField]
-        private bool switchSettingsMigration = false;
+        bool switchSettingsMigration = false;
 #endif
 
         internal const string SettingsAssetName = "FMODStudioSettings";
 
-        private static Settings instance = null;
-        private static IEditorSettings editorSettings = null;
-        private static bool isInitializing = false;
+        static Settings instance = null;
+        static IEditorSettings editorSettings = null;
+        static bool isInitializing = false;
 
         [SerializeField]
         public bool HasSourceProject = true;
@@ -111,15 +111,13 @@ namespace FMODUnity
         [SerializeField]
         public bool HasPlatforms = true;
 
-        [SerializeField]
-        private string sourceProjectPath;
+        [SerializeField] string sourceProjectPath;
 
-        [SerializeField]
-        private string sourceBankPath;
+        [SerializeField] string sourceBankPath;
 
         [FormerlySerializedAs("SourceBankPathUnformatted")]
         [SerializeField]
-        private string sourceBankPathUnformatted; // Kept as to not break existing projects
+        string sourceBankPathUnformatted; // Kept as to not break existing projects
 
         [SerializeField]
         public int BankRefreshCooldown = 5;
@@ -255,8 +253,7 @@ namespace FMODUnity
         // A collection of templates for constructing known platforms.
         internal static List<PlatformTemplate> PlatformTemplates = new List<PlatformTemplate>();
 
-        [NonSerialized]
-        private bool hasLoaded = false;
+        [NonSerialized] bool hasLoaded = false;
 
         public static Settings Instance
         {
@@ -486,7 +483,7 @@ namespace FMODUnity
         }
 
         // Links the given platform to its parent, if it has one.
-        private void LinkPlatformToParent(Platform platform)
+        void LinkPlatformToParent(Platform platform)
         {
             if (!string.IsNullOrEmpty(platform.ParentIdentifier))
             {
@@ -513,7 +510,7 @@ namespace FMODUnity
             return DefaultPlatform;
         }
 
-        private Settings()
+        Settings()
         {
             MasterBanks = new List<string>();
             Banks = new List<string>();
@@ -571,7 +568,7 @@ namespace FMODUnity
                 });
         }
 
-        private static Platform CreatePlatformInstance<T>(string identifier) where T : Platform
+        static Platform CreatePlatformInstance<T>(string identifier) where T : Platform
         {
             Platform platform = CreateInstance<T>();
             platform.InitializeProperties();
@@ -649,7 +646,7 @@ namespace FMODUnity
             Platforms.ForEach(LinkPlatform);
         }
 
-        private void PopulatePlatformsFromAsset()
+        void PopulatePlatformsFromAsset()
         {
             Platforms.Clear();
 
@@ -717,9 +714,9 @@ namespace FMODUnity
     internal static class Legacy
     {
 #if UNITY_EDITOR
-        private const string RegisterStaticPluginsAssetPathRelative =
+        const string RegisterStaticPluginsAssetPathRelative =
             "/Plugins/FMOD/Cache/fmod_register_static_plugins.cpp";
-        private const string RegisterStaticPluginsAssetPathFull = "Assets" + RegisterStaticPluginsAssetPathRelative;
+        const string RegisterStaticPluginsAssetPathFull = "Assets" + RegisterStaticPluginsAssetPathRelative;
 
         public static void CleanTemporaryChanges()
         {
@@ -727,7 +724,7 @@ namespace FMODUnity
             CleanTemporaryFiles();
         }
 
-        private static IEnumerable<string> AdditionalIl2CppFiles()
+        static IEnumerable<string> AdditionalIl2CppFiles()
         {
             yield return Application.dataPath + RegisterStaticPluginsAssetPathRelative;
             yield return Application.dataPath + "/Plugins/FMOD/src/Runtime/fmod_static_plugin_support.h";

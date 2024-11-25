@@ -6,10 +6,10 @@ namespace FIMSpace.FTextureTools
 {
     public class FTexEqualizeWindow : FTextureProcessWindow
     {
-        private float Equalize = 0.5f;
-        private float EqualizeWhites = 1f;
-        private float EqualizeBlacks = 1f;
-        private float EqualizeTexture = 0f;
+        float Equalize = 0.5f;
+        float EqualizeWhites = 1f;
+        float EqualizeBlacks = 1f;
+        float EqualizeTexture = 0f;
 
         bool MaskingMode = false;
         Texture2D TexturizeWith;

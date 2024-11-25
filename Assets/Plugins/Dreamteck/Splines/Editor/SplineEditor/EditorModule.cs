@@ -9,7 +9,7 @@
     {
         protected string prefPrefix = "";
 
-        private bool _changed = false;
+        bool _changed = false;
 
         public bool hasChanged { get { return _changed; } }
 

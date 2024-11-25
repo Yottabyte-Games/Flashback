@@ -24,18 +24,18 @@ namespace FMODUnity
     {
         public const string BuildFolder = "Build";
 
-        private static FMOD.Studio.System system;
-        private static FMOD.SPEAKERMODE speakerMode;
-        private static string encryptionKey;
+        static FMOD.Studio.System system;
+        static FMOD.SPEAKERMODE speakerMode;
+        static string encryptionKey;
 
-        private static List<FMOD.Studio.Bank> loadedPreviewBanks = new List<FMOD.Studio.Bank>();
-        private static FMOD.Studio.EventDescription previewEventDesc;
-        private static FMOD.Studio.EventInstance previewEventInstance;
+        static List<FMOD.Studio.Bank> loadedPreviewBanks = new List<FMOD.Studio.Bank>();
+        static FMOD.Studio.EventDescription previewEventDesc;
+        static FMOD.Studio.EventInstance previewEventInstance;
 
-        private const int StudioScriptPort = 3663;
-        private static NetworkStream networkStream = null;
-        private static Socket socket = null;
-        private static IAsyncResult socketConnection = null;
+        const int StudioScriptPort = 3663;
+        static NetworkStream networkStream = null;
+        static Socket socket = null;
+        static IAsyncResult socketConnection = null;
 
         public static void CheckResult(FMOD.RESULT result)
         {
@@ -342,7 +342,7 @@ namespace FMODUnity
             return style.CalcSize(content);
         }
 
-        private static void GetHelpButtonData(out GUIContent content, out GUIStyle style)
+        static void GetHelpButtonData(out GUIContent content, out GUIStyle style)
         {
             content = EditorGUIUtility.IconContent("_Help");
             style = GUI.skin.label;
@@ -351,7 +351,7 @@ namespace FMODUnity
 #if !FMOD_STORE_UPLOAD
         [InitializeOnLoadMethod]
 #endif
-        private static void Startup()
+        static void Startup()
         {
             EditorApplication.update += Update;
             AssemblyReloadEvents.beforeAssemblyReload += HandleBeforeAssemblyReload;
@@ -368,12 +368,12 @@ namespace FMODUnity
             }
         }
 
-        private static void HandleBeforeAssemblyReload()
+        static void HandleBeforeAssemblyReload()
         {
             DestroySystem();
         }
 
-        private static void HandleOnPausedModeChanged(PauseState state)
+        static void HandleOnPausedModeChanged(PauseState state)
         {
             if (RuntimeManager.IsInitialized && RuntimeManager.HaveMasterBanksLoaded)
             {
@@ -382,7 +382,7 @@ namespace FMODUnity
             }
         }
 
-        private static void HandleOnPlayModeChanged(PlayModeStateChange state)
+        static void HandleOnPlayModeChanged(PlayModeStateChange state)
         {
             // Entering Play Mode will cause scripts to reload, losing all state
             // This is the last chance to clean up FMOD and avoid a leak.
@@ -392,7 +392,7 @@ namespace FMODUnity
             }
         }
 
-        private static void Update()
+        static void Update()
         {
             // Update the editor system
             if (system.isValid())
@@ -426,7 +426,7 @@ namespace FMODUnity
             }
         }
 
-        private static void CallStartupMethodsWhenReady()
+        static void CallStartupMethodsWhenReady()
         {
             if (EditorApplication.isUpdating)
             {
@@ -505,14 +505,14 @@ namespace FMODUnity
             SetupWizardWindow.Startup();
         }
 
-        private static void RecreateSystem()
+        static void RecreateSystem()
         {
             StopAllPreviews();
             DestroySystem();
             CreateSystem();
         }
 
-        private static void DestroySystem()
+        static void DestroySystem()
         {
             if (system.isValid())
             {
@@ -523,7 +523,7 @@ namespace FMODUnity
             }
         }
 
-        private static void CreateSystem()
+        static void CreateSystem()
         {
             RuntimeUtils.DebugLog("FMOD Studio: Creating editor system instance");
             RuntimeUtils.EnforceLibraryOrder();
@@ -582,7 +582,7 @@ namespace FMODUnity
             serializedObject.Update();
         }
 
-        private static void UpdateParamsOnEmitter(UnityEngine.Object obj, EditorEventRef eventRef)
+        static void UpdateParamsOnEmitter(UnityEngine.Object obj, EditorEventRef eventRef)
         {
             var emitter = obj as StudioEventEmitter;
             if (emitter == null)
@@ -620,7 +620,7 @@ namespace FMODUnity
         }
 
         [MenuItem("FMOD/Help/Getting Started", priority = 2)]
-        private static void OnlineGettingStarted()
+        static void OnlineGettingStarted()
         {
             OpenOnlineDocumentation("unity", "user-guide");
         }
@@ -632,19 +632,19 @@ namespace FMODUnity
         }
 
         [MenuItem("FMOD/Help/API Manual", priority = 4)]
-        private static void OnlineAPIDocs()
+        static void OnlineAPIDocs()
         {
             OpenOnlineDocumentation("api");
         }
 
         [MenuItem("FMOD/Help/Support Forum", priority = 16)]
-        private static void OnlineQA()
+        static void OnlineQA()
         {
             Application.OpenURL("https://qa.fmod.com/");
         }
 
         [MenuItem("FMOD/Help/Revision History", priority = 5)]
-        private static void OnlineRevisions()
+        static void OnlineRevisions()
         {
             OpenOnlineDocumentation("api", "welcome-revision-history");
         }
@@ -691,7 +691,7 @@ namespace FMODUnity
             EditorUtility.DisplayDialog("FMOD Studio Unity Integration", text, "OK");
         }
 
-        private static List<FMOD.Studio.EventInstance> previewEventInstances = new List<FMOD.Studio.EventInstance>();
+        static List<FMOD.Studio.EventInstance> previewEventInstances = new List<FMOD.Studio.EventInstance>();
 
         public static bool PreviewBanksLoaded
         {
@@ -828,7 +828,7 @@ namespace FMODUnity
             return data;
         }
 
-        private static NetworkStream ScriptStream
+        static NetworkStream ScriptStream
         {
             get
             {
@@ -874,7 +874,7 @@ namespace FMODUnity
             }
         }
 
-        private static void AsyncConnectCallback(IAsyncResult result)
+        static void AsyncConnectCallback(IAsyncResult result)
         {
             try
             {
@@ -963,7 +963,7 @@ namespace FMODUnity
             }
         }
 
-        private static string GetMasterBank()
+        static string GetMasterBank()
         {
             GetScriptOutput(string.Format("masterBankFolder = studio.project.workspace.masterBankFolder;"));
             string bankCountString = GetScriptOutput(string.Format("masterBankFolder.items.length;"));
@@ -980,7 +980,7 @@ namespace FMODUnity
             return "";
         }
 
-        private static bool CheckForNameConflict(string folderGuid, string eventName)
+        static bool CheckForNameConflict(string folderGuid, string eventName)
         {
             const string checkForNameConflictFunc =
                 @"function(folderGuid, eventName) {
@@ -1059,7 +1059,7 @@ namespace FMODUnity
         // However, old FMOD packages didn't specify a GUID for the base folder, meaning Unity
         // would generate a new one. If this is the case, we need to patch the metadata with
         // the correct GUID.
-        private static void CheckBaseFolderGUID()
+        static void CheckBaseFolderGUID()
         {
             if (string.IsNullOrEmpty(AssetDatabase.GUIDToAssetPath(RuntimeUtils.BaseFolderGUID)))
             {
@@ -1096,7 +1096,7 @@ namespace FMODUnity
             }
         }
 
-        private static string ReplaceMetaFileGUID(string assetPath, string newGUID)
+        static string ReplaceMetaFileGUID(string assetPath, string newGUID)
         {
             try
             {
@@ -1147,7 +1147,7 @@ namespace FMODUnity
             }
         }
 
-        private static void CheckMacLibraries()
+        static void CheckMacLibraries()
         {
             Platform platformMac = EditorSettings.Instance.GetPlatform(BuildTarget.StandaloneOSX);
 
@@ -1199,7 +1199,7 @@ namespace FMODUnity
             }
         }
 
-        private static void RepairMacLibraries(IEnumerable<string> paths)
+        static void RepairMacLibraries(IEnumerable<string> paths)
         {
             foreach (string path in paths)
             {
@@ -1219,7 +1219,7 @@ namespace FMODUnity
             }
         }
 
-        private static void CleanObsoleteFiles()
+        static void CleanObsoleteFiles()
         {
             if (Environment.GetCommandLineArgs().Any(a => a == "-exportPackage"))
             {
@@ -1271,11 +1271,11 @@ namespace FMODUnity
 
     public class StagingSystem
     {
-        private static string PlatformsFolder => $"{RuntimeUtils.PluginBasePath}/platforms";
-        private static string StagingFolder => $"{RuntimeUtils.PluginBasePath}/staging";
-        private const string AnyCPU = "AnyCPU";
+        static string PlatformsFolder => $"{RuntimeUtils.PluginBasePath}/platforms";
+        static string StagingFolder => $"{RuntimeUtils.PluginBasePath}/staging";
+        const string AnyCPU = "AnyCPU";
 
-        private static readonly LibInfo[] LibrariesToUpdate = {
+        static readonly LibInfo[] LibrariesToUpdate = {
             new LibInfo() {cpu = "x86", os = "Windows",  lib = "fmodstudioL.dll", platform = "win", buildTarget = BuildTarget.StandaloneWindows},
             new LibInfo() {cpu = "x86_64", os = "Windows", lib = "fmodstudioL.dll", platform = "win", buildTarget = BuildTarget.StandaloneWindows64},
             new LibInfo() {cpu = "x86_64", os = "Linux", lib = "libfmodstudioL.so", platform = "linux", buildTarget = BuildTarget.StandaloneLinux64},
@@ -1302,7 +1302,7 @@ namespace FMODUnity
             }
         }
 
-        private struct LibInfo
+        struct LibInfo
         {
             public string cpu;
             public string os;
@@ -1311,7 +1311,7 @@ namespace FMODUnity
             public BuildTarget buildTarget;
         };
 
-        private static string GetTargetPath(LibInfo libInfo)
+        static string GetTargetPath(LibInfo libInfo)
         {
             foreach (Platform.FileLayout layout in Platform.OldFileLayouts)
             {
@@ -1326,7 +1326,7 @@ namespace FMODUnity
             return null;
         }
 
-        private static string GetTargetPath(LibInfo libInfo, Platform.FileLayout layout)
+        static string GetTargetPath(LibInfo libInfo, Platform.FileLayout layout)
         {
             switch (layout)
             {
@@ -1342,12 +1342,12 @@ namespace FMODUnity
             }
         }
 
-        private static string CPUAndLibPath(LibInfo libInfo)
+        static string CPUAndLibPath(LibInfo libInfo)
         {
             return (libInfo.cpu == AnyCPU) ? libInfo.lib : $"{libInfo.cpu}/{libInfo.lib}";
         }
 
-        private static string GetSourcePath(LibInfo libInfo)
+        static string GetSourcePath(LibInfo libInfo)
         {
             return $"{StagingFolder}/{libInfo.platform}/lib/{CPUAndLibPath(libInfo)}";
         }
@@ -1365,7 +1365,7 @@ namespace FMODUnity
                 Details = GetDetails();
             }
 
-            private Func<string> GetDetails;
+            Func<string> GetDetails;
 
             internal static UpdateStep Create(Settings.SharedLibraryUpdateStages stage, string name, string description,
                 Func<string> details, Action execute)
@@ -1532,7 +1532,7 @@ namespace FMODUnity
             ),
         };
 
-        private static PluginImporter GetPluginImporter(LibInfo libInfo)
+        static PluginImporter GetPluginImporter(LibInfo libInfo)
         {
             string targetPath = GetTargetPath(libInfo);
 
@@ -1546,12 +1546,12 @@ namespace FMODUnity
             }
         }
 
-        private static UpdateStep FindUpdateStep(Settings.SharedLibraryUpdateStages stage)
+        static UpdateStep FindUpdateStep(Settings.SharedLibraryUpdateStages stage)
         {
             return UpdateSteps.FirstOrDefault(s => s.Stage == stage);
         }
 
-        private static void ResetUpdateStage()
+        static void ResetUpdateStage()
         {
             if (Settings.Instance.SharedLibraryUpdateStage != Settings.SharedLibraryUpdateStages.Start ||
                 Settings.Instance.SharedLibraryTimeSinceStart != 0)
@@ -1614,7 +1614,7 @@ namespace FMODUnity
 
     public abstract class HelpContent : PopupWindowContent
     {
-        private GUIContent icon;
+        GUIContent icon;
 
         protected abstract void Prepare();
         protected abstract Vector2 GetContentSize();
@@ -1656,9 +1656,9 @@ namespace FMODUnity
 
     public class SimpleHelp : HelpContent
     {
-        private GUIContent text;
-        private GUIStyle style;
-        private float textWidth;
+        GUIContent text;
+        GUIStyle style;
+        float textWidth;
 
         public SimpleHelp(string text, float textWidth = 300)
         {
@@ -1693,9 +1693,9 @@ namespace FMODUnity
         public static Action OnBuildStarted;
         public static Action OnBuildEnded;
 
-        private static bool buildInProgress = false;
+        static bool buildInProgress = false;
 
-        private static void SetBuildInProgress(bool inProgress)
+        static void SetBuildInProgress(bool inProgress)
         {
             if (inProgress != buildInProgress)
             {
@@ -1722,12 +1722,12 @@ namespace FMODUnity
             }
         }
 
-        private static void PollBuildStatus()
+        static void PollBuildStatus()
         {
             SetBuildInProgress(BuildPipeline.isBuildingPlayer);
         }
 
-        private class BuildProcessor : IPreprocessBuildWithReport, IPostprocessBuildWithReport
+        class BuildProcessor : IPreprocessBuildWithReport, IPostprocessBuildWithReport
         {
             public int callbackOrder { get { return 0; } }
 
@@ -1819,7 +1819,7 @@ namespace FMODUnity
             }
         }
 
-        private static FMOD.GUID GetGuid(this SerializedProperty property)
+        static FMOD.GUID GetGuid(this SerializedProperty property)
         {
             return new FMOD.GUID() {
                 Data1 = property.FindPropertyRelative("Data1").intValue,
@@ -1860,7 +1860,7 @@ namespace FMODUnity
 
     public class NoIndentScope : IDisposable
     {
-        private int oldIndentLevel;
+        int oldIndentLevel;
 
         public NoIndentScope()
         {

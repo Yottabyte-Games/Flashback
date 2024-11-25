@@ -7,16 +7,18 @@ namespace YottabyteGames.FpsScripts.Camera_Controller
     {
         #region Variables
             [Space,Header("Data")]
-            [SerializeField] private PerlinNoiseData data = null;
+            [SerializeField]
+            PerlinNoiseData data = null;
 
             [Space,Header("Axis")]
-            [SerializeField] private bool x = true;
-            [SerializeField] private bool y = true;
-            [SerializeField] private bool z = true;
+            [SerializeField]
+            bool x = true;
+            [SerializeField] bool y = true;
+            [SerializeField] bool z = true;
 
             //private PerlinNoiseScroller m_perlinNoiseScroller;
-            [SerializeField] private Vector3 m_finalRot;
-            [SerializeField] private Vector3 m_finalPos;
+            [SerializeField] Vector3 m_finalRot;
+            [SerializeField] Vector3 m_finalPos;
         #endregion
 
         #region BuiltIn Methods

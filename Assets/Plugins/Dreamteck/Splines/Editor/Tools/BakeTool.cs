@@ -106,7 +106,7 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void BakeAll()
+        void BakeAll()
         {
             EditorUtility.ClearProgressBar();
             for (int i = 0; i < found.Length; i++)
@@ -118,7 +118,7 @@ namespace Dreamteck.Splines.Editor
             EditorUtility.ClearProgressBar();
         }
 
-        private void BakeSelected()
+        void BakeSelected()
         {
             EditorUtility.ClearProgressBar();
             for (int i = 0; i < selected.Count; i++)
@@ -130,7 +130,7 @@ namespace Dreamteck.Splines.Editor
             EditorUtility.ClearProgressBar();
         }
 
-        private void BakeExcluding()
+        void BakeExcluding()
         {
             EditorUtility.ClearProgressBar();
             for (int i = 0; i < found.Length; i++)
@@ -142,7 +142,7 @@ namespace Dreamteck.Splines.Editor
             EditorUtility.ClearProgressBar();
         }
 
-        private void Bake(MeshGenerator gen)
+        void Bake(MeshGenerator gen)
         {
             MeshFilter filter = gen.GetComponent<MeshFilter>();
             if(filter == null)
@@ -206,7 +206,7 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void Refresh()
+        void Refresh()
         {
             found = Object.FindObjectsOfType<MeshGenerator>();
         }
@@ -240,7 +240,7 @@ namespace Dreamteck.Splines.Editor
             return "BakeTool";
         }
 
-        private void MeshGenSelector(ref List<MeshGenerator> list, string title)
+        void MeshGenSelector(ref List<MeshGenerator> list, string title)
         {
             List<MeshGenerator> availalbe = new List<MeshGenerator>(found);
             for (int i = availalbe.Count-1; i >= 0; i--)

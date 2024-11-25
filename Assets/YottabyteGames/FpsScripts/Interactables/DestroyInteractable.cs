@@ -5,7 +5,7 @@ namespace YottabyteGames.FpsScripts.Interactables
 {
     public class DestroyInteractable : InteractableBase
     {
-        [SerializeField] private GameObject cat;
+        [SerializeField] GameObject cat;
 
         public override void OnInteract()
         {

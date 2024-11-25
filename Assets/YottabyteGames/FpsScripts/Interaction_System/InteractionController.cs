@@ -7,16 +7,19 @@ namespace YottabyteGames.FpsScripts.Interaction_System
     {
         #region Variables    
             [Space, Header("Data")]
-            [SerializeField] private InteractionInputData interactionInputData = null;
-            [SerializeField] private InteractionData interactionData = null;
+            [SerializeField]
+            InteractionInputData interactionInputData = null;
+            [SerializeField] InteractionData interactionData = null;
 
             [Space, Header("UI")]
-            [SerializeField] private InteractionUIPanel uiPanel;
+            [SerializeField]
+            InteractionUIPanel uiPanel;
 
             [Space, Header("Ray Settings")]
-            [SerializeField] private float rayDistance = 0f;
-            [SerializeField] private float raySphereRadius = 0f;
-            [SerializeField] private LayerMask interactableLayer = ~0;
+            [SerializeField]
+            float rayDistance = 0f;
+            [SerializeField] float raySphereRadius = 0f;
+            [SerializeField] LayerMask interactableLayer = ~0;
 
             bool _hitSomething;
 
@@ -24,10 +27,10 @@ namespace YottabyteGames.FpsScripts.Interaction_System
 
 
         #region Private
-                [SerializeField] private Camera m_cam;
+                [SerializeField] Camera m_cam;
 
-                private bool m_interacting;
-                private float m_holdTimer = 0f;
+                bool m_interacting;
+                float m_holdTimer = 0f;
 
         #endregion
 

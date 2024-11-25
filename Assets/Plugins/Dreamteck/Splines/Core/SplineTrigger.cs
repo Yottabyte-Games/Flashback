@@ -94,7 +94,7 @@ namespace Dreamteck.Splines
         [SerializeField]
         public Type type = Type.Double;
         public bool workOnce = false;
-        private bool worked = false;
+        bool worked = false;
         [Range(0f, 1f)]
         public double position = 0.5;
         [SerializeField]

@@ -22,10 +22,8 @@ namespace Dreamteck.Splines
 
             public bool invertTangents = false;
 
-            [SerializeField]
-            private int _pointIndex = 0;
-            [SerializeField]
-            private SplineComputer _computer = null;
+            [SerializeField] int _pointIndex = 0;
+            [SerializeField] SplineComputer _computer = null;
             [SerializeField]
             [HideInInspector]
             internal SplinePoint point;
@@ -95,19 +93,19 @@ namespace Dreamteck.Splines
         protected Connection[] connections = new Connection[0];
         [SerializeField]
         [HideInInspector]
-        private bool _transformSize = true;
+        bool _transformSize = true;
         [SerializeField]
         [HideInInspector]
-        private bool _transformNormals = true;
+        bool _transformNormals = true;
         [SerializeField]
         [HideInInspector]
-        private bool _transformTangents = true;
+        bool _transformTangents = true;
 
-        private Vector3 _lastPosition, _lastScale;
-        private Quaternion _lastRotation;
-        private Transform _trs;
+        Vector3 _lastPosition, _lastScale;
+        Quaternion _lastRotation;
+        Transform _trs;
 
-        private void Awake()
+        void Awake()
         {
             _trs = transform;
             SampleTransform();
@@ -154,7 +152,7 @@ namespace Dreamteck.Splines
 #endif
         }
 
-        private void Run()
+        void Run()
         {
             if (TransformChanged())
             {
@@ -375,7 +373,7 @@ namespace Dreamteck.Splines
             RemoveConnection(index);
         }
 
-        private void RemoveConnection(int index)
+        void RemoveConnection(int index)
         {
             Connection[] newConnections = new Connection[connections.Length - 1];
             SplineComputer spline = connections[index].spline;

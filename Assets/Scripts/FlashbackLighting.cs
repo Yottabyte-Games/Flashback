@@ -4,14 +4,14 @@ using UnityEngine;
 public class FlashbackLightning : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Light directionalLight;
+    [SerializeField] Light directionalLight;
 
     [Header("Settings")]
-    [SerializeField] private float disableTime = 10f;
+    [SerializeField] float disableTime = 10f;
 
-    private float elapsedTime = 0f;
+    float elapsedTime = 0f;
 
-    private void Start()
+    void Start()
     {
         if (directionalLight == null)
         {
@@ -19,7 +19,7 @@ public class FlashbackLightning : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         elapsedTime += Time.deltaTime;
 

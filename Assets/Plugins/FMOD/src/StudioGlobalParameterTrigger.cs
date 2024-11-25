@@ -16,7 +16,7 @@ namespace FMODUnity
         [FormerlySerializedAs("value")]
         public float Value;
 
-        private FMOD.Studio.PARAMETER_DESCRIPTION parameterDescription;
+        FMOD.Studio.PARAMETER_DESCRIPTION parameterDescription;
         public FMOD.Studio.PARAMETER_DESCRIPTION ParameterDescription { get { return parameterDescription; } }
 
         protected override void HandleGameEvent(EmitterGameEvent gameEvent)

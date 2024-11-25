@@ -25,13 +25,13 @@ public class GunSystem : MonoBehaviour
     //public float camShakeMagnitude, camShakeDuration;
     //public TextMeshProUGUI text;
 
-    private void Awake()
+    void Awake()
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
     }
 
-    private void Update()
+    void Update()
     {
         MyInput();
 
@@ -39,7 +39,7 @@ public class GunSystem : MonoBehaviour
         // text.SetText(bulletsLeft + " / " + magazineSize);
     }
 
-    private void MyInput()
+    void MyInput()
     {
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
@@ -54,7 +54,7 @@ public class GunSystem : MonoBehaviour
         }
     }
 
-    private void Shoot()
+    void Shoot()
     {
         readyToShoot = false;
 
@@ -87,18 +87,18 @@ public class GunSystem : MonoBehaviour
         Invoke("Shoot", timeBetweenShooting);
     }
 
-    private void ResetShot()
+    void ResetShot()
     {
         readyToShoot = true;
     }
 
-    private void Reload()
+    void Reload()
     {
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
 
-    private void ReloadFinished()
+    void ReloadFinished()
     {
         bulletsLeft = magazineSize;
         reloading = false;

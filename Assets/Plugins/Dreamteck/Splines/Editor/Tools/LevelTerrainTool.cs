@@ -64,15 +64,15 @@ namespace Dreamteck.Splines
         public float offset = 0f;
         public float clipFrom = 0f;
         public float clipTo = 1f;
-        private float[,] heights = null;
-        private Texture2D brushPreview = null;
-        private Texture2D basePreview = null;
-        private Texture2D drawPreview = null;
+        float[,] heights = null;
+        Texture2D brushPreview = null;
+        Texture2D basePreview = null;
+        Texture2D drawPreview = null;
 
-        private float maxDrawHeight = 0f;
+        float maxDrawHeight = 0f;
 
 
-        private bool init = false;
+        bool init = false;
 
         Terrain terrain = null;
 
@@ -483,7 +483,7 @@ namespace Dreamteck.Splines
             }
          }
 
-        private bool ContainsPoint(ref List<Point> list, Point point)
+        bool ContainsPoint(ref List<Point> list, Point point)
         {
             for(int i = 0; i < list.Count; i++)
             {
@@ -642,7 +642,7 @@ namespace Dreamteck.Splines
         }
 
 
-        private void Plot(int x, int y, float value, float alpha, ref float[,] alphaTarget, ref float[,] target)
+        void Plot(int x, int y, float value, float alpha, ref float[,] alphaTarget, ref float[,] target)
         {
             if (x < 0 || x >= target.GetLength(0)) return;
             if (y < 0 || y >= target.GetLength(1)) return;

@@ -14,7 +14,7 @@ namespace Dreamteck
             GetChildrenRecursivelyInternal(current);
         }
 
-        private static void GetChildrenRecursivelyInternal(Transform current)
+        static void GetChildrenRecursivelyInternal(Transform current)
         {
             childrenList.Add(current);
             int childCount = current.childCount;

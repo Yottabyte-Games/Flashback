@@ -7,11 +7,11 @@ namespace Dreamteck.Splines
     [CreateAssetMenu(menuName = "Dreamteck/Splines/Object Controller Rules/Spiral Rule")]
     public class ObjectControllerSpiralRule : ObjectControllerCustomRuleBase
     {
-        [SerializeField] private bool _useSplinePercent = false;
-        [SerializeField] private float _revolve = 360f;
-        [SerializeField] private Vector2 _startSize = Vector2.one;
-        [SerializeField] private Vector2 _endSize = Vector2.one;        
-        [SerializeField] [Range(0f, 1f)] private float _offset = 0f;
+        [SerializeField] bool _useSplinePercent = false;
+        [SerializeField] float _revolve = 360f;
+        [SerializeField] Vector2 _startSize = Vector2.one;
+        [SerializeField] Vector2 _endSize = Vector2.one;        
+        [SerializeField] [Range(0f, 1f)] float _offset = 0f;
 
         public bool useSplinePercent
         {
@@ -70,7 +70,7 @@ namespace Dreamteck.Splines
             return currentSample.rotation * Quaternion.AngleAxis(_revolve * -GetPercent(), Vector3.forward);
         }
 
-        private float GetPercent()
+        float GetPercent()
         {
             float percent = _useSplinePercent ? (float)currentSample.percent : currentObjectPercent + _offset;
             if (percent > 1)

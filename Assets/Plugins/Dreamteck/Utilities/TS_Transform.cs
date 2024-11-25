@@ -81,11 +81,11 @@ namespace Dreamteck
             }
         }
 
-        private bool setPosition = false;
-        private bool setRotation = false;
-        private bool setScale = false;
-        private bool setLocalPosition = false;
-        private bool setLocalRotation = false;
+        bool setPosition = false;
+        bool setRotation = false;
+        bool setScale = false;
+        bool setLocalPosition = false;
+        bool setLocalRotation = false;
 
         public Transform transform
         {
@@ -97,76 +97,76 @@ namespace Dreamteck
 
         [SerializeField]
         [HideInInspector]
-        private Transform _transform;
+        Transform _transform;
 
         [SerializeField]
         [HideInInspector]
-        private volatile float posX = 0f;
+        volatile float posX = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float posY = 0f;
+        volatile float posY = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float posZ = 0f;
+        volatile float posZ = 0f;
 
         [SerializeField]
         [HideInInspector]
-        private volatile float scaleX = 1f;
+        volatile float scaleX = 1f;
         [SerializeField]
         [HideInInspector]
-        private volatile float scaleY = 1f;
+        volatile float scaleY = 1f;
         [SerializeField]
         [HideInInspector]
-        private volatile float scaleZ = 1f;
+        volatile float scaleZ = 1f;
 
         [SerializeField]
         [HideInInspector]
-        private volatile float lossyScaleX = 1f;
+        volatile float lossyScaleX = 1f;
         [SerializeField]
         [HideInInspector]
-        private volatile float lossyScaleY = 1f;
+        volatile float lossyScaleY = 1f;
         [SerializeField]
         [HideInInspector]
-        private volatile float lossyScaleZ = 1f;
+        volatile float lossyScaleZ = 1f;
 
         [SerializeField]
         [HideInInspector]
-        private volatile float rotX = 0f;
+        volatile float rotX = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float rotY = 0f;
+        volatile float rotY = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float rotZ = 0f;
+        volatile float rotZ = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float rotW = 0f;
+        volatile float rotW = 0f;
 
 
         [SerializeField]
         [HideInInspector]
-        private volatile float lposX = 0f;
+        volatile float lposX = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float lposY = 0f;
+        volatile float lposY = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float lposZ = 0f;
+        volatile float lposZ = 0f;
 
         [SerializeField]
         [HideInInspector]
-        private volatile float lrotX = 0f;
+        volatile float lrotX = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float lrotY = 0f;
+        volatile float lrotY = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float lrotZ = 0f;
+        volatile float lrotZ = 0f;
         [SerializeField]
         [HideInInspector]
-        private volatile float lrotW = 0f;
+        volatile float lrotW = 0f;
 #if UNITY_EDITOR
-        private volatile bool isPlaying = false;
+        volatile bool isPlaying = false;
 #endif
 
         public TS_Transform(Transform input)

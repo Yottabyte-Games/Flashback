@@ -8,7 +8,7 @@ namespace Dreamteck.Splines.Editor
     public class RotationModifierEditor : SplineSampleModifierEditor
     {
         public bool allowSelection = true;
-        private float addTime = 0f;
+        float addTime = 0f;
 
         public RotationModifierEditor(SplineUser user, SplineUserEditor parent) : base(user, parent, "_rotationModifier")
         {

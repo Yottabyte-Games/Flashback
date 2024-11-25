@@ -8,8 +8,8 @@ namespace FIMSpace.FEditor
     public class FQuickResizeWindow : EditorWindow
     {
         public Vector2 NewDimensions;
-        private List<Texture2D> textures;
-        private bool dimSetted = false;
+        List<Texture2D> textures;
+        bool dimSetted = false;
 
         public static void Init()
         {

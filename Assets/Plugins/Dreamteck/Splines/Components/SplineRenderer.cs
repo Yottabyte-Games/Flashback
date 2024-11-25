@@ -31,12 +31,12 @@ namespace Dreamteck.Splines
         public int updateFrameInterval = 0;
         [SerializeField]
         [HideInInspector]
-        private int _slices = 1;
+        int _slices = 1;
 
-        private int _currentFrame = 0;
-        private Vector3 _vertexDirection = Vector3.up;
-        private bool _orthographic = false;
-        private bool _init = false;
+        int _currentFrame = 0;
+        Vector3 _vertexDirection = Vector3.up;
+        bool _orthographic = false;
+        bool _init = false;
 
         void Start()
         {

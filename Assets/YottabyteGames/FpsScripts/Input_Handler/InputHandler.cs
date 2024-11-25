@@ -9,7 +9,8 @@ namespace YottabyteGames.FpsScripts.Input_Handler
         [Space, Header("Input Data")]
             //[SerializeField] private CameraInputData cameraInputData = null;
             //[SerializeField] private MovementInputData movementInputData = null;
-            [SerializeField] private InteractionInputData interactionInputData;
+            [SerializeField]
+            InteractionInputData interactionInputData;
         #endregion
 
         #region BuiltIn Methods

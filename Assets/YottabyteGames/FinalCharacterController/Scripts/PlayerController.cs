@@ -12,8 +12,8 @@ namespace YottabyteGames.PlayerController
     {
         #region Class Variables
         [Header("Components")]
-        [SerializeField] private CharacterController _characterController;
-        [SerializeField] private Camera _playerCamera;
+        [SerializeField] CharacterController _characterController;
+        [SerializeField] Camera _playerCamera;
 
         [Header("Base Movement")]
         public float runAcceleration = 0.25f;
@@ -30,17 +30,17 @@ namespace YottabyteGames.PlayerController
         public float lookSenseV = 0.1f;
         public float lookLimitV = 89f;
 
-        private PlayerLocomotionInput _playerLocomotionInput;
-        private PlayerState _playerState;
+        PlayerLocomotionInput _playerLocomotionInput;
+        PlayerState _playerState;
 
-        private Vector2 _cameraRotation = Vector2.zero;
-        private Vector2 _playerTargetRotation = Vector2.zero;
+        Vector2 _cameraRotation = Vector2.zero;
+        Vector2 _playerTargetRotation = Vector2.zero;
 
-        private float _verticalVelocity = 0f;
+        float _verticalVelocity = 0f;
         #endregion
 
         #region Startup
-        private void Awake()
+        void Awake()
         {
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
@@ -48,14 +48,14 @@ namespace YottabyteGames.PlayerController
         #endregion
 
         #region Update Logic
-        private void Update()
+        void Update()
         {
             UpdateMovementState();
             HandleVerticalMovement();
             HandleLateralMovement();
         }
 
-        private void UpdateMovementState()
+        void UpdateMovementState()
         {
             bool isMovementInput = _playerLocomotionInput.MovementInput != Vector2.zero;    // order
             bool isMovingLaterally = IsMovingLaterally();                                   // matter
@@ -78,7 +78,7 @@ namespace YottabyteGames.PlayerController
             }
         }
 
-        private void HandleVerticalMovement()
+        void HandleVerticalMovement()
         {
             bool isGrounded = _playerState.InGroundState();
 
@@ -93,7 +93,7 @@ namespace YottabyteGames.PlayerController
             }
         }
 
-        private void HandleLateralMovement()
+        void HandleLateralMovement()
         {
             // Create quick references for current state
             bool isSprinting = _playerState.CurrentPlayerMovementState == PlayerMovementState.Sprinting;
@@ -122,7 +122,7 @@ namespace YottabyteGames.PlayerController
         #endregion
 
         #region Late Update Logic
-        private void LateUpdate()
+        void LateUpdate()
         {
             _cameraRotation.x += lookSenseH * _playerLocomotionInput.LookInput.x;
             _cameraRotation.y = Mathf.Clamp(_cameraRotation.y - lookSenseV * _playerLocomotionInput.LookInput.y, -lookLimitV, lookLimitV);
@@ -135,14 +135,14 @@ namespace YottabyteGames.PlayerController
         #endregion
 
         #region State Checks
-        private bool IsMovingLaterally()
+        bool IsMovingLaterally()
         {
             Vector3 lateralVelocity = new Vector3(_characterController.velocity.x, 0f, _characterController.velocity.y);
 
             return lateralVelocity.magnitude > movingThreshold;
         }
 
-        private bool IsGrounded()
+        bool IsGrounded()
         {
             return _characterController.isGrounded;
         }

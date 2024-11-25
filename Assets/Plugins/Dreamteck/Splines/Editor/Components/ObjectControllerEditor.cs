@@ -241,7 +241,7 @@ namespace Dreamteck.Splines.Editor
             
         }
 
-        private void CustomRuleUI(ObjectControllerCustomRuleBase customRule)
+        void CustomRuleUI(ObjectControllerCustomRuleBase customRule)
         {
             SerializedObject serializedRule = new SerializedObject(customRule);
             SerializedProperty property = serializedRule.GetIterator();

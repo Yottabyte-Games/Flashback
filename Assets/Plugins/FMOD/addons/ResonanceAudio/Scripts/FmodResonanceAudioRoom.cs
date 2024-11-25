@@ -95,22 +95,22 @@ namespace FMODUnityResonance
         [FormerlySerializedAs("size")]
         public Vector3 Size = Vector3.one;
 
-        private void OnEnable()
+        void OnEnable()
         {
             FmodResonanceAudio.UpdateAudioRoom(this, FmodResonanceAudio.IsListenerInsideRoom(this));
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             FmodResonanceAudio.UpdateAudioRoom(this, false);
         }
 
-        private void Update()
+        void Update()
         {
             FmodResonanceAudio.UpdateAudioRoom(this, FmodResonanceAudio.IsListenerInsideRoom(this));
         }
 
-        private void OnDrawGizmosSelected()
+        void OnDrawGizmosSelected()
         {
             // Draw shoebox model wireframe of the room.
             Gizmos.color = Color.yellow;

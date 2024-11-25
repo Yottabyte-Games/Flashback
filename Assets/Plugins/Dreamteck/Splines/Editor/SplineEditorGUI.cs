@@ -9,7 +9,7 @@ namespace Dreamteck.Splines.Editor
     {
         public static readonly GUIStyle leftButtonStyle, midButtonStyle, rightButtonStyle, boxStyle;
 
-        private static Color previousContentColor, previousBackgroundColor, highLightBGColor, highlightContentColor;
+        static Color previousContentColor, previousBackgroundColor, highLightBGColor, highlightContentColor;
 
 
         public static readonly GUIStyle defaultButton = null;
@@ -27,7 +27,7 @@ namespace Dreamteck.Splines.Editor
                 return _whiteBox;
             }
         }
-        private static readonly GUIStyle _whiteBox = null;
+        static readonly GUIStyle _whiteBox = null;
         public static GUIStyle defaultField
         {
             get
@@ -36,7 +36,7 @@ namespace Dreamteck.Splines.Editor
                 return _defaultField;
             }
         }
-        private static GUIStyle _defaultField = null;
+        static GUIStyle _defaultField = null;
         public static GUIStyle smallField
         {
             get
@@ -45,15 +45,15 @@ namespace Dreamteck.Splines.Editor
                 return _smallField;
             }
         }
-        private static GUIStyle _smallField = null;
+        static GUIStyle _smallField = null;
         public static readonly Color inactiveColor = new Color(0.7f, 0.7f, 0.7f, 0.3f);
         public static readonly Color textColor = new Color(0.2f, 0.2f, 0.2f, 1f);
         public static readonly Color activeColor = new Color(1f, 1f, 1f, 1f);
         public static readonly Color blackColor = new Color(0, 0, 0, 0.7f);
         public static readonly Color buttonContentColor = Color.black;
-        private static bool[] controlStates = new bool[0];
-        private static string[] floatFieldContents = new string[0];
-        private static int controlIndex = 0;
+        static bool[] controlStates = new bool[0];
+        static string[] floatFieldContents = new string[0];
+        static int controlIndex = 0;
 
         public static float scale = 1f;
         public static Texture2D white
@@ -69,7 +69,7 @@ namespace Dreamteck.Splines.Editor
                 return _white;
             }
         }
-        private static Texture2D _white = null;
+        static Texture2D _white = null;
 
         public static void Update()
         {
@@ -236,7 +236,7 @@ namespace Dreamteck.Splines.Editor
             return Foldout(foldout, new GUIContent(content), toggleOnLabelClick);
         }
 
-        private static void Rescale()
+        static void Rescale()
         {
             defaultField.padding = new RectOffset(Mathf.RoundToInt(5 * scale), Mathf.RoundToInt(5 * scale), Mathf.RoundToInt(5 * scale), Mathf.RoundToInt(5 * scale));
             smallField.padding = new RectOffset(Mathf.RoundToInt(2 * scale), Mathf.RoundToInt(2 * scale), Mathf.RoundToInt(2 * scale), Mathf.RoundToInt(2 * scale));
@@ -288,7 +288,7 @@ namespace Dreamteck.Splines.Editor
             GUI.backgroundColor = prevBackgroundColor;
             return clicked && active;
         }
-        private static string CleanStringForFloat(string input)
+        static string CleanStringForFloat(string input)
         {
             if (Regex.Match(input, @"^-?[0-9]*(?:\.[0-9]*)?$").Success)
                 return input;
@@ -298,7 +298,7 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-       private static void HandleControlsCount() {
+        static void HandleControlsCount() {
             if (controlIndex >= controlStates.Length)
             {
                 bool[] newStates = new bool[controlStates.Length + 1];

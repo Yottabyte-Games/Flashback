@@ -54,7 +54,7 @@ namespace Dreamteck.Splines.Editor
             return "Spline Editor Window";
         }
 
-        private void Title(string inputTitle)
+        void Title(string inputTitle)
         {
             titleContent = new GUIContent(inputTitle);
         }

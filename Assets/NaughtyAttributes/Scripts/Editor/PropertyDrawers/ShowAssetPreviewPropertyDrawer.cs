@@ -65,7 +65,7 @@ namespace NaughtyAttributes.Editor
             EditorGUI.EndProperty();
         }
 
-        private Texture2D GetAssetPreview(SerializedProperty property)
+        Texture2D GetAssetPreview(SerializedProperty property)
         {
             if (property.propertyType == SerializedPropertyType.ObjectReference)
             {
@@ -81,7 +81,7 @@ namespace NaughtyAttributes.Editor
             return null;
         }
 
-        private Vector2 GetAssetPreviewSize(SerializedProperty property)
+        Vector2 GetAssetPreviewSize(SerializedProperty property)
         {
             Texture2D previewTexture = GetAssetPreview(property);
             if (previewTexture == null)

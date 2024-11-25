@@ -4,9 +4,9 @@
 
     public class BoxColliderGenerator : SplineUser, ISerializationCallbackReceiver
     {
-        [SerializeField] private Vector2 _boxSize = Vector2.one;
-        [SerializeField] private bool _debugDraw = false;
-        [SerializeField] private Color _debugDrawColor = Color.white;
+        [SerializeField] Vector2 _boxSize = Vector2.one;
+        [SerializeField] bool _debugDraw = false;
+        [SerializeField] Color _debugDrawColor = Color.white;
 
 
         [SerializeField]
@@ -27,7 +27,7 @@
             }
         }
 
-        private void DestroyCollider(ColliderObject collider)
+        void DestroyCollider(ColliderObject collider)
         {
 #if UNITY_EDITOR
             if (Application.isPlaying)
@@ -107,7 +107,7 @@
             Build();
         }
 
-        private void OnDrawGizmos()
+        void OnDrawGizmos()
         {
             if (_debugDraw)
             {

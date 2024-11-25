@@ -5,7 +5,7 @@
 
     public static class SplineComputerEditorHandles
     {
-        private static SplineSample evalResult = new SplineSample();
+        static SplineSample evalResult = new SplineSample();
         public enum SplineSliderGizmo { ForwardTriangle, BackwardTriangle, DualArrow, Rectangle, Circle }
 
         public static bool Slider(SplineComputer spline, ref double percent, Color color, string text = "", SplineSliderGizmo gizmo = SplineSliderGizmo.Rectangle, float buttonSize = 1f)

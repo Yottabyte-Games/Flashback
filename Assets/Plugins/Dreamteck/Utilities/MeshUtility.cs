@@ -7,8 +7,8 @@ namespace Dreamteck
 {
     public class MeshUtility
     {
-        private static Vector3[] tan1 = new Vector3[0];
-        private static Vector3[] tan2 = new Vector3[0];
+        static Vector3[] tan1 = new Vector3[0];
+        static Vector3[] tan2 = new Vector3[0];
 
         public static int[] GeneratePlaneTriangles(int x, int z, bool flip, int startTriangleIndex = 0, int startVertex = 0)
         {
@@ -602,7 +602,7 @@ namespace Dreamteck
             }
         }
 
-        private static float Area(Vector2[] points, int maxCount)
+        static float Area(Vector2[] points, int maxCount)
         {
             float A = 0.0f;
             for (int p = maxCount - 1, q = 0; q < maxCount; p = q++)
@@ -614,7 +614,7 @@ namespace Dreamteck
             return (A * 0.5f);
         }
 
-        private static bool Snip(Vector2[] points, int u, int v, int w, int n, int[] V)
+        static bool Snip(Vector2[] points, int u, int v, int w, int n, int[] V)
         {
             int p;
             Vector2 A = points[V[u]];
@@ -633,7 +633,7 @@ namespace Dreamteck
             return true;
         }
 
-        private static bool InsideTriangle(Vector2 A, Vector2 B, Vector2 C, Vector2 P)
+        static bool InsideTriangle(Vector2 A, Vector2 B, Vector2 C, Vector2 P)
         {
             float ax, ay, bx, by, cx, cy, apx, apy, bpx, bpy, cpx, cpy;
             float cCROSSap, bCROSScp, aCROSSbp;

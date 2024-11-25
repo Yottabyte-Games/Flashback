@@ -15,12 +15,12 @@ namespace Sirenix.OdinValidator.Editor
 
     internal static class EnsureCorrectOdinVersion
     {
-        private const string validatorVersion = "3.3.1.10";
+        const string validatorVersion = "3.3.1.10";
 
-        private static bool IsHeadlessOrBatchMode { get { return SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null || UnityEditorInternal.InternalEditorUtility.inBatchMode; } }
+        static bool IsHeadlessOrBatchMode { get { return SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null || UnityEditorInternal.InternalEditorUtility.inBatchMode; } }
 
         [InitializeOnLoadMethod]
-        private static void Init()
+        static void Init()
         {
 #if SIRENIX_INTERNAL
             return;
@@ -86,7 +86,7 @@ namespace Sirenix.OdinValidator.Editor
             }
         }
 
-        private static void TryInstall()
+        static void TryInstall()
         {
             if (TryGetOdinInstallPath(out var path))
             {
@@ -148,7 +148,7 @@ namespace Sirenix.OdinValidator.Editor
             }
         }
 
-        private static bool TryGetOdinInstallPath(out string path)
+        static bool TryGetOdinInstallPath(out string path)
         {
             var t = Type.GetType("Sirenix.Utilities.SirenixAssetPaths, Sirenix.Utilities");
 
@@ -169,7 +169,7 @@ namespace Sirenix.OdinValidator.Editor
             return true;
         }
 
-        private static bool TryGetOdinInspectorVersion(out string version)
+        static bool TryGetOdinInspectorVersion(out string version)
         {
             var t = Type.GetType("Sirenix.OdinInspector.Editor.OdinInspectorVersion, Sirenix.OdinInspector.Editor");
 

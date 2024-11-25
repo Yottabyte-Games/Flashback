@@ -7,13 +7,13 @@ namespace Dreamteck.Splines
     [CreateAssetMenu(menuName = "Dreamteck/Splines/Object Controller Rules/Sine Rule")]
     public class ObjectControllerSineRule : ObjectControllerCustomRuleBase
     {
-        [SerializeField] private bool _useSplinePercent = false;
-        [SerializeField] private float _frequency = 1f;
-        [SerializeField] private float _amplitude = 1f;
-        [SerializeField] private float _angle = 0f;
-        [SerializeField] private float _minScale = 1f;
-        [SerializeField] private float _maxScale = 1f;
-        [SerializeField] [Range(0f, 1f)] private float _offset = 0f;
+        [SerializeField] bool _useSplinePercent = false;
+        [SerializeField] float _frequency = 1f;
+        [SerializeField] float _amplitude = 1f;
+        [SerializeField] float _angle = 0f;
+        [SerializeField] float _minScale = 1f;
+        [SerializeField] float _maxScale = 1f;
+        [SerializeField] [Range(0f, 1f)] float _offset = 0f;
 
         public bool useSplinePercent
         {
@@ -81,7 +81,7 @@ namespace Dreamteck.Splines
             return Vector3.Lerp(Vector3.one * _minScale, Vector3.one * _maxScale, GetSine());
         }
 
-        private float GetSine()
+        float GetSine()
         {
             float objectPercent = _useSplinePercent ? (float)currentSample.percent : currentObjectPercent;
             return Mathf.Sin((Mathf.PI * _offset) + objectPercent * Mathf.PI * _frequency);

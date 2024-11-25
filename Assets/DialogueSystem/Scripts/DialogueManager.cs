@@ -23,7 +23,7 @@ namespace DialogueSystem.Scripts
         EventInstance _dialogueInstance;
         SceneReference _sceneToLoad;
 
-        private float cd;
+        float cd;
         void OnValidate()
         {
             if(gameHudController == null)
@@ -124,7 +124,7 @@ namespace DialogueSystem.Scripts
             _dialogueInstance.start();
         }
 
-        private void StopDialog()
+        void StopDialog()
         {
             _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }

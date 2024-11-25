@@ -8,7 +8,7 @@ namespace Dreamteck.Splines.Editor
     public class DSCreatePointModule : CreatePointModule
     {
         DreamteckSplinesEditor dsEditor;
-        private bool createNode = false;
+        bool createNode = false;
 
         public DSCreatePointModule(SplineEditor editor) : base(editor)
         {

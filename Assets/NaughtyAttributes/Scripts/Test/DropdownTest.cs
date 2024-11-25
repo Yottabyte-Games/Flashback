@@ -9,7 +9,7 @@ namespace NaughtyAttributes.Test
         public int intValue;
 
 #pragma warning disable 414
-        private int[] intValues = new int[] { 1, 2, 3 };
+        int[] intValues = new int[] { 1, 2, 3 };
 #pragma warning restore 414
 
         public DropdownNest1 nest1;
@@ -21,7 +21,7 @@ namespace NaughtyAttributes.Test
         [Dropdown("StringValues")]
         public string stringValue;
 
-        private List<string> StringValues { get { return new List<string>() { "A", "B", "C" }; } }
+        List<string> StringValues { get { return new List<string>() { "A", "B", "C" }; } }
 
         public DropdownNest2 nest2;
     }
@@ -32,7 +32,7 @@ namespace NaughtyAttributes.Test
         [Dropdown("GetVectorValues")]
         public Vector3 vectorValue;
 
-        private DropdownList<Vector3> GetVectorValues()
+        DropdownList<Vector3> GetVectorValues()
         {
             return new DropdownList<Vector3>()
             {

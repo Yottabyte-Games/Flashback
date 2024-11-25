@@ -10,28 +10,28 @@ namespace Dreamteck.Splines.Editor
         public bool drawComputer = true;
         public bool drawPivot = true;
         public bool drawConnectedComputers = true;
-        private DreamteckSplinesEditor _pathEditor;
-        private int _operation = -1, _module = -1, _transformTool = 1;
-        private ComputerEditorModule[] _modules = new ComputerEditorModule[0];
-        private Dreamteck.Editor.Toolbar _utilityToolbar;
-        private Dreamteck.Editor.Toolbar _operationsToolbar;
-        private Dreamteck.Editor.Toolbar _transformToolbar;
-        private SplineComputer _spline = null;
-        private SplineComputer[] _splines = new SplineComputer[0];
-        private bool _pathToolsFoldout = false, _interpolationFoldout = false;
+        DreamteckSplinesEditor _pathEditor;
+        int _operation = -1, _module = -1, _transformTool = 1;
+        ComputerEditorModule[] _modules = new ComputerEditorModule[0];
+        Dreamteck.Editor.Toolbar _utilityToolbar;
+        Dreamteck.Editor.Toolbar _operationsToolbar;
+        Dreamteck.Editor.Toolbar _transformToolbar;
+        SplineComputer _spline = null;
+        SplineComputer[] _splines = new SplineComputer[0];
+        bool _pathToolsFoldout = false, _interpolationFoldout = false;
 
-        private SerializedProperty _splineProperty;
-        private SerializedProperty _sampleRate;
-        private SerializedProperty _type;
-        private SerializedProperty _knotParametrization;
-        private SerializedProperty _linearAverageDirection;
-        private SerializedProperty _space;
-        private SerializedProperty _sampleMode;
-        private SerializedProperty _optimizeAngleThreshold;
-        private SerializedProperty _updateMode;
-        private SerializedProperty _multithreaded;
-        private SerializedProperty _customNormalInterpolation;
-        private SerializedProperty _customValueInterpolation;
+        SerializedProperty _splineProperty;
+        SerializedProperty _sampleRate;
+        SerializedProperty _type;
+        SerializedProperty _knotParametrization;
+        SerializedProperty _linearAverageDirection;
+        SerializedProperty _space;
+        SerializedProperty _sampleMode;
+        SerializedProperty _optimizeAngleThreshold;
+        SerializedProperty _updateMode;
+        SerializedProperty _multithreaded;
+        SerializedProperty _customNormalInterpolation;
+        SerializedProperty _customValueInterpolation;
 
 
         public ComputerEditor(SplineComputer[] splines, SerializedObject serializedObject, DreamteckSplinesEditor pathEditor) : base(serializedObject)
@@ -316,7 +316,7 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void EditTransformToolbar()
+        void EditTransformToolbar()
         {
             if(_splines.Length > 1)
             {
@@ -409,7 +409,7 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void FlattenPoint(ref SerializedSplinePoint point, LinearAlgebraUtility.Axis axis, float flatValue = 0f)
+        void FlattenPoint(ref SerializedSplinePoint point, LinearAlgebraUtility.Axis axis, float flatValue = 0f)
         {
             point.position = LinearAlgebraUtility.FlattenVector(point.position, axis, flatValue);
             point.tangent = LinearAlgebraUtility.FlattenVector(point.tangent, axis, flatValue);

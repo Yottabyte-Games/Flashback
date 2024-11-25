@@ -18,7 +18,7 @@ namespace _Scripts.Fishing
 
         bool finishReel;
 
-        private void Awake()
+        void Awake()
         {
             input = GetComponent<FishingRodInput>();
             rod = GetComponent<FishingRod>();

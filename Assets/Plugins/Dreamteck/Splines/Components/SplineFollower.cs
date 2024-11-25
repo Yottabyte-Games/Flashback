@@ -20,12 +20,12 @@ namespace Dreamteck.Splines
         [SerializeField]
         [HideInInspector]
         [UnityEngine.Serialization.FormerlySerializedAs("follow")]
-        private bool _follow = true;
+        bool _follow = true;
 
         [SerializeField]
         [HideInInspector]
         [Range(0f, 1f)]
-        private double _startPosition;
+        double _startPosition;
 
         /// <summary>
         /// If the follow mode is set to Uniform and there is an added offset in the motion panel, this will presserve the uniformity of the follow speed
@@ -126,23 +126,23 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private float _followSpeed = 1f;
+        float _followSpeed = 1f;
         [SerializeField]
         [HideInInspector]
-        private float _followDuration = 1f;
+        float _followDuration = 1f;
 
         [SerializeField]
         [HideInInspector]
-        private FollowerSpeedModifier _speedModifier = new FollowerSpeedModifier();
+        FollowerSpeedModifier _speedModifier = new FollowerSpeedModifier();
 
         [SerializeField]
         [HideInInspector]
-        private FloatEvent _unityOnEndReached = null;
+        FloatEvent _unityOnEndReached = null;
         [SerializeField]
         [HideInInspector]
-        private FloatEvent _unityOnBeginningReached = null;
+        FloatEvent _unityOnBeginningReached = null;
 
-        private double lastClippedPercent = -1.0;
+        double lastClippedPercent = -1.0;
 
         protected override void Start()
         {
@@ -175,7 +175,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void Follow()
+        void Follow()
         {
             switch (followMode)
             {

@@ -128,28 +128,26 @@ namespace Dreamteck.Splines
 
         [SerializeField]
         [HideInInspector]
-        private UVWrapMode _uvWrapMode = UVWrapMode.Clamp;
-        [SerializeField, HideInInspector, Min(1)]
-        private int _subdivisions = 3;
-        [SerializeField, HideInInspector]
-        private SubdivisionMode _subdivisionMode;
+        UVWrapMode _uvWrapMode = UVWrapMode.Clamp;
+        [SerializeField, HideInInspector, Min(1)] int _subdivisions = 3;
+        [SerializeField, HideInInspector] SubdivisionMode _subdivisionMode;
         [SerializeField]
         [HideInInspector]
-        private bool _automaticNormals = true;
+        bool _automaticNormals = true;
         [SerializeField]
         [HideInInspector]
-        private bool _separateMaterialIDs = false;
+        bool _separateMaterialIDs = false;
         [SerializeField]
         [HideInInspector]
-        private SplineComputer[] _otherComputers = new SplineComputer[0];
+        SplineComputer[] _otherComputers = new SplineComputer[0];
         [SerializeField]
         [HideInInspector]
-        private Spline[] _splines = new Spline[0];
+        Spline[] _splines = new Spline[0];
         [SerializeField]
         [HideInInspector]
-        private bool _initializedInEditor = false;
+        bool _initializedInEditor = false;
 
-        private int iterations => _subdivisions * _otherComputers.Length;
+        int iterations => _subdivisions * _otherComputers.Length;
 
         protected override void Awake()
         {
@@ -173,7 +171,7 @@ namespace Dreamteck.Splines
             base.Reset();
         }
 
-        private Spline.Type ModeToSplineType(SubdivisionMode mode)
+        Spline.Type ModeToSplineType(SubdivisionMode mode)
         {
             switch (mode)
             {

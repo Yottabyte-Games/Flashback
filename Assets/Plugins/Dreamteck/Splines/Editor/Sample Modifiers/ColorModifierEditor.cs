@@ -8,7 +8,7 @@ namespace Dreamteck.Splines.Editor
 
     public class ColorModifierEditor : SplineSampleModifierEditor
     {
-        private float addTime = 0f;
+        float addTime = 0f;
 
         public ColorModifierEditor(SplineUser user, SplineUserEditor editor) : base(user, editor, "_colorModifier")
         {

@@ -18,109 +18,109 @@ namespace Dreamteck.Splines
             public enum Type { Extrude, Place }
             public enum UVOverride { None, ClampU, ClampV, UniformU, UniformV }
 
-            private System.Random iterationRandom;
+            System.Random iterationRandom;
             [SerializeField]
             [HideInInspector]
-            private int _iterationSeed = 0;
+            int _iterationSeed = 0;
             [SerializeField]
             [HideInInspector]
-            private int _offsetSeed = 0;
-            private System.Random _offsetRandom;
-            private Vector2Handler _offsetHandler = null;
+            int _offsetSeed = 0;
+            System.Random _offsetRandom;
+            Vector2Handler _offsetHandler = null;
             [SerializeField]
             [HideInInspector]
-            private int _rotationSeed = 0;
-            private System.Random _rotationRandom;
-            private QuaternionHandler _placeRotationHandler = null;
-            private FloatHandler _extrudeRotationHandler = null;
+            int _rotationSeed = 0;
+            System.Random _rotationRandom;
+            QuaternionHandler _placeRotationHandler = null;
+            FloatHandler _extrudeRotationHandler = null;
             [SerializeField]
             [HideInInspector]
-            private int _scaleSeed = 0;
-            private System.Random _scaleRandom;
-            private Vector3Handler _scaleHandler = null;
+            int _scaleSeed = 0;
+            System.Random _scaleRandom;
+            Vector3Handler _scaleHandler = null;
 
             [SerializeField]
             internal SplineMesh owner = null;
 
             [SerializeField]
             [HideInInspector]
-            private List<MeshDefinition> meshes = new List<MeshDefinition>();
+            List<MeshDefinition> meshes = new List<MeshDefinition>();
 
 
             [SerializeField]
             [HideInInspector]
-            private double _clipFrom = 0.0;
+            double _clipFrom = 0.0;
             [SerializeField]
             [HideInInspector]
-            private double _clipTo = 1.0;
+            double _clipTo = 1.0;
             [SerializeField]
             [HideInInspector]
-            private bool _randomOrder = false;
+            bool _randomOrder = false;
             [SerializeField]
             [HideInInspector]
-            private UVOverride _overrideUVs = UVOverride.None;
+            UVOverride _overrideUVs = UVOverride.None;
             [SerializeField]
             [HideInInspector]
-            private Vector2 _uvScale = Vector2.one;
+            Vector2 _uvScale = Vector2.one;
             [SerializeField]
             [HideInInspector]
-            private Vector2 _uvOffset = Vector2.zero;
+            Vector2 _uvOffset = Vector2.zero;
             [SerializeField]
             [HideInInspector]
-            private bool _overrideNormal = false;
+            bool _overrideNormal = false;
             [SerializeField]
             [HideInInspector]
-            private Vector3 _customNormal = Vector3.up;
+            Vector3 _customNormal = Vector3.up;
             [SerializeField]
             [HideInInspector]
-            private Type _type = Type.Extrude;
+            Type _type = Type.Extrude;
 
             [SerializeField]
             [HideInInspector]
-            private int _count = 1;
+            int _count = 1;
             [SerializeField]
             [HideInInspector]
-            private bool _autoCount = false;
+            bool _autoCount = false;
             [SerializeField]
             [HideInInspector]
-            private double _spacing = 0.0;
+            double _spacing = 0.0;
             [SerializeField]
             [HideInInspector]
-            private bool _randomRotation = false;
+            bool _randomRotation = false;
             [SerializeField]
             [HideInInspector]
-            private Vector3 _minRotation = Vector3.zero;
+            Vector3 _minRotation = Vector3.zero;
             [SerializeField]
             [HideInInspector]
-            private Vector3 _maxRotation = Vector3.zero;
+            Vector3 _maxRotation = Vector3.zero;
             [SerializeField]
             [HideInInspector]
-            private bool _randomOffset = false;
+            bool _randomOffset = false;
             [SerializeField]
             [HideInInspector]
-            private Vector2 _minOffset = Vector2.one;
+            Vector2 _minOffset = Vector2.one;
             [SerializeField]
             [HideInInspector]
-            private Vector2 _maxOffset = Vector2.one;
+            Vector2 _maxOffset = Vector2.one;
             [SerializeField]
             [HideInInspector]
-            private bool _randomScale = false;
+            bool _randomScale = false;
             [SerializeField]
             [HideInInspector]
-            private bool _uniformRandomScale = false;
+            bool _uniformRandomScale = false;
             [SerializeField]
             [HideInInspector]
-            private Vector3 _minScale = Vector3.one;
+            Vector3 _minScale = Vector3.one;
             [SerializeField]
             [HideInInspector]
-            private Vector3 _maxScale = Vector3.one;
-            private int iterator = 0;
+            Vector3 _maxScale = Vector3.one;
+            int iterator = 0;
             [SerializeField]
             [HideInInspector]
-            private bool _overrideMaterialID = false;
+            bool _overrideMaterialID = false;
             [SerializeField]
             [HideInInspector]
-            private int _targetMaterialID = 0;
+            int _targetMaterialID = 0;
 
             [SerializeField]
             [HideInInspector]
@@ -807,44 +807,44 @@ namespace Dreamteck.Splines
                 public List<VertexGroup> vertexGroups = new List<VertexGroup>();
                 [SerializeField]
                 [HideInInspector]
-                private Mesh _mesh = null;
+                Mesh _mesh = null;
                 [SerializeField]
                 [HideInInspector]
-                private Vector3 _rotation = Vector3.zero;
+                Vector3 _rotation = Vector3.zero;
                 [SerializeField]
                 [HideInInspector]
-                private Vector3 _offset = Vector3.zero;
+                Vector3 _offset = Vector3.zero;
                 [SerializeField]
                 [HideInInspector]
-                private Vector3 _scale = Vector3.one;
+                Vector3 _scale = Vector3.one;
                 [SerializeField]
                 [HideInInspector]
-                private Vector2 _uvScale = Vector2.one;
+                Vector2 _uvScale = Vector2.one;
                 [SerializeField]
                 [HideInInspector]
-                private Vector2 _uvOffset = Vector2.zero;
+                Vector2 _uvOffset = Vector2.zero;
                 [SerializeField]
                 [HideInInspector]
-                private float _uvRotation = 0f;
+                float _uvRotation = 0f;
                 [SerializeField]
                 [HideInInspector]
-                private MirrorMethod _mirror = MirrorMethod.None;
+                MirrorMethod _mirror = MirrorMethod.None;
                 [SerializeField]
                 [HideInInspector]
                 public BoundsSpacing _spacing = new BoundsSpacing();
 
                 [SerializeField]
                 [HideInInspector]
-                private float _vertexGroupingMargin = 0f;
+                float _vertexGroupingMargin = 0f;
                 [SerializeField]
                 [HideInInspector]
-                private bool _removeInnerFaces = false;
+                bool _removeInnerFaces = false;
                 [SerializeField]
                 [HideInInspector]
-                private bool _flipFaces = false;
+                bool _flipFaces = false;
                 [SerializeField]
                 [HideInInspector]
-                private bool _doubleSided = false;
+                bool _doubleSided = false;
 
                 public Mesh mesh
                 {
@@ -1293,7 +1293,7 @@ namespace Dreamteck.Splines
                     bounds.CreateFromMinMax(min, max);
                 }
 
-                private void Mirror()
+                void Mirror()
                 {
                     if (_mirror == MirrorMethod.None) return;
                     switch (_mirror)

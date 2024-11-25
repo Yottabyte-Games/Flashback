@@ -7,15 +7,15 @@ namespace Dreamteck.Splines.Editor
     [CustomEditor(typeof(Node), true)]
     [CanEditMultipleObjects]
     public class NodeEditor : Editor {
-        private SplineComputer addComp = null;
-        private int addPoint = 0;
-        private Node lastnode = null;
-        private int[] availablePoints;
+        SplineComputer addComp = null;
+        int addPoint = 0;
+        Node lastnode = null;
+        int[] availablePoints;
         bool connectionsOpen = false, settingsOpen = false;
 
-        private SerializedProperty transformNormals, transformSize, transformTangents, type;
-        private Node[] nodes = new Node[0];
-        private SerializedObject serializedNodes;
+        SerializedProperty transformNormals, transformSize, transformTangents, type;
+        Node[] nodes = new Node[0];
+        SerializedObject serializedNodes;
 
 
         public override void OnInspectorGUI()
@@ -84,7 +84,7 @@ namespace Dreamteck.Splines.Editor
             SplineEditorGUI.EndContainerBox();
         }
 
-        private void SettingsGUI()
+        void SettingsGUI()
         {
             Node node = (Node)target;
             serializedNodes = new SerializedObject(nodes);
@@ -130,7 +130,7 @@ namespace Dreamteck.Splines.Editor
             EditorGUILayout.EndHorizontal();
         }
 
-        private void AlignTangents(Node node, int axis)
+        void AlignTangents(Node node, int axis)
         {
             Vector3 axisVector = Vector3.forward;
             switch (axis)
@@ -210,7 +210,7 @@ namespace Dreamteck.Splines.Editor
 #endif
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             EditorPrefs.SetBool("Dreamteck.Splines.Editor.NodeEditor.connectionsOpen", connectionsOpen);
             EditorPrefs.SetBool("Dreamteck.Splines.Editor.NodeEditor.settingsOpen", settingsOpen);

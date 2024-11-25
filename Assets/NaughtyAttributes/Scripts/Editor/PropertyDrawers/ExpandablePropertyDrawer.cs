@@ -128,7 +128,7 @@ namespace NaughtyAttributes.Editor
             EditorGUI.EndProperty();
         }
 
-        private void DrawChildProperties(Rect rect, SerializedProperty property)
+        void DrawChildProperties(Rect rect, SerializedProperty property)
         {
             ScriptableObject scriptableObject = property.objectReferenceValue as ScriptableObject;
             if (scriptableObject == null)

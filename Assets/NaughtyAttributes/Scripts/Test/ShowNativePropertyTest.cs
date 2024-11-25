@@ -5,7 +5,7 @@ namespace NaughtyAttributes.Test
     public class ShowNativePropertyTest : MonoBehaviour
     {
         [ShowNativeProperty]
-        private Transform Transform
+        Transform Transform
         {
             get
             {
@@ -14,7 +14,7 @@ namespace NaughtyAttributes.Test
         }
 
         [ShowNativeProperty]
-        private Transform ParentTransform
+        Transform ParentTransform
         {
             get
             {
@@ -23,7 +23,7 @@ namespace NaughtyAttributes.Test
         }
 
         [ShowNativeProperty]
-        private ushort MyUShort
+        ushort MyUShort
         {
             get
             {
@@ -32,7 +32,7 @@ namespace NaughtyAttributes.Test
         }
 
         [ShowNativeProperty]
-        private short MyShort
+        short MyShort
         {
             get
             {
@@ -41,7 +41,7 @@ namespace NaughtyAttributes.Test
         }
 
         [ShowNativeProperty]
-        private ulong MyULong
+        ulong MyULong
         {
             get
             {
@@ -50,7 +50,7 @@ namespace NaughtyAttributes.Test
         }
 
         [ShowNativeProperty]
-        private long MyLong
+        long MyLong
         {
             get
             {
@@ -59,7 +59,7 @@ namespace NaughtyAttributes.Test
         }
 
         [ShowNativeProperty]
-        private uint MyUInt
+        uint MyUInt
         {
             get
             {
@@ -68,7 +68,7 @@ namespace NaughtyAttributes.Test
         }
 
         [ShowNativeProperty]
-        private int MyInt
+        int MyInt
         {
             get
             {

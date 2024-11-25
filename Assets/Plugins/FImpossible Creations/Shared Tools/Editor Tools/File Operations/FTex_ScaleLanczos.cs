@@ -76,7 +76,7 @@ namespace FIMSpace.FTex
         /// <summary>
         /// Convolving pixels with provided kernels
         /// </summary>
-        private static Color32 FastConvolve(Color32[] textureBytes, int sourceWidth, int sourceHeight, int x, int y, LanczosKernel xKernel, LanczosKernel yKernel, ref float[] cbr, ref float[] cbg, ref float[] cbb, ref float[] cba, bool alpha = true)
+        static Color32 FastConvolve(Color32[] textureBytes, int sourceWidth, int sourceHeight, int x, int y, LanczosKernel xKernel, LanczosKernel yKernel, ref float[] cbr, ref float[] cbg, ref float[] cbb, ref float[] cba, bool alpha = true)
         {
             int midY = yKernel.Size / 2;
             int midX = xKernel.Size / 2;
@@ -184,7 +184,7 @@ namespace FIMSpace.FTex
         /// <summary>
         /// FM: Helper Lanczos Kernel class to help resampling pixels
         /// </summary>
-        private class LanczosKernel
+        class LanczosKernel
         {
             public int Size;
             public float[] SampleWeights;
@@ -199,7 +199,7 @@ namespace FIMSpace.FTex
         }
 
 
-        private static LanczosKernel GetKernel(LanczosKernel[] kernels, double scale, double mid, ref int samples, ref float[] cbr, ref float[] cbg, ref float[] cbb, ref float[] cba)
+        static LanczosKernel GetKernel(LanczosKernel[] kernels, double scale, double mid, ref int samples, ref float[] cbr, ref float[] cbg, ref float[] cbb, ref float[] cba)
         {
             int kernelIndex = (int)(mid * 100);
             LanczosKernel kernel = kernels[kernelIndex];
@@ -221,7 +221,7 @@ namespace FIMSpace.FTex
         /// <summary>
         /// Computing lanczos kernel for given scale and mid value
         /// </summary>
-        private static LanczosKernel ComputeKernel(double scale, double mid, ref int samples)
+        static LanczosKernel ComputeKernel(double scale, double mid, ref int samples)
         {
             // How many pixels for one new pixel
             int sampling = (int)(1 + 1.0 / scale);
@@ -259,7 +259,7 @@ namespace FIMSpace.FTex
         /// <summary>
         /// Calculating contribution factor for pixel with Lanczos formula
         /// </summary>
-        private static double GetContribution(double sampling, double s)
+        static double GetContribution(double sampling, double s)
         {
             if (s == 0) return 1.0;
             if (s >= sampling) return 0.0;
@@ -270,7 +270,7 @@ namespace FIMSpace.FTex
         /// <summary>
         /// Filling array with zeros
         /// </summary>
-        private static void CleanArray(float[] array)
+        static void CleanArray(float[] array)
         {
             for (int i = 0; i < array.Length; i++) array[i] = 0f;
         }

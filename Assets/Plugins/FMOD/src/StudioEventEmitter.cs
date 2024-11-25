@@ -42,14 +42,14 @@ namespace FMODUnity
 
         protected FMOD.Studio.EventInstance instance;
 
-        private bool hasTriggered = false;
-        private bool isQuitting = false;
-        private bool isOneshot = false;
-        private List<ParamRef> cachedParams = new List<ParamRef>();
+        bool hasTriggered = false;
+        bool isQuitting = false;
+        bool isOneshot = false;
+        List<ParamRef> cachedParams = new List<ParamRef>();
 
-        private static List<StudioEventEmitter> activeEmitters = new List<StudioEventEmitter>();
+        static List<StudioEventEmitter> activeEmitters = new List<StudioEventEmitter>();
 
-        private const string SnapshotString = "snapshot";
+        const string SnapshotString = "snapshot";
 
         public FMOD.Studio.EventDescription EventDescription { get { return eventDescription; } }
 
@@ -57,7 +57,7 @@ namespace FMODUnity
 
         public bool IsActive { get; private set; }
 
-        private float MaxDistance
+        float MaxDistance
         {
             get
             {
@@ -85,7 +85,7 @@ namespace FMODUnity
             }
         }
 
-        private static void RegisterActiveEmitter(StudioEventEmitter emitter)
+        static void RegisterActiveEmitter(StudioEventEmitter emitter)
         {
             if (!activeEmitters.Contains(emitter))
             {
@@ -93,12 +93,12 @@ namespace FMODUnity
             }
         }
 
-        private static void DeregisterActiveEmitter(StudioEventEmitter emitter)
+        static void DeregisterActiveEmitter(StudioEventEmitter emitter)
         {
             activeEmitters.Remove(emitter);
         }
 
-        private void UpdatePlayingStatus(bool force = false)
+        void UpdatePlayingStatus(bool force = false)
         {
             // If at least one listener is within the max distance, ensure an event instance is playing
             bool playInstance = StudioListener.DistanceSquaredToNearestListener(transform.position) <= (MaxDistance * MaxDistance);
@@ -144,7 +144,7 @@ namespace FMODUnity
 #endif
         }
 
-        private void OnApplicationQuit()
+        void OnApplicationQuit()
         {
             isQuitting = true;
         }
@@ -186,7 +186,7 @@ namespace FMODUnity
             }
         }
 
-        private void Lookup()
+        void Lookup()
         {
             eventDescription = RuntimeManager.GetEventDescription(EventReference);
 
@@ -244,7 +244,7 @@ namespace FMODUnity
             }
         }
 
-        private void PlayInstance()
+        void PlayInstance()
         {
             if (!instance.isValid())
             {
@@ -323,7 +323,7 @@ namespace FMODUnity
             StopInstance();
         }
 
-        private void StopInstance()
+        void StopInstance()
         {
             if (TriggerOnce && hasTriggered)
             {

@@ -9,7 +9,7 @@ namespace Dreamteck.Splines.Editor
     public class OffsetModifierEditor : SplineSampleModifierEditor
     {
         public bool allowSelection = true;
-        private float addTime = 0f;
+        float addTime = 0f;
         Matrix4x4 matrix = new Matrix4x4();
 
         public OffsetModifierEditor(SplineUser user, SplineUserEditor editor) : base(user, editor, "_offsetModifier")

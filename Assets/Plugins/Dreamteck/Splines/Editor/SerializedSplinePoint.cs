@@ -100,14 +100,14 @@ namespace Dreamteck.Splines.Editor
         }
 
 
-        private SerializedProperty _point;
-        private SerializedProperty _position;
-        private SerializedProperty _tangent;
-        private SerializedProperty _tangent2;
-        private SerializedProperty _normal;
-        private SerializedProperty _size;
-        private SerializedProperty _color;
-        private SerializedProperty _type;
+        SerializedProperty _point;
+        SerializedProperty _position;
+        SerializedProperty _tangent;
+        SerializedProperty _tangent2;
+        SerializedProperty _normal;
+        SerializedProperty _size;
+        SerializedProperty _color;
+        SerializedProperty _type;
 
 
         public SerializedSplinePoint(SerializedProperty input)
@@ -135,7 +135,7 @@ namespace Dreamteck.Splines.Editor
             type = point.type;
         }
 
-        private void CheckForChange(SplinePoint point)
+        void CheckForChange(SplinePoint point)
         {
             if (position != point.position)
             {
@@ -232,22 +232,22 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void SmoothMirrorTangent2()
+        void SmoothMirrorTangent2()
         {
             tangent2 = position + (position - tangent);
         }
 
-        private void SmoothMirrorTangent()
+        void SmoothMirrorTangent()
         {
             tangent = position + (position - tangent2);
         }
 
-        private void SmoothFreeTangent2()
+        void SmoothFreeTangent2()
         {
             tangent2 = position + (position - tangent).normalized * (tangent2 - position).magnitude;
         }
 
-        private void SmoothFreeTangent()
+        void SmoothFreeTangent()
         {
             tangent = position + (position - tangent2).normalized * (tangent - position).magnitude;
         }

@@ -72,8 +72,8 @@ namespace Dreamteck.Splines.Editor
         public event EmptyHandler onSelectionChanged;
         public event IntArrayHandler onDuplicatePoint;
 
-        private bool movePivot = false;
-        private Vector3 idealPivot = Vector3.zero;
+        bool movePivot = false;
+        Vector3 idealPivot = Vector3.zero;
 
         
 

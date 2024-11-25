@@ -27,7 +27,7 @@ namespace Dreamteck.Splines
             if(promptSave) ClosingDialog();
         }
 
-        private void ClosingDialog()
+        void ClosingDialog()
         {
             if (EditorUtility.DisplayDialog("Unsaved Changes", ClosingDialogText(), "Yes", "No")) Save();
             else Cancel();

@@ -11,7 +11,7 @@ namespace Dreamteck.Splines.Editor
     public static class PluginInfo
     {
         public static string version = "3.0.6";
-        private static bool open = false;
+        static bool open = false;
 
         static PluginInfo()
         {
@@ -56,7 +56,7 @@ namespace Dreamteck.Splines.Editor
             EditorApplication.update += OpenWindowOnUpdate;
         }
 
-        private static void OpenWindowOnUpdate()
+        static void OpenWindowOnUpdate()
         {
             EditorApplication.update -= OpenWindowOnUpdate;
             EditorWindow.GetWindow<WelcomeScreen>(true);
@@ -75,9 +75,9 @@ namespace Dreamteck.Splines.Editor
     public class WelcomeScreen : WelcomeWindow
     {
         protected override Vector2 _windowSize => new Vector2(450, 620);
-        private ModuleInstaller _tmproInstaller;
-        private ModuleInstaller _playmakerInstaller;
-        private ModuleInstaller _examplesInstaller;
+        ModuleInstaller _tmproInstaller;
+        ModuleInstaller _playmakerInstaller;
+        ModuleInstaller _examplesInstaller;
 
         [MenuItem("Window/Dreamteck/Splines/Start Screen")]
         public static void OpenWindow()
@@ -193,43 +193,43 @@ namespace Dreamteck.Splines.Editor
             panels[0].elements.Add(new WindowPanel.Label("This window will not appear again automatically. To open it manually go to Window/Dreamteck/Splines/Start Screen", wrapText, new Color(1f, 1f, 1f, 0.5f), 400, 50));
         }
 
-        private void InstallExamples()
+        void InstallExamples()
         {
             _examplesInstaller.Install();
             panels[5].Back();
         }
 
-        private void UnInstallExamples()
+        void UnInstallExamples()
         {
             _examplesInstaller.Uninstall();
             panels[5].Back();
         }
 
-        private void InstallTMPro()
+        void InstallTMPro()
         {
             _tmproInstaller.Install();
             panels[6].Back();
         }
 
-        private void UninstallTMPro()
+        void UninstallTMPro()
         {
             _tmproInstaller.Uninstall();
             panels[6].Back();
         }
 
-        private void InstallPlaymaker()
+        void InstallPlaymaker()
         {
             _playmakerInstaller.Install();
             panels[5].Back();
         }
 
-        private void UninstallPlaymaker()
+        void UninstallPlaymaker()
         {
             _playmakerInstaller.Uninstall();
             panels[5].Back();
         }
 
-        private static void AddAssemblyReference(string dreamteckAssemblyName, string addedAssemblyName)
+        static void AddAssemblyReference(string dreamteckAssemblyName, string addedAssemblyName)
         {
             string localDir = ResourceUtility.FindFolder(Application.dataPath, "Dreamteck/Splines");
             var path = Path.Combine(Application.dataPath, localDir, dreamteckAssemblyName + ".asmdef");

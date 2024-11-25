@@ -7,11 +7,11 @@ namespace Dreamteck.Splines.Editor
 
     public class SplineTriggersEditor : SplineEditorBase
     {
-        private int selected = -1, selectedGroup = -1;
-        private bool renameTrigger = false, renameGroup = false;
+        int selected = -1, selectedGroup = -1;
+        bool renameTrigger = false, renameGroup = false;
         SplineComputer spline;
         SplineTrigger.Type addTriggerType = SplineTrigger.Type.Double;
-        private int setDistanceGroup, setDistanceTrigger;
+        int setDistanceGroup, setDistanceTrigger;
 
         public SplineTriggersEditor(SplineComputer spline, SerializedObject serializedObject) : base(serializedObject)
         {

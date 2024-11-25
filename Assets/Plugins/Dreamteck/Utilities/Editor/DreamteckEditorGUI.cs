@@ -19,7 +19,7 @@ namespace Dreamteck
                 return _blankImage;
             }
         }
-        private static Texture2D _blankImage = null;
+        static Texture2D _blankImage = null;
 
         public static readonly Color backgroundColor = new Color(0.95f, 0.95f, 0.95f);
         public static Color iconColor = Color.black;
@@ -37,10 +37,10 @@ namespace Dreamteck
         public static readonly Color darkColor = Color.white;
         public static readonly Color borderColor = Color.white;
 
-        private static List<int> layerNumbers = new List<int>();
+        static List<int> layerNumbers = new List<int>();
 
         public static readonly GUIStyle labelText = null;
-        private static float scale = -1f;
+        static float scale = -1f;
 
         static DreamteckEditorGUI()
         {

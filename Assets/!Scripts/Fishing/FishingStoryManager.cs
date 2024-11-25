@@ -20,13 +20,13 @@ namespace _Scripts.Fishing
 
         [SerializeField] TMP_Text fishLeftText;
 
-        private void Start()
+        void Start()
         {
             fishLeftText.text = fishCaught + "/" + amountOfFishNeeded;
             fishDisplayer.FishAdded += CanProgressStory;
         }
 
-        private void CanProgressStory()
+        void CanProgressStory()
         {
             fishLeftText.text = fishCaught + "/" + amountOfFishNeeded;
 
@@ -35,7 +35,7 @@ namespace _Scripts.Fishing
             ProgressStory();
         }
 
-        private void ProgressStory()
+        void ProgressStory()
         {
             SceneManager.LoadScene(storyScene);
         }

@@ -51,9 +51,9 @@ namespace Dreamteck.Splines
                 internal Queue<EmptyHandler> instructions = new Queue<EmptyHandler>();
             }
             internal delegate void BoolHandler(bool flag);
-            private ParameterizedThreadStart start = null;
+            ParameterizedThreadStart start = null;
             internal Thread thread = null;
-            private Worker worker = new Worker();
+            Worker worker = new Worker();
             internal bool isAlive
             {
                 get { return thread != null && thread.IsAlive; }

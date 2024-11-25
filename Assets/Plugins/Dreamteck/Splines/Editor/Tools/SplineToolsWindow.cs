@@ -7,10 +7,10 @@ namespace Dreamteck.Splines.Editor
 
     public class SplineToolsWindow : EditorWindow
     {
-        private static SplineTool[] tools;
-        private int toolIndex = -1;
-        private Vector2 scroll = Vector2.zero;
-        private const float menuWidth = 150f;
+        static SplineTool[] tools;
+        int toolIndex = -1;
+        Vector2 scroll = Vector2.zero;
+        const float menuWidth = 150f;
         [MenuItem("Window/Dreamteck/Splines/Tools")]
         static void Init()
         {
@@ -18,7 +18,7 @@ namespace Dreamteck.Splines.Editor
             window.Show();
         }
 
-        private void Awake()
+        void Awake()
         {
             titleContent = new GUIContent("Spline Tools");
             name = "Spline tools";

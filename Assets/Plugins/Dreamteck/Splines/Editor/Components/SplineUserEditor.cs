@@ -13,7 +13,7 @@ namespace Dreamteck.Splines.Editor
         protected bool showAveraging = true;
         protected bool showUpdateMethod = true;
         protected bool showMultithreading = true;
-        private bool settingsFoldout = false;
+        bool settingsFoldout = false;
         protected RotationModifierEditor rotationModifierEditor;
         protected OffsetModifierEditor offsetModifierEditor;
         protected ColorModifierEditor colorModifierEditor;
@@ -39,7 +39,7 @@ namespace Dreamteck.Splines.Editor
                 _editIndex = value;
             }
         }
-        private int _editIndex = -1; //0 is reserved for editing clip values
+        int _editIndex = -1; //0 is reserved for editing clip values
 
         protected GUIContent editButtonContent = new GUIContent("Edit", "Enable edit mode in scene view");
 
@@ -77,7 +77,7 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void InspectorClipEdit()
+        void InspectorClipEdit()
         {
             bool isClosed = true;
             bool loopSamples = true;
@@ -292,13 +292,13 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private void ApplyAndRebuild()
+        void ApplyAndRebuild()
         {
             serializedObject.ApplyModifiedProperties();
             DoRebuild();
         }
 
-        private void DoRebuild()
+        void DoRebuild()
         {
             for (int i = 0; i < users.Length; i++)
             {

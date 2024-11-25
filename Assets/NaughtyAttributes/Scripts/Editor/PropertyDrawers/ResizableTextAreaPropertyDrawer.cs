@@ -64,14 +64,14 @@ namespace NaughtyAttributes.Editor
             EditorGUI.EndProperty();
         }
 
-        private int GetNumberOfLines(string text)
+        int GetNumberOfLines(string text)
         {
             string content = Regex.Replace(text, @"\r\n|\n\r|\r|\n", Environment.NewLine);
             string[] lines = content.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
             return lines.Length;
         }
 
-        private float GetTextAreaHeight(string text)
+        float GetTextAreaHeight(string text)
         {
             float height = (EditorGUIUtility.singleLineHeight - 3.0f) * GetNumberOfLines(text) + 3.0f;
             return height;

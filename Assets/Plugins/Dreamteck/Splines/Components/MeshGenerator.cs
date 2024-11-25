@@ -233,59 +233,59 @@ namespace Dreamteck.Splines
         public enum NormalMethod { Recalculate, SplineNormals }
         [SerializeField]
         [HideInInspector]
-        private bool _baked = false;
+        bool _baked = false;
         [SerializeField]
         [HideInInspector]
-        private bool _markDynamic = true;
+        bool _markDynamic = true;
         [SerializeField]
         [HideInInspector]
-        private float _size = 1f;
+        float _size = 1f;
         [SerializeField]
         [HideInInspector]
-        private Color _color = Color.white;
+        Color _color = Color.white;
         [SerializeField]
         [HideInInspector]
-        private Vector3 _offset = Vector3.zero;
+        Vector3 _offset = Vector3.zero;
         [SerializeField]
         [HideInInspector]
-        private NormalMethod _normalMethod = NormalMethod.SplineNormals;
+        NormalMethod _normalMethod = NormalMethod.SplineNormals;
         [SerializeField]
         [HideInInspector]
-        private bool _calculateTangents = true;
+        bool _calculateTangents = true;
         [SerializeField]
         [HideInInspector]
-        private bool _useSplineSize = true;
+        bool _useSplineSize = true;
         [SerializeField]
         [HideInInspector]
-        private bool _useSplineColor = true;
+        bool _useSplineColor = true;
         [SerializeField]
         [HideInInspector]
         [Range(-360f, 360f)]
-        private float _rotation = 0f;
+        float _rotation = 0f;
         [SerializeField]
         [HideInInspector]
-        private bool _flipFaces = false;
+        bool _flipFaces = false;
         [SerializeField]
         [HideInInspector]
-        private bool _doubleSided = false;
+        bool _doubleSided = false;
         [SerializeField]
         [HideInInspector]
-        private UVMode _uvMode = UVMode.Clip;
+        UVMode _uvMode = UVMode.Clip;
         [SerializeField]
         [HideInInspector]
-        private Vector2 _uvScale = Vector2.one;
+        Vector2 _uvScale = Vector2.one;
         [SerializeField]
         [HideInInspector]
-        private Vector2 _uvOffset = Vector2.zero;
+        Vector2 _uvOffset = Vector2.zero;
         [SerializeField]
         [HideInInspector]
-        private float _uvRotation = 0f;
+        float _uvRotation = 0f;
         [SerializeField]
         [HideInInspector]
-        private UnityEngine.Rendering.IndexFormat _meshIndexFormat = UnityEngine.Rendering.IndexFormat.UInt16;
+        UnityEngine.Rendering.IndexFormat _meshIndexFormat = UnityEngine.Rendering.IndexFormat.UInt16;
         [SerializeField]
         [HideInInspector]
-        private Mesh _bakedMesh;
+        Mesh _bakedMesh;
 
         [HideInInspector]
         public float colliderUpdateRate = 0.2f;
@@ -372,7 +372,7 @@ namespace Dreamteck.Splines
 #endif
         }
 
-        private void GetComponents()
+        void GetComponents()
         {
             filter = GetComponent<MeshFilter>();
             meshRenderer = GetComponent<MeshRenderer>();
@@ -616,7 +616,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void RefreshMesh()
+        void RefreshMesh()
         {
             if (!Application.isPlaying)
             {

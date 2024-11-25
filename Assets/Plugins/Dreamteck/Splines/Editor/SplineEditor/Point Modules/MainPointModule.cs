@@ -7,18 +7,18 @@ namespace Dreamteck.Splines.Editor
     {
         public bool excludeSelected = false;
         public int minimumRectSize = 5;
-        private Vector2 _rectStart = Vector2.zero;
-        private Vector2 _rectEnd = Vector2.zero;
-        private Rect _dragRect;
-        private bool _drag = false;
-        private bool _finalizeDrag = false;
-        private bool _pointsMoved = false;
-        private bool _tangentMode = false;
-        private Color _bgColor = Color.black;
+        Vector2 _rectStart = Vector2.zero;
+        Vector2 _rectEnd = Vector2.zero;
+        Rect _dragRect;
+        bool _drag = false;
+        bool _finalizeDrag = false;
+        bool _pointsMoved = false;
+        bool _tangentMode = false;
+        Color _bgColor = Color.black;
 
         public static bool isSelecting => __isDragging;
-        private static bool __holdInteraction = false;
-        private static bool __isDragging = false;
+        static bool __holdInteraction = false;
+        static bool __isDragging = false;
 
 
         public bool isDragging

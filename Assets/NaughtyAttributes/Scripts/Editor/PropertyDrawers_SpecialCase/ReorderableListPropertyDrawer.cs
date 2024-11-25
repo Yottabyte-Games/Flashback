@@ -9,11 +9,11 @@ namespace NaughtyAttributes.Editor
     {
         public static readonly ReorderableListPropertyDrawer Instance = new ReorderableListPropertyDrawer();
 
-        private readonly Dictionary<string, ReorderableList> _reorderableListsByPropertyName = new Dictionary<string, ReorderableList>();
+        readonly Dictionary<string, ReorderableList> _reorderableListsByPropertyName = new Dictionary<string, ReorderableList>();
 
-        private GUIStyle _labelStyle;
+        GUIStyle _labelStyle;
 
-        private GUIStyle GetLabelStyle()
+        GUIStyle GetLabelStyle()
         {
             if (_labelStyle == null)
             {
@@ -24,7 +24,7 @@ namespace NaughtyAttributes.Editor
             return _labelStyle;
         }
 
-        private string GetPropertyKeyName(SerializedProperty property)
+        string GetPropertyKeyName(SerializedProperty property)
         {
             return property.serializedObject.targetObject.GetInstanceID() + "." + property.name;
         }
@@ -106,7 +106,7 @@ namespace NaughtyAttributes.Editor
             _reorderableListsByPropertyName.Clear();
         }
 
-        private Object GetAssignableObject(Object obj, ReorderableList list)
+        Object GetAssignableObject(Object obj, ReorderableList list)
         {
             System.Type listType = PropertyUtility.GetPropertyType(list.serializedProperty);
             System.Type elementType = ReflectionUtility.GetListElementType(listType);
@@ -147,7 +147,7 @@ namespace NaughtyAttributes.Editor
             return null;
         }
 
-        private void HandleDragAndDrop(Rect rect, ReorderableList list)
+        void HandleDragAndDrop(Rect rect, ReorderableList list)
         {
             var currentEvent = Event.current;
             var usedEvent = false;

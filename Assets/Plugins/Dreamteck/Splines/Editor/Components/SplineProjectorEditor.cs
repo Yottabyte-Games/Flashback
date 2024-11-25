@@ -8,7 +8,7 @@ namespace Dreamteck.Splines.Editor
     [CanEditMultipleObjects]
     public class SplineProjectorEditor : SplineTracerEditor
     {
-        private bool info = false;
+        bool info = false;
 
         public override void OnInspectorGUI()
         {

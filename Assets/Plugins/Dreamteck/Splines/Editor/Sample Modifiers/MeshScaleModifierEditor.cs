@@ -9,7 +9,7 @@ namespace Dreamteck.Splines.Editor
     public class MeshScaleModifierEditor : SplineSampleModifierEditor
     {
         public bool allowSelection = true;
-        private float addTime = 0f;
+        float addTime = 0f;
 
         public MeshScaleModifierEditor(MeshGenerator user, SplineUserEditor editor, int channelIndex) : base(user, editor, "_channels/["+channelIndex+"]/_scaleModifier")
         {

@@ -7,9 +7,9 @@ public class MoveAndRotateObject : MonoBehaviour
 {
     [SerializeField] float speed = 180;
     [SerializeField] Vector3 scale = Vector3.one;
-    private float angle_ = 0f;
-    private Vector3 axis_;
-    private Vector3 center_;
+    float angle_ = 0f;
+    Vector3 axis_;
+    Vector3 center_;
 
     void Start()
     {

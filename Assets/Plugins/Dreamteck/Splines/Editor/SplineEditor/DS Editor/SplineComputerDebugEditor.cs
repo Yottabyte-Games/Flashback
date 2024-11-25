@@ -15,15 +15,15 @@ namespace Dreamteck.Splines.Editor
             }
         }
 
-        private SerializedProperty _editorDrawPivot;
-        private SerializedProperty _editorPathColor;
-        private SerializedProperty _editorAlwaysDraw;
-        private SerializedProperty _editorDrawThickness;
-        private SerializedProperty _editorBillboardThickness;
-        private SerializedProperty _editorUpdateMode;
-        private SplineComputer _spline;
-        private DreamteckSplinesEditor _pathEditor;
-        private float _length = 0f;
+        SerializedProperty _editorDrawPivot;
+        SerializedProperty _editorPathColor;
+        SerializedProperty _editorAlwaysDraw;
+        SerializedProperty _editorDrawThickness;
+        SerializedProperty _editorBillboardThickness;
+        SerializedProperty _editorUpdateMode;
+        SplineComputer _spline;
+        DreamteckSplinesEditor _pathEditor;
+        float _length = 0f;
 
         public SplineComputerDebugEditor(SplineComputer spline, SerializedObject serializedObject, DreamteckSplinesEditor pathEditor) : base(serializedObject)
         {

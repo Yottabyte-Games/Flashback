@@ -8,8 +8,8 @@ namespace Dreamteck.Splines
         [HideInInspector]
         [UnityEngine.Serialization.FormerlySerializedAs("samples")]
         public SplineSample[] samples = new SplineSample[0];
-        private static bool __useModifier = false;
-        private static ISampleModifier __modifier = null;
+        static bool __useModifier = false;
+        static ISampleModifier __modifier = null;
 
         public int length
         {
@@ -21,7 +21,7 @@ namespace Dreamteck.Splines
             get { return samples.Length > 0; }
         }
         public SplineComputer.SampleMode sampleMode = SplineComputer.SampleMode.Default;
-        private SplineSample _workSample = new SplineSample();
+        SplineSample _workSample = new SplineSample();
 
         public SampleCollection()
         {
@@ -424,7 +424,7 @@ namespace Dreamteck.Splines
             return Travel(start, distance, direction, out moved);
         }
 
-        private Vector3 GetModifiedPosition(ref SplineSample sample)
+        Vector3 GetModifiedPosition(ref SplineSample sample)
         {
             if (!__useModifier) return sample.position;
             return __modifier.GetModifiedSamplePosition(ref sample);
@@ -558,7 +558,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private double GetSamplePercent(int sampleIndex)
+        double GetSamplePercent(int sampleIndex)
         {
             if (sampleMode == SplineComputer.SampleMode.Optimized)
             {

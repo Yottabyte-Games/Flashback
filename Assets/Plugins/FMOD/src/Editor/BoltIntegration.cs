@@ -72,7 +72,7 @@ namespace FMODUnity
         }
 
 #else
-        private static void BuildBoltUnitOptions()
+        static void BuildBoltUnitOptions()
         {
 #if (UNITY_BOLT_EXIST)
             DictionaryAsset projectSettings = AssetDatabase.LoadAssetAtPath(PathUtility.FromProject(LudiqCore.Paths.projectSettings), typeof(DictionaryAsset)) as DictionaryAsset;
@@ -120,7 +120,7 @@ namespace FMODUnity
 #endif
         }
 
-        private static IEnumerable<Type> GetTypesForNamespace(Assembly assembly, string requestedNamespace)
+        static IEnumerable<Type> GetTypesForNamespace(Assembly assembly, string requestedNamespace)
         {
             return assembly.GetTypes()
                     .Where(t => string.Equals(t.Namespace, requestedNamespace, StringComparison.Ordinal));

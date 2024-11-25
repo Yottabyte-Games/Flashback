@@ -10,7 +10,7 @@ namespace NaughtyAttributes.Test
         public TagNest1 nest1;
 
         [Button]
-        private void LogTag0()
+        void LogTag0()
         {
             Debug.Log(tag0);
         }

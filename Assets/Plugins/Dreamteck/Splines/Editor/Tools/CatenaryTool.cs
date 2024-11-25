@@ -10,10 +10,10 @@ namespace Dreamteck.Splines
     {
         protected GameObject obj;
         protected ObjectController spawner;
-        private float _sag = 0f;
-        private float _minSagDistance = 0f;
-        private float _maxSagDistance = 10f;
-        private Dictionary<SplineComputer, SplinePoint[]> _editSplines = new Dictionary<SplineComputer, SplinePoint[]>();
+        float _sag = 0f;
+        float _minSagDistance = 0f;
+        float _maxSagDistance = 10f;
+        Dictionary<SplineComputer, SplinePoint[]> _editSplines = new Dictionary<SplineComputer, SplinePoint[]>();
 
         public override string GetName()
         {
@@ -82,7 +82,7 @@ namespace Dreamteck.Splines
             }
         }
 
-        private void ModifyPoint(SplineComputer spline, int index)
+        void ModifyPoint(SplineComputer spline, int index)
         {
             var current = _editSplines[spline][index];
             if(index > 0)
@@ -103,7 +103,7 @@ namespace Dreamteck.Splines
             _editSplines[spline][index] = current;
         }
 
-        private void ConvertSelected()
+        void ConvertSelected()
         {
             _editSplines.Clear();
             foreach(var spline in splines)

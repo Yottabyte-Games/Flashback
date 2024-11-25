@@ -45,7 +45,7 @@ namespace Dreamteck.Splines.Editor
             FindAvailableComputers();
         }
 
-        private void FindAvailableComputers()
+        void FindAvailableComputers()
         {
             SplineComputer[] found = Object.FindObjectsOfType<SplineComputer>();
             List<SplineComputer> available = new List<SplineComputer>();
@@ -94,7 +94,7 @@ namespace Dreamteck.Splines.Editor
             mergeEndpoints = EditorGUILayout.Toggle("Merge Endpoints", mergeEndpoints);
         }
 
-        private void Merge(int index, MergeSide mergingSide)
+        void Merge(int index, MergeSide mergingSide)
         {
             RegisterChange();
             SplineComputer mergedSpline = availableMergeComputers[index];

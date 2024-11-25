@@ -9,18 +9,18 @@ namespace FMODUnity
     [CustomPropertyDrawer(typeof(EventReference))]
     public class EventReferenceDrawer : PropertyDrawer
     {
-        private static readonly Texture RepairIcon = EditorUtils.LoadImage("Wrench.png");
-        private static readonly Texture WarningIcon = EditorUtils.LoadImage("NotFound.png");
-        private static readonly GUIContent NotFoundWarning = new GUIContent("Event Not Found", WarningIcon);
+        static readonly Texture RepairIcon = EditorUtils.LoadImage("Wrench.png");
+        static readonly Texture WarningIcon = EditorUtils.LoadImage("NotFound.png");
+        static readonly GUIContent NotFoundWarning = new GUIContent("Event Not Found", WarningIcon);
 
-        private static GUIStyle buttonStyle;
+        static GUIStyle buttonStyle;
 
-        private static Vector2 WarningSize()
+        static Vector2 WarningSize()
         {
             return GUI.skin.label.CalcSize(NotFoundWarning);
         }
 
-        private static float GetBaseHeight()
+        static float GetBaseHeight()
         {
             return GUI.skin.textField.CalcSize(GUIContent.none).y;
         }
@@ -221,7 +221,7 @@ namespace FMODUnity
             }
         }
 
-        private static void HandleDragEvents(Rect position, SerializedProperty property)
+        static void HandleDragEvents(Rect position, SerializedProperty property)
         {
             Event e = Event.current;
 
@@ -253,7 +253,7 @@ namespace FMODUnity
             }
         }
 
-        private class MismatchInfo
+        class MismatchInfo
         {
             public string Message;
             public string HelpText;
@@ -261,7 +261,7 @@ namespace FMODUnity
             public Action<SerializedProperty> RepairAction;
         }
 
-        private static void DrawMismatchUI(Rect rect, float repairButtonX, float repairButtonWidth,
+        static void DrawMismatchUI(Rect rect, float repairButtonX, float repairButtonWidth,
             MismatchInfo mismatch, SerializedProperty property)
         {
             rect = EditorUtils.DrawHelpButton(rect, () => new SimpleHelp(mismatch.HelpText, 400));
@@ -279,7 +279,7 @@ namespace FMODUnity
             GUI.Label(labelRect, new GUIContent(mismatch.Message, WarningIcon));
         }
 
-        private static MismatchInfo GetMismatch(EventReference eventReference, EditorEventRef editorEventRef)
+        static MismatchInfo GetMismatch(EventReference eventReference, EditorEventRef editorEventRef)
         {
             if (EventManager.GetEventLinkage(eventReference) == EventLinkage.Path)
             {
@@ -321,7 +321,7 @@ namespace FMODUnity
             return null;
         }
 
-        private static void SetEvent(SerializedProperty property, string path)
+        static void SetEvent(SerializedProperty property, string path)
         {
             EditorEventRef eventRef = EventManager.EventFromPath(path);
 
@@ -335,17 +335,17 @@ namespace FMODUnity
             }
         }
 
-        private static SerializedProperty GetGuidProperty(SerializedProperty property)
+        static SerializedProperty GetGuidProperty(SerializedProperty property)
         {
             return property.FindPropertyRelative("Guid");
         }
 
-        private static SerializedProperty GetPathProperty(SerializedProperty property)
+        static SerializedProperty GetPathProperty(SerializedProperty property)
         {
             return property.FindPropertyRelative("Path");
         }
 
-        private static EditorEventRef GetEditorEventRef(EventReference eventReference)
+        static EditorEventRef GetEditorEventRef(EventReference eventReference)
         {
             if (EventManager.GetEventLinkage(eventReference) == EventLinkage.Path)
             {
@@ -357,7 +357,7 @@ namespace FMODUnity
             }
         }
 
-        private static EditorEventRef GetRenamedEventRef(EventReference eventReference)
+        static EditorEventRef GetRenamedEventRef(EventReference eventReference)
         {
             if (Settings.Instance.EventLinkage == EventLinkage.Path && !eventReference.Guid.IsNull)
             {
@@ -411,9 +411,9 @@ namespace FMODUnity
 #pragma warning restore 0618
     public class LegacyEventRefDrawer : PropertyDrawer
     {
-        private GUIStyle RichTextStyle;
+        GUIStyle RichTextStyle;
 
-        private const string HelpText =
+        const string HelpText =
             "This field has the <b>[EventRef]</b> attribute, which is obsolete.\n" +
             "To resolve this issue:\n" +
             "* Add a field of type <b>EventReference</b> to this class\n" +
@@ -422,10 +422,10 @@ namespace FMODUnity
             "* Run the <b>" + EventReferenceUpdater.MenuPath + "</b> command to " +
             "automatically migrate values from this field to the <b>EventReference</b> field";
 
-        private static readonly Texture InfoIcon = EditorGUIUtility.IconContent("console.infoicon.sml").image;
-        private static readonly Texture WarningIcon = EditorUtils.LoadImage("NotFound.png");
+        static readonly Texture InfoIcon = EditorGUIUtility.IconContent("console.infoicon.sml").image;
+        static readonly Texture WarningIcon = EditorUtils.LoadImage("NotFound.png");
 
-        private void AffirmStyles()
+        void AffirmStyles()
         {
             if (RichTextStyle == null)
             {
@@ -461,7 +461,7 @@ namespace FMODUnity
             EditorGUI.EndProperty();
         }
 
-        private GUIContent StatusContent(SerializedProperty property)
+        GUIContent StatusContent(SerializedProperty property)
         {
 #pragma warning disable 0618 // Suppress the warning about using the obsolete EventRefAttribute class
             string migrationTarget = (attribute as EventRefAttribute).MigrateTo;
@@ -497,7 +497,7 @@ namespace FMODUnity
             }
         }
 
-        private Vector2 StatusSize(GUIContent content)
+        Vector2 StatusSize(GUIContent content)
         {
             AffirmStyles();
 

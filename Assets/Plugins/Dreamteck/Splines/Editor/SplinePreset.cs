@@ -42,20 +42,13 @@ namespace Dreamteck.Splines.Editor
     [System.Serializable]
     public class SplinePreset
     {
-        [SerializeField]
-        private S_Vector3[] points_position = new S_Vector3[0];
-        [SerializeField]
-        private S_Vector3[] points_tanget = new S_Vector3[0];
-        [SerializeField]
-        private S_Vector3[] points_tangent2 = new S_Vector3[0];
-        [SerializeField]
-        private S_Vector3[] points_normal = new S_Vector3[0];
-        [SerializeField]
-        private S_Color[] points_color = new S_Color[0];
-        [SerializeField]
-        private float[] points_size = new float[0];
-        [SerializeField]
-        private SplinePoint.Type[] points_type = new SplinePoint.Type[0];
+        [SerializeField] S_Vector3[] points_position = new S_Vector3[0];
+        [SerializeField] S_Vector3[] points_tanget = new S_Vector3[0];
+        [SerializeField] S_Vector3[] points_tangent2 = new S_Vector3[0];
+        [SerializeField] S_Vector3[] points_normal = new S_Vector3[0];
+        [SerializeField] S_Color[] points_color = new S_Color[0];
+        [SerializeField] float[] points_size = new float[0];
+        [SerializeField] SplinePoint.Type[] points_type = new SplinePoint.Type[0];
 
 
         [System.NonSerialized]
@@ -68,7 +61,7 @@ namespace Dreamteck.Splines.Editor
         public string name = "";
         public string description = "";
         public Spline.Type type = Spline.Type.Bezier;
-        private static string path = "";
+        static string path = "";
 
         public SplinePoint[] points
         {

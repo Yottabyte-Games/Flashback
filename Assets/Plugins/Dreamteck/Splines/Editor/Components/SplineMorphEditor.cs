@@ -8,13 +8,13 @@ namespace Dreamteck.Splines.Editor
     [CustomEditor(typeof(SplineMorph))]
     public class SplineMorphEditor : Editor
     {
-        private string addName = "";
+        string addName = "";
         bool rename = false;
         int selected = -1;
 
         SplineMorph morph;
 
-        private void OnEnable()
+        void OnEnable()
         {
             morph = (SplineMorph)target;
             GetAddName();

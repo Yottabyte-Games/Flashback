@@ -13,11 +13,11 @@ namespace Dreamteck.Editor
         /// <summary>
         /// Local directory within the Dreamteck folder of the unitypackage
         /// </summary>
-        private string _packageDirectory = "";
-        private string _packageName = "";
-        private List<string> _scriptingDefines = new List<string>();
-        private List<string> _uninstallDirectories = new List<string>();
-        private Dictionary<string, List<string>> _assemblyLinks = new Dictionary<string, List<string>>();
+        string _packageDirectory = "";
+        string _packageName = "";
+        List<string> _scriptingDefines = new List<string>();
+        List<string> _uninstallDirectories = new List<string>();
+        Dictionary<string, List<string>> _assemblyLinks = new Dictionary<string, List<string>>();
 
         public ModuleInstaller(string packageDirectory, string packageName)
         {
@@ -118,7 +118,7 @@ namespace Dreamteck.Editor
             }
         }
 
-        private static void AddAssemblyReference(string dreamteckAssemblyPath, string addedAssemblyName)
+        static void AddAssemblyReference(string dreamteckAssemblyPath, string addedAssemblyName)
         {
             var path = Path.Combine(Application.dataPath, dreamteckAssemblyPath);
             var data = "";
@@ -140,8 +140,8 @@ namespace Dreamteck.Editor
                 writer.Write(asmDef.ToString());
             }
         }
-        
-        private static void RemoveAssemblyReference(string dreamteckAssemblyPath, string addedAssemblyName)
+
+        static void RemoveAssemblyReference(string dreamteckAssemblyPath, string addedAssemblyName)
         {
             var path = Path.Combine(Application.dataPath, dreamteckAssemblyPath);
             var data = "";
