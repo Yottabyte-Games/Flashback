@@ -2,19 +2,23 @@ using UnityEngine;
 
 public class PlayerPositionController : MonoBehaviour
 {
+    [SerializeField] bool isWorking = false;
     void Start()
     {
-        // Load the player's position from the GameManager if it's set
-        if (PlayerPositionStorage.Instance is not null && PlayerPositionStorage.Instance.SavedPlayerPosition != Vector3.zero)
+        if (!isWorking)
         {
-            transform.position = PlayerPositionStorage.Instance.SavedPlayerPosition;
-            transform.rotation = PlayerPositionStorage.Instance.SavedPlayerRotation;
+            // Load the player's position from the GameManager if it's set
+            if (PlayerPositionStorage.Instance is not null && PlayerPositionStorage.Instance.SavedPlayerPosition != Vector3.zero)
+            {
+                transform.position = PlayerPositionStorage.Instance.SavedPlayerPosition;
+                transform.rotation = PlayerPositionStorage.Instance.SavedPlayerRotation;
             
-            Debug.Log($"Loaded position: {transform.position}");
-        }
-        else
-        {
-            Debug.Log("No saved position found. Using default position.");
+                Debug.Log($"Loaded position: {transform.position}");
+            }
+            else
+            {
+                Debug.Log("No saved position found. Using default position.");
+            }
         }
     }
 
