@@ -161,6 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de67388c1840b80468372a24f51d666d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HubWorldScene:
+    asset: {fileID: 102900000, guid: 950c6ba351f1ce14592523cac719c8f9, type: 3}
+    guid: 950c6ba351f1ce14592523cac719c8f9
 --- !u!114 &8784883796135481455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,4 +205,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40cd50576685cd84483fe94a00b723f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissolveBackgroundOnStart: 1
+  dissolveBackgroundOnStart: 0
