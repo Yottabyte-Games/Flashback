@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class RiveEventHandler : MonoBehaviour
 {
     [SerializeField] SceneReference hubWorldScene;
-    [SerializeField] AudioManager audioManager;
+    
     RiveScreen _riveScreen;
+    AudioManager _audioManager;
     PlayerPositionController _playerPositionController;
     void Start()
     {
         _riveScreen = GetComponent<RiveScreen>();
+        _audioManager = AudioManager.Instance;
         if (SceneManager.GetActiveScene().name == hubWorldScene.Name)
         {
             _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
@@ -154,21 +156,21 @@ public class RiveEventHandler : MonoBehaviour
     }
     void UpdateVolume(string volumeType, float volume)
     {
-        if (audioManager is not null)
+        if (_audioManager is not null)
         {
             switch (volumeType)
             {
                 case "Master":
-                    audioManager.MasterVolume = volume;
+                    _audioManager.MasterVolume = volume;
                     break;
                 case "Music":
-                    audioManager.MusicVolume = volume;
+                    _audioManager.MusicVolume = volume;
                     break;
                 case "SFX":
-                    audioManager.SfxVolume = volume;
+                    _audioManager.SfxVolume = volume;
                     break;
                 case "Voice":
-                    audioManager.VoiceVolume = volume;
+                    _audioManager.VoiceVolume = volume;
                     break;
                 default:
                     Debug.LogError("Invalid volume type specified.");
