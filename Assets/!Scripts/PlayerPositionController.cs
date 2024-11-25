@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerPositionController : MonoBehaviour
 {
@@ -12,6 +15,7 @@ public class PlayerPositionController : MonoBehaviour
             {
                 transform.position = PlayerPositionStorage.Instance.SavedPlayerPosition;
                 transform.rotation = PlayerPositionStorage.Instance.SavedPlayerRotation;
+                
             
                 Debug.Log($"Loaded position: {transform.position}");
             }
@@ -22,12 +26,20 @@ public class PlayerPositionController : MonoBehaviour
         }
     }
 
-    public void SavePosition()
+    public void SavePosition(string sceneName)
     {
         // Save the player's current position into the GameManager
         if (PlayerPositionStorage.Instance is null)
             return;
+        
+        StartCoroutine(TransitionToScene(sceneName));
+    }
+    
+    private IEnumerator TransitionToScene(string sceneName)
+    {
         PlayerPositionStorage.Instance.SavedPlayerPosition = transform.position;
         Debug.Log($"Saved position: {transform.position}");
+        yield return new WaitForSeconds(1f); // Ensure position is saved
+        SceneManager.LoadScene(sceneName);
     }
 }
