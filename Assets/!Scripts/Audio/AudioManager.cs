@@ -6,6 +6,30 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
 
+    [Header("Volume")]
+    [Range(0f, 1f)]
+
+    public float masterVolume = 1f;
+    [Range(0f, 1f)]
+
+    public float musicVolume = 1f;
+    [Range(0f, 1f)]
+
+    public float sfxVolume = 1f;
+    [Range(0f, 1f)]
+
+    public float voiceVolume = 1f;
+    [Range(0f, 1f)]
+
+    private Bus masterBus;
+
+    private Bus musicBus;
+
+    private Bus sfxBus;
+
+    private Bus voiceBus;
+
+
     private List<EventInstance> eventInstances;
     private List<StudioEventEmitter> eventEmitters;
 
@@ -24,12 +48,26 @@ public class AudioManager : MonoBehaviour
 
         eventInstances = new List<EventInstance>();
         eventEmitters = new List<StudioEventEmitter>();
+
+        masterBus = RuntimeManager.GetBus("bus:/");
+        musicBus = RuntimeManager.GetBus("bus:/Music");
+        sfxBus = RuntimeManager.GetBus("bus:/SFX");
+        voiceBus = RuntimeManager.GetBus("bus:/Voice");
     }
 
     private void Start()
     {
         InitializeAmbience(FMODEvents.Instance.AmbienceHubworld);
     }
+
+    private void Update()
+    {
+        masterBus.setVolume(masterVolume);
+        musicBus.setVolume(musicVolume);
+        sfxBus.setVolume(sfxVolume);
+        voiceBus.setVolume(voiceVolume);
+    }
+
 
     private void InitializeAmbience(EventReference ambienceEventReference)
     {
