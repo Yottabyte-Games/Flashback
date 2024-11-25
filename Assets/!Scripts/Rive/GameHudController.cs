@@ -52,11 +52,11 @@ public class GameHudController : MonoBehaviour
         {
             if (_playerPositionController)
             {
-                _playerPositionController.SavePosition();
+                _playerPositionController.SavePosition(_sceneToLoad.Name);
                 print("Saved Position");
             }
-            
-            SceneManager.LoadScene(_sceneToLoad.Name);
+            else
+                SceneManager.LoadScene(_sceneToLoad.Name);
         }
     }
 

@@ -123,11 +123,11 @@ public class RiveEventHandler : MonoBehaviour
                     print("QuitEvent");
                     if (_playerPositionController)
                     {
-                        _playerPositionController.SavePosition();
+                        _playerPositionController.SavePosition("MainMenu");
                         print("saving position");
                     }
-                    
-                    SceneManager.LoadScene("MainMenu");
+                    else
+                        SceneManager.LoadScene("MainMenu");
                 }
                 break;
             case RiveScreen.RiveScenes.PsychologyScene:
