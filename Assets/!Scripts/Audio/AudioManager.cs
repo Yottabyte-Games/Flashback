@@ -3,7 +3,6 @@ using FMODUnity;
 using FMOD.Studio;
 using System.Collections.Generic;
 using _Scripts.Generic;
-using UnityEngine.Serialization;
 
 public class AudioManager : Singleton<AudioManager>
 {
@@ -37,8 +36,6 @@ public class AudioManager : Singleton<AudioManager>
 
     EventInstance _ambienceEventInstance;
 
-    public static AudioManager Instance { get; private set; }
-
 
     void Awake()
     {
@@ -46,7 +43,6 @@ public class AudioManager : Singleton<AudioManager>
         {
             Debug.LogError("More than one AudioManager in the scene");
         }
-        Instance = this;
 
         _eventInstances = new List<EventInstance>();
         _eventEmitters = new List<StudioEventEmitter>();
