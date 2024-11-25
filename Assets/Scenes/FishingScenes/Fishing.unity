@@ -604,6 +604,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7730262913696954965, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7734402845735551455, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -724,7 +728,8 @@ PrefabInstance:
       propertyPath: isGrounded
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7730262913696954965, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8993257636959154479, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}

@@ -5,7 +5,7 @@ namespace _Scripts.Generic
     public class Singleton<T> : MonoBehaviour where T : Component
     {
         static T _instance;
-        public static T instance
+        public static T Instance
         {
             get
             {

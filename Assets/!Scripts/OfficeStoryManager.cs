@@ -26,7 +26,9 @@ namespace _Scripts.Working
                     SceneManager.LoadScene(sceneOnSuccess);
                 } else
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    //Sorry, just so executives progresses if they fail for this build
+                    SceneManager.LoadScene(sceneOnSuccess);
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
             }
         }

@@ -1,6 +1,4 @@
-using _Scripts.Snowman_Scripts.Interaction;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Interaction : MonoBehaviour
@@ -16,6 +14,7 @@ public class Interaction : MonoBehaviour
 
     private void Start()
     {
+        playerCamera = Camera.main;
         ghd = GetComponent<GameHudController>();
         _interactAction = InputSystem.actions.FindAction("Interact");
     }
@@ -46,7 +45,7 @@ public class Interaction : MonoBehaviour
                 interactable.gameObject.GetComponent<StoryProgresser>().SelectNextStoryBeat();
             }
         }
-        else if (interactionObject != null){ StopInteraction();}
+        else if (interactionObject is not null){ StopInteraction();}
     }
 
     void StartInteraction(DialogueStarter interactable)

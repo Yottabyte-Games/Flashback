@@ -1,25 +1,13 @@
+using _Scripts.Generic;
 using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
 {
     [DefaultExecutionOrder(-3)]
-    public class PlayerInputManager : MonoBehaviour
+    public class PlayerInputManager : Singleton<PlayerInputManager>
     {
-        public static PlayerInputManager Instance;
         public PlayerControls PlayerControls {  get; private set; }
-
-        void Awake()
-        {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
 
         void OnEnable()
         {

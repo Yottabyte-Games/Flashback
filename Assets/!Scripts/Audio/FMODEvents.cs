@@ -25,7 +25,7 @@ public class FMODEvents : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("More than one FMODEvents instance in the scene");
+            Debug.LogError("More than one FMODEvents Instance in the scene");
         }
         Instance = this;
     }

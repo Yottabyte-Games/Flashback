@@ -1128,8 +1128,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8162724226377678909}
   - component: {fileID: 1634369892274397045}
-  - component: {fileID: 3675146356010415638}
   - component: {fileID: 8236844434290720532}
+  - component: {fileID: 3675146356010415638}
   m_Layer: 0
   m_Name: AfterCarDialogue
   m_TagString: Untagged
@@ -1173,23 +1173,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 36.6, y: 10.28, z: 18.4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3675146356010415638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938140711712188545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <startingDialogue>k__BackingField: {fileID: 11400000, guid: 42548e043b292ec499fda75d3c7b2712, type: 2}
-  sceneToLoad:
-    asset: {fileID: 0}
-    guid: 00000000000000000000000000000000
-  loadSceneAfterDialogue: 0
 --- !u!114 &8236844434290720532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,6 +1202,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3675146356010415638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938140711712188545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <startingDialogue>k__BackingField: {fileID: 11400000, guid: 42548e043b292ec499fda75d3c7b2712, type: 2}
+  sceneToLoad:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
 --- !u!1 &4848203412277004952
 GameObject:
   m_ObjectHideFlags: 0
