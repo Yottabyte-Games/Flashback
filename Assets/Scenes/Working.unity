@@ -493,7 +493,9 @@ MonoBehaviour:
   Succeeded: 0
   tasksGoal: 7
   tasksLimit: 10
-  sceneOnSuccess: HubWorld 1
+  sceneOnSuccess:
+    asset: {fileID: 102900000, guid: 950c6ba351f1ce14592523cac719c8f9, type: 3}
+    guid: 950c6ba351f1ce14592523cac719c8f9
 --- !u!114 &553851649 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8340180432966897195, guid: 081bf50005acdff4b83efcfee117c6d0, type: 3}
@@ -1244,6 +1246,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2726981452183191254, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
+      propertyPath: HubWorldScene.guid
+      value: 950c6ba351f1ce14592523cac719c8f9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726981452183191254, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
+      propertyPath: HubWorldScene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: 950c6ba351f1ce14592523cac719c8f9, type: 3}
     - target: {fileID: 2770740676483553111, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Layer
       value: 9

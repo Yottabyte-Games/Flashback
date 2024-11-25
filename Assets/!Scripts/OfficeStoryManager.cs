@@ -1,3 +1,4 @@
+using Eflatun.SceneReference;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,12 +11,16 @@ namespace _Scripts.Working
         public int tasksGoal;
         public int tasksLimit;
 
-        [Scene]
-        [SerializeField] string sceneOnSuccess;
+        //sorry for ass refactoring and code changes, but we can fix this later
+        [SerializeField] SceneReference sceneOnSuccess;
 
         public void CheckSucceess(int tasks)
         {
             Succeeded = tasks >= tasksGoal;
+            if(Succeeded)
+            {
+                SceneManager.LoadScene(sceneOnSuccess.Name);
+            } 
         }
         public void CheckFailure(int tasks)
         {
@@ -23,11 +28,11 @@ namespace _Scripts.Working
             {
                 if(Succeeded)
                 {
-                    SceneManager.LoadScene(sceneOnSuccess);
+                    SceneManager.LoadScene(sceneOnSuccess.Name);
                 } else
                 {
-                    //Sorry, just so executives progresses if they fail for this build
-                    SceneManager.LoadScene(sceneOnSuccess);
+                    //Just so executives progresses if they fail for this build
+                    SceneManager.LoadScene(sceneOnSuccess.Name);
                     //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
             }

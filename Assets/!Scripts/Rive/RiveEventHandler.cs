@@ -1,15 +1,17 @@
+using Eflatun.SceneReference;
 using UnityEngine;
 using Rive;
 using UnityEngine.SceneManagement;
 
 public class RiveEventHandler : MonoBehaviour
 {
+    [SerializeField] SceneReference HubWorldScene;
     RiveScreen _riveScreen;
     PlayerPositionController _playerPositionController;
     void Start()
     {
         _riveScreen = GetComponent<RiveScreen>();
-        if (SceneManager.GetActiveScene().name == "HubWorld 1")
+        if (SceneManager.GetActiveScene().name == HubWorldScene.Name)
         {
             _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
         }
@@ -27,7 +29,7 @@ public class RiveEventHandler : MonoBehaviour
                 {
                     case "StartGameEvent":
                         print("StartGameEvent");
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                        SceneManager.LoadScene(HubWorldScene.Name);
                         break;
                     case "MiniGameEvent":
                         print("MiniGameEvent");
@@ -57,7 +59,7 @@ public class RiveEventHandler : MonoBehaviour
                         break;
                     case "Racing Event":
                         print("Racing Event");
-                        SceneManager.LoadScene("ToyCarGame - Backup");
+                        SceneManager.LoadScene("ToyCarMinigame");
                         break;
                     case "Snowman Event":
                         print("Snowman Event");
@@ -141,8 +143,6 @@ public class RiveEventHandler : MonoBehaviour
                 break;
         }
     }
-    
-    
 
     void OnDisable()
     {
