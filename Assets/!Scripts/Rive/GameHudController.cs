@@ -10,6 +10,7 @@ public class GameHudController : MonoBehaviour
 {
     private RiveScreen riveScreen;
     private SceneReference _sceneToLoad;
+    PlayerPositionController _playerPositionController;
     
     private InputAction _pauseAction;
 
@@ -38,12 +39,23 @@ public class GameHudController : MonoBehaviour
         {
             riveScreen.stateMachine.GetTrigger("UnFlash").Fire();
         }
+        
+        if (SceneManager.GetActiveScene().name == "HubWorld 1")
+        {
+            _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
+        }
     }
 
     private void RiveEventHandler(ReportedEvent reportedEvent)
     {
         if (reportedEvent.Name == "FlashbackEvent" && _sceneToLoad != null)
         {
+            if (_playerPositionController)
+            {
+                _playerPositionController.SavePosition();
+                print("Saved Position");
+            }
+            
             SceneManager.LoadScene(_sceneToLoad.Name);
         }
     }

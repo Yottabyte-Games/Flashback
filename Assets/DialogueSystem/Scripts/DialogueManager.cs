@@ -4,6 +4,7 @@ using FMODUnity;
 using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace DialogueSystem.Scripts
 {
@@ -12,6 +13,7 @@ namespace DialogueSystem.Scripts
     {
         
         GameHudController gameHudController;
+
 
         public bool _isDialogueActive { get; private set; }
         [SerializeField] bool canSkipDialogue = true;
@@ -34,6 +36,8 @@ namespace DialogueSystem.Scripts
                 gameHudController = GetComponent<GameHudController>();
 
             _nextDialogueAction = InputSystem.actions.FindAction("Interact");
+            
+            
         }
 
         void Update()

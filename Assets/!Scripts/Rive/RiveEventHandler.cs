@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 public class RiveEventHandler : MonoBehaviour
 {
     RiveScreen _riveScreen;
-
-
+    PlayerPositionController _playerPositionController;
     void Start()
     {
         _riveScreen = GetComponent<RiveScreen>();
-
+        if (SceneManager.GetActiveScene().name == "HubWorld 1")
+        {
+            _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
+        }
         _riveScreen.OnRiveEvent += RiveEventHappens;
     }
 
@@ -117,6 +119,12 @@ public class RiveEventHandler : MonoBehaviour
                 if (reportedEvent.Name == "QuitEvent")
                 {
                     print("QuitEvent");
+                    if (_playerPositionController)
+                    {
+                        _playerPositionController.SavePosition();
+                        print("saving position");
+                    }
+                    
                     SceneManager.LoadScene("MainMenu");
                 }
                 break;
@@ -133,6 +141,8 @@ public class RiveEventHandler : MonoBehaviour
                 break;
         }
     }
+    
+    
 
     void OnDisable()
     {
