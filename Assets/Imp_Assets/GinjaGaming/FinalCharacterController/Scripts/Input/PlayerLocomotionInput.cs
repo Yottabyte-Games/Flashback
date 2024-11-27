@@ -1,4 +1,5 @@
 using GinjaGaming.FinalCharacterController;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -37,7 +38,6 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
                 Debug.LogError("Player controls is not initialized - cannot disable");
                 return;
             }
-
             PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.Disable();
             PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.RemoveCallbacks(this);
         }
@@ -90,5 +90,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input
             WalkToggledOn = !WalkToggledOn;
         }
         #endregion
+        
+        
     }
 }
