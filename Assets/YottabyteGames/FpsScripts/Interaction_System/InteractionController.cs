@@ -58,7 +58,7 @@ namespace YottabyteGames.FpsScripts.Interaction_System
             RaycastHit _hitInfo;
 
             _hitSomething = Physics.SphereCast(_ray, raySphereRadius, out _hitInfo, rayDistance, interactableLayer);
-            Debug.DrawRay(_ray.origin, _ray.direction * rayDistance, _hitSomething ? Color.green : Color.red);
+            Debug.DrawRay(_ray.origin, _ray.direction * rayDistance, _hitSomething ? Color.green : Color.clear);// _hitSomething ? Color.green : Color.red);
 
             if (_hitSomething) 
             {
