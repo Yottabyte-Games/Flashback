@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -10,8 +9,7 @@ public class MinigameTimeline : MonoBehaviour
     void Start()
     {
         playableDirector = GetComponent<PlayableDirector>();
-        playableDirector.enabled = false;
-
+        
         if (timelineState.hasPlayed)
         {
             GetComponent<Collider>().enabled = false;
@@ -20,11 +18,17 @@ public class MinigameTimeline : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Player"))
         {
+            print("collided with " + other.name);
             playableDirector.Play();
-            playableDirector.enabled = true;
             timelineState.hasPlayed = true;
         }
+    }
+    // TODO: Remove when building
+    private void OnDestroy()
+    {
+        timelineState.hasPlayed = false;
     }
 }

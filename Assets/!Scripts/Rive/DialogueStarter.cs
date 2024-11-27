@@ -27,7 +27,10 @@ namespace _Scripts.Rive
         void OnTriggerEnter(Collider other)
         {
         
-            StartDialogue();
+            if (other.CompareTag("Player"))
+            {
+                StartDialogue();
+            }
         }
 
         public void StartDialogue()
