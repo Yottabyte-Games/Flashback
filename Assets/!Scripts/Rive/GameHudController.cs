@@ -1,8 +1,11 @@
 using Eflatun.SceneReference;
+using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using Rive;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using YottabyteGames.FinalCharacterController.Scripts;
+
 namespace _Scripts.Rive
 {
     [RequireComponent(typeof(RiveScreen))]
@@ -11,6 +14,8 @@ namespace _Scripts.Rive
         RiveScreen _riveScreen;
         SceneReference _sceneToLoad;
         PlayerPositionController _playerPositionController;
+        PlayerController _playerController;
+        PlayerLocomotionInput _playerLocomotionInput;
 
         InputAction _pauseAction;
 
@@ -39,13 +44,19 @@ namespace _Scripts.Rive
             if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.HUD)
             {
                 _riveScreen.StateMachine.GetTrigger("UnFlash").Fire();
-                ChangeCursor(isDotHidden);
+                SetCursorHidden(isDotHidden);
             }
         
             if (SceneManager.GetActiveScene().name == "HubWorld 1")
             {
                 _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
             }
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            _playerController = player.GetComponent<PlayerController>();
+            _playerLocomotionInput = player.GetComponent<PlayerLocomotionInput>();
+            
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         void RiveEventHandler(ReportedEvent reportedEvent)
@@ -65,7 +76,8 @@ namespace _Scripts.Rive
         void Update()
         {
             if (_pauseAction.WasPressedThisFrame())
-            { 
+            {
+                SetPlayerController(false);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 // Set Pause Scene from Rive
@@ -74,7 +86,19 @@ namespace _Scripts.Rive
             
         }
 
-        public void ChangeCursor(bool value)
+        public void SetPlayerController(bool state)
+        {
+            if (_playerController != null)
+            {
+                _playerController.enabled = state;
+            }
+
+            if (_playerLocomotionInput != null)
+            {          
+                _playerLocomotionInput.enabled = state;
+            }
+        }
+        public void SetCursorHidden(bool value)
         {
             if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.HUD)
             {
