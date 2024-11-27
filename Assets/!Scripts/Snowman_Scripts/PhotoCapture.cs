@@ -1,4 +1,5 @@
 using System.Collections;
+using _Scripts.Rive;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -18,12 +19,14 @@ namespace _Scripts.Snowman_Scripts
         [SerializeField] GameObject snowball;
 
         Texture2D _capturedImage;
+        GameHudController _hud;
 
         public UnityEvent FishedPhotoTaken;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _capturedImage = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+            _hud =GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameHudController>();
         }
 
         // Update is called once per frame
@@ -37,7 +40,7 @@ namespace _Scripts.Snowman_Scripts
         {
             _uiOn = !_uiOn;
             cameraOverlay.SetActive(_uiOn);
-
+            _hud.SetCursorHidden(_uiOn);
         }
 
         IEnumerator CaptureImage()
