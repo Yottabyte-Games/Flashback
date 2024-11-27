@@ -6,302 +6,310 @@ using Rive;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Rendering;
+using UnityEngine.Serialization;
 using Renderer = Rive.Renderer;
 using RenderQueue = Rive.RenderQueue;
-
-internal class CameraTextureHelper
+namespace _Scripts.Rive
 {
-    Camera _mainCamera;
-    RenderTexture _renderTexture;
-    int _pixelWidth = -1;
-    int _pixelHeight = -1;
-    RenderQueue _renderQueue;
-
-    // Queue to keep things on the main thread only.
-    static ConcurrentQueue<Action> _mainThreadActions = new ConcurrentQueue<Action>();
-
-    public RenderTexture renderTexture => _renderTexture;
-
-    public Camera MainCamera => _mainCamera;
-
-    internal CameraTextureHelper(Camera camera, RenderQueue queue)
+    internal class CameraTextureHelper
     {
-        _mainCamera = camera;
-        _renderQueue = queue;
-        UpdateTextureHelper();
-    }
+        int _pixelWidth = -1;
+        int _pixelHeight = -1;
+        RenderQueue _renderQueue;
 
-    ~CameraTextureHelper()
-    {
-        // Since the GC calls the destructor and doesn't run on the main thread,
-        // we need to ensure the cleanup() call happens on the main thread.
-        _mainThreadActions.Enqueue(Cleanup);
-    }
+        // Queue to keep things on the main thread only.
+        static ConcurrentQueue<Action> _mainThreadActions = new ConcurrentQueue<Action>();
 
-    void Cleanup()
-    {
-        _renderTexture?.Release();
-    }
-
-    void Update()
-    {
-        // Process main thread actions
-        while (_mainThreadActions.TryDequeue(out var action))
+        public RenderTexture RenderTexture
         {
-            action();
+            get;
+            private set;
         }
-    }
 
-    public bool UpdateTextureHelper()
-    {
-
-        if (_pixelWidth == _mainCamera.pixelWidth && _pixelHeight == _mainCamera.pixelHeight)
+        public Camera MainCamera
         {
-            return false;
+            get;
         }
-    
-        Cleanup();
 
-        _pixelWidth = _mainCamera.pixelWidth;
-        _pixelHeight = _mainCamera.pixelHeight;
-        var textureDescriptor = TextureHelper.Descriptor(_pixelWidth, _pixelHeight);
-        _renderTexture = new RenderTexture(textureDescriptor);
-        _renderTexture.Create();
-        _renderQueue.UpdateTexture(_renderTexture);
-
-        return true;
-    }
-
-}
-
-[ExecuteInEditMode]
-[RequireComponent(typeof(Camera))]
-// Draw a Rive artboard to the screen. Must be bound to a camera.
-public class RiveScreen : MonoBehaviour
-{
-    public enum RiveScenes
-    {
-        HUD,
-        MainMenu,
-        MiniGameSelectMenu,
-        PauseMenu,
-        SettingsMenu,
-        PsychologyScene,
-    }
-    static readonly Dictionary<RiveScenes, string> referenceNames = new Dictionary<RiveScenes, string>()
-    {
-        { RiveScenes.HUD, "HUD" },
-        { RiveScenes.MainMenu, "Home Screen" },
-        { RiveScenes.MiniGameSelectMenu, "Mini Games Select Menu" },
-        { RiveScenes.PauseMenu, "Pause Menu" },
-        { RiveScenes.SettingsMenu, "Settings Menu" },
-        { RiveScenes.PsychologyScene, "Psychologist MindScene"},
-    };
-    public RiveScenes currentScene;
-    RiveScenes firstScene;
-
-    public enum TextPath
-    {
-        HUDItem,
-        Dialogue,
-        Psychologist,
-        Option1,
-        Option2,
-    }
-
-    readonly Dictionary<TextPath, string> textRunReferences = new()
-    {
-        { TextPath.HUDItem, "ItemName"},
-        { TextPath.Dialogue, "DialogueText"},
-        { TextPath.Psychologist, "Psychologist Text Run" },
-        { TextPath.Option1, "Option 1 Text Run" },
-        { TextPath.Option2, "Option 2 Text Run" }
-    };
-    
-    public Asset asset;
-    public CameraEvent cameraEvent = CameraEvent.AfterEverything;
-    public Fit fit = Fit.Contain;
-    public Alignment alignment = Alignment.Center;
-    public event RiveEventDelegate OnRiveEvent;
-    public delegate void RiveEventDelegate(ReportedEvent reportedEvent);
-
-    RenderQueue _renderQueue;
-    Renderer _riveRenderer;
-    CommandBuffer _commandBuffer;
-
-    File _file;
-    Artboard _artboard;
-    CameraTextureHelper _helper;
-
-    public Artboard artboard => _artboard;
-    public StateMachine stateMachine { get; private set; }
-    
-    void Start()
-    {
-        _mainCamera = gameObject.GetComponent<Camera>();
-    }
-
-    static bool FlipY()
-    {
-        switch (SystemInfo.graphicsDeviceType)
+        internal CameraTextureHelper(Camera camera, RenderQueue queue)
         {
-            case GraphicsDeviceType.Metal:
-            case GraphicsDeviceType.Direct3D11:
-                return true;
-            default:
+            MainCamera = camera;
+            _renderQueue = queue;
+            UpdateTextureHelper();
+        }
+
+        ~CameraTextureHelper()
+        {
+            // Since the GC calls the destructor and doesn't run on the main thread,
+            // we need to ensure the cleanup() call happens on the main thread.
+            _mainThreadActions.Enqueue(Cleanup);
+        }
+
+        void Cleanup()
+        {
+            RenderTexture?.Release();
+        }
+
+        void Update()
+        {
+            // Process main thread actions
+            while (_mainThreadActions.TryDequeue(out var action))
+            {
+                action();
+            }
+        }
+
+        public bool UpdateTextureHelper()
+        {
+
+            if (_pixelWidth == MainCamera.pixelWidth && _pixelHeight == MainCamera.pixelHeight)
+            {
                 return false;
-        }
-    }
-
-    void OnGUI()
-    {
-        if (_helper is null || !Event.current.type.Equals(EventType.Repaint)) return;
-        var texture = _helper.renderTexture;
-
-        var width = _helper.MainCamera.scaledPixelWidth;
-        var height = _helper.MainCamera.scaledPixelHeight;
-
-        GUI.DrawTexture(
-            FlipY() ? new Rect(0, height, width, -height) : new Rect(0, 0, width, height),
-            texture,
-            ScaleMode.StretchToFill,
-            true
-        );
-    }
-
-    void Awake()
-    {
-        firstScene = currentScene;
-        SetRiveScene(currentScene);
-    }
-
-    public void ReturnToOriginalScene()
-    {
-        SetRiveScene(firstScene);
-    }
-    public void SetRiveScene(RiveScenes scenes)
-    {
-        if (asset is not null)
-        {
-            _file = File.Load(asset);
-            _artboard = _file.Artboard(GetSelectedRiveSceneName(scenes));
-            stateMachine = _artboard?.StateMachine();
-            currentScene = scenes;
-        }
-
-        Camera mainCamera = gameObject.GetComponent<Camera>();
-        Assert.IsNotNull(mainCamera, "RiveScreen must be attached to a camera.");
-
-        // Make a RenderQueue that doesn't have a backing texture and does not
-        // clear the target (we'll be drawing on top of it).
-        _renderQueue = new RenderQueue(null, false);
-        _riveRenderer = _renderQueue.Renderer();
-
-        if (!RenderQueue.supportsDrawingToScreen())
-        {
-            _helper = new CameraTextureHelper(mainCamera, _renderQueue);
-        }
-
-        DrawRive(_renderQueue);
-    }
-
-    void DrawRive(RenderQueue queue)
-    {
-        if (_artboard is null)
-        {
-            return;
-        }
-        _riveRenderer.Align(fit, alignment ?? Alignment.Center, _artboard);
-        _riveRenderer.Draw(_artboard);
+            }
     
-    }
+            Cleanup();
 
-    Vector2 _mLastMousePosition;
-   
-    Camera _mainCamera;
+            _pixelWidth = MainCamera.pixelWidth;
+            _pixelHeight = MainCamera.pixelHeight;
+            var textureDescriptor = TextureHelper.Descriptor(_pixelWidth, _pixelHeight);
+            RenderTexture = new RenderTexture(textureDescriptor);
+            RenderTexture.Create();
+            _renderQueue.UpdateTexture(RenderTexture);
 
-    void Update()
-    {
-        _helper?.UpdateTextureHelper();
-        if (_artboard is null)
-        {
-            return;
+            return true;
         }
 
-        if (_mainCamera is not null)
+    }
+
+    [ExecuteInEditMode]
+    [RequireComponent(typeof(Camera))]
+// Draw a Rive artboard to the screen. Must be bound to a camera.
+    public class RiveScreen : MonoBehaviour
+    {
+        public enum RiveScenes
         {
-            Vector3 mousePos = _mainCamera.ScreenToViewportPoint(Input.mousePosition);
-            Vector2 mouseRiveScreenPos = new Vector2(
-                mousePos.x * _mainCamera.pixelWidth,
-                (1 - mousePos.y) * _mainCamera.pixelHeight
+            HUD,
+            MainMenu,
+            MiniGameSelectMenu,
+            PauseMenu,
+            SettingsMenu,
+            PsychologyScene,
+        }
+        static readonly Dictionary<RiveScenes, string> ReferenceNames = new Dictionary<RiveScenes, string>()
+        {
+            { RiveScenes.HUD, "HUD" },
+            { RiveScenes.MainMenu, "Home Screen" },
+            { RiveScenes.MiniGameSelectMenu, "Mini Games Select Menu" },
+            { RiveScenes.PauseMenu, "Pause Menu" },
+            { RiveScenes.SettingsMenu, "Settings Menu" },
+            { RiveScenes.PsychologyScene, "Psychologist MindScene"},
+        };
+        [FormerlySerializedAs("currentScene")] public RiveScenes CurrentScene;
+        RiveScenes _firstScene;
+
+        public enum TextPath
+        {
+            HUDItem,
+            Dialogue,
+            Psychologist,
+            Option1,
+            Option2,
+        }
+
+        readonly Dictionary<TextPath, string> _textRunReferences = new()
+        {
+            { TextPath.HUDItem, "ItemName"},
+            { TextPath.Dialogue, "DialogueText"},
+            { TextPath.Psychologist, "Psychologist Text Run" },
+            { TextPath.Option1, "Option 1 Text Run" },
+            { TextPath.Option2, "Option 2 Text Run" }
+        };
+    
+        [FormerlySerializedAs("asset")] public Asset Asset;
+        [FormerlySerializedAs("cameraEvent")] public CameraEvent CameraEvent = CameraEvent.AfterEverything;
+        [FormerlySerializedAs("fit")] public Fit Fit = Fit.Contain;
+        public Alignment Alignment = Alignment.Center;
+        public event RiveEventDelegate OnRiveEvent;
+        public delegate void RiveEventDelegate(ReportedEvent reportedEvent);
+
+        RenderQueue _renderQueue;
+        Renderer _riveRenderer;
+        CommandBuffer _commandBuffer;
+
+        File _file;
+        Artboard _artboard;
+        CameraTextureHelper _helper;
+
+        public Artboard Artboard => _artboard;
+        public StateMachine StateMachine { get; private set; }
+    
+        void Start()
+        {
+            _mainCamera = gameObject.GetComponent<Camera>();
+        }
+
+        static bool FlipY()
+        {
+            switch (SystemInfo.graphicsDeviceType)
+            {
+                case GraphicsDeviceType.Metal:
+                case GraphicsDeviceType.Direct3D11:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        void OnGUI()
+        {
+            if (_helper is null || !Event.current.type.Equals(EventType.Repaint)) return;
+            var texture = _helper.RenderTexture;
+
+            var width = _helper.MainCamera.scaledPixelWidth;
+            var height = _helper.MainCamera.scaledPixelHeight;
+
+            GUI.DrawTexture(
+                FlipY() ? new Rect(0, height, width, -height) : new Rect(0, 0, width, height),
+                texture,
+                ScaleMode.StretchToFill,
+                true
             );
-            if (!_mLastMousePosition.Equals(mouseRiveScreenPos))
-            {
-                Vector2 local = _artboard.LocalCoordinate(
-                    mouseRiveScreenPos,
-                    new Rect(0, 0, _mainCamera.pixelWidth, _mainCamera.pixelHeight),
-                    fit,
-                    alignment
-                );
-                stateMachine?.PointerMove(local);
-                _mLastMousePosition = mouseRiveScreenPos;
-            }
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector2 local = _artboard.LocalCoordinate(
-                    mouseRiveScreenPos,
-                    new Rect(0, 0, _mainCamera.pixelWidth, _mainCamera.pixelHeight),
-                    fit,
-                    alignment
-                );
-                stateMachine?.PointerDown(local);
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                Vector2 local = _artboard.LocalCoordinate(
-                    mouseRiveScreenPos,
-                    new Rect(0, 0, _mainCamera.pixelWidth, _mainCamera.pixelHeight),
-                    fit,
-                    alignment
-                );
-                stateMachine?.PointerUp(local);
-            }
         }
 
-        // Find reported Rive events before calling advance.
-        foreach (var report in stateMachine?.ReportedEvents() ?? Enumerable.Empty<ReportedEvent>())
+        void Awake()
         {
-            OnRiveEvent?.Invoke(report);
+            _firstScene = CurrentScene;
+            SetRiveScene(CurrentScene);
         }
 
-        stateMachine?.Advance(Time.deltaTime);
-        _riveRenderer.Submit();
-        GL.InvalidateState();
-    }
-
-    void OnDisable()
-    {
-        if (_commandBuffer is not null && _mainCamera is not null)
+        public void ReturnToOriginalScene()
         {
-            _mainCamera.RemoveCommandBuffer(cameraEvent, _commandBuffer);
+            SetRiveScene(_firstScene);
+        }
+        public void SetRiveScene(RiveScenes scenes)
+        {
+            if (Asset is not null)
+            {
+                _file = File.Load(Asset);
+                _artboard = _file.Artboard(GetSelectedRiveSceneName(scenes));
+                StateMachine = _artboard?.StateMachine();
+                CurrentScene = scenes;
+            }
+
+            Camera mainCamera = gameObject.GetComponent<Camera>();
+            Assert.IsNotNull(mainCamera, "RiveScreen must be attached to a camera.");
+
+            // Make a RenderQueue that doesn't have a backing texture and does not
+            // clear the target (we'll be drawing on top of it).
+            _renderQueue = new RenderQueue(null, false);
+            _riveRenderer = _renderQueue.Renderer();
+
+            if (!RenderQueue.supportsDrawingToScreen())
+            {
+                _helper = new CameraTextureHelper(mainCamera, _renderQueue);
+            }
+
+            DrawRive(_renderQueue);
         }
 
-    }
-
-    string GetSelectedRiveSceneName(RiveScenes swapTo)
-    {
-        return referenceNames[swapTo];
-    }
+        void DrawRive(RenderQueue queue)
+        {
+            if (_artboard is null)
+            {
+                return;
+            }
+            _riveRenderer.Align(Fit, Alignment ?? Alignment.Center, _artboard);
+            _riveRenderer.Draw(_artboard);
     
-    public void SetTextRunAtPath(string textRun, TextPath path)
-    {
-        if (textRunReferences.TryGetValue(path, out var stringPath))
-        {
-            artboard.SetTextRun(stringPath, textRun);
         }
-        else
+
+        Vector2 _mLastMousePosition;
+   
+        Camera _mainCamera;
+
+        void Update()
         {
-            Debug.LogError($"Invalid text target: {path}");
+            _helper?.UpdateTextureHelper();
+            if (_artboard is null)
+            {
+                return;
+            }
+
+            if (_mainCamera is not null)
+            {
+                Vector3 mousePos = _mainCamera.ScreenToViewportPoint(Input.mousePosition);
+                Vector2 mouseRiveScreenPos = new Vector2(
+                    mousePos.x * _mainCamera.pixelWidth,
+                    (1 - mousePos.y) * _mainCamera.pixelHeight
+                );
+                if (!_mLastMousePosition.Equals(mouseRiveScreenPos))
+                {
+                    Vector2 local = _artboard.LocalCoordinate(
+                        mouseRiveScreenPos,
+                        new Rect(0, 0, _mainCamera.pixelWidth, _mainCamera.pixelHeight),
+                        Fit,
+                        Alignment
+                    );
+                    StateMachine?.PointerMove(local);
+                    _mLastMousePosition = mouseRiveScreenPos;
+                }
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Vector2 local = _artboard.LocalCoordinate(
+                        mouseRiveScreenPos,
+                        new Rect(0, 0, _mainCamera.pixelWidth, _mainCamera.pixelHeight),
+                        Fit,
+                        Alignment
+                    );
+                    StateMachine?.PointerDown(local);
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    Vector2 local = _artboard.LocalCoordinate(
+                        mouseRiveScreenPos,
+                        new Rect(0, 0, _mainCamera.pixelWidth, _mainCamera.pixelHeight),
+                        Fit,
+                        Alignment
+                    );
+                    StateMachine?.PointerUp(local);
+                }
+            }
+
+            // Find reported Rive events before calling advance.
+            foreach (var report in StateMachine?.ReportedEvents() ?? Enumerable.Empty<ReportedEvent>())
+            {
+                OnRiveEvent?.Invoke(report);
+            }
+
+            StateMachine?.Advance(Time.deltaTime);
+            _riveRenderer.Submit();
+            GL.InvalidateState();
+        }
+
+        void OnDisable()
+        {
+            if (_commandBuffer is not null && _mainCamera is not null)
+            {
+                _mainCamera.RemoveCommandBuffer(CameraEvent, _commandBuffer);
+            }
+
+        }
+
+        string GetSelectedRiveSceneName(RiveScenes swapTo)
+        {
+            return ReferenceNames[swapTo];
+        }
+    
+        public void SetTextRunAtPath(string textRun, TextPath path)
+        {
+            if (_textRunReferences.TryGetValue(path, out var stringPath))
+            {
+                Artboard.SetTextRun(stringPath, textRun);
+            }
+            else
+            {
+                Debug.LogError($"Invalid text target: {path}");
+            }
         }
     }
 }

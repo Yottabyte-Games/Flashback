@@ -1,31 +1,34 @@
+using _Scripts.Rive;
 using DialogueSystem.Scripts;
 using UnityEngine;
 using UnityEngine.Playables;
-
-public class TimelinePlayer : MonoBehaviour
+namespace _Scripts.TimelineLogic
 {
-    [SerializeField] DialogueManager dialogueManager;
+    public class TimelinePlayer : MonoBehaviour
+    {
+        [SerializeField] DialogueManager dialogueManager;
     
-    DialogueStarter _dialogueStarter;
-    PlayableDirector _director;
-    void Awake()
-    {
-        _dialogueStarter = GetComponent<DialogueStarter>();
-        _director = GetComponent<PlayableDirector>();
-        _director.played += Director_Played;
-        _director.stopped += Director_Stopped;
-    }
-    void Director_Stopped(PlayableDirector playableDirector)
-    {
+        DialogueStarter _dialogueStarter;
+        PlayableDirector _director;
+        void Awake()
+        {
+            _dialogueStarter = GetComponent<DialogueStarter>();
+            _director = GetComponent<PlayableDirector>();
+            _director.played += Director_Played;
+            _director.stopped += Director_Stopped;
+        }
+        void Director_Stopped(PlayableDirector playableDirector)
+        {
         
-    }
-    void Director_Played(PlayableDirector playableDirector)
-    {
+        }
+        void Director_Played(PlayableDirector playableDirector)
+        {
         
-    }
-    public void StartNarrationTextAndAudio()
-    {
+        }
+        public void StartNarrationTextAndAudio()
+        {
         
-        //_director.Play();
+            //_director.Play();
+        }
     }
 }

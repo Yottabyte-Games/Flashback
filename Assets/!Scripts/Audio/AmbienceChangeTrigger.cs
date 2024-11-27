@@ -1,15 +1,17 @@
 using UnityEngine;
-
-public class AmbienceChangeTrigger : MonoBehaviour
+namespace _Scripts.Audio
 {
-    [Header("Area")]
-    [SerializeField] AmbienceArea area;
-
-    void OnTriggerEnter(Collider other)
+    public class AmbienceChangeTrigger : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        [Header("Area")]
+        [SerializeField] AmbienceArea area;
+
+        void OnTriggerEnter(Collider other)
         {
-            AudioManager.Instance.SetAmbienceArea(area);
+            if (other.CompareTag("Player"))
+            {
+                AudioManager.Instance.SetAmbienceArea(area);
+            }
         }
     }
 }

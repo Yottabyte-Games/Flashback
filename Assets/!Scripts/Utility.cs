@@ -1,10 +1,8 @@
 using System.Threading.Tasks;
 using UnityEngine;
-using Utility.Math;
-
-namespace Utility
+namespace _Scripts
 {
-    namespace Methods
+    namespace UtilMethods
     {
         public static class UMethods
         {
@@ -39,7 +37,7 @@ namespace Utility
         }
     }
 
-    namespace Math
+    namespace UtilMath
     {
         public class UMath
         {
@@ -55,8 +53,9 @@ namespace Utility
         }
     }
 
-    namespace Physics
+    namespace UtilPhysics
     {
+        using static UtilMath.UMath;
         public class UPhysics
         {
             /// <summary>
@@ -64,7 +63,7 @@ namespace Utility
             /// </summary>
             public static float Gravity
             {
-                get { return UnityEngine.Physics.gravity.y; }
+                get { return Physics.gravity.y; }
             }
 
             /// <summary>
@@ -75,7 +74,7 @@ namespace Utility
             /// <param name="time">travel time in seconds</param>
             public static void ThrowTo(Rigidbody toThrow, Vector3 pos, float time = 1)
             {
-                toThrow.linearVelocity = UMath.VeloctiyToDestination(toThrow.transform.position, pos, time, Gravity);
+                toThrow.linearVelocity = VeloctiyToDestination(toThrow.transform.position, pos, time, Gravity);
             }
             /// <summary>
             /// Thow an object to a position, but waits until the time has passed

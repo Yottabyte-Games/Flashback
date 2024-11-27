@@ -1,34 +1,35 @@
-using Unity.VisualScripting;
 using UnityEngine;
-
-public class FlashbackLightning : MonoBehaviour
+namespace _Scripts
 {
-    [Header("References")]
-    [SerializeField] Light directionalLight;
-
-    [Header("Settings")]
-    [SerializeField] float disableTime = 10f;
-
-    float elapsedTime = 0f;
-
-    void Start()
+    public class FlashbackLightning : MonoBehaviour
     {
-        if (directionalLight == null)
-        {
-            directionalLight = GetComponent<Light>();
-        }
-    }
+        [Header("References")]
+        [SerializeField] Light directionalLight;
 
-    void Update()
-    {
-        elapsedTime += Time.deltaTime;
+        [Header("Settings")]
+        [SerializeField] float disableTime = 10f;
 
-        if (elapsedTime >= disableTime)
+        float elapsedTime = 0f;
+
+        void Start()
         {
-            if (directionalLight != null)
+            if (directionalLight == null)
             {
-                directionalLight.enabled = false;
-                enabled = false;
+                directionalLight = GetComponent<Light>();
+            }
+        }
+
+        void Update()
+        {
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime >= disableTime)
+            {
+                if (directionalLight != null)
+                {
+                    directionalLight.enabled = false;
+                    enabled = false;
+                }
             }
         }
     }

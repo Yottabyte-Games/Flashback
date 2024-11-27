@@ -1,14 +1,14 @@
 using Rive;
 using UnityEngine;
 using UnityEngine.Rendering;
-
-namespace Plugins.Rive.UI
+using UnityEngine.Serialization;
+namespace _Scripts.Rive
 {
     public class RiveTexture : MonoBehaviour
     {
-        public Asset asset;
-        public Fit fit = Fit.Contain;
-        public int size = 512;
+        [FormerlySerializedAs("asset")] public Asset Asset;
+        [FormerlySerializedAs("fit")] public Fit Fit = Fit.Contain;
+        [FormerlySerializedAs("size")] public int Size = 512;
 
         RenderTexture _mRenderTexture;
         global::Rive.RenderQueue _mRenderQueue;
@@ -18,7 +18,7 @@ namespace Plugins.Rive.UI
         File _mFile;
         Artboard _mArtboard;
         StateMachine _mStateMachine;
-        public StateMachine stateMachine => _mStateMachine;
+        public StateMachine StateMachine => _mStateMachine;
 
         static bool FlipY()
         {
@@ -34,7 +34,7 @@ namespace Plugins.Rive.UI
 
         void Awake()
         {
-            _mRenderTexture = new RenderTexture(TextureHelper.Descriptor(size, size));
+            _mRenderTexture = new RenderTexture(TextureHelper.Descriptor(Size, Size));
             _mRenderTexture.Create();
 
             UnityEngine.Renderer renderer = GetComponent<UnityEngine.Renderer>();
@@ -50,16 +50,16 @@ namespace Plugins.Rive.UI
 
             _mRenderQueue = new global::Rive.RenderQueue(_mRenderTexture);
             _mRiveRenderer = _mRenderQueue.Renderer();
-            if (asset != null)
+            if (Asset != null)
             {
-                _mFile = File.Load(asset);
+                _mFile = File.Load(Asset);
                 _mArtboard = _mFile.Artboard(0);
                 _mStateMachine = _mArtboard?.StateMachine();
             }
 
             if (_mArtboard != null && _mRenderTexture != null)
             {
-                _mRiveRenderer.Align(fit, Alignment.Center, _mArtboard);
+                _mRiveRenderer.Align(Fit, Alignment.Center, _mArtboard);
                 _mRiveRenderer.Draw(_mArtboard);
 
                 _mCommandBuffer = new CommandBuffer();

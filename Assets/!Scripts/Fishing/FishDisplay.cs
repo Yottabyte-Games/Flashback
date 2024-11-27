@@ -1,6 +1,6 @@
+using _Scripts.UtilMethods;
 using TMPro;
 using UnityEngine;
-using Utility.Methods;
 
 namespace _Scripts.Fishing
 {

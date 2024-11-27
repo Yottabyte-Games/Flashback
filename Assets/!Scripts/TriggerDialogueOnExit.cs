@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.Events;
-
-public class TriggerDialogueOnExit : MonoBehaviour
+namespace _Scripts
 {
-    [SerializeField] UnityEvent eventOnExit;
-    void OnTriggerExit(Collider other)
+    public class TriggerDialogueOnExit : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        [SerializeField] UnityEvent eventOnExit;
+        void OnTriggerExit(Collider other)
         {
-            // Trigger dialogue
-            eventOnExit.Invoke();
+            if (other.CompareTag("Player"))
+            {
+                // Trigger dialogue
+                eventOnExit.Invoke();
+            }
         }
     }
 }
