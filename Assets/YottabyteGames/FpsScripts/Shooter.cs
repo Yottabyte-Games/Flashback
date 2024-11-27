@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Rendering;
+using YottabyteGames.Materials;
 
 public class Shooter : MonoBehaviour
 {
@@ -9,13 +11,17 @@ public class Shooter : MonoBehaviour
     public GameObject HitPoint;
     public GameObject ballPrefab;
 
+    public GameObject explosion;
+
+    [SerializeField] private float shootingForce = 100f;
+
     void Update()
-    { 
+    {
         if (Input.GetMouseButtonDown(0))
         {
             Shooting();
-            GameObject bullet = Instantiate(ballPrefab, CatWeapon.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().AddForce(transform.forward);
+            /*GameObject bullet = Instantiate(ballPrefab, CatWeapon.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody>().AddForce(transform.forward);*/
         }
     }
 
@@ -27,8 +33,21 @@ public class Shooter : MonoBehaviour
         {
             Debug.DrawRay(FirePoint.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
-            //Instantiate(Fire, FirePoint.position, Quaternion.identity);
-            Instantiate(HitPoint, hit.point, Quaternion.identity);
+            Instantiate(Fire, FirePoint.position, Quaternion.identity);
+            GameObject bullet = Instantiate(ballPrefab, FirePoint.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * shootingForce);
+            //Instantiate(HitPoint, hit.point, Quaternion.identity);
+            //return hit;
         }
+    }
+
+    public void PlayExplosion(RaycastHit explosionPosition)
+    {
+        GameObject explosion = Instantiate(HitPoint, explosionPosition.point, Quaternion.identity);
+    }
+
+    public void PlayExplosion()
+    {
+
     }
 }
