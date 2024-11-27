@@ -14,7 +14,8 @@ namespace _Scripts.Rive
 
         InputAction _pauseAction;
 
-
+        [SerializeField] private bool isCursorVisible = true;
+        
         void Awake()
         {
             if (_riveScreen is null)
@@ -38,6 +39,7 @@ namespace _Scripts.Rive
             if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.HUD)
             {
                 _riveScreen.StateMachine.GetTrigger("UnFlash").Fire();
+                ChangeCursor(isCursorVisible);
             }
         
             if (SceneManager.GetActiveScene().name == "HubWorld 1")
@@ -69,9 +71,16 @@ namespace _Scripts.Rive
                 // Set Pause Scene from Rive
                 _riveScreen.SetRiveScene(RiveScreen.RiveScenes.PauseMenu);
             }
+            
         }
 
-
+        public void ChangeCursor(bool value)
+        {
+            if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.HUD)
+            {
+                _riveScreen.StateMachine.GetBool("HideCursor").Value = value;
+            }
+        }
         // First Dialogue should call this
         public void StartDialogue(string dialogueString)
         {
