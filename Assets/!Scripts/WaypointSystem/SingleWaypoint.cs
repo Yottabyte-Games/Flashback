@@ -6,7 +6,7 @@ namespace _Scripts.WaypointSystem {
         [SerializeField] string waypointInteractionLayer = "WaypointInteraction";
         [SerializeField] EventReference fmodEvent;
 
-        TrackWaypoints _trackWaypoints;
+        TrackWaypointManager _trackWaypointManager;
         MeshRenderer _meshRenderer;
 
         int _waypointTriggerLayer;
@@ -18,26 +18,26 @@ namespace _Scripts.WaypointSystem {
             Hide();
         }
 
-        public void SetTrackWaypoints(TrackWaypoints trackWaypoints) {
-            _trackWaypoints = trackWaypoints;
+        public void SetTrackWaypoints(TrackWaypointManager trackWaypointManager) {
+            _trackWaypointManager = trackWaypointManager;
         }
 
         void OnTriggerEnter(Collider other) {
             if (!other.gameObject.layer.Equals(_waypointTriggerLayer)) return;
             if (_isTriggered) return;
             _isTriggered = true;
-            _trackWaypoints.CarThroughWaypoint(this, other.transform);
+            _trackWaypointManager.CarThroughWaypoint(this, other.transform);
 
             // Play FMOD event as a one-shot
             RuntimeManager.PlayOneShot(fmodEvent, transform.position);
         }
 
         public void Show() {
-            if (_meshRenderer is not null) _meshRenderer.enabled = true;
+            gameObject.SetActive(true);
         }
 
         public void Hide() {
-            if (_meshRenderer is not null) _meshRenderer.enabled = false;
+            gameObject.SetActive(false);
             ResetTrigger();
         }
 
