@@ -4146,6 +4146,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: First Person Controller Minimal
       objectReference: {fileID: 0}
+    - target: {fileID: 5242010300582068122, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5262169347900679442, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7180548581077007132, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
       propertyPath: animator
       value: 
@@ -4170,6 +4178,10 @@ PrefabInstance:
       propertyPath: FishedPhotoTaken.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2120748095}
+    - target: {fileID: 7500161008466716661, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5214,7 +5226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <startingDialogue>k__BackingField: {fileID: 11400000, guid: 86970f7f1be65c44bb3824fe93ffdddf, type: 2}
+  <StartingDialogue>k__BackingField: {fileID: 0}
   sceneToLoad:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000

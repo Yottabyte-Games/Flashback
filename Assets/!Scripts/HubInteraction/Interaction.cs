@@ -32,16 +32,16 @@ namespace _Scripts.HubInteraction
             if (UnityEngine.Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, interactionRange))
             {
                 DialogueStarter interactable = hit.collider.GetComponent<DialogueStarter>();
-                if (hit.collider.tag == "Interactable" && interactionObject == null)
+                if (hit.collider.CompareTag("Interactable") && interactionObject == null)
                 {
                     StartInteraction(interactable);
                 }
-                else if (hit.collider.tag != "Interactable" && interactionObject != null)
+                else if (!hit.collider.CompareTag("Interactable") && interactionObject != null)
                 {
                     StopInteraction();
                 }
 
-                if (interactable != null && _interactAction.WasPressedThisFrame())
+                if (interactable != null && _interactAction.WasPressedThisFrame() && hit.collider.CompareTag("Interactable"))
                 {
                     interactable.StartDialogue();
                     interactable.gameObject.GetComponent<StoryProgresser>().SelectNextStoryBeat();

@@ -26,9 +26,4 @@ public class MinigameTimeline : MonoBehaviour
             timelineState.hasPlayed = true;
         }
     }
-    // TODO: Remove when building
-    private void OnDestroy()
-    {
-        timelineState.hasPlayed = false;
-    }
 }
