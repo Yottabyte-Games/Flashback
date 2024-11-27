@@ -14,7 +14,7 @@ namespace _Scripts.Rive
 
         InputAction _pauseAction;
 
-        [SerializeField] private bool isCursorVisible = true;
+        [SerializeField] private bool isDotHidden = false;
         
         void Awake()
         {
@@ -39,7 +39,7 @@ namespace _Scripts.Rive
             if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.HUD)
             {
                 _riveScreen.StateMachine.GetTrigger("UnFlash").Fire();
-                ChangeCursor(isCursorVisible);
+                ChangeCursor(isDotHidden);
             }
         
             if (SceneManager.GetActiveScene().name == "HubWorld 1")
