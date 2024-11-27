@@ -1,22 +1,50 @@
 using UnityEngine;
 using UnityEngine.AI;
-namespace _Scripts.Enemy
+
+//namespace _Scripts.Enemy
+public class Enemy : MonoBehaviour
 {
-    public class Enemy : MonoBehaviour
+    GameObject Player;
+
+    NavMeshAgent NMA;
+
+    [SerializeField] private float maxHealth, health = 100f;
+
+    [SerializeField] FloatingHealthBar healthBar;
+
+    private void Awake()
     {
-        GameObject Player;
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+    }
 
-        NavMeshAgent NMA;
+    void Start()
+    {
+        NMA = GetComponent<NavMeshAgent>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
 
-        void Start()
+    void Update()
+    {
+        NMA.destination = Player.transform.position;
+        healthBar.UpdateHealthBar(health, maxHealth);
+    }
+
+    public void TakeDamage(float damageAmount)
+    {
+
+        health -= damageAmount;
+        healthBar.UpdateHealthBar(health, maxHealth);
+        if (health <= 0)
         {
-            NMA = GetComponent<NavMeshAgent>();
-            Player = GameObject.FindGameObjectWithTag("Player");
+            Die();
         }
+        print(health);
+    }
 
-        void Update()
-        {
-            NMA.destination = Player.transform.position;    
-        }
+    private void Die()
+    {
+        //GetComponent<LootBag>().InstantiateLoot(transform.position);
+        Destroy(gameObject);
     }
 }
+
