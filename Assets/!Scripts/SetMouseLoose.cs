@@ -1,11 +1,12 @@
-using System;
 using UnityEngine;
-
-public class SetMouseLoose : MonoBehaviour
+namespace _Scripts
 {
-    void Start()
+    public class SetMouseLoose : MonoBehaviour
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        void Start()
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

@@ -1,9 +1,8 @@
-﻿using System;
-using _Scripts.Vehicle.CP_CarPhysics;
-using UnityEngine;
-
-namespace _Scripts.Vehicle.CA_CarAbilities
+﻿namespace _Scripts.Vehicle.CA_CarAbilities
 {
+    using System;
+    using CP_CarPhysics;
+    using UnityEngine;
     public class CaAirControl : CaAbility
     {
     

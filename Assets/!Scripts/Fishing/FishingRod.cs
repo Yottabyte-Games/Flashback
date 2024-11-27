@@ -2,10 +2,10 @@ using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
-using Utility.Physics;
-
 namespace _Scripts.Fishing
 {
+    using static UtilPhysics.UPhysics;
+
     [RequireComponent(typeof(Reel))]
     public class FishingRod : MonoBehaviour
     {
@@ -59,7 +59,7 @@ namespace _Scripts.Fishing
                 hook.Rb.useGravity = true;
 
             HookThrowAnim = true;
-            await UPhysics.ThrowToAsync(hook.Rb, hookPoint.position, (int)(timeToReelHook * 1000));
+            await ThrowToAsync(hook.Rb, hookPoint.position, (int)(timeToReelHook * 1000));
             HookThrowAnim = false;
 
             ResetHook();

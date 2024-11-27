@@ -1,3 +1,4 @@
+using _Scripts.Rive;
 using DialogueSystem.Scripts.ScriptableObjects;
 using Eflatun.SceneReference;
 using FMODUnity;

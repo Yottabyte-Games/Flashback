@@ -1,20 +1,21 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class SwapScene : MonoBehaviour
+namespace _Scripts
 {
-    static bool swapedScene = false;
-    void Start()
+    public class SwapScene : MonoBehaviour
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0 && !swapedScene)
+        static bool swapedScene = false;
+        void Start()
         {
-            SceneManager.LoadScene("Begining");
-            swapedScene = true;
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 13)
-        {
-            SceneManager.LoadScene("MainMenu");
+            if (SceneManager.GetActiveScene().buildIndex == 0 && !swapedScene)
+            {
+                SceneManager.LoadScene("Begining");
+                swapedScene = true;
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 13)
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
         }
     }
 }

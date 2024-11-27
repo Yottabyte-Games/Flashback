@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-
-namespace Enemy
+namespace _Scripts.Enemy
 {
     public class Enemy : MonoBehaviour
     {

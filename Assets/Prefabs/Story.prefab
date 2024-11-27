@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3913155794252469934}
   - component: {fileID: 5110005765633452776}
   - component: {fileID: 398368693399074856}
+  - component: {fileID: 3464873556440877150}
+  - component: {fileID: 326200635789935562}
   m_Layer: 0
   m_Name: WorkingDirector
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 174163905710539603}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.725677, y: 5.0974693, z: -14.836548}
+  m_LocalPosition: {x: 292.2, y: 7.2, z: 133.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,7 +63,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -1619746760166475499, guid: db595f77018e8bf418889933dd01e8fd, type: 2}
+    value: {fileID: 3464873556440877150}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &398368693399074856
@@ -109,6 +113,49 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!95 &3464873556440877150
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174163905710539603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &326200635789935562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174163905710539603}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 46.57, y: 9.56, z: 68.3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &542185143943524567
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +202,8 @@ GameObject:
   - component: {fileID: 6785216042157090450}
   - component: {fileID: 7005178319620125942}
   - component: {fileID: 930590353838074964}
+  - component: {fileID: 2605948776173031619}
+  - component: {fileID: 1867035590769896950}
   m_Layer: 0
   m_Name: SnowmanDirector
   m_TagString: Untagged
@@ -171,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 624093435130739176}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.725677, y: 5.0974693, z: -14.836548}
+  m_LocalPosition: {x: 171.5, y: 13.23, z: 239.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -204,7 +253,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 3520501122925867914, guid: f13c254bc83b05d4d9c147400df78e56, type: 2}
+    value: {fileID: 2605948776173031619}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &930590353838074964
@@ -252,6 +303,49 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!95 &2605948776173031619
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624093435130739176}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1867035590769896950
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624093435130739176}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20.33, y: 1, z: 22.45}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1089175060765108719
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +394,8 @@ GameObject:
   - component: {fileID: 705475416334741326}
   - component: {fileID: 7035001608993229160}
   - component: {fileID: 3867427968497792083}
+  - component: {fileID: 33962921719589778}
+  - component: {fileID: 1149398174794257544}
   m_Layer: 0
   m_Name: RacingDirector
   m_TagString: Untagged
@@ -316,7 +412,7 @@ Transform:
   m_GameObject: {fileID: 1545618718357819345}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 119.44, y: 7.98, z: 179.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -349,7 +445,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 1846259005597742296, guid: 5a3577203207fa344b49605909b27e10, type: 2}
+    value: {fileID: 33962921719589778}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &3867427968497792083
@@ -397,6 +495,49 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!95 &33962921719589778
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545618718357819345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1149398174794257544
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545618718357819345}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.79, y: 5.82, z: 16.84}
+  m_Center: {x: -5, y: 0, z: 6.08}
 --- !u!1 &4311049304092084965
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +595,7 @@ GameObject:
   - component: {fileID: 6514167136561168151}
   - component: {fileID: 7000989001881690189}
   - component: {fileID: 1087131105673429360}
+  - component: {fileID: 8353780193462170601}
   m_Layer: 0
   m_Name: PsychologistDirector
   m_TagString: Untagged
@@ -470,7 +612,7 @@ Transform:
   m_GameObject: {fileID: 4382167469153917621}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.725677, y: 5.0974693, z: -14.836548}
+  m_LocalPosition: {x: 360.156, y: 8.133, z: 210.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -503,7 +645,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -1065140605924730768, guid: 4070a2e6066354142b29af8e1fccd8d1, type: 2}
+    value: {fileID: 8353780193462170601}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1087131105673429360
@@ -551,6 +695,28 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!95 &8353780193462170601
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382167469153917621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7547875365716746290
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,10 +726,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980749715365754548}
-  - component: {fileID: 3872606611700850272}
   - component: {fileID: 1723411661497119044}
   - component: {fileID: 612519968330971925}
   - component: {fileID: 1256345604742769122}
+  - component: {fileID: 1465360684261489553}
+  - component: {fileID: 2141040167265108943}
   m_Layer: 0
   m_Name: FishingDirector
   m_TagString: Untagged
@@ -586,27 +753,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7015850553937904919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3872606611700850272
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7547875365716746290}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 29.2, y: 12, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1723411661497119044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +780,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -8001988012257465758, guid: dda7230396eb1c84786cfe0340ae34d0, type: 2}
+    value: {fileID: 2141040167265108943}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1256345604742769122
@@ -682,6 +830,49 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!65 &1465360684261489553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547875365716746290}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 42.68, y: 3.94, z: 17.21}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &2141040167265108943
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547875365716746290}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5499098721132005461
 PrefabInstance:
   m_ObjectHideFlags: 0

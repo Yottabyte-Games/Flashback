@@ -1,117 +1,127 @@
-using System;
 using Eflatun.SceneReference;
 using Rive;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
-[RequireComponent(typeof(RiveScreen))]
-public class GameHudController : MonoBehaviour
+namespace _Scripts.Rive
 {
-    RiveScreen riveScreen;
-    SceneReference _sceneToLoad;
-    PlayerPositionController _playerPositionController;
-
-    InputAction _pauseAction;
-
-
-    void Awake()
+    [RequireComponent(typeof(RiveScreen))]
+    public class GameHudController : MonoBehaviour
     {
-        if (riveScreen is null)
+        RiveScreen _riveScreen;
+        SceneReference _sceneToLoad;
+        PlayerPositionController _playerPositionController;
+
+        InputAction _pauseAction;
+
+        [SerializeField] private bool isCursorVisible = true;
+        
+        void Awake()
         {
-            riveScreen = GetComponent<RiveScreen>();
-            if (riveScreen is null)
+            if (_riveScreen is null)
             {
-                Debug.LogError("No RiveScreen component found on " + gameObject.name);
+                _riveScreen = GetComponent<RiveScreen>();
+                if (_riveScreen is null)
+                {
+                    Debug.LogError("No RiveScreen component found on " + gameObject.name);
+                }
+            }
+
+            _riveScreen = GetComponent<RiveScreen>();
+        
+        
+            _pauseAction = InputSystem.actions.FindAction("Pause");
+        }
+
+        void Start()
+        {
+            _riveScreen.OnRiveEvent += RiveEventHandler;
+            if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.HUD)
+            {
+                _riveScreen.StateMachine.GetTrigger("UnFlash").Fire();
+                ChangeCursor(isCursorVisible);
+            }
+        
+            if (SceneManager.GetActiveScene().name == "HubWorld 1")
+            {
+                _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
             }
         }
 
-        riveScreen = GetComponent<RiveScreen>();
-        
-        
-        _pauseAction = InputSystem.actions.FindAction("Pause");
-    }
-
-    void Start()
-    {
-        riveScreen.OnRiveEvent += RiveEventHandler;
-        if (riveScreen.currentScene == RiveScreen.RiveScenes.HUD)
+        void RiveEventHandler(ReportedEvent reportedEvent)
         {
-            riveScreen.stateMachine.GetTrigger("UnFlash").Fire();
-        }
-        
-        if (SceneManager.GetActiveScene().name == "HubWorld 1")
-        {
-            _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
-        }
-    }
-
-    void RiveEventHandler(ReportedEvent reportedEvent)
-    {
-        if (reportedEvent.Name == "FlashbackEvent" && _sceneToLoad != null)
-        {
-            if (_playerPositionController)
+            if (reportedEvent.Name == "FlashbackEvent" && _sceneToLoad != null)
             {
-                _playerPositionController.SavePosition(_sceneToLoad.Name);
-                print("Saved Position");
+                if (_playerPositionController)
+                {
+                    _playerPositionController.SavePosition(_sceneToLoad.Name);
+                    print("Saved Position");
+                }
+                else
+                    SceneManager.LoadScene(_sceneToLoad.Name);
             }
-            else
-                SceneManager.LoadScene(_sceneToLoad.Name);
         }
-    }
 
-    void Update()
-    {
-        if (_pauseAction.WasPressedThisFrame())
-        { 
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            // Set Pause Scene from Rive
-            riveScreen.SetRiveScene(RiveScreen.RiveScenes.PauseMenu);
-        }
-    }
-
-
-    // First Dialogue should call this
-    public void StartDialogue(string dialogueString)
-    {
-        SetDialogue(dialogueString);
-        riveScreen.stateMachine.GetTrigger("AddDialogue").Fire();
-    }
-
-    // Every other dialogues calls this
-    public void NextDialogue(string dialogueString)
-    {
-        SetDialogue(dialogueString);
-        riveScreen.stateMachine.GetTrigger("NextDialogue").Fire();
-    }
-
-    // When last dialogue finishes, call this
-    public void EndDialogue(SceneReference sceneReference = null)
-    {
-        riveScreen.stateMachine.GetTrigger("RemoveDialogue").Fire();
-        if (sceneReference != null)
+        void Update()
         {
-            riveScreen.stateMachine.GetTrigger("FlashBack").Fire();
-            _sceneToLoad = sceneReference;
+            if (_pauseAction.WasPressedThisFrame())
+            { 
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                // Set Pause Scene from Rive
+                _riveScreen.SetRiveScene(RiveScreen.RiveScenes.PauseMenu);
+            }
+            
         }
-    }
 
-    public void HoverOn(string objectName)
-    {
-        riveScreen.SetTextRunAtPath(objectName, RiveScreen.TextPath.HUDItem);
-        riveScreen.stateMachine.GetBool("IsHovering").Value = true;
-    }
+        public void ChangeCursor(bool value)
+        {
+            if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.HUD)
+            {
+                _riveScreen.StateMachine.GetBool("HideCursor").Value = value;
+            }
+        }
+        // First Dialogue should call this
+        public void StartDialogue(string dialogueString)
+        {
+            SetDialogue(dialogueString);
+            _riveScreen.StateMachine.GetTrigger("AddDialogue").Fire();
+        }
 
-    public void HoverOff()
-    {
-        riveScreen.stateMachine.GetBool("IsHovering").Value = false;
-    }
+        // Every other dialogues calls this
+        public void NextDialogue(string dialogueString)
+        {
+            SetDialogue(dialogueString);
+            _riveScreen.StateMachine.GetTrigger("NextDialogue").Fire();
+        }
+
+        // When last dialogue finishes, call this
+        public void EndDialogue(SceneReference sceneReference = null)
+        {
+            _riveScreen.StateMachine.GetTrigger("RemoveDialogue").Fire();
+            if (sceneReference != null)
+            {
+                _riveScreen.StateMachine.GetTrigger("FlashBack").Fire();
+                _sceneToLoad = sceneReference;
+            }
+        }
+
+        public void HoverOn(string objectName)
+        {
+            _riveScreen.SetTextRunAtPath(objectName, RiveScreen.TextPath.HUDItem);
+            _riveScreen.StateMachine.GetBool("IsHovering").Value = true;
+        }
+
+        public void HoverOff()
+        {
+            _riveScreen.StateMachine.GetBool("IsHovering").Value = false;
+        }
 
 
-    // Set Dialogue Text for the next dialogue
-    void SetDialogue(string dialogue)
-    {
-        riveScreen.SetTextRunAtPath(dialogue, RiveScreen.TextPath.Dialogue);
+        // Set Dialogue Text for the next dialogue
+        void SetDialogue(string dialogue)
+        {
+            _riveScreen.SetTextRunAtPath(dialogue, RiveScreen.TextPath.Dialogue);
+        }
     }
 }

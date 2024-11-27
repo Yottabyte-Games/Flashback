@@ -1,7 +1,6 @@
-using UnityEngine;
-
 namespace _Scripts.Snowman_Scripts.Interaction
-{
+{ 
+    using UnityEngine;
     public class Interaction : MonoBehaviour
     {
         public Camera mainCamera;

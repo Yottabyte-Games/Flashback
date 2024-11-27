@@ -1,6 +1,5 @@
 using UnityEngine;
-
-namespace _Scripts
+namespace _Scripts.Fishing
 {
     public class Float : MonoBehaviour
     {
