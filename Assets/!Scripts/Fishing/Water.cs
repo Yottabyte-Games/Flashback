@@ -1,6 +1,11 @@
 using UnityEngine;
 
-public class Water : MonoBehaviour
+namespace _Scripts.Fishing
 {
+
+    public class Water : MonoBehaviour
+    {
+
+    }
 
 }

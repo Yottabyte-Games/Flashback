@@ -2,12 +2,17 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MinigameManager : MonoBehaviour
+namespace _Scripts
 {
-    [Scene, SerializeField] int SceneToLoadOnEnd;
-    
-    public void EndMinigame()
+
+    public class MinigameManager : MonoBehaviour
     {
-        SceneManager.LoadScene(SceneToLoadOnEnd);
+        [Scene, SerializeField] int SceneToLoadOnEnd;
+    
+        public void EndMinigame()
+        {
+            SceneManager.LoadScene(SceneToLoadOnEnd);
+        }
     }
+
 }

@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace YottabyteGames
+namespace YottabyteGames.FpsScripts.Interaction_System
 {    
     public interface IInteractable
     {

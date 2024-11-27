@@ -1,51 +1,56 @@
 using DialogueSystem.Scripts;
 using DialogueSystem.Scripts.ScriptableObjects;
-using UnityEngine;
 using Eflatun.SceneReference;
+using UnityEngine;
 
-public class DialogueStarter : MonoBehaviour
+namespace _Scripts.Rive
 {
-    [field: SerializeField] public DSDialogueSO startingDialogue { get; private set; }
-    [Header("Only needed if we are swapping scene")]
-    [SerializeField]
-    SceneReference sceneToLoad;
-    [SerializeField] bool loadSceneAfterDialogue = false;
 
-    bool hasTalkedAlready = false;
-    DialogueManager dialogueManager;
-
-    void Start()
+    public class DialogueStarter : MonoBehaviour
     {
-        dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
-        if (dialogueManager is null)
+        [field: SerializeField] public DSDialogueSO startingDialogue { get; private set; }
+        [Header("Only needed if we are swapping scene")]
+        [SerializeField]
+        SceneReference sceneToLoad;
+        [SerializeField] bool loadSceneAfterDialogue = false;
+
+        bool hasTalkedAlready = false;
+        DialogueManager dialogueManager;
+
+        void Start()
         {
-            Debug.LogError("Dialogue Manager is null");
+            dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
+            if (dialogueManager is null)
+            {
+                Debug.LogError("Dialogue Manager is null");
+            }
         }
-    }
 
-    void OnTriggerEnter(Collider other)
-    {
+        void OnTriggerEnter(Collider other)
+        {
         
             StartDialogue();
-    }
+        }
 
-    public void StartDialogue()
-    {
-        if (!hasTalkedAlready)
+        public void StartDialogue()
         {
-            if (loadSceneAfterDialogue)
+            if (!hasTalkedAlready)
             {
-                dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
+                if (loadSceneAfterDialogue)
+                {
+                    dialogueManager.SetDialogue(startingDialogue, sceneToLoad);
+                    hasTalkedAlready = true;
+                }
+                else
+                    dialogueManager.SetDialogue(startingDialogue);
                 hasTalkedAlready = true;
             }
-            else
-                dialogueManager.SetDialogue(startingDialogue);
-            hasTalkedAlready = true;
-        }
         
+        }
+        public void NextDialogue()
+        {
+            dialogueManager.NextDialogue();
+        }
     }
-    public void NextDialogue()
-    {
-        dialogueManager.NextDialogue();
-    }
+
 }

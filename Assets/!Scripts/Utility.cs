@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
+using Unity.Mathematics.Geometry;
 using UnityEngine;
-using Utility.Math;
 
-namespace Utility
+namespace _Scripts
 {
     namespace Methods
     {
@@ -39,7 +39,7 @@ namespace Utility
         }
     }
 
-    namespace Math
+    namespace UMath
     {
         public class UMath
         {
@@ -55,8 +55,9 @@ namespace Utility
         }
     }
 
-    namespace Physics
+    namespace UPhysics
     {
+        using UMath;
         public class UPhysics
         {
             /// <summary>

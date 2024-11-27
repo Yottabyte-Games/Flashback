@@ -1,12 +1,17 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class OnTriggerEnterEvent : MonoBehaviour
+namespace _Scripts
 {
-    public UnityEvent onTriggerEnterEvent;
 
-    void OnTriggerEnter(Collider other)
+    public class OnTriggerEnterEvent : MonoBehaviour
     {
-        onTriggerEnterEvent.Invoke();
+        public UnityEvent onTriggerEnterEvent;
+
+        void OnTriggerEnter(Collider other)
+        {
+            onTriggerEnterEvent.Invoke();
+        }
     }
+
 }

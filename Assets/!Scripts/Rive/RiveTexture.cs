@@ -2,7 +2,7 @@ using Rive;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Plugins.Rive.UI
+namespace _Scripts.Rive
 {
     public class RiveTexture : MonoBehaviour
     {

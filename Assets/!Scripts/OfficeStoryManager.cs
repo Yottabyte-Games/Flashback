@@ -1,9 +1,8 @@
 using Eflatun.SceneReference;
-using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace _Scripts.Working
+namespace _Scripts
 {
     public class OfficeStoryManager : MonoBehaviour
     {

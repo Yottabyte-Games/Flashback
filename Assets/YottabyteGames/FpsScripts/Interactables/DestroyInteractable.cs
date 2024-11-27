@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using YottabyteGames.FpsScripts.Interaction_System;
+using InteractableBase = YottabyteGames.Scripts.Interaction_System.InteractableBase;
 
 namespace YottabyteGames.FpsScripts.Interactables
 {

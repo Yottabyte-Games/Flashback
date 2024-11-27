@@ -4,13 +4,14 @@ using UnityEngine;
 
 namespace YottabyteGames.Materials
 {
+
     public class ExplosionTrigger : MonoBehaviour
     {
-        [SerializeField] ParticleSystem explosion;
-        [SerializeField] CameraShake cameraShake;
-        [SerializeField] GameObject cat;
+        [SerializeField] private ParticleSystem explosion;
+        [SerializeField] private CameraShake cameraShake;
+        [SerializeField] private GameObject cat;
 
-        void Update()
+        private void Update()
         {
             if (cat.activeInHierarchy)
             {
@@ -25,4 +26,5 @@ namespace YottabyteGames.Materials
             }
         }
     }
+
 }

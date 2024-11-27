@@ -2,6 +2,7 @@ using DialogueSystem.Scripts.ScriptableObjects;
 using NaughtyAttributes;
 using System;
 using System.Threading.Tasks;
+using _Scripts.Rive;
 using UnityEngine;
 
 

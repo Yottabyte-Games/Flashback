@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace YottabyteGames.Materials
 {
+
     public class CameraShake : MonoBehaviour
     {
         public IEnumerator Shake (float duration, float magnitude)
@@ -29,4 +30,5 @@ namespace YottabyteGames.Materials
             transform.localPosition = originalPos;
         }
     }
+
 }

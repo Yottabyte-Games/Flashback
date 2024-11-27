@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 namespace Enemy
 {
+
     public class Enemy : MonoBehaviour
     {
         GameObject Player;
@@ -20,4 +21,5 @@ namespace Enemy
             NMA.destination = Player.transform.position;    
         }
     }
+
 }

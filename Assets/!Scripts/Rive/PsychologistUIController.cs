@@ -7,151 +7,156 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PsychologistUIController : MonoBehaviour
+namespace _Scripts.Rive
 {
-    RiveScreen riveScreen;
-    EventInstance _dialogueInstance;
-    InputAction _playNextDialogueAction;
-    DSDialogueSO _currentDialogue;
-    int sceneToLoad;
 
-    [SerializeField] bool dissolveBackgroundOnStart;
+    public class PsychologistUIController : MonoBehaviour
+    {
+        RiveScreen riveScreen;
+        EventInstance _dialogueInstance;
+        InputAction _playNextDialogueAction;
+        DSDialogueSO _currentDialogue;
+        int sceneToLoad;
+
+        [SerializeField] bool dissolveBackgroundOnStart;
     
-    public bool isActive { get; private set; }
-    bool _isMultipleChoice;
+        public bool isActive { get; private set; }
+        bool _isMultipleChoice;
 
-    void Start()
-    {
-        riveScreen = GetComponent<RiveScreen>();
-        riveScreen.OnRiveEvent += RiveEventHappens;
-
-        _playNextDialogueAction = InputSystem.actions.FindAction("Interact");
-    }
-    void Update()
-    {
-        if (_playNextDialogueAction.WasPressedThisFrame() && isActive && !_isMultipleChoice)
+        void Start()
         {
-            // Plays disappearing animation, when done RiveEventHappens and plays PlayPsychologistLine
-            riveScreen.stateMachine.GetTrigger("Disappear").Fire();
+            riveScreen = GetComponent<RiveScreen>();
+            riveScreen.OnRiveEvent += RiveEventHappens;
+
+            _playNextDialogueAction = InputSystem.actions.FindAction("Interact");
         }
-    }
-
-    void RiveEventHappens(ReportedEvent reportedEvent)
-    {
-        // Dialogue has disappeared and is ready to play the next dialogue
-        if (reportedEvent.Name == "Dialogue Gone Event")
+        void Update()
         {
-            PlayPsychologistLine();
-        }
-
-        if (reportedEvent.Name == "Background Visible Event")
-        {
-            SceneManager.LoadScene(sceneToLoad);
-        }
-        if (_isMultipleChoice)
-        {
-            if (reportedEvent.Name == "Option 1 Pressed Event")
+            if (_playNextDialogueAction.WasPressedThisFrame() && isActive && !_isMultipleChoice)
             {
-                DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
-                _currentDialogue = nextDialogue;
+                // Plays disappearing animation, when done RiveEventHappens and plays PlayPsychologistLine
                 riveScreen.stateMachine.GetTrigger("Disappear").Fire();
-                _isMultipleChoice = false;
-            }
-
-            if (reportedEvent.Name == "Option 2 Pressed Event")
-            {
-                DSDialogueSO nextDialogue = _currentDialogue.choices[1].nextDialogue;
-                _currentDialogue = nextDialogue;
-                riveScreen.stateMachine.GetTrigger("Disappear").Fire();
-                _isMultipleChoice = false;
             }
         }
-        
-    }
 
-    public void SetDialogue(DSDialogueSO dialogue, int sceneIndex)
-    {
-        _currentDialogue = dialogue;
-        sceneToLoad = sceneIndex;
-        
-        if (dissolveBackgroundOnStart)
+        void RiveEventHappens(ReportedEvent reportedEvent)
         {
-            riveScreen.stateMachine.GetTrigger("BackgroundRemove").Fire();
-        }
-        PlayPsychologistLine();
-        
-    }
-    void PlayPsychologistLine()
-    {
-        if (_currentDialogue)
-        {
-            isActive = true;
-            switch (_currentDialogue.dialogueType)
+            // Dialogue has disappeared and is ready to play the next dialogue
+            if (reportedEvent.Name == "Dialogue Gone Event")
             {
-                // For single dialogue
-                case DSDialogueType.SingleChoice:
+                PlayPsychologistLine();
+            }
+
+            if (reportedEvent.Name == "Background Visible Event")
+            {
+                SceneManager.LoadScene(sceneToLoad);
+            }
+            if (_isMultipleChoice)
+            {
+                if (reportedEvent.Name == "Option 1 Pressed Event")
                 {
-                    riveScreen.SetTextRunAtPath(_currentDialogue.text, RiveScreen.TextPath.Psychologist);
-            
-                    riveScreen.stateMachine.GetTrigger("PsychologistAppear").Fire();
-                   
-                    var voiceActing = _currentDialogue.voiceEvent;
-                    if (!voiceActing.IsNull)
-                    {
-                        SetFMODEventAndPlay(voiceActing);
-                    }
-                    else
-                    {
-                        Debug.LogError("Dialogue Event is Empty on The current line");
-                    }
-                    // Stores Next Dialogue
                     DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
                     _currentDialogue = nextDialogue;
+                    riveScreen.stateMachine.GetTrigger("Disappear").Fire();
                     _isMultipleChoice = false;
-                    
-                    break;
                 }
-                case DSDialogueType.MultipleChoice:
-                
-                    // Sets the different Dialogues
-                    SetText(RiveScreen.TextPath.Psychologist, _currentDialogue.text);
-                    SetText(RiveScreen.TextPath.Option1, _currentDialogue.choices[0].text);
-                    SetText(RiveScreen.TextPath.Option2, _currentDialogue.choices[1].text);
 
-                    // For dialogue with options
-                    riveScreen.stateMachine.GetTrigger("Appear").Fire();
-                    _isMultipleChoice = true;
+                if (reportedEvent.Name == "Option 2 Pressed Event")
+                {
+                    DSDialogueSO nextDialogue = _currentDialogue.choices[1].nextDialogue;
+                    _currentDialogue = nextDialogue;
+                    riveScreen.stateMachine.GetTrigger("Disappear").Fire();
+                    _isMultipleChoice = false;
+                }
+            }
+        
+        }
+
+        public void SetDialogue(DSDialogueSO dialogue, int sceneIndex)
+        {
+            _currentDialogue = dialogue;
+            sceneToLoad = sceneIndex;
+        
+            if (dissolveBackgroundOnStart)
+            {
+                riveScreen.stateMachine.GetTrigger("BackgroundRemove").Fire();
+            }
+            PlayPsychologistLine();
+        
+        }
+        void PlayPsychologistLine()
+        {
+            if (_currentDialogue)
+            {
+                isActive = true;
+                switch (_currentDialogue.dialogueType)
+                {
+                    // For single dialogue
+                    case DSDialogueType.SingleChoice:
+                    {
+                        riveScreen.SetTextRunAtPath(_currentDialogue.text, RiveScreen.TextPath.Psychologist);
+            
+                        riveScreen.stateMachine.GetTrigger("PsychologistAppear").Fire();
+                   
+                        var voiceActing = _currentDialogue.voiceEvent;
+                        if (!voiceActing.IsNull)
+                        {
+                            SetFMODEventAndPlay(voiceActing);
+                        }
+                        else
+                        {
+                            Debug.LogError("Dialogue Event is Empty on The current line");
+                        }
+                        // Stores Next Dialogue
+                        DSDialogueSO nextDialogue = _currentDialogue.choices[0].nextDialogue;
+                        _currentDialogue = nextDialogue;
+                        _isMultipleChoice = false;
                     
-                    break;
+                        break;
+                    }
+                    case DSDialogueType.MultipleChoice:
+                
+                        // Sets the different Dialogues
+                        SetText(RiveScreen.TextPath.Psychologist, _currentDialogue.text);
+                        SetText(RiveScreen.TextPath.Option1, _currentDialogue.choices[0].text);
+                        SetText(RiveScreen.TextPath.Option2, _currentDialogue.choices[1].text);
+
+                        // For dialogue with options
+                        riveScreen.stateMachine.GetTrigger("Appear").Fire();
+                        _isMultipleChoice = true;
+                    
+                        break;
+                }
+            }
+            else
+            {
+                if (dissolveBackgroundOnStart)
+                    riveScreen.stateMachine.GetTrigger("BackgroundAdd").Fire();
+                else
+                    SceneManager.LoadScene(sceneToLoad);
             }
         }
-        else
+
+
+        void SetText(RiveScreen.TextPath path, string textRun)
         {
-            if (dissolveBackgroundOnStart)
-                riveScreen.stateMachine.GetTrigger("BackgroundAdd").Fire();
-            else
-                SceneManager.LoadScene(sceneToLoad);
+            riveScreen.SetTextRunAtPath(textRun, path);
         }
-    }
-
-
-    void SetText(RiveScreen.TextPath path, string textRun)
-    {
-        riveScreen.SetTextRunAtPath(textRun, path);
-    }
     
-    void SetFMODEventAndPlay(EventReference voiceEvent)
-    {
-        // Stop the currently playing instance if it exists
-        if (_dialogueInstance.isValid())
+        void SetFMODEventAndPlay(EventReference voiceEvent)
         {
-            _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            _dialogueInstance.release();
+            // Stop the currently playing instance if it exists
+            if (_dialogueInstance.isValid())
+            {
+                _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _dialogueInstance.release();
+            }
+
+            // Create and start the new instance
+            _dialogueInstance = RuntimeManager.CreateInstance(voiceEvent);
+            _dialogueInstance.start();
         }
 
-        // Create and start the new instance
-        _dialogueInstance = RuntimeManager.CreateInstance(voiceEvent);
-        _dialogueInstance.start();
     }
 
 }

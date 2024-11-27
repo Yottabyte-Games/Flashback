@@ -1,11 +1,11 @@
-using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.Events;
-using Utility.Physics;
-
 namespace _Scripts.Fishing
 {
+    using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
+    using System.Threading.Tasks;
+    using UPhysics;
+    using UnityEngine;
+    using UnityEngine.Events;
+    
     [RequireComponent(typeof(Reel))]
     public class FishingRod : MonoBehaviour
     {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using YottabyteGames.FpsScripts.Scriptable_Objects;
+using InteractionInputData = YottabyteGames.Scripts.Scriptable_Objects.InteractionInputData;
 
 namespace YottabyteGames.FpsScripts.Input_Handler
 {    

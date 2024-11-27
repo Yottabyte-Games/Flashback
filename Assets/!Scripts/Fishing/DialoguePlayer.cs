@@ -1,16 +1,19 @@
-using _Scripts.Fishing;
-using NaughtyAttributes;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using _Scripts.Rive;
 using UnityEngine;
 
-public class DialoguePlayer : MonoBehaviour
+namespace _Scripts.Fishing
 {
-    [SerializeField] List<DialogueStarter> dialogueStarters = new();
-    [SerializeField] FishingStoryManager manager;
-    public void PlayDialogue()
+
+    public class DialoguePlayer : MonoBehaviour
     {
-        print(manager.fishCaught);
-        dialogueStarters[manager.fishCaught].StartDialogue();
+        [SerializeField] List<DialogueStarter> dialogueStarters = new();
+        [SerializeField] FishingStoryManager manager;
+        public void PlayDialogue()
+        {
+            print(manager.fishCaught);
+            dialogueStarters[manager.fishCaught].StartDialogue();
+        }
     }
+
 }
