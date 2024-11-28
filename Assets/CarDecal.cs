@@ -7,6 +7,8 @@ internal class CarDecal : MonoBehaviour
 
 
     public NavMeshAgent agent;
+
+    float timeStopped;
     public bool ReachedDestination
     {
         get
@@ -25,9 +27,12 @@ internal class CarDecal : MonoBehaviour
     {
         agent.destination = Destination.position;
 
-        if(ReachedDestination)
+        if (ReachedDestination)
         {
-            Destination = carManager.FindNewDestination();
+            timeStopped += Time.fixedDeltaTime;
+
+            if (timeStopped > 5)
+                Destroy(gameObject);
         }
     }
 }
