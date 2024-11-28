@@ -6,6 +6,7 @@ using Rive;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Renderer = Rive.Renderer;
 using RenderQueue = Rive.RenderQueue;
@@ -105,7 +106,7 @@ namespace _Scripts.Rive
             { RiveScenes.PsychologyScene, "Psychologist MindScene"},
         };
         [FormerlySerializedAs("currentScene")] public RiveScenes CurrentScene;
-        RiveScenes _firstScene;
+        List<RiveScenes> scenesLoaded;
 
         public enum TextPath
         {
@@ -178,15 +179,22 @@ namespace _Scripts.Rive
 
         void Awake()
         {
-            _firstScene = CurrentScene;
-            SetRiveScene(CurrentScene);
+            scenesLoaded = new List<RiveScenes>();
+            LoadSceneMode(CurrentScene);
         }
 
+        public void LoadSceneMode(RiveScenes scenes)
+        {
+            scenesLoaded.Add(scenes);
+            SetRiveScene(scenes);
+        }
         public void ReturnToOriginalScene()
         {
-            SetRiveScene(_firstScene);
+            var previousScene = scenesLoaded[^2];
+            scenesLoaded.RemoveAt(scenesLoaded.Count - 1);
+            SetRiveScene(previousScene);
         }
-        public void SetRiveScene(RiveScenes scenes)
+        private void SetRiveScene(RiveScenes scenes)
         {
             if (Asset is not null)
             {

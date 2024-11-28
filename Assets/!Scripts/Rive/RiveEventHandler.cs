@@ -44,18 +44,17 @@ namespace _Scripts.Rive
                             break;
                         case "MiniGameEvent":
                             print("MiniGameEvent");
-                            _riveScreen.SetRiveScene(RiveScreen.RiveScenes.MiniGameSelectMenu);
+                            _riveScreen.LoadSceneMode(RiveScreen.RiveScenes.MiniGameSelectMenu);
                             break;
                         case "SettingsEvent":
                             print("SettingsEvent");
-                            _riveScreen.SetRiveScene(RiveScreen.RiveScenes.SettingsMenu);
+                            _riveScreen.LoadSceneMode(RiveScreen.RiveScenes.SettingsMenu);
                             break;
                         case "ExitEvent":
                             print("ExitEvent");
                             Application.Quit();
                             break;
                     }
-
                     break;
                 case RiveScreen.RiveScenes.MiniGameSelectMenu:
                     switch (reportedEvent.Name)
@@ -133,11 +132,12 @@ namespace _Scripts.Rive
                             _gameHudController.SetPlayerController(true);
                             _riveScreen.ReturnToOriginalScene();
                             _gameHudController.SetCursorHidden(false);
+                            _gameHudController.SetCursorHidden(_gameHudController.GetIsDotHidden());
                         }
                         if (reportedEvent.Name == "SettingsEvent")
                         {
                             print("SettingsEvent");
-                            _riveScreen.SetRiveScene(RiveScreen.RiveScenes.SettingsMenu);
+                            _riveScreen.LoadSceneMode(RiveScreen.RiveScenes.SettingsMenu);
                         }
                     }
                 

@@ -81,7 +81,7 @@ namespace _Scripts.Rive
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 // Set Pause Scene from Rive
-                _riveScreen.SetRiveScene(RiveScreen.RiveScenes.PauseMenu);
+                _riveScreen.LoadSceneMode(RiveScreen.RiveScenes.PauseMenu);
             }
             
         }
@@ -97,6 +97,11 @@ namespace _Scripts.Rive
             {          
                 _playerLocomotionInput.enabled = state;
             }
+        }
+
+        public bool GetIsDotHidden()
+        {
+            return isDotHidden;
         }
         public void SetCursorHidden(bool value)
         {

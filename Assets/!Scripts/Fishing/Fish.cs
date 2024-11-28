@@ -1,6 +1,5 @@
 using System;
 using _Scripts.UtilMethods;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Scripts.Fishing

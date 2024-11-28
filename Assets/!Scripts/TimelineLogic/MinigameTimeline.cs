@@ -1,3 +1,4 @@
+using _Scripts;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -5,25 +6,26 @@ public class MinigameTimeline : MonoBehaviour
 {
     PlayableDirector playableDirector;
     
-    [SerializeField] TimelineState timelineState;
+    [SerializeField] private TimelineState timelineState;
+    
+    [SerializeField] private StoryBeat storyBeatToActOn;
     void Start()
     {
         playableDirector = GetComponent<PlayableDirector>();
-        
-        if (timelineState.hasPlayed)
-        {
-            GetComponent<Collider>().enabled = false;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.CompareTag("Player") && !timelineState.hasPlayed)
+        if (other.CompareTag("Player") && StoryManager.StoryBeat == storyBeatToActOn)
         {
-            print("collided with " + other.name);
             playableDirector.Play();
-            timelineState.hasPlayed = true;
         }
+        /*
+        if (other.CompareTag("Player") && !timelineState.hasPlayed)
+        { 
+            timelineState.hasPlayed = true;
+            playableDirector.Play();
+        }
+        */
     }
 }
