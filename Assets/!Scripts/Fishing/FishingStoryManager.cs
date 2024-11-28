@@ -2,7 +2,6 @@ using _Scripts.Fishing;
 using NaughtyAttributes;
 using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

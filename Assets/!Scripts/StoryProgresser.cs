@@ -1,24 +1,26 @@
 using UnityEngine;
 using UnityEngine.Events;
-
-public class StoryProgresser : MonoBehaviour
+namespace _Scripts
 {
-    [SerializeField] StoryBeat ActOnBeat;
-    [SerializeField] StoryBeat ChangeToBeat;
-    public UnityEvent<StoryProgresser> OnProgressedStory;
-
-    void OnTriggerEnter(Collider other)
+    public class StoryProgresser : MonoBehaviour
     {
-        SelectNextStoryBeat();
-    }
+        [SerializeField] StoryBeat ActOnBeat;
+        [SerializeField] StoryBeat ChangeToBeat;
+        public UnityEvent<StoryProgresser> OnProgressedStory;
 
-    public void SelectNextStoryBeat()
-    {
-        print(StoryManager.StoryBeat + " " + ActOnBeat);
-        if(StoryManager.StoryBeat != ActOnBeat) return;
+        void OnTriggerEnter(Collider other)
+        {
+            SelectNextStoryBeat();
+        }
 
-        StoryManager.ProgressStory(ChangeToBeat);
-        OnProgressedStory?.Invoke(this);
-        Destroy(this);
+        public void SelectNextStoryBeat()
+        {
+            print(StoryManager.StoryBeat + " " + ActOnBeat);
+            if(StoryManager.StoryBeat != ActOnBeat) return;
+
+            StoryManager.ProgressStory(ChangeToBeat);
+            OnProgressedStory?.Invoke(this);
+            Destroy(this);
+        }
     }
 }

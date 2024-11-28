@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
-namespace _Scripts.Vehicle.CP_CarPhysics
+﻿namespace _Scripts.Vehicle.CP_CarPhysics
 {
+    using System.Collections.Generic;
+    using UnityEngine;
+    
     [System.Serializable]
     public class CpWheels : MonoBehaviour
     {

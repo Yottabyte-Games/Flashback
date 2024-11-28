@@ -1,3 +1,4 @@
+using _Scripts.Rive;
 using GinjaGaming.FinalCharacterController;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ namespace _Scripts.Fishing
         FishingRodInput input;
         FishingRod rod;
         Fish toReel;
+        
+        GameHudController gameHud;
        
         [SerializeField] GameObject reelUI;
         [SerializeField] Slider indicator;
@@ -22,6 +25,7 @@ namespace _Scripts.Fishing
         {
             input = GetComponent<FishingRodInput>();
             rod = GetComponent<FishingRod>();
+            gameHud = GameObject.FindWithTag("MainCamera").GetComponent<GameHudController>();
         }
         void OnEnable()
         {
@@ -70,6 +74,8 @@ namespace _Scripts.Fishing
 
             indicator.value = 0;
             indicator.maxValue = toReel.Difficulty;
+            
+            gameHud.SetCursorHidden(true);
         }
         async void FinishReeling()
         {
@@ -80,9 +86,7 @@ namespace _Scripts.Fishing
             await rod.ReelHook();
             rod.ToggleReeling(false);
             rod.FishCaught.Invoke();
+            gameHud.SetCursorHidden(false);
         }
-
-        //Sorry Torje
-        //its okay we fix
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using Unity.Collections;
 using UnityEngine;
-using Utility.Methods;
 
 namespace _Scripts.Fishing
 {

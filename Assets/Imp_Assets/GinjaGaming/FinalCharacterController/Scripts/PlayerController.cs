@@ -1,8 +1,8 @@
+using _Scripts.Audio;
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using FMOD.Studio;
-using FMODUnity;
+using static Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.PlayerMovementState;
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
@@ -61,7 +61,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         [Header("Audio")] EventInstance PlayerFootsteps;
 
-        PlayerMovementState _lastMovementState = PlayerMovementState.Falling;
+        PlayerMovementState _lastMovementState = Falling;
         #endregion
 
         #region Startup
@@ -77,7 +77,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         void Start()
         {
-            PlayerFootsteps = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.PlayerFootsteps);
+            PlayerFootsteps = AudioManager.Instance.CreateEventInstance(AudioManager.Instance.PlayerFootsteps);
         }
         #endregion
 
@@ -109,22 +109,23 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             var isWalking = isMovingLaterally && (!canRun || _playerLocomotionInput.WalkToggledOn); //matters
             var isGrounded = IsGrounded();
 
-            var lateralState = isWalking ? PlayerMovementState.Walking :
-                                               isSprinting ? PlayerMovementState.Sprinting :
-                                               isMovingLaterally || isMovementInput ? PlayerMovementState.Running : PlayerMovementState.Idling;
+            var lateralState = isWalking ? Walking :
+                                               isSprinting ? Sprinting :
+                                               isMovingLaterally || 
+                                               isMovementInput ? Running : Idling;
 
             _playerState.SetPlayerMovementState(lateralState);
 
             // Control Airborn State
             if ((!isGrounded || _jumpedLastFrame) && _characterController.velocity.y > 0f)
             {
-                _playerState.SetPlayerMovementState(PlayerMovementState.Jumping);
+                _playerState.SetPlayerMovementState(Jumping);
                 _jumpedLastFrame = false;
                 _characterController.stepOffset = 0f;
             }
             else if ((!isGrounded || _jumpedLastFrame) && _characterController.velocity.y <= 0f)
             {
-                _playerState.SetPlayerMovementState(PlayerMovementState.Falling);
+                _playerState.SetPlayerMovementState(Falling);
                 _jumpedLastFrame = false;
                 _characterController.stepOffset = 0f;
             }
@@ -136,7 +137,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         void HandleVerticalMovement()
         {
-            var isGrounded = _playerState.InGroundedState();
+            bool isGrounded = _playerState.InGroundedState();
 
             _verticalVelocity -= gravity * Time.deltaTime;
 
@@ -164,9 +165,9 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         void HandleLateralMovement()
         {
             // Create quick references for current state
-            var isSprinting = _playerState.CurrentPlayerMovementState == PlayerMovementState.Sprinting;
+            var isSprinting = _playerState.CurrentPlayerMovementState == Sprinting;
             var isGrounded = _playerState.InGroundedState();
-            var isWalking = _playerState.CurrentPlayerMovementState == PlayerMovementState.Walking;
+            var isWalking = _playerState.CurrentPlayerMovementState == Walking;
 
             // State dependent acceleration and speed
             var lateralAcceleration = !isGrounded ? inAirAcceleration :
@@ -253,7 +254,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             _playerTargetRotation.x += transform.eulerAngles.x + lookSenseH * _playerLocomotionInput.LookInput.x;
 
             var rotationTolerance = 90f;
-            var isIdling = _playerState.CurrentPlayerMovementState == PlayerMovementState.Idling;
+            var isIdling = _playerState.CurrentPlayerMovementState == Idling;
             IsRotatingToTarget = _rotatingToTargetTimer > 0;
 
             // ROTATE if we're not idling

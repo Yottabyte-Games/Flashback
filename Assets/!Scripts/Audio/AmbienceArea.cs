@@ -1,8 +1,11 @@
-public enum AmbienceArea
+namespace _Scripts.Audio
 {
-    Apartment = 0,
+    public enum AmbienceArea
+    {
+        Apartment = 0,
 
-    Forrest = 1,
+        Forrest = 1,
 
-    Ocean = 2,
+        Ocean = 2,
+    }
 }

@@ -16,7 +16,7 @@ namespace YottabyteGames.Materials
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    explosion.Play();
+                    //explosion.Play();
 
                     Debug.Log("BLABLABLA");
 

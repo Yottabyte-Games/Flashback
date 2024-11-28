@@ -1,3 +1,4 @@
+using _Scripts.Rive;
 using DialogueSystem.Scripts.ScriptableObjects;
 using Eflatun.SceneReference;
 using FMODUnity;
@@ -91,7 +92,7 @@ namespace DialogueSystem.Scripts
                 }
                 else
                 {
-                    Debug.LogError("Dialogue Event is Empty on The current line");
+                    Debug.LogWarning("Dialogue Event is Empty on The current line");
                 }
                 
             }

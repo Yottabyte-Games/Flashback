@@ -2,6 +2,7 @@ using DialogueSystem.Scripts.ScriptableObjects;
 using NaughtyAttributes;
 using System;
 using System.Threading.Tasks;
+using _Scripts.Rive;
 using UnityEngine;
 
 
@@ -24,7 +25,7 @@ namespace _Scripts.Psychiatrist
             
             StartDialogue(dialogue.dialogue, dialogue.ChangeSceneTo);
 
-            while (_psychologistUIController.isActive)
+            while (_psychologistUIController.IsActive)
             {
                 await Task.Delay(100);
             }
