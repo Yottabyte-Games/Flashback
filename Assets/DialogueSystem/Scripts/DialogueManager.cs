@@ -92,7 +92,7 @@ namespace DialogueSystem.Scripts
                 }
                 else
                 {
-                    Debug.LogError("Dialogue Event is Empty on The current line");
+                    Debug.LogWarning("Dialogue Event is Empty on The current line");
                 }
                 
             }

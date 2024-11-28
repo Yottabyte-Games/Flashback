@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Scripts.WaypointSystem
 {
     public class TrackWaypointsUI : MonoBehaviour {
         #region Declarations
-        [SerializeField] TrackWaypoints trackWaypoints;
+        [SerializeField] TrackWaypointManager trackWaypointManager;
         [SerializeField] Image warningImage;
         #endregion
 
@@ -15,12 +16,12 @@ namespace _Scripts.WaypointSystem
         }
 
         #region Show/Hide logic
-        void TrackWaypointsOnPlayerWrongWaypoint(object sender, System.EventArgs eventArgs) {
+        void TrackWaypointManagerOnPlayerWrongWaypointManager(object sender, System.EventArgs eventArgs) {
             SetVisibility(true);
             warningImage.enabled = true;
         }
 
-        void TrackWaypointsOnPlayerCorrectWaypoint(object sender, System.EventArgs eventArgs) {
+        void TrackWaypointManagerOnPlayerCorrectWaypointManager(object sender, System.EventArgs eventArgs) {
             SetVisibility(false);
             warningImage.enabled = false;
         }
@@ -30,8 +31,8 @@ namespace _Scripts.WaypointSystem
         }
 
         void SubscribeToEvents() {
-            trackWaypoints.OnPlayerCorrectWaypoint += TrackWaypointsOnPlayerCorrectWaypoint;
-            trackWaypoints.OnPlayerWrongWaypoint += TrackWaypointsOnPlayerWrongWaypoint;
+            trackWaypointManager.OnPlayerCorrectWaypoint += TrackWaypointManagerOnPlayerCorrectWaypointManager;
+            trackWaypointManager.OnPlayerWrongWaypoint += TrackWaypointManagerOnPlayerWrongWaypointManager;
         }
         #endregion
     }

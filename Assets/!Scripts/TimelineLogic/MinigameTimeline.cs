@@ -19,7 +19,7 @@ public class MinigameTimeline : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !timelineState.hasPlayed)
         {
             print("collided with " + other.name);
             playableDirector.Play();
