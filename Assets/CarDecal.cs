@@ -31,7 +31,7 @@ internal class CarDecal : MonoBehaviour
         {
             timeStopped += Time.fixedDeltaTime;
 
-            if (timeStopped > 5)
+            if (timeStopped > 2)
                 Destroy(gameObject);
         }
     }
