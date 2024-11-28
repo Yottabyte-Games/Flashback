@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 namespace _Scripts.Working.Tasks
 {
     public class CleaningTask : OfficeTask
     {
         TaskItem _toClean;
-        List<TaskGoal> _goal = new List<TaskGoal>();
+        readonly List<TaskGoal> _goal = new List<TaskGoal>();
 
         protected override void OnEnable()
         {
@@ -24,7 +23,7 @@ namespace _Scripts.Working.Tasks
         {
             foreach (var can in manager.trashcans)
             {
-                TaskGoal current = can.AddComponent<TaskGoal>();
+                TaskGoal current = can.gameObject.AddComponent<TaskGoal>();
                 _goal.Add(current);
                 current.reached += CompleteTask;
             }
