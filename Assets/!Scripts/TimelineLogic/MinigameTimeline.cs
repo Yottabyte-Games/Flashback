@@ -6,8 +6,6 @@ public class MinigameTimeline : MonoBehaviour
 {
     PlayableDirector playableDirector;
     
-    [SerializeField] private TimelineState timelineState;
-    
     [SerializeField] private StoryBeat storyBeatToActOn;
     void Start()
     {
@@ -20,12 +18,5 @@ public class MinigameTimeline : MonoBehaviour
         {
             playableDirector.Play();
         }
-        /*
-        if (other.CompareTag("Player") && !timelineState.hasPlayed)
-        { 
-            timelineState.hasPlayed = true;
-            playableDirector.Play();
-        }
-        */
     }
 }
