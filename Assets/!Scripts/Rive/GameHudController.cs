@@ -58,6 +58,8 @@ namespace _Scripts.Rive
             
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            
+
         }
 
         void RiveEventHandler(ReportedEvent reportedEvent)
@@ -84,7 +86,6 @@ namespace _Scripts.Rive
                 // Set Pause Scene from Rive
                 _riveScreen.LoadSceneMode(RiveScreen.RiveScenes.PauseMenu);
             }
-            
         }
 
         public void SetPlayerController(bool state)
@@ -155,24 +156,80 @@ namespace _Scripts.Rive
         }
 
         
-        List<string> taskNames = new List<string>();
-        public void AddTaskUI()
+        List<string> taskNames = new List<string>(); // Dynamic list of tasks
+        private string[] visibleTasks = new string[4]; // Fixed-size array for the 4 fully visible tasks
+
+        private const int MaxVisibleTasks = 7; // Total UI slots (4 full + 3 indicators)
+
+        public void AddTaskUI(string newTask)
         {
-            taskNames.Add("New Task");
-            
-            for (int i = 0; i < taskNames.Count; i++)
+            taskNames.Add(newTask); // Add the task to the dynamic list
+
+            // Find the first empty slot in the visibleTasks array
+            for (int i = 0; i < visibleTasks.Length; i++)
             {
-                string path = "WorkTask " + i.ToString();
-                
-                _riveScreen.Artboard.SetTextRunValueAtPath("Task Index Run", path, (i+1).ToString());
-                _riveScreen.Artboard.SetTextRunValueAtPath("Description Run", path, taskNames[i]);
-                _riveScreen.Artboard.FireInputStateAtPath("Show", path);
+                if (visibleTasks[i] == null)
+                {
+                    visibleTasks[i] = newTask; // Assign the task to the empty visible slot
+                    break;
+                }
+            }
+
+            SetWorkUI();
+        }
+
+        public void RemoveTaskUI(string finishedTask)
+        {
+            // Remove from visibleTasks if present
+            for (int i = 0; i < visibleTasks.Length; i++)
+            {
+                if (visibleTasks[i] == finishedTask)
+                {
+                    visibleTasks[i] = null; // Mark the slot as empty
+                    break;
+                }
+            }
+
+            // Remove from taskNames
+            taskNames.Remove(finishedTask);
+
+            SetWorkUI();
+        }
+
+        private void SetWorkUI()
+        {
+            for (int i = 0; i < MaxVisibleTasks; i++)
+            {
+                string path = "WorkTask " + i;
+
+                if (i < visibleTasks.Length) // Handle visible tasks
+                {
+                    if (visibleTasks[i] != null) // Task exists in this slot
+                    {
+                        _riveScreen.Artboard.SetTextRunValueAtPath("Task Index Run", path, (i + 1).ToString());
+                        _riveScreen.Artboard.SetTextRunValueAtPath("Description Run", path, visibleTasks[i]);
+                        _riveScreen.Artboard.FireInputStateAtPath("Show", path);
+                    }
+                    else
+                    {
+                        _riveScreen.Artboard.FireInputStateAtPath("Hide", path); // Hide empty visible slots
+                    }
+                }
+                else // Handle overflow indicators
+                {
+                    if (taskNames.Count > visibleTasks.Length)
+                    {
+                        _riveScreen.Artboard.SetTextRunValueAtPath("Task Index Run", path, "...");
+                        _riveScreen.Artboard.SetTextRunValueAtPath("Description Run", path, "...");
+                        _riveScreen.Artboard.FireInputStateAtPath("Show", path);
+                    }
+                    else
+                    {
+                        _riveScreen.Artboard.FireInputStateAtPath("Hide", path);
+                    }
+                }
             }
         }
 
-        public void RemoveTaskUI()
-        {
-            
-        }
     }
 }

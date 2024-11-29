@@ -17,7 +17,7 @@ namespace _Scripts
         }
         public DSDialogueSO RandomCleaningLine()
         {
-            return FetchLines[Random.Range(0, TrashLines.Count)];
+            return TrashLines[Random.Range(0, TrashLines.Count)];
         }
 
         public void PlayVoiceLine(DSDialogueSO dialogue)

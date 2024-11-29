@@ -9,10 +9,9 @@ namespace _Scripts.HubInteraction
         public Camera playerCamera;
 
         GameObject interactionObject;
-
         GameHudController ghd;
-
         InputAction _interactAction;
+
 
         void Start()
         {
@@ -31,7 +30,7 @@ namespace _Scripts.HubInteraction
             RaycastHit hit;
             if (UnityEngine.Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, interactionRange))
             {
-                DialogueStarter interactable = hit.collider.GetComponent<DialogueStarter>();
+                GameObject interactable = hit.collider.gameObject;
                 if (hit.collider.CompareTag("Interactable") && interactionObject == null)
                 {
                     StartInteraction(interactable);
@@ -43,16 +42,20 @@ namespace _Scripts.HubInteraction
 
                 if (interactable != null && _interactAction.WasPressedThisFrame() && hit.collider.CompareTag("Interactable"))
                 {
-                    interactable.StartDialogue();
-                    interactable.gameObject.GetComponent<StoryProgresser>().SelectNextStoryBeat();
+                    // Will only run if interactable GameObject has DialogueStarter attached
+                    if (interactable.TryGetComponent(out DialogueStarter dialogueStarter))
+                    {
+                        dialogueStarter.StartDialogue();
+                        interactable.GetComponent<StoryProgresser>().SelectNextStoryBeat();
+                    }
                 }
             }
             else if (interactionObject is not null){ StopInteraction();}
         }
 
-        void StartInteraction(DialogueStarter interactable)
+        void StartInteraction(GameObject interactable)
         {
-            interactionObject = interactable.gameObject;
+            interactionObject = interactable;
             ghd.HoverOn(interactable.name);
 //        Debug.Log("Started Interaction");
         }
