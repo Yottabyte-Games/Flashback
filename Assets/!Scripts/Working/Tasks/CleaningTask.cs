@@ -17,6 +17,8 @@ namespace _Scripts.Working.Tasks
             base.InitializeTask(worker);
             _toClean = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
             _toClean.InteractedWith += ProgressTask;
+            taskName = "Cleaning " + _toClean.name;
+
         }
 
         protected override void ProgressTask()

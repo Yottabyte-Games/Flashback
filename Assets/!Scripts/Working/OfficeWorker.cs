@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using _Scripts.Rive;
 using _Scripts.Working.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
@@ -39,6 +40,7 @@ namespace _Scripts.Working
 
         public event Action<OfficeWorker> EndedActivity;
 
+        GameHudController gameHud;
         WorkInteractable _workInteractable;
 
         [SerializeField] OfficeAudioManager officeAudio;
@@ -55,6 +57,7 @@ namespace _Scripts.Working
             if(emotionalState == EmotionalState.Random)
                 SetEmotionalState((EmotionalState)UnityEngine.Random.Range(1, 5));
 
+            gameHud = GameObject.FindWithTag("MainCamera").GetComponent<GameHudController>();
             while (Application.isPlaying)
             {
                 await IsInteracting();
@@ -194,6 +197,8 @@ namespace _Scripts.Working
             taskMarker.SetActive(false);
             task.Completed += ToggleInteractable;
 
+            gameHud.AddTaskUI(task.taskName);
+            
             await Task.Delay(5000);
 
             SetActivity(Activity.Working);
@@ -204,6 +209,9 @@ namespace _Scripts.Working
         public void ToggleInteractable()
         {
             _workInteractable.enabled = !_workInteractable.enabled;
+            if (!_workInteractable.enabled)
+                gameHud.RemoveTaskUI(task.taskName);
+
         }
 
         public void SetEmotionalState(EmotionalState state)

@@ -17,6 +17,7 @@ namespace _Scripts.Working.Tasks
 
             _toFetch = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
             _toFetch.InteractedWith += ProgressTask;
+            taskName = "Fetch " + _toFetch.name;
         }
 
         protected override void ProgressTask()

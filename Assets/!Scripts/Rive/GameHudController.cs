@@ -80,11 +80,21 @@ namespace _Scripts.Rive
         {
             if (_pauseAction.WasPressedThisFrame())
             {
-                SetPlayerController(false);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                // Set Pause Scene from Rive
-                _riveScreen.LoadSceneMode(RiveScreen.RiveScenes.PauseMenu);
+                if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.PauseMenu)
+                {
+                    _riveScreen.ReturnToOriginalScene();
+                    SetPlayerController(true);
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                else
+                {
+                    SetPlayerController(false);
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    // Set Pause Scene from Rive
+                    _riveScreen.LoadSceneMode(RiveScreen.RiveScenes.PauseMenu);
+                }
             }
         }
 
@@ -156,8 +166,8 @@ namespace _Scripts.Rive
         }
 
         
-        List<string> taskNames = new List<string>(); // Dynamic list of tasks
-        private string[] visibleTasks = new string[4]; // Fixed-size array for the 4 fully visible tasks
+        List<string> taskNames = new (); // Dynamic list of tasks
+        private string[] visibleTasks = new string[4]; // Fixed-size array for the 4 visible tasks
 
         private const int MaxVisibleTasks = 7; // Total UI slots (4 full + 3 indicators)
 
