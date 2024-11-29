@@ -24,8 +24,13 @@ public class CarManager : MonoBehaviour
         var current = Instantiate(CarPrefabs[UnityEngine.Random.Range(0, CarPrefabs.Length)], spawn.position, spawn.rotation);
         current.carManager = this;
     }
-    internal Transform FindNewDestination()
+    int lastDestination;
+    public Transform FindNewDestination()
     {
-        return CarSpawns[UnityEngine.Random.Range(0, CarSpawns.Length)]; 
+        if (lastDestination >= CarSpawns.Length)
+            lastDestination = 0;
+
+        print(lastDestination);
+        return CarSpawns[lastDestination++]; 
     }
 }
