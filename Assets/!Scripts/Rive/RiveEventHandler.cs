@@ -13,13 +13,13 @@ namespace _Scripts.Rive
         RiveScreen _riveScreen;
         AudioManager _audioManager;
         PlayerPositionController _playerPositionController;
-        GameHudController _gameHudController;
+        GameHudController gameHUD;
         
         void Start()
         {
             _riveScreen = GetComponent<RiveScreen>();
             _audioManager = AudioManager.Instance;
-            _gameHudController = GetComponent<GameHudController>();
+            gameHUD = GetComponent<GameHudController>();
             if (SceneManager.GetActiveScene().name == hubWorldScene.Name)
             {
                 _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
@@ -127,12 +127,7 @@ namespace _Scripts.Rive
                         if (reportedEvent.Name == "ResumeEvent")
                         {
                             print("ResumeEvent");
-                            Cursor.visible = false;
-                            Cursor.lockState = CursorLockMode.Locked;
-                            _gameHudController.SetPlayerController(true);
-                            _riveScreen.ReturnToOriginalScene();
-                            _gameHudController.SetCursorHidden(false);
-                            _gameHudController.SetCursorHidden(_gameHudController.GetIsDotHidden());
+                            gameHUD.ResumeGame();
                         }
                         if (reportedEvent.Name == "SettingsEvent")
                         {

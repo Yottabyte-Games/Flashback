@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Working.Tasks;
 using Eflatun.SceneReference;
@@ -83,10 +84,7 @@ namespace _Scripts.Rive
             {
                 if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.PauseMenu)
                 {
-                    _riveScreen.ReturnToOriginalScene();
-                    SetPlayerController(true);
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
+                    ResumeGame();
                 }
                 else
                 {
@@ -96,6 +94,21 @@ namespace _Scripts.Rive
                     // Set Pause Scene from Rive
                     _riveScreen.LoadSceneMode(RiveScreen.RiveScenes.PauseMenu);
                 }
+            }
+        }
+
+        public void ResumeGame()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            SetPlayerController(true);
+            _riveScreen.ReturnToOriginalScene();
+            SetCursorHidden(false);
+            SetCursorHidden(GetIsDotHidden());
+            
+            if (SceneManager.GetActiveScene().name == "Working")
+            {
+                StartCoroutine(SetWorkUI());
             }
         }
 
@@ -168,7 +181,6 @@ namespace _Scripts.Rive
 
         #region WorkTaskUI
         
-           
         private OfficeTask[] visibleTasks = new OfficeTask[7]; // Fixed-size array for 7 visible tasks
 
         List<OfficeTask> overflowntasks = new (); // Dynamic list of tasks
@@ -186,7 +198,7 @@ namespace _Scripts.Rive
                 {
                     visibleTasks[i] = newTask; // Assign the task to the empty visible slot
                     notAddedToTaskbar = false; // task was added
-                    SetWorkUI(); // Updates the UI
+                    StartCoroutine(SetWorkUI()); // Updates the UI
                     break;
                 }
             }
@@ -199,46 +211,58 @@ namespace _Scripts.Rive
 
         public void RemoveTaskUI(OfficeTask finishedTask) // Remove task and refill array
         {
+            bool removedTask = false;
             // Remove from visibleTasks and add new from overflow if possible
             for (int i = 0; i < visibleTasks.Length; i++)
             {
                 // Removes Task
-                if (visibleTasks[i] == finishedTask)
+                if (visibleTasks[i].taskIndex == finishedTask.taskIndex)
                 {
                     visibleTasks[i] = null;
-                    SetWorkUI(); // Update UI to visibly remove task
-                }
-                
-                    // Check if empty space to fill
-                    if (i < FullyVisibleTasks && visibleTasks[i] == null)
+                    removedTask = true;
+                    StartCoroutine(SetWorkUI()); // Update UI to visibly remove task
+                    
+                    // Try to fill empty task
+                    // Check if tasks in obscured position can fill
+                    for (int j = FullyVisibleTasks; j < visibleTasks.Length; j++)
                     {
-                        // Check if tasks in obscured position can fill
-                        for (int j = FullyVisibleTasks; j < visibleTasks.Length; j++)
+                        // Try to move from obscured to visible
+                        if (visibleTasks[j] != null)
                         {
-                            if (visibleTasks[j] != null)
+                            // Move item from first to second
+                            visibleTasks[i] = visibleTasks[j];
+                            visibleTasks[j] = null;
+                            StartCoroutine(SetWorkUI()); // Update UI to visibly remove task
+                            
+                            // Move from overflow to obscured
+                            if (overflowntasks.Count > 0)
                             {
-                                // Move item from first to second
-                                visibleTasks[i] = visibleTasks[j];
-                                visibleTasks[j] = null;
-                                SetWorkUI();  // Update UI to visibly remove task
-                                
-                                // Check if any tasks in overflow to replace removed
-                                if (overflowntasks.Count > 0)
-                                {
-                                    // Add to array and Remove from overflow
-                                    visibleTasks[j] = overflowntasks[0];
-                                    overflowntasks.RemoveAt(0);
-                                }
+                                // Add to array and Remove from overflow
+                                visibleTasks[j] = overflowntasks[0];
+                                overflowntasks.RemoveAt(0);
                             }
+                            break;
                         }
                     }
+                    break;
+                }
             }
-           
-            SetWorkUI();
+
+            if (!removedTask)
+            {
+                overflowntasks.Remove(finishedTask);
+                print("Tryng to remove the task from Overflow");
+
+            }
+
+            StartCoroutine(SetWorkUI());
         }
 
-        private void SetWorkUI()
+        
+        private IEnumerator SetWorkUI()
         {
+            yield return new WaitForSeconds(0.1f); // Allow previous animation to activate
+            // Set all icons to correct task and remove if empty
             for (int i = 0; i < visibleTasks.Length; i++)
             {
                 string path = "WorkTask " + i;
@@ -247,13 +271,16 @@ namespace _Scripts.Rive
                 {
                     _riveScreen.Artboard.SetTextRunValueAtPath("Task Index Run", path, visibleTasks[i].taskIndex.ToString());
                     _riveScreen.Artboard.SetTextRunValueAtPath("Description Run", path, visibleTasks[i].taskName);
-                    _riveScreen.Artboard.FireInputStateAtPath("Show", path);
+                    _riveScreen.Artboard.SetBooleanInputStateAtPath("ShowTask", true, path);
+                    
                 }
                 else
                 {
-                    _riveScreen.Artboard.FireInputStateAtPath("Hide", path); // Hide empty visible slots
+                    _riveScreen.Artboard.SetBooleanInputStateAtPath("ShowTask", false, path); // Hide empty visible slots
                 }
             }
+            yield return new WaitForSeconds(0.1f); // Allow previous animation to activate
+
         }
 
         #endregion
