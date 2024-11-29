@@ -33,7 +33,7 @@ internal class CarDecal : MonoBehaviour
 
             Agent.destination = Destination.position;
 
-            if (timeStopped > 3)
+            if (timeStopped > 1)
             {
                 timeStopped = 0;
                 Agent.Warp(carManager.FindNewDestination().position);
