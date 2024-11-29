@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Scripts.Working.Tasks;
 using Eflatun.SceneReference;
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using Rive;
@@ -165,67 +166,96 @@ namespace _Scripts.Rive
             _riveScreen.SetTextRunAtPath(dialogue, RiveScreen.TextPath.Dialogue);
         }
 
+        #region WorkTaskUI
         
-        List<string> taskNames = new (); // Dynamic list of tasks
-        private string[] visibleTasks = new string[7]; // Fixed-size array for the 4 visible tasks
+           
+        private OfficeTask[] visibleTasks = new OfficeTask[7]; // Fixed-size array for 7 visible tasks
 
-        private const int MaxVisibleTasks = 7; // Total UI slots (4 full + 3 indicators)
+        List<OfficeTask> overflowntasks = new (); // Dynamic list of tasks
 
-        public void AddTaskUI(string newTask)
+        private const int FullyVisibleTasks = 4; // Total UI slots (4 full + 3 indicators)
+        
+
+        public void AddTaskUI(OfficeTask newTask) // Add task to empty space or add to overflow
         {
-            taskNames.Add(newTask); // Add the task to the dynamic list
-
-            // Find the first empty slot in the visibleTasks array
+            bool notAddedToTaskbar = true;
+            // Find the first empty slot in array
             for (int i = 0; i < visibleTasks.Length; i++)
             {
                 if (visibleTasks[i] == null)
                 {
                     visibleTasks[i] = newTask; // Assign the task to the empty visible slot
+                    notAddedToTaskbar = false; // task was added
+                    SetWorkUI(); // Updates the UI
                     break;
                 }
             }
-
-            SetWorkUI();
+            // If no available slots, place task in overflow
+            if (notAddedToTaskbar)
+            {
+                overflowntasks.Add(newTask); // Add the task to overflow when all slots are taken
+            }
         }
 
-        public void RemoveTaskUI(string finishedTask)
+        public void RemoveTaskUI(OfficeTask finishedTask) // Remove task and refill array
         {
-            // Remove from visibleTasks if present
+            // Remove from visibleTasks and add new from overflow if possible
             for (int i = 0; i < visibleTasks.Length; i++)
             {
+                // Removes Task
                 if (visibleTasks[i] == finishedTask)
                 {
-                    visibleTasks[i] = null; // Mark the slot as empty
-                    break;
+                    visibleTasks[i] = null;
+                    SetWorkUI(); // Update UI to visibly remove task
                 }
+                
+                    // Check if empty space to fill
+                    if (i < FullyVisibleTasks && visibleTasks[i] == null)
+                    {
+                        // Check if tasks in obscured position can fill
+                        for (int j = FullyVisibleTasks; j < visibleTasks.Length; j++)
+                        {
+                            if (visibleTasks[j] != null)
+                            {
+                                // Move item from first to second
+                                visibleTasks[i] = visibleTasks[j];
+                                visibleTasks[j] = null;
+                                SetWorkUI();  // Update UI to visibly remove task
+                                
+                                // Check if any tasks in overflow to replace removed
+                                if (overflowntasks.Count > 0)
+                                {
+                                    // Add to array and Remove from overflow
+                                    visibleTasks[j] = overflowntasks[0];
+                                    overflowntasks.RemoveAt(0);
+                                }
+                            }
+                        }
+                    }
             }
-
-            // Remove from taskNames
-            taskNames.Remove(finishedTask);
-
+           
             SetWorkUI();
         }
 
         private void SetWorkUI()
         {
-            for (int i = 0; i < MaxVisibleTasks; i++)
+            for (int i = 0; i < visibleTasks.Length; i++)
             {
                 string path = "WorkTask " + i;
-
-                if (i < visibleTasks.Length) // Handle visible tasks
+                
+                if (visibleTasks[i] != null) // Task exists in this slot
                 {
-                    if (visibleTasks[i] != null) // Task exists in this slot
-                    {
-                        _riveScreen.Artboard.SetTextRunValueAtPath("Task Index Run", path, (i + 1).ToString());
-                        _riveScreen.Artboard.SetTextRunValueAtPath("Description Run", path, visibleTasks[i]);
-                        _riveScreen.Artboard.FireInputStateAtPath("Show", path);
-                    }
-                    else
-                    {
-                        _riveScreen.Artboard.FireInputStateAtPath("Hide", path); // Hide empty visible slots
-                    }
+                    _riveScreen.Artboard.SetTextRunValueAtPath("Task Index Run", path, visibleTasks[i].taskIndex.ToString());
+                    _riveScreen.Artboard.SetTextRunValueAtPath("Description Run", path, visibleTasks[i].taskName);
+                    _riveScreen.Artboard.FireInputStateAtPath("Show", path);
+                }
+                else
+                {
+                    _riveScreen.Artboard.FireInputStateAtPath("Hide", path); // Hide empty visible slots
                 }
             }
         }
+
+        #endregion
     }
 }

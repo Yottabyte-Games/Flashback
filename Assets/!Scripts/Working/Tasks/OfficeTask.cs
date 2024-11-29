@@ -20,8 +20,12 @@ namespace _Scripts.Working.Tasks
         protected OfficeWorker creator { get; private set; }
 
         public bool initialized {  get; private set; }
-
+        
         public event Action Completed;
+        
+        private static int TaskIndexCounter = 0;
+
+        public int taskIndex { get; private set; }
         
         public string taskName;
 
@@ -29,6 +33,8 @@ namespace _Scripts.Working.Tasks
         {
             manager = FindFirstObjectByType<TaskManager>();
             manager.AddOfficeTask(this);
+            TaskIndexCounter++;
+            taskIndex = TaskIndexCounter;
         }
 
         [Button]
