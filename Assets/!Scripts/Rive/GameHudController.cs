@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Eflatun.SceneReference;
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
 using Rive;
@@ -151,6 +152,27 @@ namespace _Scripts.Rive
         void SetDialogue(string dialogue)
         {
             _riveScreen.SetTextRunAtPath(dialogue, RiveScreen.TextPath.Dialogue);
+        }
+
+        
+        List<string> taskNames = new List<string>();
+        public void AddTaskUI()
+        {
+            taskNames.Add("New Task");
+            
+            for (int i = 0; i < taskNames.Count; i++)
+            {
+                string path = "WorkTask " + i.ToString();
+                
+                _riveScreen.Artboard.SetTextRunValueAtPath("Task Index Run", path, (i+1).ToString());
+                _riveScreen.Artboard.SetTextRunValueAtPath("Description Run", path, taskNames[i]);
+                _riveScreen.Artboard.FireInputStateAtPath("Show", path);
+            }
+        }
+
+        public void RemoveTaskUI()
+        {
+            
         }
     }
 }
