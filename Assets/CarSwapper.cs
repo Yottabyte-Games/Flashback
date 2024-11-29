@@ -36,21 +36,21 @@ public class CarSwapper : MonoBehaviour
             switch (setToCarType)
             {
                 case CarType.Swap:
-                    switch (car.agent.agentTypeID)
+                    switch (car.Agent.agentTypeID)
                     {
                         case -1372625422: //entering car
-                            car.agent.agentTypeID = -334000983; //become exiting car
+                            car.Agent.agentTypeID = -334000983; //become exiting car
                             break;
                         case -334000983: //exiting car
-                            car.agent.agentTypeID = -1372625422; //become entering car
+                            car.Agent.agentTypeID = -1372625422; //become entering car
                             break;
                     }
                     break;
                 case CarType.ExitingCar:
-                    car.agent.agentTypeID = (int)CarType.ExitingCar;
+                    car.Agent.agentTypeID = (int)CarType.ExitingCar;
                     break;
                 case CarType.EnteringCar:
-                    car.agent.agentTypeID = (int)CarType.EnteringCar;
+                    car.Agent.agentTypeID = (int)CarType.EnteringCar;
                     break;
             }
 
