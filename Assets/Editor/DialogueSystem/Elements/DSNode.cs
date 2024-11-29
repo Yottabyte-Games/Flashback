@@ -23,6 +23,8 @@ namespace DS.Elements
         public DSGroup Group { get; set; }
         public EventReference voiceEvent { get; set; } // Add this property
 
+        public bool isPsychoDialogue { get; set; }
+
         protected DSGraphView graphView;
         Color defaultBackgroundColor;
 

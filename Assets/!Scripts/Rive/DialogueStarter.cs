@@ -8,8 +8,7 @@ namespace _Scripts.Rive
     {
         [field: SerializeField] public DSDialogueSO StartingDialogue { get; private set; }
         [Header("Only needed if we are swapping scene")]
-        [SerializeField]
-        SceneReference sceneToLoad;
+        [SerializeField] SceneReference sceneToLoad;
         [SerializeField] bool loadSceneAfterDialogue = false;
 
         bool _hasTalkedAlready = false;

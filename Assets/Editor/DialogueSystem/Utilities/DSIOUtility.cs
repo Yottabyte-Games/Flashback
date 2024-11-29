@@ -196,7 +196,8 @@ namespace DS.Utilities
                 ConvertNodeChoicesToDialogueChoices(node.Choices),
                 node.DialogueType,
                 node.IsStartingNode(),
-                node.voiceEvent 
+                node.voiceEvent,
+                node.isPsychoDialogue
             );
 
             createdDialogues.Add(node.ID, dialogue);

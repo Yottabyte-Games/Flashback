@@ -14,14 +14,16 @@ namespace DialogueSystem.Scripts.ScriptableObjects
         [field: SerializeField] public DSDialogueType dialogueType { get; set; }
         [field: SerializeField] public bool isStartingDialogue { get; set; }
         [field: SerializeField] public EventReference voiceEvent { get; set; }
+        [field: SerializeField] public bool isPsychoDialogue { get; set; }
 
-        public void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType, bool isStartingDialogue, EventReference voiceEvent)
+        public void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType, bool isStartingDialogue, EventReference voiceEvent, bool isPsychoDialogue)
         {
             this.dialogueName = dialogueName;
             this.text = text;
             this.choices = choices;
             this.dialogueType = dialogueType;
             this.voiceEvent = voiceEvent;
+            this.isPsychoDialogue = isPsychoDialogue;
             this.isStartingDialogue = isStartingDialogue;
         }
     }
