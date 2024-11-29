@@ -14,7 +14,6 @@ namespace _Scripts
                 if (PlayerPositionStorage.Instance is not null && PlayerPositionStorage.Instance.SavedPlayerPosition != Vector3.zero)
                 {
                     transform.position = PlayerPositionStorage.Instance.SavedPlayerPosition;
-                    transform.rotation = PlayerPositionStorage.Instance.SavedPlayerRotation;
                 
             
                     Debug.Log($"Loaded position: {transform.position}");

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,14 +9,13 @@ public class CarManager : MonoBehaviour
     [SerializeField] CarDecal[] CarPrefabs;
     [SerializeField] Transform[] CarSpawns;
 
-    private void Start()
+    private IEnumerator Start()
     {
         for (int i = 0; i < carsToSpawn; i++)
         {
             NewCar();
+            yield return new WaitForSeconds(2f);
         }
-
-        InvokeRepeating(nameof(NewCar), 5, 5);
     }
 
     void NewCar()

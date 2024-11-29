@@ -22,6 +22,8 @@ namespace _Scripts.Working.Tasks
         public bool initialized {  get; private set; }
 
         public event Action Completed;
+        
+        public string taskName;
 
         protected virtual void OnEnable()
         {
@@ -34,6 +36,7 @@ namespace _Scripts.Working.Tasks
         {
             creator = worker;
             initialized = true;
+            taskName = "This task is not named";
         }
 
         protected abstract void ProgressTask();

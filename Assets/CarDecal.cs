@@ -27,15 +27,21 @@ internal class CarDecal : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Agent.destination = Destination.position;
-        //art.LookAt(LookDir());
-
         if (ReachedDestination)
         {
             timeStopped += Time.fixedDeltaTime;
 
-            if (timeStopped > 2)
-                Destroy(gameObject);
+            Agent.destination = carManager.FindNewDestination().position;
+
+            if (timeStopped > 1)
+            {
+                timeStopped = 0;
+                Agent.Warp(carManager.FindNewDestination().position);
+            }
+        }
+        else
+        {
+            timeStopped = 0;
         }
     }
 
