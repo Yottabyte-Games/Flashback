@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace _Scripts.Working.Tasks
 {
@@ -23,11 +24,12 @@ namespace _Scripts.Working.Tasks
 
         protected override void ProgressTask()
         {
+            Debug.Log("progress");
             foreach (var can in manager.trashcans)
             {
                 TaskGoal current = can.gameObject.AddComponent<TaskGoal>();
                 _goal.Add(current);
-                current.reached += CompleteTask;
+                current.Reached += CompleteTask;
             }
         }
     }

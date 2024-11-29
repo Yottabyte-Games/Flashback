@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace _Scripts.Working.Tasks
 {
     public class FetchTask : OfficeTask
@@ -22,8 +24,9 @@ namespace _Scripts.Working.Tasks
 
         protected override void ProgressTask()
         {
+            Debug.Log("progress");
             _goal = creator.gameObject.AddComponent<TaskGoal>();
-            _goal.reached += CompleteTask;
+            _goal.Reached += CompleteTask;
 
             Line line = _toFetch.gameObject.GetComponent<Line>();
             line.enabled = true;

@@ -7,7 +7,7 @@ namespace _Scripts.Working
     {
         WorkInteractable _interactable;
 
-        public event Action reached;
+        public event Action Reached;
 
         void Start()
         {
@@ -17,7 +17,8 @@ namespace _Scripts.Working
 
         public void Completed(Transform transform)
         {
-            reached?.Invoke();
+            Reached?.Invoke();
+            Destroy(this);
         }
     }
 }
