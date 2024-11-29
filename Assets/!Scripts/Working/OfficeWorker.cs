@@ -197,7 +197,7 @@ namespace _Scripts.Working
             taskMarker.SetActive(false);
             task.Completed += ToggleInteractable;
 
-            gameHud.AddTaskUI(task.taskName);
+            gameHud.AddTaskUI(task);
             
             await Task.Delay(5000);
 
@@ -210,7 +210,7 @@ namespace _Scripts.Working
         {
             _workInteractable.enabled = !_workInteractable.enabled;
             if (!_workInteractable.enabled)
-                gameHud.RemoveTaskUI(task.taskName);
+                gameHud.RemoveTaskUI(task);
 
         }
 
