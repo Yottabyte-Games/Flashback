@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 namespace DialogueSystem.Enumerations.StoryEnum
 {
     //unity e-book: create-modular-game-architecture-in-unity-with-scriptableobjects
@@ -7,8 +7,8 @@ namespace DialogueSystem.Enumerations.StoryEnum
     {
         public enum NarratorType
         {
-            Psychologist,
-            Player
+            Player,
+            Psychologist
         }
 
         public NarratorType narratorType;    
