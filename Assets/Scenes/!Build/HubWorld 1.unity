@@ -28308,11 +28308,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09446739, y: 1, z: 1.1262851}
   m_Center: {x: -0.024648739, y: 0, z: -0.47811097}
---- !u!4 &609083569 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2107634891757004918, guid: a80460577870bc843888a307f09f0561, type: 3}
-  m_PrefabInstance: {fileID: 6638164411771195535}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &609823188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28689,11 +28684,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 5.9999995, z: 0.52803886}
   m_Center: {x: 0.00003054736, y: 2.9999998, z: 0.0006226599}
---- !u!4 &621891940 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3846778905476052508, guid: a80460577870bc843888a307f09f0561, type: 3}
-  m_PrefabInstance: {fileID: 6638164411771195535}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &622504782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43213,17 +43203,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd4475b23669f847b864679dd99ccfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carsToSpawn: 10
+  carsToSpawn: 30
   CarPrefabs:
   - {fileID: 7206408186107347893, guid: 7c15909c334ffc346815f141613921f3, type: 3}
   CarSpawns:
   - {fileID: 72664734}
-  - {fileID: 609083569}
-  - {fileID: 621891940}
   - {fileID: 1625107917}
   - {fileID: 313178733}
   - {fileID: 1639552520}
   - {fileID: 646380106}
+  - {fileID: 6638164411771195537}
+  - {fileID: 6638164411771195536}
 --- !u!4 &963278620
 Transform:
   m_ObjectHideFlags: 0
@@ -99688,7 +99678,7 @@ PrefabInstance:
     - target: {fileID: 3777089255900679433, guid: a80460577870bc843888a307f09f0561, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 157878d85f307b54dbeefbe4864a344f, type: 2}
+      objectReference: {fileID: 23800000, guid: adbd27fbd3f2de742a94d0334a239f64, type: 2}
     - target: {fileID: 4475222762345746016, guid: a80460577870bc843888a307f09f0561, type: 3}
       propertyPath: m_Name
       value: Roads
@@ -99738,6 +99728,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80460577870bc843888a307f09f0561, type: 3}
+--- !u!4 &6638164411771195536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2386545908689448845, guid: a80460577870bc843888a307f09f0561, type: 3}
+  m_PrefabInstance: {fileID: 6638164411771195535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6638164411771195537 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4827545420643279711, guid: a80460577870bc843888a307f09f0561, type: 3}
+  m_PrefabInstance: {fileID: 6638164411771195535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6670799173411032617
 Transform:
   m_ObjectHideFlags: 0

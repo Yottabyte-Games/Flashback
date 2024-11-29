@@ -31,7 +31,7 @@ internal class CarDecal : MonoBehaviour
         {
             timeStopped += Time.fixedDeltaTime;
 
-            Agent.destination = Destination.position;
+            Agent.destination = carManager.FindNewDestination().position;
 
             if (timeStopped > 1)
             {
