@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DialogueSystem.Enumerations;
+using DialogueSystem.Enumerations.StoryEnum;
 using FMODUnity;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -9,7 +11,6 @@ using UnityEngine.UIElements;
 namespace DS.Elements
 {
     using Data.Save;
-    using Enumerations;
     using Utilities;
     using Windows;
 
@@ -21,9 +22,9 @@ namespace DS.Elements
         public string Text { get; set; }
         public DSDialogueType DialogueType { get; set; }
         public DSGroup Group { get; set; }
-        public EventReference voiceEvent { get; set; } // Add this property
+        public EventReference voiceEvent { get; set; }
 
-        public bool isPsychoDialogue { get; set; }
+        public NarratorEnumSO narratorEnumSO { get; set; }
 
         protected DSGraphView graphView;
         Color defaultBackgroundColor;
@@ -78,7 +79,7 @@ namespace DS.Elements
                     }
                 }
 
-                if (Group == null)
+                if (Group is null)
                 {
                     graphView.RemoveUngroupedNode(this);
 

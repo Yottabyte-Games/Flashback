@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using DialogueSystem.Enumerations;
+using DialogueSystem.Enumerations.StoryEnum;
 using DialogueSystem.Scripts.Data;
-using DS.Enumerations;
 using FMODUnity;
 using UnityEngine;
 
@@ -14,16 +15,16 @@ namespace DialogueSystem.Scripts.ScriptableObjects
         [field: SerializeField] public DSDialogueType dialogueType { get; set; }
         [field: SerializeField] public bool isStartingDialogue { get; set; }
         [field: SerializeField] public EventReference voiceEvent { get; set; }
-        [field: SerializeField] public bool isPsychoDialogue { get; set; }
+        [field: SerializeField] public NarratorEnumSO narratorEnum { get; set; }
 
-        public void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType, bool isStartingDialogue, EventReference voiceEvent, bool isPsychoDialogue)
+        public void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType, bool isStartingDialogue, EventReference voiceEvent, NarratorEnumSO narratorEnum)
         {
             this.dialogueName = dialogueName;
             this.text = text;
             this.choices = choices;
             this.dialogueType = dialogueType;
             this.voiceEvent = voiceEvent;
-            this.isPsychoDialogue = isPsychoDialogue;
+            this.narratorEnum = narratorEnum;
             this.isStartingDialogue = isStartingDialogue;
         }
     }

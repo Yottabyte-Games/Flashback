@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
+using DialogueSystem.Enumerations;
 using UnityEngine;
 
 namespace DS.Data.Save
 {
-    using Enumerations;
 
     [Serializable]
     public class DSNodeSaveData

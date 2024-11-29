@@ -116,7 +116,7 @@ namespace DS.Utilities
 
         static void UpdateOldGroups(List<string> currentGroupNames, DSGraphSaveDataSO graphData)
         {
-            if (graphData.OldGroupNames != null && graphData.OldGroupNames.Count != 0)
+            if (graphData.OldGroupNames is not null && graphData.OldGroupNames.Count != 0)
             {
                 List<string> groupsToRemove = graphData.OldGroupNames.Except(currentGroupNames).ToList();
 
@@ -139,7 +139,7 @@ namespace DS.Utilities
                 SaveNodeToGraph(node, graphData);
                 SaveNodeToScriptableObject(node, dialogueContainer);
 
-                if (node.Group != null)
+                if (node.Group is not null)
                 {
                     groupedNodeNames.AddItem(node.Group.title, node.DialogueName);
 
@@ -197,7 +197,7 @@ namespace DS.Utilities
                 node.DialogueType,
                 node.IsStartingNode(),
                 node.voiceEvent,
-                node.isPsychoDialogue
+                node.narratorEnumSO
             );
 
             createdDialogues.Add(node.ID, dialogue);
@@ -285,7 +285,7 @@ namespace DS.Utilities
         {
             DSGraphSaveDataSO graphData = LoadAsset<DSGraphSaveDataSO>("Assets/Editor/DialogueSystem/Graphs", graphFileName);
 
-            if (graphData == null)
+            if (graphData is null)
             {
                 EditorUtility.DisplayDialog(
                     "Could not find the file!",

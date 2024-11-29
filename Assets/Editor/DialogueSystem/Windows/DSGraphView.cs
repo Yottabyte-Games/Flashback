@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DialogueSystem.Enumerations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,7 +10,6 @@ namespace DS.Windows
     using Data.Error;
     using Data.Save;
     using Elements;
-    using Enumerations;
     using Utilities;
 
     public class DSGraphView : GraphView

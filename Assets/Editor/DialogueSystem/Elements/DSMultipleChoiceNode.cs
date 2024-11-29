@@ -1,3 +1,4 @@
+using DialogueSystem.Enumerations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -5,7 +6,6 @@ using UnityEngine.UIElements;
 namespace DS.Elements
 {
     using Data.Save;
-    using Enumerations;
     using Utilities;
     using Windows;
 

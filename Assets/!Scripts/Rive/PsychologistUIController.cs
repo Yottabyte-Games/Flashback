@@ -1,5 +1,5 @@
+using DialogueSystem.Enumerations;
 using DialogueSystem.Scripts.ScriptableObjects;
-using DS.Enumerations;
 using FMOD.Studio;
 using FMODUnity;
 using Rive;

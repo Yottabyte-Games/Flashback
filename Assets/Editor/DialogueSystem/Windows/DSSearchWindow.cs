@@ -1,11 +1,11 @@
 using System.Collections.Generic;
+using DialogueSystem.Enumerations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace DS.Windows
 {
     using Elements;
-    using Enumerations;
 
     public class DSSearchWindow : ScriptableObject, ISearchWindowProvider
     {
