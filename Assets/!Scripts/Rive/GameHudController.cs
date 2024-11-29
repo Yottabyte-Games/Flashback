@@ -167,7 +167,7 @@ namespace _Scripts.Rive
 
         
         List<string> taskNames = new (); // Dynamic list of tasks
-        private string[] visibleTasks = new string[4]; // Fixed-size array for the 4 visible tasks
+        private string[] visibleTasks = new string[7]; // Fixed-size array for the 4 visible tasks
 
         private const int MaxVisibleTasks = 7; // Total UI slots (4 full + 3 indicators)
 
@@ -225,21 +225,7 @@ namespace _Scripts.Rive
                         _riveScreen.Artboard.FireInputStateAtPath("Hide", path); // Hide empty visible slots
                     }
                 }
-                else // Handle overflow indicators
-                {
-                    if (taskNames.Count > visibleTasks.Length)
-                    {
-                        _riveScreen.Artboard.SetTextRunValueAtPath("Task Index Run", path, "...");
-                        _riveScreen.Artboard.SetTextRunValueAtPath("Description Run", path, "...");
-                        _riveScreen.Artboard.FireInputStateAtPath("Show", path);
-                    }
-                    else
-                    {
-                        _riveScreen.Artboard.FireInputStateAtPath("Hide", path);
-                    }
-                }
             }
         }
-
     }
 }
