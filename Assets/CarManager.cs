@@ -14,8 +14,6 @@ public class CarManager : MonoBehaviour
         {
             NewCar();
         }
-
-        InvokeRepeating(nameof(NewCar), 5, 5);
     }
 
     void NewCar()
