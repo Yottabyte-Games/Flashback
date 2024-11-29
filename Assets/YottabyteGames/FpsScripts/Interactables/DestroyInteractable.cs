@@ -6,6 +6,7 @@ namespace YottabyteGames.FpsScripts.Interactables
     public class DestroyInteractable : InteractableBase
     {
         [SerializeField] GameObject cat;
+        [SerializeField] GameObject spawner = null;
 
         public override void OnInteract()
         {
@@ -14,6 +15,7 @@ namespace YottabyteGames.FpsScripts.Interactables
 
             Destroy(gameObject);
             cat.SetActive(true);
+            spawner.SetActive(true);
         }
     }
 }
