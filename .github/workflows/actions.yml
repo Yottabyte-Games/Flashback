@@ -25,7 +25,17 @@ jobs:
       # Ensure Library Directory Exists
       - name: Ensure Library directory exists
         run: mkdir -p Library
-
+        
+      # Cache
+      - uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-Temp-Linux-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-Temp-Linux-${{ runner.os }}-
+            Library-Temp-Linux-
+            Library-Temp-
+            
       # Free Disk Space
       - name: Free up Disk Space
         run: |
@@ -41,18 +51,8 @@ jobs:
 
       - name: Pull Unity Docker image in background
         run: |
-          docker pull unityci/editor:ubuntu-ubuntu-6000.0.26f1-windows-mono-3 &
-      
-      # Cache
-      - uses: actions/cache@v4
-        with:
-          path: Library
-          key: Library-Temp-Linux-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-          restore-keys: |
-            Library-Temp-Linux-${{ runner.os }}-
-            Library-Temp-Linux-
-            Library-Temp-
-
+          docker pull unityci/editor:ubuntu-6000.0.26f1-windows-mono-3 &
+          
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
