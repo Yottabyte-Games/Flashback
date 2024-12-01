@@ -42,12 +42,11 @@ jobs:
       # Cache
       - uses: actions/cache@v4
         with:
-          path: |
-            Library
-            Temp
+          path: Library
           key: Library-Temp-Linux-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-Temp-Linux-${{ runner.os }}-
+            Library-Temp-Linux-
             Library-Temp-
 
       # Build
