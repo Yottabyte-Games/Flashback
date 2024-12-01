@@ -41,7 +41,7 @@ jobs:
 
       - name: Pull Unity Docker image in background
         run: |
-          docker pull unityci/editor:ubuntu-6000.0.26f1-linux-il2cpp-3 &
+          docker pull unityci/editor:ubuntu-ubuntu-6000.0.26f1-windows-mono-3 &
       
       # Cache
       - uses: actions/cache@v4
