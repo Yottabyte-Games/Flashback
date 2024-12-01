@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Pull Unity Docker image in background
         run: |
-          docker pull unityci/editor:ubuntu-6000.0.25f1 &
+          docker pull unityci/editor:ubuntu-6000.0.26f1-linux-il2cpp-3 &
           
       # Checkout
       - name: Checkout repository
@@ -57,8 +57,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
-          unityVersion: 6000.0.25f1
-          customParameters: -force-d3d11
+          unityVersion: 6000.0.26f1
 
       # Ensure Directory Exists
       - name: Ensure build directory exists
