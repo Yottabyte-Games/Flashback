@@ -16,19 +16,6 @@ jobs:
     name: Build project ✨
     runs-on: ubuntu-latest
     steps:
-    # Free Disk Space
-      - name: Free up Disk Space
-        run: |
-          sudo swapoff -a
-          sudo rm -f /swapfile
-          sudo apt clean
-          docker rmi $(docker image ls -aq)
-          df -h
-          
-      - name: Pull Unity Docker image in background
-        run: |
-          docker pull unityci/editor:ubuntu-6000.0.26f1-linux-il2cpp-3 &
-          
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -39,15 +26,28 @@ jobs:
       - name: Ensure Library directory exists
         run: mkdir -p Library
 
+      # Free Disk Space
+      - name: Free up Disk Space
+        run: |
+          sudo swapoff -a
+          sudo rm -f /swapfile
+          sudo apt clean
+          docker rmi $(docker image ls -aq)
+          df -h
+        
+      - name: Pull Unity Docker image in background
+        run: |
+          docker pull unityci/editor:ubuntu-6000.0.26f1-linux-il2cpp-3 &
+      
       # Cache
       - uses: actions/cache@v4
         with:
           path: |
             Library
             Temp
-          key: Library-Temp-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          key: Library-Temp-Linux-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
-            Library-Temp-${{ runner.os }}-
+            Library-Temp-Linux-${{ runner.os }}-
             Library-Temp-
 
       # Build
