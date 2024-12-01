@@ -16,6 +16,15 @@ jobs:
     name: Build project ✨
     runs-on: ubuntu-latest
     steps:
+    # Free Disk Space
+      - name: Free up Disk Space
+        run: |
+          sudo swapoff -a
+          sudo rm -f /swapfile
+          sudo apt clean
+          docker rmi $(docker image ls -aq)
+          df -h
+          
       - name: Pull Unity Docker image in background
         run: |
           docker pull unityci/editor:ubuntu-6000.0.26f1-linux-il2cpp-3 &
@@ -33,20 +42,13 @@ jobs:
       # Cache
       - uses: actions/cache@v4
         with:
-          path: Library
-          key: Library-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          path: |
+            Library
+            Temp
+          key: Library-Temp-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
-            Library-${{ runner.os }}-
-            Library-
-
-      # Free Disk Space
-      - name: Free up Disk Space
-        run: |
-          sudo swapoff -a
-          sudo rm -f /swapfile
-          sudo apt clean
-          docker rmi $(docker image ls -aq)
-          df -h
+            Library-Temp-${{ runner.os }}-
+            Library-Temp-
 
       # Build
       - name: Build project
