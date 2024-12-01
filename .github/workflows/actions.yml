@@ -44,12 +44,11 @@ jobs:
         run: |
           sudo swapoff -a
           sudo rm -f /swapfile
-          sudo apt clean
-          docker rmi $(docker image ls -aq)
-          sudo apt-get clean
           sudo rm -rf /var/lib/apt/lists/*
           sudo rm -rf /tmp/*
-          sudo rm -rf /var/tmp/*   
+          sudo rm -rf /var/tmp/*
+          sudo apt clean
+          docker rmi $(docker image ls -aq)
           df -h            
           
       # Build
