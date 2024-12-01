@@ -16,6 +16,9 @@ jobs:
     name: Build project ✨
     runs-on: ubuntu-20.04
     steps:
+      - name: Pull Unity Docker image in background
+        run: |
+          docker pull unityci/editor:ubuntu-6000.0.26f1-windows-mono-3 &
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -48,10 +51,6 @@ jobs:
           sudo rm -rf /tmp/*
           sudo rm -rf /var/tmp/*   
           df -h            
-
-      - name: Pull Unity Docker image in background
-        run: |
-          docker pull unityci/editor:ubuntu-6000.0.26f1-windows-mono-3 &
           
       # Build
       - name: Build project
