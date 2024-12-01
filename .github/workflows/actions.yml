@@ -33,8 +33,12 @@ jobs:
           sudo rm -f /swapfile
           sudo apt clean
           docker rmi $(docker image ls -aq)
-          df -h
-        
+          sudo apt-get clean
+          sudo rm -rf /var/lib/apt/lists/*
+          sudo rm -rf /tmp/*
+          sudo rm -rf /var/tmp/*   
+          df -h            
+
       - name: Pull Unity Docker image in background
         run: |
           docker pull unityci/editor:ubuntu-6000.0.26f1-linux-il2cpp-3 &
