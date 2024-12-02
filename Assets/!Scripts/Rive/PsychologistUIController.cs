@@ -5,6 +5,7 @@ using DialogueSystem.Scripts.ScriptableObjects;
 using FMOD.Studio;
 using FMODUnity;
 using Rive;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -94,17 +95,19 @@ namespace _Scripts.Rive
                     // For single dialogue
                     case DSDialogueType.SingleChoice:
                     {
-                        _riveScreen.SetTextRunAtPath(_currentDialogue.text, RiveScreen.TextPath.Psychologist);
+                        
 
-                        NarratorEnumSO narratorEnum = FindAnyObjectByType<NarratorEnumSO>();
+                        NarratorEnumSO narratorEnum =  FindAnyObjectByType<NarratorEnumSO>();
                         if (narratorEnum is not null)
                         {
                             switch (narratorEnum.narratorType)
                             {
                                 case NarratorEnumSO.NarratorType.Psychologist:
+                                    _riveScreen.SetTextRunAtPath(_currentDialogue.text, RiveScreen.TextPath.Psychologist);
                                     _riveScreen.StateMachine.GetTrigger("PsychologistAppear").Fire();
                                     break;
                                 case NarratorEnumSO.NarratorType.Player:
+                                    _riveScreen.SetTextRunAtPath(_currentDialogue.text, RiveScreen.TextPath.Player);
                                     _riveScreen.StateMachine.GetTrigger("PlayerAppear").Fire();
                                     break;
                                 default:
@@ -113,6 +116,8 @@ namespace _Scripts.Rive
                         }
                         else
                         {
+                            print("no narrator found " + _currentDialogue.text );
+                            _riveScreen.SetTextRunAtPath(_currentDialogue.text, RiveScreen.TextPath.Psychologist);
                             _riveScreen.StateMachine.GetTrigger("PsychologistAppear").Fire();
                         }
                    

@@ -115,6 +115,7 @@ namespace _Scripts.Rive
             Psychologist,
             Option1,
             Option2,
+            Player,
         }
 
         readonly Dictionary<TextPath, string> _textRunReferences = new()
@@ -123,7 +124,8 @@ namespace _Scripts.Rive
             { TextPath.Dialogue, "DialogueText"},
             { TextPath.Psychologist, "Psychologist Text Run" },
             { TextPath.Option1, "Option 1 Text Run" },
-            { TextPath.Option2, "Option 2 Text Run" }
+            { TextPath.Option2, "Option 2 Text Run" },
+            { TextPath.Player,  "Player Text Run" },
         };
     
         [FormerlySerializedAs("asset")] public Asset Asset;
