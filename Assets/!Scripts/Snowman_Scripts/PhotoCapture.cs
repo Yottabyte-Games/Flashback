@@ -74,7 +74,6 @@ namespace _Scripts.Snowman_Scripts
 
             //Check if completed and go out of scene. Else remove image
             CheckCompleted();
-            FishedPhotoTaken.Invoke();
         }
         
         void CheckCompleted()
