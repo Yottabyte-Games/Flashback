@@ -1,3 +1,4 @@
+using System;
 using DialogueSystem.Enumerations;
 using DialogueSystem.Enumerations.StoryEnum;
 using DialogueSystem.Scripts.ScriptableObjects;
@@ -95,19 +96,20 @@ namespace _Scripts.Rive
                     {
                         _riveScreen.SetTextRunAtPath(_currentDialogue.text, RiveScreen.TextPath.Psychologist);
 
-                        if (TryGetComponent(out NarratorEnumSO narratorEnum))
+                        NarratorEnumSO narratorEnum = FindAnyObjectByType<NarratorEnumSO>();
+                        if (narratorEnum is not null)
                         {
-                            if (narratorEnum.narratorType == NarratorEnumSO.NarratorType.Psychologist)
+                            switch (narratorEnum.narratorType)
                             {
-                                _riveScreen.StateMachine.GetTrigger("PsychologistAppear").Fire();
-
+                                case NarratorEnumSO.NarratorType.Psychologist:
+                                    _riveScreen.StateMachine.GetTrigger("PsychologistAppear").Fire();
+                                    break;
+                                case NarratorEnumSO.NarratorType.Player:
+                                    _riveScreen.StateMachine.GetTrigger("PlayerAppear").Fire();
+                                    break;
+                                default:
+                                    throw new ArgumentOutOfRangeException();
                             }
-                            else if (narratorEnum.narratorType == NarratorEnumSO.NarratorType.Player)
-                            {
-                                _riveScreen.StateMachine.GetTrigger("PlayerAppear").Fire();
-
-                            }
-
                         }
                         else
                         {

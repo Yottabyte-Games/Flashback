@@ -23,7 +23,6 @@ namespace DS.Elements
         public DSDialogueType DialogueType { get; set; }
         public DSGroup Group { get; set; }
         public EventReference voiceEvent { get; set; }
-
         public NarratorEnumSO narratorEnumSO { get; set; }
 
         protected DSGraphView graphView;
