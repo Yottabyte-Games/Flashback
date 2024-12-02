@@ -999,6 +999,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3326710022535801438, guid: 0e79e923479782a4489a2e3871a70b23, type: 3}
+      propertyPath: dialogue.dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 136077875e3f99d47885e7fdaa47526e, type: 2}
+    - target: {fileID: 3326710022535801438, guid: 0e79e923479782a4489a2e3871a70b23, type: 3}
       propertyPath: dialogues.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1026,6 +1030,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7793904922336530114, guid: 0e79e923479782a4489a2e3871a70b23, type: 3}
+      propertyPath: hubWorldScene.guid
+      value: 950c6ba351f1ce14592523cac719c8f9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793904922336530114, guid: 0e79e923479782a4489a2e3871a70b23, type: 3}
+      propertyPath: hubWorldScene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: 950c6ba351f1ce14592523cac719c8f9, type: 3}
     - target: {fileID: 7960595836821832873, guid: 0e79e923479782a4489a2e3871a70b23, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11
