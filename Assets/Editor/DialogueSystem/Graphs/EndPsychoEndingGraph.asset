@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: EndPsychoEndingGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: EndPsychoEnding
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: f5aacd0f-41d9-4ad3-b83c-74a46737d7c2
+    <Name>k__BackingField: PsychologistStartEnding
+    <Text>k__BackingField: "What steps do you think you can take to start addressing
+      these challenges and move towards a more positive state of mind?\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: e639c69a-4fac-461f-bc60-143a4f70d89a
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: -235, y: 109}
+  - <ID>k__BackingField: e639c69a-4fac-461f-bc60-143a4f70d89a
+    <Name>k__BackingField: PsychologistEnding
+    <Text>k__BackingField: "Well, I really like animals. Maybe I should buy myself
+      a cat, so I can get my mind off of things\u2026"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 561, y: 109}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - PsychologistStartEnding
+  - PsychologistEnding
+  <OldGroupedNodeNames>k__BackingField:
+    list: []

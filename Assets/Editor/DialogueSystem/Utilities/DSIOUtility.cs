@@ -167,6 +167,7 @@ namespace DS.Utilities
                 Text = node.Text,
                 GroupID = node.Group?.ID,
                 DialogueType = node.DialogueType,
+                voiceEvent = node.voiceEvent,
                 Position = node.GetPosition().position
             };
 
@@ -177,7 +178,7 @@ namespace DS.Utilities
         {
             DSDialogueSO dialogue;
 
-            if (node.Group != null)
+            if (node.Group is not null)
             {
                 dialogue = CreateAsset<DSDialogueSO>($"{containerFolderPath}/Groups/{node.Group.title}/Dialogues", node.DialogueName);
 
@@ -206,19 +207,9 @@ namespace DS.Utilities
         }
         static List<DSDialogueChoiceData> ConvertNodeChoicesToDialogueChoices(List<DSChoiceSaveData> nodeChoices)
         {
-            List<DSDialogueChoiceData> dialogueChoices = new List<DSDialogueChoiceData>();
 
-            foreach (DSChoiceSaveData nodeChoice in nodeChoices)
-            {
-                DSDialogueChoiceData choiceData = new DSDialogueChoiceData()
-                {
-                    text = nodeChoice.Text
-                };
-
-                dialogueChoices.Add(choiceData);
-            }
-
-            return dialogueChoices;
+            return nodeChoices.Select(nodeChoice => new DSDialogueChoiceData(){text = nodeChoice.Text})
+                .ToList();
         }
 
         static void UpdateDialoguesChoicesConnections()

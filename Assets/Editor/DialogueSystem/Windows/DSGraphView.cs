@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DialogueSystem.Enumerations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -342,17 +343,8 @@ namespace DS.Windows
                 {
                     Type edgeType = typeof(Edge);
 
-                    foreach (GraphElement element in changes.elementsToRemove)
+                    foreach (var choiceData in from element in changes.elementsToRemove where element.GetType() == edgeType select (Edge) element into edge select (DSChoiceSaveData) edge.output.userData)
                     {
-                        if (element.GetType() != edgeType)
-                        {
-                            continue;
-                        }
-
-                        Edge edge = (Edge) element;
-
-                        DSChoiceSaveData choiceData = (DSChoiceSaveData) edge.output.userData;
-
                         choiceData.NodeID = "";
                     }
                 }

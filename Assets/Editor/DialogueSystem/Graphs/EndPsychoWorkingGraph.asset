@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: EndPsychoWorkingGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: EndPsychoWorking
+  <Groups>k__BackingField:
+  - <ID>k__BackingField: 79afe220-675a-4b2a-b2f6-5cced743e467
+    <Name>k__BackingField: Correct
+    <Position>k__BackingField: {x: 938, y: -156}
+  - <ID>k__BackingField: 7bec22bc-3f59-4b0e-8ba8-747db9e5f810
+    <Name>k__BackingField: False
+    <Position>k__BackingField: {x: 975, y: 258.00018}
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: bb3a30df-6964-4035-a3c5-24fb0566da2f
+    <Name>k__BackingField: 2PsychologistStartIntro
+    <Text>k__BackingField: "Is there something in your current environment or daily
+      routine that you feel might be triggering your PTSD?\r\n\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Yes,
+      <NodeID>k__BackingField: b7de9b9f-1694-4e2a-a6d8-e8633fb3f61d
+    - <Text>k__BackingField: 'No all is completely fine. '
+      <NodeID>k__BackingField: f6af3c07-437f-4d63-9beb-bd0df9f2be15
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 1
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 216, y: 90}
+  - <ID>k__BackingField: b7de9b9f-1694-4e2a-a6d8-e8633fb3f61d
+    <Name>k__BackingField: 3PsychologistStartIntro
+    <Text>k__BackingField: Even though life has become more complicated, thinking
+      back to that day makes me realize how important it is to cherish those happy,
+      uncomplicated times.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 79afe220-675a-4b2a-b2f6-5cced743e467
+    <DialogueType>k__BackingField: 0
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 963, y: -97}
+  - <ID>k__BackingField: f6af3c07-437f-4d63-9beb-bd0df9f2be15
+    <Name>k__BackingField: 4PsychologistStartIntro
+    <Text>k__BackingField: "Life just sucks.\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 62d73a2f-354f-4551-a8a4-675f48dc0d3d
+    <GroupID>k__BackingField: 7bec22bc-3f59-4b0e-8ba8-747db9e5f810
+    <DialogueType>k__BackingField: 0
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 1000, y: 317}
+  - <ID>k__BackingField: 62d73a2f-354f-4551-a8a4-675f48dc0d3d
+    <Name>k__BackingField: DialogueName
+    <Text>k__BackingField: "Let\u2019s try that again."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: bb3a30df-6964-4035-a3c5-24fb0566da2f
+    <GroupID>k__BackingField: 7bec22bc-3f59-4b0e-8ba8-747db9e5f810
+    <DialogueType>k__BackingField: 0
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 1323, y: 317}
+  - <ID>k__BackingField: f5aacd0f-41d9-4ad3-b83c-74a46737d7c2
+    <Name>k__BackingField: 1PsychologistStartIntro
+    <Text>k__BackingField: "[tells about his struggles with all these reminders of
+      his childhood]\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: bb3a30df-6964-4035-a3c5-24fb0566da2f
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: -247, y: 112}
+  <OldGroupNames>k__BackingField:
+  - Correct
+  - False
+  <OldUngroupedNodeNames>k__BackingField:
+  - 2PsychologistStartIntro
+  - 1PsychologistStartIntro
+  <OldGroupedNodeNames>k__BackingField:
+    list:
+    - Key: Correct
+      Value:
+      - 3PsychologistStartIntro
+    - Key: False
+      Value:
+      - 4PsychologistStartIntro
+      - DialogueName

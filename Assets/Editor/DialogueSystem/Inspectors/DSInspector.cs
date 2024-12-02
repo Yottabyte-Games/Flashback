@@ -131,7 +131,7 @@ namespace DS.Inspectors
 
             DSDialogueGroupSO oldDialogueGroup = (DSDialogueGroupSO) dialogueGroupProperty.objectReferenceValue;
 
-            bool isOldDialogueGroupNull = oldDialogueGroup == null;
+            bool isOldDialogueGroupNull = oldDialogueGroup is null;
 
             string oldDialogueGroupName = isOldDialogueGroupNull ? "" : oldDialogueGroup.groupName;
 
@@ -158,7 +158,7 @@ namespace DS.Inspectors
 
             DSDialogueSO oldDialogue = (DSDialogueSO) dialogueProperty.objectReferenceValue;
 
-            bool isOldDialogueNull = oldDialogue == null;
+            bool isOldDialogueNull = oldDialogue is null;
 
             string oldDialogueName = isOldDialogueNull ? "" : oldDialogue.dialogueName;
 
