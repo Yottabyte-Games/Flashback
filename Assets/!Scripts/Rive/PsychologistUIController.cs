@@ -1,4 +1,5 @@
 using DialogueSystem.Enumerations;
+using DialogueSystem.Enumerations.StoryEnum;
 using DialogueSystem.Scripts.ScriptableObjects;
 using FMOD.Studio;
 using FMODUnity;
@@ -93,8 +94,25 @@ namespace _Scripts.Rive
                     case DSDialogueType.SingleChoice:
                     {
                         _riveScreen.SetTextRunAtPath(_currentDialogue.text, RiveScreen.TextPath.Psychologist);
-            
-                        _riveScreen.StateMachine.GetTrigger("PsychologistAppear").Fire();
+
+                        if (TryGetComponent(out NarratorEnumSO narratorEnum))
+                        {
+                            if (narratorEnum.narratorType == NarratorEnumSO.NarratorType.Psychologist)
+                            {
+                                _riveScreen.StateMachine.GetTrigger("PsychologistAppear").Fire();
+
+                            }
+                            else if (narratorEnum.narratorType == NarratorEnumSO.NarratorType.Player)
+                            {
+                                _riveScreen.StateMachine.GetTrigger("PlayerAppear").Fire();
+
+                            }
+
+                        }
+                        else
+                        {
+                            _riveScreen.StateMachine.GetTrigger("PsychologistAppear").Fire();
+                        }
                    
                         var voiceActing = _currentDialogue.voiceEvent;
                         if (!voiceActing.IsNull)
