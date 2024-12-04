@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using _Scripts.Rive;
 using _Scripts.Working.Tasks;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace _Scripts.Working
 {
@@ -13,10 +16,18 @@ namespace _Scripts.Working
         public UnityEvent<int> TaskCompleted;
         public UnityEvent<int> TaskAdded;
         [Expandable, ReadOnly] public List<OfficeTask> currentTasks = new List<OfficeTask>();
-    
+        
+        GameHudController gameHud;
+
 
         [SerializeField] GameObject[] fetchableItems;
         [SerializeField] GameObject[] trash;
+
+        private void Start()
+        {
+            gameHud = GameObject.FindWithTag("MainCamera").GetComponent<GameHudController>();
+
+        }
 
         public void AddOfficeTask(OfficeTask task)
         {
@@ -25,6 +36,7 @@ namespace _Scripts.Working
         }
         public void CompleteOfficeTask(OfficeTask task)
         {
+            gameHud.RemoveTaskUI(task);
             tasksCompleted++;
             print(tasksCompleted);
             TaskCompleted.Invoke(tasksCompleted);
