@@ -22,7 +22,7 @@ namespace _Scripts.Rive
 
         InputAction _pauseAction;
 
-        [SerializeField] private bool isDotHidden = false;
+        [SerializeField] bool isDotHidden = false;
         
         void Awake()
         {
@@ -54,6 +54,7 @@ namespace _Scripts.Rive
             {
                 _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
             }
+            
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             _playerController = player.GetComponent<PlayerController>();
             _playerLocomotionInput = player.GetComponent<PlayerLocomotionInput>();
@@ -66,15 +67,19 @@ namespace _Scripts.Rive
 
         void RiveEventHandler(ReportedEvent reportedEvent)
         {
-            if (reportedEvent.Name == "FlashbackEvent" && _sceneToLoad != null)
+            switch (reportedEvent.Name)
             {
-                if (_playerPositionController)
+                case "FlashbackEvent" when _sceneToLoad is not null:
                 {
-                    _playerPositionController.SavePosition(_sceneToLoad.Name);
-                    print("Saved Position");
+                    if (_playerPositionController)
+                    {
+                        _playerPositionController.SavePosition(_sceneToLoad.Name);
+                        print("Saved Position");
+                    }
+                    else
+                        SceneManager.LoadScene(_sceneToLoad.Name);
+                    break;
                 }
-                else
-                    SceneManager.LoadScene(_sceneToLoad.Name);
             }
         }
 
