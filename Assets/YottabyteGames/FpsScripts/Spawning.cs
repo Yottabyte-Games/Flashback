@@ -1,19 +1,20 @@
 using FMOD;
 using System.Collections;
 using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawning : MonoBehaviour
 {
     [SerializeField] private GameObject enemyAI;
-    [SerializeField] private GameObject enemyAI2;
-    [SerializeField] private GameObject enemyAI3;
+    private GameObject enemyAI2;
+    private GameObject enemyAI3;
+    private GameObject enemyAI4;
     [SerializeField] private GameObject boss = null;
 
     [SerializeField] private GameObject enemyMainSpawner;
     [SerializeField] private GameObject enemyMainSpawner2;
     [SerializeField] private GameObject enemyMainSpawner3;
+    [SerializeField] private GameObject enemyMainSpawner4;
 
     public int nextSpawnerLocation = 0;
 
@@ -64,7 +65,11 @@ public class Spawning : MonoBehaviour
         }
         if (nextSpawnerLocation == 2)
         {
-            StartCoroutine(spawnEnemy(enemyInterval, enemyAI3, enemyMainSpawner3, null, spawnerLifeValue));
+            StartCoroutine(spawnEnemy(enemyInterval, enemyAI3, enemyMainSpawner3, enemyMainSpawner4, spawnerLifeValue));
+        }
+        if (nextSpawnerLocation == 3)
+        {
+            StartCoroutine(spawnEnemy(enemyInterval, enemyAI4, enemyMainSpawner4, null, spawnerLifeValue));
         }
     }
 }

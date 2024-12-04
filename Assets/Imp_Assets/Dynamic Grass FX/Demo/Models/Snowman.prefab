@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 7040154851175287287}
   - component: {fileID: 7558415066912451343}
   - component: {fileID: 8409780029587960177}
-  - component: {fileID: 719173610855110709}
   - component: {fileID: 7990768981322995353}
   m_Layer: 0
   m_Name: Snowball(Clone)(Clone)
@@ -164,27 +163,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &719173610855110709
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973126401835390512}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.47
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7990768981322995353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -223,7 +201,6 @@ GameObject:
   - component: {fileID: 846157602900915702}
   - component: {fileID: 7412215482534529186}
   - component: {fileID: 5288740974200104250}
-  - component: {fileID: 2974060022844406855}
   - component: {fileID: 61277254664584975}
   m_Layer: 0
   m_Name: Rock (2)(Clone)
@@ -301,27 +278,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2974060022844406855
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244393272749478197}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &61277254664584975
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -360,7 +316,6 @@ GameObject:
   - component: {fileID: 6150985910280692280}
   - component: {fileID: 3166264304838905805}
   - component: {fileID: 2452395784763763170}
-  - component: {fileID: 2520618012744874319}
   - component: {fileID: 3977765704020684456}
   m_Layer: 0
   m_Name: Snowball (1)
@@ -438,27 +393,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2520618012744874319
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3706463190251424580}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.47
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3977765704020684456
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -528,7 +462,6 @@ GameObject:
   - component: {fileID: 490702504901631620}
   - component: {fileID: 924678305134916322}
   - component: {fileID: 664855886350360378}
-  - component: {fileID: 5781665995920815824}
   - component: {fileID: 3958076385785889874}
   m_Layer: 0
   m_Name: Stick(Clone)
@@ -605,27 +538,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5781665995920815824
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4113855709503349486}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3958076385785889874
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -664,7 +576,6 @@ GameObject:
   - component: {fileID: 729377753106207361}
   - component: {fileID: 5555695578055919175}
   - component: {fileID: 1368427907857779434}
-  - component: {fileID: 1720128265335503433}
   - component: {fileID: 9050442552053511283}
   m_Layer: 0
   m_Name: Rock (3)(Clone)
@@ -742,27 +653,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1720128265335503433
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5185417489005640012}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &9050442552053511283
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -905,6 +795,7 @@ GameObject:
   - component: {fileID: -2088799128228459108}
   - component: {fileID: 262205774676808443}
   - component: {fileID: 7911915388856655620}
+  - component: {fileID: 411918578058633014}
   m_Layer: 0
   m_Name: Snowman
   m_TagString: Enemy
@@ -997,6 +888,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &411918578058633014
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404378379466732202}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5551853865404790471
 GameObject:
   m_ObjectHideFlags: 0
