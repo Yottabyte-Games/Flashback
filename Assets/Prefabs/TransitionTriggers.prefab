@@ -96,8 +96,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1562313212437614963}
   - component: {fileID: 6183391853313561363}
-  - component: {fileID: 5591332459406430774}
   - component: {fileID: 3204817035228747353}
+  - component: {fileID: 5591332459406430774}
   m_Layer: 0
   m_Name: AfterFishDialogue
   m_TagString: Untagged
@@ -141,6 +141,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 28.74, y: 9.96, z: 37.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3204817035228747353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783928010318864061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <StartingDialogue>k__BackingField: {fileID: 11400000, guid: 42aaa3a0a5779c840833f8ed79c31f8c, type: 2}
+  sceneToLoad:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
+  ActOnBeat: 0
 --- !u!114 &5591332459406430774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,23 +188,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3204817035228747353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783928010318864061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <StartingDialogue>k__BackingField: {fileID: 11400000, guid: 42aaa3a0a5779c840833f8ed79c31f8c, type: 2}
-  sceneToLoad:
-    asset: {fileID: 0}
-    guid: 00000000000000000000000000000000
-  loadSceneAfterDialogue: 0
 --- !u!1 &815624282874082166
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +369,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
   loadSceneAfterDialogue: 0
+  ActOnBeat: 0
 --- !u!1 &928612303369395182
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +506,7 @@ MonoBehaviour:
     asset: {fileID: 102900000, guid: 6c8b08a1c2535e34d9d981cc57c52d88, type: 3}
     guid: 6c8b08a1c2535e34d9d981cc57c52d88
   loadSceneAfterDialogue: 1
+  ActOnBeat: 0
 --- !u!114 &5556323622749958073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +610,7 @@ MonoBehaviour:
     asset: {fileID: 102900000, guid: 2b036cc8f0afed34e8dfce37964a6968, type: 3}
     guid: 2b036cc8f0afed34e8dfce37964a6968
   loadSceneAfterDialogue: 1
+  ActOnBeat: 0
 --- !u!114 &6000531162534853489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,6 +953,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
   loadSceneAfterDialogue: 0
+  ActOnBeat: 0
 --- !u!114 &6514505844755536780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,8 +993,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8162724226377678909}
   - component: {fileID: 1634369892274397045}
-  - component: {fileID: 8236844434290720532}
   - component: {fileID: 3675146356010415638}
+  - component: {fileID: 8236844434290720532}
   m_Layer: 0
   m_Name: AfterCarDialogue
   m_TagString: Untagged
@@ -1033,6 +1038,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 36.6, y: 10.28, z: 18.4}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3675146356010415638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938140711712188545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <StartingDialogue>k__BackingField: {fileID: 11400000, guid: 42548e043b292ec499fda75d3c7b2712, type: 2}
+  sceneToLoad:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
+  loadSceneAfterDialogue: 0
+  ActOnBeat: 4
 --- !u!114 &8236844434290720532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,23 +1085,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3675146356010415638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938140711712188545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b675a275b0f4d4a967e3a7033af92a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <StartingDialogue>k__BackingField: {fileID: 11400000, guid: 42548e043b292ec499fda75d3c7b2712, type: 2}
-  sceneToLoad:
-    asset: {fileID: 0}
-    guid: 00000000000000000000000000000000
-  loadSceneAfterDialogue: 0
 --- !u!1 &4385656062683349890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1439,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
   loadSceneAfterDialogue: 0
+  ActOnBeat: 0
 --- !u!114 &9017782493802642613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1534,6 +1541,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
   loadSceneAfterDialogue: 0
+  ActOnBeat: 0
 --- !u!114 &5573067740998509312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1862,6 +1870,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
   loadSceneAfterDialogue: 0
+  ActOnBeat: 0
 --- !u!1 &7760901279430891691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2127,6 +2136,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
   loadSceneAfterDialogue: 0
+  ActOnBeat: 0
 --- !u!114 &6155138088038243273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2292,6 +2302,7 @@ MonoBehaviour:
     asset: {fileID: 102900000, guid: 24c892a4eb0920c47a1558b1b7436f29, type: 3}
     guid: 24c892a4eb0920c47a1558b1b7436f29
   loadSceneAfterDialogue: 1
+  ActOnBeat: 0
 --- !u!114 &3691686825708244447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,6 +2582,7 @@ MonoBehaviour:
     asset: {fileID: 102900000, guid: bf7be9a4d15a01949a430eaf45433159, type: 3}
     guid: bf7be9a4d15a01949a430eaf45433159
   loadSceneAfterDialogue: 1
+  ActOnBeat: 0
 --- !u!114 &4575513157148130623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2767,6 +2779,7 @@ MonoBehaviour:
     asset: {fileID: 102900000, guid: a50356cddb2b1e1488e2f82103496854, type: 3}
     guid: a50356cddb2b1e1488e2f82103496854
   loadSceneAfterDialogue: 1
+  ActOnBeat: 0
 --- !u!114 &5139561595295328751
 MonoBehaviour:
   m_ObjectHideFlags: 0

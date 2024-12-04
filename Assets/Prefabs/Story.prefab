@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc885172743ec84aaec56bca8abc233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timelineState: {fileID: 11400000, guid: 190be671cbad6c547a12221b955431a3, type: 2}
   storyBeatToActOn: 8
 --- !u!320 &5110005765633452776
 PlayableDirector:
@@ -241,7 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc885172743ec84aaec56bca8abc233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timelineState: {fileID: 11400000, guid: 1da111250b90aed47b7047aa2b1992d9, type: 2}
   storyBeatToActOn: 6
 --- !u!320 &7005178319620125942
 PlayableDirector:
@@ -436,7 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc885172743ec84aaec56bca8abc233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timelineState: {fileID: 11400000, guid: ed618f55762d2134c8f70e466b7662de, type: 2}
   storyBeatToActOn: 4
 --- !u!320 &7035001608993229160
 PlayableDirector:
@@ -640,7 +637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc885172743ec84aaec56bca8abc233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timelineState: {fileID: 11400000, guid: 3a06800f9cc093646905305488980567, type: 2}
   storyBeatToActOn: 10
 --- !u!320 &7000989001881690189
 PlayableDirector:
@@ -799,7 +795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc885172743ec84aaec56bca8abc233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timelineState: {fileID: 11400000, guid: 181f62fa245bcbd4e9a96498a6a79788, type: 2}
   storyBeatToActOn: 2
 --- !u!320 &612519968330971925
 PlayableDirector:
@@ -919,6 +914,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8765186255240017320}
     m_Modifications:
+    - target: {fileID: 761964447655449301, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1007413707354092344, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.69327605
@@ -959,9 +958,21 @@ PrefabInstance:
       propertyPath: OnProgressedStory.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 525967113574085603}
+    - target: {fileID: 1720757000758332467, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204817035228747353, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3219398893652861640, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
       propertyPath: m_Name
       value: TransitionTriggers
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451446959765061638, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3451446959765061638, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
       propertyPath: sceneToLoad.guid
@@ -975,6 +986,10 @@ PrefabInstance:
       propertyPath: loadSceneAfterDialogue
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3675146356010415638, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3691686825708244447, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
       propertyPath: ActOnBeat
       value: 6
@@ -987,6 +1002,18 @@ PrefabInstance:
       propertyPath: OnProgressedStory.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 525967113574085603}
+    - target: {fileID: 4092139968574562704, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392351764441738983, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527447665971674441, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4527447665971674441, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
       propertyPath: sceneToLoad.guid
       value: 2b036cc8f0afed34e8dfce37964a6968
@@ -1147,6 +1174,18 @@ PrefabInstance:
       propertyPath: OnProgressedStory.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 612417167203303931}
+    - target: {fileID: 6560534445775442919, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560534445775442919, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: sceneToLoad.guid
+      value: 11f8da08e47585e469d594ad6dbf3d35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560534445775442919, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: sceneToLoad.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: 11f8da08e47585e469d594ad6dbf3d35, type: 3}
     - target: {fileID: 6905944736402640276, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.327
@@ -1186,6 +1225,10 @@ PrefabInstance:
     - target: {fileID: 7016860563969460901, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
       propertyPath: m_Center.z
       value: 15.052517
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991724318718354791, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7995821462107472806, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
       propertyPath: m_Size.x
@@ -1231,6 +1274,10 @@ PrefabInstance:
       propertyPath: sceneToLoad.asset
       value: 
       objectReference: {fileID: 102900000, guid: 2b036cc8f0afed34e8dfce37964a6968, type: 3}
+    - target: {fileID: 8551151759963392220, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
+      propertyPath: ActOnBeat
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9017782493802642613, guid: 5de50854a73bac4409de6902cf68b3b6, type: 3}
       propertyPath: ActOnBeat
       value: 9

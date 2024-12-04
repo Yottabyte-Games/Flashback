@@ -10,6 +10,7 @@ namespace _Scripts.Rive
         [Header("Only needed if we are swapping scene")]
         [SerializeField] SceneReference sceneToLoad;
         [SerializeField] bool loadSceneAfterDialogue = false;
+        [SerializeField] StoryBeat ActOnBeat;
 
         bool _hasTalkedAlready = false;
         DialogueManager _dialogueManager;
@@ -34,7 +35,7 @@ namespace _Scripts.Rive
 
         public void StartDialogue()
         {
-            if (!_hasTalkedAlready)
+            if (ActOnBeat == StoryManager.StoryBeat)
             {
                 if (loadSceneAfterDialogue)
                 {
