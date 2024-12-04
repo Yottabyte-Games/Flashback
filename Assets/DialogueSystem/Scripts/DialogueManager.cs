@@ -88,7 +88,7 @@ namespace DialogueSystem.Scripts
 
                 if (!voiceActing.IsNull)
                 {
-                    SetFMODEventAndPlay(voiceActing);
+                    //SetFMODEventAndPlay(voiceActing);
                 }
                 else
                 {
@@ -104,7 +104,7 @@ namespace DialogueSystem.Scripts
                 }
 
                 gameHudController.EndDialogue();
-                StopDialog();
+                //StopDialog();
                 _isDialogueActive = false;
             }
 
