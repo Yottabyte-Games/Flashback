@@ -25,7 +25,8 @@ internal class CarDecal : MonoBehaviour
     {
         Agent = GetComponent<NavMeshAgent>();
 
-        yield return new WaitForSeconds(Random.Range(5, 25));
+        float waitTime = Random.Range(5f, 25f);
+        yield return new WaitForSeconds(waitTime);
         NewJourney();
     }
 
