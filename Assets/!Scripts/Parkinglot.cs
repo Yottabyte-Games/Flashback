@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1)]
@@ -40,23 +41,30 @@ public class Parkinglot : MonoBehaviour
         carsInLot.Remove(car);
         parking.isTaken = false;
     }
-    void KickRandomCar()
+    async void KickRandomCar()
     {
-        if (RandomCar(out CarDecal car))
+        CarDecal car = await RandomCar();
+        if (car != null)
         {
             car.NewJourney();
         }
     }
-    bool RandomCar(out CarDecal car)
+    async Task<CarDecal> RandomCar()
     {
         if(carsInLot.Count > 0)
         {
-            car = carsInLot[Random.Range(0, carsInLot.Count)];
-            return true;
+            CarDecal car = carsInLot[Random.Range(0, carsInLot.Count)];
+            while (!car.ReachedDestination)
+            {
+                car = carsInLot[Random.Range(0, carsInLot.Count)];
+
+                await Task.Delay(10);
+            }
+
+            return car;
         }
 
         Debug.LogWarning("no cars in lot");
-        car = null;
-        return false;
+        return null;
     }
 }
