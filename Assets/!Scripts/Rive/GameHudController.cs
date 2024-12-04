@@ -55,12 +55,14 @@ namespace _Scripts.Rive
                 _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
             }
             
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             _playerController = player.GetComponent<PlayerController>();
             _playerLocomotionInput = player.GetComponent<PlayerLocomotionInput>();
             
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            
             
 
         }
@@ -90,6 +92,10 @@ namespace _Scripts.Rive
                 if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.PauseMenu)
                 {
                     ResumeGame();
+                }
+                else if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.SettingsMenu)
+                {
+                    _riveScreen.ReturnToOriginalScene();
                 }
                 else
                 {
