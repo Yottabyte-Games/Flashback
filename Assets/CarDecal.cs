@@ -18,11 +18,11 @@ internal class CarDecal : MonoBehaviour
     }
     public Transform Destination { get; set; }
 
-    [SerializeField] Transform art;
+    public Parkinglot currentParkingLot;
     private void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
-        Destination = carManager.FindNewDestination();
+        NewJourney();
     }
 
     private void FixedUpdate()
@@ -31,12 +31,11 @@ internal class CarDecal : MonoBehaviour
         {
             timeStopped += Time.fixedDeltaTime;
 
-            Agent.destination = carManager.FindNewDestination().position;
-
-            if (timeStopped > 1)
+            if (timeStopped > 25)
             {
+                NewJourney();
+
                 timeStopped = 0;
-                Agent.Warp(carManager.FindNewDestination().position);
             }
         }
         else
@@ -45,12 +44,11 @@ internal class CarDecal : MonoBehaviour
         }
     }
 
-    Vector3 LookDir()
+    void NewJourney()
     {
-        if(Physics.Raycast(transform.position + transform.forward * 3 + Vector3.up * 2, -Vector3.up, out RaycastHit hit, 5))
-        {
-            return hit.point;
-        }
-        return Vector3.zero;
+        Parkinglot newLot = carManager.FindNewDestination(currentParkingLot);
+
+        Agent.destination = newLot.FindParking().transform.position;
+        currentParkingLot = newLot;
     }
 }

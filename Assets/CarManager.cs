@@ -7,7 +7,7 @@ public class CarManager : MonoBehaviour
 {
     [SerializeField] int carsToSpawn;
     [SerializeField] CarDecal[] CarPrefabs;
-    [SerializeField] Transform[] CarSpawns;
+    [SerializeField] Parkinglot[] ParkingLots;
 
     private IEnumerator Start()
     {
@@ -20,17 +20,24 @@ public class CarManager : MonoBehaviour
 
     void NewCar()
     {
-        Transform spawn = FindNewDestination();
+        Parkinglot parkinglot = FindNewDestination();
+        Transform spawn = FindNewDestination().FindParking().transform;
         var current = Instantiate(CarPrefabs[UnityEngine.Random.Range(0, CarPrefabs.Length)], spawn.position, spawn.rotation);
         current.carManager = this;
+        current.currentParkingLot = parkinglot;
     }
-    int lastDestination;
-    public Transform FindNewDestination()
+    public Parkinglot FindNewDestination()
     {
-        if (lastDestination >= CarSpawns.Length)
-            lastDestination = 0;
+        return ParkingLots[UnityEngine.Random.Range(0, ParkingLots.Length)];
+    }
+    public Parkinglot FindNewDestination(Parkinglot ignoreLot)
+    {
+        Parkinglot current = FindNewDestination();
+        while (current == ignoreLot)
+        {
+            current = FindNewDestination();
+        }
 
-        print(lastDestination);
-        return CarSpawns[lastDestination++]; 
+        return current;
     }
 }

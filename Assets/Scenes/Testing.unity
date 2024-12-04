@@ -119,21 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &8960410 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8304958115157392733, guid: a80460577870bc843888a307f09f0561, type: 3}
-  m_PrefabInstance: {fileID: 2085544946}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &28475309 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6188630157218956828, guid: a80460577870bc843888a307f09f0561, type: 3}
-  m_PrefabInstance: {fileID: 2085544946}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &50707375 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7114778841308615019, guid: a80460577870bc843888a307f09f0561, type: 3}
-  m_PrefabInstance: {fileID: 2085544946}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &275890843
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 275890844}
-  - component: {fileID: 275890845}
   m_Layer: 0
   m_Name: CarsManager
   m_TagString: Untagged
@@ -166,34 +150,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &275890845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275890843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd4475b23669f847b864679dd99ccfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carsToSpawn: 20
-  CarPrefabs:
-  - {fileID: 7206408186107347893, guid: 7c15909c334ffc346815f141613921f3, type: 3}
-  CarSpawns:
-  - {fileID: 1100715638}
-  - {fileID: 28475309}
-  - {fileID: 677273164}
-  - {fileID: 50707375}
-  - {fileID: 8960410}
-  - {fileID: 1388696569}
-  - {fileID: 979997326}
---- !u!4 &677273164 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3357869706837960458, guid: a80460577870bc843888a307f09f0561, type: 3}
-  m_PrefabInstance: {fileID: 2085544946}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &729663960
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,21 +271,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!4 &979997326 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2386545908689448845, guid: a80460577870bc843888a307f09f0561, type: 3}
-  m_PrefabInstance: {fileID: 2085544946}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1100715638 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2596578997757145804, guid: a80460577870bc843888a307f09f0561, type: 3}
-  m_PrefabInstance: {fileID: 2085544946}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1388696569 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4827545420643279711, guid: a80460577870bc843888a307f09f0561, type: 3}
-  m_PrefabInstance: {fileID: 2085544946}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2085544946
 PrefabInstance:
   m_ObjectHideFlags: 0
