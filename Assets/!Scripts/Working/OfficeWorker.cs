@@ -209,8 +209,6 @@ namespace _Scripts.Working
         public void ToggleInteractable()
         {
             _workInteractable.enabled = !_workInteractable.enabled;
-            if (!_workInteractable.enabled)
-                gameHud.RemoveTaskUI(task);
 
         }
 
