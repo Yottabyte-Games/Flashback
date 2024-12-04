@@ -3,10 +3,10 @@ name: Actions 😎
 on:
   push:
     branches:
-      - NewBuild
+      - Build
   pull_request:
     branches:
-      - NewBuild
+      - Build
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
