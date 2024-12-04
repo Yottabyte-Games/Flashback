@@ -9,6 +9,8 @@ public class CarManager : MonoBehaviour
     [SerializeField] CarDecal[] CarPrefabs;
     [SerializeField] Parkinglot[] ParkingLots;
 
+    [SerializeField] Transform tempSpawn;
+
     private IEnumerator Start()
     {
         for (int i = 0; i < carsToSpawn; i++)
@@ -20,10 +22,14 @@ public class CarManager : MonoBehaviour
 
     void NewCar()
     {
+        var current = Instantiate(CarPrefabs[UnityEngine.Random.Range(0, CarPrefabs.Length)], tempSpawn.position, tempSpawn.rotation);
+
         Parkinglot parkinglot = FindNewDestination();
-        Parking parking = parkinglot.FindParking();
+        Parking parking = parkinglot.FindParking(current);
         Transform spawn = parking.transform;
-        var current = Instantiate(CarPrefabs[UnityEngine.Random.Range(0, CarPrefabs.Length)], spawn.position, spawn.rotation);
+
+        current.Agent.Warp(spawn.position);
+        current.transform.rotation = spawn.rotation;
         current.carManager = this;
         current.currentParkingLot = parkinglot;
         current.currentParking = parking;

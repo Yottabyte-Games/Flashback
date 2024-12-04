@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7094262559234791189}
   - component: {fileID: 7501533961483589529}
+  - component: {fileID: 7595078551060796632}
   m_Layer: 0
   m_Name: Divider_4
   m_TagString: Untagged
@@ -48,6 +49,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &7595078551060796632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374067548213820333}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &815366858467937749
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,6 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6000441699164052545}
   - component: {fileID: 4752638529683197999}
+  - component: {fileID: 6502318806414892354}
   m_Layer: 0
   m_Name: Divider
   m_TagString: Untagged
@@ -96,6 +115,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &6502318806414892354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815366858467937749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &1356128241058505429
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1143215723455732010}
   - component: {fileID: 2814630372625277207}
+  - component: {fileID: 7690156755809058305}
   m_Layer: 0
   m_Name: Divider_1
   m_TagString: Untagged
@@ -144,6 +181,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &7690156755809058305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356128241058505429}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &1435970787590710664
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1285101792917911588}
   - component: {fileID: 7258324390485644393}
+  - component: {fileID: 1965493228148448777}
   m_Layer: 0
   m_Name: Divider_6
   m_TagString: Untagged
@@ -192,6 +247,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1965493228148448777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435970787590710664}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &1726103773688461873
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2545552715704426926}
   - component: {fileID: 8468867618366845513}
+  - component: {fileID: 2749079293191741702}
   m_Layer: 0
   m_Name: Divider_3
   m_TagString: Untagged
@@ -240,6 +313,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &2749079293191741702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726103773688461873}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &1918470848778381341
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &2234653325670746999
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &2479600261102488853
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &2632965219460288115
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7598572345695955881}
   - component: {fileID: 7849991934134144489}
+  - component: {fileID: 8832813912013885338}
   m_Layer: 0
   m_Name: Divider_6
   m_TagString: Untagged
@@ -420,6 +514,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &8832813912013885338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632965219460288115}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &4135245625442658283
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &4835707440330783529
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4939130104270992267}
   - component: {fileID: 6383580800272304290}
+  - component: {fileID: 205777689595552571}
   m_Layer: 0
   m_Name: Divider_1
   m_TagString: Untagged
@@ -549,6 +662,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &205777689595552571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835707440330783529}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &4885041305026805708
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2158519817926084081}
   - component: {fileID: 1641765495713804751}
+  - component: {fileID: 2857997882150353740}
   m_Layer: 0
   m_Name: Divider_5
   m_TagString: Untagged
@@ -597,6 +728,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &2857997882150353740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885041305026805708}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &4896471823048039816
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1457077657602354777}
   - component: {fileID: 197221830920741239}
+  - component: {fileID: 6075035664842983796}
   m_Layer: 0
   m_Name: Divider_3
   m_TagString: Untagged
@@ -645,6 +794,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &6075035664842983796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4896471823048039816}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &4905748711771184576
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2516637441371435827}
   - component: {fileID: 3518057196736323622}
+  - component: {fileID: 4249257999318162236}
   m_Layer: 0
   m_Name: Divider_2
   m_TagString: Untagged
@@ -693,6 +860,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &4249257999318162236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905748711771184576}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &4972309976255344847
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4772923079507748484}
   - component: {fileID: 8832592734076479774}
+  - component: {fileID: 3812019525328880824}
   m_Layer: 0
   m_Name: Divider_4
   m_TagString: Untagged
@@ -741,6 +926,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &3812019525328880824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972309976255344847}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &5382870817132378294
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3795695037153900344}
   - component: {fileID: 2479813437379713013}
+  - component: {fileID: 7806954990030561958}
   m_Layer: 0
   m_Name: Divider
   m_TagString: Untagged
@@ -824,6 +1027,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &7806954990030561958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632108290761057347}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 20, y: 0.5, z: 500}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &5702678825624997591
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +1054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2056873564154466424}
   - component: {fileID: 847764882032789938}
+  - component: {fileID: 7192109820288358920}
   m_Layer: 0
   m_Name: Divider_1
   m_TagString: Untagged
@@ -872,6 +1093,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &7192109820288358920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702678825624997591}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 20, y: 0.5, z: 500}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &5936983010045409593
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &6201464713420525160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &6475379661195754735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6130293055428331241}
   - component: {fileID: 5868128155001856625}
+  - component: {fileID: 549637486656884168}
   m_Layer: 0
   m_Name: Divider_5
   m_TagString: Untagged
@@ -1084,6 +1325,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &549637486656884168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6475379661195754735}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &6652022774210754607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &6958283261704068745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,6 +1431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &7035929247958610436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,6 +1442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 659965177475750164}
   - component: {fileID: 5463713958173950729}
+  - component: {fileID: 7134741031242922521}
   m_Layer: 0
   m_Name: Divider_2
   m_TagString: Untagged
@@ -1220,6 +1481,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &7134741031242922521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035929247958610436}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &7070931300737448349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,6 +1545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8346469051562570880}
   - component: {fileID: 5821777240341090557}
+  - component: {fileID: 3669823449652823715}
   m_Layer: 0
   m_Name: Divider
   m_TagString: Untagged
@@ -1305,6 +1584,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &3669823449652823715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180429271642971535}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 1, y: 300, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: f2652fae
 --- !u!1 &7415942424105141797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &7509610482122934708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +1690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &7658588587836881066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1 &8886797073351372018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bf3279a335ba346988cebce244c5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTaken: 0
 --- !u!1001 &5242618172976009023
 PrefabInstance:
   m_ObjectHideFlags: 0

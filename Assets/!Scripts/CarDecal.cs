@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-internal class CarDecal : MonoBehaviour
+public class CarDecal : MonoBehaviour
 {
     [HideInInspector] public CarManager carManager;
 
@@ -21,39 +21,16 @@ internal class CarDecal : MonoBehaviour
 
     public Parkinglot currentParkingLot;
     public Parking currentParking;
-    private IEnumerator Start()
+    private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-
-        float waitTime = Random.Range(5f, 25f);
-        yield return new WaitForSeconds(waitTime);
-        NewJourney();
     }
 
-    private void FixedUpdate()
+    public void NewJourney()
     {
-        if (ReachedDestination)
-        {
-            timeStopped += Time.fixedDeltaTime;
-
-            if (timeStopped > 25)
-            {
-                NewJourney();
-
-                timeStopped = 0;
-            }
-        }
-        else
-        {
-            timeStopped = 0;
-        }
-    }
-
-    void NewJourney()
-    {
-        currentParkingLot.LeaveParking(currentParking);
+        currentParkingLot.LeaveParking(currentParking, this);
         Parkinglot newLot = carManager.FindNewDestination(currentParkingLot);
-        Parking newParking = newLot.FindParking();
+        Parking newParking = newLot.FindParking(this);
         Agent.destination = newParking.transform.position;
         currentParking = newParking;
         currentParkingLot = newLot;
