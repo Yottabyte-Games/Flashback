@@ -6,6 +6,16 @@ public class Parkinglot : MonoBehaviour
     
     public Parking FindParking()
     {
-        return parkings[Random.Range(0, parkings.Length)];
+        Parking current = parkings[Random.Range(0, parkings.Length)];
+        while (current.isTaken)
+        {
+            current = parkings[Random.Range(0, parkings.Length)];
+        }
+        current.isTaken = true;
+        return current;
+    }
+    public void LeaveParking(Parking parking)
+    {
+        parking.isTaken = false;
     }
 }

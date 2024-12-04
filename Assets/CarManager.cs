@@ -14,17 +14,19 @@ public class CarManager : MonoBehaviour
         for (int i = 0; i < carsToSpawn; i++)
         {
             NewCar();
-            yield return new WaitForSeconds(2f);
+            yield return null;
         }
     }
 
     void NewCar()
     {
         Parkinglot parkinglot = FindNewDestination();
-        Transform spawn = FindNewDestination().FindParking().transform;
+        Parking parking = parkinglot.FindParking();
+        Transform spawn = parking.transform;
         var current = Instantiate(CarPrefabs[UnityEngine.Random.Range(0, CarPrefabs.Length)], spawn.position, spawn.rotation);
         current.carManager = this;
         current.currentParkingLot = parkinglot;
+        current.currentParking = parking;
     }
     public Parkinglot FindNewDestination()
     {

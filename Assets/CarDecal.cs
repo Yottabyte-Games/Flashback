@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
 internal class CarDecal : MonoBehaviour
@@ -19,9 +20,12 @@ internal class CarDecal : MonoBehaviour
     public Transform Destination { get; set; }
 
     public Parkinglot currentParkingLot;
-    private void Start()
+    public Parking currentParking;
+    private IEnumerator Start()
     {
         Agent = GetComponent<NavMeshAgent>();
+
+        yield return new WaitForSeconds(Random.Range(5, 25));
         NewJourney();
     }
 
@@ -46,9 +50,11 @@ internal class CarDecal : MonoBehaviour
 
     void NewJourney()
     {
+        currentParkingLot.LeaveParking(currentParking);
         Parkinglot newLot = carManager.FindNewDestination(currentParkingLot);
-
-        Agent.destination = newLot.FindParking().transform.position;
+        Parking newParking = newLot.FindParking();
+        Agent.destination = newParking.transform.position;
+        currentParking = newParking;
         currentParkingLot = newLot;
     }
 }
