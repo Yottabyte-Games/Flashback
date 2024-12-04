@@ -5,7 +5,6 @@ using DialogueSystem.Scripts.ScriptableObjects;
 using FMOD.Studio;
 using FMODUnity;
 using Rive;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
