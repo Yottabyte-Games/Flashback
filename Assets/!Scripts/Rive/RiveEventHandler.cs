@@ -73,7 +73,7 @@ namespace _Scripts.Rive
                             break;
                         case "Snowman Event":
                             print("Snowman Event");
-                            SceneManager.LoadScene("Snowman");
+                            SceneManager.LoadScene("Snowman-wHubWorld");
                             break;
                         case "Work Event":
                             print("Work Event");
