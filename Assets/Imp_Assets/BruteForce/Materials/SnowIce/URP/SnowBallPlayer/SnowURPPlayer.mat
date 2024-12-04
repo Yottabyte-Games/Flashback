@@ -2,29 +2,20 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SnowURPPlayer
   m_Shader: {fileID: 4800000, guid: 814b9ac7dd7363740a6fca716c28912e, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - USE_AL
-  - USE_FOG
-  - USE_LS
-  - USE_WC
-  m_InvalidKeywords:
-  - _TESSELLATION_EDGE
+  m_ShaderKeywords: USE_AL USE_FOG USE_LS USE_WC _TESSELLATION_EDGE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -252,7 +243,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
     m_Floats:
     - _AddSnowStrength: 0.5
     - _BumpScale: 3.44
@@ -376,7 +366,7 @@ Material:
     - _ParalaxColor: {r: 1, g: 1, b: 1, a: 1}
     - _ParallaxColor: {r: 1, g: 1, b: 1, a: 1}
     - _ParallaxStrength: {r: 0, g: 0.125, b: -0.13, a: 0.1}
-    - _ProjectedShadowColor: {r: 0.80060524, g: 0.8056058, b: 0.8113208, a: 1}
+    - _ProjectedShadowColor: {r: 0.1745283, g: 0.5599734, b: 1, a: 1}
     - _ReflectionColor: {r: 0.18170212, g: 0.25957447, b: 0.305, a: 0.5254902}
     - _RimColor: {r: 0.08240001, g: 0.1442, b: 0.206, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
@@ -396,5 +386,3 @@ Material:
     - _TopColor: {r: 1, g: 1, b: 1, a: 1}
     - _TransitionColor: {r: 1, g: 1, b: 1, a: 1}
     - _WireframeColor: {r: 0, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1

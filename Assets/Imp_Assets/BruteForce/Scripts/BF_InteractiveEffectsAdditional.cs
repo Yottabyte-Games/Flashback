@@ -9,28 +9,26 @@ public class BF_InteractiveEffectsAdditional : MonoBehaviour
     public RenderTexture rt;
     public string GlobalTexName = "_GlobalEffectRTAdditional";
     public string GlobalOrthoName = "_OrthographicCamSizeAdditional";
-    public bool isPaced;
+    public bool isPaced = false;
 
-    float orthoMem;
-    Vector3 camDir;
-    Coroutine waitPace;
-    bool paceRunning;
-
-    void Awake()
+    private float orthoMem = 0;
+    private Vector3 camDir;
+    private Coroutine waitPace;
+    private bool paceRunning = false;
+    private void Awake()
+    {
+        orthoMem = GetComponent<Camera>().orthographicSize;
+        Shader.SetGlobalFloat(GlobalOrthoName, orthoMem);
+        Shader.SetGlobalTexture(GlobalTexName, rt);
+    }
+    private void OnEnable()
     {
         orthoMem = GetComponent<Camera>().orthographicSize;
         Shader.SetGlobalFloat(GlobalOrthoName, orthoMem);
         Shader.SetGlobalTexture(GlobalTexName, rt);
     }
 
-    void OnEnable()
-    {
-        orthoMem = GetComponent<Camera>().orthographicSize;
-        Shader.SetGlobalFloat(GlobalOrthoName, orthoMem);
-        Shader.SetGlobalTexture(GlobalTexName, rt);
-    }
-
-    void MoveCamera()
+    private void MoveCamera()
     {
         if (mainCamera != null)
         {
@@ -39,7 +37,7 @@ public class BF_InteractiveEffectsAdditional : MonoBehaviour
 
             if (mainCamera != null)
             {
-                var YView = Vector3.Angle(Vector3.down, mainCamera.forward);
+                float YView = Vector3.Angle(Vector3.down, mainCamera.forward);
                 transform.position = new Vector3(mainCamera.position.x, mainCamera.position.y + 20, mainCamera.position.z) + camDir.normalized * Mathf.Max(0f, orthoMem - 20f) * Mathf.Clamp01(((YView - 35) * 3) / 35);
             }
         }
@@ -47,7 +45,7 @@ public class BF_InteractiveEffectsAdditional : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
     }
 
-    void Update()
+    private void Update()
     {
         if (isPaced)
         {
@@ -67,8 +65,7 @@ public class BF_InteractiveEffectsAdditional : MonoBehaviour
             MoveCamera();
         }
     }
-
-    IEnumerator WaitPace()
+    private IEnumerator WaitPace()
     {
         for (; ; )
         {

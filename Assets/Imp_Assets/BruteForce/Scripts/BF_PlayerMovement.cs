@@ -9,10 +9,10 @@ using UnityEngine.InputSystem;
 public class BF_PlayerMovement : MonoBehaviour
 {
     public Camera cam;
-    Rigidbody rb;
-    Quaternion camRot;
-    Vector3 moveDirection;
-    Vector3 inputDirection;
+    private Rigidbody rb;
+    private Quaternion camRot;
+    private Vector3 moveDirection;
+    private Vector3 inputDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -74,7 +74,7 @@ public class BF_PlayerMovement : MonoBehaviour
         MoveBall();
     }
 
-    void MoveBall()
+    private void MoveBall()
     {
         camRot = Quaternion.LookRotation(cam.transform.forward, Vector3.up);
         moveDirection = camRot * new Vector3(Mathf.Clamp(inputDirection.x * 2, -1, 1), 0, Mathf.Clamp(inputDirection.z * 2, -1, 1));
