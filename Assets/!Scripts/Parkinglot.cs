@@ -9,7 +9,7 @@ public class Parkinglot : MonoBehaviour
     [SerializeField] Parking[] parkings;
     [SerializeField] List<CarDecal> carsInLot = new();
 
-    private IEnumerator Start()
+    IEnumerator Start()
     {
         float waitTime = Random.Range(2, 10);
         yield return new WaitForSeconds(waitTime);
@@ -44,27 +44,27 @@ public class Parkinglot : MonoBehaviour
     async void KickRandomCar()
     {
         CarDecal car = await RandomCar();
-        if (car != null)
+        if (car is not null)
         {
             car.NewJourney();
         }
     }
     async Task<CarDecal> RandomCar()
     {
-        if(carsInLot.Count > 0)
+        if (carsInLot.Count <= 0)
         {
-            CarDecal car = carsInLot[Random.Range(0, carsInLot.Count)];
-            while (!car.ReachedDestination)
-            {
-                car = carsInLot[Random.Range(0, carsInLot.Count)];
-
-                await Task.Delay(10);
-            }
-
-            return car;
+            Debug.LogWarning("no cars in lot");
+            return null;
         }
 
-        Debug.LogWarning("no cars in lot");
-        return null;
+        CarDecal car = carsInLot[Random.Range(0, carsInLot.Count)];
+        while (!car.ReachedDestination)
+        {
+            car = carsInLot[Random.Range(0, carsInLot.Count)];
+
+            await Task.Delay(10);
+        }
+
+        return car;
     }
 }
