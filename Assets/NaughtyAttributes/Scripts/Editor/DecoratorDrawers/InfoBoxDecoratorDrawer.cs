@@ -25,7 +25,7 @@ namespace NaughtyAttributes.Editor
             DrawInfoBox(infoBoxRect, infoBoxAttribute.Text, infoBoxAttribute.Type);
         }
 
-        private float GetHelpBoxHeight()
+        float GetHelpBoxHeight()
         {
             InfoBoxAttribute infoBoxAttribute = (InfoBoxAttribute)attribute;
             float minHeight = EditorGUIUtility.singleLineHeight * 2.0f;
@@ -35,7 +35,7 @@ namespace NaughtyAttributes.Editor
             return height;
         }
 
-        private void DrawInfoBox(Rect rect, string infoText, EInfoBoxType infoBoxType)
+        void DrawInfoBox(Rect rect, string infoText, EInfoBoxType infoBoxType)
         {
             MessageType messageType = MessageType.None;
             switch (infoBoxType)

@@ -19,7 +19,7 @@ public class BF_SnowAssetManager : MonoBehaviour
     public GameObject specialCamera;
     public GameObject specialButton;
     public GameObject specialInfo;
-    private int maxIndex = 4;
+    int maxIndex = 4;
     [HideInInspector] public int maxSubIndex = 3;
 
     [HideInInspector] public UnityEvent m_ShowcaseChange = new UnityEvent();
@@ -97,7 +97,7 @@ public class BF_SnowAssetManager : MonoBehaviour
         cameras[0].SetActive(!cameras[0].activeInHierarchy);
     }
 
-    private void Update()
+    void Update()
     {
 #if ENABLE_LEGACY_INPUT_MANAGER
         if (Input.GetKeyDown(KeyCode.Alpha1))

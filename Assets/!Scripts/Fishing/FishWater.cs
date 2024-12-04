@@ -1,38 +1,86 @@
+using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts;
+using NaughtyAttributes;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
-    public class FishWater : MonoBehaviour
+    public class FishWater : Water
     {
-        Hook hookInWater;
+        [SerializeField] GameObject splashEffect;
 
-        private void OnTriggerEnter(Collider other)
+        [SerializeField] List<Fish> fishList = new();
+
+        readonly List<Hook> hooksInWater = new();
+
+        [SerializeField, Scene]int sceneToPlayWhenPlayerInWater;
+
+        void OnTriggerEnter(Collider other)
         {
-            if (hookInWater != null) return;
-            hookInWater = other.GetComponent<Hook>();
+            if(other.TryGetComponent(out Hook hookInWater))
+            {
+                if (InWater(hookInWater)) return;
 
-            StartCoroutine(TryGetFish());
+                Destroy(Instantiate(splashEffect, other.transform.position, other.transform.rotation), 1);
+                
+
+                AddHook(hookInWater);
+
+                if (hookInWater.fish == null)
+                    StartCoroutine(TryGetFish(hookInWater));
+            }
+
+            if(other.TryGetComponent(out PlayerController player))
+            {
+                SceneManager.LoadScene(sceneToPlayWhenPlayerInWater);
+            }
         }
 
-        IEnumerator TryGetFish()
+        IEnumerator TryGetFish(Hook hook)
         {
             yield return new WaitForSeconds(5);
-            int fishNum = Random.Range(0, 25 + 15 * (int)hookInWater.bait.type);
 
-            Fish fish = new Fish();
-            fish.RandomizeFish();
-            fish.SetFish((FishType)Mathf.RoundToInt(fishNum / 20));
+            if (InWater(hook))
+            {
+                int fishNum = Random.Range(0, 25 + (15 * (int)hook.bait.type));
 
-            if(fish.type != FishType.None)
-            {
-                print(fish.type);
-                hookInWater.CatchFish(fish);
-            } else
-            {
-                print("restart");
-                StartCoroutine(TryGetFish());
+                Fish fish = Instantiate(fishList[Mathf.RoundToInt(fishNum / 25)].gameObject).GetComponent<Fish>();
+
+                if (fish.type != FishType.Trash)
+                {
+                    hook.CatchFish(fish);
+                }
+                else
+                {
+                    StartCoroutine(TryGetFish(hook));
+                }
             }
+        }
+        public bool InWater(Hook hook)
+        {
+            if(hooksInWater.Count == 0) return false;
+
+            foreach (var item in hooksInWater)
+            {
+                if(item == hook)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        public void AddHook(Hook hook)
+        {
+            hook.water = this;
+            hooksInWater.Add(hook);
+        }
+        public void RemoveHook(Hook hook)
+        {
+            hook.water = null;
+            hooksInWater.Remove(hook);
         }
     }
 }

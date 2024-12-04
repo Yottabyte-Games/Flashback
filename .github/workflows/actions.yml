@@ -3,10 +3,10 @@ name: Actions 😎
 on:
   push:
     branches:
-      - Build
+      - NewBuild
   pull_request:
     branches:
-      - Build
+      - NewBuild
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -14,32 +14,43 @@ env:
 jobs:
   build:
     name: Build project ✨
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
+      - name: Pull Unity Docker image in background
+        run: |
+          docker pull unityci/editor:ubuntu-6000.0.26f1-windows-mono-3 &
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           lfs: true
 
+      # Ensure Library Directory Exists
+      - name: Ensure Library directory exists
+        run: mkdir -p Library
+        
       # Cache
       - uses: actions/cache@v4
         with:
           path: Library
-          key: Library-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          key: Library-Temp-Linux-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
-            Library-${{ runner.os }}-
-            Library-
-
+            Library-Temp-Linux-${{ runner.os }}-
+            Library-Temp-Linux-
+            Library-Temp-
+            
       # Free Disk Space
       - name: Free up Disk Space
         run: |
           sudo swapoff -a
           sudo rm -f /swapfile
+          sudo rm -rf /var/lib/apt/lists/*
+          sudo rm -rf /tmp/*
+          sudo rm -rf /var/tmp/*
           sudo apt clean
           docker rmi $(docker image ls -aq)
-          df -h
-
+          df -h            
+          
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
@@ -49,6 +60,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
+          unityVersion: 6000.0.26f1
 
       # Ensure Directory Exists
       - name: Ensure build directory exists
@@ -71,11 +83,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: Build
-          path: build
-
-      - name: Ensure directory exists
-        run: mkdir -p build/StandaloneWindows64
-
+          path: build/StandaloneWindows64
+          
       - name: Display structure of root files
         run: ls -R
         working-directory: build/StandaloneWindows64

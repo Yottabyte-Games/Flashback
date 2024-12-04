@@ -8,7 +8,7 @@ namespace NaughtyAttributes.Editor
     [CustomPropertyDrawer(typeof(SortingLayerAttribute))]
     public class SortingLayerPropertyDrawer : PropertyDrawerBase
     {
-        private const string TypeWarningMessage = "{0} must be an int or a string";
+        const string TypeWarningMessage = "{0} must be an int or a string";
 
         protected override float GetPropertyHeight_Internal(SerializedProperty property, GUIContent label)
         {
@@ -40,14 +40,14 @@ namespace NaughtyAttributes.Editor
             EditorGUI.EndProperty();
         }
 
-        private string[] GetLayers()
+        string[] GetLayers()
         {
             Type internalEditorUtilityType = typeof(UnityEditorInternal.InternalEditorUtility);
             PropertyInfo sortingLayersProperty = internalEditorUtilityType.GetProperty("sortingLayerNames", BindingFlags.Static | BindingFlags.NonPublic);
             return (string[])sortingLayersProperty.GetValue(null, new object[0]);
         }
 
-        private static void DrawPropertyForString(Rect rect, SerializedProperty property, GUIContent label, string[] layers)
+        static void DrawPropertyForString(Rect rect, SerializedProperty property, GUIContent label, string[] layers)
         {
             int index = IndexOf(layers, property.stringValue);
             int newIndex = EditorGUI.Popup(rect, label.text, index, layers);
@@ -59,7 +59,7 @@ namespace NaughtyAttributes.Editor
             }
         }
 
-        private static void DrawPropertyForInt(Rect rect, SerializedProperty property, GUIContent label, string[] layers)
+        static void DrawPropertyForInt(Rect rect, SerializedProperty property, GUIContent label, string[] layers)
         {
             int index = 0;
             string layerName = SortingLayer.IDToName(property.intValue);
@@ -82,7 +82,7 @@ namespace NaughtyAttributes.Editor
             }
         }
 
-        private static int IndexOf(string[] layers, string layer)
+        static int IndexOf(string[] layers, string layer)
         {
             var index = Array.IndexOf(layers, layer);
             return Mathf.Clamp(index, 0, layers.Length - 1);

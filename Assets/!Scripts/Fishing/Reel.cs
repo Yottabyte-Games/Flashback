@@ -1,77 +1,92 @@
-using System;
-using Minigame.Fishing;
-using NaughtyAttributes;
+using _Scripts.Rive;
+using GinjaGaming.FinalCharacterController;
 using UnityEngine;
-using Utility.Math;
+using UnityEngine.UI;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public class Reel : MonoBehaviour
     {
         FishingRodInput input;
-        Casting cast;
-
-        [ReadOnly, SerializeField] bool canReel;
+        FishingRod rod;
         Fish toReel;
+        
+        GameHudController gameHud;
+       
+        [SerializeField] GameObject reelUI;
+        [SerializeField] Slider indicator;
 
-        Vector2 lastReelPos, currentReelPos, difference;
-        float travelDistance;
-        Vector3 hookStartPos, hookEndPos;
+        Vector2 currentMousePos, lastMousePos, mouseMoved;
+        float reelValue;
 
-        public event Action FinishReel;
+        bool finishReel;
 
-        private void Start()
+        void Awake()
         {
             input = GetComponent<FishingRodInput>();
-            cast = GetComponent<Casting>();
-            input.reel += ReelingValue;
-            FinishReel += FinishReeling;
+            rod = GetComponent<FishingRod>();
+            gameHud = GameObject.FindWithTag("MainCamera").GetComponent<GameHudController>();
         }
-
-        private void Update()
+        void OnEnable()
         {
-            if (!canReel) return;
+            finishReel = false;
+            input.Reel += ReelingValue;
 
-            Vector3 lerpValue = UMath.LerpVector3(hookStartPos, hookEndPos, travelDistance / toReel.difficulty);
-            cast.currentHook.transform.position = new Vector3(lerpValue.x, cast.currentHook.transform.position.y, lerpValue.z);
-
-            if(travelDistance / toReel.difficulty >= .65f)
-            {
-                FinishReel.Invoke();
-            }
+            if (rod.hook.fish)
+            StartReeling(rod.hook.fish);
         }
+
+        void OnDisable()
+        {
+            input.Reel -= ReelingValue;
+            FinishReeling();
+        }
+
         void ReelingValue(Vector2 pos)
         {
-            if (!canReel) return;
+            if (finishReel) return;
 
-            if (currentReelPos != null)
-                lastReelPos = currentReelPos;
-
-            currentReelPos = pos;
-
-            if(lastReelPos != null && currentReelPos != null)
+            if (currentMousePos != null)
             {
-                difference = currentReelPos - lastReelPos;
+                lastMousePos = currentMousePos;
             }
 
+            currentMousePos = pos;
 
-            travelDistance += difference.magnitude / 37.7f / 100;
+            mouseMoved = currentMousePos - lastMousePos;
+
+            reelValue += mouseMoved.magnitude / 2000;
+
+            if (reelValue >= toReel.Difficulty)
+            {
+                FinishReeling();
+            }
+
+            indicator.value = reelValue;
         }
         public void StartReeling(Fish fishToReel)
         {
-            hookStartPos = cast.currentHook.transform.position;
-            hookEndPos = transform.position;
+            Cursor.lockState = CursorLockMode.Confined;
+
             toReel = fishToReel;
-            canReel = true;
+            reelUI.SetActive(true);
+            reelValue = 0;
+
+            indicator.value = 0;
+            indicator.maxValue = toReel.Difficulty;
+            
+            gameHud.SetCursorHidden(true);
         }
-        void FinishReeling()
+        async void FinishReeling()
         {
-            canReel = false;
-            toReel = new Fish();
-            travelDistance = 0;
-            lastReelPos = Vector2.zero;
-            currentReelPos = Vector2.zero;
-            difference = Vector2.zero;
+            finishReel = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            reelUI.SetActive(false);
+
+            await rod.ReelHook();
+            rod.ToggleReeling(false);
+            rod.FishCaught.Invoke();
+            gameHud.SetCursorHidden(false);
         }
     }
 }

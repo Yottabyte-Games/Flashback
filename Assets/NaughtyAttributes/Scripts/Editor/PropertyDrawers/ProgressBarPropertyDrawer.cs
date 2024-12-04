@@ -63,7 +63,7 @@ namespace NaughtyAttributes.Editor
             EditorGUI.EndProperty();
         }
 
-        private object GetMaxValue(SerializedProperty property, ProgressBarAttribute progressBarAttribute)
+        object GetMaxValue(SerializedProperty property, ProgressBarAttribute progressBarAttribute)
         {
             if (string.IsNullOrEmpty(progressBarAttribute.MaxValueName))
             {
@@ -97,7 +97,7 @@ namespace NaughtyAttributes.Editor
             }
         }
 
-        private void DrawBar(Rect rect, float fillPercent, string label, Color barColor, Color labelColor)
+        void DrawBar(Rect rect, float fillPercent, string label, Color barColor, Color labelColor)
         {
             if (Event.current.type != EventType.Repaint)
             {
@@ -128,18 +128,18 @@ namespace NaughtyAttributes.Editor
             GUI.skin.label.alignment = align;
         }
 
-        private bool IsNumber(SerializedProperty property)
+        bool IsNumber(SerializedProperty property)
         {
             bool isNumber = property.propertyType == SerializedPropertyType.Float || property.propertyType == SerializedPropertyType.Integer;
             return isNumber;
         }
 
-        private bool IsNumber(object obj)
+        bool IsNumber(object obj)
         {
             return (obj is float) || (obj is int);
         }
 
-        private float CastToFloat(object obj)
+        float CastToFloat(object obj)
         {
             if (obj is int)
             {

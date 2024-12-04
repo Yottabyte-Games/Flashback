@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: AboutcharacterGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: Aboutcharacter
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: bf5eff6d-7568-48f6-9950-c6a2c0a65b37
+    <Name>k__BackingField: Dialogue2
+    <Text>k__BackingField: "The visit to the psychologist will go fine, I\u2019ve
+      been feeling good lately and I\u2019m not bothered by any problems."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 7dd9d9fb-3662-4ae9-896e-570dcb06e8a2
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 924, y: 73}
+  - <ID>k__BackingField: 39137cb1-1c9b-40e2-868e-22feda9ed5d6
+    <Name>k__BackingField: Dialogue1
+    <Text>k__BackingField: Today is a nice day, the sun is shining and the clouds
+      are white, I feel that this day will be a great day.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: bf5eff6d-7568-48f6-9950-c6a2c0a65b37
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 201, y: 73}
+  - <ID>k__BackingField: 7dd9d9fb-3662-4ae9-896e-570dcb06e8a2
+    <Name>k__BackingField: Dialogue3
+    <Text>k__BackingField: "But before I go there I should probably get some milk
+      at the store. I should walk by the sea\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1668, y: 73}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Dialogue2
+  - Dialogue1
+  - Dialogue3
+  <OldGroupedNodeNames>k__BackingField:
+    list: []

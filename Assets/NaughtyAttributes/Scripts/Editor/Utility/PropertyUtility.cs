@@ -322,7 +322,7 @@ namespace NaughtyAttributes.Editor
             return obj;
         }
 
-        private static object GetValue_Imp(object source, string name)
+        static object GetValue_Imp(object source, string name)
         {
             if (source == null)
             {
@@ -351,7 +351,7 @@ namespace NaughtyAttributes.Editor
             return null;
         }
 
-        private static object GetValue_Imp(object source, string name, int index)
+        static object GetValue_Imp(object source, string name, int index)
         {
             IEnumerable enumerable = GetValue_Imp(source, name) as IEnumerable;
             if (enumerable == null)

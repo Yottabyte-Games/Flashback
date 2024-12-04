@@ -7,11 +7,12 @@ using UnityEngine.InputSystem;
 
 public class BF_FxMouse : MonoBehaviour
 {
-    private Camera mainCam;
+    Camera mainCam;
     public ParticleSystem ps;
     public ParticleSystem psRightClick;
     public ParticleSystem psMiddleClick;
-    private float raycastSize = 200f;
+
+    float raycastSize = 200f;
     // Start is called before the first frame update
     void Start()
     {

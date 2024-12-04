@@ -14,7 +14,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 
 public class Outline : MonoBehaviour {
-  private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
+  static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
 
   public enum Mode {
     OutlineAll,
@@ -49,36 +49,31 @@ public class Outline : MonoBehaviour {
   }
 
   [Serializable]
-  private class ListVector3 {
+  class ListVector3 {
     public List<Vector3> data;
   }
 
-  [SerializeField]
-  private Mode outlineMode;
+  [SerializeField] Mode outlineMode;
 
-  [SerializeField]
-  private Color outlineColor = Color.white;
+  [SerializeField] Color outlineColor = Color.white;
 
-  [SerializeField, Range(0f, 10f)]
-  private float outlineWidth = 2f;
+  [SerializeField, Range(0f, 10f)] float outlineWidth = 2f;
 
   [Header("Optional")]
 
   [SerializeField, Tooltip("Precompute enabled: Per-vertex calculations are performed in the editor and serialized with the object. "
   + "Precompute disabled: Per-vertex calculations are performed at runtime in Awake(). This may cause a pause for large meshes.")]
-  private bool precomputeOutline;
+  bool precomputeOutline;
 
-  [SerializeField, HideInInspector]
-  private List<Mesh> bakeKeys = new List<Mesh>();
+  [SerializeField, HideInInspector] List<Mesh> bakeKeys = new List<Mesh>();
 
-  [SerializeField, HideInInspector]
-  private List<ListVector3> bakeValues = new List<ListVector3>();
+  [SerializeField, HideInInspector] List<ListVector3> bakeValues = new List<ListVector3>();
 
-  private Renderer[] renderers;
-  private Material outlineMaskMaterial;
-  private Material outlineFillMaterial;
+  Renderer[] renderers;
+  Material outlineMaskMaterial;
+  Material outlineFillMaterial;
 
-  private bool needsUpdate;
+  bool needsUpdate;
 
   void Awake() {
 

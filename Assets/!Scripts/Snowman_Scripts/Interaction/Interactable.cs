@@ -5,15 +5,15 @@ namespace _Scripts.Snowman_Scripts.Interaction
 {
     public class Interactable : MonoBehaviour
     {
-        private Rigidbody rb;
+        Rigidbody _rb;
         public UnityEvent onInteract;
-        Outline outline;
+        Outline _outline;
         public bool canInteract = true;
 
         void Start()
         {
-            rb = GetComponent<Rigidbody>();
-            outline = GetComponent<Outline>();
+            _rb = GetComponent<Rigidbody>();
+            _outline = GetComponent<Outline>();
             //Disable Outline
         }
 
@@ -21,7 +21,7 @@ namespace _Scripts.Snowman_Scripts.Interaction
         {
             if(canInteract)
             {
-                rb.isKinematic = true;
+                _rb.isKinematic = true;
                 gameObject.SetActive(false);
                 onInteract?.Invoke();   
             }
@@ -29,19 +29,19 @@ namespace _Scripts.Snowman_Scripts.Interaction
 
         public void DisableOutline()
         {
-            outline.enabled = false;
+            _outline.enabled = false;
         }
 
         public void EnableOutline()
         {
             //Debug.Log("Enabled Outline");
-            outline.enabled = true;
+            _outline.enabled = true;
         }
 
         public void DisableInteraction()
         {
             canInteract = false;
-            rb.isKinematic = true;
+            _rb.isKinematic = true;
         }
     }
 }

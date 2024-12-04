@@ -9,8 +9,8 @@ namespace NaughtyAttributes.Editor
     [CustomPropertyDrawer(typeof(AnimatorParamAttribute))]
     public class AnimatorParamPropertyDrawer : PropertyDrawerBase
     {
-        private const string InvalidAnimatorControllerWarningMessage = "Target animator controller is null";
-        private const string InvalidTypeWarningMessage = "{0} must be an int or a string";
+        const string InvalidAnimatorControllerWarningMessage = "Target animator controller is null";
+        const string InvalidTypeWarningMessage = "{0} must be an int or a string";
 
         protected override float GetPropertyHeight_Internal(SerializedProperty property, GUIContent label)
         {
@@ -63,7 +63,7 @@ namespace NaughtyAttributes.Editor
             EditorGUI.EndProperty();
         }
 
-        private static void DrawPropertyForInt(Rect rect, SerializedProperty property, GUIContent label, List<AnimatorControllerParameter> animatorParameters)
+        static void DrawPropertyForInt(Rect rect, SerializedProperty property, GUIContent label, List<AnimatorControllerParameter> animatorParameters)
         {
             int paramNameHash = property.intValue;
             int index = 0;
@@ -88,7 +88,7 @@ namespace NaughtyAttributes.Editor
             }
         }
 
-        private static void DrawPropertyForString(Rect rect, SerializedProperty property, GUIContent label, List<AnimatorControllerParameter> animatorParameters)
+        static void DrawPropertyForString(Rect rect, SerializedProperty property, GUIContent label, List<AnimatorControllerParameter> animatorParameters)
         {
             string paramName = property.stringValue;
             int index = 0;
@@ -113,7 +113,7 @@ namespace NaughtyAttributes.Editor
             }
         }
 
-        private static string[] GetDisplayOptions(List<AnimatorControllerParameter> animatorParams)
+        static string[] GetDisplayOptions(List<AnimatorControllerParameter> animatorParams)
         {
             string[] displayOptions = new string[animatorParams.Count + 1];
             displayOptions[0] = "(None)";
@@ -126,7 +126,7 @@ namespace NaughtyAttributes.Editor
             return displayOptions;
         }
 
-        private static AnimatorController GetAnimatorController(SerializedProperty property, string animatorName)
+        static AnimatorController GetAnimatorController(SerializedProperty property, string animatorName)
         {
             object target = PropertyUtility.GetTargetObjectWithProperty(property);
 

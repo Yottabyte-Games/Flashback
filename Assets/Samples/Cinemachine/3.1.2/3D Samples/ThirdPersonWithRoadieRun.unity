@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -96,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -363,7 +360,7 @@ MonoBehaviour:
   PivotOffset: {x: 0, y: 0, z: 1}
   AmplitudeGain: 0.5
   FrequencyGain: 0.5
-  mNoiseOffsets: {x: -765.3436, y: 412.4553, z: 513.0689}
+  m_NoiseOffsets: {x: -765.3436, y: 412.4553, z: 513.0689}
 --- !u!114 &334051334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +378,7 @@ MonoBehaviour:
     m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2
-  m_StreamingVersion: 20230301
+  m_StreamingVersion: 20241001
   m_LegacyPriority: 10
   Target:
     TrackingTarget: {fileID: 1525634691}
@@ -1054,7 +1051,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1722462835}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722462836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be49d5e8cf7024d6b8f8d5b9872c0f91, type: 3}
   m_Name: 
@@ -1729,6 +1726,10 @@ PrefabInstance:
         unlock, press the Escape key."
       objectReference: {fileID: 0}
     - target: {fileID: 6668015293666917239, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668015293666917239, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
       propertyPath: VisibleAtStart
       value: 1
       objectReference: {fileID: 0}
@@ -1755,7 +1756,7 @@ PrefabInstance:
     - target: {fileID: 6668015293666917239, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
       propertyPath: OnHelpDismissed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1722462836}
+      objectReference: {fileID: 1722462837}
     - target: {fileID: 6668015293666917239, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
       propertyPath: OnHelpDismissed.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -1778,7 +1779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6668015293666917239, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
       propertyPath: OnHelpDismissed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LockCursor
+      value: StopAllCoroutines
       objectReference: {fileID: 0}
     - target: {fileID: 6668015293666917239, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
       propertyPath: OnHelpDismissed.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -1790,7 +1791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6668015293666917239, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
       propertyPath: OnHelpDismissed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Unity.Cinemachine.Samples.CursorLockManager, Assembly-CSharp
+      value: UnityEngine.MonoBehaviour, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6668015293666917239, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
       propertyPath: OnHelpDismissed.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -1820,9 +1821,17 @@ PrefabInstance:
       propertyPath: OnHelpDismissed.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6712450386776849522, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9138370430051789472, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
       propertyPath: m_Name
       value: HelpUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138370430051789472, guid: d7425ed2047e64d8ea6ff79f20bd46f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1844,7 +1853,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722462836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7950c6f52d74a4772bb69c03fe19a19b, type: 3}
   m_Name: 
@@ -3059,7 +3068,7 @@ MonoBehaviour:
     m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2
-  m_StreamingVersion: 20230301
+  m_StreamingVersion: 20241001
   m_LegacyPriority: 10
   Target:
     TrackingTarget: {fileID: 1525634691}
@@ -3116,7 +3125,7 @@ MonoBehaviour:
   PivotOffset: {x: 0, y: 0, z: 2}
   AmplitudeGain: 0.5
   FrequencyGain: 3
-  mNoiseOffsets: {x: -736.27356, y: -0.11553955, z: 165.45901}
+  m_NoiseOffsets: {x: -736.27356, y: -0.11553955, z: 165.45901}
 --- !u!114 &2076565716644322346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3178,7 +3187,7 @@ MonoBehaviour:
     m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2
-  m_StreamingVersion: 20230301
+  m_StreamingVersion: 20241001
   m_LegacyPriority: 10
   DefaultTarget:
     Enabled: 0

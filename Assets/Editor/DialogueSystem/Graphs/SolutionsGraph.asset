@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: SolutionsGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: Solutions
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: 60eafd5a-b897-4442-8c1f-8dea03e9281d
+    <Name>k__BackingField: Solutions1
+    <Text>k__BackingField: "The visit to the psychologist started the same way as
+      always. The psychologist asked about how I\u2019m feeling and how I\u2019ve
+      been feeling since the last appointment. . \r\n"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: af97886e-389c-45b5-9da3-045f932b9c64
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 110.4, y: 135.20001}
+  - <ID>k__BackingField: af97886e-389c-45b5-9da3-045f932b9c64
+    <Name>k__BackingField: Solutions2
+    <Text>k__BackingField: "Now though the psychologist was asking more questions
+      than usual, maybe they saw that I was worried about the flashbacks I\u2019ve
+      been having today. I ended up telling the psychologist about them and the psychologist
+      starting probing into them with questions"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 843.2, y: 135.20001}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Solutions1
+  - Solutions2
+  <OldGroupedNodeNames>k__BackingField:
+    list: []

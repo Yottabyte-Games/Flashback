@@ -1,22 +1,26 @@
 using System;
 using UnityEngine;
 
-public class TaskItem : MonoBehaviour
+namespace _Scripts.Working
 {
-    public GameObject indicator;
-
-    public event Action InteractedWith;
-    private void Start()
+    public class TaskItem : MonoBehaviour
     {
-        indicator = Instantiate(indicator, transform);
-    }
+        public GameObject indicator;
 
-    public void Interact(Transform heldBy)
-    {
-        if(heldBy.GetComponent<Holding>().HoldItem(gameObject))
+        public event Action InteractedWith;
+
+        void Start()
         {
-            indicator.SetActive(false);
-            InteractedWith?.Invoke();
+            indicator = Instantiate(indicator, transform);
+        }
+
+        public void Interact(Transform heldBy)
+        {
+            if(heldBy.GetComponent<Holding>().HoldItem(gameObject))
+            {
+                indicator.SetActive(false);
+                InteractedWith?.Invoke();
+            }
         }
     }
 }

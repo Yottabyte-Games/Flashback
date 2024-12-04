@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class Seat : MonoBehaviour
+namespace _Scripts.Working
 {
+    public class Seat : MonoBehaviour
+    {
+    }
 }

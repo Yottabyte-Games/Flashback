@@ -1,24 +1,34 @@
-using UnityEngine;
-
 namespace _Scripts.Snowman_Scripts.Interaction
-{
+{ 
+    using UnityEngine;
     public class Interaction : MonoBehaviour
     {
-        public Camera camera;
+        public Camera mainCamera;
         public float range = 100f;
-        Interactable interactable;
-        GameObject interactableObject;
+        Interactable _interactable;
+        GameObject _interactableObject = null;
+        GameObject _ghostObject = null;
+
+        float _mouseZoom = 1;
+
+        public Material ghostMaterial;
 
         void Update()
         {
-            var ray = camera.ScreenPointToRay(Input.mousePosition);
+            //mouseZoom += Input.GetAxis("Mouse ScrollWheel");
+            _mouseZoom = Mathf.Clamp(_mouseZoom + Input.GetAxis("Mouse ScrollWheel") * 8, 1f, 20);
+//            Debug.Log(_mouseZoom);
 
-            if (Physics.Raycast(ray, out var hit, range))
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, range))
             {
-                var hitInteractable = hit.collider.tag == "Interactable" ? hit.collider.GetComponent<Interactable>() : null;
+                Interactable hitInteractable = hit.collider.CompareTag("Interactable")
+                    ? hit.collider.GetComponent<Interactable>()
+                    : null;
 
                 // Outline Enable/Disable
-                if (hitInteractable != null)
+                if (hitInteractable is not null)
                 {
                     EnableInteraction(hitInteractable);
                 }
@@ -30,16 +40,16 @@ namespace _Scripts.Snowman_Scripts.Interaction
                 // Item interaction
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (interactableObject == null && hitInteractable != null)
+                    if (_interactableObject is null && hitInteractable is not null)
                     {
                         hitInteractable.Interact();
                         if (hitInteractable.canInteract)
                         {
-                            interactableObject = hitInteractable.gameObject;
-                            Debug.Log(interactableObject);
+                            _interactableObject = hitInteractable.gameObject;
+//                            Debug.Log(_interactableObject);
                         }
                     }
-                    else if (interactableObject != null)
+                    else if (_interactableObject is not null)
                     {
                         PlaceObject(hit);
                     }
@@ -49,49 +59,70 @@ namespace _Scripts.Snowman_Scripts.Interaction
             {
                 DisableInteraction();
             }
+
+            if (_interactableObject is not null) { GhostBlock(hit); }
         }
+
+
+        void GhostBlock(RaycastHit hit)
+        {
+            if (_ghostObject is null && hit.collider.gameObject is not null)
+            {
+                _ghostObject = Instantiate(_interactableObject, hit.point, Quaternion.identity);
+                _ghostObject.SetActive(true);
+
+                // "Disables" Rigidbody
+                Rigidbody rb = _ghostObject.GetComponent<Rigidbody>();
+                rb.isKinematic = true;
+                rb.detectCollisions = false;
+
+                //Sets material to transparent selected material
+                _ghostObject.GetComponent<MeshRenderer>().material = ghostMaterial;
+            }
+            else
+            {
+                //Positions Ghostblock on update
+                Transform _ghostTrans = _ghostObject.transform;
+
+                _ghostTrans.position = hit.point + Vector3.ClampMagnitude(_ghostTrans.up / (1f + _mouseZoom), _ghostTrans.localScale.magnitude / 4);
+                _ghostObject.transform.up = hit.normal;
+            }
+
+        }
+
+
 
         void PlaceObject(RaycastHit hit)
         {
-            interactable.DisableInteraction();
+            if (hit.collider.CompareTag("Interactable")) { _interactable.DisableInteraction(); }
 
-            //Check if snowball is large enough.
-            if (hit.transform.localScale.y > 1)
-            {
-                var placedObject = Instantiate(interactableObject, hit.point, Quaternion.identity);
-                placedObject.transform.up = hit.normal;  // Rotate to surface normal.
-                placedObject.SetActive(true);
-  
-            }
+            GameObject placedObject = Instantiate(_interactableObject, _ghostObject.transform.position, Quaternion.identity);
+            placedObject.transform.up = hit.normal;  // Rotate to surface normal.
+            placedObject.SetActive(true);
 
-            //Else drop on ground
-            else 
-            {
-                var placedObject = Instantiate(interactableObject, hit.point+new Vector3(0,1,0), Quaternion.identity);
-            }
+            Destroy(_ghostObject);
+            Debug.Log(_ghostObject);
 
-        
-            interactableObject = null;
+
+            _ghostObject = null;
+            _interactableObject = null;
         }
 
+        //Disables outline on item
         void DisableInteraction()
         {
-            if (interactable != null)
-            {
-                interactable.DisableOutline();
-                interactable = null;
-            }
+            if (_interactable is null) return;
+            _interactable.DisableOutline();
+            _interactable = null;
         }
 
         // Enables interaction outline on item
         void EnableInteraction(Interactable newInteractable)
         {
-            if (interactable != newInteractable)
-            {
-                DisableInteraction();
-                interactable = newInteractable;
-                interactable.EnableOutline();
-            }
+            if (_interactable == newInteractable) return;
+            DisableInteraction();
+            _interactable = newInteractable;
+            _interactable.EnableOutline();
         }
     }
 }

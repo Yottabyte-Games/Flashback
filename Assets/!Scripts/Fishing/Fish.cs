@@ -1,38 +1,64 @@
-using Unity.VisualScripting;
+using System;
+using _Scripts.UtilMethods;
 using UnityEngine;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public enum FishType
     {
-        None = 0,
-        Panfish = 1,
-        Catfish = 2,
-        Bass = 3,
-        Sailfish = 4,
-        GoliathTigerfish = 5,
+        Trash = 0, 
+        Mackerel = 1,//Mackerel 1.5$
+        Cod = 2, //4$
+        FjordTrout = 3, //6$
+        Salmon = 4, //7$
     }
 
-    public struct Fish
+    [Serializable]
+    public class Fish : MonoBehaviour
     {
         public FishType type;
-        public float difficultyModifier;
 
-        public float difficulty
+        [field: SerializeField, Range(1f, 10f)] public float Weight { get; private set; } = 1;
+        [field: SerializeField, Range(1f, 10f)] public float Length { get; private set; } = 1;
+
+        [field: SerializeField] public float Difficulty { get; private set; } 
+
+        [Space]
+        [SerializeField] Transform art;
+        public void Awake()
         {
-            get
-            {
-                return ((float)type * 2 + difficultyModifier) * 2.5f;
-            }
+            RandomizeFish();
+            SetDifficulty(); 
+        }
+        void RandomizeFish()
+        {
+            Weight = UnityEngine.Random.Range(1f, 10f);
+            Length = UnityEngine.Random.Range(1f, 10f);
+
+            if (art == null) return;
+
+            SetVisualSize();
+        }
+        void SetDifficulty()
+        {
+            Difficulty = ((float)type * 2.5f + Length + Weight / 2f) * 2f;
+        }
+        public void Catch(Transform caughtOn)
+        {
+            transform.parent = caughtOn;
+            UMethods.ResetTransform(transform, true);
+        }
+        void SetVisualSize()
+        {
+            art.transform.localScale = new Vector3(Weight / 2.5f, Weight / 5f, Length / 5f);
         }
 
-        public void RandomizeFish()
+        void OnDrawGizmosSelected()
         {
-            difficultyModifier = Random.Range(1f, 5f);
-        }
-        public void SetFish(FishType fish)
-        {
-            type = fish;
+            if (art == null) return;
+
+            SetVisualSize();
+            SetDifficulty();
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using _Scripts.Vehicle.CP_CarPhysics;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Scripts.Vehicle.CV_CarVisuals
-{
+{ 
+    using CP_CarPhysics;
     public class CvWheels : MonoBehaviour
     {
         Rigidbody _carRb;

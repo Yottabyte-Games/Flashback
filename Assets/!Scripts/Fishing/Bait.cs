@@ -1,7 +1,6 @@
 using System;
-using UnityEngine;
 
-namespace Minigame.Fishing
+namespace _Scripts.Fishing
 {
     public enum BaitType
     {

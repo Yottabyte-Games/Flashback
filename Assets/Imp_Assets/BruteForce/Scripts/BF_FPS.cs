@@ -5,11 +5,11 @@ public class BF_FPS : MonoBehaviour
 {
     float deltaTime;
 
-    private GUIStyle style;
+    GUIStyle style;
 
-    private bool ShowFps;
+    bool ShowFps;
 
-    private void Start()
+    void Start()
     {
         ShowFps = true;
         style = new GUIStyle();

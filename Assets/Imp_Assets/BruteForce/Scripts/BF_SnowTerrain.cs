@@ -9,16 +9,16 @@ public class BF_SnowTerrain : MonoBehaviour
     public Terrain terrainToCopy;
     public bool avoidCulling;
 
-    private Terrain terrainAsset;
-    private TerrainData terrainData;
-    private TerrainData terrainDataOld;
-    private Vector3 sizeOld = Vector3.one * 100f;
-    private float[,] terrainHeightOld;
-    private int heightRezOld;
-    private Vector3 posOld = Vector3.zero;
-    private Material terrainMaterial;
-    private GameObject selectGO;
-    private bool isSynced;
+    Terrain terrainAsset;
+    TerrainData terrainData;
+    TerrainData terrainDataOld;
+    Vector3 sizeOld = Vector3.one * 100f;
+    float[,] terrainHeightOld;
+    int heightRezOld;
+    Vector3 posOld = Vector3.zero;
+    Material terrainMaterial;
+    GameObject selectGO;
+    bool isSynced;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class BF_SnowTerrain : MonoBehaviour
         UpdateTerrainData();
     }
 
-    private void StoreTerrainData()
+    void StoreTerrainData()
     {
         if (terrainDataOld == null)
         {
@@ -40,7 +40,8 @@ public class BF_SnowTerrain : MonoBehaviour
             posOld = terrainAsset.transform.position;
         }
     }
-    private void ClearTerrainData()
+
+    void ClearTerrainData()
     {
         terrainDataOld = null;
         terrainHeightOld = null;
@@ -48,7 +49,7 @@ public class BF_SnowTerrain : MonoBehaviour
         sizeOld = Vector3.one*100f;
     }
 
-    private void UpdateTerrainData()
+    void UpdateTerrainData()
     {
         terrainAsset = this.GetComponent<Terrain>();
         if (avoidCulling)
@@ -188,7 +189,7 @@ public class BF_SnowTerrain : MonoBehaviour
 #endif
     }
 
-    private void Update()
+    void Update()
     {
 #if UNITY_EDITOR
         if (Application.isEditor && !Application.isPlaying)

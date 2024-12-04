@@ -1,8 +1,8 @@
-﻿using System;
-using UnityEngine;
-
-namespace _Scripts.Vehicle.CP_CarPhysics
+﻿namespace _Scripts.Vehicle.CP_CarPhysics
 {
+    using System;
+    using UnityEngine;
+    
     [Serializable]
     public class CpDrag : MonoBehaviour
     {

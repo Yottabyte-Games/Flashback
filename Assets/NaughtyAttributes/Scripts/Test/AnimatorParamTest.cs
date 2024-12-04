@@ -15,7 +15,7 @@ namespace NaughtyAttributes.Test
         public AnimatorParamNest1 nest1;
 
         [Button("Log 'hash0' and 'name0'")]
-        private void TestLog()
+        void TestLog()
         {
             Debug.Log($"hash0 = {hash0}");
             Debug.Log($"name0 = {name0}");
@@ -27,7 +27,7 @@ namespace NaughtyAttributes.Test
     public class AnimatorParamNest1
     {
         public Animator animator1;
-        private Animator Animator1 => animator1;
+        Animator Animator1 => animator1;
 
         [AnimatorParam("Animator1", AnimatorControllerParameterType.Bool)]
         public int hash1;
@@ -42,7 +42,7 @@ namespace NaughtyAttributes.Test
     public class AnimatorParamNest2
     {
         public Animator animator2;
-        private Animator GetAnimator2() => animator2;
+        Animator GetAnimator2() => animator2;
 
         [AnimatorParam("GetAnimator2", AnimatorControllerParameterType.Int)]
         public int hash1;

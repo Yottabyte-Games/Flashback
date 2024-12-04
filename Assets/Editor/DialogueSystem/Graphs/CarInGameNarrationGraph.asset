@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: CarInGameNarrationGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: CarInGameNarration
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: 0882302a-cdcf-4fa0-a562-7f4655bbc0ab
+    <Name>k__BackingField: Mom1
+    <Text>k__BackingField: Have our son acted weird to you lately
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 07e01433-e70c-41b7-97c2-79a5dc0f7baa
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 503, y: 191}
+  - <ID>k__BackingField: 07e01433-e70c-41b7-97c2-79a5dc0f7baa
+    <Name>k__BackingField: Dad2
+    <Text>k__BackingField: I think the fishing accident really scared him
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 82ac75b2-43d0-4065-b839-2d0b04ac9800
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 881, y: 286}
+  - <ID>k__BackingField: 82ac75b2-43d0-4065-b839-2d0b04ac9800
+    <Name>k__BackingField: Mom3
+    <Text>k__BackingField: "He is a big boy he\u2019ll get over it"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 3c9eae16-45bd-4fe8-99a6-f47d772f5378
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1270, y: 191}
+  - <ID>k__BackingField: 3c9eae16-45bd-4fe8-99a6-f47d772f5378
+    <Name>k__BackingField: Dad4
+    <Text>k__BackingField: " I\u2019m not too sure about that, I think he might need
+      some help\r"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: a76b6943-41d7-43ff-8980-65f1d84db1e0
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1630, y: 286}
+  - <ID>k__BackingField: a76b6943-41d7-43ff-8980-65f1d84db1e0
+    <Name>k__BackingField: Mom5
+    <Text>k__BackingField: "NO, we can\u2019t have people thinking something is wrong
+      with him"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: d8325e50-e102-4782-aefc-199789418d6a
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 2127, y: 191}
+  - <ID>k__BackingField: d8325e50-e102-4782-aefc-199789418d6a
+    <Name>k__BackingField: Dad6
+    <Text>k__BackingField: But something is wrong with him!
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 2628, y: 286}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - Mom1
+  - Dad2
+  - Mom3
+  - Dad4
+  - Mom5
+  - Dad6
+  <OldGroupedNodeNames>k__BackingField:
+    list: []
