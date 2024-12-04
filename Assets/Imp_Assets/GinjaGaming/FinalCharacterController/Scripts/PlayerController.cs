@@ -253,28 +253,28 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
             _playerTargetRotation.x += transform.eulerAngles.x + lookSenseH * _playerLocomotionInput.LookInput.x;
 
-            var rotationTolerance = 90f;
-            var isIdling = _playerState.CurrentPlayerMovementState == Idling;
-            IsRotatingToTarget = _rotatingToTargetTimer > 0;
+            //var rotationTolerance = 90f;
+            //var isIdling = _playerState.CurrentPlayerMovementState == Idling;
+            //IsRotatingToTarget = _rotatingToTargetTimer > 0;
 
-            // ROTATE if we're not idling
-            if (!isIdling)
-            {
-                RotatePlayerToTarget();
-            }
-            // If rotation mismatch not within tolerance, or rotate to target is active, ROTATE
-            else if (Mathf.Abs(RotationMismatch) > rotationTolerance || IsRotatingToTarget)
-            {
-                UpdateIdleRotation(rotationTolerance);
-            }
+            //// ROTATE if we're not idling
+            //if (!isIdling)
+            //{
+            //    RotatePlayerToTarget();
+            //}
+            //// If rotation mismatch not within tolerance, or rotate to target is active, ROTATE
+            //else if (Mathf.Abs(RotationMismatch) > rotationTolerance || IsRotatingToTarget)
+            //{
+            //    UpdateIdleRotation(rotationTolerance);
+            //}
 
-            _playerCamera.transform.rotation = Quaternion.Euler(_cameraRotation.y, _cameraRotation.x, 0f);
+            _playerCamera.transform.localRotation = Quaternion.Euler(_cameraRotation.y, _cameraRotation.x, 0f);
 
-            // Get angle between camera and player
-            var camForwardProjectedXZ = new Vector3(_playerCamera.transform.forward.x, 0f, _playerCamera.transform.forward.z).normalized;
-            var crossProduct = Vector3.Cross(transform.forward, camForwardProjectedXZ);
-            var sign = Mathf.Sign(Vector3.Dot(crossProduct, transform.up));
-            RotationMismatch = sign * Vector3.Angle(transform.forward, camForwardProjectedXZ);
+            //// Get angle between camera and player
+            //var camForwardProjectedXZ = new Vector3(_playerCamera.transform.forward.x, 0f, _playerCamera.transform.forward.z).normalized;
+            //var crossProduct = Vector3.Cross(transform.forward, camForwardProjectedXZ);
+            //var sign = Mathf.Sign(Vector3.Dot(crossProduct, transform.up));
+            //RotationMismatch = sign * Vector3.Angle(transform.forward, camForwardProjectedXZ);
         }
 
         void UpdateIdleRotation(float rotationTolerance)

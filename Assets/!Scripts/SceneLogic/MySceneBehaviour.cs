@@ -1,18 +1,15 @@
-using Eflatun.SceneReference;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
+using Eflatun.SceneReference;
 using UnityEngine.SceneManagement;
 
 namespace _Scripts.SceneLogic
 {
-    [ShowOdinSerializedPropertiesInInspector]
     public class MySceneBehaviour: MonoBehaviour {
-        [OdinSerialize] static MySceneParams _loadSceneRegister;
-        [OdinSerialize] MySceneParams sceneParams;
+        static MySceneParams _loadSceneRegister;
+        [SerializeField] MySceneParams sceneParams;
         
-        [OdinSerialize] SceneReference myScene;
-        [OdinSerialize] static SceneReference _myScene;
+        [SerializeField] SceneReference myScene;
+        static SceneReference _myScene;
 
         public static void LoadMyScene(MySceneParams sceneParams, System.Action<MySceneOutcome> callback) {
             _loadSceneRegister = sceneParams;
