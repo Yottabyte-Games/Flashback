@@ -13,22 +13,23 @@ public class Spawning : MonoBehaviour
 
     [SerializeField] private GameObject enemyMainSpawner;
     [SerializeField] private GameObject enemyMainSpawner2;
-    [SerializeField] private GameObject enemyMainSpawner3;
-    [SerializeField] private GameObject enemyMainSpawner4;
+    private GameObject enemyMainSpawner3;
+    private GameObject enemyMainSpawner4;
 
     public int nextSpawnerLocation = 0;
 
     [SerializeField] private float enemyInterval = 10f;
     [SerializeField] private float officeWorkerInterval = 15f;
     [SerializeField] private int spawnerLifeValue = 5;
+    [SerializeField] private string bossSpawner = "bossAlive";
 
     private void Start()
     {
-        StartCoroutine(spawnEnemy(enemyInterval, enemyAI, enemyMainSpawner, enemyMainSpawner2, spawnerLifeValue));
+        StartCoroutine(spawnEnemy(enemyInterval, enemyAI, enemyMainSpawner, enemyMainSpawner2, spawnerLifeValue, null));
         //StartCoroutine(spawnEnemy(enemyInterval, enemyAI2, enemySpawner2, spawnerLifeValue+1));
     }
 
-    private IEnumerator spawnEnemy(float interval, GameObject enemy, GameObject enemySpawner, GameObject enemySpawner2, int spawnerLifeValue)
+    private IEnumerator spawnEnemy(float interval, GameObject enemy, GameObject enemySpawner, GameObject enemySpawner2, int lifeValue, string message)
     {
         if (spawnerLifeValue == 0)
         {
@@ -48,12 +49,23 @@ public class Spawning : MonoBehaviour
 
             do
             {
-                yield return new WaitForSeconds(interval);
-                GameObject newEnemy = Instantiate(enemy, enemySpawner.transform.position, Quaternion.identity);
-                spawnerLifeValue--;
+                if (message == "bossAlive" && spawnerLifeValue == 1)
+                {
+                    yield return new WaitForSeconds(interval);
+                    GameObject newEnemy = Instantiate(boss, enemySpawner.transform.position, Quaternion.identity);
+                    spawnerLifeValue--;
+                    StartCoroutine(spawnEnemy(interval, enemy, enemySpawner, enemySpawner2, spawnerLifeValue, message));
+                }
+                else
+                {
+                    yield return new WaitForSeconds(interval);
+                    GameObject newEnemy = Instantiate(enemy, enemySpawner.transform.position, Quaternion.identity);
+                    spawnerLifeValue--;
+                    print(spawnerLifeValue);
+                }
             } while (spawnerLifeValue > 0);
 
-            StartCoroutine(spawnEnemy(interval, enemy, enemySpawner, enemySpawner2, spawnerLifeValue));
+            StartCoroutine(spawnEnemy(interval, enemy, enemySpawner, enemySpawner2, spawnerLifeValue, message));
         }
     }
 
@@ -61,15 +73,15 @@ public class Spawning : MonoBehaviour
     {
         if (nextSpawnerLocation == 1) 
         {
-            StartCoroutine(spawnEnemy(enemyInterval, enemyAI2, enemyMainSpawner2, enemyMainSpawner3, spawnerLifeValue));
+            StartCoroutine(spawnEnemy(enemyInterval, enemyAI2, enemyMainSpawner2, enemyMainSpawner3, spawnerLifeValue+1, bossSpawner));
         }
         if (nextSpawnerLocation == 2)
         {
-            StartCoroutine(spawnEnemy(enemyInterval, enemyAI3, enemyMainSpawner3, enemyMainSpawner4, spawnerLifeValue));
+            StartCoroutine(spawnEnemy(enemyInterval, enemyAI3, enemyMainSpawner3, enemyMainSpawner4, spawnerLifeValue, null));
         }
         if (nextSpawnerLocation == 3)
         {
-            StartCoroutine(spawnEnemy(enemyInterval, enemyAI4, enemyMainSpawner4, null, spawnerLifeValue));
+            StartCoroutine(spawnEnemy(enemyInterval, enemyAI4, enemyMainSpawner4, null, spawnerLifeValue, null));
         }
     }
 }
