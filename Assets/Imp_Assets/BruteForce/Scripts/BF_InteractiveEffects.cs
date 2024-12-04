@@ -9,29 +9,27 @@ public class BF_InteractiveEffects : MonoBehaviour
     public RenderTexture rt;
     public string GlobalTexName = "_GlobalEffectRT";
     public string GlobalOrthoName = "_OrthographicCamSize";
-    public bool isPaced;
+    public bool isPaced = false;
 
-    float orthoMem;
-    Coroutine waitPace;
-    bool paceRunning;
+    private float orthoMem = 0;
+    private Coroutine waitPace;
+    private bool paceRunning = false;
 
-    void Awake()
+    private void Awake()
     {
         orthoMem = GetComponent<Camera>().orthographicSize;
         Shader.SetGlobalFloat(GlobalOrthoName, orthoMem);
         Shader.SetGlobalTexture(GlobalTexName, rt);
         Shader.SetGlobalFloat("_HasRT", 1);
     }
-
-    void OnEnable()
+    private void OnEnable()
     {
         orthoMem = GetComponent<Camera>().orthographicSize;
         Shader.SetGlobalFloat(GlobalOrthoName, orthoMem);
         Shader.SetGlobalTexture(GlobalTexName, rt);
         Shader.SetGlobalFloat("_HasRT", 1);
     }
-
-    void MoveCamera()
+    private void MoveCamera()
     {
         if (transformToFollow != null)
         {
@@ -40,8 +38,7 @@ public class BF_InteractiveEffects : MonoBehaviour
         Shader.SetGlobalVector("_Position", transform.position);
         transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
     }
-
-    void Update()
+    private void Update()
     {
         if(isPaced)
         {
@@ -63,7 +60,7 @@ public class BF_InteractiveEffects : MonoBehaviour
         }
     }
 
-    IEnumerator WaitPace()
+    private IEnumerator WaitPace()
     {
         for(; ;)
         {

@@ -9,8 +9,8 @@ using UnityEngine.InputSystem;
 public class BF_SnowAssetManager : MonoBehaviour
 {
     public GameObject UIText;
-    public int showcaseIndex;
-    [HideInInspector] public int subShowcaseIndex;
+    public int showcaseIndex = 0;
+    [HideInInspector] public int subShowcaseIndex = 0;
     public List<GameObject> showcasesGO;
     public List<GameObject> cameras;
     public List<GameObject> lights;
@@ -19,7 +19,7 @@ public class BF_SnowAssetManager : MonoBehaviour
     public GameObject specialCamera;
     public GameObject specialButton;
     public GameObject specialInfo;
-    int maxIndex = 4;
+    private int maxIndex = 4;
     [HideInInspector] public int maxSubIndex = 3;
 
     [HideInInspector] public UnityEvent m_ShowcaseChange = new UnityEvent();
@@ -39,7 +39,7 @@ public class BF_SnowAssetManager : MonoBehaviour
 
     public void SwitchShowcase(int addIndex)
     {
-        for (var i = 0; i <= maxIndex; i++)
+        for (int i = 0; i <= maxIndex; i++)
         {
             showcasesGO[i].SetActive(false);
             cameras[i].SetActive(false);
@@ -97,7 +97,7 @@ public class BF_SnowAssetManager : MonoBehaviour
         cameras[0].SetActive(!cameras[0].activeInHierarchy);
     }
 
-    void Update()
+    private void Update()
     {
 #if ENABLE_LEGACY_INPUT_MANAGER
         if (Input.GetKeyDown(KeyCode.Alpha1))

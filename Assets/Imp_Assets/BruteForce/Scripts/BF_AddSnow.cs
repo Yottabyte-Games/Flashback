@@ -7,32 +7,32 @@ public class BF_AddSnow : MonoBehaviour
 {
     public Material snowMaterial;
     public float angle = 80f;
-    public bool isAuto;
+    public bool isAuto = false;
     public float intersectionOffset = 0.25f;
-    public bool useIntersection;
-    public bool useUpdatedRotation;
+    public bool useIntersection = false;
+    public bool useUpdatedRotation = false;
 
-    Mesh originalMesh;
-    MeshFilter meshFilter;
-    Mesh newMesh;
-    GameObject newGO;
-    float yIntersection;
-    Quaternion ySlope = Quaternion.identity;
-    float zNormal;
-    Vector3 normalHit = Vector3.zero;
-    float oldyIntersection = -1f;
+    private Mesh originalMesh;
+    private MeshFilter meshFilter;
+    private Mesh newMesh;
+    private GameObject newGO;
+    private float yIntersection = 0f;
+    private Quaternion ySlope = Quaternion.identity;
+    private float zNormal = 0;
+    private Vector3 normalHit = Vector3.zero;
+    private float oldyIntersection = -1f;
 
-    int[] oldTri;
-    Vector3[] oldVert;
-    Vector3[] oldNorm;
-    Vector3[] oldNormWorld;
-    Vector2[] oldUV;
-    Color[] oldCol;
+    private int[] oldTri;
+    private Vector3[] oldVert;
+    private Vector3[] oldNorm;
+    private Vector3[] oldNormWorld;
+    private Vector2[] oldUV;
+    private Color[] oldCol;
 
-    List<int> triangles = new List<int>();
-    List<Vector3> vertexs = new List<Vector3>();
-    List<Vector2> uvs = new List<Vector2>();
-    List<Color> cols = new List<Color>();
+    private List<int> triangles = new List<int>();
+    private List<Vector3> vertexs = new List<Vector3>();
+    private List<Vector2> uvs = new List<Vector2>();
+    private List<Color> cols = new List<Color>();
 
     void Start()
     {
@@ -40,7 +40,7 @@ public class BF_AddSnow : MonoBehaviour
         BuildInitialGeometry();
     }
 
-    void Update()
+    private void Update()
     {
         if (useIntersection)
         {
@@ -54,7 +54,7 @@ public class BF_AddSnow : MonoBehaviour
     }
 
 
-    void CheckValues()
+    private void CheckValues()
     {
         meshFilter = gameObject.GetComponent<MeshFilter>();
         originalMesh = meshFilter.mesh;
@@ -65,8 +65,8 @@ public class BF_AddSnow : MonoBehaviour
 
         if (isAuto)
         {
-            var k = 0;
-            foreach (var norm in oldNorm)
+            int k = 0;
+            foreach (Vector3 norm in oldNorm)
             {
                 oldNormWorld[k] = this.transform.localToWorldMatrix.MultiplyVector(norm).normalized;
                 k++;
@@ -80,9 +80,9 @@ public class BF_AddSnow : MonoBehaviour
         oldUV = originalMesh.uv;
     }
 
-    void CheckIntersection()
+    private void CheckIntersection()
     {
-        var layerMask = 1 << 0 | 1 << 4;
+        int layerMask = 1 << 0 | 1 << 4;
         RaycastHit hit;
         RaycastHit hitIfHit;
 
@@ -128,7 +128,7 @@ public class BF_AddSnow : MonoBehaviour
         }
     }
 
-    void ClearGeometry()
+    private void ClearGeometry()
     {
         triangles.Clear();
         triangles.TrimExcess();
@@ -140,7 +140,7 @@ public class BF_AddSnow : MonoBehaviour
         cols.TrimExcess();
     }
 
-    void BuildInitialGeometry()
+    private void BuildInitialGeometry()
     {
         if (meshFilter == null)
         {
@@ -148,8 +148,8 @@ public class BF_AddSnow : MonoBehaviour
         }
         newMesh = new Mesh();
         newGO = new GameObject();
-        var mF = newGO.AddComponent<MeshFilter>();
-        var mR = newGO.AddComponent<MeshRenderer>();
+        MeshFilter mF = newGO.AddComponent<MeshFilter>();
+        MeshRenderer mR = newGO.AddComponent<MeshRenderer>();
         mF.mesh = newMesh;
         mR.material = snowMaterial;
 
@@ -181,8 +181,8 @@ public class BF_AddSnow : MonoBehaviour
         newGO.transform.localScale = Vector3.one;
         newGO.transform.localRotation = Quaternion.identity;
 
-        var indexNewV = 0;
-        foreach (var v in oldVert)
+        int indexNewV = 0;
+        foreach (Vector3 v in oldVert)
         {
             vertexs.Add(v + new Vector3(0,0,0));
             uvs.Add(oldUV[indexNewV]);
@@ -190,7 +190,7 @@ public class BF_AddSnow : MonoBehaviour
             indexNewV++;
         }
         indexNewV = 0;
-        foreach (var innt in oldTri)
+        foreach (int innt in oldTri)
         {
             triangles.Add(oldTri[indexNewV]);
 
@@ -199,18 +199,18 @@ public class BF_AddSnow : MonoBehaviour
 
         if (isAuto)
         {
-            var j = 0;
-            foreach (var norm in oldNormWorld)
+            int j = 0;
+            foreach (Vector3 norm in oldNormWorld)
             {
                 if(j>= oldCol.Length)
                 {
                     break;
                 }
                 oldCol[j] = Color.red;
-                var theAngle = Vector3.Angle(Vector3.up, norm);
+                float theAngle = Vector3.Angle(Vector3.up, norm);
                 if (theAngle < (angle+10f))
                 {
-                    var lerpedColor = Color.Lerp(Color.white, Color.red, Mathf.Max(0f,theAngle- angle/2f) / (angle / 2f));
+                    Color lerpedColor = Color.Lerp(Color.white, Color.red, Mathf.Max(0f,theAngle- angle/2f) / (angle / 2f));
                     oldCol[j] = lerpedColor;
                 }
                 j++;
@@ -230,15 +230,15 @@ public class BF_AddSnow : MonoBehaviour
         newMesh.Optimize();
     }
 
-    void UpdateVertexColor()
+    private void UpdateVertexColor()
     {
-        var updatedColors = newMesh.colors;
-        var newNormWorld = newMesh.normals;
+        Color[] updatedColors = newMesh.colors;
+        Vector3[] newNormWorld = newMesh.normals;
 
         if (isAuto)
         {
-            var k = 0;
-            foreach (var norm in newMesh.normals)
+            int k = 0;
+            foreach (Vector3 norm in newMesh.normals)
             {
                 newNormWorld[k] = this.transform.localToWorldMatrix.MultiplyVector(norm).normalized;
                 k++;
@@ -248,18 +248,18 @@ public class BF_AddSnow : MonoBehaviour
 
         if (isAuto)
         {
-            var j = 0;
-            foreach (var norm in newNormWorld)
+            int j = 0;
+            foreach (Vector3 norm in newNormWorld)
             {
                 if (j >= updatedColors.Length)
                 {
                     break;
                 }
 
-                var theAngle = Vector3.Angle(Vector3.up, norm);
+                float theAngle = Vector3.Angle(Vector3.up, norm);
                 if (theAngle < (angle + 10f))
                 {
-                    var lerpedColor = Color.Lerp(new Color(1,1,1, updatedColors[j].a), new Color(1, 0, 0, updatedColors[j].a), Mathf.Max(0f, theAngle - angle / 2f) / (angle / 2f));
+                    Color lerpedColor = Color.Lerp(new Color(1,1,1, updatedColors[j].a), new Color(1, 0, 0, updatedColors[j].a), Mathf.Max(0f, theAngle - angle / 2f) / (angle / 2f));
                     updatedColors[j].r = lerpedColor.r;
                     updatedColors[j].g = lerpedColor.g;
                     updatedColors[j].b = lerpedColor.b;
@@ -271,17 +271,17 @@ public class BF_AddSnow : MonoBehaviour
         newMesh.colors = updatedColors;
     }
 
-    void UpdateSlopeColor()
+    private void UpdateSlopeColor()
     {
         // This is not perfect for now but gets the job done... //
-        var j = 0;
+        int j = 0;
 
-        var updatedColors = newMesh.colors;
-        var updatedUV4 = new Vector2[updatedColors.Count()];
-        var updatedUV5 = new Vector2[updatedColors.Count()];
-        var updatedUV6 = new Vector2[updatedColors.Count()];
-        var updatedUV7 = new Vector2[updatedColors.Count()];
-        foreach (var norm in newMesh.colors)
+        Color[] updatedColors = newMesh.colors;
+        Vector2[] updatedUV4 = new Vector2[updatedColors.Count()];
+        Vector2[] updatedUV5 = new Vector2[updatedColors.Count()];
+        Vector2[] updatedUV6 = new Vector2[updatedColors.Count()];
+        Vector2[] updatedUV7 = new Vector2[updatedColors.Count()];
+        foreach (Color norm in newMesh.colors)
         {
             updatedColors[j].a = yIntersection;
             updatedUV4[j] = new Vector2(normalHit.x, normalHit.y);
@@ -298,7 +298,7 @@ public class BF_AddSnow : MonoBehaviour
         newMesh.uv7 = updatedUV7;
     }
 
-    void RecalculateNormalsSeamless(Mesh mesh)
+    private void RecalculateNormalsSeamless(Mesh mesh)
     {
         var trianglesOriginal = mesh.triangles;
         var triangles = trianglesOriginal.ToArray();
@@ -307,13 +307,13 @@ public class BF_AddSnow : MonoBehaviour
 
         var mergeIndices = new Dictionary<int, int>();
 
-        for (var i = 0; i < vertices.Length; i++)
+        for (int i = 0; i < vertices.Length; i++)
         {
             var vertexHash = vertices[i].GetHashCode();
 
             if (mergeIndices.TryGetValue(vertexHash, out var index))
             {
-                for (var j = 0; j < triangles.Length; j++)
+                for (int j = 0; j < triangles.Length; j++)
                     if (triangles[j] == i)
                         triangles[j] = index;
             }
@@ -328,7 +328,7 @@ public class BF_AddSnow : MonoBehaviour
         mesh.RecalculateNormals();
         var newNormals = mesh.normals;
 
-        for (var i = 0; i < vertices.Length; i++)
+        for (int i = 0; i < vertices.Length; i++)
             if (mergeIndices.TryGetValue(vertices[i].GetHashCode(), out var index))
                 normals[i] = newNormals[index];
 

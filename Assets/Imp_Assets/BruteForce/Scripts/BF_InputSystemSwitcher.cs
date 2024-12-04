@@ -21,7 +21,7 @@ public class BF_InputSystemSwitcher : MonoBehaviour
             {
                 Destroy(eventS.GetComponent<StandaloneInputModule>());
             }
-            var inputSystem = eventS.AddComponent<InputSystemUIInputModule>();
+            InputSystemUIInputModule inputSystem = eventS.AddComponent<InputSystemUIInputModule>();
             inputSystem.enabled = false;
             inputSystem.enabled = true;
             inputSystem.UpdateModule();
