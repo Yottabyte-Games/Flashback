@@ -18,7 +18,7 @@ public class Parkinglot : MonoBehaviour
 
         while(true)
         {
-            waitTime = Random.Range(4, 60 / carsInLot.Count);
+            waitTime = Random.Range(4, 60 / (carsInLot.Count / 3));
             yield return new WaitForSeconds(waitTime);
 
             KickRandomCar();
