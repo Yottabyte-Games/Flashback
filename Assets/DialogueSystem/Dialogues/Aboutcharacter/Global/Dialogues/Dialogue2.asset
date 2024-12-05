@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: Dialogue2
   m_EditorClassIdentifier: 
   <dialogueName>k__BackingField: Dialogue2
-  <text>k__BackingField: "The visit to the psychologist will go fine, I\u2019ve been
-    feeling good lately and I\u2019m not bothered by any problems."
+  <text>k__BackingField: 'My appointment with the psychologist will go fine; I''ve
+    been feeling good lately and I''m not bothered by any problems.
+
+'
   <choices>k__BackingField:
   - <text>k__BackingField: Next Dialogue
-    <nextDialogue>k__BackingField: {fileID: 11400000, guid: 3c790c6d4ea2c6646b546792afca14c5, type: 2}
+    <nextDialogue>k__BackingField: {fileID: 0}
   <dialogueType>k__BackingField: 0
   <isStartingDialogue>k__BackingField: 0
   <voiceEvent>k__BackingField:
     Guid:
-      Data1: -91504258
-      Data2: 1326290725
-      Data3: -437000569
-      Data4: 1845096413
-    Path: event:/VO/MainChar Dialogue 2
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <narratorEnum>k__BackingField: {fileID: 0}

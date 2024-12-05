@@ -15,40 +15,45 @@ MonoBehaviour:
   <FileName>k__BackingField: Aboutcharacter
   <Groups>k__BackingField: []
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: bf5eff6d-7568-48f6-9950-c6a2c0a65b37
-    <Name>k__BackingField: Dialogue2
-    <Text>k__BackingField: "The visit to the psychologist will go fine, I\u2019ve
-      been feeling good lately and I\u2019m not bothered by any problems."
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 7dd9d9fb-3662-4ae9-896e-570dcb06e8a2
-    <GroupID>k__BackingField: 
-    <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 924, y: 73}
   - <ID>k__BackingField: 39137cb1-1c9b-40e2-868e-22feda9ed5d6
     <Name>k__BackingField: Dialogue1
-    <Text>k__BackingField: Today is a nice day, the sun is shining and the clouds
-      are white, I feel that this day will be a great day.
+    <Text>k__BackingField: It's a nice day today, the sun is shining and the clouds
+      are white. it's shaping up to be a great day.
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: bf5eff6d-7568-48f6-9950-c6a2c0a65b37
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 201, y: 73}
-  - <ID>k__BackingField: 7dd9d9fb-3662-4ae9-896e-570dcb06e8a2
-    <Name>k__BackingField: Dialogue3
-    <Text>k__BackingField: "But before I go there I should probably get some milk
-      at the store. I should walk by the sea\r"
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 200.8, y: 72.799995}
+  - <ID>k__BackingField: bf5eff6d-7568-48f6-9950-c6a2c0a65b37
+    <Name>k__BackingField: Dialogue2
+    <Text>k__BackingField: 'My appointment with the psychologist will go fine; I''ve
+      been feeling good lately and I''m not bothered by any problems.
+
+'
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1668, y: 73}
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 924, y: 72.799995}
   <OldGroupNames>k__BackingField: []
   <OldUngroupedNodeNames>k__BackingField:
-  - Dialogue2
   - Dialogue1
-  - Dialogue3
+  - Dialogue2
   <OldGroupedNodeNames>k__BackingField:
     list: []

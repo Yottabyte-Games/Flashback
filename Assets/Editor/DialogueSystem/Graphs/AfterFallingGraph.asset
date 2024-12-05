@@ -17,15 +17,21 @@ MonoBehaviour:
   <Nodes>k__BackingField:
   - <ID>k__BackingField: c9aba9a5-c332-4d6d-acd5-9b5b96d15dd4
     <Name>k__BackingField: Dialogue1
-    <Text>k__BackingField: "That was really a fishing trip to remember, being dragged
-      into the water like that really gave me a scare. Luckily, I didn\u2019t hurt
-      myself when I fell into the water."
+    <Text>k__BackingField: Whoa! That fishing trip was wild! I got yanked right into
+      the lake! It was scary, but luckily I didn't get hurt.
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 545, y: -30}
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 544.8, y: -30.4}
   <OldGroupNames>k__BackingField: []
   <OldUngroupedNodeNames>k__BackingField:
   - Dialogue1
