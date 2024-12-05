@@ -44,10 +44,6 @@ public class Shooter : MonoBehaviour
     public void PlayExplosion(RaycastHit explosionPosition)
     {
         GameObject explosion = Instantiate(HitPoint, explosionPosition.point, Quaternion.identity);
-    }
-
-    public void PlayExplosion()
-    {
-
+        //Destroy(explosion, 1);
     }
 }
