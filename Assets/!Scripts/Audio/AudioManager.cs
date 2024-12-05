@@ -47,12 +47,12 @@ namespace _Scripts.Audio
         }
 
         void Update()
-        {/*
+        {
             _masterBus.setVolume(AudioSettingsSo.MasterVolume);
             _musicBus.setVolume(AudioSettingsSo.MusicVolume);
             _sfxBus.setVolume(AudioSettingsSo.SfxVolume);
             _voiceBus.setVolume(AudioSettingsSo.VoiceVolume);
-            */
+            
         }
     
         void InitializeAmbience(EventReference ambienceEventReference)
