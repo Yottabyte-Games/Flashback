@@ -1,3 +1,4 @@
+using System;
 using _Scripts.Audio;
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
 using UnityEngine;
@@ -57,7 +58,8 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         float _antiBump;
         float _stepOffset;
 
-        [Header("Audio")] EventInstance PlayerFootsteps;
+        [Header("Audio")] 
+        EventInstance PlayerFootsteps;
 
         PlayerMovementState _lastMovementState = Falling;
         #endregion
@@ -217,11 +219,15 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             }
             else
             {
-                // Stop the FMOD footstep event
-                if (PlayerFootsteps.isValid())
-                {
-                    PlayerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                }
+                StopFMOD();
+            }
+        }
+        void StopFMOD()
+        {
+            // Stop the FMOD footstep event
+            if (PlayerFootsteps.isValid())
+            {
+                PlayerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             }
         }
         #endregion
@@ -289,7 +295,10 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
             return _characterController.isGrounded && validAngle;
         }
-
+        void OnDestroy()
+        {
+            StopFMOD();
+        }
         #endregion
     }
 }
