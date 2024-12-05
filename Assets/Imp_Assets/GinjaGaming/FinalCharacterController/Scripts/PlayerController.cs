@@ -7,9 +7,10 @@ using static Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.PlayerMovem
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
-    [DefaultExecutionOrder(-1)]
+    [DefaultExecutionOrder(1)]
     public class PlayerController : MonoBehaviour
     {
+        
         #region Class Variables
         [Header("Components")]
         [SerializeField]
@@ -77,8 +78,16 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         void Start()
         {
+            // Initialize the PlayerFootsteps event instance
             PlayerFootsteps = AudioManager.Instance.CreateEventInstance(AudioManager.Instance.PlayerFootsteps);
+
+            // Validate the EventInstance to ensure it was created successfully
+            if (!PlayerFootsteps.isValid())
+            {
+                Debug.LogError("PlayerFootsteps EventInstance is not valid. Check the AudioManager configuration or the FMOD event path.");
+            }
         }
+
         #endregion
 
         #region Update Logic
@@ -201,27 +210,25 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         void UpdateSound()
         {
-            // Check if the player is moving laterally
             bool isMovingLaterally = IsMovingLaterally();
-
-            // Check if the player is grounded
             bool isGrounded = IsGrounded();
 
-            // Start or stop the footstep event based on movement and grounded state
+            PLAYBACK_STATE playbackState;
+            PlayerFootsteps.getPlaybackState(out playbackState);
+
             if (isMovingLaterally && isGrounded)
             {
-                PLAYBACK_STATE playbackState;
-                PlayerFootsteps.getPlaybackState(out playbackState);
                 if (playbackState != PLAYBACK_STATE.PLAYING)
                 {
                     PlayerFootsteps.start();
                 }
             }
-            else
+            else if (playbackState == PLAYBACK_STATE.PLAYING)
             {
-                StopFMOD();
+                PlayerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
             }
         }
+
         void StopFMOD()
         {
             // Stop the FMOD footstep event
@@ -229,7 +236,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             {
                 PlayerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
                 //PlayerFootsteps.release();
-                //PlayerFootsteps.clearHandle();
+                PlayerFootsteps.clearHandle();
             }
         }
         #endregion
@@ -301,6 +308,8 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         {
             StopFMOD();
         }
+        
+        
         #endregion
     }
 }
