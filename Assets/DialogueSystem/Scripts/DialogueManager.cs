@@ -27,13 +27,13 @@ namespace DialogueSystem.Scripts
         float cd;
         void OnValidate()
         {
-            if(gameHudController == null)
+            if(gameHudController is null)
                 gameHudController = GetComponent<GameHudController>();
         }
 
         void Start()
         {
-            if (gameHudController == null)
+            if (gameHudController is null)
                 gameHudController = GetComponent<GameHudController>();
 
             _nextDialogueAction = InputSystem.actions.FindAction("Interact");
@@ -66,7 +66,7 @@ namespace DialogueSystem.Scripts
         }
         void PlayDialogueLine()
         {
-//            print("Playing Dialogue");
+            //print("Playing Dialogue");
             if (_currentDialogue)
             {
                 // If first dialogue load Text Box
@@ -116,7 +116,7 @@ namespace DialogueSystem.Scripts
             // Stop the currently playing instance if it exists
             if (_dialogueInstance.isValid())
             {
-                _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                StopDialog();
                 _dialogueInstance.release();
             }
 

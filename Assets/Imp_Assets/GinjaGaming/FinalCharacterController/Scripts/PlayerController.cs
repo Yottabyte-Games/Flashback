@@ -1,3 +1,4 @@
+using System;
 using _Scripts.Audio;
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
 using UnityEngine;
@@ -229,11 +230,15 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             }
             else
             {
-                // Stop the FMOD footstep event
-                if (PlayerFootsteps.isValid())
-                {
-                    PlayerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                }
+                StopFMOD();
+            }
+        }
+        void StopFMOD()
+        {
+            // Stop the FMOD footstep event
+            if (PlayerFootsteps.isValid())
+            {
+                PlayerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             }
         }
         #endregion
@@ -345,6 +350,10 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         {
             // This means player is moving diagonally at 45 degrees or forward, if so, we can run
             return _playerLocomotionInput.MovementInput.y >= Mathf.Abs(_playerLocomotionInput.MovementInput.x);
+        }
+        void OnDestroy()
+        {
+            StopFMOD();
         }
         #endregion
     }

@@ -18,10 +18,22 @@ public class Parkinglot : MonoBehaviour
 
         while(true)
         {
-            waitTime = Random.Range(4, 60 / (carsInLot.Count / 3));
-            yield return new WaitForSeconds(waitTime);
+            if (carsInLot.Count > 0)
+            {
+                int divisor = carsInLot.Count / 3;
+                if (divisor == 0) divisor = 1;
+                waitTime = Random.Range(4, 60 / divisor);
+                yield return new WaitForSeconds(waitTime);
+            }
+            else
+            {
+                waitTime = 10;
+                yield return new WaitForSeconds(waitTime);
+            }
+            
 
             KickRandomCar();
+            
         }
     }
 
