@@ -227,7 +227,9 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             // Stop the FMOD footstep event
             if (PlayerFootsteps.isValid())
             {
-                PlayerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                PlayerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+                //PlayerFootsteps.release();
+                //PlayerFootsteps.clearHandle();
             }
         }
         #endregion

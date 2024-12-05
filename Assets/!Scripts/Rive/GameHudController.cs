@@ -59,12 +59,10 @@ namespace _Scripts.Rive
             Cursor.lockState = CursorLockMode.Locked;
             
             GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if(player is null)
+                return;
             _playerController = player.GetComponent<PlayerController>();
             _playerLocomotionInput = player.GetComponent<PlayerLocomotionInput>();
-            
-            
-            
-
         }
 
         void RiveEventHandler(ReportedEvent reportedEvent)

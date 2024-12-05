@@ -93,6 +93,7 @@ namespace _Scripts.Audio
             {
                 eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 eventInstance.release();
+                
             }
             // stop all the event emitters, because if we dont they may hang around other scenes
             foreach (StudioEventEmitter emitter in _eventEmitters)

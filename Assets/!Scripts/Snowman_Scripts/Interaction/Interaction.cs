@@ -13,6 +13,7 @@ namespace _Scripts.Snowman_Scripts.Interaction
 
         public Material ghostMaterial;
 
+        public int ItemsPlaced { get; private set; }
         void Update()
         {
             //mouseZoom += Input.GetAxis("Mouse ScrollWheel");
@@ -106,6 +107,8 @@ namespace _Scripts.Snowman_Scripts.Interaction
 
             _ghostObject = null;
             _interactableObject = null;
+
+            ItemsPlaced++;
         }
 
         //Disables outline on item
