@@ -15,11 +15,26 @@ public class Shooter : MonoBehaviour
 
     [SerializeField] private float shootingForce = 100f;
 
+    //AudioSource m_shootingSound;
+
+    void Start()
+    {
+        //m_shootingSound = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //m_shootingSound.Play();
+            /*Transform childTransform = transform.Find("FirePoint");
+            if (childTransform != null)
+            {
+                UnityEngine.Debug.Log("LOLOLO");
+                AudioSource component = childTransform.GetComponent<AudioSource>();
+            }*/
             Shooting();
+
             /*GameObject bullet = Instantiate(ballPrefab, CatWeapon.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody>().AddForce(transform.forward);*/
         }
