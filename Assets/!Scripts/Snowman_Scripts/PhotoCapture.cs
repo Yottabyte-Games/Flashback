@@ -20,6 +20,7 @@ namespace _Scripts.Snowman_Scripts
 
         Texture2D _capturedImage;
         GameHudController _hud;
+        int tries = 0;
 
         public UnityEvent FishedPhotoTaken;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -67,6 +68,7 @@ namespace _Scripts.Snowman_Scripts
 
         void DisplayImage()
         {
+            tries++;
             onScreenPhoto.SetActive(false);
             displayImage.GetComponent<CanvasGroup>().alpha = 0f;
             _capturedImage = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
@@ -88,7 +90,7 @@ namespace _Scripts.Snowman_Scripts
                 }
             }
 
-            if (objects > 5) 
+            if (objects > 5 || tries > 3) 
             {
                 Debug.Log("Finished");
                 FishedPhotoTaken.Invoke();
