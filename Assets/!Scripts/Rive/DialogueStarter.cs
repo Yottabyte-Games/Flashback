@@ -1,3 +1,4 @@
+using _Scripts.Audio;
 using DialogueSystem.Scripts;
 using DialogueSystem.Scripts.ScriptableObjects;
 using Eflatun.SceneReference;
@@ -18,6 +19,7 @@ namespace _Scripts.Rive
         void Start()
         {
             _dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
+            
             if (_dialogueManager is null)
             {
                 Debug.LogError("Dialogue Manager is null");

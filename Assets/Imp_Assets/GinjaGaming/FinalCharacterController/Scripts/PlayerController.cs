@@ -59,7 +59,8 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         float _antiBump;
         float _stepOffset;
 
-        [Header("Audio")] 
+        [Header("Audio")]
+        AudioManager _audioManager;
         EventInstance PlayerFootsteps;
 
         PlayerMovementState _lastMovementState = Falling;
@@ -71,7 +72,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         {
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
-
+            _audioManager = FindFirstObjectByType<AudioManager>();
             _antiBump = runSpeed; // Changed from sprintSpeed
             _stepOffset = _characterController.stepOffset;
         }
@@ -79,7 +80,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         void Start()
         {
             // Initialize the PlayerFootsteps event instance
-            PlayerFootsteps = AudioManager.Instance.CreateEventInstance(AudioManager.Instance.PlayerFootsteps);
+            PlayerFootsteps = _audioManager.CreateEventInstance(AudioManager.Instance.PlayerFootsteps);
 
             // Validate the EventInstance to ensure it was created successfully
             if (!PlayerFootsteps.isValid())
@@ -235,8 +236,6 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             if (PlayerFootsteps.isValid())
             {
                 PlayerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
-                //PlayerFootsteps.release();
-                PlayerFootsteps.clearHandle();
             }
         }
         #endregion
@@ -307,6 +306,8 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         void OnDestroy()
         {
             StopFMOD();
+            //PlayerFootsteps.release();
+            //PlayerFootsteps.clearHandle();
         }
         
         

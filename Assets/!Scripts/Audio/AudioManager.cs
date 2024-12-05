@@ -1,12 +1,14 @@
 namespace _Scripts.Audio
 {
     using System.Collections.Generic;
-    using Generic;
     using FMOD.Studio;
     using FMODUnity;
     using UnityEngine;
-    public class AudioManager : Singleton<AudioManager>
+    
+    public class AudioManager : MonoBehaviour
     {
+        public static AudioManager Instance;
+        
         [SerializeField] FMODEventsSO fmodEventsSo;
         
         public AudioSettingsSO AudioSettingsSo;
@@ -29,9 +31,8 @@ namespace _Scripts.Audio
         EventInstance _ambienceEventInstance;
 
 
-        public override void Awake()
+        public void Awake()
         {
-            base.Awake();
             _eventInstances = new List<EventInstance>();
             _eventEmitters = new List<StudioEventEmitter>();
 
@@ -39,13 +40,14 @@ namespace _Scripts.Audio
             _musicBus = RuntimeManager.GetBus("bus:/Music");
             _sfxBus = RuntimeManager.GetBus("bus:/SFX");
             _voiceBus = RuntimeManager.GetBus("bus:/Voice");
+            
         }
 
         void Start()
         {
             InitializeAmbience(AmbienceHubworld);
         }
-
+        
         void Update()
         {
             _masterBus.setVolume(AudioSettingsSo.MasterVolume);
@@ -54,7 +56,7 @@ namespace _Scripts.Audio
             _voiceBus.setVolume(AudioSettingsSo.VoiceVolume);
             
         }
-    
+        
         void InitializeAmbience(EventReference ambienceEventReference)
         {
             _ambienceEventInstance = CreateEventInstance(ambienceEventReference);
@@ -86,24 +88,30 @@ namespace _Scripts.Audio
             return emitter;
         }
 
-        void CleanUp()
+        public void CleanUp()
         {
+            _masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            
+            _masterBus.clearHandle();
+            
             // stop and release any created instances
             foreach (EventInstance eventInstance in _eventInstances)
             {
                 eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 eventInstance.release();
-                
+                eventInstance.clearHandle();
             }
-            // stop all the event emitters, because if we dont they may hang around other scenes
+            // stop all the event emitters, because if we don't they may hang around other scenes
             foreach (StudioEventEmitter emitter in _eventEmitters)
             {
                 emitter.Stop();
+                DestroyImmediate(emitter);
             }
         }
 
         void OnDestroy()
         {
+            Debug.LogError("AudioManager OnDestroy");
             CleanUp();
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 namespace _Scripts.Audio
 {
@@ -5,12 +6,17 @@ namespace _Scripts.Audio
     {
         [Header("Area")]
         [SerializeField] AmbienceArea area;
-
+        AudioManager _audioManager;
+        void Start()
+        {
+            _audioManager = FindFirstObjectByType<AudioManager>();
+        }
+        
         void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                AudioManager.Instance.SetAmbienceArea(area);
+                _audioManager.SetAmbienceArea(area);
             }
         }
     }

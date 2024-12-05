@@ -1,3 +1,4 @@
+using _Scripts.Audio;
 using _Scripts.Rive;
 using DialogueSystem.Scripts.ScriptableObjects;
 using Eflatun.SceneReference;
@@ -23,6 +24,7 @@ namespace DialogueSystem.Scripts
         InputAction _nextDialogueAction;
         EventInstance _dialogueInstance;
         SceneReference _sceneToLoad;
+        AudioManager _audioManager;
 
         float cd;
         void OnValidate()
@@ -37,8 +39,6 @@ namespace DialogueSystem.Scripts
                 gameHudController = GetComponent<GameHudController>();
 
             _nextDialogueAction = InputSystem.actions.FindAction("Interact");
-            
-            
         }
 
         void Update()
