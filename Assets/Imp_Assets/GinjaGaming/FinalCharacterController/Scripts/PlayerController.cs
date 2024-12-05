@@ -1,4 +1,3 @@
-using System;
 using _Scripts.Audio;
 using Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.Input;
 using UnityEngine;
@@ -19,12 +18,10 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         public bool IsRotatingToTarget { get; private set; }
 
         [Header("Base Movement")]
-        public float walkAcceleration = 25f;
-        public float walkSpeed = 2f;
-        public float runAcceleration = 35f;
-        public float runSpeed = 4f;
-        public float sprintAcceleration = 50f;
-        public float sprintSpeed = 7f;
+        public float walkAcceleration = 50f; // Increased for quicker acceleration
+        public float walkSpeed = 7f;       // Set to the original sprint speed
+        public float runAcceleration = 50f; // Increased for quicker acceleration
+        public float runSpeed = 7f;       // Set to the original sprint speed
         public float inAirAcceleration = 25f;
         public float drag = 20f;
         public float inAirDrag = 5f;
@@ -72,7 +69,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
 
-            _antiBump = sprintSpeed;
+            _antiBump = runSpeed; // Changed from sprintSpeed
             _stepOffset = _characterController.stepOffset;
         }
 
@@ -87,11 +84,9 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         void Update()
         {
             UpdateMovementState();
-            
-
             HandleVerticalMovement();
             HandleLateralMovement();
-            
+
         }
 
         void FixedUpdate()
@@ -103,17 +98,12 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         {
             _lastMovementState = _playerState.CurrentPlayerMovementState;
 
-            var canRun = CanRun();
-            var isMovementInput = _playerLocomotionInput.MovementInput != Vector2.zero;             //order
-            var isMovingLaterally = IsMovingLaterally();                                            //matters
-            var isSprinting = _playerLocomotionInput.SprintToggledOn && isMovingLaterally;          //order
-            var isWalking = isMovingLaterally && (!canRun || _playerLocomotionInput.WalkToggledOn); //matters
+            var isMovementInput = _playerLocomotionInput.MovementInput != Vector2.zero;
+            var isMovingLaterally = IsMovingLaterally();
+            var isWalking = isMovingLaterally; // Always walking now
             var isGrounded = IsGrounded();
 
-            var lateralState = isWalking ? Walking :
-                                               isSprinting ? Sprinting :
-                                               isMovingLaterally || 
-                                               isMovementInput ? Running : Idling;
+            var lateralState = isWalking ? Walking : Idling; // Simplified state
 
             _playerState.SetPlayerMovementState(lateralState);
 
@@ -166,18 +156,15 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         void HandleLateralMovement()
         {
             // Create quick references for current state
-            var isSprinting = _playerState.CurrentPlayerMovementState == Sprinting;
             var isGrounded = _playerState.InGroundedState();
             var isWalking = _playerState.CurrentPlayerMovementState == Walking;
 
             // State dependent acceleration and speed
             var lateralAcceleration = !isGrounded ? inAirAcceleration :
-                                        isWalking ? walkAcceleration :
-                                        isSprinting ? sprintAcceleration : runAcceleration;
+                                        isWalking ? walkAcceleration : runAcceleration;
 
-            var clampLateralMagnitude = !isGrounded ? sprintSpeed :
-                                          isWalking ? walkSpeed :
-                                          isSprinting ? sprintSpeed : runSpeed;
+            var clampLateralMagnitude = !isGrounded ? runSpeed : // Changed from sprintSpeed
+                                          isWalking ? walkSpeed : runSpeed;
 
             var cameraForwardXZ = new Vector3(_playerCamera.transform.forward.x, 0f, _playerCamera.transform.forward.z).normalized;
             var cameraRightXZ = new Vector3(_playerCamera.transform.right.x, 0f, _playerCamera.transform.right.z).normalized;
@@ -230,15 +217,11 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             }
             else
             {
-                StopFMOD();
-            }
-        }
-        void StopFMOD()
-        {
-            // Stop the FMOD footstep event
-            if (PlayerFootsteps.isValid())
-            {
-                PlayerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                // Stop the FMOD footstep event
+                if (PlayerFootsteps.isValid())
+                {
+                    PlayerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                }
             }
         }
         #endregion
@@ -247,7 +230,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         void LateUpdate()
         {
-            if(CameraMovement)
+            if (CameraMovement)
                 UpdateCameraRotation();
         }
 
@@ -258,53 +241,14 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
             _playerTargetRotation.x += transform.eulerAngles.x + lookSenseH * _playerLocomotionInput.LookInput.x;
 
-            //var rotationTolerance = 90f;
-            //var isIdling = _playerState.CurrentPlayerMovementState == Idling;
-            //IsRotatingToTarget = _rotatingToTargetTimer > 0;
-
-            //// ROTATE if we're not idling
-            //if (!isIdling)
-            //{
-            //    RotatePlayerToTarget();
-            //}
-            //// If rotation mismatch not within tolerance, or rotate to target is active, ROTATE
-            //else if (Mathf.Abs(RotationMismatch) > rotationTolerance || IsRotatingToTarget)
-            //{
-            //    UpdateIdleRotation(rotationTolerance);
-            //}
+            // ... (Commented out idle rotation code) ...
 
             _playerCamera.transform.localRotation = Quaternion.Euler(_cameraRotation.y, _cameraRotation.x, 0f);
 
-            //// Get angle between camera and player
-            //var camForwardProjectedXZ = new Vector3(_playerCamera.transform.forward.x, 0f, _playerCamera.transform.forward.z).normalized;
-            //var crossProduct = Vector3.Cross(transform.forward, camForwardProjectedXZ);
-            //var sign = Mathf.Sign(Vector3.Dot(crossProduct, transform.up));
-            //RotationMismatch = sign * Vector3.Angle(transform.forward, camForwardProjectedXZ);
+            // ... (Commented out rotation mismatch code) ...
         }
 
-        void UpdateIdleRotation(float rotationTolerance)
-        {
-            // Initiate new rotation direction
-            if (Mathf.Abs(RotationMismatch) > rotationTolerance)
-            {
-                _rotatingToTargetTimer = rotateToTargetTime;
-                _isRotatingClockwise = RotationMismatch > rotationTolerance;
-            }
-            _rotatingToTargetTimer -= Time.deltaTime;
-
-            // Rotate player
-            if (_isRotatingClockwise && RotationMismatch > 0f ||
-                !_isRotatingClockwise && RotationMismatch < 0f)
-            {
-                RotatePlayerToTarget();
-            }
-        }
-
-        void RotatePlayerToTarget()
-        {
-            var targetRotationX = Quaternion.Euler(0f, _playerTargetRotation.x, 0f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotationX, playerModelRotationSpeed * Time.deltaTime);
-        }
+        // ... (Commented out idle rotation functions) ...
 
         public void ToggleCameraMovement(bool toggle)
         {
@@ -346,15 +290,6 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
             return _characterController.isGrounded && validAngle;
         }
 
-        bool CanRun()
-        {
-            // This means player is moving diagonally at 45 degrees or forward, if so, we can run
-            return _playerLocomotionInput.MovementInput.y >= Mathf.Abs(_playerLocomotionInput.MovementInput.x);
-        }
-        void OnDestroy()
-        {
-            StopFMOD();
-        }
         #endregion
     }
 }
