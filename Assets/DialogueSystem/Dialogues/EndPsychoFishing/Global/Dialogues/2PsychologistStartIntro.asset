@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 2PsychologistStartIntro
   m_EditorClassIdentifier: 
   <dialogueName>k__BackingField: 2PsychologistStartIntro
-  <text>k__BackingField: How are you doing today?
+  <text>k__BackingField: Imagine if you would have been bigger in this scenario,
+    how would it be played out differently?
   <choices>k__BackingField:
-  - <text>k__BackingField: "I\u2019m not doing so good today."
+  - <text>k__BackingField: I would've stayed calm.
     <nextDialogue>k__BackingField: {fileID: 11400000, guid: 2c3c74c734430c948aa8ff8472de7354, type: 2}
-  - <text>k__BackingField: "I\u2019m in such a great mood!"
+  - <text>k__BackingField: I would've given up.
     <nextDialogue>k__BackingField: {fileID: 11400000, guid: ab2c4989223081f47b7f34b937069f0d, type: 2}
   <dialogueType>k__BackingField: 1
   <isStartingDialogue>k__BackingField: 0
@@ -28,3 +29,4 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 077089a48aeab8c4eb4368d7178ab3c3, type: 2}

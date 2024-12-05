@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: 4PsychologistStartIntro
   m_EditorClassIdentifier: 
   <dialogueName>k__BackingField: 4PsychologistStartIntro
-  <text>k__BackingField: Are you sure? You seem quite bothered.
+  <text>k__BackingField: 'It is not worth the struggle, because everything in life
+    is horrible.
+
+'
   <choices>k__BackingField:
   - <text>k__BackingField: Next Dialogue
-    <nextDialogue>k__BackingField: {fileID: 11400000, guid: 7bd8602dbcd19184a80fad1e327b26cb, type: 2}
+    <nextDialogue>k__BackingField: {fileID: 11400000, guid: aecae9e7503c78348be819ddebe927e3, type: 2}
   <dialogueType>k__BackingField: 0
   <isStartingDialogue>k__BackingField: 0
   <voiceEvent>k__BackingField:
@@ -26,3 +29,4 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 4d6cae9f079dbb84980f2d0a4b84efd9, type: 2}

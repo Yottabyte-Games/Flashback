@@ -16,21 +16,18 @@ MonoBehaviour:
   <Groups>k__BackingField:
   - <ID>k__BackingField: 79afe220-675a-4b2a-b2f6-5cced743e467
     <Name>k__BackingField: Correct
-    <Position>k__BackingField: {x: 938, y: -156}
+    <Position>k__BackingField: {x: 937, y: -156}
   - <ID>k__BackingField: 7bec22bc-3f59-4b0e-8ba8-747db9e5f810
     <Name>k__BackingField: False
-    <Position>k__BackingField: {x: 956, y: 257.99997}
+    <Position>k__BackingField: {x: 937, y: 229}
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: b7de9b9f-1694-4e2a-a6d8-e8633fb3f61d
-    <Name>k__BackingField: 3PsychologistStartIntro
-    <Text>k__BackingField: "\rI would tell the kid that:\r\nYour parents didn\u2019t
-      divorce because of you.\r\nAnd later on you willl actually have a better experience
-      with them. You\u2019re going to have Mom weeks and Dad weeks where you get
-      to do whatever you want!\r"
+  - <ID>k__BackingField: f5aacd0f-41d9-4ad3-b83c-74a46737d7c2
+    <Name>k__BackingField: 1PsychologistStartIntro
+    <Text>k__BackingField: "I also have a memory of my parents fighting.\r"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 
-    <GroupID>k__BackingField: 79afe220-675a-4b2a-b2f6-5cced743e467
+      <NodeID>k__BackingField: bb3a30df-6964-4035-a3c5-24fb0566da2f
+    <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
     <voiceEvent>k__BackingField:
       Guid:
@@ -39,11 +36,11 @@ MonoBehaviour:
         Data3: 0
         Data4: 0
       Path: 
-    <Position>k__BackingField: {x: 963, y: -97}
+    <Position>k__BackingField: {x: -52, y: 111}
   - <ID>k__BackingField: bb3a30df-6964-4035-a3c5-24fb0566da2f
     <Name>k__BackingField: 2PsychologistStartIntro
-    <Text>k__BackingField: "Imagine that you would've known then, what you know now.
-      What would tell that kid?\r"
+    <Text>k__BackingField: "Imagine you could talk to your past-self, what would
+      you tell that kid? \r"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Looking at the bright side.
       <NodeID>k__BackingField: b7de9b9f-1694-4e2a-a6d8-e8633fb3f61d
@@ -58,12 +55,27 @@ MonoBehaviour:
         Data3: 0
         Data4: 0
       Path: 
-    <Position>k__BackingField: {x: 313, y: 99}
-  - <ID>k__BackingField: f6af3c07-437f-4d63-9beb-bd0df9f2be15
-    <Name>k__BackingField: 4PsychologistStartIntro
-    <Text>k__BackingField: "I would tell the kid that:\r\nEverything in life is going
-      to be horrible.\r\nHe is the reason for their divorce. \r\nAnd he is stupid
-      from not trying to stop the divorce of his parents!\r"
+    <Position>k__BackingField: {x: 308, y: 93}
+  - <ID>k__BackingField: b7de9b9f-1694-4e2a-a6d8-e8633fb3f61d
+    <Name>k__BackingField: 3PsychologistStartIntro
+    <Text>k__BackingField: Your Dad was correct. You should be more open with sharing
+      your feelings and struggles.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 79afe220-675a-4b2a-b2f6-5cced743e467
+    <DialogueType>k__BackingField: 0
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 962, y: -97}
+  - <ID>k__BackingField: 8d722011-13da-4b41-824f-a0126b5cbb93
+    <Name>k__BackingField: DialogueName
+    <Text>k__BackingField: Let's try that again.
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: bb3a30df-6964-4035-a3c5-24fb0566da2f
@@ -76,14 +88,15 @@ MonoBehaviour:
         Data3: 0
         Data4: 0
       Path: 
-    <Position>k__BackingField: {x: 981, y: 317}
-  - <ID>k__BackingField: f5aacd0f-41d9-4ad3-b83c-74a46737d7c2
-    <Name>k__BackingField: 1PsychologistStartIntro
-    <Text>k__BackingField: "[tells about his toy car memory]\r"
+    <Position>k__BackingField: {x: 1653, y: 288}
+  - <ID>k__BackingField: f6af3c07-437f-4d63-9beb-bd0df9f2be15
+    <Name>k__BackingField: 4PsychologistStartIntro
+    <Text>k__BackingField: "Everything in life is going to be bad. Your mom is correct,
+      don't share your feelings and probelms with others. It will solve itself.\r\r\r"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: bb3a30df-6964-4035-a3c5-24fb0566da2f
-    <GroupID>k__BackingField: 
+      <NodeID>k__BackingField: 8d722011-13da-4b41-824f-a0126b5cbb93
+    <GroupID>k__BackingField: 7bec22bc-3f59-4b0e-8ba8-747db9e5f810
     <DialogueType>k__BackingField: 0
     <voiceEvent>k__BackingField:
       Guid:
@@ -92,13 +105,13 @@ MonoBehaviour:
         Data3: 0
         Data4: 0
       Path: 
-    <Position>k__BackingField: {x: -13, y: 120}
+    <Position>k__BackingField: {x: 962, y: 288}
   <OldGroupNames>k__BackingField:
   - Correct
   - False
   <OldUngroupedNodeNames>k__BackingField:
-  - 2PsychologistStartIntro
   - 1PsychologistStartIntro
+  - 2PsychologistStartIntro
   <OldGroupedNodeNames>k__BackingField:
     list:
     - Key: Correct
@@ -106,4 +119,5 @@ MonoBehaviour:
       - 3PsychologistStartIntro
     - Key: False
       Value:
+      - DialogueName
       - 4PsychologistStartIntro

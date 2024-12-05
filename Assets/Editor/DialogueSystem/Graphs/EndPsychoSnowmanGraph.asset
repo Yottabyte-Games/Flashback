@@ -19,30 +19,14 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 938, y: -156}
   - <ID>k__BackingField: 7bec22bc-3f59-4b0e-8ba8-747db9e5f810
     <Name>k__BackingField: False
-    <Position>k__BackingField: {x: 975, y: 258.00018}
+    <Position>k__BackingField: {x: 975, y: 258}
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: f5aacd0f-41d9-4ad3-b83c-74a46737d7c2
-    <Name>k__BackingField: 1PsychologistStartIntro
-    <Text>k__BackingField: "[tells about his snowman memory]\r"
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: bb3a30df-6964-4035-a3c5-24fb0566da2f
-    <GroupID>k__BackingField: 
-    <DialogueType>k__BackingField: 0
-    <voiceEvent>k__BackingField:
-      Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
-    <Position>k__BackingField: {x: -103, y: 118}
   - <ID>k__BackingField: bb3a30df-6964-4035-a3c5-24fb0566da2f
     <Name>k__BackingField: 2PsychologistStartIntro
     <Text>k__BackingField: "Can you tell me about a time when you felt truly happy,
       and what makes that memory so significant to you now?\r\n\r"
     <Choices>k__BackingField:
-    - <Text>k__BackingField: "I\u2019ve a relization."
+    - <Text>k__BackingField: I made a snowman!
       <NodeID>k__BackingField: b7de9b9f-1694-4e2a-a6d8-e8633fb3f61d
     - <Text>k__BackingField: "I\u2019ve never been truly happy."
       <NodeID>k__BackingField: f6af3c07-437f-4d63-9beb-bd0df9f2be15
@@ -110,7 +94,6 @@ MonoBehaviour:
   - Correct
   - False
   <OldUngroupedNodeNames>k__BackingField:
-  - 1PsychologistStartIntro
   - 2PsychologistStartIntro
   <OldGroupedNodeNames>k__BackingField:
     list:

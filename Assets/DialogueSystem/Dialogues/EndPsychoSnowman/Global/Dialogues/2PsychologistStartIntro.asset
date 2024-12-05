@@ -16,12 +16,12 @@ MonoBehaviour:
   <text>k__BackingField: "Can you tell me about a time when you felt truly happy,
     and what makes that memory so significant to you now?\r\n\r"
   <choices>k__BackingField:
-  - <text>k__BackingField: "I\u2019ve a relization."
+  - <text>k__BackingField: I made a snowman!
     <nextDialogue>k__BackingField: {fileID: 11400000, guid: fc420f3f406d8704b9c57e7a20397d17, type: 2}
   - <text>k__BackingField: "I\u2019ve never been truly happy."
     <nextDialogue>k__BackingField: {fileID: 11400000, guid: d7f95b29e2a13d84a82859c19835bfea, type: 2}
   <dialogueType>k__BackingField: 1
-  <isStartingDialogue>k__BackingField: 0
+  <isStartingDialogue>k__BackingField: 1
   <voiceEvent>k__BackingField:
     Guid:
       Data1: 0
@@ -29,4 +29,4 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <narratorEnum>k__BackingField: {fileID: 0}
+  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 077089a48aeab8c4eb4368d7178ab3c3, type: 2}

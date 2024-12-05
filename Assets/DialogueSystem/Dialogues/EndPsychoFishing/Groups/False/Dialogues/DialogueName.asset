@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
-  m_Name: 3PsychologistStartIntro
+  m_Name: DialogueName
   m_EditorClassIdentifier: 
-  <dialogueName>k__BackingField: 3PsychologistStartIntro
-  <text>k__BackingField: I think I would have been able to stay calm and take time
-    to think more clearly.
+  <dialogueName>k__BackingField: DialogueName
+  <text>k__BackingField: Have you tried thinking about it differently?
   <choices>k__BackingField:
   - <text>k__BackingField: Next Dialogue
-    <nextDialogue>k__BackingField: {fileID: 0}
+    <nextDialogue>k__BackingField: {fileID: 11400000, guid: 7bd8602dbcd19184a80fad1e327b26cb, type: 2}
   <dialogueType>k__BackingField: 0
   <isStartingDialogue>k__BackingField: 0
   <voiceEvent>k__BackingField:
@@ -27,4 +26,4 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 4d6cae9f079dbb84980f2d0a4b84efd9, type: 2}
+  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 077089a48aeab8c4eb4368d7178ab3c3, type: 2}

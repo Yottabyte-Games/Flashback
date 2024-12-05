@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DialogueName
   m_EditorClassIdentifier: 
   <dialogueName>k__BackingField: DialogueName
-  <text>k__BackingField: "Let\u2019s try that again."
+  <text>k__BackingField: Are you completley sure about that?
   <choices>k__BackingField:
   - <text>k__BackingField: Next Dialogue
     <nextDialogue>k__BackingField: {fileID: 11400000, guid: 634ced15cd2d4154dafada95b94142ad, type: 2}
@@ -26,4 +26,4 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <narratorEnum>k__BackingField: {fileID: 0}
+  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 077089a48aeab8c4eb4368d7178ab3c3, type: 2}

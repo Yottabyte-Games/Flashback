@@ -95,8 +95,7 @@ namespace _Scripts.Rive
                     case DSDialogueType.SingleChoice:
                     {
                         
-
-                        NarratorEnumSO narratorEnum =  FindAnyObjectByType<NarratorEnumSO>();
+                        NarratorEnumSO narratorEnum = _currentDialogue.narratorEnum;
                         if (narratorEnum is not null)
                         {
                             switch (narratorEnum.narratorType)
