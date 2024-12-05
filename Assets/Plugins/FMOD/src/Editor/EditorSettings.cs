@@ -20,19 +20,20 @@ namespace FMODUnity
         public const string DownloadURL = "https://www.fmod.com/download";
 
         // This is used to find the platform that implements the current Unity build target.
-        Dictionary<BuildTarget, Platform> PlatformForBuildTarget = new Dictionary<BuildTarget, Platform>();
+        private Dictionary<BuildTarget, Platform> PlatformForBuildTarget = new Dictionary<BuildTarget, Platform>();
 
-        static string FMODFolderFull => RuntimeUtils.PluginBasePath;
+        private static string FMODFolderFull => RuntimeUtils.PluginBasePath;
 
-        const string CacheFolderName = "Cache";
-        static string CacheFolderRelative => $"{RuntimeUtils.PluginBasePath}/{CacheFolderName}";
-        static string CacheFolderFull => $"{FMODFolderFull}/{CacheFolderName}";
+        private const string CacheFolderName = "Cache";
+        private static string CacheFolderRelative => $"{RuntimeUtils.PluginBasePath}/{CacheFolderName}";
+        private static string CacheFolderFull => $"{FMODFolderFull}/{CacheFolderName}";
 
-        const string RegisterStaticPluginsFile = "RegisterStaticPlugins.cs";
-        static string RegisterStaticPluginsAssetPathRelative => $"{CacheFolderRelative}/{RegisterStaticPluginsFile}";
-        static string RegisterStaticPluginsAssetPathFull => $"{CacheFolderFull}/{RegisterStaticPluginsFile}";
+        private const string RegisterStaticPluginsFile = "RegisterStaticPlugins.cs";
+        private static string RegisterStaticPluginsAssetPathRelative => $"{CacheFolderRelative}/{RegisterStaticPluginsFile}";
+        private static string RegisterStaticPluginsAssetPathFull => $"{CacheFolderFull}/{RegisterStaticPluginsFile}";
 
-        [NonSerialized] Dictionary<string, bool> binaryCompatibilitiesBeforeBuild;
+        [NonSerialized]
+        private Dictionary<string, bool> binaryCompatibilitiesBeforeBuild;
 
         public static EditorSettings Instance
         {
@@ -104,7 +105,7 @@ namespace FMODUnity
             return group;
         }
 
-        void ClearPlatformSettings()
+        private void ClearPlatformSettings()
         {
             RemovePlatformFromAsset(RuntimeSettings.DefaultPlatform);
             RemovePlatformFromAsset(RuntimeSettings.PlayInEditorPlatform);
@@ -341,7 +342,7 @@ namespace FMODUnity
             RuntimeSettings.Platforms.ForEach(UpdateMigratedPlatform);
         }
 
-        void MigrateLegacyPlatforms<TValue, TSetting>(List<TSetting> settings,
+        private void MigrateLegacyPlatforms<TValue, TSetting>(List<TSetting> settings,
             Platform.PropertyAccessor<TValue> property, Func<Legacy.Platform, Platform> getMigrationTarget)
             where TSetting : Legacy.PlatformSetting<TValue>
         {
@@ -423,7 +424,7 @@ namespace FMODUnity
         }
 
         // Ensures that the given platform has valid properties.
-        void AffirmPlatformProperties(Platform platform)
+        private void AffirmPlatformProperties(Platform platform)
         {
             if (!platform.Active)
             {
@@ -432,7 +433,7 @@ namespace FMODUnity
             }
         }
 
-        void RemovePlatformFromAsset(Platform platform)
+        private void RemovePlatformFromAsset(Platform platform)
         {
             if (AssetDatabase.Contains(platform))
             {
@@ -503,7 +504,7 @@ namespace FMODUnity
             SelectBinaries(platform, target, binaryType);
         }
 
-        void PostprocessBuild(BuildTarget target)
+        private void PostprocessBuild(BuildTarget target)
         {
             foreach(string path in binaryCompatibilitiesBeforeBuild.Keys)
             {
@@ -516,7 +517,7 @@ namespace FMODUnity
             }
         }
 
-        void PreprocessStaticPlugins(Platform platform, BuildTarget target)
+        private void PreprocessStaticPlugins(Platform platform, BuildTarget target)
         {
             // Ensure we don't have leftover temporary changes from a previous build.
             CleanTemporaryFiles();
@@ -576,7 +577,7 @@ namespace FMODUnity
             }
         }
 
-        static void SelectBinaries(Platform platform, BuildTarget target, Platform.BinaryType binaryType)
+        private static void SelectBinaries(Platform platform, BuildTarget target, Platform.BinaryType binaryType)
         {
             string message = string.Format("FMOD: Selected binaries for platform {0}{1}:", target,
                 (binaryType == Platform.BinaryType.Logging) ? " (development build)" : string.Empty);
@@ -700,7 +701,7 @@ namespace FMODUnity
             RuntimeSettings.Platforms.ForEach(AddPlatformToAsset);
         }
 
-        void AddPlatformToAsset(Platform platform)
+        private void AddPlatformToAsset(Platform platform)
         {
             if (!AssetDatabase.Contains(platform))
             {

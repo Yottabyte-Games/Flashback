@@ -5,14 +5,14 @@ namespace FMODUnity
 {
     public class ListView : UnityEditorInternal.ReorderableList
     {
-        const float ElementPadding = 2;
+        private const float ElementPadding = 2;
 
         public DrawElementWithLabelDelegate drawElementWithLabelCallback;
 
         public delegate void DrawElementWithLabelDelegate(Rect rect, float labelRight, int index,
             bool active, bool focused);
 
-        float labelRight;
+        private float labelRight;
 
         public ListView(SerializedProperty property)
             : base(property.serializedObject, property, true, false, true, true)
@@ -31,7 +31,7 @@ namespace FMODUnity
             DoList(EditorGUI.IndentedRect(rect));
         }
 
-        void DrawElementWrapper(Rect rect, int index, bool active, bool focused)
+        private void DrawElementWrapper(Rect rect, int index, bool active, bool focused)
         {
             if (drawElementWithLabelCallback != null)
             {

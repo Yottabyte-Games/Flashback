@@ -7,10 +7,10 @@ namespace FMODUnity
     [CanEditMultipleObjects]
     public class StudioListenerEditor : Editor
     {
-        SerializedProperty attenuationObject;
-        SerializedProperty nonRigidbodyVelocity;
+        private SerializedProperty attenuationObject;
+        private SerializedProperty nonRigidbodyVelocity;
 
-        void OnEnable()
+        private void OnEnable()
         {
             attenuationObject = serializedObject.FindProperty("attenuationObject");
             nonRigidbodyVelocity = serializedObject.FindProperty("nonRigidbodyVelocity");

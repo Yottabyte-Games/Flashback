@@ -45,28 +45,28 @@ namespace FMODUnityResonance
         public const float MaxReflectivity = 2.0f;
 
         // Right-handed to left-handed matrix converter (and vice versa).
-        static readonly Matrix4x4 flipZ = Matrix4x4.Scale(new Vector3(1, 1, -1));
+        private static readonly Matrix4x4 flipZ = Matrix4x4.Scale(new Vector3(1, 1, -1));
 
         // Get a handle to the Resonance Audio Listener FMOD Plugin.
-        static readonly string listenerPluginName = "Resonance Audio Listener";
+        private static readonly string listenerPluginName = "Resonance Audio Listener";
 
         // Size of |RoomProperties| struct in bytes.
-        static readonly int roomPropertiesSize = Marshal.SizeOf<RoomProperties>();
+        private static readonly int roomPropertiesSize = Marshal.SizeOf<RoomProperties>();
 
         // Plugin data parameter index for the room properties.
-        static readonly int roomPropertiesIndex = 1;
+        private static readonly int roomPropertiesIndex = 1;
 
         // Boundaries instance to be used in room detection logic.
-        static Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
+        private static Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
 
         // Container to store the currently active rooms in the scene.
-        static List<FmodResonanceAudioRoom> enabledRooms = new List<FmodResonanceAudioRoom>();
+        private static List<FmodResonanceAudioRoom> enabledRooms = new List<FmodResonanceAudioRoom>();
 
         // Current listener position.
-        static FMOD.VECTOR listenerPositionFmod = new FMOD.VECTOR();
+        private static FMOD.VECTOR listenerPositionFmod = new FMOD.VECTOR();
 
         // FMOD Resonance Audio Listener Plugin.
-        static FMOD.DSP listenerPlugin;
+        private static FMOD.DSP listenerPlugin;
 
         /// Updates the room effects of the environment with given |room| properties.
         /// @note This should only be called from the main Unity thread.
@@ -120,7 +120,7 @@ namespace FMODUnityResonance
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        struct RoomProperties
+        private struct RoomProperties
         {
             // Center position of the room in world space.
             public float PositionX;
@@ -163,7 +163,7 @@ namespace FMODUnityResonance
         };
 
         // Returns the FMOD Resonance Audio Listener Plugin.
-        static FMOD.DSP ListenerPlugin
+        private static FMOD.DSP ListenerPlugin
         {
             get
             {
@@ -176,13 +176,13 @@ namespace FMODUnityResonance
         }
 
         // Converts given |db| value to its amplitude equivalent where 'dB = 20 * log10(amplitude)'.
-        static float ConvertAmplitudeFromDb(float db)
+        private static float ConvertAmplitudeFromDb(float db)
         {
             return Mathf.Pow(10.0f, 0.05f * db);
         }
 
         // Converts given |position| and |rotation| from Unity space to audio space.
-        static void ConvertAudioTransformFromUnity(ref Vector3 position,
+        private static void ConvertAudioTransformFromUnity(ref Vector3 position,
           ref Quaternion rotation)
         {
             // Compose the transformation matrix.
@@ -195,7 +195,7 @@ namespace FMODUnityResonance
         }
 
         // Returns a byte array of |length| created from |ptr|.
-        static byte[] GetBytes(IntPtr ptr, int length)
+        private static byte[] GetBytes(IntPtr ptr, int length)
         {
             if (ptr != IntPtr.Zero)
             {
@@ -208,7 +208,7 @@ namespace FMODUnityResonance
         }
 
         // Returns room properties of the given |room|.
-        static RoomProperties GetRoomProperties(FmodResonanceAudioRoom room)
+        private static RoomProperties GetRoomProperties(FmodResonanceAudioRoom room)
         {
             RoomProperties roomProperties;
             Vector3 position = room.transform.position;
@@ -239,7 +239,7 @@ namespace FMODUnityResonance
         }
 
         // Initializes and returns the FMOD Resonance Audio Listener Plugin.
-        static FMOD.DSP Initialize()
+        private static FMOD.DSP Initialize()
         {
             // Search through all busses on in banks.
             int numBanks = 0;

@@ -7,14 +7,14 @@ namespace FMODUnity
 {
     public class BankRefresher
     {
-        static string currentWatchPath;
-        static FileSystemWatcher sourceFileWatcher;
-        static bool sourceFilesChanged = false;
-        static float lastSourceFileChange = float.MaxValue;
-        static bool autoRefresh = true;
-        static float nextFilePollTime = float.MinValue;
+        private static string currentWatchPath;
+        private static FileSystemWatcher sourceFileWatcher;
+        private static bool sourceFilesChanged = false;
+        private static float lastSourceFileChange = float.MaxValue;
+        private static bool autoRefresh = true;
+        private static float nextFilePollTime = float.MinValue;
 
-        const int FilePollPeriod = 5;
+        private const int FilePollPeriod = 5;
 
         public static void DisableAutoRefresh()
         {
@@ -34,12 +34,12 @@ namespace FMODUnity
             EditorApplication.update += Update;
         }
 
-        static void OnSourceFileChanged(object source, FileSystemEventArgs e)
+        private static void OnSourceFileChanged(object source, FileSystemEventArgs e)
         {
             sourceFilesChanged = true;
         }
 
-        static void Update()
+        private static void Update()
         {
             UpdateFileWatcherPath();
             CheckSourceFilesChanged();
@@ -47,7 +47,7 @@ namespace FMODUnity
             RefreshBanksIfReady();
         }
 
-        static void UpdateFileWatcherPath()
+        private static void UpdateFileWatcherPath()
         {
             string sourceBankPath = Settings.Instance.SourceBankPath;
 
@@ -83,7 +83,7 @@ namespace FMODUnity
             }
         }
 
-        static void CheckSourceFilesChanged()
+        private static void CheckSourceFilesChanged()
         {
             if (sourceFilesChanged)
             {
@@ -102,7 +102,7 @@ namespace FMODUnity
             }
         }
 
-        static void CheckCacheFileExists()
+        private static void CheckCacheFileExists()
         {
             if (Time.realtimeSinceStartup >= nextFilePollTime)
             {
@@ -115,7 +115,7 @@ namespace FMODUnity
             }
         }
 
-        static void RefreshBanksIfReady()
+        private static void RefreshBanksIfReady()
         {
             if (TimeUntilBankRefresh() == 0 && BankRefreshWindow.ReadyToRefreshBanks)
             {
@@ -129,7 +129,7 @@ namespace FMODUnity
             BankRefreshWindow.HandleBankRefresh(result);
         }
 
-        static bool IsWindowEnabled()
+        private static bool IsWindowEnabled()
         {
             Settings settings = Settings.Instance;
 

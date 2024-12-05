@@ -1,13 +1,13 @@
 namespace _Scripts.Audio
 {
     using System.Collections.Generic;
+    using Generic;
     using FMOD.Studio;
     using FMODUnity;
     using UnityEngine;
     
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : Singleton<AudioManager>
     {
-        public static AudioManager Instance;
         
         [SerializeField] FMODEventsSO fmodEventsSo;
         
@@ -31,8 +31,9 @@ namespace _Scripts.Audio
         EventInstance _ambienceEventInstance;
 
 
-        public void Awake()
+        public override void Awake()
         {
+            base.Awake();
             _eventInstances = new List<EventInstance>();
             _eventEmitters = new List<StudioEventEmitter>();
 
@@ -40,7 +41,6 @@ namespace _Scripts.Audio
             _musicBus = RuntimeManager.GetBus("bus:/Music");
             _sfxBus = RuntimeManager.GetBus("bus:/SFX");
             _voiceBus = RuntimeManager.GetBus("bus:/Voice");
-            
         }
 
         void Start()
@@ -105,7 +105,6 @@ namespace _Scripts.Audio
             foreach (StudioEventEmitter emitter in _eventEmitters)
             {
                 emitter.Stop();
-                DestroyImmediate(emitter);
             }
         }
 

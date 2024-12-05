@@ -14,11 +14,11 @@ namespace FMODUnity
     [CustomEditor(typeof(Settings))]
     public class SettingsEditor : Editor
     {
-        static readonly string[] ToggleDisplay = new string[] { "Disabled", "Enabled", "Development Build Only",  };
+        private static readonly string[] ToggleDisplay = new string[] { "Disabled", "Enabled", "Development Build Only",  };
 
-        static readonly string[] OverlayLocations = new string[] { "TopLeft", "TopCenter", "TopRight", "BottomLeft", "BottomCenter", "BottomRight", "Center", "VR", };
+        private static readonly string[] OverlayLocations = new string[] { "TopLeft", "TopCenter", "TopRight", "BottomLeft", "BottomCenter", "BottomRight", "Center", "VR", };
 
-        static readonly string[] FrequencyDisplay = new string[] {
+        private static readonly string[] FrequencyDisplay = new string[] {
             "Platform Default",
             "22.05 kHz",
             "24 kHz",
@@ -27,99 +27,100 @@ namespace FMODUnity
             "48 kHz"
         };
 
-        static readonly int[] FrequencyValues = new int[] { 0, 22050, 24000, 32000, 44100, 48000 };
+        private static readonly int[] FrequencyValues = new int[] { 0, 22050, 24000, 32000, 44100, 48000 };
 
-        static readonly string[] SpeakerModeDisplay = new string[] {
+        private static readonly string[] SpeakerModeDisplay = new string[] {
             "Stereo",
             "Surround 5.1",
             "Surround 7.1",
             "Surround 7.1.4"
         };
 
-        static readonly FMOD.SPEAKERMODE[] SpeakerModeValues = new FMOD.SPEAKERMODE[] {
+        private static readonly FMOD.SPEAKERMODE[] SpeakerModeValues = new FMOD.SPEAKERMODE[] {
             FMOD.SPEAKERMODE.STEREO,
             FMOD.SPEAKERMODE._5POINT1,
             FMOD.SPEAKERMODE._7POINT1,
             FMOD.SPEAKERMODE._7POINT1POINT4
         };
 
-        bool hasBankSourceChanged = false;
-        bool hasBankTargetChanged = false;
+        private bool hasBankSourceChanged = false;
+        private bool hasBankTargetChanged = false;
 
-        bool expandThreadAffinity;
-        bool expandCodecChannels;
-        bool expandDynamicPlugins;
-        bool expandStaticPlugins;
+        private bool expandThreadAffinity;
+        private bool expandCodecChannels;
+        private bool expandDynamicPlugins;
+        private bool expandStaticPlugins;
 
-        static Section sExpandedSections;
+        private static Section sExpandedSections;
 
-        SerializedProperty automaticEventLoading;
-        SerializedProperty automaticSampleLoading;
-        SerializedProperty bankLoadType;
-        SerializedProperty banksToLoad;
-        SerializedProperty enableMemoryTracking;
-        SerializedProperty encryptionKey;
-        SerializedProperty hasSourceProject;
-        SerializedProperty hasPlatforms;
-        SerializedProperty importType;
-        SerializedProperty loggingLevel;
-        SerializedProperty meterChannelOrdering;
-        SerializedProperty sourceBankPath;
-        SerializedProperty sourceProjectPath;
-        SerializedProperty stopEventsOutsideMaxDistance;
-        SerializedProperty enableErrorCallback;
-        SerializedProperty targetAssetPath;
-        SerializedProperty targetBankFolder;
-        SerializedProperty bankRefreshCooldown;
-        SerializedProperty showBankRefreshWindow;
-        SerializedProperty eventLinkage;
+        private SerializedProperty automaticEventLoading;
+        private SerializedProperty automaticSampleLoading;
+        private SerializedProperty bankLoadType;
+        private SerializedProperty banksToLoad;
+        private SerializedProperty enableMemoryTracking;
+        private SerializedProperty encryptionKey;
+        private SerializedProperty hasSourceProject;
+        private SerializedProperty hasPlatforms;
+        private SerializedProperty importType;
+        private SerializedProperty loggingLevel;
+        private SerializedProperty meterChannelOrdering;
+        private SerializedProperty sourceBankPath;
+        private SerializedProperty sourceProjectPath;
+        private SerializedProperty stopEventsOutsideMaxDistance;
+        private SerializedProperty enableErrorCallback;
+        private SerializedProperty targetAssetPath;
+        private SerializedProperty targetBankFolder;
+        private SerializedProperty bankRefreshCooldown;
+        private SerializedProperty showBankRefreshWindow;
+        private SerializedProperty eventLinkage;
 
-        [NonSerialized] bool resourcesLoaded = false;
+        [NonSerialized]
+        private bool resourcesLoaded = false;
 
-        GUIStyle mainHeaderStyle;
-        GUIStyle sectionHeaderStyle;
-        GUIStyle platformHeaderStyle;
-        GUIStyle dropdownStyle;
-        GUIStyle inheritedPropertyLabelStyle;
-        GUIStyle overriddenPropertyLabelStyle;
-        GUIStyle inheritedPropertyFoldoutStyle;
-        GUIStyle overriddenPropertyFoldoutStyle;
+        private GUIStyle mainHeaderStyle;
+        private GUIStyle sectionHeaderStyle;
+        private GUIStyle platformHeaderStyle;
+        private GUIStyle dropdownStyle;
+        private GUIStyle inheritedPropertyLabelStyle;
+        private GUIStyle overriddenPropertyLabelStyle;
+        private GUIStyle inheritedPropertyFoldoutStyle;
+        private GUIStyle overriddenPropertyFoldoutStyle;
 
-        GUIContent mainHeaderIcon;
+        private GUIContent mainHeaderIcon;
 
-        Texture2D propertyOverrideIndicator;
+        private Texture2D propertyOverrideIndicator;
 
-        const int THREAD_AFFINITY_CORES_PER_ROW = 8;
+        private const int THREAD_AFFINITY_CORES_PER_ROW = 8;
 
-        const string EditPlatformUndoMessage = "Edit FMOD Platform Properties";
+        private const string EditPlatformUndoMessage = "Edit FMOD Platform Properties";
 
-        PlatformPropertyStringListView staticPluginsView;
-        PlatformPropertyStringListView dynamicPluginsView;
+        private PlatformPropertyStringListView staticPluginsView;
+        private PlatformPropertyStringListView dynamicPluginsView;
 
-        static readonly int[] LoggingValues = new int[] {
+        private static readonly int[] LoggingValues = new int[] {
             (int)FMOD.DEBUG_FLAGS.NONE,
             (int)FMOD.DEBUG_FLAGS.ERROR,
             (int)FMOD.DEBUG_FLAGS.WARNING,
             (int)FMOD.DEBUG_FLAGS.LOG,
         };
 
-        static readonly string[] LoggingDisplay = new string[] {
+        private static readonly string[] LoggingDisplay = new string[] {
             "None",
             "Error",
             "Warning",
             "Log",
         };
 
-        ReorderableList banksToLoadView;
+        private ReorderableList banksToLoadView;
 
-        PlatformsView platformsView;
-        TreeViewState platformTreeViewState = new TreeViewState();
+        private PlatformsView platformsView;
+        private TreeViewState platformTreeViewState = new TreeViewState();
 
-        string lastSourceBankPath;
+        private string lastSourceBankPath;
 
-        static readonly GUIContent BankRefreshLabel = new GUIContent("Refresh Banks");
+        private static readonly GUIContent BankRefreshLabel = new GUIContent("Refresh Banks");
 
-        static readonly GUIContent[] BankRefreshCooldownLabels = new GUIContent[] {
+        private static readonly GUIContent[] BankRefreshCooldownLabels = new GUIContent[] {
             new GUIContent("After 1 second"),
             new GUIContent("After 5 seconds"),
             new GUIContent("After 10 seconds"),
@@ -130,7 +131,7 @@ namespace FMODUnity
             new GUIContent("Manually"),
         };
 
-        static readonly int[] BankRefreshCooldownValues = new int[] {
+        private static readonly int[] BankRefreshCooldownValues = new int[] {
             1,
             5,
             10,
@@ -149,7 +150,7 @@ namespace FMODUnity
         }
 
         [Flags]
-        enum Section
+        private enum Section
         {
             BankImport = 1 << 0,
             Initialization = 1 << 1,
@@ -158,7 +159,7 @@ namespace FMODUnity
             PlatformSpecific = 1 << 4,
         }
 
-        void OnEnable()
+        private void OnEnable()
         {
             automaticEventLoading = serializedObject.FindProperty("AutomaticEventLoading");
             automaticSampleLoading = serializedObject.FindProperty("AutomaticSampleLoading");
@@ -199,12 +200,12 @@ namespace FMODUnity
             Undo.undoRedoPerformed += OnUndoRedo;
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             Undo.undoRedoPerformed -= OnUndoRedo;
         }
 
-        void OnUndoRedo()
+        private void OnUndoRedo()
         {
             platformsView.ForceReload();
 
@@ -213,7 +214,7 @@ namespace FMODUnity
             Repaint();
         }
 
-        void AffirmResources()
+        private void AffirmResources()
         {
             if (!resourcesLoaded)
             {
@@ -265,7 +266,7 @@ namespace FMODUnity
             }
         }
 
-        Rect DrawPlatformPropertyLabel(string label, Platform platform,
+        private Rect DrawPlatformPropertyLabel(string label, Platform platform,
             params Platform.PropertyOverrideControl[] properties)
         {
             PlatformPropertyLabelData data;
@@ -278,7 +279,7 @@ namespace FMODUnity
             return data.remainderRect;
         }
 
-        Rect DrawPlatformPropertyFoldout(string label, ref bool expand, Platform platform,
+        private Rect DrawPlatformPropertyFoldout(string label, ref bool expand, Platform platform,
             params Platform.PropertyOverrideControl[] properties)
         {
             PlatformPropertyLabelData data;
@@ -295,7 +296,7 @@ namespace FMODUnity
             return data.remainderRect;
         }
 
-        struct PlatformPropertyLabelData
+        private struct PlatformPropertyLabelData
         {
             public bool hasParent;
             public bool overridden;
@@ -303,7 +304,7 @@ namespace FMODUnity
             public Rect remainderRect;
         }
 
-        void PreparePlatformPropertyLabel(Platform platform, Platform.PropertyOverrideControl[] properties,
+        private void PreparePlatformPropertyLabel(Platform platform, Platform.PropertyOverrideControl[] properties,
             out PlatformPropertyLabelData data)
         {
             AffirmResources();
@@ -316,7 +317,7 @@ namespace FMODUnity
             data.remainderRect = new Rect(rect) { xMin = data.labelRect.xMax };
         }
 
-        void DecoratePlatformPropertyLabel(PlatformPropertyLabelData data, Platform platform,
+        private void DecoratePlatformPropertyLabel(PlatformPropertyLabelData data, Platform platform,
             Platform.PropertyOverrideControl[] properties)
         {
             if (data.hasParent)
@@ -356,7 +357,7 @@ namespace FMODUnity
             }
         }
 
-        static int DrawPopup(Rect position, int selectedIndex, string[] displayedOptions)
+        private static int DrawPopup(Rect position, int selectedIndex, string[] displayedOptions)
         {
             using (new NoIndentScope())
             {
@@ -364,7 +365,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayTriStateBool(string label, Platform platform, Platform.PropertyAccessor<TriStateBool> property)
+        private void DisplayTriStateBool(string label, Platform platform, Platform.PropertyAccessor<TriStateBool> property)
         {
             Rect rect = DrawPlatformPropertyLabel(label, platform, property);
 
@@ -378,7 +379,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayPositionRect(string label, Platform platform, Platform.PropertyAccessor<ScreenPosition> property)
+        private void DisplayPositionRect(string label, Platform platform, Platform.PropertyAccessor<ScreenPosition> property)
         {
             Rect rect = DrawPlatformPropertyLabel(label, platform, property);
             EditorGUI.BeginChangeCheck();
@@ -389,7 +390,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayDebugFontSelection(string label, Platform platform, Platform.PropertyAccessor<int> property)
+        private void DisplayDebugFontSelection(string label, Platform platform, Platform.PropertyAccessor<int> property)
         {
             Rect rect = DrawPlatformPropertyLabel(label, platform, property);
             EditorGUI.BeginChangeCheck();
@@ -400,7 +401,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayOutputMode(string label, Platform platform)
+        private void DisplayOutputMode(string label, Platform platform)
         {
             if (platform.ValidOutputTypes != null)
             {
@@ -428,7 +429,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayThreadAffinity(string label, Platform platform)
+        private void DisplayThreadAffinity(string label, Platform platform)
         {
             if (platform.CoreCount > 0 && DisplayThreadAffinityFoldout(label, platform))
             {
@@ -439,7 +440,7 @@ namespace FMODUnity
             }
         }
 
-        bool DisplayThreadAffinityFoldout(string label, Platform platform)
+        private bool DisplayThreadAffinityFoldout(string label, Platform platform)
         {
             Rect headerRect = EditorGUILayout.GetControlRect();
 
@@ -479,7 +480,7 @@ namespace FMODUnity
             return expandThreadAffinity;
         }
 
-        void DisplayThreadAffinityGroups(Platform platform)
+        private void DisplayThreadAffinityGroups(Platform platform)
         {
             GUIStyle affinityStyle = EditorStyles.miniButton;
             float affinityWidth = affinityStyle.CalcSize(new GUIContent("00")).x;
@@ -540,7 +541,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayThreadAffinitiesHeader(float threadsWidth, float affinitiesWidth)
+        private void DisplayThreadAffinitiesHeader(float threadsWidth, float affinitiesWidth)
         {
             Rect controlRect = EditorGUILayout.GetControlRect(false, EditorGUIUtility.singleLineHeight);
 
@@ -558,7 +559,7 @@ namespace FMODUnity
             GUI.Label(coresRect, "Cores");
         }
 
-        void DisplayThreadAffinityGroup(ThreadAffinityGroup group, Platform platform,
+        private void DisplayThreadAffinityGroup(ThreadAffinityGroup group, Platform platform,
             float threadsWidth, float affinitiesWidth, float anyButtonWidth, GUIContent anyButtonContent,
             GUIStyle affinityStyle, float affinityWidth, out bool delete)
         {
@@ -672,11 +673,11 @@ namespace FMODUnity
             }
         }
 
-        class ThreadListEditor : EditorWindow
+        private class ThreadListEditor : EditorWindow
         {
-            ThreadAffinityGroup group;
-            Platform platform;
-            Editor parent;
+            private ThreadAffinityGroup group;
+            private Platform platform;
+            private Editor parent;
 
             public static void Show(Rect buttonRect, ThreadAffinityGroup group, Platform platform, Editor parent)
             {
@@ -690,10 +691,10 @@ namespace FMODUnity
                 editor.ShowAsDropDown(rect, CalculateSize());
             }
 
-            static GUIStyle FrameStyle { get { return GUI.skin.box; } }
-            static GUIStyle ThreadStyle { get { return EditorStyles.toggle; } }
+            private static GUIStyle FrameStyle { get { return GUI.skin.box; } }
+            private static GUIStyle ThreadStyle { get { return EditorStyles.toggle; } }
 
-            static Vector2 CalculateSize()
+            private static Vector2 CalculateSize()
             {
                 Vector2 result = Vector2.zero;
 
@@ -714,7 +715,7 @@ namespace FMODUnity
                 return result;
             }
 
-            void OnGUI()
+            private void OnGUI()
             {
                 Rect frameRect = new Rect(0, 0, position.width, position.height);
 
@@ -757,7 +758,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayCodecChannels(string label, Platform platform)
+        private void DisplayCodecChannels(string label, Platform platform)
         {
             if (platform is PlatformGroup)
             {
@@ -790,7 +791,7 @@ namespace FMODUnity
             }
         }
 
-        bool DisplayCodecChannelsFoldout(string label, Platform platform)
+        private bool DisplayCodecChannelsFoldout(string label, Platform platform)
         {
             Rect controlRect = EditorGUILayout.GetControlRect();
 
@@ -830,7 +831,7 @@ namespace FMODUnity
             return expandCodecChannels;
         }
 
-        void DisplaySampleRate(string label, Platform platform)
+        private void DisplaySampleRate(string label, Platform platform)
         {
             Platform.PropertyAccessor<int> property = Platform.PropertyAccessors.SampleRate;
 
@@ -847,7 +848,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayProjectPlatform(string label, Platform platform)
+        private void DisplayProjectPlatform(string label, Platform platform)
         {
             Rect rect = DrawPlatformPropertyLabel(label, platform,
                 Platform.PropertyAccessors.BuildDirectory, Platform.PropertyAccessors.SpeakerMode);
@@ -861,29 +862,29 @@ namespace FMODUnity
             }
         }
 
-        class ProjectPlatformSelector : PopupWindowContent
+        private class ProjectPlatformSelector : PopupWindowContent
         {
-            Platform platform;
-            SettingsEditor settingsEditor;
-            string[] outputSubdirectories;
+            private Platform platform;
+            private SettingsEditor settingsEditor;
+            private string[] outputSubdirectories;
 
-            GUIStyle headerStyle;
-            GUIStyle toggleStyle;
+            private GUIStyle headerStyle;
+            private GUIStyle toggleStyle;
 
-            GUIContent subdirectoryHeader = new GUIContent("Output sub-directory:");
-            GUIContent speakerModeHeader = new GUIContent("Surround speaker mode:");
+            private GUIContent subdirectoryHeader = new GUIContent("Output sub-directory:");
+            private GUIContent speakerModeHeader = new GUIContent("Surround speaker mode:");
 
-            const string HelpText = "Select the output sub-directory and surround speaker mode that match the project " +
-                                    "platform settings in the FMOD Studio build preferences.";
-            const string UndoText = "Edit FMOD Platform Settings";
+            private const string HelpText = "Select the output sub-directory and surround speaker mode that match the project " +
+                "platform settings in the FMOD Studio build preferences.";
+            private const string UndoText = "Edit FMOD Platform Settings";
 
-            const float InterColumnSpace = 25;
+            private const float InterColumnSpace = 25;
 
-            Vector2 subdirectorySize;
-            Vector2 speakerModeSize;
-            Vector2 helpButtonSize;
+            private Vector2 subdirectorySize;
+            private Vector2 speakerModeSize;
+            private Vector2 helpButtonSize;
 
-            Vector2 windowSize;
+            private Vector2 windowSize;
 
             public ProjectPlatformSelector(Platform platform, SettingsEditor settingsEditor)
             {
@@ -918,7 +919,7 @@ namespace FMODUnity
                 windowSize = new Vector2(width, height);
             }
 
-            Vector2 ToggleGroupSize(IEnumerable<string> labels)
+            private Vector2 ToggleGroupSize(IEnumerable<string> labels)
             {
                 Vector2 totalSize = Vector2.zero;
 
@@ -1005,7 +1006,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplaySpeakerMode(string label, Platform platform)
+        private void DisplaySpeakerMode(string label, Platform platform)
         {
             const string HelpText = "Select the speaker mode that matches the project " +
                 "platform settings in the FMOD Studio build preferences.";
@@ -1026,7 +1027,7 @@ namespace FMODUnity
             Platform.PropertyAccessors.SpeakerMode.Set(platform, SpeakerModeValues[next]);
         }
 
-        void DisplayCallbackHandler(string label, Platform platform)
+        private void DisplayCallbackHandler(string label, Platform platform)
         {
             Platform.PropertyAccessor<PlatformCallbackHandler> property = Platform.PropertyAccessors.CallbackHandler;
 
@@ -1046,7 +1047,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayInt(string label, Platform platform, Platform.PropertyAccessor<int> property, int min, int max)
+        private void DisplayInt(string label, Platform platform, Platform.PropertyAccessor<int> property, int min, int max)
         {
             int currentValue = property.Get(platform);
 
@@ -1065,7 +1066,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayLiveUpdatePort(string label, Platform platform, Platform.PropertyAccessor<int> property)
+        private void DisplayLiveUpdatePort(string label, Platform platform, Platform.PropertyAccessor<int> property)
         {
             Rect rect = DrawPlatformPropertyLabel(label, platform, property);
 
@@ -1095,7 +1096,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayPlatform(Platform platform)
+        private void DisplayPlatform(Platform platform)
         {
             if (!platform.Active)
             {
@@ -1175,7 +1176,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayPlatformHeader(Platform platform)
+        private void DisplayPlatformHeader(Platform platform)
         {
             string type;
 
@@ -1255,7 +1256,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayDSPBufferSettings(Platform platform)
+        private void DisplayDSPBufferSettings(Platform platform)
         {
             Rect rect = DrawPlatformPropertyLabel("DSP Buffer Settings", platform,
                 Platform.PropertyAccessors.DSPBufferLength, Platform.PropertyAccessors.DSPBufferCount);
@@ -1268,7 +1269,7 @@ namespace FMODUnity
             }
         }
 
-        bool DisplayAutoDSPBufferSettings(Rect rect, Platform platform)
+        private bool DisplayAutoDSPBufferSettings(Rect rect, Platform platform)
         {
             Platform.PropertyAccessor<int> lengthProperty = Platform.PropertyAccessors.DSPBufferLength;
             Platform.PropertyAccessor<int> countProperty = Platform.PropertyAccessors.DSPBufferCount;
@@ -1303,7 +1304,7 @@ namespace FMODUnity
             return useAutoDSPBufferSettings;
         }
 
-        void DisplayDSPBufferFields(Platform platform)
+        private void DisplayDSPBufferFields(Platform platform)
         {
             Platform.PropertyAccessor<int> lengthProperty = Platform.PropertyAccessors.DSPBufferLength;
             Platform.PropertyAccessor<int> countProperty = Platform.PropertyAccessors.DSPBufferCount;
@@ -1323,7 +1324,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayPlugins(string title, PlatformPropertyStringListView view, Platform platform,
+        private void DisplayPlugins(string title, PlatformPropertyStringListView view, Platform platform,
             ref bool expand, string warning = null)
         {
             List<string> plugins = view.property.Get(platform);
@@ -1408,14 +1409,14 @@ namespace FMODUnity
             ApplyPendingActions();
         }
 
-        bool DrawSectionHeaderLayout(Section section, string title)
+        private bool DrawSectionHeaderLayout(Section section, string title)
         {
             Rect rect = EditorGUILayout.GetControlRect();
 
             return DrawSectionHeader(rect, section, title);
         }
 
-        bool DrawSectionHeader(Rect rect, Section section, string title)
+        private bool DrawSectionHeader(Rect rect, Section section, string title)
         {
             AffirmResources();
 
@@ -1428,7 +1429,7 @@ namespace FMODUnity
             return expanded;
         }
 
-        void DrawImportSection(string invalidSourceMessage)
+        private void DrawImportSection(string invalidSourceMessage)
         {
             if (DrawSectionHeaderLayout(Section.BankImport, "Bank Import"))
             {
@@ -1446,7 +1447,7 @@ namespace FMODUnity
             }
         }
 
-        void DrawSourceSelection(string invalidSourceMessage)
+        private void DrawSourceSelection(string invalidSourceMessage)
         {
             Rect popupRect = EditorUtils.DrawHelpButtonLayout(() => new SourceSelectionHelp());
 
@@ -1523,7 +1524,7 @@ namespace FMODUnity
             }
         }
 
-        void BrowseForSourceProjectPathAndRefresh()
+        private void BrowseForSourceProjectPathAndRefresh()
         {
             if (BrowseForSourceProjectPath(serializedObject))
             {
@@ -1531,7 +1532,7 @@ namespace FMODUnity
             }
         }
 
-        void BrowseForSourceBankPathAndRefresh()
+        private void BrowseForSourceBankPathAndRefresh()
         {
             if (BrowseForSourceBankPath(serializedObject, hasPlatforms.boolValue))
             {
@@ -1539,7 +1540,7 @@ namespace FMODUnity
             }
         }
 
-        string CheckValidSource()
+        private string CheckValidSource()
         {
             bool validSource;
             string invalidMessage;
@@ -1557,13 +1558,13 @@ namespace FMODUnity
             }
         }
 
-        class SourceSelectionHelp : HelpContent
+        private class SourceSelectionHelp : HelpContent
         {
-            GUIStyle style;
+            private GUIStyle style;
 
-            readonly GUIContent introduction = new GUIContent("Choose how to access your FMOD Studio content:");
+            private readonly GUIContent introduction = new GUIContent("Choose how to access your FMOD Studio content:");
 
-            readonly ListEntry[] listEntries = {
+            private readonly ListEntry[] listEntries = {
                 new ListEntry("FMOD Studio Project",
                     "If you have the complete FMOD Studio project."
                 ),
@@ -1584,7 +1585,7 @@ namespace FMODUnity
                 };
             }
 
-            struct ListEntry
+            private struct ListEntry
             {
                 public ListEntry(string label, string description)
                 {
@@ -1628,7 +1629,7 @@ namespace FMODUnity
             }
         }
 
-        static string GetBankDirectory(SerializedObject serializedObject)
+        private static string GetBankDirectory(SerializedObject serializedObject)
         {
             var sourceProjectPath = serializedObject.FindProperty("sourceProjectPath");
             var sourceBankPath = serializedObject.FindProperty("sourceBankPath");
@@ -1649,7 +1650,7 @@ namespace FMODUnity
             }
         }
 
-        void DrawTargetSelection()
+        private void DrawTargetSelection()
         {
             Settings settings = target as Settings;
 
@@ -1706,7 +1707,7 @@ namespace FMODUnity
             EditorGUILayout.PropertyField(eventLinkage);
         }
 
-        void DrawBehaviorSection()
+        private void DrawBehaviorSection()
         {
             if (DrawSectionHeaderLayout(Section.Behavior, "Behavior"))
             {
@@ -1718,7 +1719,7 @@ namespace FMODUnity
             }
         }
 
-        void DrawUserInterfaceSection()
+        private void DrawUserInterfaceSection()
         {
             if (DrawSectionHeaderLayout(Section.UserInterface, "User Interface"))
             {
@@ -1736,7 +1737,7 @@ namespace FMODUnity
             }
         }
 
-        void DrawInitializationSection()
+        private void DrawInitializationSection()
         {
             if (DrawSectionHeaderLayout(Section.Initialization, "Initialization"))
             {
@@ -1780,7 +1781,7 @@ namespace FMODUnity
             }
         }
 
-        void DisplayBanksToLoad()
+        private void DisplayBanksToLoad()
         {
             banksToLoad.isExpanded = EditorGUILayout.Foldout(banksToLoad.isExpanded, "Specified Banks", true);
 
@@ -1793,7 +1794,7 @@ namespace FMODUnity
             }
         }
 
-        void BrowseForBankToLoad()
+        private void BrowseForBankToLoad()
         {
             string bankDirectory = CurrentBankDirectory();
             string path = EditorUtility.OpenFilePanel("Locate Bank", bankDirectory, "bank");
@@ -1814,7 +1815,7 @@ namespace FMODUnity
             }
         }
 
-        void AddAllBanksToLoad()
+        private void AddAllBanksToLoad()
         {
             string sourceDir = CurrentBankDirectory();
             string[] banksFound = Directory.GetFiles(sourceDir, "*.bank", SearchOption.AllDirectories);
@@ -1838,7 +1839,7 @@ namespace FMODUnity
             Repaint();
         }
 
-        string CurrentBankDirectory()
+        private string CurrentBankDirectory()
         {
             Settings settings = target as Settings;
 
@@ -1857,7 +1858,7 @@ namespace FMODUnity
             return RuntimeUtils.GetCommonPlatformPath(Path.GetFullPath(bankDirectory));
         }
 
-        void DrawPlatforms()
+        private void DrawPlatforms()
         {
             platformsView.ReloadIfNecessary();
 
@@ -1877,30 +1878,30 @@ namespace FMODUnity
             }
         }
 
-        class PlatformsView : TreeView
+        private class PlatformsView : TreeView
         {
-            const float RowPadding = 2;
+            private const float RowPadding = 2;
 
-            Settings settings;
+            private Settings settings;
 
-            static UnityEditorInternal.ReorderableList.Defaults s_Defaults;
+            private static UnityEditorInternal.ReorderableList.Defaults s_Defaults;
 
-            const float HeaderHeight = 3;
-            const float BodyHeight = 150;
-            const float FooterHeight = 13;
-            const float TotalHeight = HeaderHeight + BodyHeight + FooterHeight;
+            private const float HeaderHeight = 3;
+            private const float BodyHeight = 150;
+            private const float FooterHeight = 13;
+            private const float TotalHeight = HeaderHeight + BodyHeight + FooterHeight;
 
-            const float ButtonWidth = 25;
-            const float ButtonHeight = 16;
-            const float ButtonMarginTop = 0;
+            private const float ButtonWidth = 25;
+            private const float ButtonHeight = 16;
+            private const float ButtonMarginTop = 0;
 
-            const float FooterMarginRight = 10;
+            private const float FooterMarginRight = 10;
 
-            static readonly RectOffset BodyPadding = new RectOffset(1, 2, 1, 4);
-            static readonly RectOffset FooterPadding = new RectOffset(4, 4, 0, 0);
+            private static readonly RectOffset BodyPadding = new RectOffset(1, 2, 1, 4);
+            private static readonly RectOffset FooterPadding = new RectOffset(4, 4, 0, 0);
 
-            static readonly Vector2 DragHandleSize = new Vector2(10, 7);
-            static readonly Vector2 DragHandlePadding = new Vector2(5, 6);
+            private static readonly Vector2 DragHandleSize = new Vector2(10, 7);
+            private static readonly Vector2 DragHandlePadding = new Vector2(5, 6);
 
             public PlatformsView(Settings settings, TreeViewState state) : base(state)
             {
@@ -1930,7 +1931,7 @@ namespace FMODUnity
                 }
             }
 
-            static UnityEditorInternal.ReorderableList.Defaults defaultBehaviours
+            private static UnityEditorInternal.ReorderableList.Defaults defaultBehaviours
             {
                 get
                 {
@@ -2008,7 +2009,7 @@ namespace FMODUnity
                 }
             }
 
-            void DoAddMenu(Rect rect)
+            private void DoAddMenu(Rect rect)
             {
                 GenericMenu menu = new GenericMenu();
 
@@ -2028,7 +2029,7 @@ namespace FMODUnity
                 menu.DropDown(rect);
             }
 
-            void AddPlatform(object data)
+            private void AddPlatform(object data)
             {
                 string identifier = data as string;
 
@@ -2047,7 +2048,7 @@ namespace FMODUnity
                 SelectAndFramePlatform(platform);
             }
 
-            void AddGroup()
+            private void AddGroup()
             {
                 const string UndoMessage = "Add FMOD Platform Group";
 
@@ -2067,7 +2068,7 @@ namespace FMODUnity
                 DoubleClickedItem(group.Identifier.GetHashCode());
             }
 
-            int UpdateSortOrderForChildren(Platform platform, Platform skipChild, string undoMessage)
+            private int UpdateSortOrderForChildren(Platform platform, Platform skipChild, string undoMessage)
             {
                 int sortOrder = 0;
 
@@ -2089,7 +2090,7 @@ namespace FMODUnity
 
             // Removes a platform from the inheritance hierarchy and clears its properties, thus hiding
             // it in the UI. Also destroys the platform if it is a group.
-            void DeleteSelectedPlatform()
+            private void DeleteSelectedPlatform()
             {
                 Platform platform = SelectedPlatform;
 
@@ -2227,7 +2228,7 @@ namespace FMODUnity
                 return root;
             }
 
-            class PlatformItem : TreeViewItem
+            private class PlatformItem : TreeViewItem
             {
                 public Platform platform;
 
@@ -2238,7 +2239,7 @@ namespace FMODUnity
                 }
             }
 
-            void CreateItems(TreeViewItem parent, IEnumerable<string> platformIdentifiers)
+            private void CreateItems(TreeViewItem parent, IEnumerable<string> platformIdentifiers)
             {
                 foreach (string identifier in platformIdentifiers)
                 {
@@ -2254,7 +2255,7 @@ namespace FMODUnity
                 }
             }
 
-            static TreeViewItem CreateItem(Platform platform)
+            private static TreeViewItem CreateItem(Platform platform)
             {
                 return new PlatformItem(platform);
             }
@@ -2313,7 +2314,7 @@ namespace FMODUnity
                 return IsItemDraggable(args.draggedItem);
             }
 
-            bool IsItemDraggable(TreeViewItem draggedItem)
+            private bool IsItemDraggable(TreeViewItem draggedItem)
             {
                 PlatformItem item = draggedItem as PlatformItem;
 
@@ -2373,7 +2374,7 @@ namespace FMODUnity
                 }
             }
 
-            DragAndDropVisualMode HandleDragOverPlatform(Platform draggedPlatform, Platform parent, bool performDrop)
+            private DragAndDropVisualMode HandleDragOverPlatform(Platform draggedPlatform, Platform parent, bool performDrop)
             {
                 if (parent == draggedPlatform)
                 {
@@ -2394,7 +2395,7 @@ namespace FMODUnity
                 return DragAndDropVisualMode.Link;
             }
 
-            DragAndDropVisualMode HandleDragBetweenChildren(Platform draggedPlatform, Platform parent,
+            private DragAndDropVisualMode HandleDragBetweenChildren(Platform draggedPlatform, Platform parent,
                 int insertAtIndex, bool performDrop)
             {
                 if (parent.InheritsFrom(draggedPlatform))
@@ -2412,9 +2413,9 @@ namespace FMODUnity
             }
         }
 
-        class ReorderableList : UnityEditorInternal.ReorderableList
+        private class ReorderableList : UnityEditorInternal.ReorderableList
         {
-            const float ElementPadding = 2;
+            private const float ElementPadding = 2;
 
             public ReorderableList(SerializedProperty property)
                 : base(property.serializedObject, property, true, false, true, true)
@@ -2432,7 +2433,7 @@ namespace FMODUnity
                 DoList(rect);
             }
 
-            void DrawElement(Rect rect, int index, bool active, bool focused)
+            private void DrawElement(Rect rect, int index, bool active, bool focused)
             {
                 using (new NoIndentScope())
                 {
@@ -2443,13 +2444,13 @@ namespace FMODUnity
             }
         }
 
-        class PlatformPropertyStringListView : UnityEditorInternal.ReorderableList
+        private class PlatformPropertyStringListView : UnityEditorInternal.ReorderableList
         {
-            const float ElementPadding = 2;
+            private const float ElementPadding = 2;
 
             public Platform platform;
 
-            List<string> displayList;
+            private List<string> displayList;
 
             public PlatformPropertyStringListView(Platform.PropertyAccessor<List<string>> property)
                 : base(null, typeof(string), true, false, true, true)
@@ -2507,7 +2508,7 @@ namespace FMODUnity
                 return false;
             }
 
-            void DrawElement(Rect rect, int index, bool active, bool focused)
+            private void DrawElement(Rect rect, int index, bool active, bool focused)
             {
                 using (new NoIndentScope())
                 {
@@ -2525,17 +2526,17 @@ namespace FMODUnity
                 }
             }
 
-            void AddElement(UnityEditorInternal.ReorderableList list)
+            private void AddElement(UnityEditorInternal.ReorderableList list)
             {
                 AffirmOverriddenList().Add(string.Empty);
             }
 
-            void RemoveElement(UnityEditorInternal.ReorderableList list)
+            private void RemoveElement(UnityEditorInternal.ReorderableList list)
             {
                 AffirmOverriddenList().RemoveAt(list.index);
             }
 
-            void OnReorder(UnityEditorInternal.ReorderableList list)
+            private void OnReorder(UnityEditorInternal.ReorderableList list)
             {
                 List<string> propertyList = AffirmOverriddenList();
 
@@ -2543,7 +2544,7 @@ namespace FMODUnity
                 propertyList.AddRange(displayList);
             }
 
-            List<string> AffirmOverriddenList()
+            private List<string> AffirmOverriddenList()
             {
                 if (!property.HasValue(platform))
                 {
@@ -2557,7 +2558,7 @@ namespace FMODUnity
         }
 
         // If insertAtIndex == -1, insert at the end
-        static void SetPlatformParent(string undoMessage, Settings settings, Platform child, Platform parent, int insertAtIndex = -1)
+        private static void SetPlatformParent(string undoMessage, Settings settings, Platform child, Platform parent, int insertAtIndex = -1)
         {
             if (parent == child.Parent)
             {
@@ -2604,7 +2605,7 @@ namespace FMODUnity
             settings.SetPlatformParent(child, parent);
         }
 
-        void ApplyPendingActions()
+        private void ApplyPendingActions()
         {
             if (hasBankSourceChanged || hasBankTargetChanged)
             {
@@ -2612,7 +2613,7 @@ namespace FMODUnity
             }
         }
 
-        void RefreshBanks()
+        private void RefreshBanks()
         {
             Settings settings = target as Settings;
 
@@ -2662,7 +2663,7 @@ namespace FMODUnity
             }
         }
 
-        static Rect LabelRect(Rect controlRect)
+        private static Rect LabelRect(Rect controlRect)
         {
             Rect result = controlRect;
             result.width = EditorGUIUtility.labelWidth;
@@ -2723,7 +2724,7 @@ namespace FMODUnity
             }
         }
 
-        static string MakePathRelative(string path)
+        private static string MakePathRelative(string path)
         {
             if (string.IsNullOrEmpty(path))
                 return "";

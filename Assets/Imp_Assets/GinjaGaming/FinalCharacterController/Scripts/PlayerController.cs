@@ -7,10 +7,9 @@ using static Imp_Assets.GinjaGaming.FinalCharacterController.Scripts.PlayerMovem
 
 namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 {
-    [DefaultExecutionOrder(1)]
+    [DefaultExecutionOrder(-1)]
     public class PlayerController : MonoBehaviour
     {
-        
         #region Class Variables
         [Header("Components")]
         [SerializeField]
@@ -59,8 +58,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         float _antiBump;
         float _stepOffset;
 
-        [Header("Audio")]
-        AudioManager _audioManager;
+        [Header("Audio")] 
         EventInstance PlayerFootsteps;
 
         PlayerMovementState _lastMovementState = Falling;
@@ -72,23 +70,15 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         {
             _playerLocomotionInput = GetComponent<PlayerLocomotionInput>();
             _playerState = GetComponent<PlayerState>();
-            _audioManager = FindFirstObjectByType<AudioManager>();
+
             _antiBump = runSpeed; // Changed from sprintSpeed
             _stepOffset = _characterController.stepOffset;
         }
 
         void Start()
         {
-            // Initialize the PlayerFootsteps event instance
-            PlayerFootsteps = _audioManager.CreateEventInstance(AudioManager.Instance.PlayerFootsteps);
-
-            // Validate the EventInstance to ensure it was created successfully
-            if (!PlayerFootsteps.isValid())
-            {
-                Debug.LogError("PlayerFootsteps EventInstance is not valid. Check the AudioManager configuration or the FMOD event path.");
-            }
+            PlayerFootsteps = AudioManager.Instance.CreateEventInstance(AudioManager.Instance.PlayerFootsteps);
         }
-
         #endregion
 
         #region Update Logic
@@ -211,25 +201,27 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
 
         void UpdateSound()
         {
+            // Check if the player is moving laterally
             bool isMovingLaterally = IsMovingLaterally();
+
+            // Check if the player is grounded
             bool isGrounded = IsGrounded();
 
-            PLAYBACK_STATE playbackState;
-            PlayerFootsteps.getPlaybackState(out playbackState);
-
+            // Start or stop the footstep event based on movement and grounded state
             if (isMovingLaterally && isGrounded)
             {
+                PLAYBACK_STATE playbackState;
+                PlayerFootsteps.getPlaybackState(out playbackState);
                 if (playbackState != PLAYBACK_STATE.PLAYING)
                 {
                     PlayerFootsteps.start();
                 }
             }
-            else if (playbackState == PLAYBACK_STATE.PLAYING)
+            else
             {
-                PlayerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+                StopFMOD();
             }
         }
-
         void StopFMOD()
         {
             // Stop the FMOD footstep event
@@ -306,11 +298,7 @@ namespace Imp_Assets.GinjaGaming.FinalCharacterController.Scripts
         void OnDestroy()
         {
             StopFMOD();
-            //PlayerFootsteps.release();
-            //PlayerFootsteps.clearHandle();
         }
-        
-        
         #endregion
     }
 }

@@ -93,7 +93,7 @@ namespace FMODUnity
             }
         }
 
-        static OutputType[] sValidOutputTypes = {
+        private static OutputType[] sValidOutputTypes = {
            new OutputType() { displayName = "Pulse Audio", outputType = FMOD.OUTPUTTYPE.PULSEAUDIO },
            new OutputType() { displayName = "Advanced Linux Sound Architecture", outputType = FMOD.OUTPUTTYPE.ALSA },
         };
@@ -101,7 +101,7 @@ namespace FMODUnity
 
         internal override List<CodecChannelCount> DefaultCodecChannels { get { return staticCodecChannels; } }
 
-        static List<CodecChannelCount> staticCodecChannels = new List<CodecChannelCount>()
+        private static List<CodecChannelCount> staticCodecChannels = new List<CodecChannelCount>()
         {
             new CodecChannelCount { format = CodecType.FADPCM, channels = 0 },
             new CodecChannelCount { format = CodecType.Vorbis, channels = 32 },

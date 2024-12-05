@@ -24,37 +24,37 @@ namespace FMODUnityResonance
     [CanEditMultipleObjects]
     public class FmodResonanceAudioRoomEditor : Editor
     {
-        SerializedProperty leftWall = null;
-        SerializedProperty rightWall = null;
-        SerializedProperty floor = null;
-        SerializedProperty ceiling = null;
-        SerializedProperty backWall = null;
-        SerializedProperty frontWall = null;
-        SerializedProperty reflectivity = null;
-        SerializedProperty reverbGainDb = null;
-        SerializedProperty reverbBrightness = null;
-        SerializedProperty reverbTime = null;
-        SerializedProperty size = null;
+        private SerializedProperty leftWall = null;
+        private SerializedProperty rightWall = null;
+        private SerializedProperty floor = null;
+        private SerializedProperty ceiling = null;
+        private SerializedProperty backWall = null;
+        private SerializedProperty frontWall = null;
+        private SerializedProperty reflectivity = null;
+        private SerializedProperty reverbGainDb = null;
+        private SerializedProperty reverbBrightness = null;
+        private SerializedProperty reverbTime = null;
+        private SerializedProperty size = null;
 
-        GUIContent surfaceMaterialsLabel = new GUIContent("Surface Materials",
+        private GUIContent surfaceMaterialsLabel = new GUIContent("Surface Materials",
           "Room surface materials to calculate the acoustic properties of the room.");
-        GUIContent surfaceMaterialLabel = new GUIContent("Surface Material",
+        private GUIContent surfaceMaterialLabel = new GUIContent("Surface Material",
           "Surface material used to calculate the acoustic properties of the room.");
-        GUIContent reflectivityLabel = new GUIContent("Reflectivity",
+        private GUIContent reflectivityLabel = new GUIContent("Reflectivity",
           "Adjusts what proportion of the direct sound is reflected back by each surface, after an " +
           "appropriate delay. Reverberation is unaffected by this setting.");
-        GUIContent reverbGainLabel = new GUIContent("Gain (dB)",
+        private GUIContent reverbGainLabel = new GUIContent("Gain (dB)",
           "Applies a gain adjustment to the reverberation in the room. The default value will leave " +
           "reverb unaffected.");
-        GUIContent reverbPropertiesLabel = new GUIContent("Reverb Properties",
+        private GUIContent reverbPropertiesLabel = new GUIContent("Reverb Properties",
           "Parameters to adjust the reverb properties of the room.");
-        GUIContent reverbBrightnessLabel = new GUIContent("Brightness",
+        private GUIContent reverbBrightnessLabel = new GUIContent("Brightness",
           "Adjusts the balance between high and low frequencies in the reverb.");
-        GUIContent reverbTimeLabel = new GUIContent("Time",
+        private GUIContent reverbTimeLabel = new GUIContent("Time",
           "Adjusts the overall duration of the reverb by a positive scaling factor.");
-        GUIContent sizeLabel = new GUIContent("Size", "Sets the room dimensions.");
+        private GUIContent sizeLabel = new GUIContent("Size", "Sets the room dimensions.");
 
-        void OnEnable()
+        private void OnEnable()
         {
             leftWall = serializedObject.FindProperty("LeftWall");
             rightWall = serializedObject.FindProperty("RightWall");
@@ -112,7 +112,8 @@ namespace FMODUnityResonance
             serializedObject.ApplyModifiedProperties();
         }
         /// @endcond
-        void DrawSurfaceMaterial(SerializedProperty surfaceMaterial)
+
+        private void DrawSurfaceMaterial(SerializedProperty surfaceMaterial)
         {
             surfaceMaterialLabel.text = surfaceMaterial.displayName;
             EditorGUILayout.PropertyField(surfaceMaterial, surfaceMaterialLabel);

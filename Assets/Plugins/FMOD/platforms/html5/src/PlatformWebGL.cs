@@ -111,7 +111,7 @@ namespace FMODUnity
             }
         }
 
-        static OutputType[] sValidOutputTypes = {
+        private static OutputType[] sValidOutputTypes = {
            new OutputType() { displayName = "JavaScript webaudio output", outputType = FMOD.OUTPUTTYPE.WEBAUDIO },
         };
 #endif

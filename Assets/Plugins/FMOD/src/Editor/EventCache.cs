@@ -16,7 +16,8 @@ namespace FMODUnity
         public List<EditorBankRef> MasterBanks;
         [SerializeField]
         public List<EditorBankRef> StringsBanks;
-        [SerializeField] Int64 cacheTime;
+        [SerializeField]
+        private Int64 cacheTime;
         [SerializeField]
         public int cacheVersion;
 

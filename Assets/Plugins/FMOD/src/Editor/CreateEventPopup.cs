@@ -8,7 +8,7 @@ namespace FMODUnity
 {
     public class CreateEventPopup : EditorWindow
     {
-        class FolderEntry
+        private class FolderEntry
         {
             public FolderEntry parent;
             public string name;
@@ -17,28 +17,28 @@ namespace FMODUnity
             public Rect rect;
         }
 
-        SerializedProperty outputProperty;
+        private SerializedProperty outputProperty;
 
-        FolderEntry rootFolder;
-        FolderEntry currentFolder;
-        List<BankEntry> banks;
+        private FolderEntry rootFolder;
+        private FolderEntry currentFolder;
+        private List<BankEntry> banks;
 
-        int lastHover = 0;
-        string eventFolder = "/";
-        string eventName = "";
-        string currentFilter = "";
-        int selectedBank = 0;
-        bool resetCursor = true;
-        Vector2 scrollPos = new Vector2();
-        Rect scrollRect = new Rect();
-        bool isConnected = false;
+        private int lastHover = 0;
+        private string eventFolder = "/";
+        private string eventName = "";
+        private string currentFilter = "";
+        private int selectedBank = 0;
+        private bool resetCursor = true;
+        private Vector2 scrollPos = new Vector2();
+        private Rect scrollRect = new Rect();
+        private bool isConnected = false;
 
         internal void SelectEvent(SerializedProperty property)
         {
             outputProperty = property;
         }
 
-        class BankEntry
+        private class BankEntry
         {
             public string name;
             public string guid;
@@ -48,7 +48,7 @@ namespace FMODUnity
         {
         }
 
-        void BuildTree()
+        private void BuildTree()
         {
             var rootGuid = EditorUtils.GetScriptOutput("studio.project.workspace.masterEventFolder.id");
             rootFolder = new FolderEntry();
@@ -85,7 +85,7 @@ namespace FMODUnity
             }
         }
 
-        void BuildTreeItem(FolderEntry entry)
+        private void BuildTreeItem(FolderEntry entry)
         {
             // lookup the entry
             EditorUtils.GetScriptOutput(string.Format("cur = studio.project.lookup(\"{0}\");", entry.guid));
@@ -337,7 +337,7 @@ namespace FMODUnity
             }
         }
 
-        void CreateEventInStudio()
+        private void CreateEventInStudio()
         {
             string eventGuid = EditorUtils.CreateStudioEvent(eventFolder, eventName);
 
@@ -358,7 +358,7 @@ namespace FMODUnity
             }
         }
 
-        void UpdateListFromText()
+        private void UpdateListFromText()
         {
             int endFolders = eventFolder.LastIndexOf("/");
             currentFilter = eventFolder.Substring(endFolders + 1);
@@ -384,7 +384,7 @@ namespace FMODUnity
             }
         }
 
-        void UpdateTextFromList()
+        private void UpdateTextFromList()
         {
             string path = "";
             var entry = currentFolder;
