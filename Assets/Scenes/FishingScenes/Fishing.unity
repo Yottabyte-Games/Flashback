@@ -196,10 +196,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5272657471857185710, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: isGrounded
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 32272296840888117, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -736,6 +732,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5272657471857185710, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
+      propertyPath: isGrounded
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7730262913696954965, guid: 6b4393b16c890d24e839e82bc27e23e7, type: 3}
     m_RemovedGameObjects: []
@@ -885,7 +885,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
   loadSceneAfterDialogue: 0
-  ActOnBeat: 0
+  ActOnBeat: 3
 --- !u!1 &203007177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,7 +1327,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
   loadSceneAfterDialogue: 0
-  ActOnBeat: 0
+  ActOnBeat: 3
 --- !u!1 &521357513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,7 +1683,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     guid: 00000000000000000000000000000000
   loadSceneAfterDialogue: 0
-  ActOnBeat: 0
+  ActOnBeat: 3
 --- !u!1001 &1029108579
 PrefabInstance:
   m_ObjectHideFlags: 0
