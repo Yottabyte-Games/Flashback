@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Dialogue2
   m_EditorClassIdentifier: 
   <dialogueName>k__BackingField: Dialogue2
-  <text>k__BackingField: "I should use the Arrow Keys or W A S D to move while using
-    the mouse to look around.If I see something, I can interact with them by pressing
-    the E button.\r"
+  <text>k__BackingField: Use the W A S D keys to move and your mouse to look around.
+    If you find something interesting press E to interact with it.
   <choices>k__BackingField:
   - <text>k__BackingField: Next Dialogue
     <nextDialogue>k__BackingField: {fileID: 0}
@@ -27,4 +26,5 @@ MonoBehaviour:
       Data2: 1326290725
       Data3: -437000569
       Data4: 1845096413
-    Path: event:/VO/MainChar Dialogue 2
+    Path: event:/VO/Movement controls
+  <narratorEnum>k__BackingField: {fileID: 0}

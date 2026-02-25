@@ -39,7 +39,7 @@ namespace FMODUnity
 
         public static event System.EventHandler<EventArgs> OnCreatePlayable;
 
-        FMODEventPlayableBehavior behavior;
+        private FMODEventPlayableBehavior behavior;
 
         public GameObject TrackTargetObject { get; set; }
 
@@ -200,9 +200,9 @@ namespace FMODUnity
         [FormerlySerializedAs("parameterAutomation")]
         public AutomatableSlots ParameterAutomation;
 
-        bool isPlayheadInside = false;
+        private bool isPlayheadInside = false;
 
-        FMOD.Studio.EventInstance eventInstance;
+        private FMOD.Studio.EventInstance eventInstance;
 
         public float ClipStartTime { get; private set; } = 0.0f;
 

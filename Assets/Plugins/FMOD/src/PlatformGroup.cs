@@ -8,9 +8,11 @@ namespace FMODUnity
 {
     public class PlatformGroup : Platform
     {
-        [SerializeField] string displayName;
+        [SerializeField]
+        private string displayName;
 
-        [SerializeField] Legacy.Platform legacyIdentifier;
+        [SerializeField]
+        private Legacy.Platform legacyIdentifier;
 
         internal override string DisplayName { get { return displayName; } }
         internal override void DeclareRuntimePlatforms(Settings settings) { }

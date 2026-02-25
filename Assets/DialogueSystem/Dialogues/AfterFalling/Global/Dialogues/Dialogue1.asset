@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
   <dialogueName>k__BackingField: Dialogue1
-  <text>k__BackingField: "That was really a fishing trip to remember, being dragged
-    into the water like that really gave me a scare. Luckily, I didn\u2019t hurt
-    myself when I fell into the water."
+  <text>k__BackingField: Whoa! That fishing trip was wild! I got yanked right into
+    the lake! It was scary, but luckily I didn't get hurt.
   <choices>k__BackingField:
   - <text>k__BackingField: Next Dialogue
     <nextDialogue>k__BackingField: {fileID: 0}
@@ -27,4 +26,5 @@ MonoBehaviour:
       Data2: 1228346437
       Data3: 1257131674
       Data4: -691865700
-    Path: event:/VO/MainChar Dialogue 6
+    Path: event:/VO/Whoa that fishing trip was wild
+  <narratorEnum>k__BackingField: {fileID: 0}

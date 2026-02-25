@@ -3081,6 +3081,7 @@ GameObject:
   - component: {fileID: 2726981452183191254}
   - component: {fileID: 6389354569228472559}
   - component: {fileID: 2445327297650289125}
+  - component: {fileID: 4733566745774339132}
   m_Layer: 20
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3212,10 +3213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad285bd189a64c34a0779c849d09c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentScene: 0
-  asset: {fileID: -4516626237390682484, guid: 16c7518da8ec44c4aa526c4ea96cedd3, type: 3}
-  cameraEvent: 20
-  fit: 1
+  CurrentScene: 0
+  Asset: {fileID: -4516626237390682484, guid: 16c7518da8ec44c4aa526c4ea96cedd3, type: 3}
+  CameraEvent: 20
+  Fit: 1
 --- !u!114 &266552575439998672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3228,6 +3229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a47c784d17894458f19a65708e1d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDotHidden: 0
 --- !u!114 &1926469787744511765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3284,6 +3286,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionRange: 3
   playerCamera: {fileID: 3557077576370855240}
+--- !u!95 &4733566745774339132
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907722347570765139}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4923079350185540872
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,11 +4054,9 @@ MonoBehaviour:
   _characterController: {fileID: 5091083363032703001}
   _playerCamera: {fileID: 3557077576370855240}
   walkAcceleration: 25
-  walkSpeed: 2
+  walkSpeed: 7
   runAcceleration: 35
-  runSpeed: 4
-  sprintAcceleration: 50
-  sprintSpeed: 7
+  runSpeed: 7
   inAirAcceleration: 25
   drag: 20
   inAirDrag: 5
@@ -4062,7 +4084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490eb3a69b8a8cf4b8d8cf676effd1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdToSprint: 0
+  holdToSprint: 1
 --- !u!114 &8018661228803342238
 MonoBehaviour:
   m_ObjectHideFlags: 0

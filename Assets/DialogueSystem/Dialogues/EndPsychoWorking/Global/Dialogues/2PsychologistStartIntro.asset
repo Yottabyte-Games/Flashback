@@ -16,9 +16,9 @@ MonoBehaviour:
   <text>k__BackingField: "Is there something in your current environment or daily
     routine that you feel might be triggering your PTSD?\r\n\r"
   <choices>k__BackingField:
-  - <text>k__BackingField: Yes,
+  - <text>k__BackingField: Yes, I think there is
     <nextDialogue>k__BackingField: {fileID: 11400000, guid: 1a3aa05fde34b0a4b840415d85063608, type: 2}
-  - <text>k__BackingField: 'No all is completely fine. '
+  - <text>k__BackingField: 'No, all is completely fine. '
     <nextDialogue>k__BackingField: {fileID: 11400000, guid: 79acb07b755365742b9dd27f83a5e6c9, type: 2}
   <dialogueType>k__BackingField: 1
   <isStartingDialogue>k__BackingField: 0
@@ -29,4 +29,4 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <narratorEnum>k__BackingField: {fileID: 0}
+  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 077089a48aeab8c4eb4368d7178ab3c3, type: 2}

@@ -10,7 +10,7 @@ namespace FMODUnity
     [CanEditMultipleObjects]
     public class StudioEventEmitterEditor : Editor
     {
-        ParameterValueView parameterValueView;
+        private ParameterValueView parameterValueView;
 
         public void OnEnable()
         {
@@ -129,28 +129,28 @@ namespace FMODUnity
             serializedObject.ApplyModifiedProperties();
         }
 
-        class ParameterValueView
+        private class ParameterValueView
         {
             // The "Params" property from the SerializedObject we're editing in the inspector,
             // so we can expand/collapse it or revert to prefab.
-            SerializedProperty paramsProperty;
+            private SerializedProperty paramsProperty;
 
             // This holds one SerializedObject for each object in the current selection.
-            List<SerializedObject> serializedTargets = new List<SerializedObject>();
+            private List<SerializedObject> serializedTargets = new List<SerializedObject>();
 
             // Mappings from EditorParamRef to initial parameter value property for all properties
             // found in the current selection.
-            List<PropertyRecord> propertyRecords = new List<PropertyRecord>();
+            private List<PropertyRecord> propertyRecords = new List<PropertyRecord>();
 
             // Any parameters that are in the current event but are missing from some objects in
             // the current selection, so we can put them in the "Add" menu.
-            List<EditorParamRef> missingParameters = new List<EditorParamRef>();
+            private List<EditorParamRef> missingParameters = new List<EditorParamRef>();
 
             // A mapping from EditorParamRef to the initial parameter value properties in the
             // current selection that have the same name.
             // We need this because some objects may be missing some properties, and properties with
             // the same name may be at different array indices in different objects.
-            class PropertyRecord
+            private class PropertyRecord
             {
                 public string name { get { return paramRef.Name; } }
                 public EditorParamRef paramRef;
@@ -168,7 +168,7 @@ namespace FMODUnity
             }
 
             // Rebuilds the propertyRecords and missingParameters collections.
-            void RefreshPropertyRecords(EditorEventRef eventRef)
+            private void RefreshPropertyRecords(EditorEventRef eventRef)
             {
                 propertyRecords.Clear();
 
@@ -251,7 +251,7 @@ namespace FMODUnity
                 }
             }
 
-            void DrawHeader(bool enableAddButton)
+            private void DrawHeader(bool enableAddButton)
             {
                 Rect controlRect = EditorGUILayout.GetControlRect();
 
@@ -276,7 +276,7 @@ namespace FMODUnity
                 EditorGUI.EndDisabledGroup();
             }
 
-            void DrawAddButton(Rect position)
+            private void DrawAddButton(Rect position)
             {
                 EditorGUI.BeginDisabledGroup(missingParameters.Count == 0);
 
@@ -309,7 +309,7 @@ namespace FMODUnity
                 EditorGUI.EndDisabledGroup();
             }
 
-            void DrawValues()
+            private void DrawValues()
             {
                 // We use this to defer deletion so we don't mess with arrays while using
                 // SerializedProperties that refer to array elements, as this can throw exceptions.
@@ -335,7 +335,7 @@ namespace FMODUnity
                 }
             }
 
-            void DrawValue(PropertyRecord record, out bool delete)
+            private void DrawValue(PropertyRecord record, out bool delete)
             {
                 delete = false;
 
@@ -474,7 +474,7 @@ namespace FMODUnity
             }
 
             // Copy the value from the source property to all target properties.
-            void CopyValueToAll(SerializedProperty sourceProperty, List<SerializedProperty> targetProperties)
+            private void CopyValueToAll(SerializedProperty sourceProperty, List<SerializedProperty> targetProperties)
             {
                 foreach (SerializedProperty targetProperty in targetProperties)
                 {
@@ -487,7 +487,7 @@ namespace FMODUnity
             }
 
             // Add an initial value for the given parameter to all selected objects that don't have one.
-            void AddParameter(EditorParamRef parameter)
+            private void AddParameter(EditorParamRef parameter)
             {
                 foreach (SerializedObject serializedTarget in serializedTargets)
                 {
@@ -511,7 +511,7 @@ namespace FMODUnity
             }
 
             // Delete initial parameter values for the given name from all selected objects.
-            void DeleteParameter(string name)
+            private void DeleteParameter(string name)
             {
                 foreach (SerializedObject serializedTarget in serializedTargets)
                 {

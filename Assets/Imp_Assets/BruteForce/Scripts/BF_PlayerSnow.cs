@@ -11,12 +11,12 @@ public class BF_PlayerSnow : MonoBehaviour
     public PhysicsMaterial playerMatSnow;
     public PhysicsMaterial playerMatIce;
 
-    Rigidbody rB;
-    float speedMult = 1;
-    float lerpIce;
-    MeshCollider oldMC;
-    Mesh mesh;
-    ParticleSystem.MainModule pSMain;
+    private Rigidbody rB;
+    private float speedMult = 1;
+    private float lerpIce = 0;
+    private MeshCollider oldMC = null;
+    private Mesh mesh = null;
+    private ParticleSystem.MainModule pSMain;
 
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class BF_PlayerSnow : MonoBehaviour
         pSMain = particleSys.main;
     }
 
-    void CheckIceCols(float snowCol)
+    private void CheckIceCols(float snowCol)
     {
         lerpIce = snowCol / 255f;
 
@@ -54,7 +54,7 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    void OnCollisionStay(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (lerpIce >= 0.925f && collision.collider.gameObject.layer == 4)
         {
@@ -66,7 +66,7 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if(collision.impulse.magnitude>10)
         {
@@ -74,7 +74,7 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    void AddSnow(float multiplier)
+    private void AddSnow(float multiplier)
     {
         if (playerCollider.transform.localScale.x < 7f)
         {
@@ -83,8 +83,7 @@ public class BF_PlayerSnow : MonoBehaviour
             playerCollider.transform.localScale += Vector3.zero + Vector3.one * 0.005f * 2 * multiplier * speedMult;
         }
     }
-
-    void RemoveSnow(float multiplier)
+    private void RemoveSnow(float multiplier)
     {
         if (playerCollider.transform.localScale.x >= 1.1f)
         {
@@ -106,20 +105,20 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         ChangePlayerMass();
         CheckSnowUnderneath();
     }
 
-    void CheckSnowUnderneath()
+    private void CheckSnowUnderneath()
     {
         RaycastHit hit;
 
-        var layerMask = 1 << 4;
+        int layerMask = 1 << 4;
         if (Physics.Raycast(transform.position+(Vector3.down*(playerCollider.transform.localScale.x/2)+Vector3.up*0.5f), Vector3.down, out hit, 5, layerMask,QueryTriggerInteraction.Ignore))
         {
-            var meshCollider = hit.collider as MeshCollider;
+            MeshCollider meshCollider = hit.collider as MeshCollider;
             if (oldMC != meshCollider || mesh == null)
             {
                 mesh = meshCollider.GetComponent<MeshFilter>().sharedMesh;
@@ -133,7 +132,7 @@ public class BF_PlayerSnow : MonoBehaviour
 
             //Mesh mesh = meshCollider.sharedMesh;
 
-            var triangles = mesh.triangles;
+            int[] triangles = mesh.triangles;
             Color32[] colorArray;
             colorArray = mesh.colors32;
 
@@ -149,7 +148,7 @@ public class BF_PlayerSnow : MonoBehaviour
         }
     }
 
-    void ChangePlayerMass()
+    private void ChangePlayerMass()
     {
         rB.mass = Mathf.Lerp(1.95f, 2.5f, (playerCollider.transform.localScale.x-1.2f) / 7);
         pSMain.startSize = playerCollider.transform.localScale.x+0.5f;

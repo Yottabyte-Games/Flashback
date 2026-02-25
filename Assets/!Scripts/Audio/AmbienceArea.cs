@@ -7,5 +7,7 @@ namespace _Scripts.Audio
         Forrest = 1,
 
         Ocean = 2,
+        
+        Office = 3,
     }
 }

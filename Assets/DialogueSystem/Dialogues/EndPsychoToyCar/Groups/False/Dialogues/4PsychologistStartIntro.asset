@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: 4PsychologistStartIntro
   m_EditorClassIdentifier: 
   <dialogueName>k__BackingField: 4PsychologistStartIntro
-  <text>k__BackingField: "I would tell the kid that:\r\nEverything in life is going
-    to be horrible.\r\nHe is the reason for their divorce. \r\nAnd he is stupid from
-    not trying to stop the divorce of his parents!\r"
+  <text>k__BackingField: "Everything in life is going to be bad. Your mom is correct,
+    don't share your feelings and probelms with others. It will solve itself.\r\r\r"
   <choices>k__BackingField:
   - <text>k__BackingField: Next Dialogue
-    <nextDialogue>k__BackingField: {fileID: 11400000, guid: fe5463c8e0070ff4d9279462e4d79731, type: 2}
+    <nextDialogue>k__BackingField: {fileID: 11400000, guid: 748dc69818e90f6469a96e27a3fdc020, type: 2}
   <dialogueType>k__BackingField: 0
   <isStartingDialogue>k__BackingField: 0
   <voiceEvent>k__BackingField:
@@ -28,4 +27,4 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <narratorEnum>k__BackingField: {fileID: 0}
+  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 4d6cae9f079dbb84980f2d0a4b84efd9, type: 2}

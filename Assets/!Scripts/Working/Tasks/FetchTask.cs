@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _Scripts.Working.Tasks
@@ -19,7 +20,11 @@ namespace _Scripts.Working.Tasks
 
             _toFetch = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
             _toFetch.InteractedWith += ProgressTask;
-            taskName = "Fetch " + _toFetch.name;
+            
+            int startIndex = _toFetch.name.IndexOf("(Clone)", StringComparison.Ordinal);
+            _toFetch.name = _toFetch.name.Remove(startIndex).Trim();
+            taskName = "Fetch " + _toFetch.name + " for " + worker.name;
+            
         }
 
         protected override void ProgressTask()

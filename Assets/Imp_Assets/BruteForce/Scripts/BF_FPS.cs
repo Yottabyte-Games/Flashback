@@ -3,13 +3,13 @@ using System.Collections;
 
 public class BF_FPS : MonoBehaviour
 {
-    float deltaTime;
+    float deltaTime = 0.0f;
 
-    GUIStyle style;
+    private GUIStyle style = null;
 
-    bool ShowFps;
+    private bool ShowFps = false;
 
-    void Start()
+    private void Start()
     {
         ShowFps = true;
         style = new GUIStyle();
@@ -36,10 +36,10 @@ public class BF_FPS : MonoBehaviour
 
             style.fontSize = h * 4 / 100;
 
-            var rect = new Rect(0, 0, w, h * 2 / 100);
+            Rect rect = new Rect(0, 0, w, h * 2 / 100);
 
-            var msec = deltaTime * 1000.0f;
-            var fps = 1.0f / deltaTime;
+            float msec = deltaTime * 1000.0f;
+            float fps = 1.0f / deltaTime;
             GUI.Label(rect, string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps), style);
         }
     }

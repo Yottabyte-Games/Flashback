@@ -15,31 +15,43 @@ MonoBehaviour:
   <FileName>k__BackingField: IntroDescribingScene
   <Groups>k__BackingField: []
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: f1b3859d-0019-48e3-88fc-c978e3292f3a
-    <Name>k__BackingField: Dialogue2
-    <Text>k__BackingField: "I should use the Arrow Keys or W A S D to move while
-      using the mouse to look around.If I see something, I can interact with them
-      by pressing the E button.\r"
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 
-    <GroupID>k__BackingField: 
-    <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1085, y: 158}
   - <ID>k__BackingField: 0f02cc7e-061e-4e36-8fdc-ec7cc524bc5c
     <Name>k__BackingField: Dialogue1
-    <Text>k__BackingField: "Today is the day I\u2019m going to the psychiatrist,
-      another day where everything is fine.But first I need to stop by the local
-      J\xE5ker to buy milk"
+    <Text>k__BackingField: Today is the day for my psychiatrist apointment, just
+      another day. But first I need to swing by the store.
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: f1b3859d-0019-48e3-88fc-c978e3292f3a
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 137, y: 145}
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 136.8, y: 144.8}
+  - <ID>k__BackingField: f1b3859d-0019-48e3-88fc-c978e3292f3a
+    <Name>k__BackingField: Dialogue2
+    <Text>k__BackingField: Use the W A S D keys to move and your mouse to look around.
+      If you find something interesting press E to interact with it.
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <voiceEvent>k__BackingField:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    <Position>k__BackingField: {x: 1085.6, y: 155.20001}
   <OldGroupNames>k__BackingField: []
   <OldUngroupedNodeNames>k__BackingField:
-  - Dialogue2
   - Dialogue1
+  - Dialogue2
   <OldGroupedNodeNames>k__BackingField:
     list: []

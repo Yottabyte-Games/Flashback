@@ -5,8 +5,10 @@ namespace _Scripts.Audio
     using FMOD.Studio;
     using FMODUnity;
     using UnityEngine;
+    
     public class AudioManager : Singleton<AudioManager>
     {
+        
         [SerializeField] FMODEventsSO fmodEventsSo;
         
         public AudioSettingsSO AudioSettingsSo;
@@ -45,15 +47,16 @@ namespace _Scripts.Audio
         {
             InitializeAmbience(AmbienceHubworld);
         }
-
+        
         void Update()
         {
             _masterBus.setVolume(AudioSettingsSo.MasterVolume);
             _musicBus.setVolume(AudioSettingsSo.MusicVolume);
             _sfxBus.setVolume(AudioSettingsSo.SfxVolume);
             _voiceBus.setVolume(AudioSettingsSo.VoiceVolume);
+            
         }
-    
+        
         void InitializeAmbience(EventReference ambienceEventReference)
         {
             _ambienceEventInstance = CreateEventInstance(ambienceEventReference);
@@ -85,15 +88,20 @@ namespace _Scripts.Audio
             return emitter;
         }
 
-        void CleanUp()
+        public void CleanUp()
         {
+            _masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            
+            _masterBus.clearHandle();
+            
             // stop and release any created instances
             foreach (EventInstance eventInstance in _eventInstances)
             {
                 eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 eventInstance.release();
+                eventInstance.clearHandle();
             }
-            // stop all of the event emitters, because if we dont they may hang around other scenes
+            // stop all the event emitters, because if we don't they may hang around other scenes
             foreach (StudioEventEmitter emitter in _eventEmitters)
             {
                 emitter.Stop();
@@ -102,6 +110,7 @@ namespace _Scripts.Audio
 
         void OnDestroy()
         {
+            Debug.LogError("AudioManager OnDestroy");
             CleanUp();
         }
     }

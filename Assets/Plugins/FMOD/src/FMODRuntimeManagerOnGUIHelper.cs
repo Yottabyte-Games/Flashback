@@ -8,7 +8,7 @@ namespace FMODUnity
     {
         public RuntimeManager TargetRuntimeManager = null;
 
-        void OnGUI()
+        private void OnGUI()
         {
             if (TargetRuntimeManager)
             {

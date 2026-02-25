@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,8 +19,10 @@ namespace _Scripts.Working.Tasks
             base.InitializeTask(worker);
             _toClean = manager.GenerateTaskItem(taskType).GetComponent<TaskItem>();
             _toClean.InteractedWith += ProgressTask;
-            taskName = "Cleaning " + _toClean.name;
-
+            
+            int startIndex = _toClean.name.IndexOf("(Clone)", StringComparison.Ordinal);
+            _toClean.name = _toClean.name.Remove(startIndex).Trim();
+            taskName = "Clean " + _toClean.name;
         }
 
         protected override void ProgressTask()

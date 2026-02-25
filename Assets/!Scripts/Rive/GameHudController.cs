@@ -22,7 +22,7 @@ namespace _Scripts.Rive
 
         InputAction _pauseAction;
 
-        [SerializeField] private bool isDotHidden = false;
+        [SerializeField] bool isDotHidden = false;
         
         void Awake()
         {
@@ -54,27 +54,32 @@ namespace _Scripts.Rive
             {
                 _playerPositionController = transform.parent.GetComponent<PlayerPositionController>();
             }
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            _playerController = player.GetComponent<PlayerController>();
-            _playerLocomotionInput = player.GetComponent<PlayerLocomotionInput>();
             
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             
-
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if(player is null)
+                return;
+            _playerController = player.GetComponent<PlayerController>();
+            _playerLocomotionInput = player.GetComponent<PlayerLocomotionInput>();
         }
 
         void RiveEventHandler(ReportedEvent reportedEvent)
         {
-            if (reportedEvent.Name == "FlashbackEvent" && _sceneToLoad != null)
+            switch (reportedEvent.Name)
             {
-                if (_playerPositionController)
+                case "FlashbackEvent" when _sceneToLoad is not null:
                 {
-                    _playerPositionController.SavePosition(_sceneToLoad.Name);
-                    print("Saved Position");
+                    if (_playerPositionController)
+                    {
+                        _playerPositionController.SavePosition(_sceneToLoad.Name);
+                        print("Saved Position");
+                    }
+                    else
+                        SceneManager.LoadScene(_sceneToLoad.Name);
+                    break;
                 }
-                else
-                    SceneManager.LoadScene(_sceneToLoad.Name);
             }
         }
 
@@ -85,6 +90,10 @@ namespace _Scripts.Rive
                 if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.PauseMenu)
                 {
                     ResumeGame();
+                }
+                else if (_riveScreen.CurrentScene == RiveScreen.RiveScenes.SettingsMenu)
+                {
+                    _riveScreen.ReturnToOriginalScene();
                 }
                 else
                 {
@@ -108,7 +117,7 @@ namespace _Scripts.Rive
             
             if (SceneManager.GetActiveScene().name == "Working")
             {
-                StartCoroutine(SetWorkUI());
+                SetWorkUI();
             }
         }
 
@@ -198,7 +207,6 @@ namespace _Scripts.Rive
                 {
                     visibleTasks[i] = newTask; // Assign the task to the empty visible slot
                     notAddedToTaskbar = false; // task was added
-                    StartCoroutine(SetWorkUI()); // Updates the UI
                     break;
                 }
             }
@@ -207,6 +215,8 @@ namespace _Scripts.Rive
             {
                 overflowntasks.Add(newTask); // Add the task to overflow when all slots are taken
             }
+
+            SetWorkUI();
         }
 
         public void RemoveTaskUI(OfficeTask finishedTask) // Remove task and refill array
@@ -215,12 +225,13 @@ namespace _Scripts.Rive
             // Remove from visibleTasks and add new from overflow if possible
             for (int i = 0; i < visibleTasks.Length; i++)
             {
+                if (visibleTasks[i] == null)
+                    continue;
                 // Removes Task
                 if (visibleTasks[i].taskIndex == finishedTask.taskIndex)
                 {
                     visibleTasks[i] = null;
                     removedTask = true;
-                    StartCoroutine(SetWorkUI()); // Update UI to visibly remove task
                     
                     // Try to fill empty task
                     // Check if tasks in obscured position can fill
@@ -232,7 +243,6 @@ namespace _Scripts.Rive
                             // Move item from first to second
                             visibleTasks[i] = visibleTasks[j];
                             visibleTasks[j] = null;
-                            StartCoroutine(SetWorkUI()); // Update UI to visibly remove task
                             
                             // Move from overflow to obscured
                             if (overflowntasks.Count > 0)
@@ -255,13 +265,12 @@ namespace _Scripts.Rive
 
             }
 
-            StartCoroutine(SetWorkUI());
+            SetWorkUI();
         }
 
         
-        private IEnumerator SetWorkUI()
+        private void SetWorkUI()
         {
-            yield return new WaitForSeconds(0.1f); // Allow previous animation to activate
             // Set all icons to correct task and remove if empty
             for (int i = 0; i < visibleTasks.Length; i++)
             {
@@ -279,7 +288,6 @@ namespace _Scripts.Rive
                     _riveScreen.Artboard.SetBooleanInputStateAtPath("ShowTask", false, path); // Hide empty visible slots
                 }
             }
-            yield return new WaitForSeconds(0.1f); // Allow previous animation to activate
 
         }
 

@@ -21,17 +21,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
 
-namespace Imp_Assets.BruteForce.Extra.BloomKino.Other.Editor
+namespace Kino
 {
 
 #if !UNITY_ANDROID && !UNITY_IOS && !UNITY_WEBGL
     [CanEditMultipleObjects]
-    [CustomEditor(typeof(Kino.BloomKino))]
-    public class BloomKinoEditor : UnityEditor.Editor
+    [CustomEditor(typeof(BloomKino))]
+    public class BloomKinoEditor : Editor
     {
         BloomKinoGraphDrawer _graph;
 
@@ -61,7 +60,7 @@ namespace Imp_Assets.BruteForce.Extra.BloomKino.Other.Editor
 
             if (!serializedObject.isEditingMultipleObjects) {
                 EditorGUILayout.Space();
-                _graph.Prepare((Kino.BloomKino)target);
+                _graph.Prepare((BloomKino)target);
                 _graph.DrawGraph();
                 EditorGUILayout.Space();
             }

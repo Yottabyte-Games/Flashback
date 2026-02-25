@@ -6,9 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class BF_SquareBanding : MonoBehaviour
 {
-    public Material cinematicBandsFX;
-
-    void OnRenderImage(RenderTexture source, RenderTexture destination)
+    public Material cinematicBandsFX = null;
+    
+    private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
         Graphics.Blit(source, destination, cinematicBandsFX);
     }

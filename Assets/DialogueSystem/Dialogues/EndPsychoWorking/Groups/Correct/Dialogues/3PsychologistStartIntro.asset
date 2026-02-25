@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: 3PsychologistStartIntro
   m_EditorClassIdentifier: 
   <dialogueName>k__BackingField: 3PsychologistStartIntro
-  <text>k__BackingField: Even though life has become more complicated, thinking back
-    to that day makes me realize how important it is to cherish those happy, uncomplicated
-    times.
+  <text>k__BackingField: 'The constant pressure and high expectations are overwhelming,
+    and I often feel like I''m on edge. '
   <choices>k__BackingField:
   - <text>k__BackingField: Next Dialogue
-    <nextDialogue>k__BackingField: {fileID: 0}
+    <nextDialogue>k__BackingField: {fileID: 11400000, guid: 5e8a06e4d4be8ea478b62218f9e1aca8, type: 2}
   <dialogueType>k__BackingField: 0
   <isStartingDialogue>k__BackingField: 0
   <voiceEvent>k__BackingField:
@@ -28,4 +27,4 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  <narratorEnum>k__BackingField: {fileID: 0}
+  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 4d6cae9f079dbb84980f2d0a4b84efd9, type: 2}

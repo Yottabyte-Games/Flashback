@@ -19,50 +19,57 @@ namespace FMODUnity
     {
         public const string MenuPath = "FMOD/Update Event References";
 
-        const string SearchButtonText = "Scan";
+        private const string SearchButtonText = "Scan";
 
-        const int EventReferenceTransitionVersion = 0x00020200;
+        private const int EventReferenceTransitionVersion = 0x00020200;
 
-        const BindingFlags DefaultBindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+        private const BindingFlags DefaultBindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
 
-        static readonly string HelpText =
+        private static readonly string HelpText =
             string.Format("Click {0} to search your project for obsolete event references.", SearchButtonText);
 
-        readonly string[] SearchFolders = {
+        private readonly string[] SearchFolders = {
             "Assets",
         };
 
-        SceneSetup[] sceneSetup;
+        private SceneSetup[] sceneSetup;
 
-        IEnumerator<string> processingState;
+        private IEnumerator<string> processingState;
 
-        SearchProgress prefabProgress;
-        SearchProgress sceneProgress;
-        SearchProgress scriptableObjectProgress;
+        private SearchProgress prefabProgress;
+        private SearchProgress sceneProgress;
+        private SearchProgress scriptableObjectProgress;
 
-        [SerializeField] List<Asset> assets = new List<Asset>();
+        [SerializeField]
+        private List<Asset> assets = new List<Asset>();
 
-        [SerializeField] List<Component> components = new List<Component>();
+        [SerializeField]
+        private List<Component> components = new List<Component>();
 
-        [SerializeField] List<Task> tasks = new List<Task>();
+        [SerializeField]
+        private List<Task> tasks = new List<Task>();
 
-        int executableTaskCount = 0;
+        private int executableTaskCount = 0;
 
-        TreeViewState taskViewState = new TreeViewState();
+        private TreeViewState taskViewState = new TreeViewState();
 
-        TaskView taskView;
+        private TaskView taskView;
 
-        [NonSerialized] GUIContent status = GUIContent.none;
+        [NonSerialized]
+        private GUIContent status = GUIContent.none;
 
-        [NonSerialized] Task selectedTask;
+        [NonSerialized]
+        private Task selectedTask;
 
-        [NonSerialized] Vector2 manualDescriptionScrollPosition;
+        [NonSerialized]
+        private Vector2 manualDescriptionScrollPosition;
 
-        [NonSerialized] static GUIContent AssetContent = new GUIContent("Asset");
-        static GUIContent ComponentTypeContent = new GUIContent("Component Type");
-        static GUIContent GameObjectContent = new GUIContent("Game Object");
+        [NonSerialized]
+        private static GUIContent AssetContent = new GUIContent("Asset");
+        private static GUIContent ComponentTypeContent = new GUIContent("Component Type");
+        private static GUIContent GameObjectContent = new GUIContent("Game Object");
 
-        string ExecuteButtonText()
+        private string ExecuteButtonText()
         {
             return string.Format("Execute {0} Selected Tasks", executableTaskCount);
         }
@@ -83,7 +90,7 @@ namespace FMODUnity
             return Settings.Instance.LastEventReferenceScanVersion >= EventReferenceTransitionVersion;
         }
 
-        void BeginSearching()
+        private void BeginSearching()
         {
             if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
             {
@@ -96,7 +103,7 @@ namespace FMODUnity
             }
         }
 
-        void StopProcessing(bool isComplete)
+        private void StopProcessing(bool isComplete)
         {
             processingState = null;
 
@@ -125,7 +132,7 @@ namespace FMODUnity
             }
         }
 
-        void BeginExecuting()
+        private void BeginExecuting()
         {
             Task[] enabledTasks = tasks.Where(t => t.CanExecute()).ToArray();
 
@@ -155,7 +162,7 @@ namespace FMODUnity
             }
         }
 
-        void Cancel()
+        private void Cancel()
         {
             if (IsProcessing)
             {
@@ -167,12 +174,12 @@ namespace FMODUnity
             }
         }
 
-        bool IsProcessing { get { return processingState != null; } }
+        private bool IsProcessing { get { return processingState != null; } }
 
-        struct SearchProgress
+        private struct SearchProgress
         {
-            int maximum;
-            int current;
+            private int maximum;
+            private int current;
 
             public float Fraction()
             {
@@ -194,7 +201,7 @@ namespace FMODUnity
             }
         }
 
-        IEnumerator<string> SearchProject()
+        private IEnumerator<string> SearchProject()
         {
             string[] prefabGuids = AssetDatabase.FindAssets("t:GameObject", SearchFolders);
             string[] sceneGuids = AssetDatabase.FindAssets("t:Scene", SearchFolders);
@@ -211,7 +218,7 @@ namespace FMODUnity
                 .GetEnumerator();
         }
 
-        IEnumerable<string> SearchPrefabs(string[] guids)
+        private IEnumerable<string> SearchPrefabs(string[] guids)
         {
             foreach (string guid in guids)
             {
@@ -239,7 +246,7 @@ namespace FMODUnity
             }
         }
 
-        IEnumerable<string> SearchScriptableObjects(string[] guids)
+        private IEnumerable<string> SearchScriptableObjects(string[] guids)
         {
             foreach (string guid in guids)
             {
@@ -279,7 +286,7 @@ namespace FMODUnity
             }
         }
 
-        IEnumerable<string> SearchScenes(string[] guids)
+        private IEnumerable<string> SearchScenes(string[] guids)
         {
             sceneSetup = EditorSceneManager.GetSceneManagerSetup();
 
@@ -322,7 +329,7 @@ namespace FMODUnity
             }
         }
 
-        IEnumerable<Task> SearchGameObject(GameObject gameObject, GameObject root)
+        private IEnumerable<Task> SearchGameObject(GameObject gameObject, GameObject root)
         {
             MonoBehaviour[] behaviours = gameObject.GetComponentsInChildren<MonoBehaviour>(true);
 
@@ -344,7 +351,7 @@ namespace FMODUnity
             }
         }
 
-        static IEnumerable<Task> GetUpdateTasks(UnityEngine.Object target)
+        private static IEnumerable<Task> GetUpdateTasks(UnityEngine.Object target)
         {
             if (target == null)
             {
@@ -366,7 +373,7 @@ namespace FMODUnity
             }
         }
 
-        static IEnumerable<Task> GetEmitterUpdateTasks(StudioEventEmitter emitter)
+        private static IEnumerable<Task> GetEmitterUpdateTasks(StudioEventEmitter emitter)
         {
             bool hasOwnEvent = true;
             bool hasOwnEventReference = true;
@@ -417,7 +424,7 @@ namespace FMODUnity
             }
         }
 
-        static Task GetUpdateEventReferenceTask(EventReference eventReference, string fieldName,
+        private static Task GetUpdateEventReferenceTask(EventReference eventReference, string fieldName,
             string subObjectPath = null)
         {
             if (eventReference.IsNull)
@@ -472,7 +479,7 @@ namespace FMODUnity
         }
 
 #if UNITY_TIMELINE_EXIST
-        static IEnumerable<Task> GetPlayableUpdateTasks(FMODEventPlayable playable)
+        private static IEnumerable<Task> GetPlayableUpdateTasks(FMODEventPlayable playable)
         {
             Task updateTask = GetUpdateEventReferenceTask(playable.EventReference, "EventReference");
             if (updateTask != null)
@@ -497,21 +504,21 @@ namespace FMODUnity
 #endif
 
 #pragma warning disable 0618 // Suppress a warning about using the obsolete EventRefAttribute class
-        static bool IsEventRef(FieldInfo field)
+        private static bool IsEventRef(FieldInfo field)
         {
             return field.FieldType == typeof(string) && EditorUtils.HasAttribute<EventRefAttribute>(field);
         }
 #pragma warning restore 0618
 
-        static T GetCustomAttribute<T>(FieldInfo field)
+        private static T GetCustomAttribute<T>(FieldInfo field)
             where T : Attribute
         {
             return Attribute.GetCustomAttribute(field, typeof(T)) as T;
         }
 
-        static readonly Assembly SystemAssembly = typeof(object).Assembly;
+        private static readonly Assembly SystemAssembly = typeof(object).Assembly;
 
-        static IEnumerable<Task> GetGenericUpdateTasks(object target, string subObjectPath = null, IEnumerable<object> parents = null)
+        private static IEnumerable<Task> GetGenericUpdateTasks(object target, string subObjectPath = null, IEnumerable<object> parents = null)
         {
             Type targetType = target.GetType();
             FieldInfo[] fields = targetType.GetFields(DefaultBindingFlags);
@@ -726,7 +733,7 @@ namespace FMODUnity
             }
         }
 
-        IEnumerator<string> ExecuteTasks(Task[] tasks)
+        private IEnumerator<string> ExecuteTasks(Task[] tasks)
         {
             sceneSetup = EditorSceneManager.GetSceneManagerSetup();
 
@@ -746,7 +753,7 @@ namespace FMODUnity
             }
         }
 
-        enum AssetType
+        private enum AssetType
         {
             Scene,
             Prefab,
@@ -755,14 +762,14 @@ namespace FMODUnity
             ScriptableObject,
         }
 
-        static bool IsPrefab(AssetType type)
+        private static bool IsPrefab(AssetType type)
         {
             return type == AssetType.Prefab
                 || type == AssetType.PrefabModel
                 || type == AssetType.PrefabVariant;
         }
 
-        static AssetType GetAssetType(GameObject gameObject)
+        private static AssetType GetAssetType(GameObject gameObject)
         {
             PrefabAssetType prefabType = PrefabUtility.GetPrefabAssetType(gameObject);
 
@@ -780,7 +787,7 @@ namespace FMODUnity
             }
         }
 
-        enum EnableState
+        private enum EnableState
         {
             Enabled,
             Disabled,
@@ -788,7 +795,7 @@ namespace FMODUnity
         }
 
         [Serializable]
-        class Asset
+        private class Asset
         {
             public AssetType Type;
             public string Path;
@@ -796,7 +803,7 @@ namespace FMODUnity
         }
 
         [Serializable]
-        class Component
+        private class Component
         {
             public GlobalObjectId GameObjectID;
             public string Type;
@@ -805,28 +812,28 @@ namespace FMODUnity
         }
 
         [Serializable]
-        class Task
+        private class Task
         {
             public bool Enabled = true;
             public int AssetIndex; // index into the assets list
             public int ComponentIndex; // index into the components list
 
-            Type type;
-            string[] Data;
+            private Type type;
+            private string[] Data;
 
-            const string EmitterEventField = "Event";
-            const string EmitterEventReferenceField = "EventReference";
-            const string PlayableEventNameField = "eventName";
-            const string PlayableEventReferenceField = "eventReference";
+            private const string EmitterEventField = "Event";
+            private const string EmitterEventReferenceField = "EventReference";
+            private const string PlayableEventNameField = "eventName";
+            private const string PlayableEventReferenceField = "eventReference";
 
-            delegate string DescriptionDelegate(string[] data);
-            delegate string ManualInstructionsDelegate(string[] data, Component component);
-            delegate bool IsValidDelegate(string[] data, UnityEngine.Object target);
-            delegate void ExecuteDelegate(string[] data, UnityEngine.Object target);
+            private delegate string DescriptionDelegate(string[] data);
+            private delegate string ManualInstructionsDelegate(string[] data, Component component);
+            private delegate bool IsValidDelegate(string[] data, UnityEngine.Object target);
+            private delegate void ExecuteDelegate(string[] data, UnityEngine.Object target);
 
-            static readonly Delegates[] Implementations;
+            private static readonly Delegates[] Implementations;
 
-            enum Type
+            private enum Type
             {
                 EmitterClearEvent,
                 EmitterMoveEventToEventReference,
@@ -967,7 +974,7 @@ namespace FMODUnity
                 };
             }
 
-            struct Delegates
+            private struct Delegates
             {
                 public DescriptionDelegate Description;
                 public ManualInstructionsDelegate ManualInstructions;
@@ -975,7 +982,7 @@ namespace FMODUnity
                 public ExecuteDelegate Execute;
             }
 
-            static void Implement(Type type,
+            private static void Implement(Type type,
                 DescriptionDelegate Description,
                 IsValidDelegate IsValid,
                 ExecuteDelegate Execute,
@@ -989,7 +996,7 @@ namespace FMODUnity
                 };
             }
 
-            Delegates GetDelegates()
+            private Delegates GetDelegates()
             {
                 return Implementations[(int)type];
             }
@@ -1504,7 +1511,7 @@ namespace FMODUnity
             }
         }
 
-        static string FieldPath(string subObjectPath, string fieldName)
+        private static string FieldPath(string subObjectPath, string fieldName)
         {
             if (subObjectPath != null)
             {
@@ -1516,7 +1523,7 @@ namespace FMODUnity
             }
         }
 
-        static string FieldPath(string subObjectPath, string fieldName, int index)
+        private static string FieldPath(string subObjectPath, string fieldName, int index)
         {
             if (subObjectPath != null)
             {
@@ -1528,7 +1535,7 @@ namespace FMODUnity
             }
         }
 
-        static object FindSubObject(object o, string path)
+        private static object FindSubObject(object o, string path)
         {
             if (path == null)
             {
@@ -1592,7 +1599,7 @@ namespace FMODUnity
             return result;
         }
 
-        void ExecuteTask(Task task, SavePolicy savePolicy)
+        private void ExecuteTask(Task task, SavePolicy savePolicy)
         {
             Asset asset = assets[task.AssetIndex];
 
@@ -1606,7 +1613,7 @@ namespace FMODUnity
             }
         }
 
-        void ExecuteScriptableObjectTask(Task task, SavePolicy savePolicy)
+        private void ExecuteScriptableObjectTask(Task task, SavePolicy savePolicy)
         {
             Asset asset = assets[task.AssetIndex];
             Component component = components[task.ComponentIndex];
@@ -1626,7 +1633,7 @@ namespace FMODUnity
             }
         }
 
-        void ExecuteGameObjectTask(Task task, SavePolicy savePolicy)
+        private void ExecuteGameObjectTask(Task task, SavePolicy savePolicy)
         {
             GameObject gameObject = LoadTargetGameObject(task, savePolicy);
 
@@ -1652,13 +1659,13 @@ namespace FMODUnity
             }
         }
 
-        enum SavePolicy
+        private enum SavePolicy
         {
             AskToSave,
             AutoSave,
         }
 
-        GameObject LoadTargetGameObject(Task task, SavePolicy savePolicy)
+        private GameObject LoadTargetGameObject(Task task, SavePolicy savePolicy)
         {
             Asset asset = assets[task.AssetIndex];
             Component component = components[task.ComponentIndex];
@@ -1717,7 +1724,7 @@ namespace FMODUnity
             }
         }
 
-        int AddAsset(AssetType type, string path)
+        private int AddAsset(AssetType type, string path)
         {
             Asset asset = new Asset() {
                 Type = type,
@@ -1729,7 +1736,7 @@ namespace FMODUnity
             return assets.Count - 1;
         }
 
-        int AddComponent(MonoBehaviour behaviour, GameObject root)
+        private int AddComponent(MonoBehaviour behaviour, GameObject root)
         {
             MonoScript script = MonoScript.FromMonoBehaviour(behaviour);
 
@@ -1745,7 +1752,7 @@ namespace FMODUnity
             return components.Count - 1;
         }
 
-        int AddComponent(ScriptableObject scriptableObject)
+        private int AddComponent(ScriptableObject scriptableObject)
         {
             MonoScript script = MonoScript.FromScriptableObject(scriptableObject);
 
@@ -1759,12 +1766,12 @@ namespace FMODUnity
             return components.Count - 1;
         }
 
-        void UpdateExecutableTaskCount()
+        private void UpdateExecutableTaskCount()
         {
             executableTaskCount = tasks.Count(t => t.CanExecute());
         }
 
-        void AddTask(Task task)
+        private void AddTask(Task task)
         {
             tasks.Add(task);
             UpdateExecutableTaskCount();
@@ -1772,7 +1779,7 @@ namespace FMODUnity
             taskView.ExpandAll();
         }
 
-        void UpdateProcessing()
+        private void UpdateProcessing()
         {
             if (processingState != null)
             {
@@ -1789,7 +1796,7 @@ namespace FMODUnity
             }
         }
 
-        void OnEnable()
+        private void OnEnable()
         {
             taskView = new TaskView(taskViewState, tasks, assets, components);
             taskView.Reload();
@@ -1801,17 +1808,17 @@ namespace FMODUnity
             EditorApplication.update += UpdateProcessing;
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
             EditorApplication.update -= UpdateProcessing;
         }
 
-        void OnTaskSelected(Task task)
+        private void OnTaskSelected(Task task)
         {
             selectedTask = task;
         }
 
-        void OnTaskDoubleClicked(Task task)
+        private void OnTaskDoubleClicked(Task task)
         {
             Asset asset = assets[task.AssetIndex];
 
@@ -1857,13 +1864,13 @@ namespace FMODUnity
             }
         }
 
-        void OnTaskEnableStateChanged(Task task)
+        private void OnTaskEnableStateChanged(Task task)
         {
             UpdateAssetEnableState(task.AssetIndex);
             UpdateExecutableTaskCount();
         }
 
-        void UpdateAssetEnableState(int assetIndex)
+        private void UpdateAssetEnableState(int assetIndex)
         {
             Asset asset = assets[assetIndex];
 
@@ -1873,7 +1880,7 @@ namespace FMODUnity
                 .Aggregate((current, next) => (current == next) ? current : EnableState.Mixed);
         }
 
-        void ApplyAssetEnableStateToTasks(Asset asset)
+        private void ApplyAssetEnableStateToTasks(Asset asset)
         {
             int assetIndex = assets.IndexOf(asset);
 
@@ -1885,13 +1892,13 @@ namespace FMODUnity
             UpdateExecutableTaskCount();
         }
 
-        class Styles
+        private class Styles
         {
             public static GUIStyle RichText;
             public static GUIStyle RichTextBox;
             public static GUIStyle TreeViewRichText;
 
-            static bool Initialized = false;
+            private static bool Initialized = false;
 
             public static void Affirm()
             {
@@ -1906,7 +1913,7 @@ namespace FMODUnity
             }
         }
 
-        class Icons
+        private class Icons
         {
             public static Texture2D Scene;
             public static Texture2D Prefab;
@@ -1915,7 +1922,7 @@ namespace FMODUnity
             public static Texture2D ScriptableObject;
             public static Texture2D GameObject;
 
-            static bool Initialized = false;
+            private static bool Initialized = false;
 
             public static void Affirm()
             {
@@ -1968,12 +1975,12 @@ namespace FMODUnity
             }
         }
 
-        void SetStatus(string text)
+        private void SetStatus(string text)
         {
             status = new GUIContent(text, EditorGUIUtility.IconContent("console.infoicon.sml").image);
         }
 
-        void OnGUI()
+        private void OnGUI()
         {
             Styles.Affirm();
 
@@ -2099,24 +2106,24 @@ namespace FMODUnity
             }
         }
 
-        static void DrawProgressBar(string label, SearchProgress progress)
+        private static void DrawProgressBar(string label, SearchProgress progress)
         {
             Rect rect = EditorGUILayout.GetControlRect();
             EditorGUI.ProgressBar(rect, progress.Fraction(), label);
         }
 
-        static void DrawSelectableLabel(string text, GUIStyle style)
+        private static void DrawSelectableLabel(string text, GUIStyle style)
         {
             float height = style.CalcHeight(new GUIContent(text), EditorGUIUtility.currentViewWidth);
 
             EditorGUILayout.SelectableLabel(text, style, GUILayout.Height(height));
         }
 
-        class TaskView : TreeView
+        private class TaskView : TreeView
         {
-            List<Task> tasks;
-            List<Asset> assets;
-            List<Component> components;
+            private List<Task> tasks;
+            private List<Asset> assets;
+            private List<Component> components;
 
             public delegate void TaskEventHandler(Task task);
 
@@ -2185,12 +2192,12 @@ namespace FMODUnity
                 Status,
             }
 
-            class AssetItem : TreeViewItem
+            private class AssetItem : TreeViewItem
             {
                 public Asset asset;
             }
 
-            class TaskItem : TreeViewItem
+            private class TaskItem : TreeViewItem
             {
                 public Task task;
             }
@@ -2339,12 +2346,12 @@ namespace FMODUnity
                 }
             }
 
-            static float ToggleWidth()
+            private static float ToggleWidth()
             {
                 return GUI.skin.toggle.CalcSize(GUIContent.none).x;
             }
 
-            void AssetToggle(Rect rect, Asset asset)
+            private void AssetToggle(Rect rect, Asset asset)
             {
                 using (var scope = new EditorGUI.ChangeCheckScope())
                 {
@@ -2366,7 +2373,7 @@ namespace FMODUnity
                 }
             }
 
-            void TaskToggle(Rect rect, Task task)
+            private void TaskToggle(Rect rect, Task task)
             {
                 if (!task.IsManual())
                 {
@@ -2382,7 +2389,7 @@ namespace FMODUnity
                 }
             }
 
-            void CellGUI(Rect rect, Task task, int columnIndex, bool selected, bool focused)
+            private void CellGUI(Rect rect, Task task, int columnIndex, bool selected, bool focused)
             {
                 Component component = components[task.ComponentIndex];
 

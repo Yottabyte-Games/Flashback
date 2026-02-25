@@ -1,3 +1,4 @@
+using _Scripts.Audio;
 using _Scripts.Rive;
 using DialogueSystem.Scripts.ScriptableObjects;
 using Eflatun.SceneReference;
@@ -23,22 +24,21 @@ namespace DialogueSystem.Scripts
         InputAction _nextDialogueAction;
         EventInstance _dialogueInstance;
         SceneReference _sceneToLoad;
+        AudioManager _audioManager;
 
         float cd;
         void OnValidate()
         {
-            if(gameHudController == null)
+            if(gameHudController is null)
                 gameHudController = GetComponent<GameHudController>();
         }
 
         void Start()
         {
-            if (gameHudController == null)
+            if (gameHudController is null)
                 gameHudController = GetComponent<GameHudController>();
 
             _nextDialogueAction = InputSystem.actions.FindAction("Interact");
-            
-            
         }
 
         void Update()
@@ -66,7 +66,7 @@ namespace DialogueSystem.Scripts
         }
         void PlayDialogueLine()
         {
-//            print("Playing Dialogue");
+            //print("Playing Dialogue");
             if (_currentDialogue)
             {
                 // If first dialogue load Text Box
@@ -116,7 +116,7 @@ namespace DialogueSystem.Scripts
             // Stop the currently playing instance if it exists
             if (_dialogueInstance.isValid())
             {
-                _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                StopDialog();
                 _dialogueInstance.release();
             }
 

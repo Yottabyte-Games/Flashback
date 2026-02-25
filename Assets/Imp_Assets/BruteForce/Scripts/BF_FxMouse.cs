@@ -7,12 +7,11 @@ using UnityEngine.InputSystem;
 
 public class BF_FxMouse : MonoBehaviour
 {
-    Camera mainCam;
+    private Camera mainCam;
     public ParticleSystem ps;
     public ParticleSystem psRightClick;
     public ParticleSystem psMiddleClick;
-
-    float raycastSize = 200f;
+    private float raycastSize = 200f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +29,7 @@ public class BF_FxMouse : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             RaycastHit hit;
-            var ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(this.transform.position, ray.direction);
             if (Physics.Raycast(ray, out hit, raycastSize))
             {
@@ -49,7 +48,7 @@ public class BF_FxMouse : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             RaycastHit hit;
-            var ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(this.transform.position, ray.direction);
             if (Physics.Raycast(ray, out hit, raycastSize))
             {
@@ -68,7 +67,7 @@ public class BF_FxMouse : MonoBehaviour
         if (Input.GetMouseButton(2))
         {
             RaycastHit hit;
-            var ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(this.transform.position, ray.direction);
             if (Physics.Raycast(ray, out hit, raycastSize))
             {

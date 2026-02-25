@@ -14,7 +14,8 @@ namespace FMODUnity
         [SerializeField]
         public string StudioPath;
 
-        [SerializeField] Int64 lastModified;
+        [SerializeField]
+        private Int64 lastModified;
 
         [SerializeField]
         public List<NameValuePair> FileSizes;

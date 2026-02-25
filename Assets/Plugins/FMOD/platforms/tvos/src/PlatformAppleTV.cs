@@ -89,7 +89,7 @@ namespace FMODUnity
             }
         }
 
-        static OutputType[] sValidOutputTypes = {
+        private static OutputType[] sValidOutputTypes = {
            new OutputType() { displayName = "Core Audio", outputType = FMOD.OUTPUTTYPE.COREAUDIO },
         };
 #endif

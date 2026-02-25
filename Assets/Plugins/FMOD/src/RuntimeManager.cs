@@ -27,44 +27,44 @@ namespace FMODUnity
     {
         public const string BankStubPrefix = "bank stub:";
 
-        static SystemNotInitializedException initException = null;
-        static RuntimeManager instance;
+        private static SystemNotInitializedException initException = null;
+        private static RuntimeManager instance;
 
-        Platform currentPlatform;
-        FMOD.DEBUG_CALLBACK debugCallback;
-        FMOD.SYSTEM_CALLBACK errorCallback;
+        private Platform currentPlatform;
+        private FMOD.DEBUG_CALLBACK debugCallback;
+        private FMOD.SYSTEM_CALLBACK errorCallback;
 
-        FMOD.Studio.System studioSystem;
-        FMOD.System coreSystem;
-        FMOD.DSP mixerHead;
+        private FMOD.Studio.System studioSystem;
+        private FMOD.System coreSystem;
+        private FMOD.DSP mixerHead;
 
-        bool isMuted = false;
+        private bool isMuted = false;
 
-        Dictionary<FMOD.GUID, FMOD.Studio.EventDescription> cachedDescriptions = new Dictionary<FMOD.GUID, FMOD.Studio.EventDescription>(new GuidComparer());
+        private Dictionary<FMOD.GUID, FMOD.Studio.EventDescription> cachedDescriptions = new Dictionary<FMOD.GUID, FMOD.Studio.EventDescription>(new GuidComparer());
 
-        Dictionary<string, LoadedBank> loadedBanks = new Dictionary<string, LoadedBank>();
-        List<string> sampleLoadRequests = new List<string>();
+        private Dictionary<string, LoadedBank> loadedBanks = new Dictionary<string, LoadedBank>();
+        private List<string> sampleLoadRequests = new List<string>();
 
-        List<AttachedInstance> attachedInstances = new List<AttachedInstance>(128);
+        private List<AttachedInstance> attachedInstances = new List<AttachedInstance>(128);
 
 #if UNITY_EDITOR
-        List<FMOD.Studio.EventInstance> eventPositionWarnings = new List<FMOD.Studio.EventInstance>();
+        private List<FMOD.Studio.EventInstance> eventPositionWarnings = new List<FMOD.Studio.EventInstance>();
 #endif
 
-        bool listenerWarningIssued = false;
+        private bool listenerWarningIssued = false;
 
         protected bool isOverlayEnabled = false;
-        FMODRuntimeManagerOnGUIHelper overlayDrawer = null;
-        Rect windowRect = new Rect(10, 10, 300, 100);
+        private FMODRuntimeManagerOnGUIHelper overlayDrawer = null;
+        private Rect windowRect = new Rect(10, 10, 300, 100);
 
-        string lastDebugText;
-        float lastDebugUpdate = 0;
+        private string lastDebugText;
+        private float lastDebugUpdate = 0;
 
-        int loadingBanksRef = 0;
+        private int loadingBanksRef = 0;
 
-        static byte[] masterBusPrefix;
-        static byte[] eventSet3DAttributes;
-        static byte[] systemGetBus;
+        private static byte[] masterBusPrefix;
+        private static byte[] eventSet3DAttributes;
+        private static byte[] systemGetBus;
 
 #if UNITY_URP_EXIST
         private GameObject vrDebugOverlay;
@@ -93,7 +93,7 @@ namespace FMODUnity
         }
 
         [AOT.MonoPInvokeCallback(typeof(FMOD.DEBUG_CALLBACK))]
-        static FMOD.RESULT DEBUG_CALLBACK(FMOD.DEBUG_FLAGS flags, IntPtr filePtr, int line, IntPtr funcPtr, IntPtr messagePtr)
+        private static FMOD.RESULT DEBUG_CALLBACK(FMOD.DEBUG_FLAGS flags, IntPtr filePtr, int line, IntPtr funcPtr, IntPtr messagePtr)
         {
             FMOD.StringWrapper file = new FMOD.StringWrapper(filePtr);
             FMOD.StringWrapper func = new FMOD.StringWrapper(funcPtr);
@@ -115,7 +115,7 @@ namespace FMODUnity
         }
 
         [AOT.MonoPInvokeCallback(typeof(FMOD.SYSTEM_CALLBACK))]
-        static FMOD.RESULT ERROR_CALLBACK(IntPtr system, FMOD.SYSTEM_CALLBACK_TYPE type, IntPtr commanddata1, IntPtr commanddata2, IntPtr userdata)
+        private static FMOD.RESULT ERROR_CALLBACK(IntPtr system, FMOD.SYSTEM_CALLBACK_TYPE type, IntPtr commanddata1, IntPtr commanddata2, IntPtr userdata)
         {
             FMOD.ERRORCALLBACK_INFO callbackInfo = Marshal.PtrToStructure<FMOD.ERRORCALLBACK_INFO>(commanddata1);
 
@@ -144,7 +144,7 @@ namespace FMODUnity
             return FMOD.RESULT.OK;
         }
 
-        static RuntimeManager Instance
+        private static RuntimeManager Instance
         {
             get
             {
@@ -230,14 +230,14 @@ namespace FMODUnity
             get { return Instance.coreSystem; }
         }
 
-        struct LoadedBank
+        private struct LoadedBank
         {
             public FMOD.Studio.Bank Bank;
             public int RefCount;
         }
 
         // Explicit comparer to avoid issues on platforms that don't support JIT compilation
-        class GuidComparer : IEqualityComparer<FMOD.GUID>
+        private class GuidComparer : IEqualityComparer<FMOD.GUID>
         {
             bool IEqualityComparer<FMOD.GUID>.Equals(FMOD.GUID x, FMOD.GUID y)
             {
@@ -250,7 +250,7 @@ namespace FMODUnity
             }
         }
 
-        void CheckInitResult(FMOD.RESULT result, string cause)
+        private void CheckInitResult(FMOD.RESULT result, string cause)
         {
             if (result != FMOD.RESULT.OK)
             {
@@ -259,7 +259,7 @@ namespace FMODUnity
             }
         }
 
-        void ReleaseStudioSystem()
+        private void ReleaseStudioSystem()
         {
             if (studioSystem.isValid())
             {
@@ -268,7 +268,7 @@ namespace FMODUnity
             }
         }
 
-        FMOD.RESULT Initialize()
+        private FMOD.RESULT Initialize()
         {
             #if UNITY_EDITOR
             EditorApplication.playModeStateChanged += HandlePlayModeStateChange;
@@ -416,14 +416,14 @@ retry:
             return initResult;
         }
 
-        int GetChannelCountForFormat(CodecType format)
+        private int GetChannelCountForFormat(CodecType format)
         {
             CodecChannelCount channelCount = currentPlatform.CodecChannels.Find(x => x.format == format);
 
             return channelCount == null ? 0 : Math.Min(channelCount.channels, 256);
         }
 
-        static void SetThreadAffinities(Platform platform)
+        private static void SetThreadAffinities(Platform platform)
         {
             foreach (ThreadAffinityGroup group in platform.ThreadAffinities)
             {
@@ -437,7 +437,7 @@ retry:
             }
         }
 
-        class AttachedInstance
+        private class AttachedInstance
         {
             public FMOD.Studio.EventInstance instance;
             public Transform transform;
@@ -451,7 +451,7 @@ retry:
             #endif
         }
 
-        void Update()
+        private void Update()
         {
             if (studioSystem.isValid())
             {
@@ -565,7 +565,7 @@ retry:
             }
         }
 
-        static AttachedInstance FindOrAddAttachedInstance(FMOD.Studio.EventInstance instance, Transform transform, FMOD.ATTRIBUTES_3D attributes)
+        private static AttachedInstance FindOrAddAttachedInstance(FMOD.Studio.EventInstance instance, Transform transform, FMOD.ATTRIBUTES_3D attributes)
         {
             AttachedInstance attachedInstance = Instance.attachedInstances.Find(x => x.instance.handle == instance.handle);
             if (attachedInstance == null)
@@ -671,13 +671,13 @@ retry:
         }
 
 #if !UNITY_EDITOR
-        void Start()
+        private void Start()
         {
             isOverlayEnabled = currentPlatform.IsOverlayEnabled;
         }
 #endif
 
-        void UpdateDebugText()
+        private void UpdateDebugText()
         {
             if (lastDebugUpdate + 0.25f < Time.unscaledTime)
             {
@@ -729,7 +729,7 @@ retry:
             }
         }
 
-        void DrawDebugOverlay(int windowID)
+        private void DrawDebugOverlay(int windowID)
         {
             UpdateDebugText();
 
@@ -742,7 +742,7 @@ retry:
             GUI.DragWindow();
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             coreSystem.setCallback(null, 0);
             ReleaseStudioSystem();
@@ -757,7 +757,7 @@ retry:
         }
 
 #if UNITY_EDITOR
-        static void Destroy()
+        private static void Destroy()
         {
             if (instance)
             {
@@ -765,12 +765,12 @@ retry:
             }
         }
 
-        void HandleDomainUnload(object sender, EventArgs args)
+        private void HandleDomainUnload(object sender, EventArgs args)
         {
             ReleaseStudioSystem();
         }
 
-        void HandlePlayModeStateChange(PlayModeStateChange state)
+        private void HandlePlayModeStateChange(PlayModeStateChange state)
         {
             if (state == PlayModeStateChange.ExitingEditMode || state == PlayModeStateChange.EnteredEditMode)
             {
@@ -805,7 +805,7 @@ retry:
             }
         }
         #else
-        void OnApplicationPause(bool pauseStatus)
+        private void OnApplicationPause(bool pauseStatus)
         {
             if (studioSystem.isValid())
             {
@@ -823,7 +823,7 @@ retry:
         }
         #endif
 
-        static void ReferenceLoadedBank(string bankName, bool loadSamples)
+        private static void ReferenceLoadedBank(string bankName, bool loadSamples)
         {
             LoadedBank loadedBank = Instance.loadedBanks[bankName];
             loadedBank.RefCount++;
@@ -836,7 +836,7 @@ retry:
             Instance.loadedBanks[bankName] = loadedBank; // Save the incremented reference count
         }
 
-        void RegisterLoadedBank(LoadedBank loadedBank, string bankPath, string bankName, bool loadSamples, FMOD.RESULT loadResult)
+        private void RegisterLoadedBank(LoadedBank loadedBank, string bankPath, string bankName, bool loadSamples, FMOD.RESULT loadResult)
         {
             if (loadResult == FMOD.RESULT.OK)
             {
@@ -861,7 +861,7 @@ retry:
             ExecuteSampleLoadRequestsIfReady();
         }
 
-        void ExecuteSampleLoadRequestsIfReady()
+        private void ExecuteSampleLoadRequestsIfReady()
         {
             if (sampleLoadRequests.Count > 0)
             {
@@ -914,7 +914,7 @@ retry:
             LoadBank(bankName, loadSamples, bankName);
         }
 
-        static void LoadBank(string bankName, bool loadSamples, string bankId)
+        private static void LoadBank(string bankName, bool loadSamples, string bankId)
         {
             if (Instance.loadedBanks.ContainsKey(bankId))
             {
@@ -972,7 +972,7 @@ retry:
             LoadBank(asset, loadSamples, asset.name);
         }
 
-        static void LoadBank(TextAsset asset, bool loadSamples, string bankId)
+        private static void LoadBank(TextAsset asset, bool loadSamples, string bankId)
         {
             if (Instance.loadedBanks.ContainsKey(bankId))
             {
@@ -1030,7 +1030,7 @@ retry:
         }
 #endif
 
-        void LoadBanks(Settings fmodSettings)
+        private void LoadBanks(Settings fmodSettings)
         {
             if (fmodSettings.ImportType == ImportType.StreamingAssets)
             {
@@ -1055,7 +1055,7 @@ retry:
             }
         }
 
-        IEnumerable<string> BanksToLoad(Settings fmodSettings)
+        private IEnumerable<string> BanksToLoad(Settings fmodSettings)
         {
             switch (fmodSettings.BankLoadType)
             {
@@ -1449,7 +1449,7 @@ retry:
             ApplyMuteState();
         }
 
-        static void ApplyMuteState()
+        private static void ApplyMuteState()
         {
             FMOD.Studio.Bus masterBus;
             if (StudioSystem.getBus("bus:/", out masterBus) == FMOD.RESULT.OK)
@@ -1501,7 +1501,7 @@ retry:
         private static extern void RegisterSuspendCallback(Action<bool> func);
 #endif
 
-        void SetOverlayPosition()
+        private void SetOverlayPosition()
         {
             float width = currentPlatform.OverlayFontSize * 20;
             float height = currentPlatform.OverlayFontSize * 7;

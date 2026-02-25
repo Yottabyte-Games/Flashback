@@ -15,7 +15,7 @@ namespace _Scripts.WaypointSystem {
         void Awake() {
             _meshRenderer = GetComponent<MeshRenderer>();
             _waypointTriggerLayer = LayerMask.NameToLayer(waypointInteractionLayer);
-            Hide();
+            //Hide();
         }
 
         public void SetTrackWaypoints(TrackWaypointManager trackWaypointManager) {

@@ -1,3 +1,4 @@
+using _Scripts.Audio;
 using DialogueSystem.Scripts;
 using DialogueSystem.Scripts.ScriptableObjects;
 using Eflatun.SceneReference;
@@ -10,6 +11,7 @@ namespace _Scripts.Rive
         [Header("Only needed if we are swapping scene")]
         [SerializeField] SceneReference sceneToLoad;
         [SerializeField] bool loadSceneAfterDialogue = false;
+        [SerializeField] StoryBeat ActOnBeat;
 
         bool _hasTalkedAlready = false;
         DialogueManager _dialogueManager;
@@ -17,6 +19,7 @@ namespace _Scripts.Rive
         void Start()
         {
             _dialogueManager = GameObject.FindWithTag("MainCamera").GetComponent<DialogueManager>();
+            
             if (_dialogueManager is null)
             {
                 Debug.LogError("Dialogue Manager is null");
@@ -34,7 +37,7 @@ namespace _Scripts.Rive
 
         public void StartDialogue()
         {
-            if (!_hasTalkedAlready)
+            if (ActOnBeat == StoryManager.StoryBeat)
             {
                 if (loadSceneAfterDialogue)
                 {

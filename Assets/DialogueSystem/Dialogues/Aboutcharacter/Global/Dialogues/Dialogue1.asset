@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
   <dialogueName>k__BackingField: Dialogue1
-  <text>k__BackingField: Today is a nice day, the sun is shining and the clouds are
-    white, I feel that this day will be a great day.
+  <text>k__BackingField: It's a nice day today, the sun is shining and the clouds
+    are white. it's shaping up to be a great day.
   <choices>k__BackingField:
   - <text>k__BackingField: Next Dialogue
     <nextDialogue>k__BackingField: {fileID: 11400000, guid: 7c4d07cd60d103c4480ed3b5907f4879, type: 2}
@@ -26,4 +26,5 @@ MonoBehaviour:
       Data2: 1109530674
       Data3: 1106485925
       Data4: 1796185894
-    Path: event:/VO/MainChar Dialogue 3
+    Path: event:/VO/Its a nice day today sun is out and the clouds are white
+  <narratorEnum>k__BackingField: {fileID: 11400000, guid: 4d6cae9f079dbb84980f2d0a4b84efd9, type: 2}
